@@ -56,4 +56,7 @@ Requires IR(R) - Offers the vanilla, non-IR(R) version of Amulet of the Cheetah.
 Requires SR(R) - Offers the vanilla, non-SR(R) versions of Haste and Improved Haste.
 ## Special Thanks
 - FixTesteR for encouraging compatability with Spell Revisions and bug testing
+- subtledoctor for troubleshooting ai script issues with Spell Revisions and using sections of his coding to create and assign new spell states for SR
+- Bartimaeus for troubleshooting ai script issues with Spell Revisions
+- DavidW for using your Organize an IDS macro to assist in creating new spell states
 - marcnivar for identifying a couple bugs with pre-buffing
