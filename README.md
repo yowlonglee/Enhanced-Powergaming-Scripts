@@ -9,6 +9,7 @@ This mod is now Weidu compatible and requires SCS and Enhanced Editions to be pl
 - SCS
 - SCS + IWD Spells
 - SCS + IR(R) & SR(R)
+
 If upgrading from an earlier version before v2.0, I recommend uninstalling all mod components, and replace all files with the new ones before doing a fresh install.
 ## What Do These Offer
 These scripts are focused on heavy physical damage parties in both melee and ranged. To me, spells are only there to protect me from enemy damage, enhance my physical damage, and strip the enemies of their spell protections. These scripts do everything to manage the minutia of play, so the player can focus on other things. Specifically these:
