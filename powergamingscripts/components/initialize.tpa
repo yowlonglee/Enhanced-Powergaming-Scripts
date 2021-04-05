@@ -1,0 +1,451 @@
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+//Initializes stats for Enhanced Powergaming Scripts                     //
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////
+// Adds States used in AI Scripts                                        //
+///////////////////////////////////////////////////////////////////////////
+
+APPEND ~state.ids~ ~0x00102029 STATE_HARMLESS~      UNLESS ~0x00102029 STATE_HARMLESS~
+APPEND ~state.ids~ ~0x00400010 STATE_NOT_VISIBLE~   UNLESS ~0x00400010 STATE_NOT_VISIBLE~
+APPEND ~state.ids~ ~0x60400010 STATE_ILLUSIONS~     UNLESS ~0x60400010 STATE_ILLUSIONS~
+APPEND ~state.ids~ ~0x63C08010 STATE_ENCHANTED~     UNLESS ~0x63C08010 STATE_ENCHANTED~
+APPEND ~state.ids~ ~0x80040004 STATE_RANGED_TARGET~ UNLESS ~0x80040004 STATE_RANGED_TARGET~
+APPEND ~state.ids~ ~0x8014202D STATE_OUT_OF_ACTION~ UNLESS ~0x8014202D STATE_OUT_OF_ACTION~
+
+///////////////////////////////////////////////////////////////////////////
+// Adds Action to Swap Items in AI Scripts                               //
+///////////////////////////////////////////////////////////////////////////
+
+APPEND ~action.ids~ ~34 UseItemAbility(S:Object*,O:Target*,I:Slot*SLOTS,I:Ability*)~ UNLESS ~34 UseItemAbility(S:Object*,O:Target*,I:Slot*SLOTS,I:Ability*)~
+
+///////////////////////////////////////////////////////////////////////////
+// Adds Stats used in AI Scripts                                        //
+///////////////////////////////////////////////////////////////////////////
+APPEND ~stats.ids~ ~110 CLERIC_ARMOR_OF_FAITH~                  UNLESS ~110 CLERIC_ARMOR_OF_FAITH~
+APPEND ~stats.ids~ ~116 WIZARD_SPELL_DEFLECTION~                UNLESS ~116 WIZARD_SPELL_DEFLECTION~
+APPEND ~stats.ids~ ~117 PROTECTION_FROM_EVIL~                   UNLESS ~117 PROTECTION_FROM_EVIL~
+APPEND ~stats.ids~ ~118 TRUE_SIGHT~                             UNLESS ~118 TRUE_SIGHT~
+APPEND ~stats.ids~ ~119 CLERIC_CHAOTIC_COMMANDS~                UNLESS ~119 CLERIC_CHAOTIC_COMMANDS~
+APPEND ~stats.ids~ ~120 CLERIC_INSECT_PLAGUE~                   UNLESS ~120 CLERIC_INSECT_PLAGUE~
+APPEND ~stats.ids~ ~121 CLERIC_BLADE_BARRIER~                   UNLESS ~121 CLERIC_BLADE_BARRIER~
+APPEND ~stats.ids~ ~122 CLERIC_PHYSICAL_MIRROR~                 UNLESS ~122 CLERIC_PHYSICAL_MIRROR~
+APPEND ~stats.ids~ ~123 CLERIC_SHIELD_OF_THE_ARCHONS~           UNLESS ~123 CLERIC_SHIELD_OF_THE_ARCHONS~
+APPEND ~stats.ids~ ~124 CLERIC_REGENERATION~                    UNLESS ~124 CLERIC_REGENERATION~
+APPEND ~stats.ids~ ~125 WIZARD_FIRE_SHIELD~                     UNLESS ~125 WIZARD_FIRE_SHIELD~
+APPEND ~stats.ids~ ~126 WIZARD_PROTECTION_FROM_MAGIC_ENERGY~    UNLESS ~126 WIZARD_PROTECTION_FROM_MAGIC_ENERGY~
+APPEND ~stats.ids~ ~127 WIZARD_MISLEAD~                         UNLESS ~127 WIZARD_MISLEAD~
+APPEND ~stats.ids~ ~128 WIZARD_PROTECTION_FROM_MAGIC_WEAPONS~   UNLESS ~128 WIZARD_PROTECTION_FROM_MAGIC_WEAPONS~
+APPEND ~stats.ids~ ~129 WIZARD_SPELL_TURNING~                   UNLESS ~129 WIZARD_SPELL_TURNING~
+APPEND ~stats.ids~ ~130 WIZARD_PROTECTION_FROM_THE_ELEMENTS~    UNLESS ~130 WIZARD_PROTECTION_FROM_THE_ELEMENTS~
+APPEND ~stats.ids~ ~131 CLERIC_FREE_ACTION~                     UNLESS ~131 CLERIC_FREE_ACTION~
+APPEND ~stats.ids~ ~132 WIZARD_KHELBANS_WARDING_WHIP~           UNLESS ~132 WIZARD_KHELBANS_WARDING_WHIP~
+APPEND ~stats.ids~ ~133 CLERIC_DEFENSIVE_HARMONY~               UNLESS ~133 CLERIC_DEFENSIVE_HARMONY~
+APPEND ~stats.ids~ ~161 SCRIPTINGSTATE6~                        UNLESS ~161 SCRIPTINGSTATE6~
+APPEND ~stats.ids~ ~162 WIZARD_SPELL_IMMUNITY~                  UNLESS ~162 WIZARD_SPELL_IMMUNITY~
+APPEND ~stats.ids~ ~163 WIZARD_PROTECTION_FROM_ENERGY~          UNLESS ~163 WIZARD_PROTECTION_FROM_ENERGY~
+APPEND ~stats.ids~ ~164 WIZARD_SPELL_TRAP~                      UNLESS ~164 WIZARD_SPELL_TRAP~
+APPEND ~stats.ids~ ~165 WIZARD_IMPROVED_ALACRITY~               UNLESS ~165 WIZARD_IMPROVED_ALACRITY~
+APPEND ~stats.ids~ ~176 WIZARD_PROTECTION_FROM_PETRIFICATION~   UNLESS ~176 WIZARD_PROTECTION_FROM_PETRIFICATION~
+APPEND ~stats.ids~ ~177 WIZARD_SPELL_SHIELD~                    UNLESS ~177 WIZARD_SPELL_SHIELD~
+APPEND ~stats.ids~ ~178 WIZARD_RESIST_FEAR~                     UNLESS ~178 WIZARD_RESIST_FEAR~
+APPEND ~stats.ids~ ~179 WIZARD_PROTECTION_FROM_NORMAL_MISSILES~ UNLESS ~179 WIZARD_PROTECTION_FROM_NORMAL_MISSILES~
+APPEND ~stats.ids~ ~180 WIZARD_GREATER_MALISON~                 UNLESS ~180 WIZARD_GREATER_MALISON~
+APPEND ~stats.ids~ ~181 WIZARD_PROTECTION_FROM_NORMAL_WEAPONS~  UNLESS ~181 WIZARD_PROTECTION_FROM_NORMAL_WEAPONS~
+APPEND ~stats.ids~ ~182 WIZARD_TENSERS_TRANSFORMATION~          UNLESS ~182 WIZARD_TENSERS_TRANSFORMATION~
+
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+// Create New Spell States for Spell Revisions                           //
+// Block of code provided by subtledoctor                                //
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+
+ACTION_IF (MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
+
+///////////////////////////////////////////////////////////////////////////
+// Create Spell State for Dispel Screen                                  //
+///////////////////////////////////////////////////////////////////////////
+
+	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~DISPEL_SCREEN~)) BEGIN
+	  COPY_EXISTING ~splstate.ids~ ~override~
+		COUNT_2DA_COLS cols
+		READ_2DA_ENTRIES_NOW rows cols
+		FOR (row = 1; row < rows; ++row) BEGIN
+		  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
+		  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
+		  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~DISPEL_SCREEN~) BEGIN
+			SET disp_screen = %state_ind%
+		  END
+		END
+	  BUT_ONLY
+	END
+
+	ACTION_IF !(VARIABLE_IS_SET %dis_screen%) BEGIN
+		LAF ds_sort_ids STR_VAR ids=splstate END
+		LAF d5_resolve_state STR_VAR new_state_id = ~DISPEL_SCREEN~ RET new_state_ind END
+		OUTER_SET disp_screen = %new_state_ind%
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// Create Spell State for Wizard Armor                                   //
+///////////////////////////////////////////////////////////////////////////
+
+	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~MAGE_ARMOR~)) BEGIN
+	  COPY_EXISTING ~splstate.ids~ ~override~
+		COUNT_2DA_COLS cols
+		READ_2DA_ENTRIES_NOW rows cols
+		FOR (row = 1; row < rows; ++row) BEGIN
+		  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
+		  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
+		  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~MAGE_ARMOR~) BEGIN
+			SET mag_armor = %state_ind%
+		  END
+		END
+	  BUT_ONLY
+	END
+
+	ACTION_IF !(VARIABLE_IS_SET %mag_armor%) BEGIN
+		LAF ds_sort_ids STR_VAR ids=splstate END
+		LAF d5_resolve_state STR_VAR new_state_id = ~MAGE_ARMOR~ RET new_state_ind END
+		OUTER_SET mag_armor = %new_state_ind%
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// Create Spell State for Minor Spell Deflection                         //
+///////////////////////////////////////////////////////////////////////////
+
+	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~MINOR_SPELL_DEFLECTION~)) BEGIN
+	  COPY_EXISTING ~splstate.ids~ ~override~
+		COUNT_2DA_COLS cols
+		READ_2DA_ENTRIES_NOW rows cols
+		FOR (row = 1; row < rows; ++row) BEGIN
+		  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
+		  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
+		  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~MINOR_SPELL_DEFLECTION~) BEGIN
+			SET min_spl_def = %state_ind%
+		  END
+		END
+	  BUT_ONLY
+	END
+
+	ACTION_IF !(VARIABLE_IS_SET %min_spl_def%) BEGIN
+		LAF ds_sort_ids STR_VAR ids=splstate END
+		LAF d5_resolve_state STR_VAR new_state_id = ~MINOR_SPELL_DEFLECTION~ RET new_state_ind END
+		OUTER_SET min_spl_def = %new_state_ind%
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// Create Spell State for Spell Deflection                               //
+///////////////////////////////////////////////////////////////////////////
+
+	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~SPELL_DEFLECTION~)) BEGIN
+	  COPY_EXISTING ~splstate.ids~ ~override~
+		COUNT_2DA_COLS cols
+		READ_2DA_ENTRIES_NOW rows cols
+		FOR (row = 1; row < rows; ++row) BEGIN
+		  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
+		  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
+		  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~SPELL_DEFLECTION~) BEGIN
+			SET spl_def = %state_ind%
+		  END
+		END
+	  BUT_ONLY
+	END
+
+	ACTION_IF !(VARIABLE_IS_SET %spl_def%) BEGIN
+		LAF ds_sort_ids STR_VAR ids=splstate END
+		LAF d5_resolve_state STR_VAR new_state_id = ~SPELL_DEFLECTION~ RET new_state_ind END
+		OUTER_SET spl_def = %new_state_ind%
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// Create Spell State for Greater Spell Deflection                       //
+///////////////////////////////////////////////////////////////////////////
+
+	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~GREATER_SPELL_DEFLECTION~)) BEGIN
+	  COPY_EXISTING ~splstate.ids~ ~override~
+		COUNT_2DA_COLS cols
+		READ_2DA_ENTRIES_NOW rows cols
+		FOR (row = 1; row < rows; ++row) BEGIN
+		  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
+		  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
+		  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~GREATER_SPELL_DEFLECTION~) BEGIN
+			SET gtr_spl_def = %state_ind%
+		  END
+		END
+	  BUT_ONLY
+	END
+
+	ACTION_IF !(VARIABLE_IS_SET %gtr_spl_def%) BEGIN
+		LAF ds_sort_ids STR_VAR ids=splstate END
+		LAF d5_resolve_state STR_VAR new_state_id = ~GREATER_SPELL_DEFLECTION~ RET new_state_ind END
+		OUTER_SET gtr_spl_def = %new_state_ind%
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// Create Spell State for Minor Globe of Invulnerability                 //
+///////////////////////////////////////////////////////////////////////////
+
+	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~MINOR_GLOBE~)) BEGIN
+	  COPY_EXISTING ~splstate.ids~ ~override~
+		COUNT_2DA_COLS cols
+		READ_2DA_ENTRIES_NOW rows cols
+		FOR (row = 1; row < rows; ++row) BEGIN
+		  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
+		  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
+		  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~MINOR_GLOBE~) BEGIN
+			SET mnr_glb = %state_ind%
+		  END
+		END
+	  BUT_ONLY
+	END
+
+	ACTION_IF !(VARIABLE_IS_SET %mnr_glb%) BEGIN
+		LAF ds_sort_ids STR_VAR ids=splstate END
+		LAF d5_resolve_state STR_VAR new_state_id = ~MINOR_GLOBE~ RET new_state_ind END
+		OUTER_SET mnr_glb = %new_state_ind%
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// Create Spell State for Globe of Invulnerability                       //
+///////////////////////////////////////////////////////////////////////////
+
+	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~GLOBE~)) BEGIN
+	  COPY_EXISTING ~splstate.ids~ ~override~
+		COUNT_2DA_COLS cols
+		READ_2DA_ENTRIES_NOW rows cols
+		FOR (row = 1; row < rows; ++row) BEGIN
+		  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
+		  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
+		  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~GLOBE~) BEGIN
+			SET glb = %state_ind%
+		  END
+		END
+	  BUT_ONLY
+	END
+
+	ACTION_IF !(VARIABLE_IS_SET %glb%) BEGIN
+		LAF ds_sort_ids STR_VAR ids=splstate END
+		LAF d5_resolve_state STR_VAR new_state_id = ~GLOBE~ RET new_state_ind END
+		OUTER_SET glb = %new_state_ind%
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// Create Spell State for Mestil's Acid Sheath                           //
+///////////////////////////////////////////////////////////////////////////
+
+	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~ACID_SHEATH~)) BEGIN
+	  COPY_EXISTING ~splstate.ids~ ~override~
+		COUNT_2DA_COLS cols
+		READ_2DA_ENTRIES_NOW rows cols
+		FOR (row = 1; row < rows; ++row) BEGIN
+		  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
+		  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
+		  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~ACID_SHEATH~) BEGIN
+			SET acd_sheath = %state_ind%
+		  END
+		END
+	  BUT_ONLY
+	END
+
+	ACTION_IF !(VARIABLE_IS_SET %acd_sheath%) BEGIN
+		LAF ds_sort_ids STR_VAR ids=splstate END
+		LAF d5_resolve_state STR_VAR new_state_id = ~ACID_SHEATH~ RET new_state_ind END
+		OUTER_SET acd_sheath = %new_state_ind%
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// Create Spell State for Greater Whirlwind                              //
+///////////////////////////////////////////////////////////////////////////
+
+	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~GREATER_WHIRLWIND~)) BEGIN
+	  COPY_EXISTING ~splstate.ids~ ~override~
+		COUNT_2DA_COLS cols
+		READ_2DA_ENTRIES_NOW rows cols
+		FOR (row = 1; row < rows; ++row) BEGIN
+		  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
+		  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
+		  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~GREATER_WHIRLWIND~) BEGIN
+			SET gtr_whirl = %state_ind%
+		  END
+		END
+	  BUT_ONLY
+	END
+
+	ACTION_IF !(VARIABLE_IS_SET %gtr_whirl%) BEGIN
+		LAF ds_sort_ids STR_VAR ids=splstate END
+		LAF d5_resolve_state STR_VAR new_state_id = ~GREATER_WHIRLWIND~ RET new_state_ind END
+		OUTER_SET gtr_whirl = %new_state_ind%
+	END
+
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+// Assign Spell States or Stats to Spells                                //
+// Block of code provided by subtledoctor                                //
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////
+// Add Spell State to Wizard Armor                                       //
+///////////////////////////////////////////////////////////////////////////
+
+	COPY_EXISTING ~SPWI102.SPL~ ~override~ 
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %mag_armor% timing = 0 duration = 2400 END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Spell State to Dispel Screen                                      //
+///////////////////////////////////////////////////////////////////////////
+
+	ACTION_IF FILE_EXISTS_IN_GAME ~spwi525.spl~ BEGIN
+		COPY_EXISTING ~spwi525.spl~ ~override~ 
+	  		LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %disp_screen% timing = 0 duration = 120 END
+	END
+
+	ACTION_IF FILE_EXISTS_IN_GAME ~spwi510.spl~ BEGIN
+		COPY_EXISTING ~spwi510.spl~ ~override~ 
+	  		LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %disp_screen% timing = 0 duration = 120 END
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Spell State to Minor Spell Deflection                             //
+///////////////////////////////////////////////////////////////////////////
+
+	COPY_EXISTING ~SPWI318.SPL~ ~override~ 
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %min_spl_def% timing = 0 duration = 300 END
+
+	COPY_EXISTING ~DWSW318.SPL~ ~override~ 
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %min_spl_def% timing = 0 duration = 300 END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Spell State to Spell Deflection                                   //
+///////////////////////////////////////////////////////////////////////////
+
+	COPY_EXISTING ~SPWI522.SPL~ ~override~ 
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %spl_def% timing = 0 duration = 300 END
+
+	COPY_EXISTING ~DWSW522.SPL~ ~override~ 
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %spl_def% timing = 0 duration = 300 END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Spell State to Greater Spell Deflection                           //
+///////////////////////////////////////////////////////////////////////////
+
+	COPY_EXISTING ~SPWI701.SPL~ ~override~ 
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %gtr_spl_def% timing = 0 duration = 300 END
+
+	COPY_EXISTING ~DWSW701.SPL~ ~override~ 
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %gtr_spl_def% timing = 0 duration = 300 END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Spell State to PfMW                                               //
+///////////////////////////////////////////////////////////////////////////
+
+	COPY_EXISTING ~SPWI611.SPL~ ~override~ 
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = 120 timing = 0 duration = 24 END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Spell State to Prismatic Mantle                                   //
+///////////////////////////////////////////////////////////////////////////
+
+	COPY_EXISTING ~SPWI708.SPL~ ~override~ 
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = 121 timing = 0 duration = 24 END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Spell State to Moment of Prescience                               //
+///////////////////////////////////////////////////////////////////////////
+
+	COPY_EXISTING ~SPWI808.SPL~ ~override~ 
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = 122 timing = 0 duration = 24 END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Spell State to Absolute Immunity                                  //
+///////////////////////////////////////////////////////////////////////////
+
+	COPY_EXISTING ~SPWI907.SPL~ ~override~ 
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = 123 timing = 0 duration = 24 END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Spell State to Minor Globe of Invulnerability                     //
+///////////////////////////////////////////////////////////////////////////
+
+	COPY_EXISTING ~SPWI406.SPL~ ~override~ 
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %mnr_glb% timing = 0 duration = 72 END
+
+	COPY_EXISTING ~DWSW406.SPL~ ~override~ 
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %mnr_glb% timing = 0 duration = 72 END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Spell State to Globe of Invulnerability                           //
+///////////////////////////////////////////////////////////////////////////
+
+	COPY_EXISTING ~SPWI602.SPL~ ~override~ 
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %glb% timing = 0 duration = 102 END
+
+	COPY_EXISTING ~DWSW602.SPL~ ~override~ 
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %glb% timing = 0 duration = 102 END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Spell State to Mestil's Acid Sheath                               //
+///////////////////////////////////////////////////////////////////////////
+
+	COPY_EXISTING ~SPWI524.spl~ ~override~ 
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %acd_sheath% timing = 0 duration = 84 END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Spell State to Spell Shield                                       //
+///////////////////////////////////////////////////////////////////////////
+
+	COPY_EXISTING ~SPWI519.SPL~ ~override~ 
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = 108 timing = 0 duration = 300 END
+
+	COPY_EXISTING ~DWSW519.SPL~ ~override~ 
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = 108 timing = 0 duration = 300 END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Spell State to Greater Whirlwind                                  //
+///////////////////////////////////////////////////////////////////////////
+
+	COPY_EXISTING ~SPCL901.SPL~ ~override~ 
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %gtr_whirl% timing = 0 duration = 6 END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Spell State to Bless                                              //
+///////////////////////////////////////////////////////////////////////////
+
+	COPY_EXISTING ~SPPR101.SPL~ ~override~ 
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = 22 timing = 0 duration = 300 END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Stat to Protection from Energy                                    //
+///////////////////////////////////////////////////////////////////////////
+
+	COPY_EXISTING ~SPWI803.SPL~ ~override~ 
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 special = 1 parameter2 = 163 timing = 0 duration = 192 END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Stat to Spell Trap                                                //
+///////////////////////////////////////////////////////////////////////////
+
+	COPY_EXISTING ~SPWI902.SPL~ ~override~ 
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 special = 1 parameter2 = 164 timing = 0 duration = 108 END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Stat to Physical Mirror                                           //
+///////////////////////////////////////////////////////////////////////////
+
+	COPY_EXISTING ~SPPR613.SPL~ ~override~ 
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 special = 1 parameter2 = 122 timing = 0 duration = 30 END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Stat to Negative Plane Protection                                 //
+///////////////////////////////////////////////////////////////////////////
+
+	COPY_EXISTING ~SPPR413.SPL~ ~override~ 
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 special = 1 parameter2 = 158 timing = 0 duration = 660 END
+
+END
+
+CLEAR_IDS_MAP
