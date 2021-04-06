@@ -5,7 +5,7 @@ I am a powergamer at heart constantly searching for the most efficient way to ge
 ## Why Did I Write These
 You are right to ask why I'm releasing these when there are already so many AI scripts out there. To that I'd say you are correct because some of them are really good. I'd like to explicitly acknowledge Sarevok57's amazing scripts. This year, I was dissatisfied with the scripts that the game offered and looked to better ones. There I found Sarevok57's work. His scripts were really good; however, they didn't match my playstyle as well as I wanted. As a Computer Science major, I asked myself how hard can it be to make my own scripts? I used Sarevok57's scripts as a baseline and developed my own off of his work making updates and tweaks to most every area. With his blessing I am sharing these with you today.
 ## Installation
-This mod is now Weidu compatible and requires SCS and Enhanced Editions to be played. Unzip the rar file and place the powergamingscripts folder and setup-powergamingscripts into the folder for your game, and the install file. The mod should be installed near the end of the installation after the SCS, IR(R), and SR(R) installations are completed. The installer will detect what mods are installed for your game, and install appropriate scripts for the following installs:
+This mod is for BG2EE or BGEET and requires SCS to be played. Launch the exe file and have it install in your main game folder. The mod should be installed near the end of the installation after the SCS, IR(R), and SR(R) installations are completed. The installer will detect what mods are installed for your game, and install appropriate scripts for the following installs:
 - SCS
 - SCS + IWD Spells
 - SCS + IR(R) & SR(R)
