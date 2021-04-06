@@ -470,7 +470,7 @@ IF
   OR(2)
     Range(MostDamagedOf([PC]),6)
     !Range(NearestEnemyOf(Myself),30)
-  !StateCheck(LastSeenBy(Myself),STATE_NOT_VISIBLE)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !StateCheck(LastSeenBy(Myself),STATE_NOT_APPROACHABLE)
   !StateCheck(LastSeenBy(Myself),STATE_REALLY_DEAD)
   CheckStat(LastSeenBy(Myself),0,MINORGLOBE)

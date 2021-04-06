@@ -653,7 +653,7 @@ IF
   HaveSpell(WIZARD_HASTE)  // SPWI305.SPL (Haste)
   !StateCheck(LastSeenBy(Myself),STATE_HASTED)
   CheckStat(LastSeenBy(Myself),0,IMPROVEDHASTE)
-  !StateCheck(LastSeenBy(Myself),STATE_NOT_VISIBLE)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !CheckStat(LastSeenBy(Myself),8,WIZARD_SPELL_IMMUNITY)
   CheckStat(LastSeenBy(Myself),0,MINORGLOBE)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
