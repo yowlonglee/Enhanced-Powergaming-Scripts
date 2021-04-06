@@ -40,7 +40,6 @@ BEGIN @1 // Initializes game settings
 DESIGNATED 1
 
 REQUIRE_PREDICATE (GAME_IS ~bg2ee eet~) @3000
-REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~5900~) @3001
 
 INCLUDE ~powergamingscripts/components/initialize.tpa~
 
@@ -51,7 +50,6 @@ INCLUDE ~powergamingscripts/components/initialize.tpa~
 BEGIN @7 DESIGNATED 14 SUBCOMPONENT @2
 
 REQUIRE_PREDICATE (GAME_IS ~bg2ee eet~) @3000
-REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~5900~) @3001
 
 LOAD_TRA ~powergamingscripts/languages/american/script_descriptions.tra~
 
