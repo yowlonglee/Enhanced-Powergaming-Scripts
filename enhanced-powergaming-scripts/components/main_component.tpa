@@ -9,36 +9,36 @@
 ///////////////////////////////////////////////////////////////////////////
 
 ACTION_IF (MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
-	COPY ~powergamingscripts/baf/Normal/SR/Archer.baf~      ~scripts/Archer.bs~
-	     ~powergamingscripts/baf/Normal/SR/Divine.baf~      ~scripts/Divine.bs~
-	     ~powergamingscripts/baf/Normal/SR/FigMage.baf~     ~scripts/FigMage.bs~
-	     ~powergamingscripts/baf/Normal/SR/Paladin.baf~     ~scripts/Paladin.bs~
-	     ~powergamingscripts/baf/Normal/SR/Monk.baf~        ~scripts/Monk.bs~
-	     ~powergamingscripts/baf/Normal/SR/Skald.baf~       ~scripts/Skald.bs~
-	     ~powergamingscripts/baf/Normal/SR/Sorcerer.baf~    ~scripts/Sorcerer.bs~
-	     ~powergamingscripts/baf/Normal/SR/BasicAI.baf~  	~scripts/BasicAI.bs~
+	COPY ~enhanced-powergaming-scripts/baf/Normal/SR/Archer.baf~      ~scripts/Archer.bs~
+	     ~enhanced-powergaming-scripts/baf/Normal/SR/Divine.baf~      ~scripts/Divine.bs~
+	     ~enhanced-powergaming-scripts/baf/Normal/SR/FigMage.baf~     ~scripts/FigMage.bs~
+	     ~enhanced-powergaming-scripts/baf/Normal/SR/Paladin.baf~     ~scripts/Paladin.bs~
+	     ~enhanced-powergaming-scripts/baf/Normal/SR/Monk.baf~        ~scripts/Monk.bs~
+	     ~enhanced-powergaming-scripts/baf/Normal/SR/Skald.baf~       ~scripts/Skald.bs~
+	     ~enhanced-powergaming-scripts/baf/Normal/SR/Sorcerer.baf~    ~scripts/Sorcerer.bs~
+	     ~enhanced-powergaming-scripts/baf/Normal/SR/BasicAI.baf~  	~scripts/BasicAI.bs~
 	  COMPILE_BAF_TO_BCS
 END
 ELSE ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1500~ && MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1510~) || (MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 30 && MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 40) BEGIN
-	COPY ~powergamingscripts/baf/Normal/IWD/Archer.baf~      ~scripts/Archer.bs~
-	     ~powergamingscripts/baf/Normal/IWD/Divine.baf~      ~scripts/Divine.bs~
-	     ~powergamingscripts/baf/Normal/IWD/FigMage.baf~     ~scripts/FigMage.bs~
-	     ~powergamingscripts/baf/Normal/IWD/Paladin.baf~     ~scripts/Paladin.bs~
-	     ~powergamingscripts/baf/Normal/IWD/Monk.baf~        ~scripts/Monk.bs~
-	     ~powergamingscripts/baf/Normal/IWD/Skald.baf~       ~scripts/Skald.bs~
-	     ~powergamingscripts/baf/Normal/IWD/Sorcerer.baf~    ~scripts/Sorcerer.bs~
-	     ~powergamingscripts/baf/Normal/IWD/BasicAI.baf~     ~scripts/BasicAI.bs~
+	COPY ~enhanced-powergaming-scripts/baf/Normal/IWD/Archer.baf~      ~scripts/Archer.bs~
+	     ~enhanced-powergaming-scripts/baf/Normal/IWD/Divine.baf~      ~scripts/Divine.bs~
+	     ~enhanced-powergaming-scripts/baf/Normal/IWD/FigMage.baf~     ~scripts/FigMage.bs~
+	     ~enhanced-powergaming-scripts/baf/Normal/IWD/Paladin.baf~     ~scripts/Paladin.bs~
+	     ~enhanced-powergaming-scripts/baf/Normal/IWD/Monk.baf~        ~scripts/Monk.bs~
+	     ~enhanced-powergaming-scripts/baf/Normal/IWD/Skald.baf~       ~scripts/Skald.bs~
+	     ~enhanced-powergaming-scripts/baf/Normal/IWD/Sorcerer.baf~    ~scripts/Sorcerer.bs~
+	     ~enhanced-powergaming-scripts/baf/Normal/IWD/BasicAI.baf~     ~scripts/BasicAI.bs~
 	  COMPILE_BAF_TO_BCS
 END
 ELSE BEGIN
-	COPY ~powergamingscripts/baf/Normal/Archer.baf~      ~scripts/Archer.bs~
-	     ~powergamingscripts/baf/Normal/Divine.baf~      ~scripts/Divine.bs~
-	     ~powergamingscripts/baf/Normal/FigMage.baf~     ~scripts/FigMage.bs~
-	     ~powergamingscripts/baf/Normal/Paladin.baf~     ~scripts/Paladin.bs~
-	     ~powergamingscripts/baf/Normal/Monk.baf~        ~scripts/Monk.bs~
-	     ~powergamingscripts/baf/Normal/Skald.baf~       ~scripts/Skald.bs~
-	     ~powergamingscripts/baf/Normal/Sorcerer.baf~    ~scripts/Sorcerer.bs~
-	     ~powergamingscripts/baf/Normal/BasicAI.baf~     ~scripts/BasicAI.bs~
+	COPY ~enhanced-powergaming-scripts/baf/Normal/Archer.baf~      ~scripts/Archer.bs~
+	     ~enhanced-powergaming-scripts/baf/Normal/Divine.baf~      ~scripts/Divine.bs~
+	     ~enhanced-powergaming-scripts/baf/Normal/FigMage.baf~     ~scripts/FigMage.bs~
+	     ~enhanced-powergaming-scripts/baf/Normal/Paladin.baf~     ~scripts/Paladin.bs~
+	     ~enhanced-powergaming-scripts/baf/Normal/Monk.baf~        ~scripts/Monk.bs~
+	     ~enhanced-powergaming-scripts/baf/Normal/Skald.baf~       ~scripts/Skald.bs~
+	     ~enhanced-powergaming-scripts/baf/Normal/Sorcerer.baf~    ~scripts/Sorcerer.bs~
+	     ~enhanced-powergaming-scripts/baf/Normal/BasicAI.baf~     ~scripts/BasicAI.bs~
 	  COMPILE_BAF_TO_BCS
 END
 ///////////////////////////////////////////////////////////////////////////

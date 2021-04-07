@@ -4,7 +4,7 @@
  *
  */
 
-BACKUP ~powergamingscripts/backup~
+BACKUP ~enhanced-powergaming-scripts/backup~
 
 //MODDER
 AUTHOR ~morpheus562~
@@ -15,16 +15,16 @@ ASK_EVERY_COMPONENT
 ALWAYS
 
 	ACTION_DEFINE_ARRAY cdreload BEGIN item_descriptions script_descriptions spell_descriptions END
-	LAF HANDLE_CHARSETS INT_VAR infer_charsets = 1 STR_VAR tra_path = ~powergamingscripts/languages~ reload_array = cdreload END
+	LAF HANDLE_CHARSETS INT_VAR infer_charsets = 1 STR_VAR tra_path = ~enhanced-powergaming-scripts/languages~ reload_array = cdreload END
 
 	//Block of code provided by subtledoctor
-	INCLUDE ~powergamingscripts/lib/misc_functions.tpa~
+	INCLUDE ~enhanced-powergaming-scripts/lib/misc_functions.tpa~
 
 END
 
 LANGUAGE ~American english~
          ~american~
-         ~powergamingscripts/languages/american/setup.tra~
+         ~enhanced-powergaming-scripts/languages/american/setup.tra~
 
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
@@ -40,17 +40,17 @@ BEGIN @7 DESIGNATED 14 SUBCOMPONENT @2
 
 REQUIRE_PREDICATE (GAME_IS ~bg2ee eet~) @3000
 
-LOAD_TRA ~powergamingscripts/languages/american/script_descriptions.tra~
+LOAD_TRA ~enhanced-powergaming-scripts/languages/american/script_descriptions.tra~
 
-INCLUDE ~powergamingscripts/components/initialize.tpa~
-INCLUDE ~powergamingscripts/components/main_component.tpa~
+INCLUDE ~enhanced-powergaming-scripts/components/initialize.tpa~
+INCLUDE ~enhanced-powergaming-scripts/components/main_component.tpa~
 
 ////////////////////////////////////////////////////
 
 BEGIN @8 DESIGNATED 15 SUBCOMPONENT @2
 
-INCLUDE ~powergamingscripts/components/initialize.tpa~
-INCLUDE ~powergamingscripts/components/main_component_a.tpa~
+INCLUDE ~enhanced-powergaming-scripts/components/initialize.tpa~
+INCLUDE ~enhanced-powergaming-scripts/components/main_component_a.tpa~
 
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
@@ -66,9 +66,9 @@ BEGIN @3 DESIGNATED 20
 REQUIRE_PREDICATE (GAME_IS ~bg2ee eet~) @3000
 REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-item_rev.tp2~ ~0~) @3003 
 
-LOAD_TRA ~powergamingscripts/languages/american/item_descriptions.tra~
+LOAD_TRA ~enhanced-powergaming-scripts/languages/american/item_descriptions.tra~
 
-INCLUDE ~powergamingscripts/components/restore_apr_weapons.tpa~
+INCLUDE ~enhanced-powergaming-scripts/components/restore_apr_weapons.tpa~
 
 ///////////////////////////////////////////////////////////////////////////
 // Restore Vanilla Gargoyle Boots                                        //
@@ -78,9 +78,9 @@ BEGIN @4 DESIGNATED 21
 REQUIRE_PREDICATE (GAME_IS ~bg2ee eet~) @3000
 REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-item_rev.tp2~ ~0~) @3003 
 
-LOAD_TRA ~powergamingscripts/languages/american/item_descriptions.tra~
+LOAD_TRA ~enhanced-powergaming-scripts/languages/american/item_descriptions.tra~
 
-INCLUDE ~powergamingscripts/components/restore_gargoyle.tpa~
+INCLUDE ~enhanced-powergaming-scripts/components/restore_gargoyle.tpa~
 
 ///////////////////////////////////////////////////////////////////////////
 // Restore Vanilla Amulet of the Cheetah                                 //
@@ -90,9 +90,9 @@ BEGIN @5 DESIGNATED 22
 REQUIRE_PREDICATE (GAME_IS ~bg2ee eet~) @3000
 REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-item_rev.tp2~ ~0~) @3003 
 
-LOAD_TRA ~powergamingscripts/languages/american/item_descriptions.tra~
+LOAD_TRA ~enhanced-powergaming-scripts/languages/american/item_descriptions.tra~
 
-INCLUDE ~powergamingscripts/components/restore_cheetah.tpa~
+INCLUDE ~enhanced-powergaming-scripts/components/restore_cheetah.tpa~
 
 ///////////////////////////////////////////////////////////////////////////
 // Restore Vanilla Haste and Improved Haste                              //
@@ -102,6 +102,6 @@ BEGIN @6 DESIGNATED 23
 REQUIRE_PREDICATE (GAME_IS ~bg2ee eet~) @3000
 REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) @3002
 
-LOAD_TRA ~powergamingscripts/languages/american/spell_descriptions.tra~
+LOAD_TRA ~enhanced-powergaming-scripts/languages/american/spell_descriptions.tra~
 
-INCLUDE ~powergamingscripts/components/restore_haste.tpa~
+INCLUDE ~enhanced-powergaming-scripts/components/restore_haste.tpa~
