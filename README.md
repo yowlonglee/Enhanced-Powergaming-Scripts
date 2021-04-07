@@ -56,49 +56,53 @@ These scripts are focused on heavy physical damage parties in both melee and ran
 
 Below are the components for the install allowing you to pick and choose what changes you would like to see made. Each one will provide a prompt, so you can skip what you don't want.
 
-### Initialize Settings (Required)
-
-Needed to create and setup multiple variables for the install. Required for the scripts to function.
-
 ### Main Component
 
-This is the main component that will auto-detect your mod installations and provide scripts based on the installs listed above. You will have the option to select having either normal duration spells for pre-buffing or an accelerated pre-buffing which will be instant cast.
+This is the main component that will auto-detect your mod installations and provide scripts based on the installs listed above. You will have the option to select having either pre-buffing cast at a normal speed or an accelerated speed. Regardless of either option chosen, characters will stop pre-buffing if either the "D" key is pressed again or an enemy is sighted.
 
-#### ARCHER
+#### Normal Pre-Buffing Speed
+
+It will take the normal casting time for a spell to be cast and there will be the standard delay between spells being cast. This is meant for the purists that do not want to bend the rules for expediency sake. For testing, it can take 2 1/2 minutes plus to cycle through all spells if you have all spells for pre-buffing in your spellbook.
+
+#### Accelerated Pre-Buffing Speed
+
+This is for people who walk on escalators and want to bend the rules a bit. Spells will be instantly cast and there will be no delay between spell castings. With this option, you may have spells active that would normally expire by the time normal pre-buffing ends. In effect, you may have certain spells active that you shouldn't. For testing, using the same spells as the Normal Pre-Buffing Speed testing, it took approximately 20 ~ 30 seconds to complete all pre-buffing. Just over a 2 minute decrease in time waiting for your characters to pre-buff.
+
+##### ARCHER
 
 This is a script specifically designed for the Archer Kit. This script will cast pre-buff spells when the "D" key is pressed. In addition to pre-buffing, the script will intelligently heal and use abilities both in and out of combat.
 
 If you have either Gargoyle Boots or Boots of Speed equipped with the other item in your inventory, then the script will automatically swap items to equip the Gargoyle Boots, cast Stoneskin (if there is a charge), then swap back to the Boots of Speed. The player will not notice any item swapping from the game screen, but they will have a seamless casting of Stoneskin. This saves a lot of micromanagement to swap boots and cast Stoneskin. The Archer will use mirror image from either offhand Ilbratha or Ring of Duplication whenever more than three enemies appear or a certain type of difficult enemy appears. Finally, the Archer will use either GWW or Called Shot (but not both when one is active) if the Archer is capable of damaging and hitting the enemy (to avoid wasting a casting if the enemy is immune). GWW or Called Shot are used when there are more than three enemies or a certain type of difficult enemy appears.
 
-#### BasicAI
+##### BasicAI
 
-This script will constantly Turn Undead when the "V" key is pressed and will cast pre-buffing spells when the "D" key is pressed. If the character is able, the script will constantly be detecting traps while idle. Additionally, if playing a Bard class, the script will constantly be casting the Bard song. This script will NOT auto-attack enemies.
+This script is designed for the minimalists who normally turn party AI off in their games. All classes can use this script. It will constantly Turn Undead when the "V" key is pressed and will cast pre-buffing spells when the "D" key is pressed. If the character is able, the script will constantly be detecting traps while idle. Additionally, if playing a Bard class, the script will constantly be casting the Bard song. Finally, this script will cast long duration spells (i.e. Stoneskin/Ironskin) and ensure they are kept active. This script will NOT auto-attack enemies.
 
-#### CLERIC/RANGER
+##### CLERIC/RANGER
 
 This script is designed for the Cleric/Ranger and will also work for Cleric/Thief, Fighter/Cleric, and Fighter/Druid dual and multiclasses. If playing a Cleric/Thief, the script will detect traps while not in combat. This script will constantly Turn Undead when the "V" key is pressed and will cast pre-buffing spells when the "D" key is pressed. In addition to pre-buffing, the script will intelligently heal and use abilities both in and out of combat.
 
-#### FIGHTER/MAGE/CLERIC
+##### FIGHTER/MAGE/CLERIC
 
 This script is designed for the FMC and MC multiclasses. This script will constantly Turn Undead when the "V" key is pressed and will cast pre-buffing spells when the "D" key is pressed. In addition to pre-buffing, the script will intelligently heal and use abilities both in and out of combat. This includes intelligently detecting invisibility and removing enemy protections.
 
-#### FIGHTER/MAGE
+##### FIGHTER/MAGE
 
 This script works for Kensai/Berserker -> Mage dual classes and the FM and FMT multiclasses. If playing a FMT, the script will constantly be detecting traps while idle. This script will cast pre-buff spells when the "D" key is pressed. In addition to pre-buffing, the script will intelligently use abilities both in and out of combat. This includes intelligently detecting invisibility and removing enemy protections.
 
-#### INQUISITOR
+##### INQUISITOR
 
 This is a script specifically designed for the Inquisitor Kit. This script will constantly Turn Undead when the "V" key is pressed and will cast pre-buff spells when the "D" key is pressed. In addition to pre-buffing, the script will intelligently use abilities both in and out of combat. This class will use True Sight if invisible enemies are detected, but it will NOT use the Dispel Magic ability.
 
-#### MONK
+##### MONK
 
 This is a script specifically designed for the Monk class. The script will constantly be detecting traps while idle. This script will cast pre-buff spells when the "D" key is pressed. In addition to pre-buffing, the script will intelligently use abilities both in and out of combat.
 
-#### SKALD
+##### SKALD
 
 This is a script specifically designed for the Skald Kit. This script will cast pre-buff spells when the "D" key is pressed. In addition to pre-buffing, the script will intelligently use abilities both in and out of combat. When not casting spells, the Skald will constantly be singing the Skald song. Additionally, between casting spells, the Skald will start singing again to attempt to keep the Skald song up constantly in combat. This script is written to use up to Level 9 Spells.
 
-#### SORCERER
+##### SORCERER
 
 This script works with any pure mage type character. This is great for low-level spellcasters or a spellcaster that you are dualling into. This script will cast pre-buff spells when the "D" key is pressed. In addition to pre-buffing, the script will intelligently use abilities both in and out of combat. Please note: this script will not cast offensive spells at the enemy. Only defensive/protective spells are used. The script will keep constant uptime of Melf's Minute Meteors.
 
