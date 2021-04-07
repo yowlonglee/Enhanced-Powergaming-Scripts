@@ -16,7 +16,7 @@ This mod is a collection of player AI scripts designed for use in Baldur's Gate 
 
 ### Who Am I?
 
-I am a powergamer at heart constantly searching for the most efficient way to get through EET. As such, SCS is always a mandatory mod for me with an Insane difficulty setting. Writing these scripts were a natural progression for me to improve my playstyle. According to Steam, I have over 1,500 hours of recorded playtime between BGEE and BG2EE, and I dread to know how much it really is since Steam doesn't register the decade plus I've played the original versions of these games before the EE was released. Needless to say, I really enjoy these games.
+I am a powergamer at heart constantly searching for the most efficient way to get through EET. Writing these scripts were a natural progression for me to improve my playstyle. According to Steam, I have over 1,500 hours of recorded playtime between BGEE and BG2EE, and I dread to know how much it really is since Steam doesn't register the decade plus I've played the original versions of these games before the EE was released. Needless to say, I really enjoy these games.
 
 ### Why Did I Write These?
 
