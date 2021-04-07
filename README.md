@@ -12,7 +12,7 @@
 
 ## Introduction
 
-This mod is a collection of 9 player AI scripts designed for use in Baldur's Gate II: Enhanced Edition and the Enhanced Edition Trilogy. With these scripts, you can focus on the fighting aspect of combat while these take care of the nuances in the background. Of note, these scripts allow easy pre-buffing of all characters with a keystroke, intelligent debuffing of enemy protections, and smart use of defensive spells and abilities.
+This mod is a collection of player AI scripts designed for use in Baldur's Gate II: Enhanced Edition and the Enhanced Edition Trilogy. With these scripts, you can focus on the fighting aspect of combat while these take care of the nuances in the background. Of note, these scripts allow easy pre-buffing of all characters with a keystroke, intelligent debuffing of enemy protections, and smart use of defensive spells and abilities.
 
 ### Who Am I?
 
