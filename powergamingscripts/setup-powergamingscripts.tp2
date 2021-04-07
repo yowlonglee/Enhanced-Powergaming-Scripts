@@ -33,17 +33,6 @@ LANGUAGE ~American english~
 ///////////////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////////////////////
-// Initialize Settings (REQUIRED)                                        //
-///////////////////////////////////////////////////////////////////////////
-
-BEGIN @1 // Initializes game settings
-DESIGNATED 1
-
-REQUIRE_PREDICATE (GAME_IS ~bg2ee eet~) @3000
-
-INCLUDE ~powergamingscripts/components/initialize.tpa~
-
-///////////////////////////////////////////////////////////////////////////
 // Main Component Base Game                                              //
 ///////////////////////////////////////////////////////////////////////////
 
@@ -53,12 +42,14 @@ REQUIRE_PREDICATE (GAME_IS ~bg2ee eet~) @3000
 
 LOAD_TRA ~powergamingscripts/languages/american/script_descriptions.tra~
 
+INCLUDE ~powergamingscripts/components/initialize.tpa~
 INCLUDE ~powergamingscripts/components/main_component.tpa~
 
 ////////////////////////////////////////////////////
 
 BEGIN @8 DESIGNATED 15 SUBCOMPONENT @2
 
+INCLUDE ~powergamingscripts/components/initialize.tpa~
 INCLUDE ~powergamingscripts/components/main_component_a.tpa~
 
 ///////////////////////////////////////////////////////////////////////////
