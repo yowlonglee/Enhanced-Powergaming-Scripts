@@ -10,8 +10,7 @@
 
 ACTION_IF (MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
 	COPY ~powergamingscripts/baf/Normal/SR/Archer.baf~      ~scripts/Archer.bs~
-	     ~powergamingscripts/baf/Normal/SR/ClerRang.baf~    ~scripts/ClerRang.bs~
-	     ~powergamingscripts/baf/Normal/SR/FigMagCl.baf~    ~scripts/FigMagCl.bs~
+	     ~powergamingscripts/baf/Normal/SR/Divine.baf~      ~scripts/Divine.bs~
 	     ~powergamingscripts/baf/Normal/SR/FigMage.baf~     ~scripts/FigMage.bs~
 	     ~powergamingscripts/baf/Normal/SR/Inquis.baf~      ~scripts/Inquis.bs~
 	     ~powergamingscripts/baf/Normal/SR/Monk.baf~        ~scripts/Monk.bs~
@@ -22,8 +21,7 @@ ACTION_IF (MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
 END
 ELSE ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1500~ && MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1510~) || (MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 30 && MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 40) BEGIN
 	COPY ~powergamingscripts/baf/Normal/IWD/Archer.baf~      ~scripts/Archer.bs~
-	     ~powergamingscripts/baf/Normal/IWD/ClerRang.baf~    ~scripts/ClerRang.bs~
-	     ~powergamingscripts/baf/Normal/IWD/FigMagCl.baf~    ~scripts/FigMagCl.bs~
+	     ~powergamingscripts/baf/Normal/IWD/Divine.baf~      ~scripts/Divine.bs~
 	     ~powergamingscripts/baf/Normal/IWD/FigMage.baf~     ~scripts/FigMage.bs~
 	     ~powergamingscripts/baf/Normal/IWD/Inquis.baf~      ~scripts/Inquis.bs~
 	     ~powergamingscripts/baf/Normal/IWD/Monk.baf~        ~scripts/Monk.bs~
@@ -34,8 +32,7 @@ ELSE ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1500~ && MOD_IS_INSTALL
 END
 ELSE BEGIN
 	COPY ~powergamingscripts/baf/Normal/Archer.baf~      ~scripts/Archer.bs~
-	     ~powergamingscripts/baf/Normal/ClerRang.baf~    ~scripts/ClerRang.bs~
-	     ~powergamingscripts/baf/Normal/FigMagCl.baf~    ~scripts/FigMagCl.bs~
+	     ~powergamingscripts/baf/Normal/Divine.baf~      ~scripts/Divine.bs~
 	     ~powergamingscripts/baf/Normal/FigMage.baf~     ~scripts/FigMage.bs~
 	     ~powergamingscripts/baf/Normal/Inquis.baf~      ~scripts/Inquis.bs~
 	     ~powergamingscripts/baf/Normal/Monk.baf~        ~scripts/Monk.bs~
@@ -50,14 +47,13 @@ END
 
 APPEND ~scrpdesc.2DA~
 ~Archer      999990       999989
-ClerRang     999988       999987
-FigMagCl     999986       999985
-FigMage      999984       999983
-Inquis       999982       999981
-Monk         999980       999979
-Skald        999978       999977
-Sorcerer     999976       999975
-BasicAI		 999974		  999973~
+Divine       999988       999987
+FigMage      999986       999985
+Inquis       999984       999983
+Monk         999982       999981
+Skald        999980       999979
+Sorcerer     999978       999977
+BasicAI		 999976		  999975~
 
 ///////////////////////////////////////////////////////////////////////////
 // Copy the appended scrpdesc.2da to the override folder                 //
@@ -66,19 +62,17 @@ BasicAI		 999974		  999973~
 COPY_EXISTING ~scrpdesc.2da~ ~override~
 REPLACE ~999990~ @1010
 REPLACE ~999989~ @1011
-REPLACE ~999988~ @1020
-REPLACE ~999987~ @1021
-REPLACE ~999986~ @1030
-REPLACE ~999985~ @1031
-REPLACE ~999984~ @1040
-REPLACE ~999983~ @1041
-REPLACE ~999982~ @1050
-REPLACE ~999981~ @1051
-REPLACE ~999980~ @1060
-REPLACE ~999979~ @1061
-REPLACE ~999978~ @1070
-REPLACE ~999977~ @1071
-REPLACE ~999976~ @1080
-REPLACE ~999975~ @1081
-REPLACE ~999974~ @1090
-REPLACE ~999973~ @1091
+REPLACE ~999988~ @1030
+REPLACE ~999987~ @1031
+REPLACE ~999986~ @1040
+REPLACE ~999985~ @1041
+REPLACE ~999984~ @1050
+REPLACE ~999983~ @1051
+REPLACE ~999982~ @1060
+REPLACE ~999981~ @1061
+REPLACE ~999980~ @1070
+REPLACE ~999979~ @1071
+REPLACE ~999978~ @1080
+REPLACE ~999977~ @1081
+REPLACE ~999976~ @1090
+REPLACE ~999975~ @1091

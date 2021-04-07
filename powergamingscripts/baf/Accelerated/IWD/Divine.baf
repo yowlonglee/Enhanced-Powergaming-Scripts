@@ -1,19 +1,19 @@
 // **********************************************************************
-// *           Segment Name: FigMagCl.baf
+// *           Segment Name: Divine.baf
 // **********************************************************************
 // *
-// * FigMagCl.baf
+// * Divine.baf
 // * -----------
 // * AI Script for:             BGEET with Sword Coast Stratagems
 // * Written by:                Mark Evinger (morpheus562)
-// * Version:                   Version 2.0 (23 March 2021)
+// * Version:                   Version 2.3 (7 April 2021)
 // * Comments to:               mark.evinger@hotmail.com
 // * Depends on:                BGEET
 //                              Sword Coast Stratagems
 //
 //
 // * Description:
-// * This script is designed for the FMC and MC multiclasses. This script will constantly 
+// * This script is designed for all divine class: Cleric, Druid, FC, FD, CR, FMC, etc. This script will constantly 
 // * Turn Undead when the V key is pressed and will cast pre-buffing spells when the D key 
 // * is pressed. The following spells will be pre-buffed: Armor of Faith, Aura of Flame, 
 // * Berserker Rage (Barbarians is too short of a cooldown for this), Blade Barrier, Bless, 
@@ -106,6 +106,7 @@ END
 
 IF
   Global("MO_TURNUNDEAD","LOCALS",0)
+  Class(Myself,CLERIC_ALL)
   HotKey(V)
 THEN
   RESPONSE #100
@@ -1637,6 +1638,23 @@ THEN
 END
 
 IF
+  ActionListEmpty()
+  IfValidForPartyDialog(Myself)
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  CheckStatLT(Myself,1,STONESKINS)
+  HaveSpell(CLERIC_IRONSKIN)  // SPPR506.SPL (Iron Skins)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    Spell(Myself,CLERIC_IRONSKIN)  // SPPR506.SPL (Iron Skins)
+END
+
+IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   CheckStatLT(Myself,1,STONESKINS)
   GlobalLT("MO_UsedGargoyle","LOCALS",2)
@@ -2062,6 +2080,132 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     SetInterrupt(FALSE)
     Spell(Player6,CLERIC_RAISE_DEAD)  // SPPR504.SPL (Raise Dead)
+    SetInterrupt(TRUE)
+END
+
+IF
+  IfValidForPartyDialog(Myself)
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  HaveSpellRES("SPJA01")  // Harper's Call
+  StateCheck(Player1,STATE_REALLY_DEAD)
+  InPartyAllowDead(Player1)
+  CombatCounter(0)
+  !Range([EVILCUTOFF],30)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetInterrupt(FALSE)
+    SpellRES("SPJA01",Player1)  // Harper's Call
+    SetInterrupt(TRUE)
+END
+
+IF
+  IfValidForPartyDialog(Myself)
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  HaveSpellRES("SPJA01")  // Harper's Call
+  StateCheck(Player2,STATE_REALLY_DEAD)
+  InPartyAllowDead(Player2)
+  CombatCounter(0)
+  !Range([EVILCUTOFF],30)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetInterrupt(FALSE)
+    SpellRES("SPJA01",Player2)  // Harper's Call
+    SetInterrupt(TRUE)
+END
+
+IF
+  IfValidForPartyDialog(Myself)
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  HaveSpellRES("SPJA01")  // Harper's Call
+  StateCheck(Player3,STATE_REALLY_DEAD)
+  InPartyAllowDead(Player3)
+  CombatCounter(0)
+  !Range([EVILCUTOFF],30)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetInterrupt(FALSE)
+    SpellRES("SPJA01",Player3)  // Harper's Call
+    SetInterrupt(TRUE)
+END
+
+IF
+  IfValidForPartyDialog(Myself)
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  HaveSpellRES("SPJA01")  // Harper's Call
+  StateCheck(Player4,STATE_REALLY_DEAD)
+  InPartyAllowDead(Player4)
+  CombatCounter(0)
+  !Range([EVILCUTOFF],30)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetInterrupt(FALSE)
+    SpellRES("SPJA01",Player4)  // Harper's Call
+    SetInterrupt(TRUE)
+END
+
+IF
+  IfValidForPartyDialog(Myself)
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  HaveSpellRES("SPJA01")  // Harper's Call
+  StateCheck(Player5,STATE_REALLY_DEAD)
+  InPartyAllowDead(Player5)
+  CombatCounter(0)
+  !Range([EVILCUTOFF],30)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetInterrupt(FALSE)
+    SpellRES("SPJA01",Player5)  // Harper's Call
+    SetInterrupt(TRUE)
+END
+
+IF
+  IfValidForPartyDialog(Myself)
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  HaveSpellRES("SPJA01")  // Harper's Call
+  StateCheck(Player6,STATE_REALLY_DEAD)
+  InPartyAllowDead(Player6)
+  CombatCounter(0)
+  !Range([EVILCUTOFF],30)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetInterrupt(FALSE)
+    SpellRES("SPJA01",Player6)  // Harper's Call
     SetInterrupt(TRUE)
 END
 
