@@ -1,20 +1,19 @@
 // **********************************************************************
-// *           Segment Name: Inquis.baf
+// *           Segment Name: Paladin.baf
 // **********************************************************************
 // *
-// * Inquis.baf
+// * Paladin.baf
 // * -----------
 // * AI Script for:             BGEET with Sword Coast Stratagems
 // * Written by:                Mark Evinger (morpheus562)
-// * Version:                   Version 2.0 (12 March 2021)
+// * Version:                   Version 2.3 (7 April 2021)
 // * Comments to:               mark.evinger@hotmail.com
 // * Depends on:                BGEET
-//                              Sword Coast Stratagems
-//                              Spell Revisions (Revised)
+//                              IWD Spells
 //
 //
 // * Description:
-// * This is a script specifically designed for the Inquisitor Kit. This script 
+// * This is a script specifically designed for the Paladin class. This script 
 // * will cast pre-buff spells when the D key is pressed. The following spells 
 // * will be pre-buffed: Potion of Heroism, Potion of Fire/Cold Resistance, Potion 
 // * of Absorption, Potion of Magic Protection, Potion of Invulnerability, and all 
@@ -39,7 +38,27 @@ THEN
 END
 
 IF
+  Global("MO_TrueSightActive","LOCALS",1)
+  CheckStat(Myself,0,TRUE_SIGHT)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_TrueSightActive","LOCALS",0)
+    SetGlobal("MO_PartyTrueSight","GLOBAL",0)
+END
+
+IF
+  Global("MO_TrueSightActive","LOCALS",0)
+  CheckStatGT(Myself,0,TRUE_SIGHT)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_TrueSightActive","LOCALS",1)
+    SetGlobal("MO_PartyTrueSight","GLOBAL",1)
+END
+
+IF
   Global("MO_TURNUNDEAD","LOCALS",0)
+  Class(Myself,PALADIN_ALL)
+  !Kit(Myself,INQUISITOR)
   HotKey(V)
 THEN
   RESPONSE #100
@@ -115,10 +134,10 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  HasItemEquiped("potn34",Myself)  // Potion of Magic Blocking
+  HasItemEquiped("potn34",Myself)  // Potion of Magic Protection
 THEN
   RESPONSE #100
-    UseItem("potn34",Myself)  // Potion of Magic Blocking
+    UseItem("potn34",Myself)  // Potion of Magic Protection
 END
 
 IF
@@ -260,11 +279,11 @@ END
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   StateCheck(Myself,STATE_POISONED)
-  HasItemEquiped("POTN20",Myself)  // Potion of Antidote
+  HasItemEquiped("POTN20",Myself)  // Antidote
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
-    UseItem("POTN20",Myself)  // Potion of Antidote
+    UseItem("POTN20",Myself)  // Antidote
     DisplayString(Myself,46150)  // *quaffs a potion*
 END
 
@@ -313,176 +332,139 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  HaveSpellRES("SPIN102")  // Slow Poison
+  HaveSpellRES("SPIN102")  // Cure Affliction
   See([PC])
   StateCheck(LastSeenBy(Myself),STATE_POISONED)
   OR(2)
     Range(LastSeenBy(Myself),6)
     !Range(NearestEnemyOf(Myself),30)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  CheckStat(LastSeenBy(Myself),0,MINORGLOBE)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     SetInterrupt(FALSE)
-    SpellRES("SPIN102",LastSeenBy(Myself))  // Slow Poison
+    SpellRES("SPIN102",LastSeenBy(Myself))  // Cure Affliction
     SetInterrupt(TRUE)
 END
 
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  HaveSpellRES("SPIN102")  // Slow Poison
-  See(Nearest([PC]))
-  StateCheck(LastSeenBy(Myself),STATE_POISONED)
-  OR(2)
-    Range(LastSeenBy(Myself),6)
-    !Range(NearestEnemyOf(Myself),30)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
-    SetInterrupt(FALSE)
-    SpellRES("SPIN102",LastSeenBy(Myself))  // Slow Poison
-    SetInterrupt(TRUE)
-END
-
-IF
-  IfValidForPartyDialog(Myself)
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  HaveSpellRES("SPIN102")  // Slow Poison
+  HaveSpellRES("SPIN102")  // Cure Affliction
   See(SecondNearest([PC]))
   StateCheck(LastSeenBy(Myself),STATE_POISONED)
   OR(2)
     Range(LastSeenBy(Myself),6)
     !Range(NearestEnemyOf(Myself),30)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  CheckStat(LastSeenBy(Myself),0,MINORGLOBE)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     SetInterrupt(FALSE)
-    SpellRES("SPIN102",LastSeenBy(Myself))  // Slow Poison
+    SpellRES("SPIN102",LastSeenBy(Myself))  // Cure Affliction
     SetInterrupt(TRUE)
 END
 
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  HaveSpellRES("SPIN102")  // Slow Poison
+  HaveSpellRES("SPIN102")  // Cure Affliction
   See(ThirdNearest([PC]))
   StateCheck(LastSeenBy(Myself),STATE_POISONED)
   OR(2)
     Range(LastSeenBy(Myself),6)
     !Range(NearestEnemyOf(Myself),30)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  CheckStat(LastSeenBy(Myself),0,MINORGLOBE)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     SetInterrupt(FALSE)
-    SpellRES("SPIN102",LastSeenBy(Myself))  // Slow Poison
+    SpellRES("SPIN102",LastSeenBy(Myself))  // Cure Affliction
     SetInterrupt(TRUE)
 END
 
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  HaveSpellRES("SPIN102")  // Slow Poison
+  HaveSpellRES("SPIN102")  // Cure Affliction
   See(FourthNearest([PC]))
   StateCheck(LastSeenBy(Myself),STATE_POISONED)
   OR(2)
     Range(LastSeenBy(Myself),6)
     !Range(NearestEnemyOf(Myself),30)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  CheckStat(LastSeenBy(Myself),0,MINORGLOBE)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     SetInterrupt(FALSE)
-    SpellRES("SPIN102",LastSeenBy(Myself))  // Slow Poison
+    SpellRES("SPIN102",LastSeenBy(Myself))  // Cure Affliction
     SetInterrupt(TRUE)
 END
 
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  HaveSpellRES("SPIN102")  // Slow Poison
+  HaveSpellRES("SPIN102")  // Cure Affliction
   See(FifthNearest([PC]))
   StateCheck(LastSeenBy(Myself),STATE_POISONED)
   OR(2)
     Range(LastSeenBy(Myself),6)
     !Range(NearestEnemyOf(Myself),30)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  CheckStat(LastSeenBy(Myself),0,MINORGLOBE)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     SetInterrupt(FALSE)
-    SpellRES("SPIN102",LastSeenBy(Myself))  // Slow Poison
+    SpellRES("SPIN102",LastSeenBy(Myself))  // Cure Affliction
     SetInterrupt(TRUE)
 END
 
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  HaveSpellRES("SPIN102")  // Slow Poison
+  HaveSpellRES("SPIN102")  // Cure Affliction
   See(SixthNearest([PC]))
   StateCheck(LastSeenBy(Myself),STATE_POISONED)
   OR(2)
     Range(LastSeenBy(Myself),6)
     !Range(NearestEnemyOf(Myself),30)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  CheckStat(LastSeenBy(Myself),0,MINORGLOBE)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     SetInterrupt(FALSE)
-    SpellRES("SPIN102",LastSeenBy(Myself))  // Slow Poison
+    SpellRES("SPIN102",LastSeenBy(Myself))  // Cure Affliction
     SetInterrupt(TRUE)
 END
 
 IF
   ActionListEmpty()
   IfValidForPartyDialog(Myself)
-  HaveSpellRES("SPIN101")  // Cure Light Wounds
+  HaveSpellRES("SPIN101")  // Healing Touch
   !See([EVILCUTOFF])
   See(MostDamagedOf([PC]))
   HPPercentLT(LastSeenBy(Myself),80)
@@ -493,11 +475,9 @@ IF
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !StateCheck(LastSeenBy(Myself),STATE_NOT_APPROACHABLE)
   !StateCheck(LastSeenBy(Myself),STATE_REALLY_DEAD)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  CheckStat(LastSeenBy(Myself),0,MINORGLOBE)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckStat(LastSeenBy(Myself),2,WIZARD_SPELL_TRAP)
   !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !StateCheck(Myself,STATE_SILENCED)
@@ -505,7 +485,7 @@ IF
 THEN
   RESPONSE #100
     SetInterrupt(FALSE)
-    SpellRES("SPIN101",LastSeenBy(Myself))  // Cure Light Wounds
+    SpellRES("SPIN101",LastSeenBy(Myself))  // Healing Touch
     SetInterrupt(TRUE)
 END
 
@@ -525,7 +505,7 @@ IF
   CheckStatLT(Myself,1,STONESKINS)
   GlobalLT("MO_UsedGargoyle","LOCALS",2)
   HasItem("Boot12",Myself)  // Gargoyle Boots
-  HasItemEquiped("Boot01",Myself)  // Boots of Speed
+  HasItemEquiped("Boot01",Myself)  // The Paws of the Cheetah
 THEN
   RESPONSE #100
     XEquipItem("Boot12",Myself,SLOT_BOOTS,EQUIP)  // Gargoyle Boots
@@ -535,11 +515,11 @@ IF
   OR(2)
     CheckStatGT(Myself,0,STONESKINS)
     GlobalGT("MO_UsedGargoyle","LOCALS",1)
-  HasItem("Boot01",Myself)  // Boots of Speed
+  HasItem("Boot01",Myself)  // The Paws of the Cheetah
   HasItemEquiped("Boot12",Myself)  // Gargoyle Boots
 THEN
   RESPONSE #100
-    XEquipItem("Boot01",Myself,SLOT_BOOTS,EQUIP)  // Boots of Speed
+    XEquipItem("Boot01",Myself,SLOT_BOOTS,EQUIP)  // The Paws of the Cheetah
 END
 
 IF
@@ -599,7 +579,7 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  HaveSpell(INQUIS_TRUE_SIGHT)  // SPCL232.SPL (True Seeing)
+  HaveSpell(INQUIS_TRUE_SIGHT)  // SPCL232.SPL (True Sight)
   OR(6)
     SpellCast([EVILCUTOFF],WIZARD_PROJECT_IMAGE)  // SPWI703.SPL (Project Image)
     SpellCast([EVILCUTOFF],WIZARD_SIMULACRUM)  // SPWI804.SPL (Simulacrum)
@@ -607,7 +587,8 @@ IF
     SpellCast([EVILCUTOFF],WIZARD_SHADOW_DOOR)  // SPWI505.SPL (Shadow Door)
     SpellCast([EVILCUTOFF],WIZARD_IMPROVED_INVISIBILITY)  // SPWI405.SPL (Improved Invisibility)
     SpellCast([EVILCUTOFF],WIZARD_INVISIBILITY)  // SPWI206.SPL (Invisibility)
-  CheckStatLT(Myself,1,TRUE_SIGHT)
+  !CheckStat([EVILCUTOFF],3,WIZARD_SPELL_IMMUNITY)
+  Global("MO_PartyTrueSight","GLOBAL",0)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -616,22 +597,25 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobal("MO_TrueSightActive","LOCALS",1)
+    SetGlobal("MO_PartyTrueSight","GLOBAL",1)
     SetInterrupt(FALSE)
-    Spell(Myself,INQUIS_TRUE_SIGHT)  // SPCL232.SPL (True Seeing)
+    Spell(Myself,INQUIS_TRUE_SIGHT)  // SPCL232.SPL (True Sight)
     SetInterrupt(TRUE)
 END
 
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  HaveSpell(INQUIS_TRUE_SIGHT)  // SPCL232.SPL (True Seeing)
+  HaveSpell(INQUIS_TRUE_SIGHT)  // SPCL232.SPL (True Sight)
   Detect([EVILCUTOFF])
   OR(4)
     StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
     StateCheck(LastSeenBy(Myself),STATE_INVISIBLE)
     CheckStatGT(LastSeenBy(Myself),0,SANCTUARY)
     Gender(LastSeenBy(Myself),ILLUSIONARY)
-  CheckStatLT(Myself,1,TRUE_SIGHT)
+  !CheckStat(LastSeenBy(Myself),3,WIZARD_SPELL_IMMUNITY)
+  Global("MO_PartyTrueSight","GLOBAL",0)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -640,27 +624,25 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobal("MO_TrueSightActive","LOCALS",1)
+    SetGlobal("MO_PartyTrueSight","GLOBAL",1)
     SetInterrupt(FALSE)
-    Spell(Myself,INQUIS_TRUE_SIGHT)  // SPCL232.SPL (True Seeing)
+    Spell(Myself,INQUIS_TRUE_SIGHT)  // SPCL232.SPL (True Sight)
     SetInterrupt(TRUE)
 END
 
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  HaveSpell(INQUIS_TRUE_SIGHT)  // SPCL232.SPL (True Seeing)
+  HaveSpell(INQUIS_TRUE_SIGHT)  // SPCL232.SPL (True Sight)
   See(NearestEnemyOf(Myself))
   OR(4)
     StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
     StateCheck(LastSeenBy(Myself),STATE_INVISIBLE)
     CheckStatGT(LastSeenBy(Myself),0,SANCTUARY)
     Gender(LastSeenBy(Myself),ILLUSIONARY)
-  OR(4)
-    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
-    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
-    CheckSpellState(LastSeenBy(Myself),MANTLE)
-    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
-  CheckStatLT(Myself,1,TRUE_SIGHT)
+  !CheckStat(LastSeenBy(Myself),3,WIZARD_SPELL_IMMUNITY)
+  Global("MO_PartyTrueSight","GLOBAL",0)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -669,27 +651,25 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobal("MO_TrueSightActive","LOCALS",1)
+    SetGlobal("MO_PartyTrueSight","GLOBAL",1)
     SetInterrupt(FALSE)
-    Spell(Myself,INQUIS_TRUE_SIGHT)  // SPCL232.SPL (True Seeing)
+    Spell(Myself,INQUIS_TRUE_SIGHT)  // SPCL232.SPL (True Sight)
     SetInterrupt(TRUE)
 END
 
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  HaveSpell(INQUIS_TRUE_SIGHT)  // SPCL232.SPL (True Seeing)
+  HaveSpell(INQUIS_TRUE_SIGHT)  // SPCL232.SPL (True Sight)
   See(SecondNearestEnemyOf(Myself))
   OR(4)
     StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
     StateCheck(LastSeenBy(Myself),STATE_INVISIBLE)
     CheckStatGT(LastSeenBy(Myself),0,SANCTUARY)
     Gender(LastSeenBy(Myself),ILLUSIONARY)
-  OR(4)
-    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
-    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
-    CheckSpellState(LastSeenBy(Myself),MANTLE)
-    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
-  CheckStatLT(Myself,1,TRUE_SIGHT)
+  !CheckStat(LastSeenBy(Myself),3,WIZARD_SPELL_IMMUNITY)
+  Global("MO_PartyTrueSight","GLOBAL",0)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -698,27 +678,25 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobal("MO_TrueSightActive","LOCALS",1)
+    SetGlobal("MO_PartyTrueSight","GLOBAL",1)
     SetInterrupt(FALSE)
-    Spell(Myself,INQUIS_TRUE_SIGHT)  // SPCL232.SPL (True Seeing)
+    Spell(Myself,INQUIS_TRUE_SIGHT)  // SPCL232.SPL (True Sight)
     SetInterrupt(TRUE)
 END
 
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  HaveSpell(INQUIS_TRUE_SIGHT)  // SPCL232.SPL (True Seeing)
+  HaveSpell(INQUIS_TRUE_SIGHT)  // SPCL232.SPL (True Sight)
   See(ThirdNearestEnemyOf(Myself))
   OR(4)
     StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
     StateCheck(LastSeenBy(Myself),STATE_INVISIBLE)
     CheckStatGT(LastSeenBy(Myself),0,SANCTUARY)
     Gender(LastSeenBy(Myself),ILLUSIONARY)
-  OR(4)
-    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
-    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
-    CheckSpellState(LastSeenBy(Myself),MANTLE)
-    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
-  CheckStatLT(Myself,1,TRUE_SIGHT)
+  !CheckStat(LastSeenBy(Myself),3,WIZARD_SPELL_IMMUNITY)
+  Global("MO_PartyTrueSight","GLOBAL",0)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -727,27 +705,25 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobal("MO_TrueSightActive","LOCALS",1)
+    SetGlobal("MO_PartyTrueSight","GLOBAL",1)
     SetInterrupt(FALSE)
-    Spell(Myself,INQUIS_TRUE_SIGHT)  // SPCL232.SPL (True Seeing)
+    Spell(Myself,INQUIS_TRUE_SIGHT)  // SPCL232.SPL (True Sight)
     SetInterrupt(TRUE)
 END
 
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  HaveSpell(INQUIS_TRUE_SIGHT)  // SPCL232.SPL (True Seeing)
+  HaveSpell(INQUIS_TRUE_SIGHT)  // SPCL232.SPL (True Sight)
   See(FourthNearestEnemyOf(Myself))
   OR(4)
     StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
     StateCheck(LastSeenBy(Myself),STATE_INVISIBLE)
     CheckStatGT(LastSeenBy(Myself),0,SANCTUARY)
     Gender(LastSeenBy(Myself),ILLUSIONARY)
-  OR(4)
-    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
-    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
-    CheckSpellState(LastSeenBy(Myself),MANTLE)
-    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
-  CheckStatLT(Myself,1,TRUE_SIGHT)
+  !CheckStat(LastSeenBy(Myself),3,WIZARD_SPELL_IMMUNITY)
+  Global("MO_PartyTrueSight","GLOBAL",0)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -756,27 +732,25 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobal("MO_TrueSightActive","LOCALS",1)
+    SetGlobal("MO_PartyTrueSight","GLOBAL",1)
     SetInterrupt(FALSE)
-    Spell(Myself,INQUIS_TRUE_SIGHT)  // SPCL232.SPL (True Seeing)
+    Spell(Myself,INQUIS_TRUE_SIGHT)  // SPCL232.SPL (True Sight)
     SetInterrupt(TRUE)
 END
 
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  HaveSpell(INQUIS_TRUE_SIGHT)  // SPCL232.SPL (True Seeing)
+  HaveSpell(INQUIS_TRUE_SIGHT)  // SPCL232.SPL (True Sight)
   See(FifthNearestEnemyOf(Myself))
   OR(4)
     StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
     StateCheck(LastSeenBy(Myself),STATE_INVISIBLE)
     CheckStatGT(LastSeenBy(Myself),0,SANCTUARY)
     Gender(LastSeenBy(Myself),ILLUSIONARY)
-  OR(4)
-    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
-    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
-    CheckSpellState(LastSeenBy(Myself),MANTLE)
-    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
-  CheckStatLT(Myself,1,TRUE_SIGHT)
+  !CheckStat(LastSeenBy(Myself),3,WIZARD_SPELL_IMMUNITY)
+  Global("MO_PartyTrueSight","GLOBAL",0)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -785,27 +759,25 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobal("MO_TrueSightActive","LOCALS",1)
+    SetGlobal("MO_PartyTrueSight","GLOBAL",1)
     SetInterrupt(FALSE)
-    Spell(Myself,INQUIS_TRUE_SIGHT)  // SPCL232.SPL (True Seeing)
+    Spell(Myself,INQUIS_TRUE_SIGHT)  // SPCL232.SPL (True Sight)
     SetInterrupt(TRUE)
 END
 
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  HaveSpell(INQUIS_TRUE_SIGHT)  // SPCL232.SPL (True Seeing)
+  HaveSpell(INQUIS_TRUE_SIGHT)  // SPCL232.SPL (True Sight)
   See(SixthNearestEnemyOf(Myself))
   OR(4)
     StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
     StateCheck(LastSeenBy(Myself),STATE_INVISIBLE)
     CheckStatGT(LastSeenBy(Myself),0,SANCTUARY)
     Gender(LastSeenBy(Myself),ILLUSIONARY)
-  OR(4)
-    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
-    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
-    CheckSpellState(LastSeenBy(Myself),MANTLE)
-    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
-  CheckStatLT(Myself,1,TRUE_SIGHT)
+  !CheckStat(LastSeenBy(Myself),3,WIZARD_SPELL_IMMUNITY)
+  Global("MO_PartyTrueSight","GLOBAL",0)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -814,58 +786,10 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobal("MO_TrueSightActive","LOCALS",1)
+    SetGlobal("MO_PartyTrueSight","GLOBAL",1)
     SetInterrupt(FALSE)
-    Spell(Myself,INQUIS_TRUE_SIGHT)  // SPCL232.SPL (True Seeing)
-    SetInterrupt(TRUE)
-END
-
-IF
-  ActionListEmpty()
-  IfValidForPartyDialog(Myself)
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  HaveSpellRES("SPIN103")  // Draw Upon Divine Might
-  See([EVILCUTOFF])
-  !StateCheck(Myself,STATE_DRAWUPONHOLYMIGHT)
-  CheckStatLT(Myself,25,STR)
-  OR(28)
-    NumCreatureGT([EVILCUTOFF],3)
-    Range([EVILCUTOFF.0.GOLEM],30)
-    Range([EVILCUTOFF.0.MIST],30)
-    Range([EVILCUTOFF.0.KUO-TOA],30)
-    Range([EVILCUTOFF.0.GENIE],30)
-    Range([EVILCUTOFF.0.GITHYANKI],30)
-    Range([EVILCUTOFF.0.RAKSHASA],30)
-    Range([EVILCUTOFF.0.VAMPYRE],30)
-    Range([EVILCUTOFF.0.MIND_FLAYER],30)
-    Range([EVILCUTOFF.0.DRAGON],30)
-    Range([EVILCUTOFF.0.DEMONIC],30)
-    Range([EVILCUTOFF.0.BEHOLDER],30)
-    Range([EVILCUTOFF.0.UMBERHULK],30)
-    Range([EVILCUTOFF.0.MYCONID],30)
-    Range([EVILCUTOFF.0.VAMPIRE],30)
-    Range([EVILCUTOFF.0.LICH],30)
-    Range([EVILCUTOFF.0.DEMILICH],30)
-    Range([EVILCUTOFF.0.FAIRY],30)
-    Range([EVILCUTOFF.0.0.WRAITH],30)
-    Range([EVILCUTOFF.0.0.WIGHT],30)
-    Range([EVILCUTOFF.0.0.SPECTRE],30)
-    Range([EVILCUTOFF.0.0.WYVERN],30)
-    Range([EVILCUTOFF.0.0.BASILISK],30)
-    Range([EVILCUTOFF.0.LICH],30)
-    Range([EVILCUTOFF.0.SOLAR],30)
-    Range([EVILCUTOFF.0.PLANATAR],30)
-    Range([EVILCUTOFF.0.ANTISOLAR],30)
-    Range([EVILCUTOFF.0.DARKPLANATAR],30)
-  !CheckSpellState(Myself,MINOR_GLOBE)
-  !CheckSpellState(Myself,GLOBE)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_SILENCED)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
-    SetInterrupt(FALSE)
-    SpellRES("SPIN103",Myself)  // Draw Upon Divine Might
+    Spell(Myself,INQUIS_TRUE_SIGHT)  // SPCL232.SPL (True Sight)
     SetInterrupt(TRUE)
 END
 
@@ -874,7 +798,7 @@ IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WARRIOR_GREATER_WHIRLWIND)  // SPCL901.SPL (Greater Whirlwind Attack)
   !CheckStatGT(Myself,0,IMPROVEDHASTE)
-  !CheckSpellState(Myself,GREATER_WHIRLWIND)
+  !CheckStat(Myself,5,OFFENSIVE_MODIFIER)
   See([EVILCUTOFF])
   OR(6)
     WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
@@ -938,7 +862,7 @@ IF
   GlobalLT("MO_UsedCheetah","LOCALS",1)
   HasItemEquiped("AMUL26",Myself)  // Amulet of Cheetah Speed
   !CheckStatGT(Myself,0,IMPROVEDHASTE)
-  !CheckSpellState(Myself,GREATER_WHIRLWIND)
+  !CheckStat(Myself,5,OFFENSIVE_MODIFIER)
   See([EVILCUTOFF])
   OR(6)
     WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
@@ -1005,7 +929,8 @@ IF
   ActionListEmpty()
   Global("MO_TURNUNDEAD","LOCALS",1)
   !CheckStat(Myself,1,SANCTUARY)
-  Class(Myself,CLERIC_ALL)
+  Class(Myself,PALADIN_ALL)
+  !Kit(Myself,INQUISITOR)
   !ModalState(TURNUNDEAD)
 THEN
   RESPONSE #100
