@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Enhanced Powergaming Scripts</title>
+<link href="https://gibberlings3.github.io/Documentation/readmes/style/g3icon.ico" rel="icon" type="image/bmp" />
+<link href="https://gibberlings3.github.io/Documentation/readmes/style/g3md.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<header>
+<ul>
+<li><a href="#introduction">Introduction</a>
+<li><a href="#compatibility">Compatibility</a>
+<li><a href="#content">Content</a>
+<li><a href="#components">Components</a>
+<li><a href="#special-thanks">Special Thanks</a>
+<li><a href="#copyright">Copyright</a>
+<li><a href="#further-reading">Further Reading</a>
+</ul>
+</header>
+<main class="content">
+<h1 id="enhanced-powergaming-scripts">Enhanced Powergaming Scripts</h1>
+<p><a href="https://github.com/Gibberlings3/Enhanced-Powergaming-Scripts/releases/latest"><img src="https://img.shields.io/github/v/release/gibberlings3/Enhanced-Powergaming-Scripts?include_prereleases" alt="Latest Release" /></a>
+<img src="https://img.shields.io/static/v1?label=language&amp;message=english&amp;color=informational" alt="Language" />
+<img src="https://img.shields.io/static/v1?label=platform&amp;message=windows%20%7C%20macos%20%7C%20linux&amp;color=informational" alt="Platform" /></p>
+<p><a href="https://www.gibberlings3.net/">A Gibberlings Three Mod</a></p>
+<p><strong>Author</strong>: <a href="https://www.gibberlings3.net/profile/11591-morpheus562/">morpheus562</a></p>
+<p><strong>On the Web</strong>: <a href="https://www.gibberlings3.net/mods/other/enhanced-powergaming-scripts/">Home Page</a> and <a href="https://www.gibberlings3.net/mods/other/enhanced-powergaming-scripts/">Discussion Topic</a></p>
+<h2 id="introduction">Introduction</h2>
+<p>This mod is a collection of player AI scripts designed for use in Baldur's Gate II: Enhanced Edition and the Enhanced Edition Trilogy. With these scripts, you can focus on the fighting aspect of combat while these take care of the nuances in the background. Of note, these scripts allow easy pre-buffing of all characters with a keystroke, intelligent debuffing of enemy protections, and smart use of defensive spells and abilities.</p>
+<h3 id="who-am-i">Who Am I?</h3>
+<p>I am a powergamer at heart constantly searching for the most efficient way to get through EET. Writing these scripts were a natural progression for me to improve my playstyle. According to Steam, I have over 1,500 hours of recorded playtime between BGEE and BG2EE, and I dread to know how much it really is since Steam doesn't register the decade plus I've played the original versions of these games before the EE was released. Needless to say, I really enjoy these games.</p>
+<h3 id="why-did-i-write-these">Why Did I Write These?</h3>
+<p>You are right to ask why I'm releasing these when there are already so many AI scripts out there. To that I'd say you are correct because some of them are really good. I'd like to explicitly acknowledge Sarevok57's amazing scripts. This year, I was dissatisfied with the scripts that the game offered and looked to better ones. There I found Sarevok57's work. His scripts were really good; however, they didn't match my playstyle as well as I wanted. As a Computer Science major, I asked myself how hard can it be to make my own scripts? I used Sarevok57's scripts as a baseline and developed my own off of his work making updates and tweaks to most every area. With his blessing I am sharing these with you today.</p>
+<h2 id="compatibility">Compatibility</h2>
+<p>The mod has support for IWD spells (from either Sword Coast Stratagems or IWDification) and for changes from Spell Revisions (Revised) and Item Revisions (Revised).</p>
+<p>If you are installing SCS, IR(R), or SR(R), they should be installed before this mod.</p>
+<p>PLEASE NOTE: Sword Coast Stratagems is no longer required to use these scripts.</p>
+<p>If you are upgrading from a version of this mod prior to v2.0, I recommend uninstalling all mod components and replacing all files with the new ones before doing a fresh install.</p>
+<h2 id="content">Content</h2>
+<p>These scripts are focused on heavy physical damage parties in both melee and ranged. To me, spells are only there to protect me from enemy damage, enhance my physical damage, and strip the enemies of their spell protections. These scripts do everything to manage the minutiae of play, so the player can focus on other things. Specifically these:</p>
+<ul>
+<li><p>Allow the player to pre-buff before any fight by pressing the &quot;D&quot; key. I hate pre-buffing, it is tedious to go through all spells and manually cast. Additionally, you have to check to ensure you cast long duration spells first and such. No bueno. Know what is bueno? Hitting the &quot;D&quot; key and watching all selected characters start pre-buffing. This is literally the &quot;Easy Button&quot; to buffing saving you time and allowing you to focus on what really matters. Characters will state when they begin pre-buffing and when they complete pre-buffing. If an enemy is sighted or the &quot;D&quot; key is pressed again, pre-buffing will cancel and the character will announce they were not able to complete the pre-buffing. Buffs will be cast with longest duration ones first moving to shortest duration. This takes all the guessing out of it.</p>
+</li>
+<li><p>Automatically using appropriate healing potions and antidotes in combat.</p>
+</li>
+<li><p>Automatic use of healing spells when out of combat. Focus is on casting the appropriate healing spell in relation to the amount of damage being healed (i.e. reduced overhealing).</p>
+</li>
+<li><p>Casting PfMW or Shield of Lathander (SCS IWD spell that acts as the Cleric version of PfMW) if health drops below a threshold.</p>
+</li>
+<li><p>Detecting Invisibility and intelligent debuffing of enemy protections. If an enemy has PfMW, Mantle, Improved Mantle, Absolute Immunity, or Shield of Lathander, they will automatically get to work removing spell protections to take those down and allowing your fighters to do what they do best: putting the pointy end in the bad guy. Two things of note: due to SCS install, Breach is scripted to work against liches and rakshasa, and the scripts use the minimum level spell necessary to strip spell protections. This means you will not launch Spellstrike on an enemy when Secret Word will do (assuming you have Secret Word).</p>
+</li>
+<li><p>Spells will not be cast in Wild Magic Areas, Dead Magic Areas, or in Athkatla when the licence to use magic is not purchased/Cowled Wizards are harassing you.</p>
+</li>
+<li><p>Intelligent use of equipment special abilities.</p>
+</li>
+<li><p>Only attack enemies that they have the capability to hit and damage. I toyed with the idea of making a more improved targeting system, but decided against it. I really dislike in other scripts if I am focusing on a target and the script reassigns my enemy to someone else.</p>
+</li>
+</ul>
+<h2 id="components">Components</h2>
+<p>Below are the components for the install allowing you to pick and choose what changes you would like to see made. Each one will provide a prompt, so you can skip what you don't want.</p>
+<h3 id="main-component">Main Component</h3>
+<p>This is the main component that will auto-detect your mod installations and provide scripts based on the installs listed above. You will have the option to select having either pre-buffing cast at a normal speed or an accelerated speed. Regardless of either option chosen, characters will stop pre-buffing if either the &quot;D&quot; key is pressed again or an enemy is sighted.</p>
+<h4 id="normal-pre-buffing-speed">Normal Pre-Buffing Speed</h4>
+<p>It will take the normal casting time for a spell to be cast and there will be the standard delay between spells being cast. This is meant for the purists that do not want to bend the rules for expediency sake. For testing, it can take 2 1/2 minutes plus to cycle through all spells if you have all spells for pre-buffing in your spellbook.</p>
+<h4 id="accelerated-pre-buffing-speed">Accelerated Pre-Buffing Speed</h4>
+<p>This is for people who walk on escalators and want to bend the rules a bit. Spells will be instantly cast and there will be no delay between spell castings. With this option, you may have spells active that would normally expire by the time normal pre-buffing ends. In effect, you may have certain spells active that you shouldn't. For testing, using the same spells as the Normal Pre-Buffing Speed testing, it took approximately 20 ~ 30 seconds to complete all pre-buffing. Just over a 2 minute decrease in time waiting for your characters to pre-buff.</p>
+<h5 id="archer">ARCHER</h5>
+<p>This is a script specifically designed for the Archer Kit. This script will cast pre-buff spells when the &quot;D&quot; key is pressed. In addition to pre-buffing, the script will intelligently heal and use abilities both in and out of combat.</p>
+<p>If you have either Gargoyle Boots or Boots of Speed equipped with the other item in your inventory, then the script will automatically swap items to equip the Gargoyle Boots, cast Stoneskin (if there is a charge), then swap back to the Boots of Speed. The player will not notice any item swapping from the game screen, but they will have a seamless casting of Stoneskin. This saves a lot of micromanagement to swap boots and cast Stoneskin. The Archer will use mirror image from either offhand Ilbratha or Ring of Duplication whenever more than three enemies appear or a certain type of difficult enemy appears. Finally, the Archer will use either GWW or Called Shot (but not both when one is active) if the Archer is capable of damaging and hitting the enemy (to avoid wasting a casting if the enemy is immune). GWW or Called Shot are used when there are more than three enemies or a certain type of difficult enemy appears.</p>
+<h5 id="basicai">BasicAI</h5>
+<p>This script is designed for the minimalists who normally turn party AI off in their games. All classes can use this script. It will constantly Turn Undead when the &quot;V&quot; key is pressed and will cast pre-buffing spells when the &quot;D&quot; key is pressed. If the character is able, the script will constantly be detecting traps while idle. Additionally, if playing a Bard class, the script will constantly be casting the Bard song. Finally, this script will cast long duration spells (i.e. Stoneskin/Ironskin) and ensure they are kept active. This script will NOT auto-attack enemies.</p>
+<h5 id="clericranger">CLERIC/RANGER</h5>
+<p>This script is designed for the Cleric/Ranger and will also work for Cleric/Thief, Fighter/Cleric, and Fighter/Druid dual and multiclasses. If playing a Cleric/Thief, the script will detect traps while not in combat. This script will constantly Turn Undead when the &quot;V&quot; key is pressed and will cast pre-buffing spells when the &quot;D&quot; key is pressed. In addition to pre-buffing, the script will intelligently heal and use abilities both in and out of combat.</p>
+<h5 id="fightermagecleric">FIGHTER/MAGE/CLERIC</h5>
+<p>This script is designed for the FMC and MC multiclasses. This script will constantly Turn Undead when the &quot;V&quot; key is pressed and will cast pre-buffing spells when the &quot;D&quot; key is pressed. In addition to pre-buffing, the script will intelligently heal and use abilities both in and out of combat. This includes intelligently detecting invisibility and removing enemy protections.</p>
+<h5 id="fightermage">FIGHTER/MAGE</h5>
+<p>This script works for Kensai/Berserker -&gt; Mage dual classes and the FM and FMT multiclasses. If playing a FMT, the script will constantly be detecting traps while idle. This script will cast pre-buff spells when the &quot;D&quot; key is pressed. In addition to pre-buffing, the script will intelligently use abilities both in and out of combat. This includes intelligently detecting invisibility and removing enemy protections.</p>
+<h5 id="inquisitor">INQUISITOR</h5>
+<p>This is a script specifically designed for the Inquisitor Kit. This script will constantly Turn Undead when the &quot;V&quot; key is pressed and will cast pre-buff spells when the &quot;D&quot; key is pressed. In addition to pre-buffing, the script will intelligently use abilities both in and out of combat. This class will use True Sight if invisible enemies are detected, but it will NOT use the Dispel Magic ability.</p>
+<h5 id="monk">MONK</h5>
+<p>This is a script specifically designed for the Monk class. The script will constantly be detecting traps while idle. This script will cast pre-buff spells when the &quot;D&quot; key is pressed. In addition to pre-buffing, the script will intelligently use abilities both in and out of combat.</p>
+<h5 id="skald">SKALD</h5>
+<p>This is a script specifically designed for the Skald Kit. This script will cast pre-buff spells when the &quot;D&quot; key is pressed. In addition to pre-buffing, the script will intelligently use abilities both in and out of combat. When not casting spells, the Skald will constantly be singing the Skald song. Additionally, between casting spells, the Skald will start singing again to attempt to keep the Skald song up constantly in combat. This script is written to use up to Level 9 Spells.</p>
+<h5 id="sorcerer">SORCERER</h5>
+<p>This script works with any pure mage type character. This is great for low-level spellcasters or a spellcaster that you are dualling into. This script will cast pre-buff spells when the &quot;D&quot; key is pressed. In addition to pre-buffing, the script will intelligently use abilities both in and out of combat. Please note: this script will not cast offensive spells at the enemy. Only defensive/protective spells are used. The script will keep constant uptime of Melf's Minute Meteors.</p>
+<h3 id="restore-vanilla-belm-and-kundane">Restore Vanilla Belm and Kundane</h3>
+<p>Requires Item Revisions - Offers the vanilla, non-IR(R) versions of Belm and Kundane which include the full 1 APR increase for both items.</p>
+<h3 id="restore-vanilla-gargoyle-boots">Restore Vanilla Gargoyle Boots</h3>
+<p>Requires Item Revisions - Offers the vanilla, non-IR(R) version of Gargoyle Boots which includes Stoneskin for 8 hours (per SR(R)'s updated Stoneskin spell).</p>
+<h3 id="restore-vanilla-amulet-of-the-cheetah">Restore Vanilla Amulet of the Cheetah</h3>
+<p>Requires Item Revisions - Offers the vanilla, non-IR(R) version of Amulet of the Cheetah.</p>
+<h3 id="restore-vanilla-haste-and-improved-haste">Restore Vanilla Haste and Improved Haste</h3>
+<p>Requires Spell Revisions - Offers the vanilla, non-SR(R) versions of Haste and Improved Haste.</p>
+<h2 id="special-thanks">Special Thanks</h2>
+<ul>
+<li>Sarevok57 whose scripts were my inspiration to write these and what mine were originally based on</li>
+<li>FixTesteR for encouraging compatability with Spell Revisions and bug testing</li>
+<li>subtledoctor for troubleshooting AI script issues with Spell Revisions and using sections of his coding to create and assign new spell states for SR</li>
+<li>Bartimaeus for troubleshooting AI script issues with Spell Revisions</li>
+<li>DavidW for using your Organize an IDS macro to assist in creating new spell states</li>
+<li>marcnivar for identifying a couple bugs with pre-buffing</li>
+</ul>
+<h2 id="copyright">Copyright</h2>
+<p>This mod is copyright (c) 2021 morpheus562.</p>
+<p>Content from this mod may not be mirrored, borrowed, or altered without explicit permission. You are allowed to submit <a href="maintenance-notice.html">maintenance updates</a> for this mod.</p>
+<h2 id="further-reading">Further Reading</h2>
+<ul>
+<li><a href="install.html">Installation</a></li>
+<li><a href="changelog.html">Change Log</a></li>
+</ul>
+</main>
+</body>
+</html>
