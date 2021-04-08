@@ -68,44 +68,47 @@ It will take the normal casting time for a spell to be cast and there will be th
 
 This is for people who walk on escalators and want to bend the rules a bit. Spells will be instantly cast and there will be no delay between spell castings. With this option, you may have spells active that would normally expire by the time normal pre-buffing ends. In effect, you may have certain spells active that you shouldn't. For testing, using the same spells as the Normal Pre-Buffing Speed testing, it took approximately 20 ~ 30 seconds to complete all pre-buffing. Just over a 2 minute decrease in time waiting for your characters to pre-buff.
 
+#### Intelligent Enemy Debuffing
+If an enemy has PfMW, Mantle, Improved Mantle, Absolute Immunity, or Shield of Lathander, the scripts will automatically get to work removing spell protections to take those down and allowing your fighters to do what they do best: putting the pointy end in the bad guy. Two things of note, Breach is scripted to work against liches and rakshasa per SCS, and the scripts use the minimum level spell necessary to strip spell protections. This means you will not launch Spellstrike on an enemy when Secret Word will do (assuming you have Secret Word).
+
+#### Intelligent Detection of Invisible Enemies
+These are the most advanced scripts at detecting and countering invisible enemies. As soon as an enemy is detected that is invisible or stealthed, nomatter the means, characters will get to work using the appropriate spell to detect them. Many times, your characters will cast the appropriate detection spell before you even realize an invisible enemy is present. These are that advanced.
+
+#### Item Usage
+These scripts will utilize items such as Amulet of the Cheetah, Ilbratha+1, Ring of Duplication, and Gargoyle Boots. Additionally, these scripts will also assist in automatically swapping items in order to cast an items effect and then swapping back to the original item. This will be done seamlessly. For example, if you have either Gargoyle Boots or Boots of Speed equipped with the other item in your inventory, then the script will automatically swap items to equip the Gargoyle Boots, cast Stoneskin (if there is a charge), then swap back to the Boots of Speed. The player will not notice any item swapping from the game screen, but they will have a seamless casting of Stoneskin. This saves a lot of micromanagement to swap boots and cast Stoneskin. The MO-Archer, MO-DIVINE, MO-MONK, and MO-PALADIN will swap with Gargoyle Boots. Additionally, the MO-MONK will do a similar swap with Ilbratha+1 and the Scarlet Ninja-To in order to cast Mirror Images.
+
 #### The Scripts
 Below are a listing of the different scripts included in the Main Component.
 
-##### ARCHER
+##### MO-ARCHER
 
 This is a script specifically designed for the Archer Kit. This script will cast pre-buff spells when the "D" key is pressed. In addition to pre-buffing, the script will intelligently heal and use abilities both in and out of combat.
 
-If you have either Gargoyle Boots or Boots of Speed equipped with the other item in your inventory, then the script will automatically swap items to equip the Gargoyle Boots, cast Stoneskin (if there is a charge), then swap back to the Boots of Speed. The player will not notice any item swapping from the game screen, but they will have a seamless casting of Stoneskin. This saves a lot of micromanagement to swap boots and cast Stoneskin. The Archer will use mirror image from either offhand Ilbratha or Ring of Duplication whenever more than three enemies appear or a certain type of difficult enemy appears. Finally, the Archer will use either GWW or Called Shot (but not both when one is active) if the Archer is capable of damaging and hitting the enemy (to avoid wasting a casting if the enemy is immune). GWW or Called Shot are used when there are more than three enemies or a certain type of difficult enemy appears.
-
-##### BasicAI
+##### MO-BasicAI
 
 This script is designed for the minimalists who normally turn party AI off in their games. All classes can use this script. It will constantly Turn Undead when the "V" key is pressed and will cast pre-buffing spells when the "D" key is pressed. If the character is able, the script will constantly be detecting traps while idle. Additionally, if playing a Bard class, the script will constantly be casting the Bard song. Finally, this script will cast long duration spells (i.e. Stoneskin/Ironskin) and ensure they are kept active. This script will NOT auto-attack enemies.
 
-##### CLERIC/RANGER
+##### MO-DIVINE
 
-This script is designed for the Cleric/Ranger and will also work for Cleric/Thief, Fighter/Cleric, and Fighter/Druid dual and multiclasses. If playing a Cleric/Thief, the script will detect traps while not in combat. This script will constantly Turn Undead when the "V" key is pressed and will cast pre-buffing spells when the "D" key is pressed. In addition to pre-buffing, the script will intelligently heal and use abilities both in and out of combat.
+This script is designed for all divine classes and combinations: Cleric, Druid, FC, FD, CR, MC, FMC, etc. If playing a Cleric/Thief, the script will detect traps while not in combat. This script will constantly Turn Undead when the "V" key is pressed and will cast pre-buffing spells when the "D" key is pressed. In addition to pre-buffing, the script will intelligently heal and use abilities both in and out of combat.
 
-##### FIGHTER/MAGE/CLERIC
-
-This script is designed for the FMC and MC multiclasses. This script will constantly Turn Undead when the "V" key is pressed and will cast pre-buffing spells when the "D" key is pressed. In addition to pre-buffing, the script will intelligently heal and use abilities both in and out of combat. This includes intelligently detecting invisibility and removing enemy protections.
-
-##### FIGHTER/MAGE
+##### MO-FIGHTER/MAGE
 
 This script works for Kensai/Berserker -> Mage dual classes and the FM and FMT multiclasses. If playing a FMT, the script will constantly be detecting traps while idle. This script will cast pre-buff spells when the "D" key is pressed. In addition to pre-buffing, the script will intelligently use abilities both in and out of combat. This includes intelligently detecting invisibility and removing enemy protections.
 
-##### INQUISITOR
-
-This is a script specifically designed for the Inquisitor Kit. This script will constantly Turn Undead when the "V" key is pressed and will cast pre-buff spells when the "D" key is pressed. In addition to pre-buffing, the script will intelligently use abilities both in and out of combat. This class will use True Sight if invisible enemies are detected, but it will NOT use the Dispel Magic ability.
-
-##### MONK
+##### MO-MONK
 
 This is a script specifically designed for the Monk class. The script will constantly be detecting traps while idle. This script will cast pre-buff spells when the "D" key is pressed. In addition to pre-buffing, the script will intelligently use abilities both in and out of combat.
 
-##### SKALD
+##### MO-PALADIN
+
+This is a script specifically designed for the Paladin class. This script will constantly Turn Undead when the "V" key is pressed and will cast pre-buff spells when the "D" key is pressed. In addition to pre-buffing, the script will intelligently use abilities both in and out of combat. 
+
+##### MO-SKALD
 
 This is a script specifically designed for the Skald Kit. This script will cast pre-buff spells when the "D" key is pressed. In addition to pre-buffing, the script will intelligently use abilities both in and out of combat. When not casting spells, the Skald will constantly be singing the Skald song. Additionally, between casting spells, the Skald will start singing again to attempt to keep the Skald song up constantly in combat. This script is written to use up to Level 9 Spells.
 
-##### SORCERER
+##### MO-SORCERER
 
 This script works with any pure mage type character. This is great for low-level spellcasters or a spellcaster that you are dualling into. This script will cast pre-buff spells when the "D" key is pressed. In addition to pre-buffing, the script will intelligently use abilities both in and out of combat. Please note: this script will not cast offensive spells at the enemy. Only defensive/protective spells are used. The script will keep constant uptime of Melf's Minute Meteors.
 
