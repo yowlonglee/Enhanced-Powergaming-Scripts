@@ -22,16 +22,6 @@ I am a powergamer at heart constantly searching for the most efficient way to ge
 
 You are right to ask why I'm releasing these when there are already so many AI scripts out there. To that I'd say you are correct because some of them are really good. I'd like to explicitly acknowledge Sarevok57's amazing scripts. This year, I was dissatisfied with the scripts that the game offered and looked to better ones. There I found Sarevok57's work. His scripts were really good; however, they didn't match my playstyle as well as I wanted. As a Computer Science major, I asked myself how hard can it be to make my own scripts? I used Sarevok57's scripts as a baseline and developed my own off of his work making updates and tweaks to most every area. With his blessing I am sharing these with you today.
 
-## Compatibility
-
-The mod has support for IWD spells (from either Sword Coast Stratagems or IWDification) and for changes from Spell Revisions (Revised) and Item Revisions (Revised).
-
-If you are installing SCS, IR(R), or SR(R), they should be installed before this mod.
-
-PLEASE NOTE: Sword Coast Stratagems is no longer required to use these scripts.
-
-If you are upgrading from a version of this mod prior to v2.0, I recommend uninstalling all mod components and replacing all files with the new ones before doing a fresh install.
-
 ## Content
 
 These scripts are focused on heavy physical damage parties in both melee and ranged. To me, spells are only there to protect me from enemy damage, enhance my physical damage, and strip the enemies of their spell protections. These scripts do everything to manage the minutiae of play, so the player can focus on other things. Specifically these:
@@ -51,6 +41,16 @@ These scripts are focused on heavy physical damage parties in both melee and ran
 - Intelligent use of equipment special abilities.
 
 - Only attack enemies that they have the capability to hit and damage. I toyed with the idea of making a more improved targeting system, but decided against it. I really dislike in other scripts if I am focusing on a target and the script reassigns my enemy to someone else.
+
+## Compatibility
+
+The mod has support for IWD spells (from either Sword Coast Stratagems or IWDification) and for changes from Spell Revisions (Revised) and Item Revisions (Revised).
+
+If you are installing SCS, IR(R), or SR(R), they should be installed before this mod.
+
+PLEASE NOTE: Sword Coast Stratagems is no longer required to use these scripts.
+
+If you are upgrading from a version of this mod prior to v2.0, I recommend uninstalling all mod components and replacing all files with the new ones before doing a fresh install.
 
 ## Components
 
