@@ -68,6 +68,9 @@ It will take the normal casting time for a spell to be cast and there will be th
 
 This is for people who walk on escalators and want to bend the rules a bit. Spells will be instantly cast and there will be no delay between spell castings. With this option, you may have spells active that would normally expire by the time normal pre-buffing ends. In effect, you may have certain spells active that you shouldn't. For testing, using the same spells as the Normal Pre-Buffing Speed testing, it took approximately 20 ~ 30 seconds to complete all pre-buffing. Just over a 2 minute decrease in time waiting for your characters to pre-buff.
 
+#### The Scripts
+Below are a listing of the different scripts included in the Main Component.
+
 ##### ARCHER
 
 This is a script specifically designed for the Archer Kit. This script will cast pre-buff spells when the "D" key is pressed. In addition to pre-buffing, the script will intelligently heal and use abilities both in and out of combat.
