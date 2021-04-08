@@ -9,36 +9,36 @@
 ///////////////////////////////////////////////////////////////////////////
 
 ACTION_IF (MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
-	COPY ~enhanced-powergaming-scripts/baf/Normal/SR/Archer.baf~      ~scripts/Archer.bs~
-	     ~enhanced-powergaming-scripts/baf/Normal/SR/Divine.baf~      ~scripts/Divine.bs~
-	     ~enhanced-powergaming-scripts/baf/Normal/SR/FigMage.baf~     ~scripts/FigMage.bs~
-	     ~enhanced-powergaming-scripts/baf/Normal/SR/Paladin.baf~     ~scripts/Paladin.bs~
-	     ~enhanced-powergaming-scripts/baf/Normal/SR/Monk.baf~        ~scripts/Monk.bs~
-	     ~enhanced-powergaming-scripts/baf/Normal/SR/Skald.baf~       ~scripts/Skald.bs~
-	     ~enhanced-powergaming-scripts/baf/Normal/SR/Sorcerer.baf~    ~scripts/Sorcerer.bs~
-	     ~enhanced-powergaming-scripts/baf/Normal/SR/BasicAI.baf~  	~scripts/BasicAI.bs~
+	COPY ~enhanced-powergaming-scripts/baf/Normal/SR/moarch.baf~   ~scripts/moarch.bs~
+	     ~enhanced-powergaming-scripts/baf/Normal/SR/modiv.baf~    ~scripts/modiv.bs~
+	     ~enhanced-powergaming-scripts/baf/Normal/SR/mofm.baf~     ~scripts/mofm.bs~
+	     ~enhanced-powergaming-scripts/baf/Normal/SR/mopal.baf~    ~scripts/mopal.bs~
+	     ~enhanced-powergaming-scripts/baf/Normal/SR/momonk.baf~   ~scripts/momonk.bs~
+	     ~enhanced-powergaming-scripts/baf/Normal/SR/moskd.baf~    ~scripts/moskd.bs~
+	     ~enhanced-powergaming-scripts/baf/Normal/SR/mosorc.baf~   ~scripts/mosorc.bs~
+	     ~enhanced-powergaming-scripts/baf/Normal/SR/mobasic.baf~  ~scripts/mobasic.bs~
 	  COMPILE_BAF_TO_BCS
 END
 ELSE ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1500~ && MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1510~) || (MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 30 && MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 40) BEGIN
-	COPY ~enhanced-powergaming-scripts/baf/Normal/IWD/Archer.baf~      ~scripts/Archer.bs~
-	     ~enhanced-powergaming-scripts/baf/Normal/IWD/Divine.baf~      ~scripts/Divine.bs~
-	     ~enhanced-powergaming-scripts/baf/Normal/IWD/FigMage.baf~     ~scripts/FigMage.bs~
-	     ~enhanced-powergaming-scripts/baf/Normal/IWD/Paladin.baf~     ~scripts/Paladin.bs~
-	     ~enhanced-powergaming-scripts/baf/Normal/IWD/Monk.baf~        ~scripts/Monk.bs~
-	     ~enhanced-powergaming-scripts/baf/Normal/IWD/Skald.baf~       ~scripts/Skald.bs~
-	     ~enhanced-powergaming-scripts/baf/Normal/IWD/Sorcerer.baf~    ~scripts/Sorcerer.bs~
-	     ~enhanced-powergaming-scripts/baf/Normal/IWD/BasicAI.baf~     ~scripts/BasicAI.bs~
+	COPY ~enhanced-powergaming-scripts/baf/Normal/IWD/moarch.baf~   ~scripts/moarch.bs~
+	     ~enhanced-powergaming-scripts/baf/Normal/IWD/modiv.baf~    ~scripts/modiv.bs~
+	     ~enhanced-powergaming-scripts/baf/Normal/IWD/mofm.baf~     ~scripts/mofm.bs~
+	     ~enhanced-powergaming-scripts/baf/Normal/IWD/mopal.baf~    ~scripts/mopal.bs~
+	     ~enhanced-powergaming-scripts/baf/Normal/IWD/momonk.baf~   ~scripts/momonk.bs~
+	     ~enhanced-powergaming-scripts/baf/Normal/IWD/moskd.baf~    ~scripts/moskd.bs~
+	     ~enhanced-powergaming-scripts/baf/Normal/IWD/mosorc.baf~   ~scripts/mosorc.bs~
+	     ~enhanced-powergaming-scripts/baf/Normal/IWD/mobasic.baf~  ~scripts/mobasic.bs~
 	  COMPILE_BAF_TO_BCS
 END
 ELSE BEGIN
-	COPY ~enhanced-powergaming-scripts/baf/Normal/Archer.baf~      ~scripts/Archer.bs~
-	     ~enhanced-powergaming-scripts/baf/Normal/Divine.baf~      ~scripts/Divine.bs~
-	     ~enhanced-powergaming-scripts/baf/Normal/FigMage.baf~     ~scripts/FigMage.bs~
-	     ~enhanced-powergaming-scripts/baf/Normal/Paladin.baf~     ~scripts/Paladin.bs~
-	     ~enhanced-powergaming-scripts/baf/Normal/Monk.baf~        ~scripts/Monk.bs~
-	     ~enhanced-powergaming-scripts/baf/Normal/Skald.baf~       ~scripts/Skald.bs~
-	     ~enhanced-powergaming-scripts/baf/Normal/Sorcerer.baf~    ~scripts/Sorcerer.bs~
-	     ~enhanced-powergaming-scripts/baf/Normal/BasicAI.baf~     ~scripts/BasicAI.bs~
+	COPY ~enhanced-powergaming-scripts/baf/Normal/moarch.baf~   ~scripts/moarch.bs~
+	     ~enhanced-powergaming-scripts/baf/Normal/modiv.baf~    ~scripts/modiv.bs~
+	     ~enhanced-powergaming-scripts/baf/Normal/mofm.baf~     ~scripts/mofm.bs~
+	     ~enhanced-powergaming-scripts/baf/Normal/mopal.baf~    ~scripts/mopal.bs~
+	     ~enhanced-powergaming-scripts/baf/Normal/momonk.baf~   ~scripts/momonk.bs~
+	     ~enhanced-powergaming-scripts/baf/Normal/moskd.baf~    ~scripts/moskd.bs~
+	     ~enhanced-powergaming-scripts/baf/Normal/mosorc.baf~   ~scripts/mosorc.bs~
+	     ~enhanced-powergaming-scripts/baf/Normal/mobasic.baf~  ~scripts/mobasic.bs~
 	  COMPILE_BAF_TO_BCS
 END
 ///////////////////////////////////////////////////////////////////////////
@@ -46,14 +46,14 @@ END
 ///////////////////////////////////////////////////////////////////////////
 
 APPEND ~scrpdesc.2DA~
-~Archer      999990       999989
-Divine       999988       999987
-FigMage      999986       999985
-Paladin      999984       999983
-Monk         999982       999981
-Skald        999980       999979
-Sorcerer     999978       999977
-BasicAI		 999976		  999975~
+~moarch      999990       999989
+modiv        999988       999987
+mofm         999986       999985
+mopal        999984       999983
+momonk       999982       999981
+moskd        999980       999979
+mosorc       999978       999977
+mobasic		 999976		  999975~
 
 ///////////////////////////////////////////////////////////////////////////
 // Copy the appended scrpdesc.2da to the override folder                 //
