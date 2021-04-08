@@ -206,6 +206,28 @@ END
 IF
   Global("MO_BUFF","LOCALS",1)
   IfValidForPartyDialog(Myself)
+  HaveSpell(CAVALIER_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
+  OR(6)
+    !CheckSpellState(Myself,RESIST_FEAR)
+    !CheckSpellState(NearestAllyOf(Myself),RESIST_FEAR)
+    !CheckSpellState(SecondNearestAllyOf(Myself),RESIST_FEAR)
+    !CheckSpellState(ThirdNearestAllyOf(Myself),RESIST_FEAR)
+    !CheckSpellState(FourthNearestAllyOf(Myself),RESIST_FEAR)
+    !CheckSpellState(FifthNearestAllyOf(Myself),RESIST_FEAR)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,CAVALIER_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
+    RemoveSpell(CAVALIER_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  IfValidForPartyDialog(Myself)
   HaveSpell(CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
   OR(6)
     !CheckSpellState(Myself,RESIST_FEAR)
