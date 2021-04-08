@@ -44,7 +44,7 @@ These scripts are focused on heavy physical damage parties in both melee and ran
 
 - Casting PfMW or Shield of Lathander (SCS IWD spell that acts as the Cleric version of PfMW) if health drops below a threshold.
 
-- Detecting Invisibility and intelligent debuffing of enemy protections. If an enemy has PfMW, Mantle, Improved Mantle, Absolute Immunity, or Shield of Lathander, they will automatically get to work removing spell protections to take those down and allowing your fighters to do what they do best: putting the pointy end in the bad guy. Two things of note: due to SCS install, Breach is scripted to work against liches and rakshasa, and the scripts use the minimum level spell necessary to strip spell protections. This means you will not launch Spellstrike on an enemy when Secret Word will do (assuming you have Secret Word).
+- Detecting Invisibility and intelligent debuffing of enemy protections.
 
 - Spells will not be cast in Wild Magic Areas, Dead Magic Areas, or in Athkatla when the licence to use magic is not purchased/Cowled Wizards are harassing you.
 
