@@ -20,25 +20,25 @@ ACTION_IF (MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
 	  COMPILE_BAF_TO_BCS
 END
 ELSE ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1500~ && MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1510~) || (MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 30 && MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 40) BEGIN
-	COPY ~enhanced-powergaming-scripts/baf/Accelerated/SR/moarch.baf~   ~scripts/moarch.bs~
-	     ~enhanced-powergaming-scripts/baf/Accelerated/SR/modiv.baf~    ~scripts/modiv.bs~
-	     ~enhanced-powergaming-scripts/baf/Accelerated/SR/mofm.baf~     ~scripts/mofm.bs~
-	     ~enhanced-powergaming-scripts/baf/Accelerated/SR/mopal.baf~    ~scripts/mopal.bs~
-	     ~enhanced-powergaming-scripts/baf/Accelerated/SR/momonk.baf~   ~scripts/momonk.bs~
-	     ~enhanced-powergaming-scripts/baf/Accelerated/SR/moskd.baf~    ~scripts/moskd.bs~
-	     ~enhanced-powergaming-scripts/baf/Accelerated/SR/mosorc.baf~   ~scripts/mosorc.bs~
-	     ~enhanced-powergaming-scripts/baf/Accelerated/SR/mobasic.baf~  ~scripts/mobasic.bs~
+	COPY ~enhanced-powergaming-scripts/baf/Accelerated/IWD/moarch.baf~   ~scripts/moarch.bs~
+	     ~enhanced-powergaming-scripts/baf/Accelerated/IWD/modiv.baf~    ~scripts/modiv.bs~
+	     ~enhanced-powergaming-scripts/baf/Accelerated/IWD/mofm.baf~     ~scripts/mofm.bs~
+	     ~enhanced-powergaming-scripts/baf/Accelerated/IWD/mopal.baf~    ~scripts/mopal.bs~
+	     ~enhanced-powergaming-scripts/baf/Accelerated/IWD/momonk.baf~   ~scripts/momonk.bs~
+	     ~enhanced-powergaming-scripts/baf/Accelerated/IWD/moskd.baf~    ~scripts/moskd.bs~
+	     ~enhanced-powergaming-scripts/baf/Accelerated/IWD/mosorc.baf~   ~scripts/mosorc.bs~
+	     ~enhanced-powergaming-scripts/baf/Accelerated/IWD/mobasic.baf~  ~scripts/mobasic.bs~
 	  COMPILE_BAF_TO_BCS
 END
 ELSE BEGIN
-	COPY ~enhanced-powergaming-scripts/baf/Accelerated/SR/moarch.baf~   ~scripts/moarch.bs~
-	     ~enhanced-powergaming-scripts/baf/Accelerated/SR/modiv.baf~    ~scripts/modiv.bs~
-	     ~enhanced-powergaming-scripts/baf/Accelerated/SR/mofm.baf~     ~scripts/mofm.bs~
-	     ~enhanced-powergaming-scripts/baf/Accelerated/SR/mopal.baf~    ~scripts/mopal.bs~
-	     ~enhanced-powergaming-scripts/baf/Accelerated/SR/momonk.baf~   ~scripts/momonk.bs~
-	     ~enhanced-powergaming-scripts/baf/Accelerated/SR/moskd.baf~    ~scripts/moskd.bs~
-	     ~enhanced-powergaming-scripts/baf/Accelerated/SR/mosorc.baf~   ~scripts/mosorc.bs~
-	     ~enhanced-powergaming-scripts/baf/Accelerated/SR/mobasic.baf~  ~scripts/mobasic.bs~
+	COPY ~enhanced-powergaming-scripts/baf/Accelerated/moarch.baf~   ~scripts/moarch.bs~
+	     ~enhanced-powergaming-scripts/baf/Accelerated/modiv.baf~    ~scripts/modiv.bs~
+	     ~enhanced-powergaming-scripts/baf/Accelerated/mofm.baf~     ~scripts/mofm.bs~
+	     ~enhanced-powergaming-scripts/baf/Accelerated/mopal.baf~    ~scripts/mopal.bs~
+	     ~enhanced-powergaming-scripts/baf/Accelerated/momonk.baf~   ~scripts/momonk.bs~
+	     ~enhanced-powergaming-scripts/baf/Accelerated/moskd.baf~    ~scripts/moskd.bs~
+	     ~enhanced-powergaming-scripts/baf/Accelerated/mosorc.baf~   ~scripts/mosorc.bs~
+	     ~enhanced-powergaming-scripts/baf/Accelerated/mobasic.baf~  ~scripts/mobasic.bs~
 	  COMPILE_BAF_TO_BCS
 END
 ///////////////////////////////////////////////////////////////////////////
