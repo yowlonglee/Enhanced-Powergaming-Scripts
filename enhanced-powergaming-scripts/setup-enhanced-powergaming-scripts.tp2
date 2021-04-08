@@ -1,14 +1,14 @@
 /* Enhanced Powergaming Scripts
  *
- * Advanced Party AI Scripts for BGEET Running Sword Coast Stratagems
+ * Advanced Party AI Scripts for BG2EE and EET
  *
  */
 
 BACKUP ~enhanced-powergaming-scripts/backup~
-
-//MODDER
 AUTHOR ~morpheus562~
-VERSION ~v2.0~
+
+VERSION ~v2.3~
+README ~enhanced-powergaming-scripts/readme.html~
 
 ASK_EVERY_COMPONENT
 
@@ -22,7 +22,7 @@ ALWAYS
 
 END
 
-LANGUAGE ~American english~
+LANGUAGE ~American English~
          ~american~
          ~enhanced-powergaming-scripts/languages/american/setup.tra~
 
@@ -40,7 +40,7 @@ BEGIN @7 DESIGNATED 14 SUBCOMPONENT @2
 
 REQUIRE_PREDICATE (GAME_IS ~bg2ee eet~) @3000
 
-LOAD_TRA ~enhanced-powergaming-scripts/languages/american/script_descriptions.tra~
+LOAD_TRA ~enhanced-powergaming-scripts/languages/%s/script_descriptions.tra~
 
 INCLUDE ~enhanced-powergaming-scripts/components/initialize.tpa~
 INCLUDE ~enhanced-powergaming-scripts/components/main_component.tpa~
@@ -66,7 +66,7 @@ BEGIN @3 DESIGNATED 20
 REQUIRE_PREDICATE (GAME_IS ~bg2ee eet~) @3000
 REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-item_rev.tp2~ ~0~) @3003 
 
-LOAD_TRA ~enhanced-powergaming-scripts/languages/american/item_descriptions.tra~
+LOAD_TRA ~enhanced-powergaming-scripts/languages/%s/item_descriptions.tra~
 
 INCLUDE ~enhanced-powergaming-scripts/components/restore_apr_weapons.tpa~
 
@@ -78,7 +78,7 @@ BEGIN @4 DESIGNATED 21
 REQUIRE_PREDICATE (GAME_IS ~bg2ee eet~) @3000
 REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-item_rev.tp2~ ~0~) @3003 
 
-LOAD_TRA ~enhanced-powergaming-scripts/languages/american/item_descriptions.tra~
+LOAD_TRA ~enhanced-powergaming-scripts/languages/%s/item_descriptions.tra~
 
 INCLUDE ~enhanced-powergaming-scripts/components/restore_gargoyle.tpa~
 
@@ -90,7 +90,7 @@ BEGIN @5 DESIGNATED 22
 REQUIRE_PREDICATE (GAME_IS ~bg2ee eet~) @3000
 REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-item_rev.tp2~ ~0~) @3003 
 
-LOAD_TRA ~enhanced-powergaming-scripts/languages/american/item_descriptions.tra~
+LOAD_TRA ~enhanced-powergaming-scripts/languages/%s/item_descriptions.tra~
 
 INCLUDE ~enhanced-powergaming-scripts/components/restore_cheetah.tpa~
 
@@ -102,6 +102,6 @@ BEGIN @6 DESIGNATED 23
 REQUIRE_PREDICATE (GAME_IS ~bg2ee eet~) @3000
 REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) @3002
 
-LOAD_TRA ~enhanced-powergaming-scripts/languages/american/spell_descriptions.tra~
+LOAD_TRA ~enhanced-powergaming-scripts/languages/%s/spell_descriptions.tra~
 
 INCLUDE ~enhanced-powergaming-scripts/components/restore_haste.tpa~
