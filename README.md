@@ -8,7 +8,7 @@
 
 **Author**: [morpheus562](https://www.gibberlings3.net/profile/11591-morpheus562/)
 
-**On the Web**: [Home Page](https://www.gibberlings3.net/mods/other/enhanced-powergaming-scripts/) and [Discussion Topic](https://www.gibberlings3.net/mods/other/enhanced-powergaming-scripts/)
+**On the Web**: [Home Page](https://www.gibberlings3.net/mods/other/enhanced-powergaming-scripts/) and [Discussion Topic](https://www.gibberlings3.net/forums/topic/32618-enhanced-powergaming-scripts/)
 
 ## Introduction
 
