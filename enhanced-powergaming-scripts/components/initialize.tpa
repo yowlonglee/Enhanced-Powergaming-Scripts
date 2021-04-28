@@ -201,54 +201,6 @@ ACTION_IF (MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
 	END
 
 ///////////////////////////////////////////////////////////////////////////
-// Create Spell State for Minor Globe of Invulnerability                 //
-///////////////////////////////////////////////////////////////////////////
-
-	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~MINOR_GLOBE~)) BEGIN
-	  COPY_EXISTING ~splstate.ids~ ~override~
-		COUNT_2DA_COLS cols
-		READ_2DA_ENTRIES_NOW rows cols
-		FOR (row = 1; row < rows; ++row) BEGIN
-		  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
-		  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
-		  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~MINOR_GLOBE~) BEGIN
-			SET mnr_glb = %state_ind%
-		  END
-		END
-	  BUT_ONLY
-	END
-
-	ACTION_IF !(VARIABLE_IS_SET %mnr_glb%) BEGIN
-		LAF ds_sort_ids STR_VAR ids=splstate END
-		LAF d5_resolve_state STR_VAR new_state_id = ~MINOR_GLOBE~ RET new_state_ind END
-		OUTER_SET mnr_glb = %new_state_ind%
-	END
-
-///////////////////////////////////////////////////////////////////////////
-// Create Spell State for Globe of Invulnerability                       //
-///////////////////////////////////////////////////////////////////////////
-
-	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~GLOBE~)) BEGIN
-	  COPY_EXISTING ~splstate.ids~ ~override~
-		COUNT_2DA_COLS cols
-		READ_2DA_ENTRIES_NOW rows cols
-		FOR (row = 1; row < rows; ++row) BEGIN
-		  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
-		  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
-		  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~GLOBE~) BEGIN
-			SET glb = %state_ind%
-		  END
-		END
-	  BUT_ONLY
-	END
-
-	ACTION_IF !(VARIABLE_IS_SET %glb%) BEGIN
-		LAF ds_sort_ids STR_VAR ids=splstate END
-		LAF d5_resolve_state STR_VAR new_state_id = ~GLOBE~ RET new_state_ind END
-		OUTER_SET glb = %new_state_ind%
-	END
-
-///////////////////////////////////////////////////////////////////////////
 // Create Spell State for Mestil's Acid Sheath                           //
 ///////////////////////////////////////////////////////////////////////////
 
@@ -437,30 +389,6 @@ ACTION_IF (MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = 123 timing = 0 duration = 24 END
 
 ///////////////////////////////////////////////////////////////////////////
-// Add Spell State to Minor Globe of Invulnerability                     //
-///////////////////////////////////////////////////////////////////////////
-
-	COPY_EXISTING ~SPWI406.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %mnr_glb% timing = 0 duration = 72 END
-
-	ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~5900~) BEGIN
-		COPY_EXISTING ~DWSW406.SPL~ ~override~ 
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %mnr_glb% timing = 0 duration = 72 END
-	END
-
-///////////////////////////////////////////////////////////////////////////
-// Add Spell State to Globe of Invulnerability                           //
-///////////////////////////////////////////////////////////////////////////
-
-	COPY_EXISTING ~SPWI602.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %glb% timing = 0 duration = 102 END
-
-	ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~5900~) BEGIN
-		COPY_EXISTING ~DWSW602.SPL~ ~override~ 
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %glb% timing = 0 duration = 102 END
-	END
-
-///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Mestil's Acid Sheath                               //
 ///////////////////////////////////////////////////////////////////////////
 
@@ -623,5 +551,91 @@ ACTION_IF (MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 30 && MOD_IS_I
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %shld_lath% timing = 0 duration = 12 END
 
 END
+
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+// Create New Spell States for Spells                                    //
+// Block of code provided by subtledoctor                                //
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////
+// Create Spell State for Minor Globe of Invulnerability                 //
+///////////////////////////////////////////////////////////////////////////
+
+	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~MINOR_GLOBE~)) BEGIN
+	  COPY_EXISTING ~splstate.ids~ ~override~
+		COUNT_2DA_COLS cols
+		READ_2DA_ENTRIES_NOW rows cols
+		FOR (row = 1; row < rows; ++row) BEGIN
+		  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
+		  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
+		  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~MINOR_GLOBE~) BEGIN
+			SET mnr_glb = %state_ind%
+		  END
+		END
+	  BUT_ONLY
+	END
+
+	ACTION_IF !(VARIABLE_IS_SET %mnr_glb%) BEGIN
+		LAF ds_sort_ids STR_VAR ids=splstate END
+		LAF d5_resolve_state STR_VAR new_state_id = ~MINOR_GLOBE~ RET new_state_ind END
+		OUTER_SET mnr_glb = %new_state_ind%
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// Create Spell State for Globe of Invulnerability                       //
+///////////////////////////////////////////////////////////////////////////
+
+	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~GLOBE~)) BEGIN
+	  COPY_EXISTING ~splstate.ids~ ~override~
+		COUNT_2DA_COLS cols
+		READ_2DA_ENTRIES_NOW rows cols
+		FOR (row = 1; row < rows; ++row) BEGIN
+		  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
+		  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
+		  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~GLOBE~) BEGIN
+			SET glb = %state_ind%
+		  END
+		END
+	  BUT_ONLY
+	END
+
+	ACTION_IF !(VARIABLE_IS_SET %glb%) BEGIN
+		LAF ds_sort_ids STR_VAR ids=splstate END
+		LAF d5_resolve_state STR_VAR new_state_id = ~GLOBE~ RET new_state_ind END
+		OUTER_SET glb = %new_state_ind%
+	END
+
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+// Assign Spell States or Stats to Spells                                //
+// Block of code provided by subtledoctor                                //
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////
+// Add Spell State to Minor Globe of Invulnerability                     //
+///////////////////////////////////////////////////////////////////////////
+
+	COPY_EXISTING ~SPWI406.SPL~ ~override~ 
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %mnr_glb% timing = 0 duration = 72 END
+
+	ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~5900~) BEGIN
+		COPY_EXISTING ~DWSW406.SPL~ ~override~ 
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %mnr_glb% timing = 0 duration = 72 END
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Spell State to Globe of Invulnerability                           //
+///////////////////////////////////////////////////////////////////////////
+
+	COPY_EXISTING ~SPWI602.SPL~ ~override~ 
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %glb% timing = 0 duration = 102 END
+
+	ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~5900~) BEGIN
+		COPY_EXISTING ~DWSW602.SPL~ ~override~ 
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %glb% timing = 0 duration = 102 END
+	END
 
 CLEAR_IDS_MAP

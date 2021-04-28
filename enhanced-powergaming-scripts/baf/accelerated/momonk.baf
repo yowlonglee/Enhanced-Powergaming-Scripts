@@ -4,12 +4,11 @@
 // *
 // * Monk.baf
 // * -----------
-// * AI Script for:             BGEET with Sword Coast Stratagems
+// * AI Script for:             BG2EE & BGEET
 // * Written by:                Mark Evinger (morpheus562)
-// * Version:                   Version 1.2 (12 February 2021)
+// * Version:                   Version 2.4 (27 April 2021)
 // * Comments to:               mark.evinger@hotmail.com
 // * Depends on:                BGEET
-//                              Sword Coast Stratagems
 //
 //
 // * Description:
@@ -383,7 +382,8 @@ IF
     Range(LastSeenBy(Myself),6)
     !Range(NearestEnemyOf(Myself),30)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  CheckStat(LastSeenBy(Myself),0,MINORGLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -405,7 +405,8 @@ IF
     Range(LastSeenBy(Myself),6)
     !Range(NearestEnemyOf(Myself),30)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  CheckStat(LastSeenBy(Myself),0,MINORGLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -449,7 +450,8 @@ IF
     Range(LastSeenBy(Myself),6)
     !Range(NearestEnemyOf(Myself),30)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  CheckStat(LastSeenBy(Myself),0,MINORGLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -471,7 +473,8 @@ IF
     Range(LastSeenBy(Myself),6)
     !Range(NearestEnemyOf(Myself),30)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  CheckStat(LastSeenBy(Myself),0,MINORGLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -493,7 +496,8 @@ IF
     Range(LastSeenBy(Myself),6)
     !Range(NearestEnemyOf(Myself),30)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  CheckStat(LastSeenBy(Myself),0,MINORGLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -519,7 +523,8 @@ IF
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !StateCheck(LastSeenBy(Myself),STATE_NOT_APPROACHABLE)
   !StateCheck(LastSeenBy(Myself),STATE_REALLY_DEAD)
-  CheckStat(LastSeenBy(Myself),0,MINORGLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
   !CheckStat(LastSeenBy(Myself),2,WIZARD_SPELL_TRAP)
   !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)

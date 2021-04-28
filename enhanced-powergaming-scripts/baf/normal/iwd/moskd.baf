@@ -4,12 +4,11 @@
 // *
 // * Skald.baf
 // * -----------
-// * AI Script for:             BGEET with Sword Coast Stratagems
+// * AI Script for:             BG2EE & BGEET
 // * Written by:                Mark Evinger (morpheus562)
-// * Version:                   Version 2.0 (16 March 2021)
+// * Version:                   Version 2.4 (28 April 2021)
 // * Comments to:               mark.evinger@hotmail.com
 // * Depends on:                BGEET
-//                              Sword Coast Stratagems
 //
 //
 // * Description:
@@ -160,6 +159,8 @@ IF
   IfValidForPartyDialog(Myself)
   HaveSpell(WIZARD_PROTECTION_FROM_NORMAL_MISSILES)  // SPWI311.SPL (Protection From Normal Missiles)
   !CheckSpellState(Myself,PROTECTION_FROM_NORMAL_MISSILES)
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
@@ -195,7 +196,8 @@ IF
   CheckStat(LastSeenBy(Myself),0,IMPROVEDHASTE)
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !CheckStat(LastSeenBy(Myself),8,WIZARD_SPELL_IMMUNITY)
-  CheckStat(LastSeenBy(Myself),0,MINORGLOBE)
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
@@ -276,6 +278,8 @@ IF
   IfValidForPartyDialog(Myself)
   HaveSpell(WIZARD_MINOR_SPELL_DEFLECTION)  // SPWI318.SPL (Minor Spell Deflection)
   CheckStatLT(Myself,1,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
@@ -314,6 +318,8 @@ IF
   IfValidForPartyDialog(Myself)
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   HaveSpell(WIZARD_MIRROR_IMAGE)  // SPWI212.SPL (Mirror Image)
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
@@ -332,6 +338,7 @@ IF
   HaveSpell(WIZARD_FIRE_SHIELD_RED)  // SPWI418.SPL (Fire Shield (Red))
   !CheckSpellState(Myself,RED_FIRESHIELD)
   !CheckSpellState(Myself,BLUE_FIRESHIELD)
+  !CheckSpellState(Myself,GLOBE)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
@@ -349,6 +356,7 @@ IF
   HaveSpell(WIZARD_FIRE_SHIELD_BLUE)  // SPWI403.SPL (Fire Shield (Blue))
   !CheckSpellState(Myself,RED_FIRESHIELD)
   !CheckSpellState(Myself,BLUE_FIRESHIELD)
+  !CheckSpellState(Myself,GLOBE)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
@@ -414,7 +422,8 @@ IF
   Global("MO_BUFF","LOCALS",1)
   IfValidForPartyDialog(Myself)
   HaveSpell(WIZARD_GLOBE_OF_INVULNERABILITY)  // SPWI602.SPL (Globe of Invulnerability)
-  CheckStatLT(Myself,1,MINORGLOBE)
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
@@ -430,7 +439,8 @@ IF
   Global("MO_BUFF","LOCALS",1)
   IfValidForPartyDialog(Myself)
   HaveSpell(WIZARD_MINOR_GLOBE_OF_INVULNERABILITY)  // SPWI406.SPL (Minor Globe of Invulnerability)
-  CheckStatLT(Myself,1,MINORGLOBE)
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
   !HasImmunityEffects(Myself)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -501,7 +511,8 @@ IF
     Range(LastSeenBy(Myself),6)
     !Range(NearestEnemyOf(Myself),30)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  CheckStat(LastSeenBy(Myself),0,MINORGLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -523,7 +534,8 @@ IF
     Range(LastSeenBy(Myself),6)
     !Range(NearestEnemyOf(Myself),30)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  CheckStat(LastSeenBy(Myself),0,MINORGLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -545,7 +557,8 @@ IF
     Range(LastSeenBy(Myself),6)
     !Range(NearestEnemyOf(Myself),30)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  CheckStat(LastSeenBy(Myself),0,MINORGLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -567,7 +580,8 @@ IF
     Range(LastSeenBy(Myself),6)
     !Range(NearestEnemyOf(Myself),30)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  CheckStat(LastSeenBy(Myself),0,MINORGLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -589,7 +603,8 @@ IF
     Range(LastSeenBy(Myself),6)
     !Range(NearestEnemyOf(Myself),30)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  CheckStat(LastSeenBy(Myself),0,MINORGLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -611,7 +626,8 @@ IF
     Range(LastSeenBy(Myself),6)
     !Range(NearestEnemyOf(Myself),30)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  CheckStat(LastSeenBy(Myself),0,MINORGLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -638,7 +654,8 @@ IF
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !StateCheck(LastSeenBy(Myself),STATE_NOT_APPROACHABLE)
   !StateCheck(LastSeenBy(Myself),STATE_REALLY_DEAD)
-  CheckStat(LastSeenBy(Myself),0,MINORGLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
   !CheckStat(LastSeenBy(Myself),2,WIZARD_SPELL_TRAP)
   !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
@@ -657,7 +674,8 @@ IF
   See(NearestEnemyOf(Myself))
   StateCheck(Myself,STATE_SILENCED)
   HaveSpell(WIZARD_VOCALIZE)  // SPWI219.SPL (Vocalize)
-  CheckStat(Myself,0,MINORGLOBE)
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   Global("MO_CastAthkatla","LOCALS",1)
@@ -675,7 +693,7 @@ IF
   !GlobalTimerNotExpired("MO_BardActionTaken","LOCALS")
   CheckStatLT(Myself,1,STONESKINS)
   HaveSpell(WIZARD_STONE_SKIN)  // SPWI408.SPL (Stoneskin)
-  CheckStat(Myself,0,MINORGLOBE)
+  !CheckSpellState(Myself,GLOBE)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
@@ -880,7 +898,8 @@ IF
   See([GOODCUTOFF])
   StateCheck([GOODCUTOFF],STATE_PANIC)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  CheckStat(LastSeenBy(Myself),0,MINORGLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
   HasItemEquiped("MISC3N",Myself)  // Azlaer's Harp
   Global("MO_CastAthkatla","LOCALS",1)
 THEN
@@ -896,7 +915,8 @@ IF
   See(SecondNearest([GOODCUTOFF]))
   StateCheck(SecondNearest([GOODCUTOFF]),STATE_PANIC)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  CheckStat(LastSeenBy(Myself),0,MINORGLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
   HasItemEquiped("MISC3N",Myself)  // Azlaer's Harp
   Global("MO_CastAthkatla","LOCALS",1)
 THEN
@@ -912,7 +932,8 @@ IF
   See(ThirdNearest([GOODCUTOFF]))
   StateCheck(ThirdNearest([GOODCUTOFF]),STATE_PANIC)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  CheckStat(LastSeenBy(Myself),0,MINORGLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
   HasItemEquiped("MISC3N",Myself)  // Azlaer's Harp
   Global("MO_CastAthkatla","LOCALS",1)
 THEN
@@ -928,7 +949,8 @@ IF
   See(FourthNearest([GOODCUTOFF]))
   StateCheck(FourthNearest([GOODCUTOFF]),STATE_PANIC)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  CheckStat(LastSeenBy(Myself),0,MINORGLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
   HasItemEquiped("MISC3N",Myself)  // Azlaer's Harp
   Global("MO_CastAthkatla","LOCALS",1)
 THEN
@@ -944,7 +966,8 @@ IF
   See(FifthNearest([GOODCUTOFF]))
   StateCheck(FifthNearest([GOODCUTOFF]),STATE_PANIC)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  CheckStat(LastSeenBy(Myself),0,MINORGLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
   HasItemEquiped("MISC3N",Myself)  // Azlaer's Harp
   Global("MO_CastAthkatla","LOCALS",1)
 THEN
@@ -960,7 +983,8 @@ IF
   See(SixthNearest([GOODCUTOFF]))
   StateCheck(SixthNearest([GOODCUTOFF]),STATE_PANIC)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  CheckStat(LastSeenBy(Myself),0,MINORGLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
   HasItemEquiped("MISC3N",Myself)  // Azlaer's Harp
   Global("MO_CastAthkatla","LOCALS",1)
 THEN
@@ -1583,7 +1607,7 @@ END
 
 IF
   IfValidForPartyDialog(Myself)
-  !GlobalTimerNotExpired("MO_BardActionTaken","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
   See([EVILCUTOFF])
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
@@ -1600,7 +1624,8 @@ IF
     CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
     CheckSpellState(LastSeenBy(Myself),ENTROPY_SHIELD)
   CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
-  CheckStatLT(Myself,1,MINORGLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TURNING)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_DEFLECTION)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
@@ -1612,7 +1637,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_BardActionTaken","LOCALS",TWO_ROUNDS)
+    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
     SetInterrupt(TRUE)
@@ -1620,7 +1645,7 @@ END
 
 IF
   IfValidForPartyDialog(Myself)
-  !GlobalTimerNotExpired("MO_BardActionTaken","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
   See(SecondNearest([EVILCUTOFF]))
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
@@ -1637,7 +1662,8 @@ IF
     CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
     CheckSpellState(LastSeenBy(Myself),ENTROPY_SHIELD)
   CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
-  CheckStatLT(Myself,1,MINORGLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TURNING)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_DEFLECTION)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
@@ -1649,7 +1675,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_BardActionTaken","LOCALS",TWO_ROUNDS)
+    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
     SetInterrupt(TRUE)
@@ -1657,7 +1683,7 @@ END
 
 IF
   IfValidForPartyDialog(Myself)
-  !GlobalTimerNotExpired("MO_BardActionTaken","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
   See(ThirdNearest([EVILCUTOFF]))
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
@@ -1674,7 +1700,8 @@ IF
     CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
     CheckSpellState(LastSeenBy(Myself),ENTROPY_SHIELD)
   CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
-  CheckStatLT(Myself,1,MINORGLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TURNING)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_DEFLECTION)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
@@ -1686,7 +1713,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_BardActionTaken","LOCALS",TWO_ROUNDS)
+    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
     SetInterrupt(TRUE)
@@ -1694,7 +1721,7 @@ END
 
 IF
   IfValidForPartyDialog(Myself)
-  !GlobalTimerNotExpired("MO_BardActionTaken","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
   See(FourthNearest([EVILCUTOFF]))
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
@@ -1711,7 +1738,8 @@ IF
     CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
     CheckSpellState(LastSeenBy(Myself),ENTROPY_SHIELD)
   CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
-  CheckStatLT(Myself,1,MINORGLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TURNING)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_DEFLECTION)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
@@ -1723,7 +1751,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_BardActionTaken","LOCALS",TWO_ROUNDS)
+    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
     SetInterrupt(TRUE)
@@ -1731,7 +1759,7 @@ END
 
 IF
   IfValidForPartyDialog(Myself)
-  !GlobalTimerNotExpired("MO_BardActionTaken","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
   See(FifthNearest([EVILCUTOFF]))
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
@@ -1748,7 +1776,8 @@ IF
     CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
     CheckSpellState(LastSeenBy(Myself),ENTROPY_SHIELD)
   CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
-  CheckStatLT(Myself,1,MINORGLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TURNING)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_DEFLECTION)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
@@ -1760,7 +1789,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_BardActionTaken","LOCALS",TWO_ROUNDS)
+    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
     SetInterrupt(TRUE)
@@ -1768,7 +1797,7 @@ END
 
 IF
   IfValidForPartyDialog(Myself)
-  !GlobalTimerNotExpired("MO_BardActionTaken","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
   See(SixthNearest([EVILCUTOFF]))
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
@@ -1785,7 +1814,8 @@ IF
     CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
     CheckSpellState(LastSeenBy(Myself),ENTROPY_SHIELD)
   CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
-  CheckStatLT(Myself,1,MINORGLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TURNING)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_DEFLECTION)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
@@ -1797,7 +1827,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_BardActionTaken","LOCALS",TWO_ROUNDS)
+    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
     SetInterrupt(TRUE)
@@ -1805,7 +1835,7 @@ END
 
 IF
   IfValidForPartyDialog(Myself)
-  !GlobalTimerNotExpired("MO_BardActionTaken","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
   See([EVILCUTOFF])
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
@@ -1824,7 +1854,7 @@ IF
     CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
     CheckSpellState(LastSeenBy(Myself),ENTROPY_SHIELD)
   CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
-  CheckStatLT(Myself,1,MINORGLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
@@ -1834,7 +1864,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_BardActionTaken","LOCALS",TWO_ROUNDS)
+    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
     SetInterrupt(TRUE)
@@ -1842,7 +1872,7 @@ END
 
 IF
   IfValidForPartyDialog(Myself)
-  !GlobalTimerNotExpired("MO_BardActionTaken","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
   See(SecondNearest([EVILCUTOFF]))
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
@@ -1861,7 +1891,7 @@ IF
     CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
     CheckSpellState(LastSeenBy(Myself),ENTROPY_SHIELD)
   CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
-  CheckStatLT(Myself,1,MINORGLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
@@ -1871,7 +1901,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_BardActionTaken","LOCALS",TWO_ROUNDS)
+    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
     SetInterrupt(TRUE)
@@ -1879,7 +1909,7 @@ END
 
 IF
   IfValidForPartyDialog(Myself)
-  !GlobalTimerNotExpired("MO_BardActionTaken","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
   See(ThirdNearest([EVILCUTOFF]))
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
@@ -1898,7 +1928,7 @@ IF
     CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
     CheckSpellState(LastSeenBy(Myself),ENTROPY_SHIELD)
   CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
-  CheckStatLT(Myself,1,MINORGLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
@@ -1908,7 +1938,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_BardActionTaken","LOCALS",TWO_ROUNDS)
+    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
     SetInterrupt(TRUE)
@@ -1916,7 +1946,7 @@ END
 
 IF
   IfValidForPartyDialog(Myself)
-  !GlobalTimerNotExpired("MO_BardActionTaken","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
   See(FourthNearest([EVILCUTOFF]))
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
@@ -1935,7 +1965,7 @@ IF
     CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
     CheckSpellState(LastSeenBy(Myself),ENTROPY_SHIELD)
   CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
-  CheckStatLT(Myself,1,MINORGLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
@@ -1945,7 +1975,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_BardActionTaken","LOCALS",TWO_ROUNDS)
+    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
     SetInterrupt(TRUE)
@@ -1953,7 +1983,7 @@ END
 
 IF
   IfValidForPartyDialog(Myself)
-  !GlobalTimerNotExpired("MO_BardActionTaken","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
   See(FifthNearest([EVILCUTOFF]))
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
@@ -1972,7 +2002,7 @@ IF
     CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
     CheckSpellState(LastSeenBy(Myself),ENTROPY_SHIELD)
   CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
-  CheckStatLT(Myself,1,MINORGLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
@@ -1982,7 +2012,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_BardActionTaken","LOCALS",TWO_ROUNDS)
+    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
     SetInterrupt(TRUE)
@@ -1990,7 +2020,7 @@ END
 
 IF
   IfValidForPartyDialog(Myself)
-  !GlobalTimerNotExpired("MO_BardActionTaken","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
   See(SixthNearest([EVILCUTOFF]))
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
@@ -2009,7 +2039,7 @@ IF
     CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
     CheckSpellState(LastSeenBy(Myself),ENTROPY_SHIELD)
   CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
-  CheckStatLT(Myself,1,MINORGLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
@@ -2019,7 +2049,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_BardActionTaken","LOCALS",TWO_ROUNDS)
+    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
     SetInterrupt(TRUE)
@@ -3002,6 +3032,8 @@ IF
     See([ENEMY.0.0.MAGE_ALL])
   HaveSpell(WIZARD_MINOR_SPELL_DEFLECTION)  // SPWI318.SPL (Minor Spell Deflection)
   CheckStatLT(Myself,1,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
   !HasImmunityEffects(Myself)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -3040,7 +3072,8 @@ IF
     See([ENEMY.0.0.CLERIC_MAGE])
     See([ENEMY.0.0.MAGE_ALL])
   HaveSpell(WIZARD_GLOBE_OF_INVULNERABILITY)  // SPWI602.SPL (Globe of Invulnerability)
-  CheckStatLT(Myself,1,MINORGLOBE)
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
@@ -3078,7 +3111,8 @@ IF
     See([ENEMY.0.0.CLERIC_MAGE])
     See([ENEMY.0.0.MAGE_ALL])
   HaveSpell(WIZARD_MINOR_GLOBE_OF_INVULNERABILITY)  // SPWI406.SPL (Minor Globe of Invulnerability)
-  CheckStatLT(Myself,1,MINORGLOBE)
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
@@ -3121,7 +3155,7 @@ IF
     See([ENEMY.0.0.DRUID_ALL])
   !CheckSpellState(Myself,RED_FIRESHIELD)
   !CheckSpellState(Myself,BLUE_FIRESHIELD)
-  CheckStat(Myself,0,MINORGLOBE)
+  !CheckSpellState(Myself,GLOBE)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
@@ -3164,7 +3198,7 @@ IF
     See([ENEMY.0.0.DRUID_ALL])
   !CheckSpellState(Myself,RED_FIRESHIELD)
   !CheckSpellState(Myself,BLUE_FIRESHIELD)
-  CheckStat(Myself,0,MINORGLOBE)
+  !CheckSpellState(Myself,GLOBE)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
@@ -3197,7 +3231,8 @@ IF
     IsWeaponRanged(NinthNearestEnemyOf(Myself))
     IsWeaponRanged(TenthNearestEnemyOf(Myself))
   !CheckSpellState(Myself,PROTECTION_FROM_NORMAL_MISSILES)
-  CheckStat(Myself,0,MINORGLOBE)
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
@@ -3219,7 +3254,8 @@ IF
   HaveSpell(WIZARD_MIRROR_IMAGE)  // SPWI212.SPL (Mirror Image)
   See(NearestEnemyOf(Myself))
   NumCreatureGT([EVILCUTOFF],3)
-  CheckStat(Myself,0,MINORGLOBE)
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
