@@ -1,0 +1,15 @@
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+// Enhanced Scripts for Summoned Celestials                              //
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+
+ACTION_IF (MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
+	COPY ~enhanced-powergaming-scripts/bcs/SR/DEVAEVIL.BCS~   ~override~
+	COPY ~enhanced-powergaming-scripts/bcs/SR/DEVAGOOD.BCS~   ~override~
+	COPY ~enhanced-powergaming-scripts/bcs/SR/PLANGOOD.BCS~   ~override~
+END ELSE BEGIN
+	COPY ~enhanced-powergaming-scripts/bcs/DEVAEVIL.BCS~      ~override~
+	COPY ~enhanced-powergaming-scripts/bcs/DEVAGOOD.BCS~      ~override~
+	COPY ~enhanced-powergaming-scripts/bcs/PLANGOOD.BCS~      ~override~
+END
