@@ -112,6 +112,10 @@ This is a script specifically designed for the Skald Kit. This script will cast 
 
 This script works with any pure mage type character. This is great for low-level spellcasters or a spellcaster that you are dualling into. This script will cast pre-buff spells when the "D" key is pressed. In addition to pre-buffing, the script will intelligently use abilities both in and out of combat. Please note: this script will not cast offensive spells at the enemy. Only defensive/protective spells are used. The script will keep constant uptime of Melf's Minute Meteors.
 
+### Install Enhanced Scripts for Summoned Celestials (BETA)
+
+This provides enhanced ai scripts for summoned celestials such as Planetar, Fallen Planetar, Deva, and Fallen Deva. Overall, the scripts allows the player to be more hands off with summoned celestials, and they will act intelligently in targeting enemy players. Hostile summoned celestials will also act more intelligently when attacking your party if you find yourselves facing off in battle. Like the other scripts listed above, this script will cast pre-buff spells when the "D" key is pressed. Spell Revisions also rewrote their spellbooks, and the scripts will accomodate these changes. I am still refining these scripts through playtesting, so keeping it in more of a BETA state, but they are fully playable.
+
 ### Restore Vanilla Belm and Kundane
 
 Requires Item Revisions - Offers the vanilla, non-IR(R) versions of Belm and Kundane which include the full 1 APR increase for both items.
