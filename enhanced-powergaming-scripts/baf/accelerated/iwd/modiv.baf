@@ -1199,6 +1199,23 @@ END
 IF
   Global("MO_BUFF","LOCALS",1)
   IfValidForPartyDialog(Myself)
+  HaveSpell(WIZARD_BLACK_BLADE_OF_DISASTER)  // SPWI915.SPL (Black Blade of Disaster)
+  !HasItemEquiped("BLAKBLAD",Myself)  // Black Blade of Disaster
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,WIZARD_BLACK_BLADE_OF_DISASTER)  // SPWI915.SPL (Black Blade of Disaster)
+    RemoveSpell(WIZARD_BLACK_BLADE_OF_DISASTER)  // SPWI915.SPL (Black Blade of Disaster)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  IfValidForPartyDialog(Myself)
   HaveSpell(CLERIC_GLOBE_OF_BLADES)  // SPPR725.SPL (Globe of Blades)
   CheckStat(Myself,0,WIZARD_FIRE_SHIELD)
   CheckStatLT(Myself,1,CLERIC_BLADE_BARRIER)
@@ -7420,6 +7437,54 @@ THEN
     SetInterrupt(FALSE)
     Spell(Myself,CLERIC_PROTECTION_FROM_FIRE)  // SPPR306.SPL (Protection From Fire)
     SetInterrupt(TRUE)
+END
+
+IF
+  ActionListEmpty()
+  IfValidForPartyDialog(Myself)
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  HaveSpell(WIZARD_BLACK_BLADE_OF_DISASTER)  // SPCL321.SPL (Enrage)
+  !HasItemEquiped("BLAKBLAD",Myself)
+  See([EVILCUTOFF])
+  OR(34)
+    NumCreatureGT([EVILCUTOFF],3)
+    Range([EVILCUTOFF.0.GOLEM],30)
+    Range([EVILCUTOFF.0.MIST],30)
+    Range([EVILCUTOFF.0.KUO-TOA],30)
+    Range([EVILCUTOFF.0.GENIE],30)
+    Range([EVILCUTOFF.0.GITHYANKI],30)
+    Range([EVILCUTOFF.0.RAKSHASA],30)
+    Range([EVILCUTOFF.0.VAMPYRE],30)
+    Range([EVILCUTOFF.0.MIND_FLAYER],30)
+    Range([EVILCUTOFF.0.DRAGON],30)
+    Range([EVILCUTOFF.0.DEMONIC],30)
+    Range([EVILCUTOFF.0.BEHOLDER],30)
+    Range([EVILCUTOFF.0.UMBERHULK],30)
+    Range([EVILCUTOFF.0.MYCONID],30)
+    Range([EVILCUTOFF.0.VAMPIRE],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.DEMILICH],30)
+    Range([EVILCUTOFF.0.FAIRY],30)
+    Range([EVILCUTOFF.0.0.WRAITH],30)
+    Range([EVILCUTOFF.0.0.WIGHT],30)
+    Range([EVILCUTOFF.0.0.SPECTRE],30)
+    Range([EVILCUTOFF.0.0.WYVERN],30)
+    Range([EVILCUTOFF.0.0.BASILISK],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.SOLAR],30)
+    Range([EVILCUTOFF.0.PLANATAR],30)
+    Range([EVILCUTOFF.0.ANTISOLAR],30)
+    Range([EVILCUTOFF.0.DARKPLANATAR],30)
+    See([ENEMY.0.0.MAGE_ALL])
+    See([ENEMY.0.0.BARD_ALL])
+    See([ENEMY.0.0.CLERIC_ALL])
+    See([ENEMY.0.0.DRUID_ALL])
+    See([ENEMY.0.0.SORCERER])
+    See([ENEMY.0.0.CLERIC_MAGE])
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    Spell(Myself,WIZARD_BLACK_BLADE_OF_DISASTER)  // SPCL321.SPL (Enrage)
 END
 
 IF
