@@ -2,13 +2,23 @@
 
 ## Version 2.4
 
+April 29, 2021
+
+## Changed
+
 - Updated spell tracking for both Minor Globe of Invulnerability and Globe of Invulnerability so they are now tracked separately. This allows for better spell determination on what can be cast on or against a player.
 - Added Black Blade of Disaster for pre-buffing and in-combat casting for non-SR versions of the scripts.
 - Added BETA for enhanced ai scripts for summoned celestials.
 
 ## Version 2.3
 
-- Other minor changes before actual release for G3
+April 7, 2021
+
+### Changed
+
+- Combined Cleric/Ranger and FMC into a single script called Divine.
+- Changed Inquisitor script to Paladin script and added compatibility for all Paladin kits.
+- Removed Initialize Base Components Component and wrapped it into the main component for simpler install.
 
 ## Version 2.2
 
