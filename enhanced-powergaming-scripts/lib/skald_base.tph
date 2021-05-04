@@ -1,0 +1,130 @@
+COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/moskd.baf~
+
+///////////////////////////////////////////////////////////////////////////
+// Adjust Wait Time Between Spellcasts to Two Rounds                     //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)~~~~~
+    string = ~~~~~SetGlobalTimer("MO_SpellCast","LOCALS",TWO_ROUNDS)~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Have Skald Sing Song Instead of Attacking                             //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    num = 1
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~IF
+  ActionListEmpty()
+  Global("MO_TURNUNDEAD","LOCALS",1)
+  !CheckStat(Myself,1,SANCTUARY)
+  Class(Myself,CLERIC_ALL)
+  !ModalState(TURNUNDEAD)
+THEN
+  RESPONSE #100
+    Turn()
+END
+
+IF
+  ActionListEmpty()
+  Global("MO_TURNUNDEAD","LOCALS",0)
+  !CheckStat(Myself,1,SANCTUARY)
+  See(NearestEnemyOf(Myself))
+  WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
+  WeaponCanDamage(NearestEnemyOf(Myself),MAINHAND)
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  ActionListEmpty()
+  Global("MO_TURNUNDEAD","LOCALS",0)
+  !CheckStat(Myself,1,SANCTUARY)
+  See(SecondNearestEnemyOf(Myself))
+  WeaponEffectiveVs(SecondNearestEnemyOf(Myself),MAINHAND)
+  WeaponCanDamage(SecondNearestEnemyOf(Myself),MAINHAND)
+THEN
+  RESPONSE #100
+    Attack(SecondNearestEnemyOf(Myself))
+END
+
+IF
+  ActionListEmpty()
+  Global("MO_TURNUNDEAD","LOCALS",0)
+  !CheckStat(Myself,1,SANCTUARY)
+  See(ThirdNearestEnemyOf(Myself))
+  WeaponEffectiveVs(ThirdNearestEnemyOf(Myself),MAINHAND)
+  WeaponCanDamage(ThirdNearestEnemyOf(Myself),MAINHAND)
+THEN
+  RESPONSE #100
+    Attack(ThirdNearestEnemyOf(Myself))
+END
+
+IF
+  ActionListEmpty()
+  Global("MO_TURNUNDEAD","LOCALS",0)
+  !CheckStat(Myself,1,SANCTUARY)
+  See(FourthNearestEnemyOf(Myself))
+  WeaponEffectiveVs(FourthNearestEnemyOf(Myself),MAINHAND)
+  WeaponCanDamage(FourthNearestEnemyOf(Myself),MAINHAND)
+THEN
+  RESPONSE #100
+    Attack(FourthNearestEnemyOf(Myself))
+END
+
+IF
+  ActionListEmpty()
+  Global("MO_TURNUNDEAD","LOCALS",0)
+  !CheckStat(Myself,1,SANCTUARY)
+  See(FifthNearestEnemyOf(Myself))
+  WeaponEffectiveVs(FifthNearestEnemyOf(Myself),MAINHAND)
+  WeaponCanDamage(FifthNearestEnemyOf(Myself),MAINHAND)
+THEN
+  RESPONSE #100
+    Attack(FifthNearestEnemyOf(Myself))
+END
+
+IF
+  ActionListEmpty()
+  Global("MO_TURNUNDEAD","LOCALS",0)
+  !CheckStat(Myself,1,SANCTUARY)
+  See(SixthNearestEnemyOf(Myself))
+  WeaponEffectiveVs(SixthNearestEnemyOf(Myself),MAINHAND)
+  WeaponCanDamage(SixthNearestEnemyOf(Myself),MAINHAND)
+THEN
+  RESPONSE #100
+    Attack(SixthNearestEnemyOf(Myself))
+END
+
+IF
+  ActionListEmpty()
+  IfValidForPartyDialog(Myself)
+  !See([EVILCUTOFF])
+  !ModalState(DETECTTRAPS)
+  !ModalState(STEALTH)
+  OR(3)
+    Class(Myself,THIEF_ALL)
+    Class(Myself,MONK)
+    Class(Myself,SHAMAN)
+THEN
+  RESPONSE #100
+    FindTraps()
+END
+
+~~~~~ //"
+    string = ~~~~~IF
+  Class(Myself,BARD_ALL)
+  !ModalState(BATTLESONG)
+THEN
+  RESPONSE #100
+    BattleSong()
+END~~~~~ //"
+  END
