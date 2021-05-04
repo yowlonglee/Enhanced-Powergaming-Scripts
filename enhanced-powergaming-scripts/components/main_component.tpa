@@ -8,13 +8,13 @@ ACTION_IF !(MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
 ///////////////////////////////////////////////////////////////////////////
 // Base Game                                                             //
 ///////////////////////////////////////////////////////////////////////////
-	COPY ~enhanced-powergaming-scripts/baf/normal/moarch.baf~  ~enhanced-powergaming-scripts/baf/upload/moarch.baf~
+	COPY ~enhanced-powergaming-scripts/baf/normal/morang.baf~  ~enhanced-powergaming-scripts/baf/upload/morang.baf~
 	COPY ~enhanced-powergaming-scripts/baf/normal/mobasic.baf~ ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
 	COPY ~enhanced-powergaming-scripts/baf/normal/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
 	COPY ~enhanced-powergaming-scripts/baf/normal/mopal.baf~   ~enhanced-powergaming-scripts/baf/upload/mopal.baf~
 	COPY ~enhanced-powergaming-scripts/baf/normal/momonk.baf~  ~enhanced-powergaming-scripts/baf/upload/momonk.baf~
 
-	INCLUDE ~enhanced-powergaming-scripts/lib/archer_base.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/ranger_base.tph~
 	INCLUDE ~enhanced-powergaming-scripts/lib/basic_base.tph~
 	INCLUDE ~enhanced-powergaming-scripts/lib/core_base.tph~
 	INCLUDE ~enhanced-powergaming-scripts/lib/monk_base.tph~
@@ -40,7 +40,7 @@ ACTION_IF !(MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
 // IWD Spells                                                            //
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1500~ && MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1510~) || (MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 30 && MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 40) BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/archer_iwd.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/ranger_iwd.tph~
 		INCLUDE ~enhanced-powergaming-scripts/lib/basic_iwd.tph~
 		INCLUDE ~enhanced-powergaming-scripts/lib/core_iwd.tph~
 		INCLUDE ~enhanced-powergaming-scripts/lib/paladin_iwd.tph~
@@ -63,7 +63,7 @@ END
 ///////////////////////////////////////////////////////////////////////////
 
 ACTION_IF (MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
-	COPY ~enhanced-powergaming-scripts/baf/normal/SR/moarch.baf~   ~scripts/moarch.bs~
+	COPY ~enhanced-powergaming-scripts/baf/normal/SR/morang.baf~   ~scripts/morang.bs~
 		 ~enhanced-powergaming-scripts/baf/normal/SR/mobasic.baf~  ~scripts/mobasic.bs~
 		 ~enhanced-powergaming-scripts/baf/normal/SR/mocore.baf~   ~scripts/mocore.bs~
 	     ~enhanced-powergaming-scripts/baf/normal/SR/mopal.baf~    ~scripts/mopal.bs~
@@ -71,7 +71,7 @@ ACTION_IF (MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
 	     ~enhanced-powergaming-scripts/baf/normal/SR/moskd.baf~    ~scripts/moskd.bs~
 	  COMPILE_BAF_TO_BCS
 END ELSE BEGIN
-	COPY ~enhanced-powergaming-scripts/baf/upload/moarch.baf~   ~scripts/moarch.bs~
+	COPY ~enhanced-powergaming-scripts/baf/upload/morang.baf~   ~scripts/morang.bs~
 		 ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~  ~scripts/mobasic.bs~
 		 ~enhanced-powergaming-scripts/baf/upload/mocore.baf~   ~scripts/mocore.bs~
 		 ~enhanced-powergaming-scripts/baf/upload/momonk.baf~   ~scripts/momonk.bs~
@@ -85,7 +85,7 @@ END
 ///////////////////////////////////////////////////////////////////////////
 
 APPEND ~scrpdesc.2DA~
-~moarch		999990		 999989
+~morang		999990		 999989
 mobasic		999988		 999987
 mocore      999986       999985
 momonk		999984		 999983
