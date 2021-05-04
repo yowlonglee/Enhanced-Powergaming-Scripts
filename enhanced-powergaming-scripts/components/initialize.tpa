@@ -225,30 +225,6 @@ ACTION_IF (MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
 	END
 
 ///////////////////////////////////////////////////////////////////////////
-// Create Spell State for Greater Whirlwind                              //
-///////////////////////////////////////////////////////////////////////////
-
-	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~GREATER_WHIRLWIND~)) BEGIN
-	  COPY_EXISTING ~splstate.ids~ ~override~
-		COUNT_2DA_COLS cols
-		READ_2DA_ENTRIES_NOW rows cols
-		FOR (row = 1; row < rows; ++row) BEGIN
-		  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
-		  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
-		  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~GREATER_WHIRLWIND~) BEGIN
-			SET gtr_whirl = %state_ind%
-		  END
-		END
-	  BUT_ONLY
-	END
-
-	ACTION_IF !(VARIABLE_IS_SET %gtr_whirl%) BEGIN
-		LAF ds_sort_ids STR_VAR ids=splstate END
-		LAF d5_resolve_state STR_VAR new_state_id = ~GREATER_WHIRLWIND~ RET new_state_ind END
-		OUTER_SET gtr_whirl = %new_state_ind%
-	END
-
-///////////////////////////////////////////////////////////////////////////
 // Create Spell State for Mind Blank                                     //
 ///////////////////////////////////////////////////////////////////////////
 
@@ -406,13 +382,6 @@ ACTION_IF (MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
 		COPY_EXISTING ~DWSW519.SPL~ ~override~ 
 		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = 108 timing = 0 duration = 300 END
 	END
-
-///////////////////////////////////////////////////////////////////////////
-// Add Spell State to Greater Whirlwind                                  //
-///////////////////////////////////////////////////////////////////////////
-
-	COPY_EXISTING ~SPCL901.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %gtr_whirl% timing = 0 duration = 6 END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Bless                                              //
@@ -608,6 +577,78 @@ END
 	END
 
 ///////////////////////////////////////////////////////////////////////////
+// Create Spell State for Greater Whirlwind                              //
+///////////////////////////////////////////////////////////////////////////
+
+	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~GREATER_WHIRLWIND~)) BEGIN
+	  COPY_EXISTING ~splstate.ids~ ~override~
+		COUNT_2DA_COLS cols
+		READ_2DA_ENTRIES_NOW rows cols
+		FOR (row = 1; row < rows; ++row) BEGIN
+		  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
+		  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
+		  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~GREATER_WHIRLWIND~) BEGIN
+			SET gtr_whirl = %state_ind%
+		  END
+		END
+	  BUT_ONLY
+	END
+
+	ACTION_IF !(VARIABLE_IS_SET %gtr_whirl%) BEGIN
+		LAF ds_sort_ids STR_VAR ids=splstate END
+		LAF d5_resolve_state STR_VAR new_state_id = ~GREATER_WHIRLWIND~ RET new_state_ind END
+		OUTER_SET gtr_whirl = %new_state_ind%
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// Create Spell State for Negative Plane Protection                      //
+///////////////////////////////////////////////////////////////////////////
+
+	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~LEVEL_DRAIN_IMMUNITY~)) BEGIN
+	  COPY_EXISTING ~splstate.ids~ ~override~
+		COUNT_2DA_COLS cols
+		READ_2DA_ENTRIES_NOW rows cols
+		FOR (row = 1; row < rows; ++row) BEGIN
+		  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
+		  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
+		  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~LEVEL_DRAIN_IMMUNITY~) BEGIN
+			SET lvl_drn_immun = %state_ind%
+		  END
+		END
+	  BUT_ONLY
+	END
+
+	ACTION_IF !(VARIABLE_IS_SET %lvl_drn_immun%) BEGIN
+		LAF ds_sort_ids STR_VAR ids=splstate END
+		LAF d5_resolve_state STR_VAR new_state_id = ~LEVEL_DRAIN_IMMUNITY~ RET new_state_ind END
+		OUTER_SET lvl_drn_immun = %new_state_ind%
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// Create Spell State for Righteous Magic                                //
+///////////////////////////////////////////////////////////////////////////
+
+	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~RIGHTEOUS_MAGIC~)) BEGIN
+	  COPY_EXISTING ~splstate.ids~ ~override~
+		COUNT_2DA_COLS cols
+		READ_2DA_ENTRIES_NOW rows cols
+		FOR (row = 1; row < rows; ++row) BEGIN
+		  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
+		  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
+		  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~RIGHTEOUS_MAGIC~) BEGIN
+			SET rght_mgc = %state_ind%
+		  END
+		END
+	  BUT_ONLY
+	END
+
+	ACTION_IF !(VARIABLE_IS_SET %rght_mgc%) BEGIN
+		LAF ds_sort_ids STR_VAR ids=splstate END
+		LAF d5_resolve_state STR_VAR new_state_id = ~RIGHTEOUS_MAGIC~ RET new_state_ind END
+		OUTER_SET rght_mgc = %new_state_ind%
+	END
+
+///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 // Assign Spell States or Stats to Spells                                //
 // Block of code provided by subtledoctor                                //
@@ -637,5 +678,27 @@ END
 		COPY_EXISTING ~DWSW602.SPL~ ~override~ 
 		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %glb% timing = 0 duration = 102 END
 	END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Spell State to Greater Whirlwind                                  //
+///////////////////////////////////////////////////////////////////////////
+
+	COPY_EXISTING ~SPCL901.SPL~ ~override~ 
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %gtr_whirl% timing = 0 duration = 6 END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Spell State to Negative Plane Protection                          //
+///////////////////////////////////////////////////////////////////////////
+
+	COPY_EXISTING ~SPPR413.SPL~ ~override~ 
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %lvl_drn_immun% timing = 0 duration = 30 END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Spell State to Righteous Magic                                    //
+///////////////////////////////////////////////////////////////////////////
+
+	COPY_EXISTING ~SPPR513.SPL~ ~override~ 
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %rght_mgc% timing = 0 duration = 54 END
+
 
 CLEAR_IDS_MAP

@@ -1,5 +1,59 @@
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
+// Add Mod Components to Scripts                                         //
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF !(MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
+
+///////////////////////////////////////////////////////////////////////////
+// Base Game                                                             //
+///////////////////////////////////////////////////////////////////////////
+	COPY ~enhanced-powergaming-scripts/baf/Accelerated/moarch.baf~  ~enhanced-powergaming-scripts/baf/upload/moarch.baf~
+	COPY ~enhanced-powergaming-scripts/baf/Accelerated/mobasic.baf~ ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
+	COPY ~enhanced-powergaming-scripts/baf/Accelerated/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+	COPY ~enhanced-powergaming-scripts/baf/Accelerated/mopal.baf~   ~enhanced-powergaming-scripts/baf/upload/mopal.baf~
+	COPY ~enhanced-powergaming-scripts/baf/Accelerated/momonk.baf~  ~enhanced-powergaming-scripts/baf/upload/momonk.baf~
+
+	INCLUDE ~enhanced-powergaming-scripts/lib/archer_base.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/basic_base.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/core_base.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/monk_base.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/paladin_base.tph~
+
+///////////////////////////////////////////////////////////////////////////
+// Song & Silence                                                        //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF (MOD_IS_INSTALLED ~setup-song_and_silence.tp2~ ~8~) BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/basic_ss_a.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/core_ss_a.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// Tome & Blood                                                          //
+///////////////////////////////////////////////////////////////////////////
+	// Invisibility Changes
+	ACTION_IF (MOD_IS_INSTALLED ~setup-TomeAndBlood.tp2~ ~14~) BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/core_tb_inv.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// IWD Spells                                                            //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1500~ && MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1510~) || (MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 30 && MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 40) BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/archer_iwd_a.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/basic_iwd_a.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/core_iwd_a.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/paladin_iwd_a.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// Make Skald Script after Core                                          //
+///////////////////////////////////////////////////////////////////////////
+INCLUDE ~enhanced-powergaming-scripts/lib/skald_base.tph~
+END
+
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
 // Import AI Scripts into the Game                                       //
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
@@ -10,50 +64,33 @@
 
 ACTION_IF (MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
 	COPY ~enhanced-powergaming-scripts/baf/Accelerated/SR/moarch.baf~   ~scripts/moarch.bs~
-	     ~enhanced-powergaming-scripts/baf/Accelerated/SR/modiv.baf~    ~scripts/modiv.bs~
-	     ~enhanced-powergaming-scripts/baf/Accelerated/SR/mofm.baf~     ~scripts/mofm.bs~
+		 ~enhanced-powergaming-scripts/baf/Accelerated/SR/mobasic.baf~  ~scripts/mobasic.bs~
+		 ~enhanced-powergaming-scripts/baf/Accelerated/SR/mocore.baf~   ~scripts/mocore.bs~
 	     ~enhanced-powergaming-scripts/baf/Accelerated/SR/mopal.baf~    ~scripts/mopal.bs~
 	     ~enhanced-powergaming-scripts/baf/Accelerated/SR/momonk.baf~   ~scripts/momonk.bs~
 	     ~enhanced-powergaming-scripts/baf/Accelerated/SR/moskd.baf~    ~scripts/moskd.bs~
-	     ~enhanced-powergaming-scripts/baf/Accelerated/SR/mosorc.baf~   ~scripts/mosorc.bs~
-	     ~enhanced-powergaming-scripts/baf/Accelerated/SR/mobasic.baf~  ~scripts/mobasic.bs~
+	  COMPILE_BAF_TO_BCS
+END ELSE BEGIN
+	COPY ~enhanced-powergaming-scripts/baf/upload/moarch.baf~   ~scripts/moarch.bs~
+		 ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~  ~scripts/mobasic.bs~
+		 ~enhanced-powergaming-scripts/baf/upload/mocore.baf~   ~scripts/mocore.bs~
+		 ~enhanced-powergaming-scripts/baf/upload/momonk.baf~   ~scripts/momonk.bs~
+		 ~enhanced-powergaming-scripts/baf/upload/mopal.baf~    ~scripts/mopal.bs~
+		 ~enhanced-powergaming-scripts/baf/upload/moskd.baf~    ~scripts/moskd.bs~
 	  COMPILE_BAF_TO_BCS
 END
-ELSE ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1500~ && MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1510~) || (MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 30 && MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 40) BEGIN
-	COPY ~enhanced-powergaming-scripts/baf/Accelerated/IWD/moarch.baf~   ~scripts/moarch.bs~
-	     ~enhanced-powergaming-scripts/baf/Accelerated/IWD/modiv.baf~    ~scripts/modiv.bs~
-	     ~enhanced-powergaming-scripts/baf/Accelerated/IWD/mofm.baf~     ~scripts/mofm.bs~
-	     ~enhanced-powergaming-scripts/baf/Accelerated/IWD/mopal.baf~    ~scripts/mopal.bs~
-	     ~enhanced-powergaming-scripts/baf/Accelerated/IWD/momonk.baf~   ~scripts/momonk.bs~
-	     ~enhanced-powergaming-scripts/baf/Accelerated/IWD/moskd.baf~    ~scripts/moskd.bs~
-	     ~enhanced-powergaming-scripts/baf/Accelerated/IWD/mosorc.baf~   ~scripts/mosorc.bs~
-	     ~enhanced-powergaming-scripts/baf/Accelerated/IWD/mobasic.baf~  ~scripts/mobasic.bs~
-	  COMPILE_BAF_TO_BCS
-END
-ELSE BEGIN
-	COPY ~enhanced-powergaming-scripts/baf/Accelerated/moarch.baf~   ~scripts/moarch.bs~
-	     ~enhanced-powergaming-scripts/baf/Accelerated/modiv.baf~    ~scripts/modiv.bs~
-	     ~enhanced-powergaming-scripts/baf/Accelerated/mofm.baf~     ~scripts/mofm.bs~
-	     ~enhanced-powergaming-scripts/baf/Accelerated/mopal.baf~    ~scripts/mopal.bs~
-	     ~enhanced-powergaming-scripts/baf/Accelerated/momonk.baf~   ~scripts/momonk.bs~
-	     ~enhanced-powergaming-scripts/baf/Accelerated/moskd.baf~    ~scripts/moskd.bs~
-	     ~enhanced-powergaming-scripts/baf/Accelerated/mosorc.baf~   ~scripts/mosorc.bs~
-	     ~enhanced-powergaming-scripts/baf/Accelerated/mobasic.baf~  ~scripts/mobasic.bs~
-	  COMPILE_BAF_TO_BCS
-END
+
 ///////////////////////////////////////////////////////////////////////////
 // Add descriptions of the scripts to scrpdesc.2da                       //
 ///////////////////////////////////////////////////////////////////////////
 
 APPEND ~scrpdesc.2DA~
-~moarch      999990       999989
-modiv        999988       999987
-mofm         999986       999985
-mopal        999984       999983
-momonk       999982       999981
-moskd        999980       999979
-mosorc       999978       999977
-mobasic		 999976		  999975~
+~moarch		999990		 999989
+mobasic		999988		 999987
+mocore      999986       999985
+momonk		999984		 999983
+mopal		999982		 999981
+moskd		999980		 999979~
 
 ///////////////////////////////////////////////////////////////////////////
 // Copy the appended scrpdesc.2da to the override folder                 //
@@ -62,17 +99,13 @@ mobasic		 999976		  999975~
 COPY_EXISTING ~scrpdesc.2da~ ~override~
 REPLACE ~999990~ @1010
 REPLACE ~999989~ @1011
-REPLACE ~999988~ @1030
-REPLACE ~999987~ @1031
-REPLACE ~999986~ @1040
-REPLACE ~999985~ @1041
-REPLACE ~999984~ @1050
-REPLACE ~999983~ @1051
-REPLACE ~999982~ @1060
-REPLACE ~999981~ @1061
+REPLACE ~999988~ @1090
+REPLACE ~999987~ @1091
+REPLACE ~999986~ @1100
+REPLACE ~999985~ @1101
+REPLACE ~999984~ @1060
+REPLACE ~999983~ @1061
+REPLACE ~999982~ @1050
+REPLACE ~999981~ @1051
 REPLACE ~999980~ @1070
 REPLACE ~999979~ @1071
-REPLACE ~999978~ @1080
-REPLACE ~999977~ @1081
-REPLACE ~999976~ @1090
-REPLACE ~999975~ @1091

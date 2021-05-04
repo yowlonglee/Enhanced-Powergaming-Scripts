@@ -6,9 +6,9 @@
 // * -----------
 // * AI Script for:             BG2EE & BGEET
 // * Written by:                Mark Evinger (morpheus562)
-// * Version:                   Version 2.4 (27 April 2021)
+// * Version:                   Version 3.0 (1 May 2021)
 // * Comments to:               mark.evinger@hotmail.com
-// * Depends on:                BGEET
+// * Depends on:                BG2EE
 //
 //
 // * Description:
@@ -226,8 +226,6 @@ IF
   Global("MO_BUFF","LOCALS",1)
   IfValidForPartyDialog(Myself)
   HaveSpell(CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
-  !CheckSpellState(Myself,MINOR_GLOBE)
-  !CheckSpellState(Myself,GLOBE)
   OR(6)
     !CheckSpellState(Myself,RESIST_FEAR)
     !CheckSpellState(NearestAllyOf(Myself),RESIST_FEAR)
@@ -235,6 +233,8 @@ IF
     !CheckSpellState(ThirdNearestAllyOf(Myself),RESIST_FEAR)
     !CheckSpellState(FourthNearestAllyOf(Myself),RESIST_FEAR)
     !CheckSpellState(FifthNearestAllyOf(Myself),RESIST_FEAR)
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -243,7 +243,6 @@ IF
 THEN
   RESPONSE #100
     Spell(Myself,CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
-    Wait(1)
 END
 
 IF
@@ -430,7 +429,7 @@ IF
   IfValidForPartyDialog(Myself)
   HaveSpell(CLERIC_PROTECTION_FROM_EVIL_10_FOOT)  // SPPR408.SPL (Protection From Evil, 10' Radius)
   CheckStat(Myself,0,PROTECTION_FROM_EVIL)
-  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(Myself,GLOBE)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -733,9 +732,9 @@ IF
   Global("MO_BUFF","LOCALS",1)
   IfValidForPartyDialog(Myself)
   HaveSpell(WIZARD_MINOR_SPELL_DEFLECTION)  // SPWI318.SPL (Minor Spell Deflection)
+  CheckStatLT(Myself,1,WIZARD_SPELL_DEFLECTION)
   !CheckSpellState(Myself,MINOR_GLOBE)
   !CheckSpellState(Myself,GLOBE)
-  CheckStatLT(Myself,1,WIZARD_SPELL_DEFLECTION)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
@@ -805,9 +804,9 @@ IF
   Global("MO_BUFF","LOCALS",1)
   IfValidForPartyDialog(Myself)
   HaveSpell(WIZARD_FIRE_SHIELD_BLUE)  // SPWI403.SPL (Fire Shield (Blue))
-  !CheckSpellState(Myself,GLOBE)
   !CheckSpellState(Myself,RED_FIRESHIELD)
   !CheckSpellState(Myself,BLUE_FIRESHIELD)
+  !CheckSpellState(Myself,GLOBE)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
@@ -823,9 +822,9 @@ IF
   Global("MO_BUFF","LOCALS",1)
   IfValidForPartyDialog(Myself)
   HaveSpell(CLERIC_PROTECTION_FROM_FIRE)  // SPPR306.SPL (Protection From Fire)
+  CheckStatLT(Myself,80,RESISTFIRE)
   !CheckSpellState(Myself,MINOR_GLOBE)
   !CheckSpellState(Myself,GLOBE)
-  CheckStatLT(Myself,80,RESISTFIRE)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
@@ -931,6 +930,41 @@ END
 IF
   Global("MO_BUFF","LOCALS",1)
   IfValidForPartyDialog(Myself)
+  HaveSpell(WIZARD_GLOBE_OF_INVULNERABILITY)  // SPWI602.SPL (Globe of Invulnerability)
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_GLOBE_OF_INVULNERABILITY)  // SPWI602.SPL (Globe of Invulnerability)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  IfValidForPartyDialog(Myself)
+  HaveSpell(WIZARD_MINOR_GLOBE_OF_INVULNERABILITY)  // SPWI406.SPL (Minor Globe of Invulnerability)
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
+  !HasImmunityEffects(Myself)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_MINOR_GLOBE_OF_INVULNERABILITY)  // SPWI406.SPL (Minor Globe of Invulnerability)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  IfValidForPartyDialog(Myself)
   HaveSpell(WIZARD_SPELL_IMMUNITY)  // SPWI510.SPL (Spell Immunity)
   !CheckStat(Myself,1,WIZARD_SPELL_IMMUNITY)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
@@ -947,7 +981,7 @@ END
 IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(CLERIC_RIGHTEOUS_MAGIC)  // SPPR513.SPL (Righteous Magic)
-  !CheckStatGT(Myself,0,STRENGTH_MODIFIER)
+  !CheckSpellState(Myself,RIGHTEOUS_MAGIC)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
@@ -1102,7 +1136,6 @@ IF
 THEN
   RESPONSE #100
     Spell(Myself,CLERIC_BLESS)  // SPPR101.SPL (Bless)
-    Wait(1)
 END
 
 IF
@@ -1128,7 +1161,7 @@ IF
   See(Myself)
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
   !CheckSpellState(LastSeenBy(Myself),LATHANDER_BOON)
-  CheckStat(LastSeenBy(Myself),0,LEVEL_DRAIN_IMMUNITY)
+  !CheckSpellState(LastSeenBy(Myself),LEVEL_DRAIN_IMMUNITY)
   !HasItemEquiped("AMUL21",Myself)  // Amulet of Power
   !HasItemEquipedReal("BLUN25",LastSeenBy(Myself))  // Mace of Disruption +2
   !HasItemEquipedReal("SW1H69",LastSeenBy(Myself))  // Spectral Brand +5
@@ -1156,7 +1189,7 @@ IF
   See([GOODCUTOFF])
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
   !CheckSpellState(LastSeenBy(Myself),LATHANDER_BOON)
-  CheckStat(LastSeenBy(Myself),0,LEVEL_DRAIN_IMMUNITY)
+  !CheckSpellState(LastSeenBy(Myself),LEVEL_DRAIN_IMMUNITY)
   !HasItemEquiped("AMUL21",Myself)  // Amulet of Power
   !HasItemEquipedReal("BLUN25",LastSeenBy(Myself))  // Mace of Disruption +2
   !HasItemEquipedReal("SW1H69",LastSeenBy(Myself))  // Spectral Brand +5
@@ -1184,7 +1217,7 @@ IF
   See(SecondNearest([GOODCUTOFF]))
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
   !CheckSpellState(LastSeenBy(Myself),LATHANDER_BOON)
-  CheckStat(LastSeenBy(Myself),0,LEVEL_DRAIN_IMMUNITY)
+  !CheckSpellState(LastSeenBy(Myself),LEVEL_DRAIN_IMMUNITY)
   !HasItemEquiped("AMUL21",Myself)  // Amulet of Power
   !HasItemEquipedReal("BLUN25",LastSeenBy(Myself))  // Mace of Disruption +2
   !HasItemEquipedReal("SW1H69",LastSeenBy(Myself))  // Spectral Brand +5
@@ -1212,7 +1245,7 @@ IF
   See(ThirdNearest([GOODCUTOFF]))
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
   !CheckSpellState(LastSeenBy(Myself),LATHANDER_BOON)
-  CheckStat(LastSeenBy(Myself),0,LEVEL_DRAIN_IMMUNITY)
+  !CheckSpellState(LastSeenBy(Myself),LEVEL_DRAIN_IMMUNITY)
   !HasItemEquiped("AMUL21",Myself)  // Amulet of Power
   !HasItemEquipedReal("BLUN25",LastSeenBy(Myself))  // Mace of Disruption +2
   !HasItemEquipedReal("SW1H69",LastSeenBy(Myself))  // Spectral Brand +5
@@ -1240,7 +1273,7 @@ IF
   See(FourthNearest([GOODCUTOFF]))
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
   !CheckSpellState(LastSeenBy(Myself),LATHANDER_BOON)
-  CheckStat(LastSeenBy(Myself),0,LEVEL_DRAIN_IMMUNITY)
+  !CheckSpellState(LastSeenBy(Myself),LEVEL_DRAIN_IMMUNITY)
   !HasItemEquiped("AMUL21",Myself)  // Amulet of Power
   !HasItemEquipedReal("BLUN25",LastSeenBy(Myself))  // Mace of Disruption +2
   !HasItemEquipedReal("SW1H69",LastSeenBy(Myself))  // Spectral Brand +5
@@ -1268,7 +1301,7 @@ IF
   See(FifthNearest([GOODCUTOFF]))
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
   !CheckSpellState(LastSeenBy(Myself),LATHANDER_BOON)
-  CheckStat(LastSeenBy(Myself),0,LEVEL_DRAIN_IMMUNITY)
+  !CheckSpellState(LastSeenBy(Myself),LEVEL_DRAIN_IMMUNITY)
   !HasItemEquiped("AMUL21",Myself)  // Amulet of Power
   !HasItemEquipedReal("BLUN25",LastSeenBy(Myself))  // Mace of Disruption +2
   !HasItemEquipedReal("SW1H69",LastSeenBy(Myself))  // Spectral Brand +5
@@ -1296,7 +1329,7 @@ IF
   See(SixthNearest([GOODCUTOFF]))
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
   !CheckSpellState(LastSeenBy(Myself),LATHANDER_BOON)
-  CheckStat(LastSeenBy(Myself),0,LEVEL_DRAIN_IMMUNITY)
+  !CheckSpellState(LastSeenBy(Myself),LEVEL_DRAIN_IMMUNITY)
   !HasItemEquiped("AMUL21",Myself)  // Amulet of Power
   !HasItemEquipedReal("BLUN25",LastSeenBy(Myself))  // Mace of Disruption +2
   !HasItemEquipedReal("SW1H69",LastSeenBy(Myself))  // Spectral Brand +5
@@ -1334,108 +1367,4 @@ THEN
   RESPONSE #100
     SetGlobal("MO_BUFF","LOCALS",0)
     DisplayStringHead(Myself,421)  // Combat ready!
-END
-
-IF
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  CheckStatLT(Myself,1,STONESKINS)
-  HaveSpell(WIZARD_STONE_SKIN)  // SPWI408.SPL (Stoneskin)
-  !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_SILENCED)
-  Global("MO_CastAthkatla","LOCALS",1)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
-    SetInterrupt(FALSE)
-    Spell(Myself,WIZARD_STONE_SKIN)  // SPWI408.SPL (Stoneskin)
-    SetInterrupt(TRUE)
-END
-
-IF
-  ActionListEmpty()
-  IfValidForPartyDialog(Myself)
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  CheckStatLT(Myself,1,STONESKINS)
-  HaveSpell(CLERIC_IRONSKIN)  // SPPR506.SPL (Iron Skins)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
-    Spell(Myself,CLERIC_IRONSKIN)  // SPPR506.SPL (Iron Skins)
-END
-
-IF
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  CheckStatLT(Myself,1,STONESKINS)
-  GlobalLT("MO_UsedGargoyle","LOCALS",2)
-  HasItemEquiped("Boot12",Myself)  // Gargoyle Boots
-  !CheckSpellState(LastSeenBy(Myself),GLOBE)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
-    UseItem("Boot12",Myself)  // Gargoyle Boots
-    IncrementGlobal("MO_UsedGargoyle","LOCALS",1)
-END
-
-IF
-  CheckStatLT(Myself,1,STONESKINS)
-  GlobalLT("MO_UsedGargoyle","LOCALS",2)
-  HasItem("Boot12",Myself)  // Gargoyle Boots
-  HasItemEquiped("Boot01",Myself)  // The Paws of the Cheetah
-THEN
-  RESPONSE #100
-    XEquipItem("Boot12",Myself,SLOT_BOOTS,EQUIP)  // Gargoyle Boots
-END
-
-IF
-  OR(2)
-    CheckStatGT(Myself,0,STONESKINS)
-    GlobalGT("MO_UsedGargoyle","LOCALS",1)
-  HasItem("Boot01",Myself)  // The Paws of the Cheetah
-  HasItemEquiped("Boot12",Myself)  // Gargoyle Boots
-THEN
-  RESPONSE #100
-    XEquipItem("Boot01",Myself,SLOT_BOOTS,EQUIP)  // The Paws of the Cheetah
-END
-
-IF
-  ActionListEmpty()
-  Global("MO_TURNUNDEAD","LOCALS",1)
-  !CheckStat(Myself,1,SANCTUARY)
-  Class(Myself,CLERIC_ALL)
-  !ModalState(TURNUNDEAD)
-THEN
-  RESPONSE #100
-    Turn()
-END
-
-IF
-  ActionListEmpty()
-  IfValidForPartyDialog(Myself)
-  !See([EVILCUTOFF])
-  !ModalState(DETECTTRAPS)
-  !ModalState(STEALTH)
-  OR(3)
-    Class(Myself,THIEF_ALL)
-    Class(Myself,MONK)
-    Class(Myself,SHAMAN)
-THEN
-  RESPONSE #100
-    FindTraps()
-END
-
-IF
-  Class(Myself,BARD_ALL)
-  !ModalState(BATTLESONG)
-THEN
-  RESPONSE #100
-    BattleSong()
 END

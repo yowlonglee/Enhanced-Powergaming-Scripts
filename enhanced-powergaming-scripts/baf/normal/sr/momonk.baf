@@ -1134,7 +1134,7 @@ IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WARRIOR_GREATER_WHIRLWIND)  // SPCL901.SPL (Greater Whirlwind Attack)
-  !CheckStat(Myself,5,OFFENSIVE_MODIFIER)
+  !CheckSpellState(Myself,GREATER_WHIRLWIND)
   See([EVILCUTOFF])
   OR(6)
     WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
