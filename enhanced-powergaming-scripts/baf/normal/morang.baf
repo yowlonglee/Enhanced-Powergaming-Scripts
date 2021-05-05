@@ -124,7 +124,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpellRES("SPRA303")
+    ReallyForceSpellRES("SPRA303",Myself)
     RemoveSpellRES("SPRA303")
 END
 
@@ -160,7 +160,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SpellRES("SPRA302")
+    SpellRES("SPRA302",Myself)
 END
 
 IF
