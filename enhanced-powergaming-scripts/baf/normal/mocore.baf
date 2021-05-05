@@ -1397,6 +1397,16 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  IfValidForPartyDialog(Myself)
+  HaveSpell(BARBARIAN_RAGE)  // SPCL152.SPL (Barbarian Rage)
+  !CheckSpellState(Myself,BARBARIAN_RAGE)
+THEN
+  RESPONSE #100
+    Spell(Myself,BARBARIAN_RAGE)  // SPCL152.SPL (Barbarian Rage)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
 THEN
   RESPONSE #100
     SetGlobal("MO_BUFF","LOCALS",0)
