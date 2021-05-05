@@ -934,7 +934,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     SetInterrupt(FALSE)
-    SpellRES("SPRA302")
+    SpellRES("SPRA302",Myself)
     SetInterrupt(TRUE)
 END
 
@@ -987,7 +987,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     SetInterrupt(FALSE)
-    SpellRES("SPRA303")
+    SpellRES("SPRA303",Myself)
     SetInterrupt(TRUE)
 END
 
