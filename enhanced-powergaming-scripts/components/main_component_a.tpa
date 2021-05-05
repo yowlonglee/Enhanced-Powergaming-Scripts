@@ -49,9 +49,15 @@ ACTION_IF !(MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
 ///////////////////////////////////////////////////////////////////////////
 // Faiths & Powers - Ranger Kits                                          //
 ///////////////////////////////////////////////////////////////////////////
-	// Invisibility Changes
 	ACTION_IF (MOD_IS_INSTALLED ~setup-faiths_and_powers.tp2~ ~37~) BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/ranger_fp_kit_a.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// Faiths & Powers - FnP Spheres                                         //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF (MOD_IS_INSTALLED ~setup-faiths_and_powers.tp2~ ~21~) BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/ranger_fp_spl_a.tph~
 	END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -69,7 +75,6 @@ END
 ///////////////////////////////////////////////////////////////////////////
 // Copy .BS files to scripts folder                                      //
 ///////////////////////////////////////////////////////////////////////////
-
 ACTION_IF (MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
 	COPY ~enhanced-powergaming-scripts/baf/Accelerated/SR/morang.baf~   ~scripts/morang.bs~
 		 ~enhanced-powergaming-scripts/baf/Accelerated/SR/mobasic.baf~  ~scripts/mobasic.bs~
@@ -91,7 +96,6 @@ END
 ///////////////////////////////////////////////////////////////////////////
 // Add descriptions of the scripts to scrpdesc.2da                       //
 ///////////////////////////////////////////////////////////////////////////
-
 APPEND ~scrpdesc.2DA~
 ~morang		999990		 999989
 mobasic		999988		 999987
@@ -103,7 +107,6 @@ moskd		999980		 999979~
 ///////////////////////////////////////////////////////////////////////////
 // Copy the appended scrpdesc.2da to the override folder                 //
 ///////////////////////////////////////////////////////////////////////////
-
 COPY_EXISTING ~scrpdesc.2da~ ~override~
 REPLACE ~999990~ @1010
 REPLACE ~999989~ @1011

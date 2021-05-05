@@ -843,6 +843,181 @@ THEN
 END
 
 IF
+  IfValidForPartyDialog(Myself)
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  HaveSpell(CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
+  Detect([EVILCUTOFF])
+  OR(3)
+    StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+    StateCheck(LastSeenBy(Myself),STATE_INVISIBLE)
+    CheckStatGT(LastSeenBy(Myself),0,SANCTUARY)
+  !StateCheck(LastSeenBy(Myself),STATE_NONDETECTION)
+  !CheckStat(LastSeenBy(Myself),3,WIZARD_SPELL_IMMUNITY)
+  Global("MO_PartyTrueSight","GLOBAL",0)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetInterrupt(FALSE)
+    Spell(Myself,CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
+    SetInterrupt(TRUE)
+END
+
+IF
+  IfValidForPartyDialog(Myself)
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  HaveSpell(CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
+  See(NearestEnemyOf(Myself))
+  OR(3)
+    StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+    StateCheck(LastSeenBy(Myself),STATE_INVISIBLE)
+    CheckStatGT(LastSeenBy(Myself),0,SANCTUARY)
+  !StateCheck(LastSeenBy(Myself),STATE_NONDETECTION)
+  !CheckStat(LastSeenBy(Myself),3,WIZARD_SPELL_IMMUNITY)
+  Global("MO_PartyTrueSight","GLOBAL",0)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetInterrupt(FALSE)
+    Spell(Myself,CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
+    SetInterrupt(TRUE)
+END
+
+IF
+  IfValidForPartyDialog(Myself)
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  HaveSpell(CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
+  See(SecondNearestEnemyOf(Myself))
+  OR(3)
+    StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+    StateCheck(LastSeenBy(Myself),STATE_INVISIBLE)
+    CheckStatGT(LastSeenBy(Myself),0,SANCTUARY)
+  !StateCheck(LastSeenBy(Myself),STATE_NONDETECTION)
+  !CheckStat(LastSeenBy(Myself),3,WIZARD_SPELL_IMMUNITY)
+  Global("MO_PartyTrueSight","GLOBAL",0)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetInterrupt(FALSE)
+    Spell(Myself,CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
+    SetInterrupt(TRUE)
+END
+
+IF
+  IfValidForPartyDialog(Myself)
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  HaveSpell(CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
+  See(ThirdNearestEnemyOf(Myself))
+  OR(3)
+    StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+    StateCheck(LastSeenBy(Myself),STATE_INVISIBLE)
+    CheckStatGT(LastSeenBy(Myself),0,SANCTUARY)
+  !StateCheck(LastSeenBy(Myself),STATE_NONDETECTION)
+  !CheckStat(LastSeenBy(Myself),3,WIZARD_SPELL_IMMUNITY)
+  Global("MO_PartyTrueSight","GLOBAL",0)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetInterrupt(FALSE)
+    Spell(Myself,CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
+    SetInterrupt(TRUE)
+END
+
+IF
+  IfValidForPartyDialog(Myself)
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  HaveSpell(CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
+  See(FourthNearestEnemyOf(Myself))
+  OR(3)
+    StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+    StateCheck(LastSeenBy(Myself),STATE_INVISIBLE)
+    CheckStatGT(LastSeenBy(Myself),0,SANCTUARY)
+  !StateCheck(LastSeenBy(Myself),STATE_NONDETECTION)
+  !CheckStat(LastSeenBy(Myself),3,WIZARD_SPELL_IMMUNITY)
+  Global("MO_PartyTrueSight","GLOBAL",0)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetInterrupt(FALSE)
+    Spell(Myself,CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
+    SetInterrupt(TRUE)
+END
+
+IF
+  IfValidForPartyDialog(Myself)
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  HaveSpell(CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
+  See(FifthNearestEnemyOf(Myself))
+  OR(3)
+    StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+    StateCheck(LastSeenBy(Myself),STATE_INVISIBLE)
+    CheckStatGT(LastSeenBy(Myself),0,SANCTUARY)
+  !StateCheck(LastSeenBy(Myself),STATE_NONDETECTION)
+  !CheckStat(LastSeenBy(Myself),3,WIZARD_SPELL_IMMUNITY)
+  Global("MO_PartyTrueSight","GLOBAL",0)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetInterrupt(FALSE)
+    Spell(Myself,CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
+    SetInterrupt(TRUE)
+END
+
+IF
+  IfValidForPartyDialog(Myself)
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  HaveSpell(CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
+  See(SixthNearestEnemyOf(Myself))
+  OR(3)
+    StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+    StateCheck(LastSeenBy(Myself),STATE_INVISIBLE)
+    CheckStatGT(LastSeenBy(Myself),0,SANCTUARY)
+  !StateCheck(LastSeenBy(Myself),STATE_NONDETECTION)
+  !CheckStat(LastSeenBy(Myself),3,WIZARD_SPELL_IMMUNITY)
+  Global("MO_PartyTrueSight","GLOBAL",0)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetInterrupt(FALSE)
+    Spell(Myself,CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
+    SetInterrupt(TRUE)
+END
+
+IF
   ActionListEmpty()
   IfValidForPartyDialog(Myself)
   !See([EVILCUTOFF])
