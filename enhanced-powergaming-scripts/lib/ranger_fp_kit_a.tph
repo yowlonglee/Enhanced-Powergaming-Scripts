@@ -382,7 +382,7 @@ LPF REPLACE_MULTILINE
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpellRES("SPRA302")
+    ReallyForceSpellRES("SPRA302",Myself)
     RemoveSpellRES("SPRA302")
 END~~~~~
     string = ~~~~~IF
@@ -400,7 +400,7 @@ END~~~~~
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpellRES("SPRA302")
+    ReallyForceSpellRES("SPRA302",Myself)
     RemoveSpellRES("SPRA302")
 END
 
@@ -419,7 +419,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpellRES("D5_RADFL")
+    ReallyForceSpellRES("D5_RADFL",Myself)
     RemoveSpellRES("D5_RADFL")
 END
 ~~~~~ //"
