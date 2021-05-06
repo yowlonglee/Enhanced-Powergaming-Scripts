@@ -76,6 +76,14 @@ ACTION_IF !(MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
 	END
 
 ///////////////////////////////////////////////////////////////////////////
+// SCS - Breach                                                          //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~5900~) BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/core_breach.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/ranger_breach.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
 // Make Skald Script after Core                                          //
 ///////////////////////////////////////////////////////////////////////////
 	INCLUDE ~enhanced-powergaming-scripts/lib/skald_base.tph~
