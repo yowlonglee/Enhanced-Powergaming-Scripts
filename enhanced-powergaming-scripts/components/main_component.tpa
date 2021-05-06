@@ -65,6 +65,13 @@ ACTION_IF !(MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
 	END
 
 ///////////////////////////////////////////////////////////////////////////
+// Faiths & Powers - Paladin Kits                                        //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF (MOD_IS_INSTALLED ~setup-faiths_and_powers.tp2~ ~35~) BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/paladin_fp_kit.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
 // Faiths & Powers - FnP Spheres                                         //
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF (MOD_IS_INSTALLED ~setup-faiths_and_powers.tp2~ ~21~) BEGIN
