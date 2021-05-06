@@ -21,6 +21,19 @@ ACTION_IF !(MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/lib/paladin_base.tph~
 
 ///////////////////////////////////////////////////////////////////////////
+// DSotSC                                                                //
+///////////////////////////////////////////////////////////////////////////
+	// Wizard Component
+	ACTION_IF FILE_EXISTS_IN_GAME ~spwi327.spl~ BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/core_dsotsc_w.tph~
+	END
+
+	// Divine Component
+	ACTION_IF FILE_EXISTS_IN_GAME ~sppr519.spl~ BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/core_dsotsc_d.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
 // Song & Silence                                                        //
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF (MOD_IS_INSTALLED ~setup-song_and_silence.tp2~ ~8~) BEGIN

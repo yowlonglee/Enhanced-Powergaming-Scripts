@@ -700,5 +700,88 @@ END
 	COPY_EXISTING ~SPPR513.SPL~ ~override~ 
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %rght_mgc% timing = 0 duration = 54 END
 
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+// Create New Spell States for DSotSC Spells                             //
+// Block of code provided by subtledoctor                                //
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+
+ACTION_IF FILE_EXISTS_IN_GAME ~spwi327.spl~ BEGIN
+
+///////////////////////////////////////////////////////////////////////////
+// Create Spell State for Army of One                                    //
+///////////////////////////////////////////////////////////////////////////
+
+	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~ARMY_OF_ONE~)) BEGIN
+	  COPY_EXISTING ~splstate.ids~ ~override~
+		COUNT_2DA_COLS cols
+		READ_2DA_ENTRIES_NOW rows cols
+		FOR (row = 1; row < rows; ++row) BEGIN
+		  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
+		  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
+		  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~ARMY_OF_ONE~) BEGIN
+			SET army_one = %state_ind%
+		  END
+		END
+	  BUT_ONLY
+	END
+
+	ACTION_IF !(VARIABLE_IS_SET %army_one%) BEGIN
+		LAF ds_sort_ids STR_VAR ids=splstate END
+		LAF d5_resolve_state STR_VAR new_state_id = ~ARMY_OF_ONE~ RET new_state_ind END
+		OUTER_SET army_one = %new_state_ind%
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Spell State to Army of One                                        //
+///////////////////////////////////////////////////////////////////////////
+
+	COPY_EXISTING ~spwi327.spl~ ~override~ 
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %army_one% timing = 0 duration = 60 END
+
+END
+
+ACTION_IF FILE_EXISTS_IN_GAME ~sppr519.spl~ BEGIN
+
+///////////////////////////////////////////////////////////////////////////
+// Create Spell State for Aura of Protection                             //
+///////////////////////////////////////////////////////////////////////////
+
+	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~AURA_OF_PROT~)) BEGIN
+	  COPY_EXISTING ~splstate.ids~ ~override~
+		COUNT_2DA_COLS cols
+		READ_2DA_ENTRIES_NOW rows cols
+		FOR (row = 1; row < rows; ++row) BEGIN
+		  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
+		  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
+		  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~AURA_OF_PROT~) BEGIN
+			SET aura_prot = %state_ind%
+		  END
+		END
+	  BUT_ONLY
+	END
+
+	ACTION_IF !(VARIABLE_IS_SET %aura_prot%) BEGIN
+		LAF ds_sort_ids STR_VAR ids=splstate END
+		LAF d5_resolve_state STR_VAR new_state_id = ~AURA_OF_PROT~ RET new_state_ind END
+		OUTER_SET aura_prot = %new_state_ind%
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Spell State to Selune's Blessing                                  //
+///////////////////////////////////////////////////////////////////////////
+
+	COPY_EXISTING ~sppr519.spl~ ~override~ 
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %mnr_glb% timing = 0 duration = 60 END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Spell State to Aura of Protection                                 //
+///////////////////////////////////////////////////////////////////////////
+
+	COPY_EXISTING ~sppr716.spl~ ~override~ 
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %aura_prot% timing = 0 duration = 60 END
+
+END
 
 CLEAR_IDS_MAP
