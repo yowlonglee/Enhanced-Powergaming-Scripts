@@ -43,7 +43,7 @@ IF
   Global("MO_BUFF","LOCALS",1)
   IfValidForPartyDialog(Myself)
   HaveSpell(WIZARD_ARMY_OF_ONE)
-  !StateCheck(Myself,ARMY_OF_ONE)
+  !CheckSpellState(Myself,ARMY_OF_ONE)
   CheckStatLT(Myself,25,STR)
   !CheckSpellState(Myself,MINOR_GLOBE)
   !CheckSpellState(Myself,GLOBE)
