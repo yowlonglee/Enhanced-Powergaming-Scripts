@@ -29,7 +29,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/morang.baf~ ~enhanced-powergaming-
     STR_VAR
     pattern = ~~~~~CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_IMMUNITY)
-  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_DEFLECTION)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
@@ -48,7 +48,7 @@ END~~~~~
     string = ~~~~~!CheckSpellState(LastSeenBy(Myself),ENTROPY_SHIELD)
   CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_IMMUNITY)
-  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_DEFLECTION)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
