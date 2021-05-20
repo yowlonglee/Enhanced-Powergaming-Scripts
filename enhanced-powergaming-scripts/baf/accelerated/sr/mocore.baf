@@ -1,12 +1,12 @@
 // **********************************************************************
-// *           Segment Name: Divine.baf
+// *           Segment Name: mocore.baf
 // **********************************************************************
 // *
-// * Divine.baf
+// * mocore.baf
 // * -----------
 // * AI Script for:             BG2EE & BGEET
 // * Written by:                Mark Evinger (morpheus562)
-// * Version:                   Version 3.0 (30 April 2021)
+// * Version:                   Version 3.0 (20 May 2021)
 // * Comments to:               mark.evinger@hotmail.com
 // * Depends on:                BG2EE/BGEET
 // *							Spell Revisions
@@ -903,7 +903,6 @@ IF
 	Global("MO_BUFF","LOCALS",1)
 	IfValidForPartyDialog(Myself)
 	HaveSpell(WIZARD_PROTECTION_FROM_THE_ELEMENTS)  // SPWI702.SPL (Protection from the Elements)
-	!CheckStatGT(Myself,0,WIZARD_PROTECTION_FROM_ENERGY)
 	!CheckStatGT(Myself,0,WIZARD_PROTECTION_FROM_THE_ELEMENTS)
 	CheckStatLT(Myself,20,SPELLFAILUREMAGE)
 	!CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -1297,9 +1296,9 @@ IF
 	Global("MO_BUFF","LOCALS",1)
 	IfValidForPartyDialog(Myself)
 	HaveSpell(WIZARD_HASTE)  // SPWI305.SPL (Haste)
-	!StateCheck(LastSeenBy(Myself),STATE_HASTED)
-	CheckStat(LastSeenBy(Myself),0,IMPROVEDHASTE)
-	!StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+	!StateCheck(Myself,STATE_HASTED)
+	CheckStat(Myself,0,IMPROVEDHASTE)
+	!StateCheck(Myself,STATE_NOT_TARGETABLE)
 	!CheckSpellState(Myself,MINOR_GLOBE)
 	!CheckSpellState(Myself,GLOBE)
 	CheckStatLT(Myself,20,SPELLFAILUREMAGE)
