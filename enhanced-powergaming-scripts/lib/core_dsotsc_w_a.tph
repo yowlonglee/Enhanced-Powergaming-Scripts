@@ -4,8 +4,6 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
 // Add Army of One                                                       //
 ///////////////////////////////////////////////////////////////////////////
 
-ACTION_IF FILE_EXISTS_IN_GAME ~spwi327.spl~ BEGIN
-
   LPF REPLACE_MULTILINE
     INT_VAR
     strict = 1
@@ -62,5 +60,3 @@ THEN
 END
 ~~~~~ //"
   END
-
-END
