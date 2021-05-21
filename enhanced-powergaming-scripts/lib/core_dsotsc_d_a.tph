@@ -1,8 +1,76 @@
 COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
 
 ///////////////////////////////////////////////////////////////////////////
-// Add Selune's Blessing and Aura of Protection                          //
+// Add Aura of Protection                                                //
 ///////////////////////////////////////////////////////////////////////////
+
+ACTION_IF FILE_EXISTS_IN_GAME ~sppr716.spl~ BEGIN
+
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  IfValidForPartyDialog(Myself)
+  HaveSpell(CLERIC_BLADE_BARRIER)  // SPPR603.SPL (Blade Barrier)
+  CheckStat(Myself,0,WIZARD_FIRE_SHIELD)
+  CheckStatLT(Myself,1,CLERIC_BLADE_BARRIER)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,CLERIC_BLADE_BARRIER)  // SPPR603.SPL (Blade Barrier)
+    RemoveSpell(CLERIC_BLADE_BARRIER)  // SPPR603.SPL (Blade Barrier)
+END~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  IfValidForPartyDialog(Myself)
+  HaveSpell(CLERIC_BLADE_BARRIER)  // SPPR603.SPL (Blade Barrier)
+  CheckStat(Myself,0,WIZARD_FIRE_SHIELD)
+  CheckStatLT(Myself,1,CLERIC_BLADE_BARRIER)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,CLERIC_BLADE_BARRIER)  // SPPR603.SPL (Blade Barrier)
+    RemoveSpell(CLERIC_BLADE_BARRIER)  // SPPR603.SPL (Blade Barrier)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  IfValidForPartyDialog(Myself)
+  HaveSpell(CLERIC_AURA_OF_PROTECTION)
+  !CheckSpellState(Myself,AURA_OF_PROT)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,CLERIC_AURA_OF_PROTECTION)
+    RemoveSpell(CLERIC_AURA_OF_PROTECTION)
+END
+~~~~~ //"
+  END
+
+END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Selunes Blessing                                                  //
+///////////////////////////////////////////////////////////////////////////
+
+ACTION_IF FILE_EXISTS_IN_GAME ~sppr519.spl~ BEGIN
+
   LPF REPLACE_MULTILINE
     INT_VAR
     strict = 1
@@ -59,22 +127,7 @@ THEN
     ReallyForceSpell(Myself,CLERIC_SELUNES_BLESSING)
     RemoveSpell(CLERIC_SELUNES_BLESSING)
 END
-
-IF
-  Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
-  HaveSpell(CLERIC_AURA_OF_PROTECTION)
-  !CheckSpellState(Myself,AURA_OF_PROT)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_SILENCED)
-  Global("MO_CastAthkatla","LOCALS",1)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    ReallyForceSpell(Myself,CLERIC_AURA_OF_PROTECTION)
-    RemoveSpell(CLERIC_AURA_OF_PROTECTION)
-END
 ~~~~~ //"
   END
+
+END

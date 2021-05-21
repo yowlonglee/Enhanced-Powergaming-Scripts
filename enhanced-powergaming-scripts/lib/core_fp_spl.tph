@@ -8,8 +8,8 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     strict = 1
     verbose = 0
     STR_VAR
-    pattern = ~~~~~HaveSpell(CLERIC_SLOW_POISON)  // SPPR212.SPL (Slow Poison)~~~~~
-    string = ~~~~~HaveSpellRES("D5P1212")~~~~~ //"
+    pattern = ~~~~~Spell(CLERIC_SLOW_POISON)  // SPPR212.SPL (Slow Poison)~~~~~
+    string = ~~~~~SpellRES("D5P1212")~~~~~ //"
   END
 
   LPF REPLACE_MULTILINE
@@ -30,7 +30,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     verbose = 0
     STR_VAR
     pattern = ~~~~~Spell(CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)~~~~~
-    string = ~~~~~HaveSpellRES("D5P1404")~~~~~ //"
+    string = ~~~~~SpellRES("D5P1404")~~~~~ //"
   END
 
   LPF REPLACE_MULTILINE
@@ -50,8 +50,8 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     strict = 1
     verbose = 0
     STR_VAR
-    pattern = ~~~~~HaveSpell(CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)~~~~~
-    string = ~~~~~HaveSpellRES("D5P1317")~~~~~ //"
+    pattern = ~~~~~Spell(CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)~~~~~
+    string = ~~~~~SpellRES("D5P1317")~~~~~ //"
   END
 
   LPF REPLACE_MULTILINE
@@ -311,9 +311,9 @@ END
     CheckSpellState(LastSeenBy(Myself),DEAFENED)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),GLOBE)
   HaveSpellRES("D5P1317")
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -350,6 +350,7 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_SPIRITUAL_CLARITY)
+    SetInterrupt(TRUE)
 END
 
 IF
@@ -376,6 +377,7 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_SPIRITUAL_CLARITY)
+    SetInterrupt(TRUE)
 END
 
 IF
@@ -402,6 +404,7 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_SPIRITUAL_CLARITY)
+    SetInterrupt(TRUE)
 END
 
 IF
@@ -428,6 +431,7 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_SPIRITUAL_CLARITY)
+    SetInterrupt(TRUE)
 END
 
 IF
@@ -454,6 +458,7 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_SPIRITUAL_CLARITY)
+    SetInterrupt(TRUE)
 END
 
 IF
@@ -495,9 +500,9 @@ IF
     CheckSpellState(LastSeenBy(Myself),DEAFENED)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),GLOBE)
   HaveSpellRES("D5P1317")
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -682,7 +687,7 @@ END
   ActionListEmpty()
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  HaveSpell(CLERIC_DRAW_UPON_HOLY_MIGHT)  // SPPR214.SPL (Draw Upon Holy Might)
+  HaveSpellRES("D5P1214")
   See([EVILCUTOFF])
   !StateCheck(Myself,STATE_DRAWUPONHOLYMIGHT)
   CheckStatLT(Myself,25,STR)
@@ -726,7 +731,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     SetInterrupt(FALSE)
-    Spell(Myself,CLERIC_DRAW_UPON_HOLY_MIGHT)  // SPPR214.SPL (Draw Upon Holy Might)
+    SpellRES("D5P1214",Myself)
     SetInterrupt(TRUE)
 END~~~~~
     string = ~~~~~IF
@@ -782,7 +787,7 @@ IF
   ActionListEmpty()
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  HaveSpell(CLERIC_DRAW_UPON_HOLY_MIGHT)  // SPPR214.SPL (Draw Upon Holy Might)
+  HaveSpellRES("D5P1214")
   See([EVILCUTOFF])
   !StateCheck(Myself,STATE_DRAWUPONHOLYMIGHT)
   CheckStatLT(Myself,25,STR)
@@ -826,7 +831,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     SetInterrupt(FALSE)
-    Spell(Myself,CLERIC_DRAW_UPON_HOLY_MIGHT)  // SPPR214.SPL (Draw Upon Holy Might)
+    SpellRES("D5P1214",Myself)
     SetInterrupt(TRUE)
 END
 ~~~~~ //"
