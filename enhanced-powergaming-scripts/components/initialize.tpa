@@ -742,11 +742,11 @@ ACTION_IF FILE_EXISTS_IN_GAME ~spwi327.spl~ BEGIN
 
 END
 
-ACTION_IF FILE_EXISTS_IN_GAME ~sppr519.spl~ BEGIN
-
 ///////////////////////////////////////////////////////////////////////////
 // Create Spell State for Aura of Protection                             //
 ///////////////////////////////////////////////////////////////////////////
+
+ACTION_IF FILE_EXISTS_IN_GAME ~sppr716.spl~ BEGIN
 
 	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~AURA_OF_PROT~)) BEGIN
 	  COPY_EXISTING ~splstate.ids~ ~override~
@@ -769,19 +769,20 @@ ACTION_IF FILE_EXISTS_IN_GAME ~sppr519.spl~ BEGIN
 	END
 
 ///////////////////////////////////////////////////////////////////////////
-// Add Spell State to Selune's Blessing                                  //
-///////////////////////////////////////////////////////////////////////////
-
-	COPY_EXISTING ~sppr519.spl~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %mnr_glb% timing = 0 duration = 60 END
-
-///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Aura of Protection                                 //
 ///////////////////////////////////////////////////////////////////////////
 
 	COPY_EXISTING ~sppr716.spl~ ~override~ 
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %aura_prot% timing = 0 duration = 60 END
 
+END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Spell State to Selune's Blessing                                  //
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF FILE_EXISTS_IN_GAME ~sppr716.spl~ BEGIN
+	COPY_EXISTING ~sppr519.spl~ ~override~ 
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %mnr_glb% timing = 0 duration = 60 END
 END
 
 ///////////////////////////////////////////////////////////////////////////
