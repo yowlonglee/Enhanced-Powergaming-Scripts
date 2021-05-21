@@ -702,6 +702,335 @@ END
 IF
   Global("MO_BUFF","LOCALS",1)
   IfValidForPartyDialog(Myself)
+  HaveSpell(CLERIC_PROTECTION_FROM_LIGHTNING)  // SPPR407.SPL (Protection From Lightning)
+  See(Myself)
+  CheckStatLT(LastSeenBy(Myself),100,RESISTELECTRICITY)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),CLERIC_PROTECTION_FROM_LIGHTNING)  // SPPR407.SPL (Protection From Lightning)
+    RemoveSpell(CLERIC_PROTECTION_FROM_LIGHTNING)  // SPPR407.SPL (Protection From Lightning)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  IfValidForPartyDialog(Myself)
+  HaveSpell(CLERIC_PROTECTION_FROM_LIGHTNING)  // SPPR407.SPL (Protection From Lightning)
+  See([GOODCUTOFF])
+  CheckStatLT(LastSeenBy(Myself),100,RESISTELECTRICITY)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),CLERIC_PROTECTION_FROM_LIGHTNING)  // SPPR407.SPL (Protection From Lightning)
+    RemoveSpell(CLERIC_PROTECTION_FROM_LIGHTNING)  // SPPR407.SPL (Protection From Lightning)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  IfValidForPartyDialog(Myself)
+  HaveSpell(CLERIC_PROTECTION_FROM_LIGHTNING)  // SPPR407.SPL (Protection From Lightning)
+  See(SecondNearest([GOODCUTOFF]))
+  CheckStatLT(LastSeenBy(Myself),100,RESISTELECTRICITY)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),CLERIC_PROTECTION_FROM_LIGHTNING)  // SPPR407.SPL (Protection From Lightning)
+    RemoveSpell(CLERIC_PROTECTION_FROM_LIGHTNING)  // SPPR407.SPL (Protection From Lightning)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  IfValidForPartyDialog(Myself)
+  HaveSpell(CLERIC_PROTECTION_FROM_LIGHTNING)  // SPPR407.SPL (Protection From Lightning)
+  See(ThirdNearest([GOODCUTOFF]))
+  CheckStatLT(LastSeenBy(Myself),100,RESISTELECTRICITY)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),CLERIC_PROTECTION_FROM_LIGHTNING)  // SPPR407.SPL (Protection From Lightning)
+    RemoveSpell(CLERIC_PROTECTION_FROM_LIGHTNING)  // SPPR407.SPL (Protection From Lightning)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  IfValidForPartyDialog(Myself)
+  HaveSpell(CLERIC_PROTECTION_FROM_LIGHTNING)  // SPPR407.SPL (Protection From Lightning)
+  See(FourthNearest([GOODCUTOFF]))
+  CheckStatLT(LastSeenBy(Myself),100,RESISTELECTRICITY)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),CLERIC_PROTECTION_FROM_LIGHTNING)  // SPPR407.SPL (Protection From Lightning)
+    RemoveSpell(CLERIC_PROTECTION_FROM_LIGHTNING)  // SPPR407.SPL (Protection From Lightning)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  IfValidForPartyDialog(Myself)
+  HaveSpell(CLERIC_PROTECTION_FROM_LIGHTNING)  // SPPR407.SPL (Protection From Lightning)
+  See(FifthNearest([GOODCUTOFF]))
+  CheckStatLT(LastSeenBy(Myself),100,RESISTELECTRICITY)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),CLERIC_PROTECTION_FROM_LIGHTNING)  // SPPR407.SPL (Protection From Lightning)
+    RemoveSpell(CLERIC_PROTECTION_FROM_LIGHTNING)  // SPPR407.SPL (Protection From Lightning)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  IfValidForPartyDialog(Myself)
+  HaveSpell(CLERIC_PROTECTION_FROM_LIGHTNING)  // SPPR407.SPL (Protection From Lightning)
+  See(SixthNearest([GOODCUTOFF]))
+  CheckStatLT(LastSeenBy(Myself),100,RESISTELECTRICITY)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),CLERIC_PROTECTION_FROM_LIGHTNING)  // SPPR407.SPL (Protection From Lightning)
+    RemoveSpell(CLERIC_PROTECTION_FROM_LIGHTNING)  // SPPR407.SPL (Protection From Lightning)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  IfValidForPartyDialog(Myself)
+  HaveSpell(CLERIC_SPIRIT_WARD)  // SPPR150.SPL (Spirit Ward)
+  See(Myself)
+  !CheckSpellState(LastSeenBy(Myself),SPIRIT_WARD)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),CLERIC_SPIRIT_WARD)  // SPPR150.SPL (Spirit Ward)
+    RemoveSpell(CLERIC_SPIRIT_WARD)  // SPPR150.SPL (Spirit Ward)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  IfValidForPartyDialog(Myself)
+  HaveSpell(CLERIC_SPIRIT_WARD)  // SPPR150.SPL (Spirit Ward)
+  See([GOODCUTOFF])
+  !CheckSpellState(LastSeenBy(Myself),SPIRIT_WARD)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),CLERIC_SPIRIT_WARD)  // SPPR150.SPL (Spirit Ward)
+    RemoveSpell(CLERIC_SPIRIT_WARD)  // SPPR150.SPL (Spirit Ward)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  IfValidForPartyDialog(Myself)
+  HaveSpell(CLERIC_SPIRIT_WARD)  // SPPR150.SPL (Spirit Ward)
+  See(SecondNearest([GOODCUTOFF]))
+  !CheckSpellState(LastSeenBy(Myself),SPIRIT_WARD)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),CLERIC_SPIRIT_WARD)  // SPPR150.SPL (Spirit Ward)
+    RemoveSpell(CLERIC_SPIRIT_WARD)  // SPPR150.SPL (Spirit Ward)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  IfValidForPartyDialog(Myself)
+  HaveSpell(CLERIC_SPIRIT_WARD)  // SPPR150.SPL (Spirit Ward)
+  See(ThirdNearest([GOODCUTOFF]))
+  !CheckSpellState(LastSeenBy(Myself),SPIRIT_WARD)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),CLERIC_SPIRIT_WARD)  // SPPR150.SPL (Spirit Ward)
+    RemoveSpell(CLERIC_SPIRIT_WARD)  // SPPR150.SPL (Spirit Ward)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  IfValidForPartyDialog(Myself)
+  HaveSpell(CLERIC_SPIRIT_WARD)  // SPPR150.SPL (Spirit Ward)
+  See(FourthNearest([GOODCUTOFF]))
+  !CheckSpellState(LastSeenBy(Myself),SPIRIT_WARD)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),CLERIC_SPIRIT_WARD)  // SPPR150.SPL (Spirit Ward)
+    RemoveSpell(CLERIC_SPIRIT_WARD)  // SPPR150.SPL (Spirit Ward)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  IfValidForPartyDialog(Myself)
+  HaveSpell(CLERIC_SPIRIT_WARD)  // SPPR150.SPL (Spirit Ward)
+  See(FifthNearest([GOODCUTOFF]))
+  !CheckSpellState(LastSeenBy(Myself),SPIRIT_WARD)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),CLERIC_SPIRIT_WARD)  // SPPR150.SPL (Spirit Ward)
+    RemoveSpell(CLERIC_SPIRIT_WARD)  // SPPR150.SPL (Spirit Ward)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  IfValidForPartyDialog(Myself)
+  HaveSpell(CLERIC_SPIRIT_WARD)  // SPPR150.SPL (Spirit Ward)
+  See(SixthNearest([GOODCUTOFF]))
+  !CheckSpellState(LastSeenBy(Myself),SPIRIT_WARD)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),CLERIC_SPIRIT_WARD)  // SPPR150.SPL (Spirit Ward)
+    RemoveSpell(CLERIC_SPIRIT_WARD)  // SPPR150.SPL (Spirit Ward)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  IfValidForPartyDialog(Myself)
   HaveSpell(WIZARD_HASTE)  // SPWI305.SPL (Haste)
   !StateCheck(Myself,STATE_HASTED)
   CheckStat(Myself,0,IMPROVEDHASTE)

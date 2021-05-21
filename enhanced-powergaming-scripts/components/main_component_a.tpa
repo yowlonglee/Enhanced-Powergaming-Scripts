@@ -89,6 +89,7 @@ ACTION_IF !(MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF (MOD_IS_INSTALLED ~setup-faiths_and_powers.tp2~ ~21~) BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/ranger_fp_spl_a.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/cleric_fp_spl_a.tph~
 
 		ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1500~ && MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1510~) || (MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 30 && MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 40) BEGIN
 			INCLUDE ~enhanced-powergaming-scripts/lib/ranger_iwd_fp_spl.tph~

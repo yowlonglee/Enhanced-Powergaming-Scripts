@@ -112,7 +112,7 @@ END
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)~~~~~
     string = ~~~~~!CheckSpellState(LastSeenBy(Myself),CHAOTIC_COMMANDS)
-  !CheckSpellState(Myself,MIND_BLANK)
+  !CheckSpellState(LastSeenBy(Myself),MIND_BLANK)
   HaveSpell(CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
