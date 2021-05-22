@@ -1,15 +1,37 @@
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
-// Add Mod Components to Scripts                                         //
+// Add Mod Components to Scripts with Spell Revisions                    //
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
-ACTION_IF !(MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
+ACTION_IF (MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
 
 ///////////////////////////////////////////////////////////////////////////
 // Base Game                                                             //
 ///////////////////////////////////////////////////////////////////////////
+	COPY ~enhanced-powergaming-scripts/baf/normal/sr/morang.baf~  ~enhanced-powergaming-scripts/baf/upload/morang.baf~
+	COPY ~enhanced-powergaming-scripts/baf/normal/sr/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
+	COPY ~enhanced-powergaming-scripts/baf/normal/sr/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+	COPY ~enhanced-powergaming-scripts/baf/normal/sr/mopal.baf~   ~enhanced-powergaming-scripts/baf/upload/mopal.baf~
+	COPY ~enhanced-powergaming-scripts/baf/normal/sr/momonk.baf~  ~enhanced-powergaming-scripts/baf/upload/momonk.baf~
+
+	INCLUDE ~enhanced-powergaming-scripts/lib/sr_ranger_base.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/sr_basic_base.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/sr_core_base.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/sr_monk_base.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/sr_paladin_base.tph~
+
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+// Add Mod Components to Scripts without Spell Revisions                 //
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+
+END ELSE BEGIN
+///////////////////////////////////////////////////////////////////////////
+// Base Game                                                             //
+///////////////////////////////////////////////////////////////////////////
 	COPY ~enhanced-powergaming-scripts/baf/normal/morang.baf~  ~enhanced-powergaming-scripts/baf/upload/morang.baf~
-	COPY ~enhanced-powergaming-scripts/baf/normal/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
+	COPY ~enhanced-powergaming-scripts/baf/normal/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
 	COPY ~enhanced-powergaming-scripts/baf/normal/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
 	COPY ~enhanced-powergaming-scripts/baf/normal/mopal.baf~   ~enhanced-powergaming-scripts/baf/upload/mopal.baf~
 	COPY ~enhanced-powergaming-scripts/baf/normal/momonk.baf~  ~enhanced-powergaming-scripts/baf/upload/momonk.baf~
@@ -106,11 +128,12 @@ ACTION_IF !(MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
 		END
 	END
 
+END
+
 ///////////////////////////////////////////////////////////////////////////
 // Make Skald Script after Core                                          //
 ///////////////////////////////////////////////////////////////////////////
 	INCLUDE ~enhanced-powergaming-scripts/lib/skald_base.tph~
-END
 
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
@@ -121,23 +144,13 @@ END
 ///////////////////////////////////////////////////////////////////////////
 // Copy .BS files to scripts folder                                      //
 ///////////////////////////////////////////////////////////////////////////
-ACTION_IF (MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
-	COPY ~enhanced-powergaming-scripts/baf/normal/SR/morang.baf~   ~scripts/morang.bs~
-		 ~enhanced-powergaming-scripts/baf/normal/SR/mobasic.baf~  ~scripts/mobasic.bs~
-		 ~enhanced-powergaming-scripts/baf/normal/SR/mocore.baf~   ~scripts/mocore.bs~
-	     ~enhanced-powergaming-scripts/baf/normal/SR/mopal.baf~    ~scripts/mopal.bs~
-	     ~enhanced-powergaming-scripts/baf/normal/SR/momonk.baf~   ~scripts/momonk.bs~
-	     ~enhanced-powergaming-scripts/baf/normal/SR/moskd.baf~    ~scripts/moskd.bs~
-	  COMPILE_BAF_TO_BCS
-END ELSE BEGIN
-	COPY ~enhanced-powergaming-scripts/baf/upload/morang.baf~   ~scripts/morang.bs~
-		 ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~  ~scripts/mobasic.bs~
-		 ~enhanced-powergaming-scripts/baf/upload/mocore.baf~   ~scripts/mocore.bs~
-		 ~enhanced-powergaming-scripts/baf/upload/momonk.baf~   ~scripts/momonk.bs~
-		 ~enhanced-powergaming-scripts/baf/upload/mopal.baf~    ~scripts/mopal.bs~
-		 ~enhanced-powergaming-scripts/baf/upload/moskd.baf~    ~scripts/moskd.bs~
-	  COMPILE_BAF_TO_BCS
-END
+COPY ~enhanced-powergaming-scripts/baf/upload/morang.baf~   ~scripts/morang.bs~
+	 ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~  ~scripts/mobasic.bs~
+	 ~enhanced-powergaming-scripts/baf/upload/mocore.baf~   ~scripts/mocore.bs~
+	 ~enhanced-powergaming-scripts/baf/upload/momonk.baf~   ~scripts/momonk.bs~
+	 ~enhanced-powergaming-scripts/baf/upload/mopal.baf~    ~scripts/mopal.bs~
+	 ~enhanced-powergaming-scripts/baf/upload/moskd.baf~    ~scripts/moskd.bs~
+  COMPILE_BAF_TO_BCS
 
 ///////////////////////////////////////////////////////////////////////////
 // Add descriptions of the scripts to scrpdesc.2da                       //
