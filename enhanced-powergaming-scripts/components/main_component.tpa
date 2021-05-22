@@ -21,6 +21,23 @@ ACTION_IF (MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/lib/sr_paladin_base.tph~
 
 ///////////////////////////////////////////////////////////////////////////
+// Song & Silence                                                        //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF (MOD_IS_INSTALLED ~setup-song_and_silence.tp2~ ~8~) BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/basic_ss.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/core_ss.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// IWD Spells                                                            //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1500~ && MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1510~) || (MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 30 && MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 40) BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/sr_basic_iwd.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/sr_core_iwd.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/sr_paladin_iwd.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 // Add Mod Components to Scripts without Spell Revisions                 //
 ///////////////////////////////////////////////////////////////////////////
