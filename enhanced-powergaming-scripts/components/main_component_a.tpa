@@ -6,7 +6,7 @@
 ACTION_IF (MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
 
 ///////////////////////////////////////////////////////////////////////////
-// Base Game                                                             //
+// SR- Base Game                                                         //
 ///////////////////////////////////////////////////////////////////////////
 	COPY ~enhanced-powergaming-scripts/baf/Accelerated/sr/morang.baf~  ~enhanced-powergaming-scripts/baf/upload/morang.baf~
 	COPY ~enhanced-powergaming-scripts/baf/Accelerated/sr/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
@@ -21,7 +21,7 @@ ACTION_IF (MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/lib/sr_paladin_base.tph~
 
 ///////////////////////////////////////////////////////////////////////////
-// Song & Silence                                                        //
+// SR - Song & Silence                                                   //
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF (MOD_IS_INSTALLED ~setup-song_and_silence.tp2~ ~8~) BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/basic_ss_a.tph~
@@ -29,7 +29,7 @@ ACTION_IF (MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
 	END
 
 ///////////////////////////////////////////////////////////////////////////
-// IWD Spells                                                            //
+// SR - IWD Spells                                                       //
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1500~ && MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1510~) || (MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 30 && MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 40) BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/sr_basic_iwd_a.tph~
@@ -38,7 +38,7 @@ ACTION_IF (MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
 	END
 
 ///////////////////////////////////////////////////////////////////////////
-// Tome & Blood                                                          //
+// SR - Tome & Blood                                                     //
 ///////////////////////////////////////////////////////////////////////////
 	// Invisibility Changes
 	ACTION_IF (MOD_IS_INSTALLED ~setup-TomeAndBlood.tp2~ ~14~) BEGIN
@@ -51,7 +51,7 @@ ACTION_IF (MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
 	END
 
 ///////////////////////////////////////////////////////////////////////////
-// Faiths & Powers - Ranger Kits                                          //
+// SR - Faiths & Powers - Ranger Kits                                    //
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF (MOD_IS_INSTALLED ~setup-faiths_and_powers.tp2~ ~37~) BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/sr_ranger_fp_kit_a.tph~
