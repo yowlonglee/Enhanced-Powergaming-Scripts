@@ -10,24 +10,12 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     STR_VAR
     pattern = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
-  HaveSpell(BARBARIAN_RAGE)  // SPCL152.SPL (Barbarian Rage)
-  !CheckSpellState(Myself,BARBARIAN_RAGE)
 THEN
   RESPONSE #100
-    Spell(Myself,BARBARIAN_RAGE)  // SPCL152.SPL (Barbarian Rage)
+    SetGlobal("MO_BUFF","LOCALS",0)
+    DisplayStringHead(Myself,421)  // Combat ready!
 END~~~~~
     string = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
-  HaveSpell(BARBARIAN_RAGE)  // SPCL152.SPL (Barbarian Rage)
-  !CheckSpellState(Myself,BARBARIAN_RAGE)
-THEN
-  RESPONSE #100
-    Spell(Myself,BARBARIAN_RAGE)  // SPCL152.SPL (Barbarian Rage)
-END
-
-IF
   Global("MO_BUFF","LOCALS",1)
   IfValidForPartyDialog(Myself)
   HaveSpellRES("B_TEM03")
@@ -37,6 +25,14 @@ IF
 THEN
   RESPONSE #100
     SpellRES("B_TEM03",Myself)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_BUFF","LOCALS",0)
+    DisplayStringHead(Myself,421)  // Combat ready!
 END
 ~~~~~ //"
   END
