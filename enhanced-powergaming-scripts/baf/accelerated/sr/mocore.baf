@@ -241,6 +241,25 @@ THEN
 END
 
 IF
+  Global("MO_BUFF","LOCALS",1)
+  IfValidForPartyDialog(Myself)
+  HaveSpell(CLERIC_AID)  // SPPR201.SPL (Aid)
+  !StateCheck(Myself,STATE_AID)
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,CLERIC_AID)  // SPPR201.SPL (Aid)
+    RemoveSpell(CLERIC_AID)  // SPPR201.SPL (Aid)
+END
+
+IF
 	Global("MO_BUFF","LOCALS",1)
 	IfValidForPartyDialog(Myself)
 	HaveSpell(WIZARD_PROTECTION_FROM_MAGIC_ENERGY)  // SPWI606.SPL (Protection from Magic Energy)
@@ -817,6 +836,7 @@ IF
 	IfValidForPartyDialog(Myself)
 	HaveSpell(WIZARD_GHOST_ARMOR)  // SPWI317.SPL (Ghost Armor)
 	CheckStatGT(Myself,2,ARMORCLASS)
+	!CheckSpellState(LastSeenBy(Myself),GLOBE)
 	CheckStatLT(Myself,20,SPELLFAILUREMAGE)
 	!CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
 	!StateCheck(Myself,STATE_SILENCED)
@@ -827,6 +847,24 @@ THEN
 	RESPONSE #100
 		ReallyForceSpell(Myself,WIZARD_GHOST_ARMOR)  // SPWI317.SPL (Ghost Armor)
 		RemoveSpell(WIZARD_GHOST_ARMOR)  // SPWI317.SPL (Ghost Armor)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  IfValidForPartyDialog(Myself)
+  HaveSpell(WIZARD_SHIELD)  // SPWI114.SPL (Shield)
+  !CheckSpellState(Myself,WIZARD_SHIELD)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,WIZARD_SHIELD)  // SPWI114.SPL (Shield)
+    RemoveSpell(WIZARD_SHIELD)  // SPWI114.SPL (Shield)
 END
 
 IF
