@@ -1105,7 +1105,6 @@ IF
     StateCheck(LastSeenBy(Myself),STATE_STUNNED)
     CheckStatGT(LastSeenBy(Myself),0,HELD)
   HaveSpellRES("D5P1308")
-  !GlobalTimerNotExpired("BD_RParal","LOCALS")
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -1133,7 +1132,6 @@ IF
     StateCheck(LastSeenBy(Myself),STATE_STUNNED)
     CheckStatGT(LastSeenBy(Myself),0,HELD)
   HaveSpellRES("D5P1308")
-  !GlobalTimerNotExpired("BD_RParal","LOCALS")
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -1161,7 +1159,6 @@ IF
     StateCheck(LastSeenBy(Myself),STATE_STUNNED)
     CheckStatGT(LastSeenBy(Myself),0,HELD)
   HaveSpellRES("D5P1308")
-  !GlobalTimerNotExpired("BD_RParal","LOCALS")
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   CheckStat(LastSeenBy(Myself),0,WEB)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
@@ -1189,7 +1186,6 @@ IF
     StateCheck(LastSeenBy(Myself),STATE_STUNNED)
     CheckStatGT(LastSeenBy(Myself),0,HELD)
   HaveSpellRES("D5P1308")
-  !GlobalTimerNotExpired("BD_RParal","LOCALS")
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -1216,7 +1212,6 @@ IF
   OR(2)
     StateCheck(LastSeenBy(Myself),STATE_STUNNED)
     CheckStatGT(LastSeenBy(Myself),0,HELD)
-  !GlobalTimerNotExpired("BD_RParal","LOCALS")
   See(FifthNearest([GOODCUTOFF]))
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
@@ -1244,7 +1239,6 @@ IF
   OR(2)
     StateCheck(LastSeenBy(Myself),STATE_STUNNED)
     CheckStatGT(LastSeenBy(Myself),0,HELD)
-  !GlobalTimerNotExpired("BD_RParal","LOCALS")
   See(SixthNearest([GOODCUTOFF]))
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
@@ -1275,7 +1269,6 @@ IF
     StateCheck(LastSeenBy(Myself),STATE_PANIC)
     StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
     StateCheck(LastSeenBy(Myself),STATE_CHARMED)
-  !GlobalTimerNotExpired("BD_RParal","LOCALS")
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -1289,6 +1282,7 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_SPIRITUAL_CLARITY)
+    SetInterrupt(TRUE)
 END
 
 IF
@@ -1301,7 +1295,6 @@ IF
     StateCheck(LastSeenBy(Myself),STATE_PANIC)
     StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
     StateCheck(LastSeenBy(Myself),STATE_CHARMED)
-  !GlobalTimerNotExpired("BD_RParal","LOCALS")
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -1315,6 +1308,7 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_SPIRITUAL_CLARITY)
+    SetInterrupt(TRUE)
 END
 
 IF
@@ -1327,7 +1321,6 @@ IF
     StateCheck(LastSeenBy(Myself),STATE_PANIC)
     StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
     StateCheck(LastSeenBy(Myself),STATE_CHARMED)
-  !GlobalTimerNotExpired("BD_RParal","LOCALS")
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -1341,6 +1334,7 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_SPIRITUAL_CLARITY)
+    SetInterrupt(TRUE)
 END
 
 IF
@@ -1353,7 +1347,6 @@ IF
     StateCheck(LastSeenBy(Myself),STATE_PANIC)
     StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
     StateCheck(LastSeenBy(Myself),STATE_CHARMED)
-  !GlobalTimerNotExpired("BD_RParal","LOCALS")
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -1367,6 +1360,7 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_SPIRITUAL_CLARITY)
+    SetInterrupt(TRUE)
 END
 
 IF
@@ -1379,7 +1373,6 @@ IF
     StateCheck(LastSeenBy(Myself),STATE_PANIC)
     StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
     StateCheck(LastSeenBy(Myself),STATE_CHARMED)
-  !GlobalTimerNotExpired("BD_RParal","LOCALS")
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -1393,6 +1386,7 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_SPIRITUAL_CLARITY)
+    SetInterrupt(TRUE)
 END
 
 IF
@@ -1405,7 +1399,6 @@ IF
     StateCheck(LastSeenBy(Myself),STATE_PANIC)
     StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
     StateCheck(LastSeenBy(Myself),STATE_CHARMED)
-  !GlobalTimerNotExpired("BD_RParal","LOCALS")
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)

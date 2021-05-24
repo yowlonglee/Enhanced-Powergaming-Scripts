@@ -240,7 +240,9 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
   Global("MO_BUFF","LOCALS",1)
   IfValidForPartyDialog(Myself)
   HaveSpell(WIZARD_MINOR_SPELL_DEFLECTION)  // SPWI318.SPL (Minor Spell Deflection)
-  CheckStatLT(Myself,1,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(Myself,GREATER_SPELL_DEFLECTION)
+  !CheckSpellState(Myself,SPELL_DEFLECTION)
+  !CheckSpellState(Myself,MINOR_SPELL_DEFLECTION)
   !CheckSpellState(Myself,MINOR_GLOBE)
   !CheckSpellState(Myself,GLOBE)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
@@ -251,14 +253,15 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpell(Myself,WIZARD_MINOR_SPELL_DEFLECTION)  // SPWI318.SPL (Minor Spell Deflection)
-    RemoveSpell(WIZARD_MINOR_SPELL_DEFLECTION)  // SPWI318.SPL (Minor Spell Deflection)
+    Spell(Myself,WIZARD_MINOR_SPELL_DEFLECTION)  // SPWI318.SPL (Minor Spell Deflection)
 END~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
   IfValidForPartyDialog(Myself)
   HaveSpell(WIZARD_MINOR_SPELL_DEFLECTION)  // SPWI318.SPL (Minor Spell Deflection)
-  CheckStatLT(Myself,1,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(Myself,GREATER_SPELL_DEFLECTION)
+  !CheckSpellState(Myself,SPELL_DEFLECTION)
+  !CheckSpellState(Myself,MINOR_SPELL_DEFLECTION)
   !CheckSpellState(Myself,MINOR_GLOBE)
   !CheckSpellState(Myself,GLOBE)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
@@ -269,8 +272,7 @@ END~~~~~
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpell(Myself,WIZARD_MINOR_SPELL_DEFLECTION)  // SPWI318.SPL (Minor Spell Deflection)
-    RemoveSpell(WIZARD_MINOR_SPELL_DEFLECTION)  // SPWI318.SPL (Minor Spell Deflection)
+    Spell(Myself,WIZARD_MINOR_SPELL_DEFLECTION)  // SPWI318.SPL (Minor Spell Deflection)
 END
 
 IF
@@ -288,8 +290,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpellRES("D5P2318",Myself)
-    RemoveSpellRES("D5P2318")
+    SpellRES("D5P2318",Myself)
 END
 ~~~~~ //"
   END
@@ -306,17 +307,20 @@ END
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(Myself)
-  OR(5)
-    StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
+  HaveSpellRES("D5P1317")
+  OR(4)
     StateCheck(LastSeenBy(Myself),STATE_BLIND)
     StateCheck(LastSeenBy(Myself),STATE_DISEASED)
     CheckSpellState(LastSeenBy(Myself),DISEASED)
     CheckSpellState(LastSeenBy(Myself),DEAFENED)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  HaveSpellRES("D5P1317")
-  !CheckSpellState(Myself,MINOR_GLOBE)
-  !CheckSpellState(Myself,GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckStat(LastSeenBy(Myself),2,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -489,17 +493,20 @@ IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(Myself)
-  OR(5)
-    StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
+  HaveSpellRES("D5P1317")
+  OR(4)
     StateCheck(LastSeenBy(Myself),STATE_BLIND)
     StateCheck(LastSeenBy(Myself),STATE_DISEASED)
     CheckSpellState(LastSeenBy(Myself),DISEASED)
     CheckSpellState(LastSeenBy(Myself),DEAFENED)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  HaveSpellRES("D5P1317")
-  !CheckSpellState(Myself,MINOR_GLOBE)
-  !CheckSpellState(Myself,GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckStat(LastSeenBy(Myself),2,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -511,7 +518,8 @@ THEN
     SetInterrupt(FALSE)
     SpellRES("D5P1317",Myself)
     SetInterrupt(TRUE)
-END~~~~~ //"
+END
+~~~~~ //"
   END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -606,34 +614,32 @@ END
     pattern = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
   IfValidForPartyDialog(Myself)
-  HaveSpellRES("SPIN103")  // Divine Might
+  HaveSpellRES("SPIN103")  // Draw Upon Divine Might
   !StateCheck(Myself,STATE_DRAWUPONHOLYMIGHT)
-  CheckStatLT(Myself,25,STR)
   !CheckSpellState(Myself,MINOR_GLOBE)
   !CheckSpellState(Myself,GLOBE)
+  CheckStatLT(Myself,25,STR)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
 THEN
   RESPONSE #100
-    ReallyForceSpellRES("SPIN103",Myself)  // Divine Might
-    RemoveSpellRES("SPIN103")  // Divine Might
+    SpellRES("SPIN103",Myself)  // Draw Upon Divine Might
 END~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
   IfValidForPartyDialog(Myself)
-  HaveSpellRES("SPIN103")  // Divine Might
+  HaveSpellRES("SPIN103")  // Draw Upon Divine Might
   !StateCheck(Myself,STATE_DRAWUPONHOLYMIGHT)
-  CheckStatLT(Myself,25,STR)
   !CheckSpellState(Myself,MINOR_GLOBE)
   !CheckSpellState(Myself,GLOBE)
+  CheckStatLT(Myself,25,STR)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
 THEN
   RESPONSE #100
-    ReallyForceSpellRES("SPIN103",Myself)  // Divine Might
-    RemoveSpellRES("SPIN103")  // Divine Might
+    SpellRES("SPIN103",Myself)  // Draw Upon Divine Might
 END
 
 IF
@@ -646,8 +652,7 @@ IF
   !StateCheck(Myself,STATE_SILENCED)
 THEN
   RESPONSE #100
-    ReallyForceSpellRES("B_PH06",Myself)
-    RemoveSpellRES("B_PH06")
+    SpellRES("B_PH06",Myself)
 END
 
 IF
@@ -660,8 +665,7 @@ IF
   !StateCheck(Myself,STATE_SILENCED)
 THEN
   RESPONSE #100
-    ReallyForceSpellRES("B_PH04",Myself)
-    RemoveSpellRES("B_PH04")
+    SpellRES("B_PH04",Myself)
 END
 
 IF
@@ -674,8 +678,7 @@ IF
   !StateCheck(Myself,STATE_SILENCED)
 THEN
   RESPONSE #100
-    ReallyForceSpellRES("B_PH11",Myself)
-    RemoveSpellRES("B_PH11")
+    SpellRES("B_PH11",Myself)
 END
 ~~~~~ //"
   END
@@ -693,8 +696,6 @@ END
   See([EVILCUTOFF])
   !StateCheck(Myself,STATE_DRAWUPONHOLYMIGHT)
   CheckStatLT(Myself,25,STR)
-  !CheckSpellState(Myself,MINOR_GLOBE)
-  !CheckSpellState(Myself,GLOBE)
   OR(28)
     NumCreatureGT([EVILCUTOFF],3)
     Range([EVILCUTOFF.0.GOLEM],30)
@@ -793,8 +794,6 @@ IF
   See([EVILCUTOFF])
   !StateCheck(Myself,STATE_DRAWUPONHOLYMIGHT)
   CheckStatLT(Myself,25,STR)
-  !CheckSpellState(Myself,MINOR_GLOBE)
-  !CheckSpellState(Myself,GLOBE)
   OR(28)
     NumCreatureGT([EVILCUTOFF],3)
     Range([EVILCUTOFF.0.GOLEM],30)
@@ -854,7 +853,6 @@ END
   !StateCheck(Myself,STATE_HASTED)
   CheckStat(Myself,0,IMPROVEDHASTE)
   !StateCheck(Myself,STATE_NOT_TARGETABLE)
-  !CheckStat(Myself,8,WIZARD_SPELL_IMMUNITY)
   !CheckSpellState(Myself,MINOR_GLOBE)
   !CheckSpellState(Myself,GLOBE)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
@@ -865,8 +863,7 @@ END
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpell(Myself,WIZARD_HASTE)  // SPWI305.SPL (Haste)
-    RemoveSpell(WIZARD_HASTE)  // SPWI305.SPL (Haste)
+    Spell(Myself,WIZARD_HASTE)  // SPWI305.SPL (Haste)
 END~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
@@ -875,7 +872,6 @@ END~~~~~
   !StateCheck(Myself,STATE_HASTED)
   CheckStat(Myself,0,IMPROVEDHASTE)
   !StateCheck(Myself,STATE_NOT_TARGETABLE)
-  !CheckStat(Myself,8,WIZARD_SPELL_IMMUNITY)
   !CheckSpellState(Myself,MINOR_GLOBE)
   !CheckSpellState(Myself,GLOBE)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
@@ -886,8 +882,7 @@ END~~~~~
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpell(Myself,WIZARD_HASTE)  // SPWI305.SPL (Haste)
-    RemoveSpell(WIZARD_HASTE)  // SPWI305.SPL (Haste)
+    Spell(Myself,WIZARD_HASTE)  // SPWI305.SPL (Haste)
 END
 
 IF
@@ -900,7 +895,7 @@ IF
   !CheckStat(Myself,8,WIZARD_SPELL_IMMUNITY)
   !CheckSpellState(Myself,MINOR_GLOBE)
   !CheckSpellState(Myself,GLOBE)
-  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
   Global("MO_CastAthkatla","LOCALS",1)
@@ -908,8 +903,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpellRES("D5P2305",Myself)
-    RemoveSpellRES("D5P2305")
+    SpellRES("D5P2305",Myself)
 END
 ~~~~~ //"
   END
@@ -935,8 +929,7 @@ END
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpell(Myself,WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
-    RemoveSpell(WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
+    Spell(Myself,WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
 END~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
@@ -951,8 +944,7 @@ END~~~~~
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpell(Myself,WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
-    RemoveSpell(WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
+    Spell(Myself,WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
 END
 
 IF
@@ -960,7 +952,7 @@ IF
   IfValidForPartyDialog(Myself)
   HaveSpellRES("D5P2613")
   !CheckStatGT(Myself,0,IMPROVEDHASTE)
-  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
   Global("MO_CastAthkatla","LOCALS",1)
@@ -968,8 +960,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpellRES("D5P2613",Myself)
-    RemoveSpellRES("D5P2613")
+    SpellRES("D5P2613",Myself)
 END
 ~~~~~ //"
   END
@@ -1177,7 +1168,7 @@ IF
     See([ENEMY.0.0.DRUID_ALL])
     See([ENEMY.0.0.SORCERER])
     See([ENEMY.0.0.CLERIC_MAGE])
-  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
   Global("MO_CastAthkatla","LOCALS",1)
