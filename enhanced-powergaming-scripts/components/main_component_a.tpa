@@ -33,12 +33,7 @@ ACTION_IF (MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
 ///////////////////////////////////////////////////////////////////////////
 	// Invisibility Changes
 	ACTION_IF (MOD_IS_INSTALLED ~setup-TomeAndBlood.tp2~ ~14~) BEGIN
-		
-		ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1500~ && MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1510~) || (MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 30 && MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 40) BEGIN
-			INCLUDE ~enhanced-powergaming-scripts/lib/sr_core_iwd_tb_inv.tph~
-		END ELSE BEGIN
-			INCLUDE ~enhanced-powergaming-scripts/lib/sr_core_tb_inv.tph~
-		END
+		INCLUDE ~enhanced-powergaming-scripts/lib/sr_core_tb_inv.tph~
 	END
 
 ///////////////////////////////////////////////////////////////////////////
