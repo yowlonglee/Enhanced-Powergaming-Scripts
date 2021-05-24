@@ -1,10 +1,21 @@
 # Changelog
 
+## Version 3.0_beta
+
+May 24, 2021
+
+### Changed 
+
+- Dynamically creates scripts on installation based on mods installed allowing for over 1.5 MILLION different scripts that can be created!
+- Support for the following mods: Spell Revisions, SCS, DSotSC, Song & Silence, IWD Spells, Tome & Blood, and Faith & Powers (only compatible with F&P sphere system).
+- Multiple new spells for vanilla and mods added.
+- Updated spell tracking for existing spells to optimize existing scripts.
+
 ## Version 2.4
 
 April 29, 2021
 
-## Changed
+### Changed
 
 - Updated spell tracking for both Minor Globe of Invulnerability and Globe of Invulnerability so they are now tracked separately. This allows for better spell determination on what can be cast on or against a player.
 - Added Black Blade of Disaster for pre-buffing and in-combat casting for non-SR versions of the scripts.
