@@ -44,13 +44,13 @@ These scripts are focused on heavy physical damage parties in both melee and ran
 
 ## Compatibility
 
-The mod has support for IWD spells (from either Sword Coast Stratagems or IWDification) and for changes from Spell Revisions (Revised) and Item Revisions (Revised).
+The mod has support for IWD spells (from either Sword Coast Stratagems or IWDification), Sword Coast Stratagems, Dark Side of the Sword Coast, Song & Silence, Tome & Blood, Faith & Powers, and for changes from Spell Revisions (Revised) and Item Revisions (Revised).
 
-If you are installing SCS, IR(R), or SR(R), they should be installed before this mod.
+If you are installing any of the above listed mods, they should be installed before this mod.
 
 PLEASE NOTE: Sword Coast Stratagems is no longer required to use these scripts.
 
-If you are upgrading from a version of this mod prior to v2.0, I recommend uninstalling all mod components and replacing all files with the new ones before doing a fresh install.
+If you are upgrading from a version of this mod prior to v3.0, I recommend uninstalling all mod components and replacing all files with the new ones before doing a fresh install.
 
 ## Components
 
@@ -58,7 +58,7 @@ Below are the components for the install allowing you to pick and choose what ch
 
 ### Main Component
 
-This is the main component that will auto-detect your mod installations and provide scripts based on the installs listed above. You will have the option to select having either pre-buffing cast at a normal speed or an accelerated speed. Regardless of either option chosen, characters will stop pre-buffing if either the "D" key is pressed again or an enemy is sighted.
+This is the main component that will auto-detect your mod installations and provide scripts based on the installs listed above. These can dynamically create over 1.5 MILLION scripts depending on what spell/kit mods you have installed. You will have the option to select having either pre-buffing cast at a normal speed or an accelerated speed. Regardless of either option chosen, characters will stop pre-buffing if either the "D" key is pressed again or an enemy is sighted.
 
 #### Normal Pre-Buffing Speed
 
@@ -80,21 +80,13 @@ These scripts will utilize items such as Amulet of the Cheetah, Ilbratha+1, Ring
 #### The Scripts
 Below are a listing of the different scripts included in the Main Component.
 
-##### MO-ARCHER
-
-This is a script specifically designed for the Archer Kit. This script will cast pre-buff spells when the "D" key is pressed. In addition to pre-buffing, the script will intelligently heal and use abilities both in and out of combat.
-
 ##### MO-BasicAI
 
-This script is designed for the minimalists who normally turn party AI off in their games. All classes can use this script. It will constantly Turn Undead when the "V" key is pressed and will cast pre-buffing spells when the "D" key is pressed. If the character is able, the script will constantly be detecting traps while idle. Additionally, if playing a Bard class, the script will constantly be casting the Bard song. Finally, this script will cast long duration spells (i.e. Stoneskin/Ironskin) and ensure they are kept active. This script will NOT auto-attack enemies.
+This script is designed for the minimalists who normally turn party AI off in their games. All classes can use this script. This script will constantly Turn Undead when the "V" key is pressed and will cast pre-buffing spells when the "D" key is pressed. If playing a thief or monk class, the script will detect traps while not in combat. If playing a Bard class, the script will constantly be singing the applicable Bard song.
 
-##### MO-DIVINE
+##### MO-CORE
 
-This script is designed for all divine classes and combinations: Cleric, Druid, FC, FD, CR, MC, FMC, etc. If playing a Cleric/Thief, the script will detect traps while not in combat. This script will constantly Turn Undead when the "V" key is pressed and will cast pre-buffing spells when the "D" key is pressed. In addition to pre-buffing, the script will intelligently heal and use abilities both in and out of combat.
-
-##### MO-FIGHTER/MAGE
-
-This script works for Kensai/Berserker -> Mage dual classes and the FM and FMT multiclasses. If playing a FMT, the script will constantly be detecting traps while idle. This script will cast pre-buff spells when the "D" key is pressed. In addition to pre-buffing, the script will intelligently use abilities both in and out of combat. This includes intelligently detecting invisibility and removing enemy protections.
+This script is designed for all core classes: Fighter, Mage, Thief, Cleric, Druid, and any combination of multiclass/dualclass to include kits. This script will constantly Turn Undead when the V key is pressed and will cast pre-buffing spells when the D key is pressed. If the character is able, the script will constantly be detecting traps.
 
 ##### MO-MONK
 
@@ -104,17 +96,17 @@ This is a script specifically designed for the Monk class. The script will const
 
 This is a script specifically designed for the Paladin class. This script will constantly Turn Undead when the "V" key is pressed and will cast pre-buff spells when the "D" key is pressed. In addition to pre-buffing, the script will intelligently use abilities both in and out of combat. 
 
+##### MO-RANGER
+
+This is a script specifically designed for the Ranger class. This script will cast pre-buff spells when the "D" key is pressed. In addition to pre-buffing, the script will intelligently heal and use abilities both in and out of combat.
+
 ##### MO-SKALD
 
 This is a script specifically designed for the Skald Kit. This script will cast pre-buff spells when the "D" key is pressed. In addition to pre-buffing, the script will intelligently use abilities both in and out of combat. When not casting spells, the Skald will constantly be singing the Skald song. Additionally, between casting spells, the Skald will start singing again to attempt to keep the Skald song up constantly in combat. This script is written to use up to Level 9 Spells.
 
-##### MO-SORCERER
+### Enhanced Scripts for Summoned Celestials
 
-This script works with any pure mage type character. This is great for low-level spellcasters or a spellcaster that you are dualling into. This script will cast pre-buff spells when the "D" key is pressed. In addition to pre-buffing, the script will intelligently use abilities both in and out of combat. Please note: this script will not cast offensive spells at the enemy. Only defensive/protective spells are used. The script will keep constant uptime of Melf's Minute Meteors.
-
-### Enhanced Scripts for Summoned Celestials (BETA)
-
-This provides enhanced ai scripts for summoned celestials such as Planetar, Fallen Planetar, Deva, and Fallen Deva. Overall, the scripts allows the player to be more hands off with summoned celestials, and they will act intelligently in targeting enemy players. Hostile summoned celestials will also act more intelligently when attacking your party if you find yourselves facing off in battle. Like the other scripts listed above, this script will cast pre-buff spells when the "D" key is pressed. Spell Revisions also rewrote their spellbooks, and the scripts will accomodate these changes. I am still refining these scripts through playtesting, so keeping it in more of a BETA state, but they are fully playable.
+This provides enhanced ai scripts for summoned celestials such as Planetar, Fallen Planetar, Deva, and Fallen Deva. Overall, the scripts allows the player to be more hands off with summoned celestials, and they will act intelligently in targeting enemy players. Hostile summoned celestials will also act more intelligently when attacking your party if you find yourselves facing off in battle. Like the other scripts listed above, this script will cast pre-buff spells when the "D" key is pressed. Spell Revisions also rewrote their spellbooks, and the scripts will accomodate these changes.
 
 ### Restore Vanilla Belm and Kundane
 
@@ -134,13 +126,14 @@ Requires Spell Revisions - Offers the vanilla, non-SR(R) versions of Haste and I
 
 ## Special Thanks
 
-- Sarevok57 whose scripts were my inspiration to write these and what mine were originally based on
-- FixTesteR for encouraging compatability with Spell Revisions and bug testing
-- Mike1072 for feedback and assisting in getting these published on Gibberlings3
-- subtledoctor for troubleshooting AI script issues with Spell Revisions and using sections of his coding to create and assign new spell states for SR
-- Bartimaeus for troubleshooting AI script issues with Spell Revisions
-- DavidW for using your Organize an IDS macro to assist in creating new spell states
-- marcnivar for identifying a couple bugs with pre-buffing
+- Sarevok57 whose scripts were my inspiration to write these and what mine were originally based on.ca
+- FixTesteR for encouraging compatability with Spell Revisions and bug testing.
+- Mike1072 for feedback and assisting in getting these published on Gibberlings3.
+- subtledoctor for troubleshooting AI script issues with Spell Revisions and using sections of his coding to create and assign new spell states for SR.
+- Bartimaeus for troubleshooting AI script issues with Spell Revisions.
+- DavidW for using your Organize an IDS macro to assist in creating new spell states.
+- marcnivar for identifying a couple bugs with pre-buffing.
+- K4thos for using a function within the EET mod to cut and paste snippets of scripts into a BAF file, without this being able to synch multiple mod scripts together would be impossible.
 
 ## Copyright
 
