@@ -133,7 +133,7 @@ Requires Spell Revisions - Offers the vanilla, non-SR(R) versions of Haste and I
 - Bartimaeus for troubleshooting AI script issues with Spell Revisions.
 - DavidW for using your Organize an IDS macro to assist in creating new spell states.
 - marcnivar for identifying a couple bugs with pre-buffing.
-- K4thos for using a function within the EET mod to cut and paste snippets of scripts into a BAF file, without this being able to synch multiple mod scripts together would be impossible.
+- K4thos for using a function within the EET mod to cut and paste snippets of scripts into a BAF file. Without this function, being able to sync multiple mod scripts together would be impossible.
 
 ## Copyright
 
