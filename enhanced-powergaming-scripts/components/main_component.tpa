@@ -41,10 +41,6 @@ ACTION_IF (MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF (MOD_IS_INSTALLED ~setup-faiths_and_powers.tp2~ ~37~) BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/sr_ranger_fp_kit.tph~
-		
-		ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1500~ && MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1510~) || (MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 30 && MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 40) BEGIN
-			INCLUDE ~enhanced-powergaming-scripts/lib/sr_ranger_iwd_fp_kit.tph~
-		END
 	END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -81,6 +77,10 @@ ACTION_IF (MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/sr_basic_iwd.tph~
 		INCLUDE ~enhanced-powergaming-scripts/lib/sr_core_iwd.tph~
 		INCLUDE ~enhanced-powergaming-scripts/lib/sr_paladin_iwd.tph~
+
+		ACTION_IF (MOD_IS_INSTALLED ~setup-faiths_and_powers.tp2~ ~37~) BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/sr_ranger_iwd_fp_kit.tph~
+		END
 	END
 
 ///////////////////////////////////////////////////////////////////////////
