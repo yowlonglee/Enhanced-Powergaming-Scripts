@@ -2024,7 +2024,7 @@ IF
   ActionListEmpty()
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  HaveSpell(CLERIC_DRAW_UPON_HOLY_MIGHT)  // SPPR214.SPL (Draw Upon Divine Might)
+  HaveSpell(CLERIC_DRAW_UPON_HOLY_MIGHT)
   See([EVILCUTOFF])
   !StateCheck(Myself,STATE_DRAWUPONHOLYMIGHT)
   CheckStatLT(Myself,25,STR)
@@ -2066,7 +2066,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     SetInterrupt(FALSE)
-    Spell(Myself,CLERIC_DRAW_UPON_HOLY_MIGHT)  // SPPR214.SPL (Draw Upon Divine Might)
+    Spell(Myself,CLERIC_DRAW_UPON_HOLY_MIGHT)
     SetInterrupt(TRUE)
 END
 

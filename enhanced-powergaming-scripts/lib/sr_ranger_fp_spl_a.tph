@@ -71,9 +71,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/morang.baf~ ~enhanced-powergaming-
     pattern = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
   IfValidForPartyDialog(Myself)
-  HaveSpellRES("SPIN103")  // Divine Might
-  !CheckSpellState(Myself,MINOR_GLOBE)
-  !CheckSpellState(Myself,GLOBE)
+  HaveSpellRES("SPIN103")
   !StateCheck(Myself,STATE_DRAWUPONHOLYMIGHT)
   OR(2)
     CheckStatLT(Myself,24,DEX)
@@ -83,15 +81,13 @@ COPY ~enhanced-powergaming-scripts/baf/upload/morang.baf~ ~enhanced-powergaming-
   !StateCheck(Myself,STATE_SILENCED)
 THEN
   RESPONSE #100
-    ReallyForceSpellRES("SPIN103",Myself)  // Divine Might
-    RemoveSpellRES("SPIN103")  // Divine Might
+    ReallyForceSpellRES("SPIN103",Myself)
+    RemoveSpellRES("SPIN103")
 END~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
   IfValidForPartyDialog(Myself)
-  HaveSpellRES("SPIN103")  // Divine Might
-  !CheckSpellState(Myself,MINOR_GLOBE)
-  !CheckSpellState(Myself,GLOBE)
+  HaveSpellRES("SPIN103")
   !StateCheck(Myself,STATE_DRAWUPONHOLYMIGHT)
   OR(2)
     CheckStatLT(Myself,24,DEX)
@@ -101,8 +97,8 @@ END~~~~~
   !StateCheck(Myself,STATE_SILENCED)
 THEN
   RESPONSE #100
-    ReallyForceSpellRES("SPIN103",Myself)  // Divine Might
-    RemoveSpellRES("SPIN103")  // Divine Might
+    ReallyForceSpellRES("SPIN103",Myself)
+    RemoveSpellRES("SPIN103")
 END
 
 IF
