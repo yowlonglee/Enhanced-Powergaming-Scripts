@@ -1211,7 +1211,7 @@ IF
   IfValidForPartyDialog(Myself)
   HaveSpell(WIZARD_BLUR)  // SPWI201.SPL (Blur)
   !StateCheck(Myself,STATE_BLUR)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
