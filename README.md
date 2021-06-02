@@ -82,7 +82,7 @@ Below are a listing of the different scripts included in the Main Component.
 
 ##### MO-BasicAI
 
-This script is designed for the minimalists who normally turn party AI off in their games. All classes can use this script. This script will constantly Turn Undead when the "V" key is pressed and will cast pre-buffing spells when the "D" key is pressed. If playing a thief or monk class, the script will detect traps while not in combat. If playing a Bard class, the script will constantly be singing the applicable Bard song.
+This script is designed for the minimalists who normally turn party AI off in their games. All classes can use this script. This script will constantly Turn Undead when the "V" key is pressed and will cast pre-buffing spells when the "D" key is pressed. If playing a thief or monk class, the script will detect traps while not in combat. If playing a Bard class, the script will constantly be singing the applicable Bard song. Unlike the other scripts, these will not attack or use spells/abilities in or out of combat (only exception is very long duration spells like Stoneskin will be cast).  
 
 ##### MO-CORE
 
