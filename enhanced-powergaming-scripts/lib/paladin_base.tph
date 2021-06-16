@@ -346,7 +346,7 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See([GOODCUTOFF])
+  See([PC])
   OR(2)
     StateCheck(LastSeenBy(Myself),STATE_STUNNED)
     CheckStatGT(LastSeenBy(Myself),0,HELD)
@@ -373,7 +373,7 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(SecondNearest([GOODCUTOFF]))
+  See(SecondNearest([PC]))
   OR(2)
     StateCheck(LastSeenBy(Myself),STATE_STUNNED)
     CheckStatGT(LastSeenBy(Myself),0,HELD)
@@ -400,7 +400,7 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(ThirdNearest([GOODCUTOFF]))
+  See(ThirdNearest([PC]))
   OR(2)
     StateCheck(LastSeenBy(Myself),STATE_STUNNED)
     CheckStatGT(LastSeenBy(Myself),0,HELD)
@@ -427,7 +427,7 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(FourthNearest([GOODCUTOFF]))
+  See(FourthNearest([PC]))
   OR(2)
     StateCheck(LastSeenBy(Myself),STATE_STUNNED)
     CheckStatGT(LastSeenBy(Myself),0,HELD)
@@ -458,7 +458,7 @@ IF
   OR(2)
     StateCheck(LastSeenBy(Myself),STATE_STUNNED)
     CheckStatGT(LastSeenBy(Myself),0,HELD)
-  See(FifthNearest([GOODCUTOFF]))
+  See(FifthNearest([PC]))
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -485,7 +485,7 @@ IF
   OR(2)
     StateCheck(LastSeenBy(Myself),STATE_STUNNED)
     CheckStatGT(LastSeenBy(Myself),0,HELD)
-  See(SixthNearest([GOODCUTOFF]))
+  See(SixthNearest([PC]))
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -508,7 +508,7 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(Player1)
+  See(Myself)
   OR(5)
     StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
     StateCheck(LastSeenBy(Myself),STATE_BLIND)
@@ -536,7 +536,35 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(Player2)
+  See([PC])
+  OR(5)
+    StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
+    StateCheck(LastSeenBy(Myself),STATE_BLIND)
+    StateCheck(LastSeenBy(Myself),STATE_DISEASED)
+    CheckSpellState(LastSeenBy(Myself),DISEASED)
+    CheckSpellState(LastSeenBy(Myself),DEAFENED)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  HaveSpell(CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetInterrupt(FALSE)
+    Spell(Myself,CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
+    SetInterrupt(TRUE)
+END
+
+IF
+  IfValidForPartyDialog(Myself)
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  See(SecondNearest([PC]))
   OR(5)
     StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
     StateCheck(LastSeenBy(Myself),STATE_BLIND)
@@ -564,7 +592,7 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(Player3)
+  See(ThirdNearest([PC]))
   OR(5)
     StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
     StateCheck(LastSeenBy(Myself),STATE_BLIND)
@@ -592,7 +620,7 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(Player4)
+  See(FourthNearest([PC]))
   OR(5)
     StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
     StateCheck(LastSeenBy(Myself),STATE_BLIND)
@@ -620,7 +648,7 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(Player5)
+  See(FifthNearest([PC]))
   OR(5)
     StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
     StateCheck(LastSeenBy(Myself),STATE_BLIND)
@@ -648,7 +676,7 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(Player6)
+  See(SixthNearest([PC]))
   OR(5)
     StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
     StateCheck(LastSeenBy(Myself),STATE_BLIND)
@@ -676,7 +704,7 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(Player1)
+  See(Myself)
   OR(5)
     StateCheck(LastSeenBy(Myself),STATE_POISONED)
     StateCheck(LastSeenBy(Myself),STATE_BLIND)
@@ -703,7 +731,34 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(Player2)
+  See([PC])
+  OR(5)
+    StateCheck(LastSeenBy(Myself),STATE_POISONED)
+    StateCheck(LastSeenBy(Myself),STATE_BLIND)
+    StateCheck(LastSeenBy(Myself),STATE_DISEASED)
+    CheckSpellState(LastSeenBy(Myself),DISEASED)
+    CheckSpellState(LastSeenBy(Myself),DEAFENED)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  HaveSpell(CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetInterrupt(FALSE)
+    Spell(Myself,CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
+    SetInterrupt(TRUE)
+END
+
+IF
+  IfValidForPartyDialog(Myself)
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  See(SecondNearest([PC]))
   OR(5)
     StateCheck(LastSeenBy(Myself),STATE_POISONED)
     StateCheck(LastSeenBy(Myself),STATE_BLIND)
@@ -730,7 +785,7 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(Player3)
+  See(ThirdNearest([PC]))
   OR(5)
     StateCheck(LastSeenBy(Myself),STATE_POISONED)
     StateCheck(LastSeenBy(Myself),STATE_BLIND)
@@ -757,7 +812,7 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(Player4)
+  See(FourthNearest([PC]))
   OR(5)
     StateCheck(LastSeenBy(Myself),STATE_POISONED)
     StateCheck(LastSeenBy(Myself),STATE_BLIND)
@@ -784,7 +839,7 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(Player5)
+  See(FifthNearest([PC]))
   OR(5)
     StateCheck(LastSeenBy(Myself),STATE_POISONED)
     StateCheck(LastSeenBy(Myself),STATE_BLIND)
@@ -811,7 +866,7 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(Player6)
+  See(SixthNearest([PC]))
   OR(5)
     StateCheck(LastSeenBy(Myself),STATE_POISONED)
     StateCheck(LastSeenBy(Myself),STATE_BLIND)
@@ -1273,8 +1328,8 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  StateCheck([GOODCUTOFF],STATE_PANIC)
-  See([GOODCUTOFF])
+  See([PC])
+  StateCheck(LastSeenBy(Myself),STATE_PANIC)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -1295,8 +1350,8 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  StateCheck(SecondNearest([GOODCUTOFF]),STATE_PANIC)
-  See(SecondNearest([GOODCUTOFF]))
+  See(SecondNearest([PC]))
+  StateCheck(LastSeenBy(Myself),STATE_PANIC)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -1317,8 +1372,8 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  StateCheck(ThirdNearest([GOODCUTOFF]),STATE_PANIC)
-  See(ThirdNearest([GOODCUTOFF]))
+  See(ThirdNearest([PC]))
+  StateCheck(LastSeenBy(Myself),STATE_PANIC)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -1339,8 +1394,8 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  StateCheck(FourthNearest([GOODCUTOFF]),STATE_PANIC)
-  See(FourthNearest([GOODCUTOFF]))
+  See(FourthNearest([PC]))
+  StateCheck(LastSeenBy(Myself),STATE_PANIC)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -1361,8 +1416,8 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  StateCheck(FifthNearest([GOODCUTOFF]),STATE_PANIC)
-  See(FifthNearest([GOODCUTOFF]))
+  See(FifthNearest([PC]))
+  StateCheck(LastSeenBy(Myself),STATE_PANIC)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -1383,8 +1438,8 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  StateCheck(SixthNearest([GOODCUTOFF]),STATE_PANIC)
-  See(SixthNearest([GOODCUTOFF]))
+  See(SixthNearest([PC]))
+  StateCheck(LastSeenBy(Myself),STATE_PANIC)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
