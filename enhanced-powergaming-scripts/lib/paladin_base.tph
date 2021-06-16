@@ -508,7 +508,7 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(Myself)
+  See(Player1)
   OR(5)
     StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
     StateCheck(LastSeenBy(Myself),STATE_BLIND)
@@ -536,7 +536,7 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See([PC])
+  See(Player2)
   OR(5)
     StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
     StateCheck(LastSeenBy(Myself),STATE_BLIND)
@@ -564,7 +564,7 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(SecondNearest([PC]))
+  See(Player3)
   OR(5)
     StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
     StateCheck(LastSeenBy(Myself),STATE_BLIND)
@@ -592,7 +592,7 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(ThirdNearest([PC]))
+  See(Player4)
   OR(5)
     StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
     StateCheck(LastSeenBy(Myself),STATE_BLIND)
@@ -620,7 +620,7 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(FourthNearest([PC]))
+  See(Player5)
   OR(5)
     StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
     StateCheck(LastSeenBy(Myself),STATE_BLIND)
@@ -648,35 +648,7 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(FifthNearest([PC]))
-  OR(5)
-    StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
-    StateCheck(LastSeenBy(Myself),STATE_BLIND)
-    StateCheck(LastSeenBy(Myself),STATE_DISEASED)
-    CheckSpellState(LastSeenBy(Myself),DISEASED)
-    CheckSpellState(LastSeenBy(Myself),DEAFENED)
-  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  HaveSpell(CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
-    SetInterrupt(FALSE)
-    Spell(LastSeenBy(Myself),CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
-    SetInterrupt(TRUE)
-END
-
-IF
-  IfValidForPartyDialog(Myself)
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(SixthNearest([PC]))
+  See(Player6)
   OR(5)
     StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
     StateCheck(LastSeenBy(Myself),STATE_BLIND)
