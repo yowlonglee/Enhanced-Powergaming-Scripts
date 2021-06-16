@@ -911,6 +911,7 @@ END
 
 IF
   ActionListEmpty()
+  !StateCheck(Myself,STATE_INVISIBLE)
   See(NearestEnemyOf(Myself))
   WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
   WeaponCanDamage(NearestEnemyOf(Myself),MAINHAND)
@@ -921,6 +922,7 @@ END
 
 IF
   ActionListEmpty()
+  !StateCheck(Myself,STATE_INVISIBLE)
   See(SecondNearestEnemyOf(Myself))
   WeaponEffectiveVs(SecondNearestEnemyOf(Myself),MAINHAND)
   WeaponCanDamage(SecondNearestEnemyOf(Myself),MAINHAND)
@@ -931,6 +933,7 @@ END
 
 IF
   ActionListEmpty()
+  !StateCheck(Myself,STATE_INVISIBLE)
   See(ThirdNearestEnemyOf(Myself))
   WeaponEffectiveVs(ThirdNearestEnemyOf(Myself),MAINHAND)
   WeaponCanDamage(ThirdNearestEnemyOf(Myself),MAINHAND)
@@ -941,6 +944,7 @@ END
 
 IF
   ActionListEmpty()
+  !StateCheck(Myself,STATE_INVISIBLE)
   See(FourthNearestEnemyOf(Myself))
   WeaponEffectiveVs(FourthNearestEnemyOf(Myself),MAINHAND)
   WeaponCanDamage(FourthNearestEnemyOf(Myself),MAINHAND)
@@ -951,6 +955,7 @@ END
 
 IF
   ActionListEmpty()
+  !StateCheck(Myself,STATE_INVISIBLE)
   See(FifthNearestEnemyOf(Myself))
   WeaponEffectiveVs(FifthNearestEnemyOf(Myself),MAINHAND)
   WeaponCanDamage(FifthNearestEnemyOf(Myself),MAINHAND)
@@ -961,6 +966,7 @@ END
 
 IF
   ActionListEmpty()
+  !StateCheck(Myself,STATE_INVISIBLE)
   See(SixthNearestEnemyOf(Myself))
   WeaponEffectiveVs(SixthNearestEnemyOf(Myself),MAINHAND)
   WeaponCanDamage(SixthNearestEnemyOf(Myself),MAINHAND)
