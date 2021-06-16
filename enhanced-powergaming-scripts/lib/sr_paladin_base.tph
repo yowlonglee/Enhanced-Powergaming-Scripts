@@ -896,7 +896,7 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(Myself)
+  See(Player1)
   HaveSpell(CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
   StateCheck(LastSeenBy(Myself),STATE_POISONED)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
@@ -919,7 +919,7 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See([PC])
+  See(Player2)
   HaveSpell(CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
   StateCheck(LastSeenBy(Myself),STATE_POISONED)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
@@ -942,7 +942,7 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(SecondNearest([PC]))
+  See(Player3)
   HaveSpell(CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
   StateCheck(LastSeenBy(Myself),STATE_POISONED)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
@@ -965,7 +965,7 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(ThirdNearest([PC]))
+  See(Player4)
   HaveSpell(CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
   StateCheck(LastSeenBy(Myself),STATE_POISONED)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
@@ -988,7 +988,7 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(FourthNearest([PC]))
+  See(Player5)
   HaveSpell(CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
   StateCheck(LastSeenBy(Myself),STATE_POISONED)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
@@ -1011,30 +1011,7 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(FifthNearest([PC]))
-  HaveSpell(CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
-  StateCheck(LastSeenBy(Myself),STATE_POISONED)
-  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
-    SetInterrupt(FALSE)
-    Spell(LastSeenBy(Myself),CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
-    SetInterrupt(TRUE)
-END
-
-IF
-  IfValidForPartyDialog(Myself)
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(SixthNearest([PC]))
+  See(Player6)
   HaveSpell(CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
   StateCheck(LastSeenBy(Myself),STATE_POISONED)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
