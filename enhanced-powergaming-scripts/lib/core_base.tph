@@ -1173,7 +1173,7 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See([GOODCUTOFF])
+  See(Player1)
   OR(6)
     StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
     StateCheck(LastSeenBy(Myself),STATE_SLEEPING)
@@ -1206,7 +1206,7 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(SecondNearest([GOODCUTOFF]))
+  See(Player2)
   OR(6)
     StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
     StateCheck(LastSeenBy(Myself),STATE_SLEEPING)
@@ -1239,7 +1239,7 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(ThirdNearest([GOODCUTOFF]))
+  See(Player3)
   OR(6)
     StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
     StateCheck(LastSeenBy(Myself),STATE_SLEEPING)
@@ -1272,7 +1272,7 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(FourthNearest([GOODCUTOFF]))
+  See(Player4)
   OR(6)
     StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
     StateCheck(LastSeenBy(Myself),STATE_SLEEPING)
@@ -1305,7 +1305,7 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(FifthNearest([GOODCUTOFF]))
+  See(Player5)
   OR(6)
     StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
     StateCheck(LastSeenBy(Myself),STATE_SLEEPING)
@@ -1338,7 +1338,7 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(SixthNearest([GOODCUTOFF]))
+  See(Player6)
   OR(6)
     StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
     StateCheck(LastSeenBy(Myself),STATE_SLEEPING)
