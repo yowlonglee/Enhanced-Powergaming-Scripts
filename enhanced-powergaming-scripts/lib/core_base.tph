@@ -200,19 +200,19 @@ END
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   CheckStatLT(Myself,1,STONESKINS)
-  GlobalLT("MO_UsedGargoyle","LOCALS",2)
+  GlobalLT("MO_UsedGargoyle","GLOBAL",2)
   HasItemEquiped("Boot12",Myself)  // Gargoyle Boots
   !CheckSpellState(Myself,GLOBE)
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     UseItem("Boot12",Myself)  // Gargoyle Boots
-    IncrementGlobal("MO_UsedGargoyle","LOCALS",1)
+    IncrementGlobal("MO_UsedGargoyle","GLOBAL",1)
 END
 
 IF
   CheckStatLT(Myself,1,STONESKINS)
-  GlobalLT("MO_UsedGargoyle","LOCALS",2)
+  GlobalLT("MO_UsedGargoyle","GLOBAL",2)
   HasItem("Boot12",Myself)  // Gargoyle Boots
   HasItemEquiped("Boot01",Myself)  // The Paws of the Cheetah
 THEN
@@ -223,7 +223,7 @@ END
 IF
   OR(2)
     CheckStatGT(Myself,0,STONESKINS)
-    GlobalGT("MO_UsedGargoyle","LOCALS",1)
+    GlobalGT("MO_UsedGargoyle","GLOBAL",1)
   HasItem("Boot01",Myself)  // The Paws of the Cheetah
   HasItemEquiped("Boot12",Myself)  // Gargoyle Boots
 THEN
@@ -4940,7 +4940,7 @@ IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   !StateCheck(Myself,STATE_MIRRORIMAGE)
-  GlobalLT("MO_UsedIbratha","LOCALS",1)
+  GlobalLT("MO_UsedIlbratha","GLOBAL",1)
   HasItemEquiped("SW1H26",Myself)  // Ilbratha +1
   !CheckSpellState(Myself,MINOR_GLOBE)
   !CheckSpellState(Myself,GLOBE)
@@ -4961,7 +4961,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     UseItemAbility("SW1H26",Myself,SLOT_AMMO3,1)  // Ilbratha +1
-    IncrementGlobal("MO_UsedIbratha","LOCALS",1)
+    IncrementGlobal("MO_UsedIlbratha","GLOBAL",1)
 END
 
 IF
@@ -4969,7 +4969,7 @@ IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   !StateCheck(Myself,STATE_MIRRORIMAGE)
-  GlobalLT("MO_UsedDuplication","LOCALS",3)
+  GlobalLT("MO_UsedDuplication","GLOBAL",3)
   HasItemEquiped("OHRRING1",Myself)  // Ring of Duplication
   !CheckSpellState(Myself,MINOR_GLOBE)
   !CheckSpellState(Myself,GLOBE)
@@ -4990,7 +4990,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     UseItem("OHRRING1",Myself)  // Ring of Duplication
-    IncrementGlobal("MO_UsedDuplication","LOCALS",1)
+    IncrementGlobal("MO_UsedDuplication","GLOBAL",1)
 END
 
 IF
@@ -6165,7 +6165,7 @@ IF
   ActionListEmpty()
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  GlobalLT("MO_UsedCheetah","LOCALS",1)
+  GlobalLT("MO_UsedCheetah","GLOBAL",1)
   HasItemEquiped("AMUL26",Myself)  // Amulet of Cheetah Speed
   !CheckStatGT(Myself,0,IMPROVEDHASTE)
   !CheckSpellState(Myself,GREATER_WHIRLWIND)
@@ -6228,7 +6228,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     UseItem("AMUL26",Myself)  // Amulet of Cheetah Speed
-    IncrementGlobal("MO_UsedCheetah","LOCALS",1)
+    IncrementGlobal("MO_UsedCheetah","GLOBAL",1)
 END
 
 IF

@@ -115,7 +115,7 @@ END
     pattern = ~~~~~IF
   OR(2)
     CheckStatGT(Myself,0,STONESKINS)
-    GlobalGT("MO_UsedGargoyle","LOCALS",1)
+    GlobalGT("MO_UsedGargoyle","GLOBAL",1)
   HasItem("Boot01",Myself)  // Boots of Speed
   HasItemEquiped("Boot12",Myself)  // Gargoyle Boots
 THEN
@@ -125,7 +125,7 @@ END~~~~~
     string = ~~~~~IF
   OR(2)
     CheckStatGT(Myself,0,STONESKINS)
-    GlobalGT("MO_UsedGargoyle","LOCALS",1)
+    GlobalGT("MO_UsedGargoyle","GLOBAL",1)
   HasItem("Boot01",Myself)  // Boots of Speed
   HasItemEquiped("Boot12",Myself)  // Gargoyle Boots
 THEN

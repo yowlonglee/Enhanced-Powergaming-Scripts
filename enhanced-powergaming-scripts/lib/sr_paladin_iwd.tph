@@ -12,23 +12,23 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mopal.baf~ ~enhanced-powergaming-s
   Global("MO_BUFF","LOCALS",1)
   IfValidForPartyDialog(Myself)
   !StateCheck(Myself,STATE_MIRRORIMAGE)
-  GlobalLT("MO_UsedDuplication","LOCALS",3)
+  GlobalLT("MO_UsedDuplication","GLOBAL",3)
   HasItemEquiped("OHRRING1",Myself)  // Ring of Duplication
 THEN
   RESPONSE #100
     UseItem("OHRRING1",Myself)  // Ring of Duplication
-    IncrementGlobal("MO_UsedDuplication","LOCALS",1)
+    IncrementGlobal("MO_UsedDuplication","GLOBAL",1)
 END~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
   IfValidForPartyDialog(Myself)
   !StateCheck(Myself,STATE_MIRRORIMAGE)
-  GlobalLT("MO_UsedDuplication","LOCALS",3)
+  GlobalLT("MO_UsedDuplication","GLOBAL",3)
   HasItemEquiped("OHRRING1",Myself)  // Ring of Duplication
 THEN
   RESPONSE #100
     UseItem("OHRRING1",Myself)  // Ring of Duplication
-    IncrementGlobal("MO_UsedDuplication","LOCALS",1)
+    IncrementGlobal("MO_UsedDuplication","GLOBAL",1)
 END
 
 IF

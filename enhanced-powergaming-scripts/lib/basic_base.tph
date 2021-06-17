@@ -61,19 +61,19 @@ END
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   CheckStatLT(Myself,1,STONESKINS)
-  GlobalLT("MO_UsedGargoyle","LOCALS",2)
+  GlobalLT("MO_UsedGargoyle","GLOBAL",2)
   HasItemEquiped("Boot12",Myself)  // Gargoyle Boots
   !CheckSpellState(Myself,GLOBE)
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     UseItem("Boot12",Myself)  // Gargoyle Boots
-    IncrementGlobal("MO_UsedGargoyle","LOCALS",1)
+    IncrementGlobal("MO_UsedGargoyle","GLOBAL",1)
 END
 
 IF
   CheckStatLT(Myself,1,STONESKINS)
-  GlobalLT("MO_UsedGargoyle","LOCALS",2)
+  GlobalLT("MO_UsedGargoyle","GLOBAL",2)
   HasItem("Boot12",Myself)  // Gargoyle Boots
   HasItemEquiped("Boot01",Myself)  // The Paws of the Cheetah
 THEN
@@ -84,7 +84,7 @@ END
 IF
   OR(2)
     CheckStatGT(Myself,0,STONESKINS)
-    GlobalGT("MO_UsedGargoyle","LOCALS",1)
+    GlobalGT("MO_UsedGargoyle","GLOBAL",1)
   HasItem("Boot01",Myself)  // The Paws of the Cheetah
   HasItemEquiped("Boot12",Myself)  // Gargoyle Boots
 THEN

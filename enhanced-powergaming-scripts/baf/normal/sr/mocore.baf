@@ -22,10 +22,10 @@ IF
 	PartyRested()
 THEN
 	RESPONSE #100
-		SetGlobal("MO_UsedIbratha","LOCALS",0)
-		SetGlobal("MO_UsedDuplication","LOCALS",0)
-		SetGlobal("MO_UsedGargoyle","LOCALS",0)
-		SetGlobal("MO_UsedCheetah","LOCALS",0)
+		SetGlobal("MO_UsedIlbratha","GLOBAL",0)
+		SetGlobal("MO_UsedDuplication","GLOBAL",0)
+		SetGlobal("MO_UsedGargoyle","GLOBAL",0)
+		SetGlobal("MO_UsedCheetah","GLOBAL",0)
 END
 
 IF
@@ -220,24 +220,24 @@ IF
 	Global("MO_BUFF","LOCALS",1)
 	IfValidForPartyDialog(Myself)
 	!StateCheck(Myself,STATE_MIRRORIMAGE)
-	GlobalLT("MO_UsedIbratha","LOCALS",1)
+	GlobalLT("MO_UsedIlbratha","GLOBAL",1)
 	HasItemEquiped("SW1H26",Myself)  // Ilbratha +1
 THEN
 	RESPONSE #100
 		UseItemAbility("SW1H26",Myself,SLOT_AMMO3,1)  // Ilbratha +1
-		IncrementGlobal("MO_UsedIbratha","LOCALS",1)
+		IncrementGlobal("MO_UsedIlbratha","GLOBAL",1)
 END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
 	IfValidForPartyDialog(Myself)
 	!StateCheck(Myself,STATE_MIRRORIMAGE)
-	GlobalLT("MO_UsedDuplication","LOCALS",3)
+	GlobalLT("MO_UsedDuplication","GLOBAL",3)
 	HasItemEquiped("OHRRING1",Myself)  // Ring of Duplication
 THEN
 	RESPONSE #100
 		UseItem("OHRRING1",Myself)  // Ring of Duplication
-		IncrementGlobal("MO_UsedDuplication","LOCALS",1)
+		IncrementGlobal("MO_UsedDuplication","GLOBAL",1)
 END
 
 IF

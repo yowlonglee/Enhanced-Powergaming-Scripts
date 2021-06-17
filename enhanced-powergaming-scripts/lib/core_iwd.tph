@@ -119,7 +119,7 @@ END
     pattern = ~~~~~IF
   OR(2)
     CheckStatGT(Myself,0,STONESKINS)
-    GlobalGT("MO_UsedGargoyle","LOCALS",1)
+    GlobalGT("MO_UsedGargoyle","GLOBAL",1)
   HasItem("Boot01",Myself)  // The Paws of the Cheetah
   HasItemEquiped("Boot12",Myself)  // Gargoyle Boots
 THEN
@@ -129,7 +129,7 @@ END~~~~~
     string = ~~~~~IF
   OR(2)
     CheckStatGT(Myself,0,STONESKINS)
-    GlobalGT("MO_UsedGargoyle","LOCALS",1)
+    GlobalGT("MO_UsedGargoyle","GLOBAL",1)
   HasItem("Boot01",Myself)  // The Paws of the Cheetah
   HasItemEquiped("Boot12",Myself)  // Gargoyle Boots
 THEN
@@ -184,23 +184,23 @@ END~~~~~ //"
   Global("MO_BUFF","LOCALS",1)
   IfValidForPartyDialog(Myself)
   !CheckStatGT(Myself,0,IMPROVEDHASTE)
-  GlobalLT("MO_UsedCheetah","LOCALS",1)
+  GlobalLT("MO_UsedCheetah","GLOBAL",1)
   HasItemEquiped("AMUL26",Myself)  // Amulet of Cheetah Speed
 THEN
   RESPONSE #100
     UseItem("AMUL26",Myself)  // Amulet of Cheetah Speed
-    IncrementGlobal("MO_UsedCheetah","LOCALS",1)
+    IncrementGlobal("MO_UsedCheetah","GLOBAL",1)
 END~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
   IfValidForPartyDialog(Myself)
   !CheckStatGT(Myself,0,IMPROVEDHASTE)
-  GlobalLT("MO_UsedCheetah","LOCALS",1)
+  GlobalLT("MO_UsedCheetah","GLOBAL",1)
   HasItemEquiped("AMUL26",Myself)  // Amulet of Cheetah Speed
 THEN
   RESPONSE #100
     UseItem("AMUL26",Myself)  // Amulet of Cheetah Speed
-    IncrementGlobal("MO_UsedCheetah","LOCALS",1)
+    IncrementGlobal("MO_UsedCheetah","GLOBAL",1)
 END
 
 IF
