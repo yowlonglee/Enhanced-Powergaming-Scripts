@@ -935,6 +935,21 @@ END
 IF
 	Global("MO_BUFF","LOCALS",1)
 	IfValidForPartyDialog(Myself)
+	HaveSpell(WIZARD_LUCK)  // SPWI209.SPL (Luck)
+	!StateCheck(Myself,STATE_LUCK)
+	CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+	!CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+	!StateCheck(Myself,STATE_SILENCED)
+	!CheckSpellState(Myself,WILD_MAGIC_AREA)
+	!CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+	RESPONSE #100
+		Spell(Myself,WIZARD_LUCK)  // SPWI209.SPL (Luck)
+END
+
+IF
+	Global("MO_BUFF","LOCALS",1)
+	IfValidForPartyDialog(Myself)
 	HaveSpell(WIZARD_PROTECTION_FROM_THE_ELEMENTS)  // SPWI702.SPL (Protection from the Elements)
 	!CheckStatGT(Myself,0,WIZARD_PROTECTION_FROM_THE_ELEMENTS)
 	CheckStatLT(Myself,20,SPELLFAILUREMAGE)
