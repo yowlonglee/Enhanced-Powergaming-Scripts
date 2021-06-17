@@ -180,18 +180,6 @@ END
 IF
   Global("MO_BUFF","LOCALS",1)
   IfValidForPartyDialog(Myself)
-  !CheckStatGT(Myself,0,IMPROVEDHASTE)
-  GlobalLT("MO_UsedCheetah","GLOBAL",1)
-  HasItemEquiped("AMUL26",Myself)  // Amulet of Cheetah Speed
-THEN
-  RESPONSE #100
-    UseItem("AMUL26",Myself)  // Amulet of Cheetah Speed
-    IncrementGlobal("MO_UsedCheetah","GLOBAL",1)
-END
-
-IF
-  Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   HaveSpellRES("SPDM106")  // Mirror Image
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
