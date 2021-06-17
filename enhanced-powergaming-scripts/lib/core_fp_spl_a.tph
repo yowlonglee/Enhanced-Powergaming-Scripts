@@ -332,7 +332,7 @@ END~~~~~
     string = ~~~~~IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See([GOODCUTOFF])
+  See([PC])
   HaveSpell(CLERIC_SPIRITUAL_CLARITY)
   OR(4)
     StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
@@ -358,7 +358,7 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(SecondNearest([GOODCUTOFF]))
+  See(SecondNearest([PC]))
   HaveSpell(CLERIC_SPIRITUAL_CLARITY)
   OR(4)
     StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
@@ -384,7 +384,7 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(ThirdNearest([GOODCUTOFF]))
+  See(ThirdNearest([PC]))
   HaveSpell(CLERIC_SPIRITUAL_CLARITY)
   OR(4)
     StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
@@ -410,7 +410,7 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(FourthNearest([GOODCUTOFF]))
+  See(FourthNearest([PC]))
   HaveSpell(CLERIC_SPIRITUAL_CLARITY)
   OR(4)
     StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
@@ -436,7 +436,7 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(FifthNearest([GOODCUTOFF]))
+  See(FifthNearest([PC]))
   HaveSpell(CLERIC_SPIRITUAL_CLARITY)
   OR(4)
     StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
@@ -462,7 +462,7 @@ END
 IF
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(SixthNearest([GOODCUTOFF]))
+  See(SixthNearest([PC]))
   HaveSpell(CLERIC_SPIRITUAL_CLARITY)
   OR(4)
     StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
