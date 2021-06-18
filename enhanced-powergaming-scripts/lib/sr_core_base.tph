@@ -5354,6 +5354,25 @@ THEN
 END
 
 IF
+  IfValidForPartyDialog(Myself)
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  GlobalLT("MO_UsedCowlOfStars","GLOBAL",3)
+  HasItemEquiped("OHRCLCK1",Myself)  // Cowl of the Stars
+  !HasItem("melfmet",Myself)  // Melf's Minute Meteor
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    UseItem("OHRCLCK1",Myself)  // Cowl of the Stars
+    IncrementGlobal("MO_UsedCowlOfStars","GLOBAL",1)
+END
+
+IF
   ActionListEmpty()
   IfValidForPartyDialog(Myself)
   OR(2)
