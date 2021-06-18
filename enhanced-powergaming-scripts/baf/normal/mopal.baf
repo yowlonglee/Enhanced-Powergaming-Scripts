@@ -58,6 +58,26 @@ THEN
 END
 
 IF
+  HaveSpell(CLERIC_PROTECTION_FROM_EVIL_10_FOOT)  // SPPR408.SPL (Protection From Evil, 10' Radius)
+  OR(2)
+    Global("MO_ProtEvil","LOCALS",0)
+    Global("MO_TeamProtEvil","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_ProtEvil","LOCALS",1)
+    SetGlobal("MO_TeamProtEvil","GLOBAL",1)
+END
+
+IF
+  !HaveSpell(CLERIC_PROTECTION_FROM_EVIL_10_FOOT)  // SPPR408.SPL (Protection From Evil, 10' Radius)
+  Global("MO_ProtEvil","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_ProtEvil","LOCALS",0)
+    SetGlobal("MO_TeamProtEvil","GLOBAL",0)
+END
+
+IF
   Global("MO_TURNUNDEAD","LOCALS",0)
   Class(Myself,PALADIN_ALL)
   !Kit(Myself,INQUISITOR)
