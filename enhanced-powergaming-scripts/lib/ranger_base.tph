@@ -316,6 +316,17 @@ THEN
 END
 
 IF
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  GlobalLT("MO_UsedClkOfStars","GLOBAL",1)
+  HasItemEquiped("CLCK25",Myself)  // Cloak of the Stars
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    UseItem("CLCK25",Myself)  // Cloak of the Stars
+    IncrementGlobal("MO_UsedClkOfStars","GLOBAL",1)
+END
+
+IF
   ActionListEmpty()
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
