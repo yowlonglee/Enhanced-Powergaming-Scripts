@@ -1116,6 +1116,18 @@ END
 IF
   Global("MO_BUFF","LOCALS",1)
   IfValidForPartyDialog(Myself)
+  HasItemEquiped("RING34",Myself)  // Ring of Spell Turning
+  GlobalLT("MO_UsedSpellTurning","GLOBAL",1)
+  !CheckSpellState(Myself,SPELL_TURNING)
+THEN
+  RESPONSE #100
+    UseItem("RING34",Myself)  // Ring of Spell Turning
+    IncrementGlobal("MO_UsedSpellTurning","GLOBAL",1)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  IfValidForPartyDialog(Myself)
   HaveSpell(WIZARD_MINOR_SPELL_TURNING)  // SPWI522.SPL (Minor Spell Turning)
   !CheckSpellState(Myself,MINOR_SPELL_TURNING)
   !CheckSpellState(Myself,SPELL_TURNING)
