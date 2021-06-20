@@ -1,5 +1,15 @@
 # Changelog
 
+## Version 3.0
+
+June 19, 2021
+
+### Changed 
+
+- Various bug fixes and optimizations
+- Items that will be used by the scripts were added: Headband of the Devout, Girdle of Fortitude, Ring of Spell Turning, Cloak of the Stars, Cowl of the Stars, and the Belt of Minor Invulnerability
+- Additional spells and abilities added
+
 ## Version 3.0_beta
 
 May 24, 2021
