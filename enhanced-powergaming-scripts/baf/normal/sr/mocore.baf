@@ -1435,6 +1435,7 @@ IF
   HasItemEquiped("OHRBELT2",Myself)  // Belt of Minor Invulnerability
   !CheckSpellState(Myself,MINOR_GLOBE)
   !CheckSpellState(Myself,GLOBE)
+  Global("MO_CastAthkatla","LOCALS",1)
 THEN
   RESPONSE #100
     UseItem("OHRBELT2",Myself)  // Belt of Minor Invulnerability
