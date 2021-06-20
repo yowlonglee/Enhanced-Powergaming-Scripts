@@ -694,6 +694,19 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  GlobalLT("MO_UsedBltMnrInv","GLOBAL",1)
+  IfValidForPartyDialog(Myself)
+  HasItemEquiped("OHRBELT2",Myself)  // Belt of Minor Invulnerability
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
+THEN
+  RESPONSE #100
+    UseItem("OHRBELT2",Myself)  // Belt of Minor Invulnerability
+    IncrementGlobal("MO_UsedBltMnrInv","GLOBAL",1)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
   IfValidForPartyDialog(Myself)
   HasItemEquiped("RING34",Myself)  // Ring of Spell Turning
   GlobalLT("MO_UsedSpellTurning","GLOBAL",1)
