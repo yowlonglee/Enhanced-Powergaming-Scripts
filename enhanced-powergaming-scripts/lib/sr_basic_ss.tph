@@ -1,0 +1,58 @@
+COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
+
+///////////////////////////////////////////////////////////////////////////
+// Add Mind Blade                                                        //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpell(CLERIC_RIGHTEOUS_MAGIC)  // SPPR513.SPL (Righteous Fury)
+  !CheckSpellState(Myself,RIGHTEOUS_MAGIC)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_RIGHTEOUS_MAGIC)  // SPPR513.SPL (Righteous Fury)
+END~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpell(CLERIC_RIGHTEOUS_MAGIC)  // SPPR513.SPL (Righteous Fury)
+  !CheckSpellState(Myself,RIGHTEOUS_MAGIC)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_RIGHTEOUS_MAGIC)  // SPPR513.SPL (Righteous Fury)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES("A!SOULKN")  // Manifest Mind Blade
+  !HasItemEquiped("a#soul0",Myself)  // Mind Blade
+  !HasItemEquiped("a#soul1",Myself)  // Mind Blade
+  !HasItemEquiped("a#soul2",Myself)  // Mind Blade
+  !HasItemEquiped("a#soul3",Myself)  // Mind Blade
+  !HasItemEquiped("a#soul4",Myself)  // Mind Blade
+  !HasItemEquiped("a#soul5",Myself)  // Mind Blade
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SpellRES("A!SOULKN",Myself)  // Manifest Mind Blade
+END
+~~~~~ //"
+  END
