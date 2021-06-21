@@ -5935,7 +5935,7 @@ IF
   ActionListEmpty()
   IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  HaveSpell(WIZARD_BLACK_BLADE_OF_DISASTER)  // SPCL321.SPL (Enrage)
+  HaveSpell(WIZARD_BLACK_BLADE_OF_DISASTER)
   !HasItemEquiped("BLAKBLAD",Myself)
   See([EVILCUTOFF])
   OR(33)
@@ -5975,7 +5975,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
-    Spell(Myself,WIZARD_BLACK_BLADE_OF_DISASTER)  // SPCL321.SPL (Enrage)
+    Spell(Myself,WIZARD_BLACK_BLADE_OF_DISASTER)
 END
 
 IF
