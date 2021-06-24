@@ -8,8 +8,8 @@ June XX, 2021
 
 - Updated Resist Fear and Belt of Minor Invulnerability to NOT be cast during pre-buffing in Athkatla if Cowled Wizards will appear
 - Added Army of One (DSotSC Spell) to pre-buffing and situational casting
-- Updated issue with Negative Plane Protection not being tracked correctly continually being cast on a single character
-- Added metadata to better work with Project Infinity
+- Updated issue with Negative Plane Protection not being tracked correctly causing it to be continually cast on a single character
+- Added metadata and labels to better work with Project Infinity
 
 ## Version 3.0
 
