@@ -38,7 +38,7 @@ LANGUAGE ~American English~
 // Main Component Base Game                                              //
 ///////////////////////////////////////////////////////////////////////////
 
-BEGIN @7 DESIGNATED 14 SUBCOMPONENT @2
+BEGIN @7 DESIGNATED 14 SUBCOMPONENT @2 LABEL EnhancedPowergamingScripts-MainNormal
 
 REQUIRE_PREDICATE (GAME_IS ~bg2ee eet~) @3000
 
@@ -49,7 +49,7 @@ INCLUDE ~enhanced-powergaming-scripts/components/main_component.tpa~
 
 ////////////////////////////////////////////////////
 
-BEGIN @8 DESIGNATED 15 SUBCOMPONENT @2
+BEGIN @8 DESIGNATED 15 SUBCOMPONENT @2 LABEL EnhancedPowergamingScripts-MainAccelerated
 
 INCLUDE ~enhanced-powergaming-scripts/components/initialize.tpa~
 INCLUDE ~enhanced-powergaming-scripts/components/main_component_a.tpa~
@@ -58,7 +58,7 @@ INCLUDE ~enhanced-powergaming-scripts/components/main_component_a.tpa~
 // Enhanced Scripts for Summoned Celestials                              //
 ///////////////////////////////////////////////////////////////////////////
 
-BEGIN @9 DESIGNATED 9
+BEGIN @9 DESIGNATED 9 LABEL EnhancedPowergamingScripts-Celestials
 
 REQUIRE_PREDICATE (GAME_IS ~bg2ee eet~) @3000
 
@@ -74,7 +74,7 @@ INCLUDE ~enhanced-powergaming-scripts/components/celestials.tpa~
 // Restore Vanilla Belm and Kundane                                      //
 ///////////////////////////////////////////////////////////////////////////
 
-BEGIN @3 DESIGNATED 20
+BEGIN @3 DESIGNATED 20 LABEL EnhancedPowergamingScripts-RestoreVanillaAPRWeapons
 REQUIRE_PREDICATE (GAME_IS ~bg2ee eet~) @3000
 REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-item_rev.tp2~ ~0~) @3003 
 
@@ -86,7 +86,7 @@ INCLUDE ~enhanced-powergaming-scripts/components/restore_apr_weapons.tpa~
 // Restore Vanilla Gargoyle Boots                                        //
 ///////////////////////////////////////////////////////////////////////////
 
-BEGIN @4 DESIGNATED 21
+BEGIN @4 DESIGNATED 21 LABEL EnhancedPowergamingScripts-RestoreVanillaGargoyleBoots
 REQUIRE_PREDICATE (GAME_IS ~bg2ee eet~) @3000
 REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-item_rev.tp2~ ~0~) @3003 
 
@@ -98,7 +98,7 @@ INCLUDE ~enhanced-powergaming-scripts/components/restore_gargoyle.tpa~
 // Restore Vanilla Amulet of the Cheetah                                 //
 ///////////////////////////////////////////////////////////////////////////
 
-BEGIN @5 DESIGNATED 22
+BEGIN @5 DESIGNATED 22 EnhancedPowergamingScripts-RestoreVanillaAmuletCheetah
 REQUIRE_PREDICATE (GAME_IS ~bg2ee eet~) @3000
 REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-item_rev.tp2~ ~0~) @3003 
 
@@ -110,7 +110,7 @@ INCLUDE ~enhanced-powergaming-scripts/components/restore_cheetah.tpa~
 // Restore Vanilla Haste and Improved Haste                              //
 ///////////////////////////////////////////////////////////////////////////
 
-BEGIN @6 DESIGNATED 23
+BEGIN @6 DESIGNATED 23 EnhancedPowergamingScripts-RestoreVanillaHasteIH
 REQUIRE_PREDICATE (GAME_IS ~bg2ee eet~) @3000
 REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) @3002
 
