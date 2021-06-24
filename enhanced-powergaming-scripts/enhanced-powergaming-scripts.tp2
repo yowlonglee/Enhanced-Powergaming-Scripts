@@ -98,7 +98,7 @@ INCLUDE ~enhanced-powergaming-scripts/components/restore_gargoyle.tpa~
 // Restore Vanilla Amulet of the Cheetah                                 //
 ///////////////////////////////////////////////////////////////////////////
 
-BEGIN @5 DESIGNATED 22 EnhancedPowergamingScripts-RestoreVanillaAmuletCheetah
+BEGIN @5 DESIGNATED 22 LABEL EnhancedPowergamingScripts-RestoreVanillaAmuletCheetah
 REQUIRE_PREDICATE (GAME_IS ~bg2ee eet~) @3000
 REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-item_rev.tp2~ ~0~) @3003 
 
@@ -110,7 +110,7 @@ INCLUDE ~enhanced-powergaming-scripts/components/restore_cheetah.tpa~
 // Restore Vanilla Haste and Improved Haste                              //
 ///////////////////////////////////////////////////////////////////////////
 
-BEGIN @6 DESIGNATED 23 EnhancedPowergamingScripts-RestoreVanillaHasteIH
+BEGIN @6 DESIGNATED 23 LABEL EnhancedPowergamingScripts-RestoreVanillaHasteIH
 REQUIRE_PREDICATE (GAME_IS ~bg2ee eet~) @3000
 REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) @3002
 
