@@ -75,6 +75,7 @@ INCLUDE ~enhanced-powergaming-scripts/components/celestials.tpa~
 ///////////////////////////////////////////////////////////////////////////
 
 BEGIN @3 DESIGNATED 20 LABEL EnhancedPowergamingScripts-RestoreVanillaAPRWeapons
+METADATA "REQUIRE-EARLIER = item_rev"
 REQUIRE_PREDICATE (GAME_IS ~bg2ee eet~) @3000
 REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-item_rev.tp2~ ~0~) @3003 
 
@@ -87,6 +88,7 @@ INCLUDE ~enhanced-powergaming-scripts/components/restore_apr_weapons.tpa~
 ///////////////////////////////////////////////////////////////////////////
 
 BEGIN @4 DESIGNATED 21 LABEL EnhancedPowergamingScripts-RestoreVanillaGargoyleBoots
+METADATA "REQUIRE-EARLIER = item_rev"
 REQUIRE_PREDICATE (GAME_IS ~bg2ee eet~) @3000
 REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-item_rev.tp2~ ~0~) @3003 
 
@@ -99,6 +101,7 @@ INCLUDE ~enhanced-powergaming-scripts/components/restore_gargoyle.tpa~
 ///////////////////////////////////////////////////////////////////////////
 
 BEGIN @5 DESIGNATED 22 LABEL EnhancedPowergamingScripts-RestoreVanillaAmuletCheetah
+METADATA "REQUIRE-EARLIER = item_rev"
 REQUIRE_PREDICATE (GAME_IS ~bg2ee eet~) @3000
 REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-item_rev.tp2~ ~0~) @3003 
 
@@ -111,6 +114,7 @@ INCLUDE ~enhanced-powergaming-scripts/components/restore_cheetah.tpa~
 ///////////////////////////////////////////////////////////////////////////
 
 BEGIN @6 DESIGNATED 23 LABEL EnhancedPowergamingScripts-RestoreVanillaHasteIH
+METADATA "REQUIRE-EARLIER = spell_rev"
 REQUIRE_PREDICATE (GAME_IS ~bg2ee eet~) @3000
 REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) @3002
 
