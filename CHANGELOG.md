@@ -2,7 +2,7 @@
 
 ## Version 3.1
 
-June XX, 2021
+June 24, 2021
 
 ### Changed 
 
