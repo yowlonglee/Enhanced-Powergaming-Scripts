@@ -1,5 +1,13 @@
 # Changelog
 
+## Version 3.2
+
+July XX, 2021
+
+### Changed 
+
+- Added Detect Illusions
+
 ## Version 3.1
 
 June 24, 2021
