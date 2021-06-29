@@ -7,6 +7,7 @@ July XX, 2021
 ### Changed 
 
 - Added Detect Illusions
+- Improved Haste will only be cast if the character has fighter, thief, or bard levels. This prevents a pure class mage casting IH on themselves since there is little benefit.
 
 ## Version 3.1
 
