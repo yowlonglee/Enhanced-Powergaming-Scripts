@@ -1,200 +1,204 @@
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
-// Add Mod Components to Scripts with Spell Revisions - BGII: EE and EET //
+// Add Mod Components to Scripts for BGII: EE and EET                    //
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
-ACTION_IF (MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
+ACTION_IF (GAME_IS ~bg2ee eet~) BEGIN
+
+///////////////////////////////////////////////////////////////////////////
+// Spell Revisions                                                       //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF (MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
 
 ///////////////////////////////////////////////////////////////////////////
 // SR - Base Game                                                        //
 ///////////////////////////////////////////////////////////////////////////
-	COPY ~enhanced-powergaming-scripts/baf/BG2EE/normal/sr/morang.baf~  ~enhanced-powergaming-scripts/baf/upload/morang.baf~
-	COPY ~enhanced-powergaming-scripts/baf/BG2EE/normal/sr/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
-	COPY ~enhanced-powergaming-scripts/baf/BG2EE/normal/sr/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
-	COPY ~enhanced-powergaming-scripts/baf/BG2EE/normal/sr/mopal.baf~   ~enhanced-powergaming-scripts/baf/upload/mopal.baf~
-	COPY ~enhanced-powergaming-scripts/baf/BG2EE/normal/sr/momonk.baf~  ~enhanced-powergaming-scripts/baf/upload/momonk.baf~
+		COPY ~enhanced-powergaming-scripts/baf/BG2EE/normal/sr/morang.baf~  ~enhanced-powergaming-scripts/baf/upload/morang.baf~
+		COPY ~enhanced-powergaming-scripts/baf/BG2EE/normal/sr/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
+		COPY ~enhanced-powergaming-scripts/baf/BG2EE/normal/sr/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+		COPY ~enhanced-powergaming-scripts/baf/BG2EE/normal/sr/mopal.baf~   ~enhanced-powergaming-scripts/baf/upload/mopal.baf~
+		COPY ~enhanced-powergaming-scripts/baf/BG2EE/normal/sr/momonk.baf~  ~enhanced-powergaming-scripts/baf/upload/momonk.baf~
 
-	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_ranger_base.tph~
-	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_basic_base.tph~
-	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_core_base.tph~
-	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_monk_base.tph~
-	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_paladin_base.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_ranger_base.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_basic_base.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_core_base.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_monk_base.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_paladin_base.tph~
 
 ///////////////////////////////////////////////////////////////////////////
 // SR - Song & Silence                                                   //
 ///////////////////////////////////////////////////////////////////////////
-	ACTION_IF (MOD_IS_INSTALLED ~setup-song_and_silence.tp2~ ~8~) BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_basic_ss.tph~
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_core_ss.tph~
-	END
+		ACTION_IF (MOD_IS_INSTALLED ~setup-song_and_silence.tp2~ ~8~) BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_basic_ss.tph~
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_core_ss.tph~
+		END
 
 ///////////////////////////////////////////////////////////////////////////
 // SR - Tome & Blood                                                     //
 ///////////////////////////////////////////////////////////////////////////
-	// Invisibility Changes
-	ACTION_IF (MOD_IS_INSTALLED ~setup-TomeAndBlood.tp2~ ~14~) BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_core_tb_inv.tph~
-	END
+		// Invisibility Changes
+		ACTION_IF (MOD_IS_INSTALLED ~setup-TomeAndBlood.tp2~ ~14~) BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_core_tb_inv.tph~
+		END
 
 ///////////////////////////////////////////////////////////////////////////
 // SR - Faiths & Powers - Ranger Kits                                    //
 ///////////////////////////////////////////////////////////////////////////
-	ACTION_IF (MOD_IS_INSTALLED ~setup-faiths_and_powers.tp2~ ~37~) BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_ranger_fp_kit.tph~
-	END
+		ACTION_IF (MOD_IS_INSTALLED ~setup-faiths_and_powers.tp2~ ~37~) BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_ranger_fp_kit.tph~
+		END
 
 ///////////////////////////////////////////////////////////////////////////
 // SR - Faiths & Powers - Paladin Kits                                   //
 ///////////////////////////////////////////////////////////////////////////
-	ACTION_IF (MOD_IS_INSTALLED ~setup-faiths_and_powers.tp2~ ~35~) BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_paladin_fp_kit.tph~
-	END
+		ACTION_IF (MOD_IS_INSTALLED ~setup-faiths_and_powers.tp2~ ~35~) BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_paladin_fp_kit.tph~
+		END
 
 ///////////////////////////////////////////////////////////////////////////
 // SR- Faiths & Powers - Cleric Kits                                     //
 ///////////////////////////////////////////////////////////////////////////
-	ACTION_IF (MOD_IS_INSTALLED ~setup-faiths_and_powers.tp2~ ~35~) BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_fp_kit.tph~
-	END
+		ACTION_IF (MOD_IS_INSTALLED ~setup-faiths_and_powers.tp2~ ~35~) BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_fp_kit.tph~
+		END
 
 ///////////////////////////////////////////////////////////////////////////
 // SR - Faiths & Powers - FnP Spheres                                    //
 ///////////////////////////////////////////////////////////////////////////
-	ACTION_IF (MOD_IS_INSTALLED ~setup-faiths_and_powers.tp2~ ~21~) BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_ranger_fp_spl.tph~
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_basic_fp_spl.tph~
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_core_fp_spl.tph~
-	END
+		ACTION_IF (MOD_IS_INSTALLED ~setup-faiths_and_powers.tp2~ ~21~) BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_ranger_fp_spl.tph~
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_basic_fp_spl.tph~
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_core_fp_spl.tph~
+		END
 
 ///////////////////////////////////////////////////////////////////////////
 // SR - IWD Spells                                                       //
 ///////////////////////////////////////////////////////////////////////////
-	ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1500~ && MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1510~) || (MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 30 && MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 40) BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_paladin_iwd.tph~
+		ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1500~ && MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1510~) || (MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 30 && MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 40) BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_paladin_iwd.tph~
 
-		ACTION_IF (MOD_IS_INSTALLED ~setup-faiths_and_powers.tp2~ ~37~) BEGIN
-			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_basic_iwd_fp.tph~
-			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_ranger_iwd_fp_kit.tph~
-			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_core_iwd_fp.tph~
-		END ELSE BEGIN
-			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_core_iwd.tph~
-			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_basic_iwd.tph~
+			ACTION_IF (MOD_IS_INSTALLED ~setup-faiths_and_powers.tp2~ ~37~) BEGIN
+				INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_basic_iwd_fp.tph~
+				INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_ranger_iwd_fp_kit.tph~
+				INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_core_iwd_fp.tph~
+			END ELSE BEGIN
+				INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_core_iwd.tph~
+				INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_basic_iwd.tph~
+			END
 		END
-	END
 
-///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 // Add Mod Components to Scripts without Spell Revisions                 //
 ///////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////
 
-END ELSE BEGIN
+	END ELSE BEGIN
 ///////////////////////////////////////////////////////////////////////////
 // Base Game                                                             //
 ///////////////////////////////////////////////////////////////////////////
-	COPY ~enhanced-powergaming-scripts/baf/BG2EE/normal/morang.baf~  ~enhanced-powergaming-scripts/baf/upload/morang.baf~
-	COPY ~enhanced-powergaming-scripts/baf/BG2EE/normal/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
-	COPY ~enhanced-powergaming-scripts/baf/BG2EE/normal/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
-	COPY ~enhanced-powergaming-scripts/baf/BG2EE/normal/mopal.baf~   ~enhanced-powergaming-scripts/baf/upload/mopal.baf~
-	COPY ~enhanced-powergaming-scripts/baf/BG2EE/normal/momonk.baf~  ~enhanced-powergaming-scripts/baf/upload/momonk.baf~
+		COPY ~enhanced-powergaming-scripts/baf/BG2EE/normal/morang.baf~  ~enhanced-powergaming-scripts/baf/upload/morang.baf~
+		COPY ~enhanced-powergaming-scripts/baf/BG2EE/normal/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
+		COPY ~enhanced-powergaming-scripts/baf/BG2EE/normal/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+		COPY ~enhanced-powergaming-scripts/baf/BG2EE/normal/mopal.baf~   ~enhanced-powergaming-scripts/baf/upload/mopal.baf~
+		COPY ~enhanced-powergaming-scripts/baf/BG2EE/normal/momonk.baf~  ~enhanced-powergaming-scripts/baf/upload/momonk.baf~
 
-	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/ranger_base.tph~
-	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/basic_base.tph~
-	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_base.tph~
-	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/monk_base.tph~
-	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/paladin_base.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/ranger_base.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/basic_base.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_base.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/monk_base.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/paladin_base.tph~
 
 ///////////////////////////////////////////////////////////////////////////
 // DSotSC                                                                //
 ///////////////////////////////////////////////////////////////////////////
-	ACTION_IF FILE_EXISTS_IN_GAME ~WIZARD_ARMY_OF_ONE~ BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_dsotsc_w.tph~
-	END 
-	
-	ACTION_IF FILE_EXISTS_IN_GAME ~sppr519.spl~ && FILE_EXISTS_IN_GAME ~sppr716.spl~ BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_dsotsc_d.tph~
-	END
+		ACTION_IF FILE_EXISTS_IN_GAME ~WIZARD_ARMY_OF_ONE~ BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_dsotsc_w.tph~
+		END 
+		
+		ACTION_IF FILE_EXISTS_IN_GAME ~sppr519.spl~ && FILE_EXISTS_IN_GAME ~sppr716.spl~ BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_dsotsc_d.tph~
+		END
 	
 ///////////////////////////////////////////////////////////////////////////
 // Song & Silence                                                        //
 ///////////////////////////////////////////////////////////////////////////
-	ACTION_IF (MOD_IS_INSTALLED ~setup-song_and_silence.tp2~ ~8~) BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/basic_ss.tph~
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_ss.tph~
-	END
+		ACTION_IF (MOD_IS_INSTALLED ~setup-song_and_silence.tp2~ ~8~) BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/basic_ss.tph~
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_ss.tph~
+		END
 
 ///////////////////////////////////////////////////////////////////////////
 // IWD Spells                                                            //
 ///////////////////////////////////////////////////////////////////////////
-	ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1500~ && MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1510~) || (MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 30 && MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 40) BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/ranger_iwd.tph~
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/basic_iwd.tph~
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_iwd.tph~
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/paladin_iwd.tph~
-	END
+		ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1500~ && MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1510~) || (MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 30 && MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 40) BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/ranger_iwd.tph~
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/basic_iwd.tph~
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_iwd.tph~
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/paladin_iwd.tph~
+		END
 
 ///////////////////////////////////////////////////////////////////////////
 // Tome & Blood                                                          //
 ///////////////////////////////////////////////////////////////////////////
-	// Invisibility Changes
-	ACTION_IF (MOD_IS_INSTALLED ~setup-TomeAndBlood.tp2~ ~14~) BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_tb_inv.tph~
-	END
+		// Invisibility Changes
+		ACTION_IF (MOD_IS_INSTALLED ~setup-TomeAndBlood.tp2~ ~14~) BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_tb_inv.tph~
+		END
 
 ///////////////////////////////////////////////////////////////////////////
 // Faiths & Powers - Ranger Kits                                          //
 ///////////////////////////////////////////////////////////////////////////
-	ACTION_IF (MOD_IS_INSTALLED ~setup-faiths_and_powers.tp2~ ~37~) BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/ranger_fp_kit.tph~
+		ACTION_IF (MOD_IS_INSTALLED ~setup-faiths_and_powers.tp2~ ~37~) BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/ranger_fp_kit.tph~
 
-		ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1500~ && MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1510~) || (MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 30 && MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 40) BEGIN
-			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/ranger_iwd_fp_kit.tph~
+			ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1500~ && MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1510~) || (MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 30 && MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 40) BEGIN
+				INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/ranger_iwd_fp_kit.tph~
+			END
 		END
-	END
 
 ///////////////////////////////////////////////////////////////////////////
 // Faiths & Powers - Paladin Kits                                        //
 ///////////////////////////////////////////////////////////////////////////
-	ACTION_IF (MOD_IS_INSTALLED ~setup-faiths_and_powers.tp2~ ~35~) BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/paladin_fp_kit.tph~
-	END
+		ACTION_IF (MOD_IS_INSTALLED ~setup-faiths_and_powers.tp2~ ~35~) BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/paladin_fp_kit.tph~
+		END
 
 ///////////////////////////////////////////////////////////////////////////
 // Faiths & Powers - Cleric Kits                                         //
 ///////////////////////////////////////////////////////////////////////////
-	ACTION_IF (MOD_IS_INSTALLED ~setup-faiths_and_powers.tp2~ ~35~) BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_fp_kit.tph~
-	END
+		ACTION_IF (MOD_IS_INSTALLED ~setup-faiths_and_powers.tp2~ ~35~) BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_fp_kit.tph~
+		END
 
 ///////////////////////////////////////////////////////////////////////////
 // Faiths & Powers - FnP Spheres                                         //
 ///////////////////////////////////////////////////////////////////////////
-	ACTION_IF (MOD_IS_INSTALLED ~setup-faiths_and_powers.tp2~ ~21~) BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/ranger_fp_spl.tph~
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/basic_fp_spl.tph~
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_fp_spl.tph~
+		ACTION_IF (MOD_IS_INSTALLED ~setup-faiths_and_powers.tp2~ ~21~) BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/ranger_fp_spl.tph~
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/basic_fp_spl.tph~
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_fp_spl.tph~
 
-		ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1500~ && MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1510~) || (MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 30 && MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 40) BEGIN
-			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/ranger_iwd_fp_spl.tph~
+			ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1500~ && MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1510~) || (MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 30 && MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 40) BEGIN
+				INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/ranger_iwd_fp_spl.tph~
+			END
 		END
 	END
-END
 
 ///////////////////////////////////////////////////////////////////////////
 // SCS - Breach                                                          //
 ///////////////////////////////////////////////////////////////////////////
-	ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~5900~) BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_breach.tph~
-		
-		ACTION_IF (MOD_IS_INSTALLED ~setup-faiths_and_powers.tp2~ ~37~) BEGIN
-			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/ranger_breach.tph~
+		ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~5900~) BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_breach.tph~
+			
+			ACTION_IF (MOD_IS_INSTALLED ~setup-faiths_and_powers.tp2~ ~37~) BEGIN
+				INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/ranger_breach.tph~
+			END
 		END
-	END
 
 ///////////////////////////////////////////////////////////////////////////
 // Make Skald Script after Core                                          //
 ///////////////////////////////////////////////////////////////////////////
-	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/skald_base.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/skald_base.tph~
+END
 
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////

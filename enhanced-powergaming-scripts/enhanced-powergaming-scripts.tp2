@@ -44,57 +44,19 @@ REQUIRE_PREDICATE (GAME_IS ~bg2ee eet~) @3000
 
 LOAD_TRA ~enhanced-powergaming-scripts/languages/%LANGUAGE%/script_descriptions.tra~
 
-INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/initialize.tpa~
-INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/main_component.tpa~
+ACTION_IF (GAME_IS ~bg2ee eet~) BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/components/initialize.tpa~
+END
+INCLUDE ~enhanced-powergaming-scripts/components/main_component.tpa~
 
 ////////////////////////////////////////////////////
 
 BEGIN @8 DESIGNATED 15 SUBCOMPONENT @2 LABEL EnhancedPowergamingScripts-MainAccelerated
 
-INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/initialize.tpa~
-INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/main_component_a.tpa~
-
-/*
-///////////////////////////////////////////////////////////////////////////
-// Main Component Base Game - BG: EE                                     //
-///////////////////////////////////////////////////////////////////////////
-
-BEGIN @7 DESIGNATED 16 SUBCOMPONENT @10 LABEL EnhancedPowergamingScripts-MainNormal-BGEE
-
-REQUIRE_PREDICATE (GAME_IS ~bgee~) @3001
-
-LOAD_TRA ~enhanced-powergaming-scripts/languages/%LANGUAGE%/script_descriptions.tra~
-
-INCLUDE ~enhanced-powergaming-scripts/components/BGEE/initialize.tpa~
-INCLUDE ~enhanced-powergaming-scripts/components/BGEE/main_component.tpa~
-
-////////////////////////////////////////////////////
-
-BEGIN @8 DESIGNATED 17 SUBCOMPONENT @10 LABEL EnhancedPowergamingScripts-MainAccelerated-BGEE
-
-INCLUDE ~enhanced-powergaming-scripts/components/BGEE/initialize.tpa~
-INCLUDE ~enhanced-powergaming-scripts/components/BGEE/main_component_a.tpa~
-
-///////////////////////////////////////////////////////////////////////////
-// Main Component Base Game - IWD: EE                                    //
-///////////////////////////////////////////////////////////////////////////
-
-BEGIN @7 DESIGNATED 18 SUBCOMPONENT @11 LABEL EnhancedPowergamingScripts-MainNormal-IWDEE
-
-REQUIRE_PREDICATE (GAME_IS ~iwdee~) @3004
-
-LOAD_TRA ~enhanced-powergaming-scripts/languages/%LANGUAGE%/script_descriptions.tra~
-
-INCLUDE ~enhanced-powergaming-scripts/components/IWDEE/initialize.tpa~
-INCLUDE ~enhanced-powergaming-scripts/components/IWDEE/main_component.tpa~
-
-////////////////////////////////////////////////////
-
-BEGIN @8 DESIGNATED 19 SUBCOMPONENT @11 LABEL EnhancedPowergamingScripts-MainAccelerated-IWDEE
-
-INCLUDE ~enhanced-powergaming-scripts/components/IWDEE/initialize.tpa~
-INCLUDE ~enhanced-powergaming-scripts/components/IWDEE/main_component_a.tpa~
-*/
+ACTION_IF (GAME_IS ~bg2ee eet~) BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/components/initialize.tpa~
+END
+INCLUDE ~enhanced-powergaming-scripts/components/main_component_a.tpa~
 
 ///////////////////////////////////////////////////////////////////////////
 // Enhanced Scripts for Summoned Celestials - BGII: EE and EET           //
