@@ -35,7 +35,7 @@ LANGUAGE ~American English~
 ///////////////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////////////////////
-// Main Component Base Game                                              //
+// Main Component Base Game - BGII: EE and EET                           //
 ///////////////////////////////////////////////////////////////////////////
 
 BEGIN @7 DESIGNATED 14 SUBCOMPONENT @2 LABEL EnhancedPowergamingScripts-MainNormal
@@ -45,17 +45,17 @@ REQUIRE_PREDICATE (GAME_IS ~bg2ee eet~) @3000
 LOAD_TRA ~enhanced-powergaming-scripts/languages/%LANGUAGE%/script_descriptions.tra~
 
 INCLUDE ~enhanced-powergaming-scripts/components/initialize_bg2ee.tpa~
-INCLUDE ~enhanced-powergaming-scripts/components/main_component.tpa~
+INCLUDE ~enhanced-powergaming-scripts/components/main_component_bg2ee.tpa~
 
 ////////////////////////////////////////////////////
 
 BEGIN @8 DESIGNATED 15 SUBCOMPONENT @2 LABEL EnhancedPowergamingScripts-MainAccelerated
 
 INCLUDE ~enhanced-powergaming-scripts/components/initialize_bg2ee.tpa~
-INCLUDE ~enhanced-powergaming-scripts/components/main_component_a.tpa~
+INCLUDE ~enhanced-powergaming-scripts/components/main_component_bg2ee_a.tpa~
 
 ///////////////////////////////////////////////////////////////////////////
-// Enhanced Scripts for Summoned Celestials                              //
+// Enhanced Scripts for Summoned Celestials - BGII: EE and EET           //
 ///////////////////////////////////////////////////////////////////////////
 
 BEGIN @9 DESIGNATED 9 LABEL EnhancedPowergamingScripts-Celestials
@@ -66,12 +66,12 @@ INCLUDE ~enhanced-powergaming-scripts/components/celestials.tpa~
 
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
-// Restore Vanilla Items and Spells                                      //
+// Restore Vanilla Items and Spells - BGII: EE and EET                   //
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////////////////////
-// Restore Vanilla Belm and Kundane                                      //
+// Restore Vanilla Belm and Kundane - BGII: EE and EET                   //
 ///////////////////////////////////////////////////////////////////////////
 
 BEGIN @3 DESIGNATED 20 LABEL EnhancedPowergamingScripts-RestoreVanillaAPRWeapons
@@ -83,7 +83,7 @@ LOAD_TRA ~enhanced-powergaming-scripts/languages/%LANGUAGE%/item_descriptions.tr
 INCLUDE ~enhanced-powergaming-scripts/components/restore_apr_weapons.tpa~
 
 ///////////////////////////////////////////////////////////////////////////
-// Restore Vanilla Gargoyle Boots                                        //
+// Restore Vanilla Gargoyle Boots - BGII: EE and EET                     //
 ///////////////////////////////////////////////////////////////////////////
 
 BEGIN @4 DESIGNATED 21 LABEL EnhancedPowergamingScripts-RestoreVanillaGargoyleBoots
@@ -95,7 +95,7 @@ LOAD_TRA ~enhanced-powergaming-scripts/languages/%LANGUAGE%/item_descriptions.tr
 INCLUDE ~enhanced-powergaming-scripts/components/restore_gargoyle.tpa~
 
 ///////////////////////////////////////////////////////////////////////////
-// Restore Vanilla Amulet of the Cheetah                                 //
+// Restore Vanilla Amulet of the Cheetah - BGII: EE and EET              //
 ///////////////////////////////////////////////////////////////////////////
 
 BEGIN @5 DESIGNATED 22 LABEL EnhancedPowergamingScripts-RestoreVanillaAmuletCheetah
@@ -107,7 +107,7 @@ LOAD_TRA ~enhanced-powergaming-scripts/languages/%LANGUAGE%/item_descriptions.tr
 INCLUDE ~enhanced-powergaming-scripts/components/restore_cheetah.tpa~
 
 ///////////////////////////////////////////////////////////////////////////
-// Restore Vanilla Haste and Improved Haste                              //
+// Restore Vanilla Haste and Improved Haste - BGII: EE and EET           //
 ///////////////////////////////////////////////////////////////////////////
 
 BEGIN @6 DESIGNATED 23 LABEL EnhancedPowergamingScripts-RestoreVanillaHasteIH
