@@ -44,15 +44,57 @@ REQUIRE_PREDICATE (GAME_IS ~bg2ee eet~) @3000
 
 LOAD_TRA ~enhanced-powergaming-scripts/languages/%LANGUAGE%/script_descriptions.tra~
 
-INCLUDE ~enhanced-powergaming-scripts/components/initialize.tpa~
-INCLUDE ~enhanced-powergaming-scripts/components/main_component.tpa~
+INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/initialize.tpa~
+INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/main_component.tpa~
 
 ////////////////////////////////////////////////////
 
 BEGIN @8 DESIGNATED 15 SUBCOMPONENT @2 LABEL EnhancedPowergamingScripts-MainAccelerated
 
-INCLUDE ~enhanced-powergaming-scripts/components/initialize.tpa~
-INCLUDE ~enhanced-powergaming-scripts/components/main_component_a.tpa~
+INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/initialize.tpa~
+INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/main_component_a.tpa~
+
+/*
+///////////////////////////////////////////////////////////////////////////
+// Main Component Base Game - BG: EE                                     //
+///////////////////////////////////////////////////////////////////////////
+
+BEGIN @7 DESIGNATED 16 SUBCOMPONENT @10 LABEL EnhancedPowergamingScripts-MainNormal-BGEE
+
+REQUIRE_PREDICATE (GAME_IS ~bgee~) @3001
+
+LOAD_TRA ~enhanced-powergaming-scripts/languages/%LANGUAGE%/script_descriptions.tra~
+
+INCLUDE ~enhanced-powergaming-scripts/components/BGEE/initialize.tpa~
+INCLUDE ~enhanced-powergaming-scripts/components/BGEE/main_component.tpa~
+
+////////////////////////////////////////////////////
+
+BEGIN @8 DESIGNATED 17 SUBCOMPONENT @10 LABEL EnhancedPowergamingScripts-MainAccelerated-BGEE
+
+INCLUDE ~enhanced-powergaming-scripts/components/BGEE/initialize.tpa~
+INCLUDE ~enhanced-powergaming-scripts/components/BGEE/main_component_a.tpa~
+
+///////////////////////////////////////////////////////////////////////////
+// Main Component Base Game - IWD: EE                                    //
+///////////////////////////////////////////////////////////////////////////
+
+BEGIN @7 DESIGNATED 18 SUBCOMPONENT @11 LABEL EnhancedPowergamingScripts-MainNormal-IWDEE
+
+REQUIRE_PREDICATE (GAME_IS ~iwdee~) @3004
+
+LOAD_TRA ~enhanced-powergaming-scripts/languages/%LANGUAGE%/script_descriptions.tra~
+
+INCLUDE ~enhanced-powergaming-scripts/components/IWDEE/initialize.tpa~
+INCLUDE ~enhanced-powergaming-scripts/components/IWDEE/main_component.tpa~
+
+////////////////////////////////////////////////////
+
+BEGIN @8 DESIGNATED 19 SUBCOMPONENT @11 LABEL EnhancedPowergamingScripts-MainAccelerated-IWDEE
+
+INCLUDE ~enhanced-powergaming-scripts/components/IWDEE/initialize.tpa~
+INCLUDE ~enhanced-powergaming-scripts/components/IWDEE/main_component_a.tpa~
+*/
 
 ///////////////////////////////////////////////////////////////////////////
 // Enhanced Scripts for Summoned Celestials - BGII: EE and EET           //
@@ -62,11 +104,11 @@ BEGIN @9 DESIGNATED 9 LABEL EnhancedPowergamingScripts-Celestials
 
 REQUIRE_PREDICATE (GAME_IS ~bg2ee eet~) @3000
 
-INCLUDE ~enhanced-powergaming-scripts/components/celestials.tpa~
+INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/celestials.tpa~
 
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
-// Restore Vanilla Items and Spells - BGII: EE and EET                   //
+// Restore Vanilla Items and Spells                                      //
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 
@@ -80,7 +122,7 @@ REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-item_rev.tp2~ ~0~) @3003
 
 LOAD_TRA ~enhanced-powergaming-scripts/languages/%LANGUAGE%/item_descriptions.tra~
 
-INCLUDE ~enhanced-powergaming-scripts/components/restore_apr_weapons.tpa~
+INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/restore_apr_weapons.tpa~
 
 ///////////////////////////////////////////////////////////////////////////
 // Restore Vanilla Gargoyle Boots - BGII: EE and EET                     //
@@ -92,7 +134,7 @@ REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-item_rev.tp2~ ~0~) @3003
 
 LOAD_TRA ~enhanced-powergaming-scripts/languages/%LANGUAGE%/item_descriptions.tra~
 
-INCLUDE ~enhanced-powergaming-scripts/components/restore_gargoyle.tpa~
+INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/restore_gargoyle.tpa~
 
 ///////////////////////////////////////////////////////////////////////////
 // Restore Vanilla Amulet of the Cheetah - BGII: EE and EET              //
@@ -104,7 +146,7 @@ REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-item_rev.tp2~ ~0~) @3003
 
 LOAD_TRA ~enhanced-powergaming-scripts/languages/%LANGUAGE%/item_descriptions.tra~
 
-INCLUDE ~enhanced-powergaming-scripts/components/restore_cheetah.tpa~
+INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/restore_cheetah.tpa~
 
 ///////////////////////////////////////////////////////////////////////////
 // Restore Vanilla Haste and Improved Haste - BGII: EE and EET           //
@@ -116,4 +158,4 @@ REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) @3002
 
 LOAD_TRA ~enhanced-powergaming-scripts/languages/%LANGUAGE%/spell_descriptions.tra~
 
-INCLUDE ~enhanced-powergaming-scripts/components/restore_haste.tpa~
+INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/restore_haste.tpa~
