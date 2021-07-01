@@ -1,0 +1,19 @@
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+// Enhanced Scripts for Simulacrum                                       //
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////
+// Copy .BCS files to override folder                                    //
+///////////////////////////////////////////////////////////////////////////
+COPY ~enhanced-powergaming-scripts/baf/upload/morang.baf~   ~override/morang.bcs~
+	 ~enhanced-powergaming-scripts/baf/upload/mocore.baf~   ~override/mocore.bcs~
+	 ~enhanced-powergaming-scripts/baf/upload/momonk.baf~   ~override/momonk.bcs~
+	 ~enhanced-powergaming-scripts/baf/upload/mopal.baf~    ~override/mopal.bcs~
+	 ~enhanced-powergaming-scripts/baf/upload/moskd.baf~    ~override/moskd.bcs~
+  COMPILE_BAF_TO_BCS
+
+COPY ~enhanced-powergaming-scripts/bcs/moscrpch.BCS~      ~override~
+
+LAF edit_spell STR_VAR spell="literal:simulacr" editstring=~add_effect_inline=>"opcode=>82 target=>1 power=>0 parameter2=>6 timing=>9 resource=>moscrpch"~ END

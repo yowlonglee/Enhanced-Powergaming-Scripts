@@ -21,6 +21,8 @@ ALWAYS
 	INCLUDE ~enhanced-powergaming-scripts/lib/misc_functions.tpa~
 	//Block of code in EET
 	INCLUDE ~enhanced-powergaming-scripts/lib/replace_multiline.tpa~
+	//Block of code in SCS
+	INCLUDE ~enhanced-powergaming-scripts/lib/lib_spl.tpa~
 
 END
 
@@ -73,6 +75,16 @@ BEGIN @9 DESIGNATED 9 LABEL EnhancedPowergamingScripts-Celestials
 REQUIRE_PREDICATE (GAME_IS ~bg2ee eet~) @3000
 
 INCLUDE ~enhanced-powergaming-scripts/components/celestials.tpa~
+
+///////////////////////////////////////////////////////////////////////////
+// Enhanced Scripts for Simulacrum - BGII: EE and EET           //
+///////////////////////////////////////////////////////////////////////////
+
+BEGIN @10 DESIGNATED 10 LABEL EnhancedPowergamingScripts-Simulacrum
+
+REQUIRE_PREDICATE (GAME_IS ~bg2ee eet~) @3000
+
+INCLUDE ~enhanced-powergaming-scripts/components/simulacrum.tpa~
 
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
