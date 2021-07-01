@@ -1126,7 +1126,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     SetInterrupt(FALSE)
-    Spell(Myself,CLERIC_RESTORATION)  // SPPR713.SPL (Greater Restoration)
+    Spell(LastSeenBy(Myself),CLERIC_RESTORATION)  // SPPR713.SPL (Greater Restoration)
     SetInterrupt(TRUE)
 END
 
@@ -1156,7 +1156,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     SetInterrupt(FALSE)
-    Spell(Myself,CLERIC_RESTORATION)  // SPPR713.SPL (Greater Restoration)
+    Spell(LastSeenBy(Myself),CLERIC_RESTORATION)  // SPPR713.SPL (Greater Restoration)
     SetInterrupt(TRUE)
 END
 
@@ -1329,7 +1329,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     SetInterrupt(FALSE)
-    Spell(Myself,CLERIC_LESSER_RESTORATION)  // SPPR417.SPL (Lesser Restoration)
+    Spell(LastSeenBy(Myself),CLERIC_LESSER_RESTORATION)  // SPPR417.SPL (Lesser Restoration)
     SetInterrupt(TRUE)
 END
 
