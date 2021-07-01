@@ -8,17 +8,23 @@ ACTION_IF (MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
 ///////////////////////////////////////////////////////////////////////////
 // SR- Base Game                                                         //
 ///////////////////////////////////////////////////////////////////////////
-	COPY ~enhanced-powergaming-scripts/baf/BGEE/Accelerated/sr/morang.baf~  ~enhanced-powergaming-scripts/baf/upload/morang.baf~
-	COPY ~enhanced-powergaming-scripts/baf/BGEE/Accelerated/sr/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
-	COPY ~enhanced-powergaming-scripts/baf/BGEE/Accelerated/sr/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
-	COPY ~enhanced-powergaming-scripts/baf/BGEE/Accelerated/sr/mopal.baf~   ~enhanced-powergaming-scripts/baf/upload/mopal.baf~
-	COPY ~enhanced-powergaming-scripts/baf/BGEE/Accelerated/sr/momonk.baf~  ~enhanced-powergaming-scripts/baf/upload/momonk.baf~
+	COPY ~enhanced-powergaming-scripts/baf/Accelerated/sr/morang.baf~  ~enhanced-powergaming-scripts/baf/upload/morang.baf~
+	COPY ~enhanced-powergaming-scripts/baf/Accelerated/sr/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
+	COPY ~enhanced-powergaming-scripts/baf/Accelerated/sr/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+	COPY ~enhanced-powergaming-scripts/baf/Accelerated/sr/mopal.baf~   ~enhanced-powergaming-scripts/baf/upload/mopal.baf~
+	COPY ~enhanced-powergaming-scripts/baf/Accelerated/sr/momonk.baf~  ~enhanced-powergaming-scripts/baf/upload/momonk.baf~
 
-	INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/sr_ranger_base.tph~
-	INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/sr_basic_base.tph~
-	INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/sr_core_base.tph~
-	INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/sr_monk_base.tph~
-	INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/sr_paladin_base.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/sr_ranger_base.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/sr_basic_base.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/sr_core_base.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/sr_monk_base.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/sr_paladin_base.tph~
+
+	INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/sr_ranger_bgee.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/sr_basic_bgee.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/sr_core_bgee.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/sr_monk_bgee.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/sr_paladin_bgee.tph~
 
 ///////////////////////////////////////////////////////////////////////////
 // SR - IWD Spells                                                       //
@@ -39,17 +45,23 @@ END ELSE BEGIN
 ///////////////////////////////////////////////////////////////////////////
 // Base Game                                                             //
 ///////////////////////////////////////////////////////////////////////////
-	COPY ~enhanced-powergaming-scripts/baf/BGEE/Accelerated/morang.baf~  ~enhanced-powergaming-scripts/baf/upload/morang.baf~
-	COPY ~enhanced-powergaming-scripts/baf/BGEE/Accelerated/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
-	COPY ~enhanced-powergaming-scripts/baf/BGEE/Accelerated/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
-	COPY ~enhanced-powergaming-scripts/baf/BGEE/Accelerated/mopal.baf~   ~enhanced-powergaming-scripts/baf/upload/mopal.baf~
-	COPY ~enhanced-powergaming-scripts/baf/BGEE/Accelerated/momonk.baf~  ~enhanced-powergaming-scripts/baf/upload/momonk.baf~
+	COPY ~enhanced-powergaming-scripts/baf/Accelerated/morang.baf~  ~enhanced-powergaming-scripts/baf/upload/morang.baf~
+	COPY ~enhanced-powergaming-scripts/baf/Accelerated/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
+	COPY ~enhanced-powergaming-scripts/baf/Accelerated/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+	COPY ~enhanced-powergaming-scripts/baf/Accelerated/mopal.baf~   ~enhanced-powergaming-scripts/baf/upload/mopal.baf~
+	COPY ~enhanced-powergaming-scripts/baf/Accelerated/momonk.baf~  ~enhanced-powergaming-scripts/baf/upload/momonk.baf~
 
-	INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/ranger_base.tph~
-	INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/basic_base.tph~
-	INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/core_base.tph~
-	INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/monk_base.tph~
-	INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/paladin_base.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/ranger_base.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/basic_base.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/core_base.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/monk_base.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/paladin_base.tph~
+
+	INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/ranger_bgee.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/basic_bgee.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/core_bgee.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/monk_bgee.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/paladin_bgee.tph~
 
 ///////////////////////////////////////////////////////////////////////////
 // DSotSC                                                                //

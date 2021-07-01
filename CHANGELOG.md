@@ -10,6 +10,7 @@ July XX, 2021
 - Improved Haste will only be cast if the character has fighter, thief, or bard levels. This prevents a pure class mage casting IH on themselves since there is little benefit.
 - Updated file structure to support adding BGEE, IWDEE, BG1, BG2, and BGT in future updates.
 - Resolved a bug that could cause an issue when restoring original items/spells from SR and IR.
+- Resolved a bug with Khelben's Warding Whip spell tracking.
 
 ## Version 3.1
 
