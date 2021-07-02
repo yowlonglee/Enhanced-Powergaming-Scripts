@@ -14,7 +14,7 @@ ASK_EVERY_COMPONENT
 
 ALWAYS
 
-	ACTION_IF ((FILE_EXISTS ~dlc/sod-dlc.zip~) OR (FILE_EXISTS ~sod-dlc.zip~)) THEN BEGIN FAIL ~ModMerge is needed before modding SoD games~ END // Modmerge check
+	ACTION_IF ((FILE_EXISTS ~dlc/sod-dlc.zip~) OR (FILE_EXISTS ~sod-dlc.zip~)) THEN BEGIN FAIL @3001 END
 
 	ACTION_DEFINE_ARRAY cdreload BEGIN item_descriptions script_descriptions spell_descriptions END
 	LAF HANDLE_CHARSETS INT_VAR infer_charsets = 1 STR_VAR tra_path = ~enhanced-powergaming-scripts/languages~ reload_array = cdreload END
