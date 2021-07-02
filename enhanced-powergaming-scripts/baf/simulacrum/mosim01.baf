@@ -6,6 +6,7 @@
 // * This script sets ai for simulacrums
 
 IF
+  Allegiance(Myself,GOODCUTOFF)
   OR(8)
     Class(Myself,CLERIC_ALL)
     Class(Myself,DRUID_ALL)
@@ -22,6 +23,7 @@ THEN
 END
 
 IF
+  Allegiance(Myself,GOODCUTOFF)
   Class(Myself,MONK)
 THEN
   RESPONSE #100
@@ -29,6 +31,7 @@ THEN
 END
 
 IF
+  Allegiance(Myself,GOODCUTOFF)
   Class(Myself,PALADIN_ALL)
 THEN
   RESPONSE #100
@@ -36,6 +39,7 @@ THEN
 END
 
 IF
+  Allegiance(Myself,GOODCUTOFF)
   Class(Myself,RANGER_ALL)
 THEN
   RESPONSE #100
@@ -43,8 +47,16 @@ THEN
 END
 
 IF
+  Allegiance(Myself,GOODCUTOFF)
   Kit(Myself,SKALD)
 THEN
   RESPONSE #100
     ChangeAIScript("mosim06",GENERAL)
+END
+
+IF
+  !Allegiance(Myself,GOODCUTOFF)
+THEN
+  RESPONSE #100
+    ChangeAIScript("mosim07",GENERAL)
 END
