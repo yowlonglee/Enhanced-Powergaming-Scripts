@@ -452,6 +452,21 @@ IF~~~~~
   END
 
 ///////////////////////////////////////////////////////////////////////////
+// Update Negative Plane Protection                                      //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~!CheckSpellState(LastSeenBy(Myself),LEVEL_DRAIN_IMMUNITY)
+  !HasItemEquiped("AMUL21",Myself)  // Amulet of Power
+  !HasItemEquipedReal("BLUN25",LastSeenBy(Myself))  // Mace of Disruption +2
+  !HasItemEquipedReal("SW1H69",LastSeenBy(Myself))  // Spectral Brand +5~~~~~
+    string = ~~~~~CheckStat(LastSeenBy(Myself),0,LEVEL_DRAIN_IMMUNITY)~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
 // Remove Potion Dialogue                                                //
 ///////////////////////////////////////////////////////////////////////////
   LPF REPLACE_MULTILINE
