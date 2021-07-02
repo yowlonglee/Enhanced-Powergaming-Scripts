@@ -1,5 +1,14 @@
 # Changelog
 
+## Version 4.1
+
+July 2, 2021
+
+### Changed 
+
+- BGII: EE and EET
+  - Updated Simulacrums to assign enemy scripts if cast by an enemy
+
 ## Version 4.0
 
 July 2, 2021
