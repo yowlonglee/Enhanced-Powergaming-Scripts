@@ -1,17 +1,17 @@
 # Changelog
 
-## Version 4.0 UNRELEASED
+## Version 4.0
 
-July XX, 2021
+July 2, 2021
 
 ### Changed 
 
 - All Games
   - Added Detect Illusions.
   - Improved Haste will only be cast if the character has fighter, thief, or bard levels. This prevents a pure class mage casting IH on themselves since there is little benefit.
+  - Infinity Auto Packager support
 - BG: EE
   - Added Enhanced AI Scripts for BG: EE
-  - Requires use of either DLCMerger or ModMerge (DLCMerger Preferred) before modding SOD games
   - Supports IWD Spells (IWDIfication or SCS version) and SCS mods
 - BGII: EE and EET
   - Added Hardiness to combat castings.
