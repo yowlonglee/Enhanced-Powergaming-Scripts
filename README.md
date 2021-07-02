@@ -43,22 +43,17 @@ These scripts are focused on heavy physical damage parties in both melee and ran
 - Only attack enemies that they have the capability to hit and damage. I toyed with the idea of making a more improved targeting system, but decided against it. I really dislike in other scripts if I am focusing on a target and the script reassigns my enemy to someone else.
 
 ## Compatibility
+If you are upgrading from an earlier version of this mod, I recommend uninstalling all mod components and replacing all files with the new ones before doing a fresh install.
+
+If you are installing any of the below listed mods, they should be installed before this mod.
 
 ### Baldur's Gate: Enhanced Edition
 The mod has support for IWD spells (from either Sword Coast Stratagems or IWDification) and Sword Coast Stratagems.
 
 Before modding SoD games, it requires use of either DLCMerger or ModMerge (DLCMerger Preferred).
 
-If you are installing any of the above listed mods, they should be installed before this mod.
-
 ### Baldur's Gate II: Enhanced Edition and Enhanced Edition Trilogy
 The mod has support for IWD spells (from either Sword Coast Stratagems or IWDification), Sword Coast Stratagems, Dark Side of the Sword Coast, Song & Silence, Tome & Blood, Faith & Powers, and for changes from Spell Revisions (Revised) and Item Revisions (Revised).
-
-If you are installing any of the above listed mods, they should be installed before this mod.
-
-PLEASE NOTE: Sword Coast Stratagems is no longer required to use these scripts.
-
-If you are upgrading from an earlier version of this mod, I recommend uninstalling all mod components and replacing all files with the new ones before doing a fresh install.
 
 ## Components
 
