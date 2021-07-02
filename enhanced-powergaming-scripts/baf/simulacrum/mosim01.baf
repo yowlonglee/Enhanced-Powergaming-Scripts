@@ -1,0 +1,50 @@
+// **********************************************************************
+// *           Segment Name: mosim01.baf
+// **********************************************************************
+// *
+// * Description:
+// * This script sets ai for simulacrums
+
+IF
+  OR(8)
+    Class(Myself,CLERIC_ALL)
+    Class(Myself,DRUID_ALL)
+    Class(Myself,FIGHTER_ALL)
+    Class(Myself,MAGE_ALL)
+    Class(Myself,THIEF_ALL)
+    Class(Myself,SHAMAN)
+    Class(Myself,SORCERER)
+    Class(Myself,BARD_ALL)
+  !Kit(Myself,SKALD)
+THEN
+  RESPONSE #100
+    ChangeAIScript("mosim02",GENERAL)
+END
+
+IF
+  Class(Myself,MONK)
+THEN
+  RESPONSE #100
+    ChangeAIScript("mosim03",GENERAL)
+END
+
+IF
+  Class(Myself,PALADIN_ALL)
+THEN
+  RESPONSE #100
+    ChangeAIScript("mosim04",GENERAL)
+END
+
+IF
+  Class(Myself,RANGER_ALL)
+THEN
+  RESPONSE #100
+    ChangeAIScript("mosim05",GENERAL)
+END
+
+IF
+  Kit(Myself,SKALD)
+THEN
+  RESPONSE #100
+    ChangeAIScript("mosim06",GENERAL)
+END
