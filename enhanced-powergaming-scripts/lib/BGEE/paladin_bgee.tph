@@ -389,8 +389,7 @@ IF~~~~~
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpell(Myself,WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
-    RemoveSpell(WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
+    Spell(Myself,WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
 END
 
 IF~~~~~

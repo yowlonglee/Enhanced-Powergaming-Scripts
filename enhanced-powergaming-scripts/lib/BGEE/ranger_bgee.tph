@@ -176,6 +176,8 @@ IF~~~~~
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   GlobalLT("MO_UsedIlbratha","GLOBAL",1)
   HasItemEquiped("SW1H26",Myself)  // Ilbratha +1
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
 THEN
   RESPONSE #100
     UseItemAbility("SW1H26",Myself,SLOT_AMMO3,1)  // Ilbratha +1
@@ -187,6 +189,8 @@ IF
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   GlobalLT("MO_UsedDuplication","GLOBAL",3)
   HasItemEquiped("OHRRING1",Myself)  // Ring of Duplication
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
 THEN
   RESPONSE #100
     UseItem("OHRRING1",Myself)  // Ring of Duplication
@@ -349,8 +353,7 @@ IF~~~~~
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpell(Myself,WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
-    RemoveSpell(WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
+    Spell(Myself,WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
 END
 
 IF~~~~~
@@ -474,13 +477,11 @@ IF~~~~~
     verbose = 0
     STR_VAR
     pattern = ~~~~~IF
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   CheckStatLT(Myself,1,STONESKINS)
   GlobalLT("MO_UsedGargoyle","GLOBAL",2)
   HasItemEquiped("Boot12",Myself)  // Gargoyle Boots
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     UseItem("Boot12",Myself)  // Gargoyle Boots
     IncrementGlobal("MO_UsedGargoyle","GLOBAL",1)
 END
@@ -546,8 +547,8 @@ LPF REPLACE_MULTILINE
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WARRIOR_GREATER_WHIRLWIND)  // SPCL901.SPL (Greater Whirlwind Attack)
-  !CheckStatGT(Myself,0,IMPROVEDHASTE)
   !CheckSpellState(Myself,GREATER_WHIRLWIND)
+  !CheckSpellState(Myself,ARCHER_CALL_SHOT)
   See([EVILCUTOFF])
   OR(6)
     WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)

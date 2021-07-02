@@ -1,4 +1,4 @@
-COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+COPY ~enhanced-powergaming-scripts/baf/upload/morang.baf~ ~enhanced-powergaming-scripts/baf/upload/morang.baf~
 
 ///////////////////////////////////////////////////////////////////////////
 // Remove BGII: EE Item Variables                                        //
@@ -24,101 +24,8 @@ THEN
     SetGlobal("MO_UsedBltMnrInv","GLOBAL",0)
 END
 
-IF
-  Global("MO_TrueSightActive","LOCALS",1)
-  CheckStat(Myself,0,TRUE_SIGHT)
-THEN
-  RESPONSE #100
-    SetGlobal("MO_TrueSightActive","LOCALS",0)
-    SetGlobal("MO_PartyTrueSight","GLOBAL",0)
-END~~~~~
-    string = ~~~~~IF
-  Global("MO_TrueSightActive","LOCALS",1)
-  CheckStat(Myself,0,TRUE_SIGHT)
-THEN
-  RESPONSE #100
-    SetGlobal("MO_TrueSightActive","LOCALS",0)
-    SetGlobal("MO_PartyTrueSight","GLOBAL",0)
-END~~~~~ //"
-  END
-
-///////////////////////////////////////////////////////////////////////////
-// Remove Cowled Wizards Check                                           //
-///////////////////////////////////////////////////////////////////////////
-  LPF REPLACE_MULTILINE
-    INT_VAR
-    strict = 1
-    verbose = 0
-    STR_VAR
-    pattern = ~~~~~IF
-  !HaveSpell(CLERIC_PROTECTION_FROM_EVIL_10_FOOT)  // SPPR408.SPL (Protection From Evil, 10' Radius)
-  Global("MO_ProtEvil","LOCALS",1)
-THEN
-  RESPONSE #100
-    SetGlobal("MO_ProtEvil","LOCALS",0)
-    SetGlobal("MO_TeamProtEvil","GLOBAL",0)
-END
-
-IF
-  OR(7)
-    AreaCheck("AR0700")  // Waukeen's Promenade
-    AreaCheck("AR0020")  // City Gates
-    AreaCheck("AR0800")  // Graveyard
-    AreaCheck("AR0400")  // Slums
-    AreaCheck("AR0300")  // The Docks
-    AreaCheck("AR1000")  // Government District
-    AreaCheck("AR0900")  // Temple District
-  Global("BRIBEDCOWLED","GLOBAL",0)
-  GlobalLT("CowledWarning","GLOBAL",7)
-  Global("MO_CastAthkatla","LOCALS",1)
-THEN
-  RESPONSE #100
-    SetGlobal("MO_CastAthkatla","LOCALS",0)
-END
-
-IF
-  !AreaCheck("AR0700")  // Waukeen's Promenade
-  !AreaCheck("AR0020")  // City Gates
-  !AreaCheck("AR0800")  // Graveyard
-  !AreaCheck("AR0400")  // Slums
-  !AreaCheck("AR0300")  // The Docks
-  !AreaCheck("AR1000")  // Government District
-  !AreaCheck("AR0900")  // Temple District
-  Global("MO_CastAthkatla","LOCALS",0)
-THEN
-  RESPONSE #100
-    SetGlobal("MO_CastAthkatla","LOCALS",1)
-END
-
-IF
-  OR(2)
-    Global("BRIBEDCOWLED","GLOBAL",1)
-    Global("CowledWarning","GLOBAL",7)
-  Global("MO_CastAthkatla","LOCALS",0)
-THEN
-  RESPONSE #100
-    SetGlobal("MO_CastAthkatla","LOCALS",1)
-END~~~~~
-    string = ~~~~~IF
-  !HaveSpell(CLERIC_PROTECTION_FROM_EVIL_10_FOOT)  // SPPR408.SPL (Protection From Evil, 10' Radius)
-  Global("MO_ProtEvil","LOCALS",1)
-THEN
-  RESPONSE #100
-    SetGlobal("MO_ProtEvil","LOCALS",0)
-    SetGlobal("MO_TeamProtEvil","GLOBAL",0)
-END~~~~~ //"
-  END
-
-  LPF REPLACE_MULTILINE
-    INT_VAR
-    strict = 1
-    verbose = 0
-    STR_VAR
-    pattern = ~~~~~Global("MO_CastAthkatla","LOCALS",1)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)~~~~~
-    string = ~~~~~!CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)~~~~~ //"
+IF~~~~~
+    string = ~~~~~IF~~~~~ //"
   END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -130,25 +37,6 @@ END~~~~~ //"
     verbose = 0
     STR_VAR
     pattern = ~~~~~IF
-  Global("MO_TURNUNDEAD","LOCALS",0)
-  Class(Myself,CLERIC_ALL)
-  HotKey(V)
-THEN
-  RESPONSE #100
-    SetGlobal("MO_TURNUNDEAD","LOCALS",1)
-    DisplayStringHead(Myself,50702)  // Turning Undead
-END
-
-IF
-  Global("MO_TURNUNDEAD","LOCALS",1)
-  HotKey(V)
-THEN
-  RESPONSE #100
-    SetGlobal("MO_TURNUNDEAD","LOCALS",0)
-    DisplayStringHead(Myself,50703)  // Stopped Turning Undead
-END
-
-IF
   Global("MO_BUFF","LOCALS",0)
   HotKey(D)
 THEN
@@ -171,25 +59,6 @@ THEN
     DisplayStringHead(Myself,50742)  // I have not yet completed the task.
 END~~~~~
     string = ~~~~~IF
-  Global("MO_TURNUNDEAD","LOCALS",0)
-  Class(Myself,CLERIC_ALL)
-  HotKey(V)
-THEN
-  RESPONSE #100
-    SetGlobal("MO_TURNUNDEAD","LOCALS",1)
-    DisplayStringHead(Myself,24499)  // Turning Undead constantly if idle
-END
-
-IF
-  Global("MO_TURNUNDEAD","LOCALS",1)
-  HotKey(V)
-THEN
-  RESPONSE #100
-    SetGlobal("MO_TURNUNDEAD","LOCALS",0)
-    DisplayStringHead(Myself,24500)  // Stopped Turning Undead
-END
-
-IF
   Global("MO_BUFF","LOCALS",0)
   HotKey(D)
 THEN
@@ -295,29 +164,6 @@ IF~~~~~
   END
 
 ///////////////////////////////////////////////////////////////////////////
-// Amulet of Cheetah Speed                                               //
-///////////////////////////////////////////////////////////////////////////
-  LPF REPLACE_MULTILINE
-    INT_VAR
-    strict = 1
-    verbose = 0
-    STR_VAR
-    pattern = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)
-  !CheckStatGT(Myself,0,IMPROVEDHASTE)
-  GlobalLT("MO_UsedCheetah","GLOBAL",1)
-  HasItemEquiped("AMUL26",Myself)  // Amulet of Cheetah Speed
-THEN
-  RESPONSE #100
-    UseItem("AMUL26",Myself)  // Amulet of Cheetah Speed
-    IncrementGlobal("MO_UsedCheetah","GLOBAL",1)
-END
-
-IF~~~~~
-    string = ~~~~~IF~~~~~ //"
-  END
-
-///////////////////////////////////////////////////////////////////////////
 // Remove Ilbratha+1 and Ring of Duplication                             //
 ///////////////////////////////////////////////////////////////////////////
   LPF REPLACE_MULTILINE
@@ -366,8 +212,6 @@ IF~~~~~
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   GlobalLT("MO_UsedIlbratha","GLOBAL",1)
   HasItemEquiped("SW1H26",Myself)  // Ilbratha +1
-  !CheckSpellState(Myself,MINOR_GLOBE)
-  !CheckSpellState(Myself,GLOBE)
   See(NearestEnemyOf(Myself))
   OR(11)
     Range([EVILCUTOFF.0.FAIRY],30)
@@ -394,8 +238,6 @@ IF
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   GlobalLT("MO_UsedDuplication","GLOBAL",3)
   HasItemEquiped("OHRRING1",Myself)  // Ring of Duplication
-  !CheckSpellState(Myself,MINOR_GLOBE)
-  !CheckSpellState(Myself,GLOBE)
   See(NearestEnemyOf(Myself))
   OR(11)
     Range([EVILCUTOFF.0.FAIRY],30)
@@ -511,13 +353,12 @@ IF~~~~~
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    Spell(Myself,WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
+    ReallyForceSpell(Myself,WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
+    RemoveSpell(WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
 END
 
-IF
-  Global("MO_BUFF","LOCALS",1)~~~~~
-    string = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)~~~~~ //"
+IF~~~~~
+    string = ~~~~~IF~~~~~ //"
   END
 
   LPF REPLACE_MULTILINE
@@ -573,88 +414,6 @@ END
 
 IF~~~~~
     string = ~~~~~IF~~~~~ //"
-  END
-
-///////////////////////////////////////////////////////////////////////////
-// Remove Physical Mirror                                                //
-///////////////////////////////////////////////////////////////////////////
-  LPF REPLACE_MULTILINE
-    INT_VAR
-    strict = 1
-    verbose = 0
-    STR_VAR
-    pattern = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)
-  HaveSpell(CLERIC_PHYSICAL_MIRROR)  // sppr525.spl (Physical Mirror)
-  CheckStatLT(Myself,1,CLERIC_PHYSICAL_MIRROR)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    Spell(Myself,CLERIC_PHYSICAL_MIRROR)  // sppr525.spl (Physical Mirror)
-END
-
-IF
-  Global("MO_BUFF","LOCALS",1)~~~~~
-    string = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)~~~~~ //"
-  END
-
-  LPF REPLACE_MULTILINE
-    INT_VAR
-    strict = 1
-    verbose = 0
-    STR_VAR
-    pattern = ~~~~~IF
-  ActionListEmpty()
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  HaveSpell(CLERIC_PHYSICAL_MIRROR)  // sppr525.spl (Physical Mirror)
-  OR(11)
-    HitBy([ANYONE],MISSILE)
-    IsWeaponRanged(NearestEnemyOf(Myself))
-    IsWeaponRanged(SecondNearestEnemyOf(Myself))
-    IsWeaponRanged(ThirdNearestEnemyOf(Myself))
-    IsWeaponRanged(FourthNearestEnemyOf(Myself))
-    IsWeaponRanged(FifthNearestEnemyOf(Myself))
-    IsWeaponRanged(SixthNearestEnemyOf(Myself))
-    IsWeaponRanged(SeventhNearestEnemyOf(Myself))
-    IsWeaponRanged(EighthNearestEnemyOf(Myself))
-    IsWeaponRanged(NinthNearestEnemyOf(Myself))
-    IsWeaponRanged(TenthNearestEnemyOf(Myself))
-  CheckStatLT(Myself,1,CLERIC_PHYSICAL_MIRROR)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
-    SetInterrupt(FALSE)
-    Spell(Myself,CLERIC_PHYSICAL_MIRROR)  // sppr525.spl (Physical Mirror)
-    SetInterrupt(TRUE)
-END
-
-IF~~~~~
-    string = ~~~~~IF~~~~~ //"
-  END
-
-///////////////////////////////////////////////////////////////////////////
-// Update Negative Plane Protection                                      //
-///////////////////////////////////////////////////////////////////////////
-  LPF REPLACE_MULTILINE
-    INT_VAR
-    strict = 1
-    verbose = 0
-    STR_VAR
-    pattern = ~~~~~!CheckSpellState(LastSeenBy(Myself),LEVEL_DRAIN_IMMUNITY)
-  !HasItemEquiped("AMUL21",Myself)  // Amulet of Power
-  !HasItemEquipedReal("BLUN25",LastSeenBy(Myself))  // Mace of Disruption +2
-  !HasItemEquipedReal("SW1H69",LastSeenBy(Myself))  // Spectral Brand +5~~~~~
-    string = ~~~~~CheckStat(LastSeenBy(Myself),0,LEVEL_DRAIN_IMMUNITY)~~~~~ //"
   END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -719,14 +478,11 @@ IF~~~~~
     verbose = 0
     STR_VAR
     pattern = ~~~~~IF
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   CheckStatLT(Myself,1,STONESKINS)
   GlobalLT("MO_UsedGargoyle","GLOBAL",2)
   HasItemEquiped("Boot12",Myself)  // Gargoyle Boots
-  !CheckSpellState(Myself,GLOBE)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     UseItem("Boot12",Myself)  // Gargoyle Boots
     IncrementGlobal("MO_UsedGargoyle","GLOBAL",1)
 END
@@ -780,41 +536,10 @@ IF~~~~~
     string = ~~~~~IF~~~~~ //"
   END
 
-
-///////////////////////////////////////////////////////////////////////////
-// Remove Cowl of the Stars                                              //
-///////////////////////////////////////////////////////////////////////////
-  LPF REPLACE_MULTILINE
-    INT_VAR
-    strict = 1
-    verbose = 0
-    STR_VAR
-    pattern = ~~~~~IF
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  GlobalLT("MO_UsedCowlOfStars","GLOBAL",3)
-  HasItemEquiped("OHRCLCK1",Myself)  // Cowl of the Stars
-  !HasItem("melfmet",Myself)  // Melf's Minute Meteor
-  !CheckSpellState(Myself,MINOR_GLOBE)
-  !CheckSpellState(Myself,GLOBE)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  Global("MO_CastAthkatla","LOCALS",1)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
-    UseItem("OHRCLCK1",Myself)  // Cowl of the Stars
-    IncrementGlobal("MO_UsedCowlOfStars","GLOBAL",1)
-END
-
-IF~~~~~
-    string = ~~~~~IF~~~~~ //"
-  END
-
 ///////////////////////////////////////////////////////////////////////////
 // Remove Greater Whirlwind                                              //
 ///////////////////////////////////////////////////////////////////////////
-  LPF REPLACE_MULTILINE
+LPF REPLACE_MULTILINE
     INT_VAR
     strict = 1
     verbose = 0
@@ -824,6 +549,7 @@ IF~~~~~
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WARRIOR_GREATER_WHIRLWIND)  // SPCL901.SPL (Greater Whirlwind Attack)
   !CheckSpellState(Myself,GREATER_WHIRLWIND)
+  !CheckSpellState(Myself,ARCHER_CALL_SHOT)
   See([EVILCUTOFF])
   OR(6)
     WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
@@ -891,83 +617,4 @@ IF~~~~~
     pattern = ~~~~~!CheckSpellState(Myself,GREATER_WHIRLWIND)
   See([EVILCUTOFF])~~~~~
     string = ~~~~~See([EVILCUTOFF])~~~~~ //"
-  END
-
-///////////////////////////////////////////////////////////////////////////
-// Remove Amulet of Cheetah Speed                                        //
-///////////////////////////////////////////////////////////////////////////
-  LPF REPLACE_MULTILINE
-    INT_VAR
-    strict = 1
-    verbose = 0
-    STR_VAR
-    pattern = ~~~~~IF
-  ActionListEmpty()
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  GlobalLT("MO_UsedCheetah","GLOBAL",1)
-  HasItemEquiped("AMUL26",Myself)  // Amulet of Cheetah Speed
-  !CheckStatGT(Myself,0,IMPROVEDHASTE)
-  See([EVILCUTOFF])
-  OR(6)
-    WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
-    WeaponEffectiveVs(SecondNearestEnemyOf(Myself),MAINHAND)
-    WeaponEffectiveVs(ThirdNearestEnemyOf(Myself),MAINHAND)
-    WeaponEffectiveVs(FourthNearestEnemyOf(Myself),MAINHAND)
-    WeaponEffectiveVs(FifthNearestEnemyOf(Myself),MAINHAND)
-    WeaponEffectiveVs(SixthNearestEnemyOf(Myself),MAINHAND)
-  OR(6)
-    WeaponCanDamage(NearestEnemyOf(Myself),MAINHAND)
-    WeaponCanDamage(SecondNearestEnemyOf(Myself),MAINHAND)
-    WeaponCanDamage(ThirdNearestEnemyOf(Myself),MAINHAND)
-    WeaponCanDamage(FourthNearestEnemyOf(Myself),MAINHAND)
-    WeaponCanDamage(FifthNearestEnemyOf(Myself),MAINHAND)
-    WeaponCanDamage(SixthNearestEnemyOf(Myself),MAINHAND)
-  OR(33)
-    Range([EVILCUTOFF.0.GOLEM],30)
-    Range([EVILCUTOFF.0.MIST],30)
-    Range([EVILCUTOFF.0.KUO-TOA],30)
-    Range([EVILCUTOFF.0.GENIE],30)
-    Range([EVILCUTOFF.0.GITHYANKI],30)
-    Range([EVILCUTOFF.0.RAKSHASA],30)
-    Range([EVILCUTOFF.0.VAMPYRE],30)
-    Range([EVILCUTOFF.0.MIND_FLAYER],30)
-    Range([EVILCUTOFF.0.DRAGON],30)
-    Range([EVILCUTOFF.0.DEMONIC],30)
-    Range([EVILCUTOFF.0.BEHOLDER],30)
-    Range([EVILCUTOFF.0.UMBERHULK],30)
-    Range([EVILCUTOFF.0.MYCONID],30)
-    Range([EVILCUTOFF.0.VAMPIRE],30)
-    Range([EVILCUTOFF.0.LICH],30)
-    Range([EVILCUTOFF.0.DEMILICH],30)
-    Range([EVILCUTOFF.0.FAIRY],30)
-    Range([EVILCUTOFF.0.0.WRAITH],30)
-    Range([EVILCUTOFF.0.0.WIGHT],30)
-    Range([EVILCUTOFF.0.0.SPECTRE],30)
-    Range([EVILCUTOFF.0.0.WYVERN],30)
-    Range([EVILCUTOFF.0.0.BASILISK],30)
-    Range([EVILCUTOFF.0.LICH],30)
-    Range([EVILCUTOFF.0.SOLAR],30)
-    Range([EVILCUTOFF.0.PLANATAR],30)
-    Range([EVILCUTOFF.0.ANTISOLAR],30)
-    Range([EVILCUTOFF.0.DARKPLANATAR],30)
-    See([ENEMY.0.0.MAGE_ALL])
-    See([ENEMY.0.0.BARD_ALL])
-    See([ENEMY.0.0.CLERIC_ALL])
-    See([ENEMY.0.0.DRUID_ALL])
-    See([ENEMY.0.0.SORCERER])
-    See([ENEMY.0.0.CLERIC_MAGE])
-  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
-    UseItem("AMUL26",Myself)  // Amulet of Cheetah Speed
-    IncrementGlobal("MO_UsedCheetah","GLOBAL",1)
-END
-
-IF~~~~~
-    string = ~~~~~IF~~~~~ //"
   END

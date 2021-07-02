@@ -511,7 +511,8 @@ IF~~~~~
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    Spell(Myself,WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
+    ReallyForceSpell(Myself,WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
+    RemoveSpell(WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
 END
 
 IF
@@ -594,7 +595,8 @@ IF~~~~~
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    Spell(Myself,CLERIC_PHYSICAL_MIRROR)  // sppr525.spl (Physical Mirror)
+    ReallyForceSpell(Myself,CLERIC_PHYSICAL_MIRROR)  // sppr525.spl (Physical Mirror)
+    RemoveSpell(CLERIC_PHYSICAL_MIRROR)  // sppr525.spl (Physical Mirror)
 END
 
 IF
@@ -907,6 +909,7 @@ IF~~~~~
   GlobalLT("MO_UsedCheetah","GLOBAL",1)
   HasItemEquiped("AMUL26",Myself)  // Amulet of Cheetah Speed
   !CheckStatGT(Myself,0,IMPROVEDHASTE)
+  !CheckSpellState(Myself,GREATER_WHIRLWIND)
   See([EVILCUTOFF])
   OR(6)
     WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
