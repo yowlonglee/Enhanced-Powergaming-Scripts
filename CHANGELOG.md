@@ -11,6 +11,7 @@ July XX, 2021
   - Improved Haste will only be cast if the character has fighter, thief, or bard levels. This prevents a pure class mage casting IH on themselves since there is little benefit.
 - BG: EE
   - Added Enhanced AI Scripts for BG: EE
+  - Requires use of either DLCMerger or ModMerge (DLCMerger Preferred) before modding SOD games
   - Supports IWD Spells (IWDIfication or SCS version) and SCS mods
 - BGII: EE and EET
   - Added Hardiness to combat castings.
