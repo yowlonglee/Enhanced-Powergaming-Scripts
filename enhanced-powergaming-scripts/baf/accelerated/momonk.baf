@@ -160,7 +160,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HasItemEquiped("RING34",Myself)  // Ring of Spell Turning
   GlobalLT("MO_UsedSpellTurning","GLOBAL",1)
   !CheckSpellState(Myself,SPELL_TURNING)
@@ -172,7 +171,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   !StateCheck(Myself,STATE_BLUR)
   HaveSpellRES("SPDM102")  // Blur
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -188,7 +186,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   HaveSpellRES("SPDM106")  // Mirror Image
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -205,7 +202,6 @@ END
 IF
   Global("MO_BUFF","LOCALS",1)
   GlobalLT("MO_UsedBltMnrInv","GLOBAL",1)
-  IfValidForPartyDialog(Myself)
   HasItemEquiped("OHRBELT2",Myself)  // Belt of Minor Invulnerability
   !CheckSpellState(Myself,MINOR_GLOBE)
   !CheckSpellState(Myself,GLOBE)
@@ -218,7 +214,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   GlobalLT("MO_UsedDuplication","GLOBAL",3)
   HasItemEquiped("OHRRING1",Myself)  // Ring of Duplication
@@ -230,7 +225,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   !Global("MO_UsedIlbratha","GLOBAL",1)
   HasItemEquiped("SW1H26",Myself)  // Ilbratha +1
@@ -242,7 +236,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   !Global("MO_UsedIlbratha","GLOBAL",1)
   HasItem("SW1H26",Myself)  // Ilbratha +1
@@ -254,7 +247,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   OR(2)
     StateCheck(Myself,STATE_MIRRORIMAGE)
     Global("MO_UsedIlbratha","GLOBAL",1)
@@ -267,7 +259,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   GlobalLT("MO_UsedDevout","GLOBAL",1)
   HasItemEquiped("OHRHELM1",Myself)  // Headband of the Devout
 THEN
@@ -278,7 +269,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpell(WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
   !CheckSpellState(Myself,HARDINESS)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -294,7 +284,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpellRES("SPCL237")  // Greater Sun
   CheckStatLT(Myself,50,RESISTFIRE)
   CheckStatLT(Myself,50,SPELLFAILUREPRIEST)

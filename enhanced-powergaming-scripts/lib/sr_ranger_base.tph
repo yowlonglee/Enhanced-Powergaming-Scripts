@@ -104,7 +104,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("SPIN102")  // Slow Poison
   See([PC])
@@ -129,7 +128,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("SPIN102")  // Slow Poison
   See(Nearest([PC]))
@@ -153,7 +151,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("SPIN102")  // Slow Poison
   See(SecondNearest([PC]))
@@ -177,7 +174,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("SPIN102")  // Slow Poison
   See(ThirdNearest([PC]))
@@ -201,7 +197,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("SPIN102")  // Slow Poison
   See(FourthNearest([PC]))
@@ -225,7 +220,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("SPIN102")  // Slow Poison
   See(FifthNearest([PC]))
@@ -249,7 +243,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("SPIN102")  // Slow Poison
   See(SixthNearest([PC]))
@@ -274,7 +267,6 @@ END
 
 IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   HaveSpellRES("SPIN101")  // Cure Light Wounds
   !See([EVILCUTOFF])
   See(MostDamagedOf([PC]))
@@ -334,7 +326,6 @@ END
 
 IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   GlobalLT("MO_UsedIlbratha","GLOBAL",1)
@@ -361,7 +352,6 @@ END
 
 IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   GlobalLT("MO_UsedDuplication","GLOBAL",3)
@@ -387,7 +377,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(Myself)
   HaveSpell(CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
@@ -418,7 +407,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([PC])
   HaveSpell(CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
@@ -449,7 +437,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SecondNearest([PC]))
   HaveSpell(CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
@@ -480,7 +467,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(ThirdNearest([PC]))
   HaveSpell(CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
@@ -511,7 +497,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FourthNearest([PC]))
   HaveSpell(CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
@@ -542,7 +527,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FifthNearest([PC]))
   HaveSpell(CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
@@ -573,7 +557,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SixthNearest([PC]))
   HaveSpell(CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
@@ -604,7 +587,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(CLERIC_SLOW_POISON)  // SPPR212.SPL (Slow Poison)
   See(Myself)
@@ -628,7 +610,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(CLERIC_SLOW_POISON)  // SPPR212.SPL (Slow Poison)
   See([PC])
@@ -653,7 +634,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(CLERIC_SLOW_POISON)  // SPPR212.SPL (Slow Poison)
   See(SecondNearest([PC]))
@@ -678,7 +658,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(CLERIC_SLOW_POISON)  // SPPR212.SPL (Slow Poison)
   See(ThirdNearest([PC]))
@@ -703,7 +682,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(CLERIC_SLOW_POISON)  // SPPR212.SPL (Slow Poison)
   See(FourthNearest([PC]))
@@ -728,7 +706,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(CLERIC_SLOW_POISON)  // SPPR212.SPL (Slow Poison)
   See(FifthNearest([PC]))
@@ -753,7 +730,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(CLERIC_SLOW_POISON)  // SPPR212.SPL (Slow Poison)
   See(SixthNearest([PC]))
@@ -778,7 +754,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([PC])
   StateCheck(LastSeenBy(Myself),STATE_PANIC)
@@ -803,7 +778,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SecondNearest([PC]))
   StateCheck(LastSeenBy(Myself),STATE_PANIC)
@@ -828,7 +802,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(ThirdNearest([PC]))
   StateCheck(LastSeenBy(Myself),STATE_PANIC)
@@ -853,7 +826,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FourthNearest([PC]))
   StateCheck(LastSeenBy(Myself),STATE_PANIC)
@@ -878,7 +850,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FifthNearest([PC]))
   StateCheck(LastSeenBy(Myself),STATE_PANIC)
@@ -903,7 +874,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SixthNearest([PC]))
   StateCheck(LastSeenBy(Myself),STATE_PANIC)
@@ -928,7 +898,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
   Detect([EVILCUTOFF])
@@ -957,7 +926,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
   See(NearestEnemyOf(Myself))
@@ -986,7 +954,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
   See(SecondNearestEnemyOf(Myself))
@@ -1015,7 +982,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
   See(ThirdNearestEnemyOf(Myself))
@@ -1044,7 +1010,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
   See(FourthNearestEnemyOf(Myself))
@@ -1073,7 +1038,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
   See(FifthNearestEnemyOf(Myself))
@@ -1102,7 +1066,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
   See(SixthNearestEnemyOf(Myself))
@@ -1132,7 +1095,6 @@ END
 
 IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   OR(2)
     !See([EVILCUTOFF])
     CheckStat(Myself,1,SANCTUARY)
@@ -1163,7 +1125,6 @@ END
 
 IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   OR(2)
     !See([EVILCUTOFF])
     CheckStat(Myself,1,SANCTUARY)
@@ -1194,7 +1155,6 @@ END
 
 IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   OR(2)
     !See([EVILCUTOFF])
     CheckStat(Myself,1,SANCTUARY)
@@ -1225,7 +1185,6 @@ END
 
 IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_UsedBltMnrInv","GLOBAL",1)
   OR(17)
@@ -1264,7 +1223,6 @@ END
 
 IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(CLERIC_ARMOR_OF_FAITH)  // SPPR111.SPL (Armor of Faith)
   See([EVILCUTOFF])
@@ -1283,7 +1241,6 @@ END
 
 IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(CLERIC_PROTECTION_FROM_FIRE)  // sppr521.spl (Protection from Fire)
   OR(7)
@@ -1308,7 +1265,6 @@ END
 
 IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("SPIN103")  // Draw Upon Divine Might
   See([EVILCUTOFF])
@@ -1419,7 +1375,6 @@ END
 
 IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_UsedCheetah","GLOBAL",1)
   HasItemEquiped("AMUL26",Myself)  // Amulet of Cheetah Speed
@@ -1488,7 +1443,6 @@ END
 
 IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(ARCHER_CALL_SHOT)  // SPCL121.SPL (Called Shot)
   !CheckSpellState(Myself,GREATER_WHIRLWIND)

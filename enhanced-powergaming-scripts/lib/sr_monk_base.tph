@@ -89,7 +89,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("SPIN102")  // Slow Poison
   See([PC])
@@ -114,7 +113,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("SPIN102")  // Slow Poison
   See(Nearest([PC]))
@@ -138,7 +136,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("SPIN102")  // Slow Poison
   See(SecondNearest([PC]))
@@ -162,7 +159,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("SPIN102")  // Slow Poison
   See(ThirdNearest([PC]))
@@ -186,7 +182,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("SPIN102")  // Slow Poison
   See(FourthNearest([PC]))
@@ -210,7 +205,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("SPIN102")  // Slow Poison
   See(FifthNearest([PC]))
@@ -234,7 +228,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("SPIN102")  // Slow Poison
   See(SixthNearest([PC]))
@@ -259,7 +252,6 @@ END
 
 IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   HaveSpellRES("SPIN101")  // Cure Light Wounds
   !See([EVILCUTOFF])
   See(MostDamagedOf([PC]))
@@ -288,7 +280,6 @@ END
 
 IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   HPPercentLT(Myself,61)
   HaveSpell(MONK_LAY_ON_HANDS)  // SPCL815.SPL (Lay On Hands)
 THEN
@@ -331,7 +322,6 @@ END
 
 IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   HaveSpellRES("SPDM106")  // Mirror Image
@@ -356,7 +346,6 @@ END
 
 IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   !StateCheck(Myself,STATE_BLUR)
   HaveSpellRES("SPDM102")  // Blur
@@ -381,7 +370,6 @@ END
 
 IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   GlobalLT("MO_UsedDuplication","GLOBAL",3)
@@ -408,7 +396,6 @@ END
 
 IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   Global("MO_UsedIlbratha","GLOBAL",0)
@@ -469,7 +456,6 @@ END
 
 IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_UsedBltMnrInv","GLOBAL",1)
   OR(17)
@@ -508,7 +494,6 @@ END
 
 IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(MONK_STUNNING_BLOW)  // SPCL811.SPL (Stunning Blow)
   See([EVILCUTOFF])
@@ -563,7 +548,6 @@ END
 
 IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(MONK_QUIVERING_PALM)  // SPCL820.SPL (Quivering Palm)
   See([EVILCUTOFF])
@@ -609,7 +593,6 @@ END
 
 IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("SPDM105")  // Frozen Fist
   See([EVILCUTOFF])
@@ -661,7 +644,6 @@ END
 
 IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("SPCL237")  // Greater Sun
   See([EVILCUTOFF])
@@ -713,7 +695,6 @@ END
 
 IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("SPCL238")  // Flaming Fists
   See([EVILCUTOFF])
@@ -767,7 +748,6 @@ END
 
 IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_UsedDevout","GLOBAL",1)
   HasItemEquiped("OHRHELM1",Myself)  // Headband of the Devout
@@ -829,7 +809,6 @@ END
 
 IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("SPIN103")  // Draw Upon Divine Might
   See([EVILCUTOFF])
@@ -1005,7 +984,6 @@ END
 
 IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   !See([EVILCUTOFF])
   !ModalState(DETECTTRAPS)
   !ModalState(STEALTH)

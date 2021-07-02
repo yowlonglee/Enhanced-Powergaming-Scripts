@@ -106,7 +106,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpellRES("SPRA303")
   !CheckSpellState(Myself,PROTECTION_FROM_NORMAL_MISSILES)
   !CheckSpellState(Myself,MINOR_GLOBE)
@@ -125,7 +124,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpell(CLERIC_ARMOR_OF_FAITH)  // SPPR111.SPL (Armor of Faith)
   !CheckSpellState(Myself,ARMOR_OF_FAITH)
   !CheckSpellState(Myself,MINOR_GLOBE)
@@ -143,7 +141,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpellRES("SPRA302")
   CheckStatLT(Myself,1,WIZARD_SPELL_DEFLECTION)
   !CheckSpellState(Myself,MINOR_GLOBE)
@@ -162,7 +159,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   !CheckStatGT(Myself,0,IMPROVEDHASTE)
   GlobalLT("MO_UsedCheetah","GLOBAL",1)
   HasItemEquiped("AMUL26",Myself)  // Amulet of Cheetah Speed
@@ -342,7 +338,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpell(CLERIC_PROTECTION_FROM_FIRE)  // SPPR306.SPL (Protection From Fire)
   CheckStatLT(Myself,80,RESISTFIRE)
   !CheckSpellState(Myself,MINOR_GLOBE)
@@ -360,7 +355,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   GlobalLT("MO_UsedIlbratha","GLOBAL",1)
   HasItemEquiped("SW1H26",Myself)  // Ilbratha +1
@@ -374,7 +368,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   GlobalLT("MO_UsedDuplication","GLOBAL",3)
   HasItemEquiped("OHRRING1",Myself)  // Ring of Duplication
@@ -389,7 +382,6 @@ END
 IF
   Global("MO_BUFF","LOCALS",1)
   GlobalLT("MO_UsedBltMnrInv","GLOBAL",1)
-  IfValidForPartyDialog(Myself)
   HasItemEquiped("OHRBELT2",Myself)  // Belt of Minor Invulnerability
   !CheckSpellState(Myself,MINOR_GLOBE)
   !CheckSpellState(Myself,GLOBE)
@@ -402,7 +394,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HasItemEquiped("RING34",Myself)  // Ring of Spell Turning
   GlobalLT("MO_UsedSpellTurning","GLOBAL",1)
   !CheckSpellState(Myself,SPELL_TURNING)
@@ -414,7 +405,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpellRES("SPIN103")  // Divine Might
   !CheckSpellState(Myself,MINOR_GLOBE)
   !CheckSpellState(Myself,GLOBE)
@@ -433,7 +423,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpell(CLERIC_BLESS)  // SPPR101.SPL (Bless)
   !StateCheck(Myself,STATE_BLESS)
   !CheckSpellState(Myself,MINOR_GLOBE)
@@ -451,7 +440,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpell(WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
   !CheckSpellState(Myself,HARDINESS)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)

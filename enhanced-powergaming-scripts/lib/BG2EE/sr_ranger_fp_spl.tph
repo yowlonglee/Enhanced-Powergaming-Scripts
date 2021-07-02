@@ -70,7 +70,6 @@ COPY ~enhanced-powergaming-scripts/baf/upload/morang.baf~ ~enhanced-powergaming-
     STR_VAR
     pattern = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpellRES("SPIN103")
   !StateCheck(Myself,STATE_DRAWUPONHOLYMIGHT)
   OR(2)
@@ -85,7 +84,6 @@ THEN
 END~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpellRES("SPIN103")
   !StateCheck(Myself,STATE_DRAWUPONHOLYMIGHT)
   OR(2)
@@ -101,7 +99,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpellRES("D5P1214")
   !CheckSpellState(Myself,MINOR_GLOBE)
   !CheckSpellState(Myself,GLOBE)
@@ -130,7 +127,6 @@ END
     STR_VAR
     pattern = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpellRES("SPRA303")
   !CheckSpellState(Myself,PROTECTION_FROM_NORMAL_MISSILES)
   !CheckSpellState(Myself,MINOR_GLOBE)
@@ -147,7 +143,6 @@ THEN
 END~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpellRES("SPRA303")
   !CheckSpellState(Myself,PROTECTION_FROM_NORMAL_MISSILES)
   !CheckSpellState(Myself,MINOR_GLOBE)
@@ -165,7 +160,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpellRES("D5P1409")
   See(Myself)
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
@@ -189,7 +183,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpellRES("D5P1409")
   See([PC])
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
@@ -213,7 +206,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpellRES("D5P1409")
   See(SecondNearest([PC]))
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
@@ -237,7 +229,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpellRES("D5P1409")
   See(ThirdNearest([PC]))
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
@@ -261,7 +252,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpellRES("D5P1409")
   See(FourthNearest([PC]))
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
@@ -285,7 +275,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpellRES("D5P1409")
   See(FifthNearest([PC]))
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
@@ -309,7 +298,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpellRES("D5P1409")
   See(SixthNearest([PC]))
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
@@ -343,7 +331,6 @@ END
     STR_VAR
     pattern = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpell(CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Resist Fear)
   !CheckSpellState(Myself,RESIST_FEAR)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -357,7 +344,6 @@ THEN
 END~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpell(CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Resist Fear)
   !CheckSpellState(Myself,RESIST_FEAR)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -372,7 +358,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpell(CLERIC_PROTECTION_FROM_EVIL_10_FOOT)  // SPPR408.SPL (Magic Circle Against Evil)
   CheckStat(Myself,0,PROTECTION_FROM_EVIL)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -397,7 +382,6 @@ END
     STR_VAR
     pattern = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpell(CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Resist Fear)
   !CheckSpellState(Myself,RESIST_FEAR)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -411,7 +395,6 @@ THEN
 END~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpellRES("D5P2318")
   CheckStatLT(Myself,1,WIZARD_SPELL_DEFLECTION)
   !CheckSpellState(Myself,MINOR_GLOBE)
@@ -429,7 +412,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpell(CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Resist Fear)
   !CheckSpellState(Myself,RESIST_FEAR)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -454,7 +436,6 @@ END
     STR_VAR
     pattern = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpell(CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Resist Fear)
   !CheckSpellState(Myself,RESIST_FEAR)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -468,7 +449,6 @@ THEN
 END~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpellRES("D5P1413")
   See(Myself)
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
@@ -495,7 +475,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpellRES("D5P1413")
   See([PC])
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
@@ -522,7 +501,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpellRES("D5P1413")
   See(SecondNearest([PC]))
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
@@ -549,7 +527,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpellRES("D5P1413")
   See(ThirdNearest([PC]))
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
@@ -576,7 +553,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpellRES("D5P1413")
   See(FourthNearest([PC]))
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
@@ -603,7 +579,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpellRES("D5P1413")
   See(FifthNearest([PC]))
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
@@ -630,7 +605,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpellRES("D5P1413")
   See(SixthNearest([PC]))
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
@@ -657,7 +631,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpell(CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Resist Fear)
   !CheckSpellState(Myself,RESIST_FEAR)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -681,7 +654,6 @@ END
     verbose = 0
     STR_VAR
     pattern = ~~~~~IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SixthNearest([PC]))
   HaveSpellRES("D5P1317")
@@ -711,7 +683,6 @@ THEN
     SetInterrupt(TRUE)
 END~~~~~
     string = ~~~~~IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SixthNearest([PC]))
   HaveSpellRES("D5P1317")
@@ -742,7 +713,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(Myself)
   HaveSpellRES("D5P1404")
@@ -765,7 +735,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([PC])
   HaveSpellRES("D5P1404")
@@ -788,7 +757,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SecondNearest([PC]))
   HaveSpellRES("D5P1404")
@@ -811,7 +779,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(ThirdNearest([PC]))
   HaveSpellRES("D5P1404")
@@ -834,7 +801,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FourthNearest([PC]))
   HaveSpellRES("D5P1404")
@@ -857,7 +823,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FifthNearest([PC]))
   HaveSpellRES("D5P1404")
@@ -880,7 +845,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SixthNearest([PC]))
   HaveSpellRES("D5P1404")
@@ -913,7 +877,6 @@ END
     verbose = 0
     STR_VAR
     pattern = ~~~~~IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(Myself)
   HaveSpellRES("D5P1317")
@@ -943,7 +906,6 @@ THEN
     SetInterrupt(TRUE)
 END~~~~~
     string = ~~~~~IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(Myself)
   CheckStatGT(LastSeenBy(Myself),0,LEVELDRAIN)
@@ -966,7 +928,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(Nearest([PC]))
   CheckStatGT(LastSeenBy(Myself),0,LEVELDRAIN)
@@ -989,7 +950,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SecondNearest([PC]))
   CheckStatGT(LastSeenBy(Myself),0,LEVELDRAIN)
@@ -1012,7 +972,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(ThirdNearest([PC]))
   CheckStatGT(LastSeenBy(Myself),0,LEVELDRAIN)
@@ -1035,7 +994,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FourthNearest([PC]))
   CheckStatGT(LastSeenBy(Myself),0,LEVELDRAIN)
@@ -1058,7 +1016,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FifthNearest([PC]))
   CheckStatGT(LastSeenBy(Myself),0,LEVELDRAIN)
@@ -1081,7 +1038,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SixthNearest([PC]))
   CheckStatGT(LastSeenBy(Myself),0,LEVELDRAIN)
@@ -1104,7 +1060,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([PC])
   OR(2)
@@ -1134,7 +1089,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SecondNearest([PC]))
   OR(2)
@@ -1164,7 +1118,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(ThirdNearest([PC]))
   OR(2)
@@ -1194,7 +1147,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FourthNearest([PC]))
   OR(2)
@@ -1224,7 +1176,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5P1308")
   OR(2)
@@ -1254,7 +1205,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5P1308")
   OR(2)
@@ -1284,7 +1234,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([PC])
   HaveSpell(CLERIC_SPIRITUAL_CLARITY)
@@ -1310,7 +1259,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SecondNearest([PC]))
   HaveSpell(CLERIC_SPIRITUAL_CLARITY)
@@ -1336,7 +1284,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(ThirdNearest([PC]))
   HaveSpell(CLERIC_SPIRITUAL_CLARITY)
@@ -1362,7 +1309,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FourthNearest([PC]))
   HaveSpell(CLERIC_SPIRITUAL_CLARITY)
@@ -1388,7 +1334,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FifthNearest([PC]))
   HaveSpell(CLERIC_SPIRITUAL_CLARITY)
@@ -1414,7 +1359,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SixthNearest([PC]))
   HaveSpell(CLERIC_SPIRITUAL_CLARITY)
@@ -1440,7 +1384,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(Myself)
   HaveSpellRES("D5P1317")
@@ -1481,7 +1424,6 @@ END
     verbose = 0
     STR_VAR
     pattern = ~~~~~IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
   Detect([EVILCUTOFF])
@@ -1509,7 +1451,6 @@ THEN
     SetInterrupt(TRUE)
 END~~~~~
     string = ~~~~~IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5P2322")
   Detect([EVILCUTOFF])
@@ -1538,7 +1479,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5P2322")
   See(NearestEnemyOf(Myself))
@@ -1567,7 +1507,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5P2322")
   See(SecondNearestEnemyOf(Myself))
@@ -1596,7 +1535,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5P2322")
   See(ThirdNearestEnemyOf(Myself))
@@ -1625,7 +1563,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5P2322")
   See(FourthNearestEnemyOf(Myself))
@@ -1654,7 +1591,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5P2322")
   See(FifthNearestEnemyOf(Myself))
@@ -1683,7 +1619,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5P2322")
   See(SixthNearestEnemyOf(Myself))
@@ -1712,7 +1647,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
   Detect([EVILCUTOFF])
@@ -1752,7 +1686,6 @@ END
     STR_VAR
     pattern = ~~~~~IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   OR(2)
     !See([EVILCUTOFF])
     CheckStat(Myself,1,SANCTUARY)
@@ -1781,7 +1714,6 @@ THEN
     SetInterrupt(TRUE)
 END~~~~~
     string = ~~~~~IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5P2321")
   See([EVILCUTOFF])
@@ -1814,7 +1746,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5P2321")
   See(SecondNearest([EVILCUTOFF]))
@@ -1847,7 +1778,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5P2321")
   See(ThirdNearest([EVILCUTOFF]))
@@ -1880,7 +1810,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5P2321")
   See(FourthNearest([EVILCUTOFF]))
@@ -1913,7 +1842,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5P2321")
   See(FifthNearest([EVILCUTOFF]))
@@ -1946,7 +1874,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5P2321")
   See(SixthNearest([EVILCUTOFF]))
@@ -1979,7 +1906,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5P2419")
   See([EVILCUTOFF])
@@ -2012,7 +1938,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5P2419")
   See(SecondNearest([EVILCUTOFF]))
@@ -2045,7 +1970,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5P2419")
   See(ThirdNearest([EVILCUTOFF]))
@@ -2078,7 +2002,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5P2419")
   See(FourthNearest([EVILCUTOFF]))
@@ -2111,7 +2034,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5P2419")
   See(FifthNearest([EVILCUTOFF]))
@@ -2144,7 +2066,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5P2419")
   See(SixthNearest([EVILCUTOFF]))
@@ -2178,7 +2099,6 @@ END
 
 IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   OR(2)
     !See([EVILCUTOFF])
     CheckStat(Myself,1,SANCTUARY)

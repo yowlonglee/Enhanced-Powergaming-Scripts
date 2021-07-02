@@ -110,7 +110,6 @@ END~~~~~ //"
     STR_VAR
     pattern = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HasItemEquiped("RING34",Myself)  // Ring of Spell Turning
   GlobalLT("MO_UsedSpellTurning","GLOBAL",1)
   !CheckSpellState(Myself,SPELL_TURNING)
@@ -131,7 +130,6 @@ IF~~~~~
     STR_VAR
     pattern = ~~~~~IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   OR(17)
     Range([EVILCUTOFF.0.FAIRY],30)
@@ -175,7 +173,6 @@ IF~~~~~
     STR_VAR
     pattern = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   GlobalLT("MO_UsedDuplication","GLOBAL",3)
   HasItemEquiped("OHRRING1",Myself)  // Ring of Duplication
@@ -187,7 +184,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   !Global("MO_UsedIlbratha","GLOBAL",1)
   HasItemEquiped("SW1H26",Myself)  // Ilbratha +1
@@ -199,7 +195,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   !Global("MO_UsedIlbratha","GLOBAL",1)
   HasItem("SW1H26",Myself)  // Ilbratha +1
@@ -211,7 +206,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   OR(2)
     StateCheck(Myself,STATE_MIRRORIMAGE)
     Global("MO_UsedIlbratha","GLOBAL",1)
@@ -224,7 +218,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   GlobalLT("MO_UsedDevout","GLOBAL",1)
   HasItemEquiped("OHRHELM1",Myself)  // Headband of the Devout
 THEN
@@ -244,7 +237,6 @@ IF~~~~~
     STR_VAR
     pattern = ~~~~~IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   GlobalLT("MO_UsedDuplication","GLOBAL",3)
@@ -271,7 +263,6 @@ END
 
 IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   Global("MO_UsedIlbratha","GLOBAL",0)
@@ -341,7 +332,6 @@ IF~~~~~
     STR_VAR
     pattern = ~~~~~IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_UsedDevout","GLOBAL",1)
   HasItemEquiped("OHRHELM1",Myself)  // Headband of the Devout
@@ -416,7 +406,6 @@ IF~~~~~
     pattern = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
   GlobalLT("MO_UsedBltMnrInv","GLOBAL",1)
-  IfValidForPartyDialog(Myself)
   HasItemEquiped("OHRBELT2",Myself)  // Belt of Minor Invulnerability
   !CheckSpellState(Myself,MINOR_GLOBE)
   !CheckSpellState(Myself,GLOBE)
@@ -438,7 +427,6 @@ IF~~~~~
     STR_VAR
     pattern = ~~~~~IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_UsedBltMnrInv","GLOBAL",1)
   OR(17)
@@ -489,7 +477,6 @@ IF~~~~~
     STR_VAR
     pattern = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpell(WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
   !CheckSpellState(Myself,HARDINESS)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -514,7 +501,6 @@ IF~~~~~
     STR_VAR
     pattern = ~~~~~IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
   !CheckSpellState(Myself,HARDINESS)
@@ -660,7 +646,6 @@ END
 
 IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_UsedFortitude","GLOBAL",1)
   HasItemEquiped("BELT09",Myself)  // Girdle of Fortitude

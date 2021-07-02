@@ -15,7 +15,5 @@ COPY ~enhanced-powergaming-scripts/baf/upload/morang.baf~   	   ~override/mosim0
 	 ~enhanced-powergaming-scripts/baf/simulacrum/mosim01.baf~     ~override/mosim01.bcs~
   COMPILE_BAF_TO_BCS
 
-// LAF edit_spell STR_VAR spell="literal:simulacr" editstring=~add_effect_inline=>"opcode=>82 target=>1 power=>0 parameter2=>6 timing=>9 resource=>moscrpch"~ END
-
 COPY_EXISTING ~SIMULACR.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 82 target = 1 power = 0 parameter2 = 6 timing = 9 resource = ~mosim01~ END
+	  LPF ADD_SPELL_EFFECT STR_VAR opcode = 82 target = 1 power = 0 parameter2 = 6 timing = 9 resource = ~mosim01~ END

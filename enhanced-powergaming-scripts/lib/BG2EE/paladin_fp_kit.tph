@@ -10,7 +10,6 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mopal.baf~ ~enhanced-powergaming-s
     STR_VAR
     pattern = ~~~~~IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(CLERIC_PROTECTION_FROM_FIRE)  // SPPR306.SPL (Protection From Fire)
   OR(7)
@@ -36,7 +35,6 @@ THEN
 END~~~~~
     string = ~~~~~IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(CLERIC_PROTECTION_FROM_FIRE)  // SPPR306.SPL (Protection From Fire)
   OR(7)
@@ -63,7 +61,6 @@ END
 
 IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("b_frz02")
   !CheckSpellState(Myself,STATE_ENRAGED)
@@ -111,7 +108,6 @@ END
 
 IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("b_frz03")
   !CheckSpellState(Myself,STATE_ENRAGED)
@@ -159,7 +155,6 @@ END
 
 IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("b_frz04")
   !CheckSpellState(Myself,STATE_ENRAGED)
@@ -207,7 +202,6 @@ END
 
 IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("b_frz05")
   !CheckSpellState(Myself,STATE_ENRAGED)
@@ -255,7 +249,6 @@ END
 
 IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("b_frz06")
   !CheckSpellState(Myself,STATE_ENRAGED)
@@ -303,7 +296,6 @@ END
 
 IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("b_frz07")
   !CheckSpellState(Myself,STATE_ENRAGED)
@@ -351,7 +343,6 @@ END
 
 IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("b_frz08")
   !CheckSpellState(Myself,STATE_ENRAGED)
@@ -399,7 +390,6 @@ END
 
 IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("b_frz09")
   !CheckSpellState(Myself,STATE_ENRAGED)
@@ -447,7 +437,6 @@ END
 
 IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("b_frz10")
   !CheckSpellState(Myself,STATE_ENRAGED)
@@ -509,7 +498,6 @@ THEN
 END~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpellRES("b_frz02")
   !CheckSpellState(Myself,STATE_ENRAGED)
   !CheckSpellState(Myself,BARBARIAN_RAGE)
@@ -520,7 +508,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpellRES("b_frz03")
   !CheckSpellState(Myself,STATE_ENRAGED)
   !CheckSpellState(Myself,BARBARIAN_RAGE)
@@ -531,7 +518,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpellRES("b_frz04")
   !CheckSpellState(Myself,STATE_ENRAGED)
   !CheckSpellState(Myself,BARBARIAN_RAGE)
@@ -542,7 +528,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpellRES("b_frz05")
   !CheckSpellState(Myself,STATE_ENRAGED)
   !CheckSpellState(Myself,BARBARIAN_RAGE)
@@ -553,7 +538,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpellRES("b_frz06")
   !CheckSpellState(Myself,STATE_ENRAGED)
   !CheckSpellState(Myself,BARBARIAN_RAGE)
@@ -564,7 +548,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpellRES("b_frz07")
   !CheckSpellState(Myself,STATE_ENRAGED)
   !CheckSpellState(Myself,BARBARIAN_RAGE)
@@ -575,7 +558,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpellRES("b_frz08")
   !CheckSpellState(Myself,STATE_ENRAGED)
   !CheckSpellState(Myself,BARBARIAN_RAGE)
@@ -586,7 +568,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpellRES("b_frz09")
   !CheckSpellState(Myself,STATE_ENRAGED)
   !CheckSpellState(Myself,BARBARIAN_RAGE)
@@ -597,7 +578,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpellRES("b_frz10")
   !CheckSpellState(Myself,STATE_ENRAGED)
   !CheckSpellState(Myself,BARBARIAN_RAGE)

@@ -10,7 +10,6 @@ COPY ~enhanced-powergaming-scripts/baf/upload/morang.baf~ ~enhanced-powergaming-
     STR_VAR
     pattern = ~~~~~IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   OR(2)
     !See([EVILCUTOFF])
     CheckStat(Myself,1,SANCTUARY)
@@ -40,7 +39,6 @@ THEN
     SetInterrupt(TRUE)
 END~~~~~
     string = ~~~~~IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5_RABRE")
   See([EVILCUTOFF])
@@ -71,7 +69,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5_RABRE")
   See(SecondNearest([EVILCUTOFF]))
@@ -102,7 +99,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5_RABRE")
   See(ThirdNearest([EVILCUTOFF]))
@@ -133,7 +129,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5_RABRE")
   See(FourthNearest([EVILCUTOFF]))
@@ -164,7 +159,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5_RABRE")
   See(FifthNearest([EVILCUTOFF]))
@@ -195,7 +189,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5_RABRE")
   See(SixthNearest([EVILCUTOFF]))
@@ -227,7 +220,6 @@ END
 
 IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   OR(2)
     !See([EVILCUTOFF])
     CheckStat(Myself,1,SANCTUARY)
@@ -268,7 +260,6 @@ END
     STR_VAR
     pattern = ~~~~~IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   OR(2)
     !See([EVILCUTOFF])
     CheckStat(Myself,1,SANCTUARY)
@@ -298,7 +289,6 @@ THEN
 END~~~~~
     string = ~~~~~IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   OR(2)
     !See([EVILCUTOFF])
     CheckStat(Myself,1,SANCTUARY)
@@ -329,7 +319,6 @@ END
 
 IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   OR(17)
     Range([EVILCUTOFF.0.FAIRY],30)
@@ -376,7 +365,6 @@ LPF REPLACE_MULTILINE
     STR_VAR
     pattern = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpell(CLERIC_ARMOR_OF_FAITH)  // SPPR111.SPL (Armor of Faith)
   !CheckSpellState(Myself,ARMOR_OF_FAITH)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -391,7 +379,6 @@ THEN
 END~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpell(CLERIC_ARMOR_OF_FAITH)  // SPPR111.SPL (Armor of Faith)
   !CheckSpellState(Myself,ARMOR_OF_FAITH)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -407,7 +394,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpellRES("D5_RADFL")
   !CheckSpellState(Myself,GREATER_SPELL_DEFLECTION)
   !CheckSpellState(Myself,SPELL_DEFLECTION)
@@ -436,7 +422,6 @@ END
     STR_VAR
     pattern = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpell(WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
   !CheckSpellState(Myself,HARDINESS)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -451,7 +436,6 @@ THEN
 END~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpell(WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
   !CheckSpellState(Myself,HARDINESS)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -467,7 +451,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpell(BARBARIAN_RAGE)  // SPCL152.SPL (Barbarian Rage)
   !CheckSpellState(Myself,BARBARIAN_RAGE)
 THEN
@@ -484,7 +467,6 @@ END
     STR_VAR
     pattern = ~~~~~IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("SPIN103")  // Draw Upon Divine Might
   See([EVILCUTOFF])
@@ -533,7 +515,6 @@ THEN
 END~~~~~
     string = ~~~~~IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("SPIN103")  // Draw Upon Divine Might
   See([EVILCUTOFF])
@@ -583,7 +564,6 @@ END
 
 IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(BARBARIAN_RAGE)  // SPCL152.SPL (Barbarian Rage)
   !CheckSpellState(Myself,BARBARIAN_RAGE)

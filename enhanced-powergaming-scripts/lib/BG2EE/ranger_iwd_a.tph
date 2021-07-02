@@ -10,7 +10,6 @@ COPY ~enhanced-powergaming-scripts/baf/upload/morang.baf~ ~enhanced-powergaming-
     STR_VAR
     pattern = ~~~~~IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   !See([EVILCUTOFF])
   HaveSpell(CLERIC_CURE_MEDIUM_WOUNDS)  // SPPR315.SPL (Cure Medium Wounds)
   See(MostDamagedOf([PC]))
@@ -37,7 +36,6 @@ THEN
 END~~~~~
     string = ~~~~~IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   !See([EVILCUTOFF])
   HaveSpell(CLERIC_CURE_MEDIUM_WOUNDS)  // SPPR315.SPL (Cure Medium Wounds)
   See(MostDamagedOf([PC]))
@@ -65,7 +63,6 @@ END
 
 IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   !See([EVILCUTOFF])
   HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)  // sppr215.SPL (Cure Moderate Wounds)
   See(MostDamagedOf([PC]))

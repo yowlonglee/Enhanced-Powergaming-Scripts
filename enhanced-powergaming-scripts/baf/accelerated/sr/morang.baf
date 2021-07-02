@@ -106,7 +106,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Resist Fear)
 	!CheckSpellState(Myself,RESIST_FEAR)
 	CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -122,7 +121,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(CLERIC_ARMOR_OF_FAITH)  // SPPR111.SPL (Armor of Faith)
 	!CheckSpellState(Myself,ARMOR_OF_FAITH)
 	CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -138,7 +136,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	!CheckStatGT(Myself,0,IMPROVEDHASTE)
 	GlobalLT("MO_UsedCheetah","GLOBAL",1)
 	HasItemEquiped("AMUL26",Myself)  // Amulet of Cheetah Speed
@@ -150,7 +147,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(CLERIC_PROTECTION_FROM_FIRE)  // sppr521.spl (Protection from Fire)
 	CheckStatLT(Myself,80,RESISTFIRE)
 	CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -334,7 +330,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpellRES("SPRA303")
   !CheckSpellState(Myself,PROTECTION_FROM_NORMAL_MISSILES)
   !CheckSpellState(Myself,MINOR_GLOBE)
@@ -353,7 +348,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpellRES("SPIN103")
 	!StateCheck(Myself,STATE_DRAWUPONHOLYMIGHT)
 	OR(2)
@@ -370,7 +364,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	!StateCheck(Myself,STATE_MIRRORIMAGE)
 	GlobalLT("MO_UsedIlbratha","GLOBAL",1)
 	HasItemEquiped("SW1H26",Myself)  // Ilbratha +1
@@ -382,7 +375,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	!StateCheck(Myself,STATE_MIRRORIMAGE)
 	GlobalLT("MO_UsedDuplication","GLOBAL",3)
 	HasItemEquiped("OHRRING1",Myself)  // Ring of Duplication
@@ -395,7 +387,6 @@ END
 IF
   Global("MO_BUFF","LOCALS",1)
   GlobalLT("MO_UsedBltMnrInv","GLOBAL",1)
-  IfValidForPartyDialog(Myself)
   HasItemEquiped("OHRBELT2",Myself)  // Belt of Minor Invulnerability
   !CheckSpellState(Myself,MINOR_GLOBE)
   !CheckSpellState(Myself,GLOBE)
@@ -408,7 +399,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
 	!CheckSpellState(Myself,HARDINESS)
 	CheckStatLT(Myself,20,SPELLFAILUREPRIEST)

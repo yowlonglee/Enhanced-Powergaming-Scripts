@@ -10,7 +10,6 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     STR_VAR
     pattern = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpell(CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
   !CheckSpellState(Myself,RESIST_FEAR)
   !CheckSpellState(Myself,MINOR_GLOBE)
@@ -26,7 +25,6 @@ THEN
 END~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpell(CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
   !CheckSpellState(Myself,RESIST_FEAR)
   !CheckSpellState(Myself,MINOR_GLOBE)
@@ -43,7 +41,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpell(WIZARD_EMOTION_COURAGE)
   !CheckSpellState(Myself,EMOTION_COURAGE)
   !CheckSpellState(Myself,GLOBE)
@@ -59,7 +56,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpell(WIZARD_EMOTION_HOPE)
   !CheckSpellState(Myself,EMOTION_HOPE)
   !CheckSpellState(Myself,GLOBE)
@@ -182,7 +178,6 @@ END~~~~~ //"
     STR_VAR
     pattern = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   !CheckStatGT(Myself,0,IMPROVEDHASTE)
   GlobalLT("MO_UsedCheetah","GLOBAL",1)
   HasItemEquiped("AMUL26",Myself)  // Amulet of Cheetah Speed
@@ -193,7 +188,6 @@ THEN
 END~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   !CheckStatGT(Myself,0,IMPROVEDHASTE)
   GlobalLT("MO_UsedCheetah","GLOBAL",1)
   HasItemEquiped("AMUL26",Myself)  // Amulet of Cheetah Speed
@@ -205,7 +199,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpell(WIZARD_SEVEN_EYES)  // spwi727.SPL (Seven Eyes)
   !CheckSpellState(Myself,EYE_OF_THE_MIND)
   !CheckSpellState(Myself,EYE_OF_THE_MAGE)
@@ -236,7 +229,6 @@ END~~~~~ //"
     STR_VAR
     pattern = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpell(WIZARD_SPELL_IMMUNITY)  // SPWI510.SPL (Spell Immunity)
   !CheckStat(Myself,1,WIZARD_SPELL_IMMUNITY)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
@@ -251,7 +243,6 @@ THEN
 END~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpell(WIZARD_SPELL_IMMUNITY)  // SPWI510.SPL (Spell Immunity)
   !CheckStat(Myself,1,WIZARD_SPELL_IMMUNITY)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
@@ -326,7 +317,6 @@ END
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([EVILCUTOFF])
   HPPercentLT(Myself,51)
-  IfValidForPartyDialog(Myself)
   HaveSpell(WIZARD_PROTECTION_FROM_MAGIC_WEAPONS)  // SPWI611.SPL (Protection From Magical Weapons)
   !CheckSpellState(Myself,PROTECTION_FROM_MAGICAL_WEAPONS)
   !CheckSpellState(Myself,ABSOLUTE_IMMUNITY)
@@ -349,7 +339,6 @@ END~~~~~
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([EVILCUTOFF])
   HPPercentLT(Myself,51)
-  IfValidForPartyDialog(Myself)
   HaveSpell(WIZARD_PROTECTION_FROM_MAGIC_WEAPONS)  // SPWI611.SPL (Protection From Magical Weapons)
   !CheckSpellState(Myself,PROTECTION_FROM_MAGICAL_WEAPONS)
   !CheckSpellState(Myself,ABSOLUTE_IMMUNITY)
@@ -374,7 +363,6 @@ IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([EVILCUTOFF])
   HPPercentLT(Myself,51)
-  IfValidForPartyDialog(Myself)
   HaveSpell(CLERIC_GREATER_SHIELD_OF_LATHANDER)  // sppr737.SPL (Greater Divine Protection)
   !CheckSpellState(Myself,SHIELD_OF_LATHANDER)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -393,7 +381,6 @@ IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([EVILCUTOFF])
   HPPercentLT(Myself,51)
-  IfValidForPartyDialog(Myself)
   HaveSpell(CLERIC_SHIELD_OF_LATHANDER)  // sppr520.SPL (Divine Protection)
   !CheckSpellState(Myself,SHIELD_OF_LATHANDER)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -860,7 +847,6 @@ END
     STR_VAR
     pattern = ~~~~~IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   OR(2)
     !See([EVILCUTOFF])
     CheckStat(Myself,1,SANCTUARY)
@@ -891,7 +877,6 @@ THEN
 END~~~~~
     string = ~~~~~IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   OR(2)
     !See([EVILCUTOFF])
     CheckStat(Myself,1,SANCTUARY)
@@ -923,7 +908,6 @@ END
 
 IF
   ActionListEmpty()
-  IfValidForPartyDialog(Myself)
   OR(2)
     !See([EVILCUTOFF])
     CheckStat(Myself,1,SANCTUARY)

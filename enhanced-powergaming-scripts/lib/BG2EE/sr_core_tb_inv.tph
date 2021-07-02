@@ -49,7 +49,6 @@ END
     verbose = 0
     STR_VAR
     pattern = ~~~~~IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
   See(SixthNearestEnemyOf(Myself))
@@ -77,7 +76,6 @@ THEN
     SetInterrupt(TRUE)
 END~~~~~
     string = ~~~~~IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
   See(SixthNearestEnemyOf(Myself))
@@ -106,7 +104,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_DETECT_ILLUSION)
   Detect([EVILCUTOFF])
@@ -135,7 +132,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_DETECT_ILLUSION)
   See(NearestEnemyOf(Myself))
@@ -164,7 +160,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_DETECT_ILLUSION)
   See(SecondNearestEnemyOf(Myself))
@@ -193,7 +188,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_DETECT_ILLUSION)
   See(ThirdNearestEnemyOf(Myself))
@@ -222,7 +216,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_DETECT_ILLUSION)
   See(FourthNearestEnemyOf(Myself))
@@ -251,7 +244,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_DETECT_ILLUSION)
   See(FifthNearestEnemyOf(Myself))
@@ -280,7 +272,6 @@ THEN
 END
 
 IF
-  IfValidForPartyDialog(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_DETECT_ILLUSION)
   See(SixthNearestEnemyOf(Myself))

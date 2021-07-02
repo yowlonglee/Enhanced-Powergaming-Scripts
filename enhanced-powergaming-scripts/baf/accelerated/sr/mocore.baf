@@ -234,7 +234,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	!StateCheck(Myself,STATE_MIRRORIMAGE)
 	GlobalLT("MO_UsedIlbratha","GLOBAL",1)
 	HasItemEquiped("SW1H26",Myself)  // Ilbratha +1
@@ -246,7 +245,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	!StateCheck(Myself,STATE_MIRRORIMAGE)
 	GlobalLT("MO_UsedDuplication","GLOBAL",3)
 	HasItemEquiped("OHRRING1",Myself)  // Ring of Duplication
@@ -258,7 +256,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpell(CLERIC_AID)  // SPPR201.SPL (Aid)
   !StateCheck(Myself,STATE_AID)
   !CheckSpellState(Myself,MINOR_GLOBE)
@@ -277,7 +274,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(WIZARD_PROTECTION_FROM_MAGIC_ENERGY)  // SPWI606.SPL (Protection from Magic Energy)
 	!CheckStatGT(Myself,0,WIZARD_PROTECTION_FROM_MAGIC_ENERGY)
 	CheckStatLT(Myself,20,SPELLFAILUREMAGE)
@@ -294,7 +290,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(CLERIC_PROTECTION_FROM_FIRE)  // sppr521.spl (Protection from Fire)
 	CheckStatLT(Myself,80,RESISTFIRE)
 	CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -310,7 +305,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(CLERIC_DEATH_WARD)  // SPPR409.SPL (Death Ward)
 	See(Myself)
 	!Kit(LastSeenBy(Myself),UNDEADHUNTER)
@@ -335,7 +329,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(CLERIC_DEATH_WARD)  // SPPR409.SPL (Death Ward)
 	See([PC])
 	!Kit(LastSeenBy(Myself),UNDEADHUNTER)
@@ -360,7 +353,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(CLERIC_DEATH_WARD)  // SPPR409.SPL (Death Ward)
 	See(SecondNearest([PC]))
 	!Kit(LastSeenBy(Myself),UNDEADHUNTER)
@@ -385,7 +377,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(CLERIC_DEATH_WARD)  // SPPR409.SPL (Death Ward)
 	See(ThirdNearest([PC]))
 	!Kit(LastSeenBy(Myself),UNDEADHUNTER)
@@ -410,7 +401,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(CLERIC_DEATH_WARD)  // SPPR409.SPL (Death Ward)
 	See(FourthNearest([PC]))
 	!Kit(LastSeenBy(Myself),UNDEADHUNTER)
@@ -435,7 +425,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(CLERIC_DEATH_WARD)  // SPPR409.SPL (Death Ward)
 	See(FifthNearest([PC]))
 	!Kit(LastSeenBy(Myself),UNDEADHUNTER)
@@ -460,7 +449,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(CLERIC_DEATH_WARD)  // SPPR409.SPL (Death Ward)
 	See(SixthNearest([PC]))
 	!Kit(LastSeenBy(Myself),UNDEADHUNTER)
@@ -485,7 +473,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	See(Myself)
 	!CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
 	!CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
@@ -509,7 +496,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	See([PC])
 	!CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
 	!CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
@@ -533,7 +519,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	See(SecondNearest([PC]))
 	!CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
 	!CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
@@ -557,7 +542,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	See(ThirdNearest([PC]))
 	!CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
 	!CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
@@ -581,7 +565,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	See(FourthNearest([PC]))
 	!CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
 	!CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
@@ -605,7 +588,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	See(FifthNearest([PC]))
 	!CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
 	!CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
@@ -629,7 +611,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	See(SixthNearest([PC]))
 	!CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
 	!CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
@@ -653,7 +634,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(CLERIC_NEGATIVE_PLANE_PROTECTION)  // SPPR413.SPL (Negative Plane Protection)
 	See(Myself)
 	!Kit(LastSeenBy(Myself),UNDEADHUNTER)
@@ -681,7 +661,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(CLERIC_NEGATIVE_PLANE_PROTECTION)  // SPPR413.SPL (Negative Plane Protection)
 	See([PC])
 	!Kit(LastSeenBy(Myself),UNDEADHUNTER)
@@ -709,7 +688,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(CLERIC_NEGATIVE_PLANE_PROTECTION)  // SPPR413.SPL (Negative Plane Protection)
 	See(SecondNearest([PC]))
 	!Kit(LastSeenBy(Myself),UNDEADHUNTER)
@@ -737,7 +715,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(CLERIC_NEGATIVE_PLANE_PROTECTION)  // SPPR413.SPL (Negative Plane Protection)
 	See(ThirdNearest([PC]))
 	!Kit(LastSeenBy(Myself),UNDEADHUNTER)
@@ -765,7 +742,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(CLERIC_NEGATIVE_PLANE_PROTECTION)  // SPPR413.SPL (Negative Plane Protection)
 	See(FourthNearest([PC]))
 	!Kit(LastSeenBy(Myself),UNDEADHUNTER)
@@ -793,7 +769,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(CLERIC_NEGATIVE_PLANE_PROTECTION)  // SPPR413.SPL (Negative Plane Protection)
 	See(FifthNearest([PC]))
 	!Kit(LastSeenBy(Myself),UNDEADHUNTER)
@@ -821,7 +796,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(CLERIC_NEGATIVE_PLANE_PROTECTION)  // SPPR413.SPL (Negative Plane Protection)
 	See(SixthNearest([PC]))
 	!Kit(LastSeenBy(Myself),UNDEADHUNTER)
@@ -849,7 +823,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(WIZARD_GHOST_ARMOR)  // SPWI317.SPL (Ghost Armor)
 	CheckStatGT(Myself,2,ARMORCLASS)
 	!CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -867,7 +840,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpell(WIZARD_SHIELD)  // SPWI114.SPL (Shield)
   !CheckSpellState(Myself,WIZARD_SHIELD)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -885,7 +857,6 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  IfValidForPartyDialog(Myself)
   HaveSpell(WIZARD_BLUR)  // SPWI201.SPL (Blur)
   !StateCheck(Myself,STATE_BLUR)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
@@ -901,7 +872,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(WIZARD_RESIST_FEAR)  // SPWI210.SPL (Resist Fear)
 	!CheckSpellState(Myself,RESIST_FEAR)
 	CheckStatLT(Myself,20,SPELLFAILUREMAGE)
@@ -918,7 +888,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(CLERIC_REMOVE_FEAR)
 	!CheckSpellState(Myself,RESIST_FEAR)
 	CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -934,7 +903,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(CLERIC_PROTECTION_FROM_EVIL_10_FOOT)  // SPPR408.SPL (Magic Circle Against Evil)
 	CheckStat(Myself,0,PROTECTION_FROM_EVIL)
 	CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -1118,7 +1086,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(CLERIC_ARMOR_OF_FAITH)  // SPPR111.SPL (Armor of Faith)
 	!CheckSpellState(Myself,ARMOR_OF_FAITH)
 	CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -1134,7 +1101,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(CLERIC_BLESS)  // SPPR101.SPL (Bless)
 	!StateCheck(Myself,STATE_BLESS)
 	CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -1150,7 +1116,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(WIZARD_LUCK)  // SPWI209.SPL (Luck)
 	!StateCheck(Myself,STATE_LUCK)
 	CheckStatLT(Myself,20,SPELLFAILUREMAGE)
@@ -1166,7 +1131,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(WIZARD_PROTECTION_FROM_THE_ELEMENTS)  // SPWI702.SPL (Protection from the Elements)
 	!CheckStatGT(Myself,0,WIZARD_PROTECTION_FROM_THE_ELEMENTS)
 	CheckStatLT(Myself,20,SPELLFAILUREMAGE)
@@ -1183,7 +1147,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(WIZARD_PROTECTION_FROM_NORMAL_MISSILES)  // SPWI311.SPL (Protection from Missiles)
 	!CheckSpellState(Myself,PROTECTION_FROM_NORMAL_MISSILES)
 	!CheckSpellState(Myself,MINOR_GLOBE)
@@ -1202,7 +1165,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(CLERIC_PHYSICAL_MIRROR)  // SPPR613.SPL (Physical Mirror)
 	CheckStatLT(Myself,1,CLERIC_PHYSICAL_MIRROR)
 	CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -1218,7 +1180,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(WIZARD_SPELL_SHIELD)  // SPWI519.SPL (Spell Shield)
 	!CheckSpellState(Myself,SPELL_SHIELD)
 	CheckStatLT(Myself,20,SPELLFAILUREMAGE)
@@ -1235,7 +1196,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(WIZARD_GREATER_SPELL_DEFLECTION)  // SPWI701.SPL (Greater Spell Deflection)
 	!CheckSpellState(Myself,GREATER_SPELL_DEFLECTION)
 	!CheckSpellState(Myself,SPELL_DEFLECTION)
@@ -1254,7 +1214,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(WIZARD_SPELL_DEFLECTION)  // SPWI522.SPL (Spell Deflection)
 	!CheckSpellState(Myself,GREATER_SPELL_DEFLECTION)
 	!CheckSpellState(Myself,SPELL_DEFLECTION)
@@ -1273,7 +1232,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(WIZARD_MINOR_SPELL_DEFLECTION)  // SPWI318.SPL (Minor Spell Deflection)
 	!CheckSpellState(Myself,GREATER_SPELL_DEFLECTION)
 	!CheckSpellState(Myself,SPELL_DEFLECTION)
@@ -1294,7 +1252,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	!StateCheck(Myself,STATE_MIRRORIMAGE)
 	HaveSpell(WIZARD_MIRROR_IMAGE)  // SPWI212.SPL (Mirror Image)
 	!CheckSpellState(Myself,MINOR_GLOBE)
@@ -1314,7 +1271,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(WIZARD_DISPELLING_SCREEN)  // spwi525.spl (Dispelling Screen)
 	!CheckSpellState(Myself,DISPEL_SCREEN)
 	CheckStatLT(Myself,20,SPELLFAILUREMAGE)
@@ -1331,7 +1287,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpellRES("SPIN103")  // Draw Upon Divine Might
 	!StateCheck(Myself,STATE_DRAWUPONHOLYMIGHT)
 	!CheckSpellState(Myself,MINOR_GLOBE)
@@ -1363,7 +1318,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(CLERIC_DRAW_UPON_HOLY_MIGHT)
 	!StateCheck(Myself,STATE_DRAWUPONHOLYMIGHT)
 	CheckStatLT(Myself,25,STR)
@@ -1380,7 +1334,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpellRES("SPIN103")  // Draw Upon Divine Might
 	!StateCheck(Myself,STATE_DRAWUPONHOLYMIGHT)
 	CheckStatLT(Myself,25,STR)
@@ -1395,7 +1348,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(CLERIC_DEFENSIVE_HARMONY)  // SPPR406.SPL (Defensive Harmony)
 	CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
 	!CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -1426,7 +1378,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(CLERIC_AURA_OF_FLAMING_DEATH)  // SPPR730.SPL (Aura of Flaming Death)
 	CheckStat(Myself,0,WIZARD_FIRE_SHIELD)
 	CheckStatLT(Myself,1,CLERIC_BLADE_BARRIER)
@@ -1444,7 +1395,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(CLERIC_GLOBE_OF_BLADES)  // SPPR725.SPL (Globe of Blades)
 	CheckStat(Myself,0,WIZARD_FIRE_SHIELD)
 	CheckStatLT(Myself,1,CLERIC_BLADE_BARRIER)
@@ -1461,7 +1411,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(CLERIC_BLADE_BARRIER)  // SPPR603.SPL (Blade Barrier)
 	CheckStat(Myself,0,WIZARD_FIRE_SHIELD)
 	CheckStatLT(Myself,1,CLERIC_BLADE_BARRIER)
@@ -1479,7 +1428,6 @@ END
 IF
   Global("MO_BUFF","LOCALS",1)
   GlobalLT("MO_UsedBltMnrInv","GLOBAL",1)
-  IfValidForPartyDialog(Myself)
   HasItemEquiped("OHRBELT2",Myself)  // Belt of Minor Invulnerability
   !CheckSpellState(Myself,MINOR_GLOBE)
   !CheckSpellState(Myself,GLOBE)
@@ -1492,7 +1440,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(BERSERKER_RAGE)  // SPCL321.SPL (Enrage)
 	!CheckSpellState(Myself,BERSERKER_RAGE_FATIGUE)
 	!CheckSpellState(Myself,BERSERKER_RAGE)
@@ -1503,7 +1450,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(WIZARD_PROTECTION_FROM_ENERGY)  // SPWI803.SPL (Protection from Energy)
 	!CheckStatGT(Myself,0,WIZARD_PROTECTION_FROM_ENERGY)
 	!CheckStatGT(Myself,0,WIZARD_PROTECTION_FROM_THE_ELEMENTS)
@@ -1536,7 +1482,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(WIZARD_MESTILS_ACID_SHEATH)  // SPWI524.spl (Mestil's Acid Sheath)
 	!CheckSpellState(Myself,RED_FIRESHIELD)
 	!CheckSpellState(Myself,ACID_SHEATH)
@@ -1554,7 +1499,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(WIZARD_FIRE_SHIELD_RED)  // SPWI418.SPL (Fire Shield)
 	!CheckSpellState(Myself,RED_FIRESHIELD)
 	!CheckSpellState(Myself,ACID_SHEATH)
@@ -1573,7 +1517,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(WIZARD_HASTE)  // SPWI305.SPL (Haste)
 	!StateCheck(Myself,STATE_HASTED)
 	CheckStat(Myself,0,IMPROVEDHASTE)
@@ -1594,7 +1537,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
 	!CheckStatGT(Myself,0,IMPROVEDHASTE)
 	OR(3)
@@ -1630,7 +1572,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(WIZARD_SPELL_TRAP)  // SPWI902.SPL (Spell Trap)
 	CheckStatLT(Myself,1,WIZARD_SPELL_TRAP)
 	CheckStatLT(Myself,20,SPELLFAILUREMAGE)
@@ -1647,7 +1588,6 @@ END
 
 IF
 	Global("MO_BUFF","LOCALS",1)
-	IfValidForPartyDialog(Myself)
 	HaveSpell(WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
 	!CheckSpellState(Myself,HARDINESS)
 	CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
