@@ -44,13 +44,21 @@ These scripts are focused on heavy physical damage parties in both melee and ran
 
 ## Compatibility
 
+### Baldur's Gate: Enhanced Edition
+The mod has support for IWD spells (from either Sword Coast Stratagems or IWDification) and Sword Coast Stratagems.
+
+Before modding SoD games, it requires use of either DLCMerger or ModMerge (DLCMerger Preferred).
+
+If you are installing any of the above listed mods, they should be installed before this mod.
+
+### Baldur's Gate II: Enhanced Edition and Enhanced Edition Trilogy
 The mod has support for IWD spells (from either Sword Coast Stratagems or IWDification), Sword Coast Stratagems, Dark Side of the Sword Coast, Song & Silence, Tome & Blood, Faith & Powers, and for changes from Spell Revisions (Revised) and Item Revisions (Revised).
 
 If you are installing any of the above listed mods, they should be installed before this mod.
 
 PLEASE NOTE: Sword Coast Stratagems is no longer required to use these scripts.
 
-If you are upgrading from a version of this mod prior to v3.0, I recommend uninstalling all mod components and replacing all files with the new ones before doing a fresh install.
+If you are upgrading from an earlier version of this mod, I recommend uninstalling all mod components and replacing all files with the new ones before doing a fresh install.
 
 ## Components
 
@@ -74,7 +82,7 @@ If an enemy has PfMW, Mantle, Improved Mantle, Absolute Immunity, or Shield of L
 #### Intelligent Detection of Invisible Enemies
 These are the most advanced scripts at detecting and countering invisible enemies. As soon as an enemy is detected that is invisible or stealthed, nomatter the means, characters will get to work using the appropriate spell to detect them. Many times, your characters will cast the appropriate detection spell before you even realize an invisible enemy is present. These are that advanced.
 
-#### Item Usage
+#### Item Usage (BGII: EE and EET Required)
 These scripts will utilize items such as Amulet of the Cheetah, Ilbratha+1, Ring of Duplication, Gargoyle Boots, Headband of the Devout, Girdle of Fortitude, Ring of Spell Turning, Cloak of the Stars, Cowl of the Stars, and the Belt of Minor Invulnerability. Additionally, these scripts will also assist in automatically swapping items in order to cast an items effect and then swapping back to the original item. This will be done seamlessly. For example, if you have either Gargoyle Boots or Boots of Speed equipped with the other item in your inventory, then the script will automatically swap items to equip the Gargoyle Boots, cast Stoneskin (if there is a charge), then swap back to the Boots of Speed. The player will not notice any item swapping from the game screen, but they will have a seamless casting of Stoneskin. This saves a lot of micromanagement to swap boots and cast Stoneskin. Additionally, the MO-MONK will do a similar swap with Ilbratha+1 and the Scarlet Ninja-To in order to cast Mirror Images.
 
 #### The Scripts
@@ -104,23 +112,27 @@ This is a script specifically designed for the Ranger class. This script will ca
 
 This is a script specifically designed for the Skald Kit. This script will cast pre-buff spells when the "D" key is pressed. In addition to pre-buffing, the script will intelligently use abilities both in and out of combat. When not casting spells, the Skald will constantly be singing the Skald song. Additionally, between casting spells, the Skald will start singing again to attempt to keep the Skald song up constantly in combat. This script is written to use up to Level 9 Spells.
 
-### Enhanced Scripts for Summoned Celestials
+### Enhanced Scripts for Summoned Celestials (BGII: EE and EET Required)
 
-This provides enhanced ai scripts for summoned celestials such as Planetar, Fallen Planetar, Deva, and Fallen Deva. Overall, the scripts allows the player to be more hands off with summoned celestials, and they will act intelligently in targeting enemy players. Hostile summoned celestials will also act more intelligently when attacking your party if you find yourselves facing off in battle. Like the other scripts listed above, this script will cast pre-buff spells when the "D" key is pressed. Spell Revisions also rewrote their spellbooks, and the scripts will accomodate these changes.
+This provides enhanced ai scripts for simulacrums. Overall, the scripts allows the player to be more hands off with summoned celestials, and they will act intelligently in targeting enemy players. Hostile summoned celestials will also act more intelligently when attacking your party if you find yourselves facing off in battle. Like the other scripts listed above, this script will cast pre-buff spells when the "D" key is pressed. Spell Revisions also rewrote their spellbooks, and the scripts will accomodate these changes.
 
-### Restore Vanilla Belm and Kundane
+### Enhanced Scripts for Simulacrums (BGII: EE and EET Required)
+
+This provides enhanced ai scripts for summoned Simulacrums. Upon creation, the Simulacrum will choose one of the enhanced ai scripts above based upon their class. This allows the player to be more hands off while the Simulacrums will act intelligently in targeting enemy players, casting protection spells, detecting invisible/hidden enemies, debuffing enemy protections, and capable of pre-buffing! This script will have the Simulacrum Turn Undead when the "V" key is pressed and will cast pre-buff spells when the "D" key is pressed. 
+
+### Restore Vanilla Belm and Kundane (Item Revisions Required)
 
 Requires Item Revisions - Offers the vanilla, non-IR(R) versions of Belm and Kundane which include the full 1 APR increase for both items.
 
-### Restore Vanilla Gargoyle Boots
+### Restore Vanilla Gargoyle Boots (Item Revisions Required)
 
 Requires Item Revisions - Offers the vanilla, non-IR(R) version of Gargoyle Boots which includes Stoneskin for 8 hours (per SR(R)'s updated Stoneskin spell).
 
-### Restore Vanilla Amulet of the Cheetah
+### Restore Vanilla Amulet of the Cheetah (Item Revisions Required)
 
 Requires Item Revisions - Offers the vanilla, non-IR(R) version of Amulet of the Cheetah.
 
-### Restore Vanilla Haste and Improved Haste
+### Restore Vanilla Haste and Improved Haste (Spell Revisions Required)
 
 Requires Spell Revisions - Offers the vanilla, non-SR(R) versions of Haste and Improved Haste.
 
