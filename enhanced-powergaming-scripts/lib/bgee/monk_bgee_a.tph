@@ -615,7 +615,6 @@ IF~~~~~
   CheckStatLT(Myself,1,STONESKINS)
   GlobalLT("MO_UsedGargoyle","GLOBAL",2)
   HasItemEquiped("Boot12",Myself)  // Gargoyle Boots
-  !CheckSpellState(Myself,GLOBE)
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
