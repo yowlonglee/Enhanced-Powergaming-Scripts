@@ -329,30 +329,6 @@ IF
     See([PC.0.0.DRUID_ALL])
     See([PC.0.0.SORCERER])
     See([PC.0.0.CLERIC_MAGE])
-  HaveSpell(WIZARD_SPELL_TURNING)  // SPWI701.SPL (Spell Turning)
-  !CheckSpellState(Myself,SPELL_TURNING)
-  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_SILENCED)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
-    SetInterrupt(FALSE)
-    Spell(Myself,WIZARD_SPELL_TURNING)  // SPWI701.SPL (Spell Turning)
-    SetInterrupt(TRUE)
-END
-
-IF
-  ActionListEmpty()
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  RandomNum(5,1)
-  OR(6)
-    See([PC.0.0.MAGE_ALL])
-    See([PC.0.0.BARD_ALL])
-    See([PC.0.0.CLERIC_ALL])
-    See([PC.0.0.DRUID_ALL])
-    See([PC.0.0.SORCERER])
-    See([PC.0.0.CLERIC_MAGE])
   HaveSpell(WIZARD_GLOBE_OF_INVULNERABILITY)  // SPWI602.SPL (Globe of Invulnerability)
   !CheckSpellState(Myself,MINOR_GLOBE)
   !CheckSpellState(Myself,GLOBE)
@@ -364,31 +340,6 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_GLOBE_OF_INVULNERABILITY)  // SPWI602.SPL (Globe of Invulnerability)
-    SetInterrupt(TRUE)
-END
-
-IF
-  ActionListEmpty()
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  RandomNum(5,1)
-  OR(6)
-    See([PC.0.0.MAGE_ALL])
-    See([PC.0.0.BARD_ALL])
-    See([PC.0.0.CLERIC_ALL])
-    See([PC.0.0.DRUID_ALL])
-    See([PC.0.0.SORCERER])
-    See([PC.0.0.CLERIC_MAGE])
-  HaveSpell(WIZARD_MINOR_SPELL_TURNING)  // SPWI522.SPL (Minor Spell Turning)
-  !CheckSpellState(Myself,MINOR_SPELL_TURNING)
-  !CheckSpellState(Myself,SPELL_TURNING)
-  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_SILENCED)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
-    SetInterrupt(FALSE)
-    Spell(Myself,WIZARD_MINOR_SPELL_TURNING)  // SPWI522.SPL (Minor Spell Turning)
     SetInterrupt(TRUE)
 END
 
