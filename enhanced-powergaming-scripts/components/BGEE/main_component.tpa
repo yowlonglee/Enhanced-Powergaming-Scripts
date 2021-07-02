@@ -26,17 +26,6 @@ INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/monk_bgee.tph~
 INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/paladin_bgee.tph~
 
 ///////////////////////////////////////////////////////////////////////////
-// DSotSC                                                                //
-///////////////////////////////////////////////////////////////////////////
-ACTION_IF FILE_EXISTS_IN_GAME ~WIZARD_ARMY_OF_ONE~ BEGIN
-	INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/core_dsotsc_w_a.tph~
-END 
-		
-ACTION_IF FILE_EXISTS_IN_GAME ~sppr519.spl~ && FILE_EXISTS_IN_GAME ~sppr716.spl~ BEGIN
-	INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/core_dsotsc_d_a.tph~
-END
-
-///////////////////////////////////////////////////////////////////////////
 // IWD Spells                                                            //
 ///////////////////////////////////////////////////////////////////////////
 ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1500~ && MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1510~) || (MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 30 && MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 40) BEGIN
