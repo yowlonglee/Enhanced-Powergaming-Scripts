@@ -60,8 +60,14 @@ END
 BEGIN @8 DESIGNATED 15 SUBCOMPONENT @2 LABEL EnhancedPowergamingScripts-MainAccelerated
 
 ACTION_IF (GAME_IS ~bg2ee eet~) BEGIN
-	INCLUDE ~enhanced-powergaming-scripts/components/initialize.tpa~
-	INCLUDE ~enhanced-powergaming-scripts/components/main_component_a.tpa~
+	INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/initialize.tpa~
+	INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/main_component_a.tpa~
+END ELSE ACTION_IF (GAME_IS ~bgee~) BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/components/BGEE/initialize.tpa~
+	INCLUDE ~enhanced-powergaming-scripts/components/BGEE/main_component_a.tpa~
+END ELSE ACTION_IF (GAME_IS ~iwdee~) BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/components/IWDEE/initialize.tpa~
+	INCLUDE ~enhanced-powergaming-scripts/components/IWDEE/main_component_a.tpa~
 END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -72,7 +78,7 @@ BEGIN @9 DESIGNATED 9 LABEL EnhancedPowergamingScripts-Celestials
 
 REQUIRE_PREDICATE (GAME_IS ~bg2ee eet~) @3000
 
-INCLUDE ~enhanced-powergaming-scripts/components/celestials.tpa~
+INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/celestials.tpa~
 
 ///////////////////////////////////////////////////////////////////////////
 // Enhanced Scripts for Simulacrum - BGII: EE and EET           //
@@ -82,7 +88,7 @@ BEGIN @10 DESIGNATED 10 LABEL EnhancedPowergamingScripts-Simulacrum
 
 REQUIRE_PREDICATE (GAME_IS ~bg2ee eet~) @3000
 
-INCLUDE ~enhanced-powergaming-scripts/components/simulacrum.tpa~
+INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/simulacrum.tpa~
 
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
