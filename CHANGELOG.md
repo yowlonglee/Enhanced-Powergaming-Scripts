@@ -1,18 +1,22 @@
 # Changelog
 
-## Version 3.2 UNRELEASED
+## Version 4.0 UNRELEASED
 
 July XX, 2021
 
 ### Changed 
 
-- Added Detect Illusions.
-- Added Hardiness to combat castings.
-- Add AI Script Component for Simulacrum.
-- Improved Haste will only be cast if the character has fighter, thief, or bard levels. This prevents a pure class mage casting IH on themselves since there is little benefit.
-- Updated file structure to support adding BGEE, IWDEE, BG1, BG2, and BGT in future updates.
-- Resolved a bug that could cause an issue when restoring original items/spells from SR and IR.
-- Resolved a bug with Khelben's Warding Whip spell tracking.
+- All Games
+  - Added Detect Illusions.
+  - Improved Haste will only be cast if the character has fighter, thief, or bard levels. This prevents a pure class mage casting IH on themselves since there is little benefit.
+- BG: EE
+  - Added Enhanced AI Scripts for BG: EE
+  - Supports IWD Spells (IWDIfication or SCS version) and SCS mods
+- BGII: EE and EET
+  - Added Hardiness to combat castings.
+  - Add AI Script Component for Simulacrum.
+  - Resolved a bug that could cause an issue when restoring original items/spells from SR and IR.
+  - Resolved a bug with Khelben's Warding Whip spell tracking.
 
 ## Version 3.1
 
