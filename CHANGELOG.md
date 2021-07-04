@@ -1,5 +1,14 @@
 # Changelog
 
+## Version 4.2
+
+July X, 2021
+
+### Changed 
+
+- All Games
+  - Updated Improved Haste to also cast for Clerics and Druids
+
 ## Version 4.1
 
 July 2, 2021
