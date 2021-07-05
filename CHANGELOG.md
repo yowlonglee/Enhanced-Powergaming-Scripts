@@ -8,6 +8,7 @@ July X, 2021
 
 - All Games
   - Updated Improved Haste to also cast for Clerics and Druids
+  - Updated Protection from Magic Energy to be cast on all party members
 
 ## Version 4.1
 
