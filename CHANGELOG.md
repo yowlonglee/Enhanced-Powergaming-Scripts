@@ -10,6 +10,7 @@ July X, 2021
   - Updated Improved Haste to also cast for Clerics and Druids
   - Updated Protection from Magic Energy to be cast on all party members
   - Added Healing Touch into Spell Revisions scripts
+  - Girdle of Fortitude will now correctly cast when in the inventory of the player
 
 ## Version 4.1
 

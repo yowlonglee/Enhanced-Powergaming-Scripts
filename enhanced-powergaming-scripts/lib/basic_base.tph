@@ -95,7 +95,7 @@ IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_UsedFortitude","GLOBAL",1)
-  HasItemEquiped("BELT09",Myself)  // Girdle of Fortitude
+  HasItem("BELT09",Myself)  // Girdle of Fortitude
   CheckStatLT(Myself,18,CON)
 THEN
   RESPONSE #100
