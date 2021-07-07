@@ -2,7 +2,7 @@
 
 ## Version 4.2
 
-July X, 2021
+July 7, 2021
 
 ### Changed 
 
