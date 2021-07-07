@@ -9,7 +9,7 @@ July X, 2021
 - All Games
   - Updated Improved Haste to also cast for Clerics and Druids
   - Updated Protection from Magic Energy to be cast on all party members
-  - Added Wizard Protection from Fire, Cold, and Acid to non-Spell Revisions scripts
+  - Added Spirit Armor, Cleric Protection from Fire, and Wizard Protection from Fire, Cold, and Acid to non-Spell Revisions scripts
   - Added Healing Touch into Spell Revisions scripts
   - Girdle of Fortitude will now cast when in the inventory of the player instead of requiring to be equipped
 

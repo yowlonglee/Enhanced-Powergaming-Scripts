@@ -259,6 +259,22 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  HaveSpell(WIZARD_SPIRIT_ARMOR)  // SPWI414.SPL (Spirit Armor)
+  CheckStatGT(Myself,1,ARMORCLASS)
+  !CheckSpellState(Myself,GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_SPIRIT_ARMOR)  // SPWI414.SPL (Spirit Armor)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
   HaveSpell(WIZARD_GHOST_ARMOR)  // SPWI317.SPL (Ghost Armor)
   CheckStatGT(Myself,2,ARMORCLASS)
   !CheckSpellState(Myself,MINOR_GLOBE)
