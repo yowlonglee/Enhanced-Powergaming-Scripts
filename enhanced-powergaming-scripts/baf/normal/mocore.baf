@@ -785,6 +785,474 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  See(Myself)
+  HaveSpell(WIZARD_PROTECTION_FROM_FIRE)  // SPWI319.SPL (Protection From Fire)
+  CheckStatLT(LastSeenBy(Myself),100,RESISTFIRE)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_PROTECTION_FROM_FIRE)  // SPWI319.SPL (Protection From Fire)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See([PC])
+  HaveSpell(WIZARD_PROTECTION_FROM_FIRE)  // SPWI319.SPL (Protection From Fire)
+  CheckStatLT(LastSeenBy(Myself),100,RESISTFIRE)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_PROTECTION_FROM_FIRE)  // SPWI319.SPL (Protection From Fire)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(SecondNearest([PC]))
+  HaveSpell(WIZARD_PROTECTION_FROM_FIRE)  // SPWI319.SPL (Protection From Fire)
+  CheckStatLT(LastSeenBy(Myself),100,RESISTFIRE)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_PROTECTION_FROM_FIRE)  // SPWI319.SPL (Protection From Fire)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(ThirdNearest([PC]))
+  HaveSpell(WIZARD_PROTECTION_FROM_FIRE)  // SPWI319.SPL (Protection From Fire)
+  CheckStatLT(LastSeenBy(Myself),100,RESISTFIRE)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_PROTECTION_FROM_FIRE)  // SPWI319.SPL (Protection From Fire)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(FourthNearest([PC]))
+  HaveSpell(WIZARD_PROTECTION_FROM_FIRE)  // SPWI319.SPL (Protection From Fire)
+  CheckStatLT(LastSeenBy(Myself),100,RESISTFIRE)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_PROTECTION_FROM_FIRE)  // SPWI319.SPL (Protection From Fire)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(FifthNearest([PC]))
+  HaveSpell(WIZARD_PROTECTION_FROM_FIRE)  // SPWI319.SPL (Protection From Fire)
+  CheckStatLT(LastSeenBy(Myself),100,RESISTFIRE)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_PROTECTION_FROM_FIRE)  // SPWI319.SPL (Protection From Fire)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(SixthNearest([PC]))
+  HaveSpell(WIZARD_PROTECTION_FROM_FIRE)  // SPWI319.SPL (Protection From Fire)
+  CheckStatLT(LastSeenBy(Myself),100,RESISTFIRE)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_PROTECTION_FROM_FIRE)  // SPWI319.SPL (Protection From Fire)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(Myself)
+  HaveSpell(WIZARD_PROTECTION_FROM_COLD)  // SPWI320.SPL (Protection From Cold)
+  CheckStatLT(LastSeenBy(Myself),100,RESISTCOLD)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_PROTECTION_FROM_COLD)  // SPWI320.SPL (Protection From Cold)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See([PC])
+  HaveSpell(WIZARD_PROTECTION_FROM_COLD)  // SPWI320.SPL (Protection From Cold)
+  CheckStatLT(LastSeenBy(Myself),100,RESISTCOLD)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_PROTECTION_FROM_COLD)  // SPWI320.SPL (Protection From Cold)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(SecondNearest([PC]))
+  HaveSpell(WIZARD_PROTECTION_FROM_COLD)  // SPWI320.SPL (Protection From Cold)
+  CheckStatLT(LastSeenBy(Myself),100,RESISTCOLD)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_PROTECTION_FROM_COLD)  // SPWI320.SPL (Protection From Cold)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(ThirdNearest([PC]))
+  HaveSpell(WIZARD_PROTECTION_FROM_COLD)  // SPWI320.SPL (Protection From Cold)
+  CheckStatLT(LastSeenBy(Myself),100,RESISTCOLD)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_PROTECTION_FROM_COLD)  // SPWI320.SPL (Protection From Cold)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(FourthNearest([PC]))
+  HaveSpell(WIZARD_PROTECTION_FROM_COLD)  // SPWI320.SPL (Protection From Cold)
+  CheckStatLT(LastSeenBy(Myself),100,RESISTCOLD)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_PROTECTION_FROM_COLD)  // SPWI320.SPL (Protection From Cold)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(FifthNearest([PC]))
+  HaveSpell(WIZARD_PROTECTION_FROM_COLD)  // SPWI320.SPL (Protection From Cold)
+  CheckStatLT(LastSeenBy(Myself),100,RESISTCOLD)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_PROTECTION_FROM_COLD)  // SPWI320.SPL (Protection From Cold)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(SixthNearest([PC]))
+  HaveSpell(WIZARD_PROTECTION_FROM_COLD)  // SPWI320.SPL (Protection From Cold)
+  CheckStatLT(LastSeenBy(Myself),100,RESISTCOLD)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_PROTECTION_FROM_COLD)  // SPWI320.SPL (Protection From Cold)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(Myself)
+  HaveSpell(WIZARD_PROTECTION_FROM_ACID)  // SPWI517.SPL (Protection From Acid)
+  CheckStatLT(LastSeenBy(Myself),100,RESISTACID)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_PROTECTION_FROM_ACID)  // SPWI517.SPL (Protection From Acid)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See([PC])
+  HaveSpell(WIZARD_PROTECTION_FROM_ACID)  // SPWI517.SPL (Protection From Acid)
+  CheckStatLT(LastSeenBy(Myself),100,RESISTACID)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_PROTECTION_FROM_ACID)  // SPWI517.SPL (Protection From Acid)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(SecondNearest([PC]))
+  HaveSpell(WIZARD_PROTECTION_FROM_ACID)  // SPWI517.SPL (Protection From Acid)
+  CheckStatLT(LastSeenBy(Myself),100,RESISTACID)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_PROTECTION_FROM_ACID)  // SPWI517.SPL (Protection From Acid)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(ThirdNearest([PC]))
+  HaveSpell(WIZARD_PROTECTION_FROM_ACID)  // SPWI517.SPL (Protection From Acid)
+  CheckStatLT(LastSeenBy(Myself),100,RESISTACID)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_PROTECTION_FROM_ACID)  // SPWI517.SPL (Protection From Acid)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(FourthNearest([PC]))
+  HaveSpell(WIZARD_PROTECTION_FROM_ACID)  // SPWI517.SPL (Protection From Acid)
+  CheckStatLT(LastSeenBy(Myself),100,RESISTACID)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_PROTECTION_FROM_ACID)  // SPWI517.SPL (Protection From Acid)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(FifthNearest([PC]))
+  HaveSpell(WIZARD_PROTECTION_FROM_ACID)  // SPWI517.SPL (Protection From Acid)
+  CheckStatLT(LastSeenBy(Myself),100,RESISTACID)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_PROTECTION_FROM_ACID)  // SPWI517.SPL (Protection From Acid)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(SixthNearest([PC]))
+  HaveSpell(WIZARD_PROTECTION_FROM_ACID)  // SPWI517.SPL (Protection From Acid)
+  CheckStatLT(LastSeenBy(Myself),100,RESISTACID)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_PROTECTION_FROM_ACID)  // SPWI517.SPL (Protection From Acid)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
   HaveSpell(CLERIC_SHIELD_OF_THE_ARCHONS)  // SPPR701.SPL (Shield of the Archons)
   CheckStatLT(Myself,1,CLERIC_SHIELD_OF_THE_ARCHONS)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
