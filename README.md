@@ -45,7 +45,7 @@ These scripts are focused on heavy physical damage parties in both melee and ran
 ## Compatibility
 If you are upgrading from an earlier version of this mod, I recommend uninstalling all mod components and replacing all files with the new ones before doing a fresh install.
 
-If you are installing any of the below listed mods, they should be installed before this mod.
+If you are installing any of the below listed mods, they should be installed before this mod. Typically, I recommend to install my scripts at the very end of the mod install order.
 
 ### Baldur's Gate: Enhanced Edition
 The mod has support for IWD spells (from either Sword Coast Stratagems or IWDification) and Sword Coast Stratagems.
