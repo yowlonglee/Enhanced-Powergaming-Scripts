@@ -8,6 +8,8 @@ July 13, 2021
 
 - All Games
   - Added Shaman class support to the mo-core scripts
+- BGII: EE and EET
+  - Added use of the following items: Cloak of the Dark Moon and Shield of Fyrus Khal
 
 ## Version 4.2
 

@@ -235,6 +235,18 @@ THEN
 END
 
 IF
+  Global("MO_BUFF","LOCALS",1)
+  HasItemEquiped("OHRCLCK4",Myself)  // Cloak of the Dark Moon
+  GlobalLT("MO_UsedClkDrkMN","GLOBAL",3)
+  !CheckStatGT(Myself,0,WIZARD_PROTECTION_FROM_MAGIC_ENERGY)
+  Global("MO_CastAthkatla","LOCALS",1)
+THEN
+  RESPONSE #100
+    UseItem("OHRCLCK4",Myself)  // Cloak of the Dark Moon
+    IncrementGlobal("MO_UsedClkDrkMN","GLOBAL",1)
+END
+
+IF
 	Global("MO_BUFF","LOCALS",1)
 	!StateCheck(Myself,STATE_MIRRORIMAGE)
 	GlobalLT("MO_UsedIlbratha","GLOBAL",1)
