@@ -78,7 +78,7 @@ If an enemy has PfMW, Mantle, Improved Mantle, Absolute Immunity, or Shield of L
 These are the most advanced scripts at detecting and countering invisible enemies. As soon as an enemy is detected that is invisible or stealthed, nomatter the means, characters will get to work using the appropriate spell to detect them. Many times, your characters will cast the appropriate detection spell before you even realize an invisible enemy is present. These are that advanced.
 
 #### Item Usage (BGII: EE and EET Required)
-These scripts will utilize items such as Amulet of the Cheetah, Ilbratha+1, Ring of Duplication, Gargoyle Boots, Headband of the Devout, Girdle of Fortitude, Ring of Spell Turning, Cloak of the Stars, Cowl of the Stars, and the Belt of Minor Invulnerability. Additionally, these scripts will also assist in automatically swapping items in order to cast an items effect and then swapping back to the original item. This will be done seamlessly. For example, if you have either Gargoyle Boots or Boots of Speed equipped with the other item in your inventory, then the script will automatically swap items to equip the Gargoyle Boots, cast Stoneskin (if there is a charge), then swap back to the Boots of Speed. The player will not notice any item swapping from the game screen, but they will have a seamless casting of Stoneskin. This saves a lot of micromanagement to swap boots and cast Stoneskin. Additionally, the MO-MONK will do a similar swap with Ilbratha+1 and the Scarlet Ninja-To in order to cast Mirror Images.
+These scripts will utilize items such as Amulet of the Cheetah, Ilbratha+1, Ring of Duplication, Gargoyle Boots, Headband of the Devout, Girdle of Fortitude, Ring of Spell Turning, Cloak of the Stars, Cowl of the Stars, Belt of Minor Invulnerability, Cloak of the Dark Moon, and the Shield of Fyrus Khal. Additionally, these scripts will also assist in automatically swapping items in order to cast an items effect and then swapping back to the original item. This will be done seamlessly. For example, if you have either Gargoyle Boots or Boots of Speed equipped with the other item in your inventory, then the script will automatically swap items to equip the Gargoyle Boots, cast Stoneskin (if there is a charge), then swap back to the Boots of Speed. The player will not notice any item swapping from the game screen, but they will have a seamless casting of Stoneskin. This saves a lot of micromanagement to swap boots and cast Stoneskin. Additionally, the MO-MONK will do a similar swap with Ilbratha+1 and the Scarlet Ninja-To in order to cast Mirror Images.
 
 #### The Scripts
 Below are a listing of the different scripts included in the Main Component.
@@ -89,7 +89,7 @@ This script is designed for the minimalists who normally turn party AI off in th
 
 ##### MO-CORE
 
-This script is designed for all core classes: Fighter, Mage, Thief, Cleric, Druid, and any combination of multiclass/dualclass to include kits. This script will constantly Turn Undead when the V key is pressed and will cast pre-buffing spells when the D key is pressed. If the character is able, the script will constantly be detecting traps.
+This script is designed for all core classes: Fighter, Mage, Thief, Cleric, Druid, Shaman, and any combination of multiclass/dualclass to include kits. This script will constantly Turn Undead when the V key is pressed and will cast pre-buffing spells when the D key is pressed. If the character is able, the script will constantly be detecting traps.
 
 ##### MO-MONK
 
