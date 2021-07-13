@@ -1079,6 +1079,38 @@ IF
     See([ENEMY.0.0.SORCERER])
     See([ENEMY.0.0.CLERIC_MAGE])
     See([ENEMY.0.0.MAGE_ALL])
+  HasItemEquiped("OHNSHLD1",Myself)  // Shield of Fyrus Khal +2
+  GlobalLT("MO_UsedShldFyrus","GLOBAL",1)
+  !CheckSpellState(Myself,SPELL_TURNING)
+  Global("MO_CastAthkatla","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    UseItem("OHNSHLD1",Myself)  // Shield of Fyrus Khal +2
+    IncrementGlobal("MO_UsedShldFyrus","GLOBAL",1)
+END
+
+IF
+  ActionListEmpty()
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  OR(17)
+    Range([EVILCUTOFF.0.FAIRY],30)
+    Range([EVILCUTOFF.0.DEMONIC],30)
+    Range([EVILCUTOFF.0.RAKSHASA],30)
+    Range([EVILCUTOFF.0.DRAGON],30)
+    Range([EVILCUTOFF.0.DEMILICH],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.SOLAR],30)
+    Range([EVILCUTOFF.0.PLANATAR],30)
+    Range([EVILCUTOFF.0.ANTISOLAR],30)
+    Range([EVILCUTOFF.0.DARKPLANATAR],30)
+    See([ENEMY.0.0.MAGE_ALL])
+    See([ENEMY.0.0.BARD_ALL])
+    See([ENEMY.0.0.CLERIC_ALL])
+    See([ENEMY.0.0.DRUID_ALL])
+    See([ENEMY.0.0.SORCERER])
+    See([ENEMY.0.0.CLERIC_MAGE])
+    See([ENEMY.0.0.MAGE_ALL])
   HasItemEquiped("RING34",Myself)  // Ring of Spell Turning
   GlobalLT("MO_UsedSpellTurning","GLOBAL",1)
   !CheckSpellState(Myself,SPELL_TURNING)
