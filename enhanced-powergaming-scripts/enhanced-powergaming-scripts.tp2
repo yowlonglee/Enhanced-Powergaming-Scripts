@@ -7,7 +7,7 @@
 BACKUP ~enhanced-powergaming-scripts/backup~
 AUTHOR ~morpheus562~
 
-VERSION ~v4.1~
+VERSION ~v4.3~
 README ~enhanced-powergaming-scripts/readme.html~
 
 ASK_EVERY_COMPONENT
@@ -42,14 +42,14 @@ LANGUAGE ~American English~
 
 BEGIN @7 DESIGNATED 14 SUBCOMPONENT @2 LABEL EnhancedPowergamingScripts-MainNormal
 
-REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee eet~) @3000
+REQUIRE_PREDICATE GAME_IS ~bgee bg2ee eet~ @3000
 
 LOAD_TRA ~enhanced-powergaming-scripts/languages/%LANGUAGE%/script_descriptions.tra~
 
-ACTION_IF (GAME_IS ~bg2ee eet~) BEGIN
+ACTION_IF GAME_IS ~bg2ee eet~ BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/initialize.tpa~
 	INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/main_component.tpa~
-END ELSE ACTION_IF (GAME_IS ~bgee~) BEGIN
+END ELSE ACTION_IF GAME_IS ~bgee~ BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/components/BGEE/initialize.tpa~
 	INCLUDE ~enhanced-powergaming-scripts/components/BGEE/main_component.tpa~
 END
@@ -58,10 +58,10 @@ END
 
 BEGIN @8 DESIGNATED 15 SUBCOMPONENT @2 LABEL EnhancedPowergamingScripts-MainAccelerated
 
-ACTION_IF (GAME_IS ~bg2ee eet~) BEGIN
+ACTION_IF GAME_IS ~bg2ee eet~ BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/initialize.tpa~
 	INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/main_component_a.tpa~
-END ELSE ACTION_IF (GAME_IS ~bgee~) BEGIN
+END ELSE ACTION_IF GAME_IS ~bgee~ BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/components/BGEE/initialize.tpa~
 	INCLUDE ~enhanced-powergaming-scripts/components/BGEE/main_component_a.tpa~
 END
@@ -72,7 +72,7 @@ END
 
 BEGIN @9 DESIGNATED 9 LABEL EnhancedPowergamingScripts-Celestials
 
-REQUIRE_PREDICATE (GAME_IS ~bg2ee eet~) @3004
+REQUIRE_PREDICATE GAME_IS ~bg2ee eet~ @3004
 
 INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/celestials.tpa~
 
@@ -82,7 +82,7 @@ INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/celestials.tpa~
 
 BEGIN @10 DESIGNATED 10 LABEL EnhancedPowergamingScripts-Simulacrum
 
-REQUIRE_PREDICATE (GAME_IS ~bg2ee eet~) @3004
+REQUIRE_PREDICATE GAME_IS ~bg2ee eet~ @3004
 
 INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/simulacrum.tpa~
 
@@ -97,8 +97,8 @@ INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/simulacrum.tpa~
 ///////////////////////////////////////////////////////////////////////////
 
 BEGIN @3 DESIGNATED 20 LABEL EnhancedPowergamingScripts-RestoreVanillaAPRWeapons
-REQUIRE_PREDICATE (GAME_IS ~bg2ee eet~) @3004
-REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-item_rev.tp2~ ~0~) @3003 
+REQUIRE_PREDICATE GAME_IS ~bg2ee eet~ @3004
+REQUIRE_PREDICATE MOD_IS_INSTALLED ~setup-item_rev.tp2~ ~0~ @3003 
 
 LOAD_TRA ~enhanced-powergaming-scripts/languages/%LANGUAGE%/item_descriptions.tra~
 
@@ -109,8 +109,8 @@ INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/restore_apr_weapons.tpa~
 ///////////////////////////////////////////////////////////////////////////
 
 BEGIN @4 DESIGNATED 21 LABEL EnhancedPowergamingScripts-RestoreVanillaGargoyleBoots
-REQUIRE_PREDICATE (GAME_IS ~bg2ee eet~) @3004
-REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-item_rev.tp2~ ~0~) @3003 
+REQUIRE_PREDICATE GAME_IS ~bg2ee eet~ @3004
+REQUIRE_PREDICATE MOD_IS_INSTALLED ~setup-item_rev.tp2~ ~0~ @3003 
 
 LOAD_TRA ~enhanced-powergaming-scripts/languages/%LANGUAGE%/item_descriptions.tra~
 
@@ -121,8 +121,8 @@ INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/restore_gargoyle.tpa~
 ///////////////////////////////////////////////////////////////////////////
 
 BEGIN @5 DESIGNATED 22 LABEL EnhancedPowergamingScripts-RestoreVanillaAmuletCheetah
-REQUIRE_PREDICATE (GAME_IS ~bg2ee eet~) @3004
-REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-item_rev.tp2~ ~0~) @3003 
+REQUIRE_PREDICATE GAME_IS ~bg2ee eet~ @3004
+REQUIRE_PREDICATE MOD_IS_INSTALLED ~setup-item_rev.tp2~ ~0~ @3003 
 
 LOAD_TRA ~enhanced-powergaming-scripts/languages/%LANGUAGE%/item_descriptions.tra~
 
@@ -133,8 +133,8 @@ INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/restore_cheetah.tpa~
 ///////////////////////////////////////////////////////////////////////////
 
 BEGIN @6 DESIGNATED 23 LABEL EnhancedPowergamingScripts-RestoreVanillaHasteIH
-REQUIRE_PREDICATE (GAME_IS ~bg2ee eet~) @3004
-REQUIRE_PREDICATE (MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) @3002
+REQUIRE_PREDICATE GAME_IS ~bg2ee eet~ @3004
+REQUIRE_PREDICATE MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~ @3002
 
 LOAD_TRA ~enhanced-powergaming-scripts/languages/%LANGUAGE%/spell_descriptions.tra~
 

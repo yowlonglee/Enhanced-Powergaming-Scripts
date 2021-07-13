@@ -1,5 +1,14 @@
 # Changelog
 
+## Version 4.3
+
+July 13, 2021
+
+### Changed 
+
+- All Games
+  - Added Shaman class support to the mo-core scripts
+
 ## Version 4.2
 
 July 7, 2021

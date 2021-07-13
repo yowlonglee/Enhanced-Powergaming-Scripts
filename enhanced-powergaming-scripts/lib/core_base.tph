@@ -6356,7 +6356,20 @@ END
 
 IF
   ActionListEmpty()
+  Class(Myself,SHAMAN)
+  !ModalState(SHAMANDANCE)
+  !CheckSpellState(Myself,SHAMANIC_DANCE)
+  Range([EVILCUTOFF],30)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    BattleSong()
+END
+
+IF
+  ActionListEmpty()
   Global("MO_TURNUNDEAD","LOCALS",0)
+  !ModalState(SHAMANDANCE)
   !CheckStat(Myself,1,SANCTUARY)
   !StateCheck(Myself,STATE_INVISIBLE)
   See(NearestEnemyOf(Myself))
@@ -6370,6 +6383,7 @@ END
 IF
   ActionListEmpty()
   Global("MO_TURNUNDEAD","LOCALS",0)
+  !ModalState(SHAMANDANCE)
   !CheckStat(Myself,1,SANCTUARY)
   !StateCheck(Myself,STATE_INVISIBLE)
   See(SecondNearestEnemyOf(Myself))
@@ -6383,6 +6397,7 @@ END
 IF
   ActionListEmpty()
   Global("MO_TURNUNDEAD","LOCALS",0)
+  !ModalState(SHAMANDANCE)
   !CheckStat(Myself,1,SANCTUARY)
   !StateCheck(Myself,STATE_INVISIBLE)
   See(ThirdNearestEnemyOf(Myself))
@@ -6396,6 +6411,7 @@ END
 IF
   ActionListEmpty()
   Global("MO_TURNUNDEAD","LOCALS",0)
+  !ModalState(SHAMANDANCE)
   !CheckStat(Myself,1,SANCTUARY)
   !StateCheck(Myself,STATE_INVISIBLE)
   See(FourthNearestEnemyOf(Myself))
@@ -6409,6 +6425,7 @@ END
 IF
   ActionListEmpty()
   Global("MO_TURNUNDEAD","LOCALS",0)
+  !ModalState(SHAMANDANCE)
   !CheckStat(Myself,1,SANCTUARY)
   !StateCheck(Myself,STATE_INVISIBLE)
   See(FifthNearestEnemyOf(Myself))
@@ -6422,6 +6439,7 @@ END
 IF
   ActionListEmpty()
   Global("MO_TURNUNDEAD","LOCALS",0)
+  !ModalState(SHAMANDANCE)
   !CheckStat(Myself,1,SANCTUARY)
   !StateCheck(Myself,STATE_INVISIBLE)
   See(SixthNearestEnemyOf(Myself))
@@ -6437,6 +6455,7 @@ IF
   !See([EVILCUTOFF])
   !ModalState(DETECTTRAPS)
   !ModalState(STEALTH)
+  !ModalState(SHAMANDANCE)
   OR(3)
     Class(Myself,THIEF_ALL)
     Class(Myself,MONK)
