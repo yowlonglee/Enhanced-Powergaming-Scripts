@@ -246,6 +246,7 @@ END~~~~~ //"
   HasItemEquiped("OHRCLCK4",Myself)  // Cloak of the Dark Moon
   GlobalLT("MO_UsedClkDrkMN","GLOBAL",3)
   !CheckStatGT(Myself,0,WIZARD_PROTECTION_FROM_MAGIC_ENERGY)
+  Global("MO_CastAthkatla","LOCALS",1)
 THEN
   RESPONSE #100
     UseItem("OHRCLCK4",Myself)  // Cloak of the Dark Moon
@@ -269,6 +270,7 @@ IF~~~~~
   HasItemEquiped("OHNSHLD1",Myself)  // Shield of Fyrus Khal +2
   GlobalLT("MO_UsedShldFyrus","GLOBAL",1)
   !CheckSpellState(Myself,SPELL_TURNING)
+  Global("MO_CastAthkatla","LOCALS",1)
 THEN
   RESPONSE #100
     UseItem("OHNSHLD1",Myself)  // Shield of Fyrus Khal +2
