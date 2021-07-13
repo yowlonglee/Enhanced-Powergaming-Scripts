@@ -1904,6 +1904,18 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  HasItemEquiped("OHNSHLD1",Myself)  // Shield of Fyrus Khal +2
+  GlobalLT("MO_UsedShldFyrus","GLOBAL",1)
+  !CheckSpellState(Myself,SPELL_TURNING)
+  Global("MO_CastAthkatla","LOCALS",1)
+THEN
+  RESPONSE #100
+    UseItem("OHNSHLD1",Myself)  // Shield of Fyrus Khal +2
+    IncrementGlobal("MO_UsedShldFyrus","GLOBAL",1)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
   HasItemEquiped("RING34",Myself)  // Ring of Spell Turning
   GlobalLT("MO_UsedSpellTurning","GLOBAL",1)
   !CheckSpellState(Myself,SPELL_TURNING)
