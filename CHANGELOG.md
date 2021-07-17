@@ -1,5 +1,14 @@
 # Changelog
 
+## Version 4.4
+
+July XX, 2021
+
+### Changed 
+
+- All Games
+  - Fix Spell Revisions Cleric Break Enchantment
+
 ## Version 4.3
 
 July 13, 2021
