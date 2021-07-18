@@ -7,6 +7,8 @@ July XX, 2021
 ### Changed 
 
 - All Games
+  - Optimize Breach and combat dispelling for non-SCS games
+- BGII: EE and EET
   - Fix Spell Revisions Cleric Break Enchantment
 
 ## Version 4.3
