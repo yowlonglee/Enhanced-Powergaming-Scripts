@@ -107,12 +107,14 @@ END ELSE BEGIN
 ///////////////////////////////////////////////////////////////////////////
 // DSotSC                                                                //
 ///////////////////////////////////////////////////////////////////////////
-	ACTION_IF FILE_EXISTS_IN_GAME ~WIZARD_ARMY_OF_ONE~ BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_dsotsc_w_a.tph~
-	END 
-		
-	ACTION_IF FILE_EXISTS_IN_GAME ~sppr519.spl~ && FILE_EXISTS_IN_GAME ~sppr716.spl~ BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_dsotsc_d_a.tph~
+	ACTION_IF (MOD_IS_INSTALLED ~Setup-DSotSC.tp2~ ~0~) BEGIN
+		ACTION_IF FILE_EXISTS_IN_GAME ~WIZARD_ARMY_OF_ONE~ BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_dsotsc_w_a.tph~
+		END 
+			
+		ACTION_IF FILE_EXISTS_IN_GAME ~sppr519.spl~ && FILE_EXISTS_IN_GAME ~sppr716.spl~ BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_dsotsc_d_a.tph~
+		END
 	END
 
 ///////////////////////////////////////////////////////////////////////////
