@@ -184,8 +184,12 @@ END
 // SCS - Breach                                                          //
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~5900~) BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/core_breach.tph~
-			
+		(MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1500~ && MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1510~) || (MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 30 && MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 40) BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/core_breach_iwd.tph~
+		END ELSE BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/core_breach.tph~
+		END
+
 		ACTION_IF (MOD_IS_INSTALLED ~setup-faiths_and_powers.tp2~ ~37~) BEGIN
 			INCLUDE ~enhanced-powergaming-scripts/lib/ranger_breach.tph~
 		END

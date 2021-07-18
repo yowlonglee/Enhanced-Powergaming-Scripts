@@ -79,7 +79,9 @@ END~~~~~ //"
     strict = 1
     verbose = 0
     STR_VAR
-    pattern = ~~~~~CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+    pattern = ~~~~~OR(2)
+    CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+    CheckSpellState(LastSeenBy(Myself),ENTROPY_SHIELD)
   CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -95,11 +97,12 @@ THEN
     Spell(LastSeenBy(Myself),WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
     SetInterrupt(TRUE)
 END~~~~~
-    string = ~~~~~OR(4)    
+    string = ~~~~~OR(5)
     CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
     CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
     CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
     CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
+    CheckSpellState(LastSeenBy(Myself),ENTROPY_SHIELD)
   CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
