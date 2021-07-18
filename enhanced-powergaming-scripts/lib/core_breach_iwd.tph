@@ -38,6 +38,7 @@ END~~~~~
     string = ~~~~~CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
   !CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
   !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_DEFLECTION)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
