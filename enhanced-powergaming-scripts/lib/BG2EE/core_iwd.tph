@@ -689,13 +689,8 @@ END
     strict = 1
     verbose = 0
     STR_VAR
-    pattern = ~~~~~OR(6)
-    CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-    CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_IMMUNITY)
-    CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
-    CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
-    CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TRAP)
-    CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
+    pattern = ~~~~~CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
   CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
@@ -710,14 +705,10 @@ THEN
     Spell(LastSeenBy(Myself),WIZARD_PIERCE_SHIELD)  // SPWI805.SPL (Pierce Shield)
     SetInterrupt(TRUE)
 END~~~~~
-    string = ~~~~~OR(7)
-    CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-    CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_IMMUNITY)
-    CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+    string = ~~~~~OR(2)
     CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
-    CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TRAP)
-    CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
     CheckSpellState(LastSeenBy(Myself),ENTROPY_SHIELD)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
   CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
