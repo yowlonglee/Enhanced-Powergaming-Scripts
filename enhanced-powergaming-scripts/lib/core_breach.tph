@@ -65,12 +65,48 @@ END~~~~~ //"
     STR_VAR
     pattern = ~~~~~CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
   !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
-  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)~~~~~
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_DEFLECTION)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
+    SetInterrupt(TRUE)
+END~~~~~
     string = ~~~~~OR(2)
     CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
     CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
   !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
-  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)~~~~~ //"
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_DEFLECTION)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
+    SetInterrupt(TRUE)
+END~~~~~ //"
   END
 
 ///////////////////////////////////////////////////////////////////////////
