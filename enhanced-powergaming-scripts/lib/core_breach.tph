@@ -14,7 +14,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
   END
 
 ///////////////////////////////////////////////////////////////////////////
-// Update Breach to NOT Cast if Certain Spell Protections are Active     //
+// Update Breach for SCS Revisions                                       //
 ///////////////////////////////////////////////////////////////////////////
   LPF REPLACE_MULTILINE
     INT_VAR
@@ -53,4 +53,20 @@ THEN
     Spell(LastSeenBy(Myself),WIZARD_BREACH)  // SPWI513.SPL (Breach)
     SetInterrupt(TRUE)
 END~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Update Spell Thrust for SCS Revisions                                 //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)~~~~~
+    string = ~~~~~OR(2)
+    CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+    CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)~~~~~ //"
   END
