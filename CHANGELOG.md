@@ -8,6 +8,7 @@ July XX, 2021
 
 - All Games
   - Optimize Breach and combat dispelling for non-SCS games
+  - Updated Purge Invisibility to NOT cast if enemy has Sanctuary active
 - BGII: EE and EET
   - Fix Spell Revisions Cleric Break Enchantment
 
