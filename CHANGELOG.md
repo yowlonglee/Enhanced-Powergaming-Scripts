@@ -2,13 +2,14 @@
 
 ## Version 4.4
 
-July XX, 2021
+August XX, 2021
 
 ### Changed 
 
 - All Games
   - Optimize Breach and combat dispelling for non-SCS games
   - Updated Purge Invisibility and Detect Invisibility to NOT cast if enemy has Sanctuary active
+  - Added Cleric Chant to pre-buffing
 - BGII: EE and EET
   - Fixed issue with Spell Revisions Cleric Break Enchantment
 
