@@ -133,7 +133,7 @@ Requires Spell Revisions - Offers the vanilla, non-SR(R) versions of Haste and I
 
 ## Special Thanks
 
-- Sarevok57 whose scripts were my inspiration to write these and what mine were originally based on.ca
+- Sarevok57 whose scripts were my inspiration to write these and what mine were originally based on.
 - FixTesteR for encouraging compatability with Spell Revisions and bug testing.
 - Mike1072 for feedback and assisting in getting these published on Gibberlings3.
 - subtledoctor for troubleshooting AI script issues with Spell Revisions and using sections of his coding to create and assign new spell states for SR.
