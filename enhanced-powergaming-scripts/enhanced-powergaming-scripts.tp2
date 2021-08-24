@@ -7,7 +7,7 @@
 BACKUP ~enhanced-powergaming-scripts/backup~
 AUTHOR ~morpheus562~
 
-VERSION ~v4.4~
+VERSION ~v5.0~
 README ~enhanced-powergaming-scripts/readme.html~
 
 ASK_EVERY_COMPONENT
@@ -52,6 +52,9 @@ ACTION_IF GAME_IS ~bg2ee eet~ BEGIN
 END ELSE ACTION_IF GAME_IS ~bgee~ BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/components/BGEE/initialize.tpa~
 	INCLUDE ~enhanced-powergaming-scripts/components/BGEE/main_component.tpa~
+END ELSE ACTION_IF GAME_IS ~iwdee~ BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/components/IWDEE/initialize.tpa~
+	INCLUDE ~enhanced-powergaming-scripts/components/IWDEE/main_component.tpa~
 END
 
 ////////////////////////////////////////////////////
@@ -64,6 +67,9 @@ ACTION_IF GAME_IS ~bg2ee eet~ BEGIN
 END ELSE ACTION_IF GAME_IS ~bgee~ BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/components/BGEE/initialize.tpa~
 	INCLUDE ~enhanced-powergaming-scripts/components/BGEE/main_component_a.tpa~
+END ELSE ACTION_IF GAME_IS ~iwdee~ BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/components/IWDEE/initialize.tpa~
+	INCLUDE ~enhanced-powergaming-scripts/components/IWDEE/main_component_a.tpa~
 END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -77,7 +83,7 @@ REQUIRE_PREDICATE GAME_IS ~bg2ee eet~ @3004
 INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/celestials.tpa~
 
 ///////////////////////////////////////////////////////////////////////////
-// Enhanced Scripts for Simulacrum - BGII: EE and EET           //
+// Enhanced Scripts for Simulacrum - BGII: EE and EET                    //
 ///////////////////////////////////////////////////////////////////////////
 
 BEGIN @10 DESIGNATED 10 LABEL EnhancedPowergamingScripts-Simulacrum
