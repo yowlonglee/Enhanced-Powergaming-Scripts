@@ -1,0 +1,51 @@
+COPY ~enhanced-powergaming-scripts/baf/simulacrum/mosim07.baf~ ~enhanced-powergaming-scripts/baf/simulacrum/mosim07.baf~
+
+///////////////////////////////////////////////////////////////////////////
+// Remove Remove Magic                                                   //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~IF
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !StateCheck(LastSeenBy(Myself),STATE_SILENCED)
+  !StateCheck(LastSeenBy(Myself),STATE_STUNNED)
+  !StateCheck(LastSeenBy(Myself),STATE_SLEEPING)
+  OR(9)
+    StateCheck(LastSeenBy(Myself),STATE_HASTED)
+    StateCheck(LastSeenBy(Myself),STATE_BLESS)
+    StateCheck(LastSeenBy(Myself),STATE_DRAWUPONHOLYMIGHT)
+    CheckStatGT(LastSeenBy(Myself),0,IMPROVEDHASTE)
+    CheckStatGT(LastSeenBy(Myself),0,STONESKINS)
+    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
+    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
+    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
+    CheckSpellState(LastSeenBy(Myself),MANTLE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetInterrupt(FALSE)
+    ForceSpell(LastSeenBy(Myself),WIZARD_REMOVE_MAGIC)  // SPWI302.SPL (Dispel Magic)
+    SetInterrupt(TRUE)
+END
+
+IF~~~~~
+    string = ~~~~~IF~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Update Local Timers                                                   //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~ONE_ROUND~~~~~
+    string = ~~~~~6~~~~~ //"
+  END
