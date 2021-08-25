@@ -31,7 +31,7 @@ IF~~~~~
   END
 
 ///////////////////////////////////////////////////////////////////////////
-// Replace Modal Dialogue (Pre-Buffing/Turn Undead) NEED TO UPDATE FOR IWDEE                     //
+// Replace Modal Dialogue (Pre-Buffing/Turn Undead)                      //
 ///////////////////////////////////////////////////////////////////////////
   LPF REPLACE_MULTILINE
     INT_VAR
@@ -896,4 +896,16 @@ THEN
     Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)  // sppr215.SPL (Cure Moderate Wounds)
 END
 ~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Update Armor of Faith                                                 //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~!CheckSpellState(Myself,ARMOR_OF_FAITH)~~~~~
+    string = ~~~~~!CheckStatGT(Myself,0,CLERIC_ARMOR_OF_FAITH)~~~~~ //"
   END

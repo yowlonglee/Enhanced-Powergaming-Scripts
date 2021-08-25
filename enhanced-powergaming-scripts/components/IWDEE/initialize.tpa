@@ -196,9 +196,6 @@ APPEND ~stats.ids~ ~182 WIZARD_TENSERS_TRANSFORMATION~          UNLESS ~182 WIZA
 		LAF ds_sort_ids STR_VAR ids=splstate END
 		LAF d5_resolve_state STR_VAR new_state_id = ~EMOTION_COURAGE~ RET new_state_ind END
 		OUTER_SET emt_crg = %new_state_ind%
-
-		COPY_EXISTING ~SPWI427.SPL~ ~override~ 
-	  		LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %emt_crg% timing = 0 duration = 300 END
 	END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -223,9 +220,6 @@ APPEND ~stats.ids~ ~182 WIZARD_TENSERS_TRANSFORMATION~          UNLESS ~182 WIZA
 		LAF ds_sort_ids STR_VAR ids=splstate END
 		LAF d5_resolve_state STR_VAR new_state_id = ~EMOTION_HOPE~ RET new_state_ind END
 		OUTER_SET emt_hpe = %new_state_ind%
-
-		COPY_EXISTING ~SPWI428.SPL~ ~override~ 
-	  		LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %emt_hpe% timing = 0 duration = 300 END
 	END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -327,5 +321,19 @@ APPEND ~stats.ids~ ~182 WIZARD_TENSERS_TRANSFORMATION~          UNLESS ~182 WIZA
 
 	COPY_EXISTING ~SPPR520.SPL~ ~override~ 
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %shld_lath% timing = 0 duration = 12 END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Spell State to Emotion, Courage                                   //
+///////////////////////////////////////////////////////////////////////////
+
+	COPY_EXISTING ~SPWI427.SPL~ ~override~ 
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %emt_crg% timing = 0 duration = 300 END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Spell State to Emotion, Hope                                      //
+///////////////////////////////////////////////////////////////////////////
+
+	COPY_EXISTING ~SPWI429.SPL~ ~override~ 
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %emt_hpe% timing = 0 duration = 300 END
 
 CLEAR_IDS_MAP
