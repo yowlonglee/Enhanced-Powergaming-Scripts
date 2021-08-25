@@ -733,7 +733,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_MIND_BLANK)  // spwi806.SPL (Mind Blank)
     SetInterrupt(TRUE)
@@ -750,7 +750,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     Spell(Myself,CLERIC_IMPERVIOUS_SANCTITY_OF_MIND)  // sppr735.SPL (Impervious Sanctity of Mind)
 END
 ~~~~~ //"
