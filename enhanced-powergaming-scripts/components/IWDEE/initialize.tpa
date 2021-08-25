@@ -290,22 +290,12 @@ APPEND ~stats.ids~ ~182 WIZARD_TENSERS_TRANSFORMATION~          UNLESS ~182 WIZA
 	COPY_EXISTING ~SPWI406.SPL~ ~override~ 
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %mnr_glb% timing = 0 duration = 72 END
 
-	ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~5900~) BEGIN
-		COPY_EXISTING ~DWSW406.SPL~ ~override~ 
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %mnr_glb% timing = 0 duration = 72 END
-	END
-
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Globe of Invulnerability                           //
 ///////////////////////////////////////////////////////////////////////////
 
 	COPY_EXISTING ~SPWI602.SPL~ ~override~ 
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %glb% timing = 0 duration = 102 END
-
-	ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~5900~) BEGIN
-		COPY_EXISTING ~DWSW602.SPL~ ~override~ 
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %glb% timing = 0 duration = 102 END
-	END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Minor Spell Turning                                //
@@ -314,11 +304,6 @@ APPEND ~stats.ids~ ~182 WIZARD_TENSERS_TRANSFORMATION~          UNLESS ~182 WIZA
 	COPY_EXISTING ~SPWI522.SPL~ ~override~ 
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %mnr_spl_trn% timing = 0 duration = 90 END
 
-	ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~5900~) BEGIN
-		COPY_EXISTING ~DWSW522.SPL~ ~override~ 
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %mnr_spl_trn% timing = 0 duration = 90 END
-	END
-
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Spell Turning                                      //
 ///////////////////////////////////////////////////////////////////////////
@@ -326,23 +311,18 @@ APPEND ~stats.ids~ ~182 WIZARD_TENSERS_TRANSFORMATION~          UNLESS ~182 WIZA
 	COPY_EXISTING ~SPWI701.SPL~ ~override~ 
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %spl_trn% timing = 0 duration = 324 END
 
-	ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~5900~) BEGIN
-		COPY_EXISTING ~DWSW701.SPL~ ~override~ 
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %spl_trn% timing = 0 duration = 324 END
-	END
-
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Mind Blank                                         //
 ///////////////////////////////////////////////////////////////////////////
 
-	COPY_EXISTING ~SPWI819.SPL~ ~override~ 
+	COPY_EXISTING ~SPWI802.SPL~ ~override~ 
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %mnd_blnk% timing = 0 duration = 7200 END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Shield of Lathander                                //
 ///////////////////////////////////////////////////////////////////////////
 
-	COPY_EXISTING ~SPPR737.SPL~ ~override~ 
+	COPY_EXISTING ~SPPR735.SPL~ ~override~ 
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %shld_lath% timing = 0 duration = 18 END
 
 	COPY_EXISTING ~SPPR520.SPL~ ~override~ 
