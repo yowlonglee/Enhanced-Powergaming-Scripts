@@ -857,3 +857,16 @@ IF~~~~~
     See([ENEMY.0.0.SORCERER])
     See([ENEMY.0.0.CLERIC_MAGE])~~~~~ //"
   END
+
+///////////////////////////////////////////////////////////////////////////
+// Update Stunning Blow                                                  //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~!General(LastSeenBy(Myself),UNDEAD)
+  !General(LastSeenBy(Myself),PLANT)~~~~~
+    string = ~~~~~!General(LastSeenBy(Myself),UNDEAD)~~~~~ //"
+  END
