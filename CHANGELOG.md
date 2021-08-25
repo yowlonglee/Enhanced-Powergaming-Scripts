@@ -10,6 +10,7 @@ September XX, 2021
   - Optimize Breach and combat dispelling for non-SCS games
   - Updated Purge Invisibility and Detect Invisibility to NOT cast if enemy has Sanctuary active
   - Added Cleric Chant to pre-buffing
+  - Added Wizard Protection from Electricity
 - BGII: EE and EET
   - Fixed issue with Spell Revisions Cleric Break Enchantment
 

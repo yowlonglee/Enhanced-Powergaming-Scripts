@@ -175,124 +175,6 @@ APPEND ~stats.ids~ ~182 WIZARD_TENSERS_TRANSFORMATION~          UNLESS ~182 WIZA
 	END
 
 ///////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////
-// Assign New Spell States                                               //
-// Block of code provided by subtledoctor                                //
-///////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////
-
-///////////////////////////////////////////////////////////////////////////
-// Add Spell State to Minor Globe of Invulnerability                     //
-///////////////////////////////////////////////////////////////////////////
-
-	COPY_EXISTING ~SPWI406.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %mnr_glb% timing = 0 duration = 72 END
-
-	ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~5900~) BEGIN
-		COPY_EXISTING ~DWSW406.SPL~ ~override~ 
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %mnr_glb% timing = 0 duration = 72 END
-	END
-
-///////////////////////////////////////////////////////////////////////////
-// Add Spell State to Globe of Invulnerability                           //
-///////////////////////////////////////////////////////////////////////////
-
-	COPY_EXISTING ~SPWI602.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %glb% timing = 0 duration = 102 END
-
-	ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~5900~) BEGIN
-		COPY_EXISTING ~DWSW602.SPL~ ~override~ 
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %glb% timing = 0 duration = 102 END
-	END
-
-///////////////////////////////////////////////////////////////////////////
-// Add Spell State to Minor Spell Turning                                //
-///////////////////////////////////////////////////////////////////////////
-
-	COPY_EXISTING ~SPWI522.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %mnr_spl_trn% timing = 0 duration = 90 END
-
-	ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~5900~) BEGIN
-		COPY_EXISTING ~DWSW522.SPL~ ~override~ 
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %mnr_spl_trn% timing = 0 duration = 90 END
-	END
-
-///////////////////////////////////////////////////////////////////////////
-// Add Spell State to Spell Turning                                      //
-///////////////////////////////////////////////////////////////////////////
-
-	COPY_EXISTING ~SPWI701.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %spl_trn% timing = 0 duration = 324 END
-
-	ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~5900~) BEGIN
-		COPY_EXISTING ~DWSW701.SPL~ ~override~ 
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %spl_trn% timing = 0 duration = 324 END
-	END
-
-//*************************************************************************
-//*************************************************************************
-//*************************************************************************
-//*************************************************************************
-
-/*
-///////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////
-// Create New Spell States for IWD Spells                                //
-// Block of code provided by subtledoctor                                //
-///////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////
-
-ACTION_IF (MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 30 && MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 40) BEGIN
-
-///////////////////////////////////////////////////////////////////////////
-// Create Spell State for Mind Blank                                     //
-///////////////////////////////////////////////////////////////////////////
-
-	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~MIND_BLANK~)) BEGIN
-	  COPY_EXISTING ~splstate.ids~ ~override~
-		COUNT_2DA_COLS cols
-		READ_2DA_ENTRIES_NOW rows cols
-		FOR (row = 1; row < rows; ++row) BEGIN
-		  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
-		  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
-		  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~MIND_BLANK~) BEGIN
-			SET mnd_blnk = %state_ind%
-		  END
-		END
-	  BUT_ONLY
-	END
-
-	ACTION_IF !(VARIABLE_IS_SET %mnd_blnk%) BEGIN
-		LAF ds_sort_ids STR_VAR ids=splstate END
-		LAF d5_resolve_state STR_VAR new_state_id = ~MIND_BLANK~ RET new_state_ind END
-		OUTER_SET mnd_blnk = %new_state_ind%
-	END
-
-///////////////////////////////////////////////////////////////////////////
-// Create Spell State for Shield of Lathander                            //
-///////////////////////////////////////////////////////////////////////////
-
-	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~SHIELD_OF_LATHANDER~)) BEGIN
-	  COPY_EXISTING ~splstate.ids~ ~override~
-		COUNT_2DA_COLS cols
-		READ_2DA_ENTRIES_NOW rows cols
-		FOR (row = 1; row < rows; ++row) BEGIN
-		  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
-		  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
-		  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~SHIELD_OF_LATHANDER~) BEGIN
-			SET shld_lath = %state_ind%
-		  END
-		END
-	  BUT_ONLY
-	END
-
-	ACTION_IF !(VARIABLE_IS_SET %shld_lath%) BEGIN
-		LAF ds_sort_ids STR_VAR ids=splstate END
-		LAF d5_resolve_state STR_VAR new_state_id = ~SHIELD_OF_LATHANDER~ RET new_state_ind END
-		OUTER_SET shld_lath = %new_state_ind%
-	END
-
-///////////////////////////////////////////////////////////////////////////
 // Create and Assign Spell State for Emotion, Courage                    //
 ///////////////////////////////////////////////////////////////////////////
 
@@ -347,18 +229,114 @@ ACTION_IF (MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 30 && MOD_IS_I
 	END
 
 ///////////////////////////////////////////////////////////////////////////
+// Create Spell State for Mind Blank                                     //
 ///////////////////////////////////////////////////////////////////////////
-// Assign Spell States or Stats to Spells (IWD)                          //
+
+	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~MIND_BLANK~)) BEGIN
+	  COPY_EXISTING ~splstate.ids~ ~override~
+		COUNT_2DA_COLS cols
+		READ_2DA_ENTRIES_NOW rows cols
+		FOR (row = 1; row < rows; ++row) BEGIN
+		  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
+		  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
+		  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~MIND_BLANK~) BEGIN
+			SET mnd_blnk = %state_ind%
+		  END
+		END
+	  BUT_ONLY
+	END
+
+	ACTION_IF !(VARIABLE_IS_SET %mnd_blnk%) BEGIN
+		LAF ds_sort_ids STR_VAR ids=splstate END
+		LAF d5_resolve_state STR_VAR new_state_id = ~MIND_BLANK~ RET new_state_ind END
+		OUTER_SET mnd_blnk = %new_state_ind%
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// Create Spell State for Shield of Lathander                            //
+///////////////////////////////////////////////////////////////////////////
+
+	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~SHIELD_OF_LATHANDER~)) BEGIN
+	  COPY_EXISTING ~splstate.ids~ ~override~
+		COUNT_2DA_COLS cols
+		READ_2DA_ENTRIES_NOW rows cols
+		FOR (row = 1; row < rows; ++row) BEGIN
+		  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
+		  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
+		  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~SHIELD_OF_LATHANDER~) BEGIN
+			SET shld_lath = %state_ind%
+		  END
+		END
+	  BUT_ONLY
+	END
+
+	ACTION_IF !(VARIABLE_IS_SET %shld_lath%) BEGIN
+		LAF ds_sort_ids STR_VAR ids=splstate END
+		LAF d5_resolve_state STR_VAR new_state_id = ~SHIELD_OF_LATHANDER~ RET new_state_ind END
+		OUTER_SET shld_lath = %new_state_ind%
+	END
+
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+// Assign New Spell States                                               //
 // Block of code provided by subtledoctor                                //
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////
+// Add Spell State to Minor Globe of Invulnerability                     //
+///////////////////////////////////////////////////////////////////////////
+
+	COPY_EXISTING ~SPWI406.SPL~ ~override~ 
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %mnr_glb% timing = 0 duration = 72 END
+
+	ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~5900~) BEGIN
+		COPY_EXISTING ~DWSW406.SPL~ ~override~ 
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %mnr_glb% timing = 0 duration = 72 END
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Spell State to Globe of Invulnerability                           //
+///////////////////////////////////////////////////////////////////////////
+
+	COPY_EXISTING ~SPWI602.SPL~ ~override~ 
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %glb% timing = 0 duration = 102 END
+
+	ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~5900~) BEGIN
+		COPY_EXISTING ~DWSW602.SPL~ ~override~ 
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %glb% timing = 0 duration = 102 END
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Spell State to Minor Spell Turning                                //
+///////////////////////////////////////////////////////////////////////////
+
+	COPY_EXISTING ~SPWI522.SPL~ ~override~ 
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %mnr_spl_trn% timing = 0 duration = 90 END
+
+	ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~5900~) BEGIN
+		COPY_EXISTING ~DWSW522.SPL~ ~override~ 
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %mnr_spl_trn% timing = 0 duration = 90 END
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Spell State to Spell Turning                                      //
+///////////////////////////////////////////////////////////////////////////
+
+	COPY_EXISTING ~SPWI701.SPL~ ~override~ 
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %spl_trn% timing = 0 duration = 324 END
+
+	ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~5900~) BEGIN
+		COPY_EXISTING ~DWSW701.SPL~ ~override~ 
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %spl_trn% timing = 0 duration = 324 END
+	END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Mind Blank                                         //
 ///////////////////////////////////////////////////////////////////////////
 
 	COPY_EXISTING ~SPWI819.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %mnd_blnk% timing = 0 duration = 10080 END
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %mnd_blnk% timing = 0 duration = 7200 END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Shield of Lathander                                //
@@ -369,9 +347,5 @@ ACTION_IF (MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 30 && MOD_IS_I
 
 	COPY_EXISTING ~SPPR520.SPL~ ~override~ 
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %shld_lath% timing = 0 duration = 12 END
-
-END
-
-*/
 
 CLEAR_IDS_MAP
