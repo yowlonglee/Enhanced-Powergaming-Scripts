@@ -305,7 +305,7 @@ IF~~~~~
   END
 
 ///////////////////////////////////////////////////////////////////////////
-// Amulet of Cheetah Speed                                               //
+// Remove Amulet of Cheetah Speed                                        //
 ///////////////////////////////////////////////////////////////////////////
   LPF REPLACE_MULTILINE
     INT_VAR
@@ -439,6 +439,30 @@ THEN
 END
 
 IF~~~~~
+    string = ~~~~~IF~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Remove Righteous Magic                                                //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpell(CLERIC_RIGHTEOUS_MAGIC)  // SPPR513.SPL (Righteous Magic)
+  !CheckSpellState(Myself,RIGHTEOUS_MAGIC)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_RIGHTEOUS_MAGIC)  // SPPR513.SPL (Righteous Magic)
+END~~~~~
     string = ~~~~~IF~~~~~ //"
   END
 
