@@ -88,7 +88,7 @@ END~~~~~
 THEN
   RESPONSE #100
     SetGlobal("MO_TURNUNDEAD","LOCALS",1)
-    DisplayStringHead(Myself,24499)  // Turning Undead constantly if idle
+    DisplayStringHead(Myself,34621)  // Turning Undead
 END
 
 IF
@@ -97,7 +97,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_TURNUNDEAD","LOCALS",0)
-    DisplayStringHead(Myself,24500)  // Stopped Turning Undead
+    DisplayStringHead(Myself,34622)  // Stopped Turning Undead
 END
 
 IF
@@ -106,7 +106,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_BUFF","LOCALS",1)
-    DisplayStringHead(Myself,48286)  // I'll start out at once.
+    DisplayStringHead(Myself,7847)  // Yes, please begin.
 END
 
 IF
@@ -117,7 +117,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_BUFF","LOCALS",0)
-    DisplayStringHead(Myself,11521)  // As ready as it could be.
+    DisplayStringHead(Myself,41001)  // This is no fun. Start killing things already!
 END~~~~~ //"
   END
 
@@ -138,7 +138,7 @@ END~~~~~
 THEN
   RESPONSE #100
     SetGlobal("MO_BUFF","LOCALS",0)
-    DisplayStringHead(Myself,11521)  // As ready as it could be.
+    DisplayStringHead(Myself,344)  // Yes, I am ready. Let us be off.
 END~~~~~ //"
   END
 
