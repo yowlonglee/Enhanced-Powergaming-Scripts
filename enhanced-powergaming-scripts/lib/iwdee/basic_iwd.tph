@@ -179,7 +179,7 @@ END~~~~~
 THEN
   RESPONSE #100
     SetGlobal("MO_TURNUNDEAD","LOCALS",1)
-    DisplayStringHead(Myself,24499)  // Turning Undead constantly if idle
+    DisplayStringHead(Myself,34621)  // Turning Undead constantly if idle
 END
 
 IF
@@ -462,7 +462,9 @@ IF~~~~~
 THEN
   RESPONSE #100
     Spell(Myself,CLERIC_RIGHTEOUS_MAGIC)  // SPPR513.SPL (Righteous Magic)
-END~~~~~
+END
+
+IF~~~~~
     string = ~~~~~IF~~~~~ //"
   END
 
