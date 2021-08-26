@@ -7,6 +7,7 @@ September XX, 2021
 ### Changed 
 
 - All Games
+  - Added Detectable Spells
   - Optimize Breach and combat dispelling for non-SCS games
   - Updated Purge Invisibility and Detect Invisibility to NOT cast if enemy has Sanctuary active
   - Added Cleric Chant to pre-buffing
