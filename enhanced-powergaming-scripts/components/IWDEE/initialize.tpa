@@ -289,61 +289,60 @@ APPEND ~stats.ids~ ~182 WIZARD_TENSERS_TRANSFORMATION~          UNLESS ~182 WIZA
 ///////////////////////////////////////////////////////////////////////////
 
 	COPY_EXISTING ~SPWI406.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %mnr_glb% timing = 0 duration = 72 END
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %mnr_glb% timing = 0 resist_dispel = 3 duration = 72 END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Globe of Invulnerability                           //
 ///////////////////////////////////////////////////////////////////////////
 
 	COPY_EXISTING ~SPWI602.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %glb% timing = 0 duration = 102 END
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %glb% timing = 0 resist_dispel = 3 duration = 102 END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Minor Spell Turning                                //
 ///////////////////////////////////////////////////////////////////////////
 
 	COPY_EXISTING ~SPWI522.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %mnr_spl_trn% timing = 0 duration = 90 END
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %mnr_spl_trn% timing = 0 resist_dispel = 2 duration = 90 END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Spell Turning                                      //
 ///////////////////////////////////////////////////////////////////////////
 
 	COPY_EXISTING ~SPWI701.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %spl_trn% timing = 0 duration = 324 END
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %spl_trn% timing = 0 resist_dispel = 2 duration = 324 END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Mind Blank                                         //
 ///////////////////////////////////////////////////////////////////////////
 
 	COPY_EXISTING ~SPWI802.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %mnd_blnk% timing = 0 duration = 7200 END
+	  LPF CLONE_EFFECT INT_VAR match_opcode = 161 opcode = 328 parameter2 = %mnd_blnk% special = 1 END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Shield of Lathander                                //
 ///////////////////////////////////////////////////////////////////////////
 
 	COPY_EXISTING ~SPPR735.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %shld_lath% timing = 0 duration = 18 END
+	  LPF CLONE_EFFECT INT_VAR match_opcode = 101 opcode = 328 parameter2 = %shld_lath% special = 1 END
 
 	COPY_EXISTING ~SPPR520.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %shld_lath% timing = 0 duration = 12 END
+	  LPF CLONE_EFFECT INT_VAR match_opcode = 101 opcode = 328 parameter2 = %shld_lath% special = 1 END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Emotion, Courage                                   //
 ///////////////////////////////////////////////////////////////////////////
 
 	COPY_EXISTING ~SPWI427.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %emt_crg% timing = 0 insert_point = 0 duration = 300 END
+	  LPF CLONE_EFFECT INT_VAR match_opcode = 161 opcode = 328 parameter2 = %emt_crg% special = 1 END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Emotion, Hope                                      //
 ///////////////////////////////////////////////////////////////////////////
 
 	COPY_EXISTING ~SPWI429.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %emt_hpe% timing = 0 insert_point = 0 duration = 300 END
+	  LPF CLONE_EFFECT INT_VAR match_opcode = 54 opcode = 328 parameter2 = %emt_hpe% special = 1 END
 
-/*
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Wizard Resist Fear and Cleric Remove Fear          //
 ///////////////////////////////////////////////////////////////////////////
@@ -363,10 +362,10 @@ APPEND ~stats.ids~ ~182 WIZARD_TENSERS_TRANSFORMATION~          UNLESS ~182 WIZA
 	END
 
 	COPY_EXISTING ~SPWI210.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 2 special = 1 parameter2 = %rst_fear% timing = 0 duration = 300 END
+	  LPF CLONE_EFFECT INT_VAR match_opcode = 161 opcode = 328 parameter2 = %rst_fear% special = 1 END
 
 	COPY_EXISTING ~SPPR108.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 2 special = 1 parameter2 = %rst_fear% timing = 0 duration = 60 END
+	  LPF CLONE_EFFECT INT_VAR match_opcode = 161 opcode = 328 parameter2 = %rst_fear% special = 1 END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Berserker Rage                                     //
@@ -388,6 +387,5 @@ APPEND ~stats.ids~ ~182 WIZARD_TENSERS_TRANSFORMATION~          UNLESS ~182 WIZA
 
 	COPY_EXISTING ~SPCL321.SPL~ ~override~ 
 	  LPF CLONE_EFFECT INT_VAR match_opcode = 278 opcode = 328 parameter2 = %bsk_rage% special = 1 END
-*/
 
 CLEAR_IDS_MAP
