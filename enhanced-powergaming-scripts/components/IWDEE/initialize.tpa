@@ -327,14 +327,14 @@ APPEND ~stats.ids~ ~182 WIZARD_TENSERS_TRANSFORMATION~          UNLESS ~182 WIZA
 ///////////////////////////////////////////////////////////////////////////
 
 	COPY_EXISTING ~SPWI427.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %emt_crg% timing = 0 duration = 300 END
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %emt_crg% timing = 0 insert_point = 0 duration = 300 END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Emotion, Hope                                      //
 ///////////////////////////////////////////////////////////////////////////
 
 	COPY_EXISTING ~SPWI429.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %emt_hpe% timing = 0 duration = 300 END
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %emt_hpe% timing = 0 insert_point = 0 duration = 300 END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Wizard Resist Fear and Cleric Remove Fear          //
