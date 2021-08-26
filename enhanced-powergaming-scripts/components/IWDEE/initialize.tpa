@@ -360,4 +360,25 @@ APPEND ~stats.ids~ ~182 WIZARD_TENSERS_TRANSFORMATION~          UNLESS ~182 WIZA
 	COPY_EXISTING ~SPPR108.SPL~ ~override~ 
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 2 special = 1 parameter2 = %rst_fear% timing = 0 duration = 60 END
 
+///////////////////////////////////////////////////////////////////////////
+// Add Spell State to Berserker Rage                                     //
+///////////////////////////////////////////////////////////////////////////
+
+	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~BERSERKER_RAGE~)) BEGIN
+	  COPY_EXISTING ~splstate.ids~ ~override~
+		COUNT_2DA_COLS cols
+		READ_2DA_ENTRIES_NOW rows cols
+		FOR (row = 1; row < rows; ++row) BEGIN
+		  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
+		  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
+		  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~BERSERKER_RAGE~) BEGIN
+			SET bsk_rage = %state_ind%
+		  END
+		END
+	  BUT_ONLY
+	END
+
+	COPY_EXISTING ~SPCL321.SPL~ ~override~ 
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %bsk_rage% timing = 0 duration = 60 END
+
 CLEAR_IDS_MAP
