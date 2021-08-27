@@ -423,32 +423,6 @@ IF~~~~~
   END
 
 ///////////////////////////////////////////////////////////////////////////
-// Remove Physical Mirror                                                //
-///////////////////////////////////////////////////////////////////////////
-  LPF REPLACE_MULTILINE
-    INT_VAR
-    strict = 1
-    verbose = 0
-    STR_VAR
-    pattern = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)
-  HaveSpell(CLERIC_PHYSICAL_MIRROR)  // sppr525.spl (Physical Mirror)
-  CheckStatLT(Myself,1,CLERIC_PHYSICAL_MIRROR)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    Spell(Myself,CLERIC_PHYSICAL_MIRROR)  // sppr525.spl (Physical Mirror)
-END
-
-IF~~~~~
-    string = ~~~~~IF~~~~~ //"
-  END
-
-///////////////////////////////////////////////////////////////////////////
 // Update Negative Plane Protection                                      //
 ///////////////////////////////////////////////////////////////////////////
   LPF REPLACE_MULTILINE
