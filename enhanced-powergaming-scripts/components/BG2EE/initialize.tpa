@@ -567,17 +567,17 @@ ACTION_IF (MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 30 && MOD_IS_I
 ///////////////////////////////////////////////////////////////////////////
 
 	COPY_EXISTING ~SPWI819.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %mnd_blnk% timing = 0 duration = 10080 END
+	  LPF CLONE_EFFECT INT_VAR match_opcode = 161 opcode = 328 parameter2 = %mnd_blnk% special = 1 END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Shield of Lathander                                //
 ///////////////////////////////////////////////////////////////////////////
 
 	COPY_EXISTING ~SPPR737.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %shld_lath% timing = 0 duration = 18 END
+	  LPF CLONE_EFFECT INT_VAR match_opcode = 101 opcode = 328 parameter2 = %shld_lath% special = 1 END
 
 	COPY_EXISTING ~SPPR520.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %shld_lath% timing = 0 duration = 12 END
+	  LPF CLONE_EFFECT INT_VAR match_opcode = 101 opcode = 328 parameter2 = %shld_lath% special = 1 END
 
 END
 
@@ -744,21 +744,21 @@ END
 ///////////////////////////////////////////////////////////////////////////
 
 	COPY_EXISTING ~SPCL901.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %gtr_whirl% timing = 0 duration = 6 END
+	  LPF CLONE_EFFECT INT_VAR match_opcode = 282 opcode = 328 parameter2 = %gtr_whirl% special = 1 END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Negative Plane Protection                          //
 ///////////////////////////////////////////////////////////////////////////
 
 	COPY_EXISTING ~SPPR413.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 2 special = 1 parameter2 = %lvl_drn_immun% timing = 0 duration = 30 END
+	  LPF CLONE_EFFECT INT_VAR match_opcode = 282 opcode = 328 parameter2 = %lvl_drn_immun% special = 1 END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Righteous Magic                                    //
 ///////////////////////////////////////////////////////////////////////////
 
 	COPY_EXISTING ~SPPR513.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %rght_mgc% timing = 0 duration = 54 END
+	  LPF CLONE_EFFECT INT_VAR match_opcode = 282 opcode = 328 parameter2 = %rght_mgc% special = 1 END
 
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
