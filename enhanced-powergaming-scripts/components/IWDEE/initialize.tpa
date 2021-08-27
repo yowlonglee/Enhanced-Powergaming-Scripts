@@ -8,8 +8,8 @@
 // Detectable Spells                                                     //
 ///////////////////////////////////////////////////////////////////////////
 
-INCLUDE ~enhanced-powergaming-scripts/lib/ds.tph~
-INCLUDE ~enhanced-powergaming-scripts/lib/iwdee/ds_iwd.tpa~
+LAF detectable_spells END
+LAF ds_iwd END
 
 ///////////////////////////////////////////////////////////////////////////
 // Adds States used in AI Scripts                                        //
@@ -180,7 +180,7 @@ APPEND ~stats.ids~ ~182 WIZARD_TENSERS_TRANSFORMATION~          UNLESS ~182 WIZA
 		LAF d5_resolve_state STR_VAR new_state_id = ~SPELL_TURNING~ RET new_state_ind END
 		OUTER_SET spl_trn = %new_state_ind%
 	END
-
+/*
 ///////////////////////////////////////////////////////////////////////////
 // Create and Assign Spell State for Emotion, Courage                    //
 ///////////////////////////////////////////////////////////////////////////
@@ -276,6 +276,7 @@ APPEND ~stats.ids~ ~182 WIZARD_TENSERS_TRANSFORMATION~          UNLESS ~182 WIZA
 		LAF d5_resolve_state STR_VAR new_state_id = ~SHIELD_OF_LATHANDER~ RET new_state_ind END
 		OUTER_SET shld_lath = %new_state_ind%
 	END
+*/
 
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
@@ -312,6 +313,7 @@ APPEND ~stats.ids~ ~182 WIZARD_TENSERS_TRANSFORMATION~          UNLESS ~182 WIZA
 	COPY_EXISTING ~SPWI701.SPL~ ~override~ 
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %spl_trn% timing = 0 resist_dispel = 2 duration = 324 END
 
+/*
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Mind Blank                                         //
 ///////////////////////////////////////////////////////////////////////////
@@ -387,5 +389,6 @@ APPEND ~stats.ids~ ~182 WIZARD_TENSERS_TRANSFORMATION~          UNLESS ~182 WIZA
 
 	COPY_EXISTING ~SPCL321.SPL~ ~override~ 
 	  LPF CLONE_EFFECT INT_VAR match_opcode = 278 opcode = 328 parameter2 = %bsk_rage% special = 1 END
+*/
 
 CLEAR_IDS_MAP
