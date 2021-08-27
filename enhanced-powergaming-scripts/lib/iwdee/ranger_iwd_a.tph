@@ -900,13 +900,15 @@ END
   END
 
 ///////////////////////////////////////////////////////////////////////////
-// Update Armor of Faith                                                 //
+// Update Protection from Fire                                           //
 ///////////////////////////////////////////////////////////////////////////
   LPF REPLACE_MULTILINE
     INT_VAR
     strict = 1
     verbose = 0
     STR_VAR
-    pattern = ~~~~~!CheckSpellState(Myself,ARMOR_OF_FAITH)~~~~~
-    string = ~~~~~!CheckStatGT(Myself,0,CLERIC_ARMOR_OF_FAITH)~~~~~ //"
+    pattern = ~~~~~HaveSpell(CLERIC_PROTECTION_FROM_FIRE)  // SPPR306.SPL (Protection From Fire)
+  CheckStatLT(LastSeenBy(Myself),100,RESISTFIRE)~~~~~
+    string = ~~~~~HaveSpell(CLERIC_PROTECTION_FROM_FIRE)  // SPPR306.SPL (Protection From Fire)
+  CheckStatLT(LastSeenBy(Myself),80,RESISTFIRE)~~~~~ //"
   END
