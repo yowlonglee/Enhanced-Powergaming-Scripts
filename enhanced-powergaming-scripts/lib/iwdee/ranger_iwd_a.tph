@@ -912,3 +912,31 @@ END
     string = ~~~~~HaveSpell(CLERIC_PROTECTION_FROM_FIRE)  // SPPR306.SPL (Protection From Fire)
   CheckStatLT(LastSeenBy(Myself),80,RESISTFIRE)~~~~~ //"
   END
+
+///////////////////////////////////////////////////////////////////////////
+// Remove Divine Might                                                   //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES("SPIN103")  // Divine Might
+  !StateCheck(Myself,STATE_DRAWUPONHOLYMIGHT)
+  CheckStatLT(Myself,25,STR)
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES("SPIN103",Myself)  // Divine Might
+    RemoveSpellRES("SPIN103")  // Divine Might
+END
+
+IF~~~~~
+    string = ~~~~~IF~~~~~ //"
+  END
