@@ -170,7 +170,7 @@ IF
 	!CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
 	RESPONSE #100
-		ReallyForceSpell(Myself,CLERIC_PROTECTION_FROM_FIRE)  // sppr521.spl (Protection from Fire)
+		ReallyForceSpell(LastSeenBy(Myself),CLERIC_PROTECTION_FROM_FIRE)  // sppr521.spl (Protection from Fire)
 		RemoveSpell(CLERIC_PROTECTION_FROM_FIRE)  // sppr521.spl (Protection from Fire)
 END
 

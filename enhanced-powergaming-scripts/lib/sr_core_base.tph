@@ -6093,7 +6093,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     SetInterrupt(FALSE)
-    Spell(Myself,CLERIC_PROTECTION_FROM_FIRE)  // sppr521.spl (Protection from Fire)
+    Spell(LastSeenBy(Myself),CLERIC_PROTECTION_FROM_FIRE)  // sppr521.spl (Protection from Fire)
     SetInterrupt(TRUE)
 END
 
