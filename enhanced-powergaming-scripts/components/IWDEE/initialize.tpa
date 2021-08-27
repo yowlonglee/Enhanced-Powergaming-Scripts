@@ -374,6 +374,13 @@ APPEND ~stats.ids~ ~182 WIZARD_TENSERS_TRANSFORMATION~          UNLESS ~182 WIZA
 	  LPF CLONE_EFFECT INT_VAR match_opcode = 282 opcode = 328 parameter2 = %rght_mgc% special = 1 END
 
 ///////////////////////////////////////////////////////////////////////////
+// Add State to Draw Upon Holy Might                                     //
+///////////////////////////////////////////////////////////////////////////
+
+	COPY_EXISTING ~SPPR214.SPL~ ~override~ 
+	  LPF CLONE_EFFECT INT_VAR match_opcode = 44 opcode = 132 special = 1 END
+
+///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Prayer                                             //
 ///////////////////////////////////////////////////////////////////////////
 
