@@ -1474,6 +1474,21 @@ THEN
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_MIND_BLANK)  // spwi806.SPL (Mind Blank)
     SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  HaveSpell(CLERIC_IMPERVIOUS_SANCTITY_OF_MIND)  // sppr735.SPL (Impervious Sanctity of Mind)
+  !CheckSpellState(Myself,CHAOTIC_COMMANDS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    Spell(Myself,CLERIC_IMPERVIOUS_SANCTITY_OF_MIND)  // sppr735.SPL (Impervious Sanctity of Mind)
 END~~~~~ //"
   END
 
