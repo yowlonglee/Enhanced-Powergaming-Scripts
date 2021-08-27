@@ -277,6 +277,30 @@ APPEND ~stats.ids~ ~182 WIZARD_TENSERS_TRANSFORMATION~          UNLESS ~182 WIZA
 	END
 
 ///////////////////////////////////////////////////////////////////////////
+// Create Spell State for Righteous Magic                                //
+///////////////////////////////////////////////////////////////////////////
+
+	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~RIGHTEOUS_MAGIC~)) BEGIN
+	  COPY_EXISTING ~splstate.ids~ ~override~
+		COUNT_2DA_COLS cols
+		READ_2DA_ENTRIES_NOW rows cols
+		FOR (row = 1; row < rows; ++row) BEGIN
+		  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
+		  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
+		  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~RIGHTEOUS_MAGIC~) BEGIN
+			SET rght_mgc = %state_ind%
+		  END
+		END
+	  BUT_ONLY
+	END
+
+	ACTION_IF !(VARIABLE_IS_SET %rght_mgc%) BEGIN
+		LAF ds_sort_ids STR_VAR ids=splstate END
+		LAF d5_resolve_state STR_VAR new_state_id = ~RIGHTEOUS_MAGIC~ RET new_state_ind END
+		OUTER_SET rght_mgc = %new_state_ind%
+	END
+
+///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 // Assign New Spell States                                               //
 // Block of code provided by subtledoctor                                //
@@ -342,6 +366,12 @@ APPEND ~stats.ids~ ~182 WIZARD_TENSERS_TRANSFORMATION~          UNLESS ~182 WIZA
 	COPY_EXISTING ~SPWI429.SPL~ ~override~ 
 	  LPF CLONE_EFFECT INT_VAR match_opcode = 54 opcode = 328 parameter2 = %emt_hpe% special = 1 END
 
+///////////////////////////////////////////////////////////////////////////
+// Add Spell State to Righteous Magic                                    //
+///////////////////////////////////////////////////////////////////////////
+
+	COPY_EXISTING ~SPPR513.SPL~ ~override~ 
+	  LPF CLONE_EFFECT INT_VAR match_opcode = 282 opcode = 328 parameter2 = %rght_mgc% special = 1 END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Prayer                                             //
