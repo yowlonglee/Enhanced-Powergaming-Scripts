@@ -742,7 +742,7 @@ END
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(CLERIC_IMPERVIOUS_SANCTITY_OF_MIND)  // sppr735.SPL (Impervious Sanctity of Mind)
-  !CheckSpellState(Myself,CHAOTIC_COMMANDS)
+  !CheckSpellState(Myself,SANCTITY_MIND)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
