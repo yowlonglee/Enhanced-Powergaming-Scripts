@@ -14,6 +14,7 @@ September XX, 2021
   - Added Wizard Protection from Electricity
 - BGII: EE and EET
   - Fixed issue with Spell Revisions Cleric Break Enchantment
+  - Updated SR Aid to cast on all party members
 
 ## Version 4.3
 
