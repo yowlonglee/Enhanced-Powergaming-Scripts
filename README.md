@@ -12,7 +12,7 @@
 
 ## Introduction
 
-This mod is a collection of player AI scripts designed for use in Baldur's Gate: Enhanced Edition, Baldur's Gate II: Enhanced Edition, and the Enhanced Edition Trilogy. With these scripts, you can focus on the fighting aspect of combat while these take care of the nuances in the background. Of note, these scripts allow easy pre-buffing of all characters with a keystroke, intelligent debuffing of enemy protections, and smart use of defensive spells and abilities.
+This mod is a collection of player AI scripts designed for use in Baldur's Gate: Enhanced Edition, Baldur's Gate II: Enhanced Edition, the Enhanced Edition Trilogy, and Icewind Dale: Enhanced Edition. With these scripts, you can focus on the fighting aspect of combat while these take care of the nuances in the background. Of note, these scripts allow easy pre-buffing of all characters with a keystroke, intelligent debuffing of enemy protections, and smart use of defensive spells and abilities.
 
 PLEASE NOTE: I make no attempt to keep this repository in a stable state, and bug reports on unreleased commits are not useful to me.
 
@@ -56,6 +56,9 @@ Before modding SoD games, it requires use of either DLCMerger or ModMerge (DLCMe
 
 ### Baldur's Gate II: Enhanced Edition and Enhanced Edition Trilogy
 The mod has support for IWD spells (from either Sword Coast Stratagems or IWDification), Sword Coast Stratagems, Dark Side of the Sword Coast, Song & Silence, Tome & Blood, Faith & Powers, and for changes from Spell Revisions (Revised) and Item Revisions (Revised).
+
+### Icewind Dale: Enhanced Edition
+Currently, this mod supports only the base game for Icewind Dale: Enhanced Edition.
 
 ## Components
 
@@ -143,6 +146,8 @@ Requires Spell Revisions - Offers the vanilla, non-SR(R) versions of Haste and I
 - DavidW for using your Organize an IDS macro to assist in creating new spell states.
 - marcnivar for identifying a couple bugs with pre-buffing.
 - K4thos for using a function within the EET mod to cut and paste snippets of scripts into a BAF file. Without this function, being able to sync multiple mod scripts together would be impossible.
+- Cahir for testing and providing feedback on IWD: EE scripts.
+- CamDawg_G3 for providing insight and feedback into difficult code. 
 
 ## Copyright
 
