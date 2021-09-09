@@ -1,5 +1,14 @@
 # Changelog
 
+## Version 5.1
+
+September 9, 2021
+
+### Changed 
+
+- BGII: EE and EET
+  - Corrected issue with aid spell for spell revisions
+
 ## Version 5.0.1
 
 September 9, 2021
