@@ -57,6 +57,9 @@ Before modding SoD games, it requires use of either DLCMerger or ModMerge (DLCMe
 ### Baldur's Gate II: Enhanced Edition and Enhanced Edition Trilogy
 The mod has support for IWD spells (from either Sword Coast Stratagems or IWDification), Sword Coast Stratagems, Dark Side of the Sword Coast, Song & Silence, Tome & Blood, Faith & Powers, and for changes from Spell Revisions (Revised) and Item Revisions (Revised).
 
+### Icewind Dale: Enhanced Edition
+Currently, this mod supports only the base game for Icewind Dale: Enhanced Edition.
+
 ## Components
 
 Below are the components for the install allowing you to pick and choose what changes you would like to see made. Each one will provide a prompt, so you can skip what you don't want.
@@ -143,6 +146,8 @@ Requires Spell Revisions - Offers the vanilla, non-SR(R) versions of Haste and I
 - DavidW for using your Organize an IDS macro to assist in creating new spell states.
 - marcnivar for identifying a couple bugs with pre-buffing.
 - K4thos for using a function within the EET mod to cut and paste snippets of scripts into a BAF file. Without this function, being able to sync multiple mod scripts together would be impossible.
+- Cahir for testing and providing feedback on IWD: EE scripts.
+- CamDawg_G3 for providing insight and feedback into difficult code. 
 
 ## Copyright
 
