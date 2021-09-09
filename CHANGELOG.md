@@ -1,8 +1,8 @@
 # Changelog
 
-## Version 5.0 - Unreleased and Not Stable
+## Version 5.0
 
-September XX, 2021
+September 8, 2021
 
 ### Changed 
 
@@ -15,6 +15,8 @@ September XX, 2021
 - BGII: EE and EET
   - Fixed issue with Spell Revisions Cleric Break Enchantment
   - Updated SR Aid to cast on all party members
+- IWD: EE
+  - Added Enhanced AI Scripts for IWD: EE
 
 ## Version 4.3
 
