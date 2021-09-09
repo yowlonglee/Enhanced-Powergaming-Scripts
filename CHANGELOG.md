@@ -1,5 +1,13 @@
 # Changelog
 
+## Version 5.0.1
+
+September 9, 2021
+
+### Changed 
+
+- Corrected mistake I made during upload which impacted Project Infinity's use of this mod.
+
 ## Version 5.0
 
 September 8, 2021
