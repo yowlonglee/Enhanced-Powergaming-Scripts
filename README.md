@@ -116,7 +116,7 @@ This is a script specifically designed for the Skald Kit. This script will cast 
 
 This provides enhanced ai scripts for simulacrums. Overall, the scripts allows the player to be more hands off with summoned celestials, and they will act intelligently in targeting enemy players. Hostile summoned celestials will also act more intelligently when attacking your party if you find yourselves facing off in battle. Like the other scripts listed above, this script will cast pre-buff spells when the "D" key is pressed. Spell Revisions also rewrote their spellbooks, and the scripts will accomodate these changes.
 
-### Enhanced Scripts for Simulacrums (BGII: EE and EET Required)
+### Enhanced Scripts for Simulacrums (BGII: EE, EET, or IWD: EE Required)
 
 This provides enhanced ai scripts for summoned Simulacrums. Upon creation, the Simulacrum will choose one of the enhanced ai scripts above based upon their class. This allows the player to be more hands off while the Simulacrums will act intelligently in targeting enemy players, casting protection spells, detecting invisible/hidden enemies, debuffing enemy protections, and capable of pre-buffing! This script will have the Simulacrum Turn Undead when the "V" key is pressed and will cast pre-buff spells when the "D" key is pressed. 
 
