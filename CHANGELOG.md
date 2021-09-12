@@ -1,5 +1,14 @@
 # Changelog
 
+## Version 5.2
+
+September X, 2021
+
+### Changed 
+
+- All Games
+  - Added Russian translation courtesy of Ulpian
+
 ## Version 5.1
 
 September 9, 2021
