@@ -8,6 +8,8 @@ September X, 2021
 
 - All Games
   - Added Russian translation courtesy of Ulpian
+- BGII: EE and EET
+  - Updated Spell Revisions to cast Free Action and Neutralize Poison during Pre-Buffing
 
 ## Version 5.1
 
