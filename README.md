@@ -147,7 +147,8 @@ Requires Spell Revisions - Offers the vanilla, non-SR(R) versions of Haste and I
 - marcnivar for identifying a couple bugs with pre-buffing.
 - K4thos for using a function within the EET mod to cut and paste snippets of scripts into a BAF file. Without this function, being able to sync multiple mod scripts together would be impossible.
 - Cahir for testing and providing feedback on IWD: EE scripts.
-- CamDawg_G3 for providing insight and feedback into difficult code. 
+- CamDawg_G3 for providing insight and feedback into difficult code.
+- Ulpian for providing Russian translation.
 
 ## Copyright
 
