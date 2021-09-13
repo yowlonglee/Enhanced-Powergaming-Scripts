@@ -2,7 +2,7 @@
 
 ## Version 5.2
 
-September X, 2021
+September 12, 2021
 
 ### Changed 
 
