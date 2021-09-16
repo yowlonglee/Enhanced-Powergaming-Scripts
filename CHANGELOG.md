@@ -1,5 +1,14 @@
 # Changelog
 
+## Version 5.3
+
+September XX, 2021
+
+### Changed 
+
+- BG:EE, BGII: EE, and EET
+  - Corrected harmless warning if IWDIfication is installed.
+
 ## Version 5.2
 
 September 12, 2021

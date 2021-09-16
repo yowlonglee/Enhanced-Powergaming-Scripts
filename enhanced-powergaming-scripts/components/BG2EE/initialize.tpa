@@ -484,6 +484,7 @@ END
 
 ACTION_IF (MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 30 && MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 40) BEGIN
 
+/* COMMENTING OUT BECAUSE IWDIFICATION NOW DOES THIS
 ///////////////////////////////////////////////////////////////////////////
 // Create Spell State for Mind Blank                                     //
 ///////////////////////////////////////////////////////////////////////////
@@ -507,6 +508,7 @@ ACTION_IF (MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 30 && MOD_IS_I
 		LAF d5_resolve_state STR_VAR new_state_id = ~MIND_BLANK~ RET new_state_ind END
 		OUTER_SET mnd_blnk = %new_state_ind%
 	END
+*/
 
 ///////////////////////////////////////////////////////////////////////////
 // Create Spell State for Shield of Lathander                            //
@@ -593,12 +595,14 @@ ACTION_IF (MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 30 && MOD_IS_I
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 
+/* COMMENTING OUT BECAUSE IWDIFICATION NOW DOES THIS
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Mind Blank                                         //
 ///////////////////////////////////////////////////////////////////////////
 
 	COPY_EXISTING ~SPWI819.SPL~ ~override~ 
 	  LPF CLONE_EFFECT INT_VAR match_opcode = 161 opcode = 328 parameter2 = %mnd_blnk% special = 1 END
+*/
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Shield of Lathander                                //
