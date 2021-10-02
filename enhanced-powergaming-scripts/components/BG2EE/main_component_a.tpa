@@ -83,6 +83,16 @@ ACTION_IF (MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
 	END
 
 ///////////////////////////////////////////////////////////////////////////
+// SR - SCS - Breach                                                     //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~5900~) BEGIN
+		ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1500~ && MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1510~) || (MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 30 && MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 40) BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/sr_core_breach_iwd.tph~
+		END ELSE BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/sr_core_breach.tph~
+		END
+
+///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 // Add Mod Components to Accelerated Scripts without Spell Revisions     //
 ///////////////////////////////////////////////////////////////////////////
@@ -180,7 +190,6 @@ END ELSE BEGIN
 			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/ranger_iwd_fp_spl.tph~
 		END
 	END
-END
 
 ///////////////////////////////////////////////////////////////////////////
 // SCS - Breach                                                          //
@@ -196,6 +205,7 @@ END
 			INCLUDE ~enhanced-powergaming-scripts/lib/ranger_breach.tph~
 		END
 	END
+END
 
 ///////////////////////////////////////////////////////////////////////////
 // Create Skald Script Modeled After Core                                //
