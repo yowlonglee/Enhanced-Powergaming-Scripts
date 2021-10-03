@@ -1992,6 +1992,22 @@ THEN
 END
 
 IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpell(CLERIC_STRENGTH_OF_ONE)  // SPPR312.SPL (Strength of One)
+  !CheckSpellState(Myself,STRENGTH_OF_ONE)
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
+  CheckStatLT(Myself,25,STR)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,CLERIC_STRENGTH_OF_ONE)  // SPPR312.SPL (Strength of One)
+    RemoveSpell(CLERIC_STRENGTH_OF_ONE)  // SPPR312.SPL (Strength of One)
+END
+
+IF
 	Global("MO_BUFF","LOCALS",1)
 	HaveSpell(BERSERKER_RAGE)  // SPCL321.SPL (Enrage)
 	!CheckSpellState(Myself,BERSERKER_RAGE_FATIGUE)
