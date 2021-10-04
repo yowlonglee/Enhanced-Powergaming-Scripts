@@ -1031,6 +1031,8 @@ THEN
 END
 
 IF
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_HealCast","GLOBAL")
   ActionListEmpty()
   !See([EVILCUTOFF])
   HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)  // SPPR103.SPL (Cure Light Wounds)
@@ -1054,7 +1056,11 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_HealCast","GLOBAL",3)
+    SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)  // SPPR103.SPL (Cure Light Wounds)
+    SetInterrupt(TRUE)
 END
 
 IF
