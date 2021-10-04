@@ -266,6 +266,8 @@ THEN
 END
 
 IF
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_HealCast","GLOBAL")
   ActionListEmpty()
   HaveSpellRES("SPIN101")  // Healing Touch
   OR(2)
@@ -291,36 +293,10 @@ IF
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
 THEN
   RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_HealCast","GLOBAL",3)
     SetInterrupt(FALSE)
     SpellRES("SPIN101",LastSeenBy(Myself))  // Healing Touch
-    SetInterrupt(TRUE)
-END
-
-IF
-  ActionListEmpty()
-  HaveSpellRES("SPIN101")  // Cure Light Wounds
-  !See([EVILCUTOFF])
-  See(MostDamagedOf([PC]))
-  HPPercentLT(LastSeenBy(Myself),80)
-  OR(2)
-    Range(MostDamagedOf([PC]),6)
-    !Range(NearestEnemyOf(Myself),30)
-  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
-  !StateCheck(LastSeenBy(Myself),STATE_NOT_APPROACHABLE)
-  !StateCheck(LastSeenBy(Myself),STATE_REALLY_DEAD)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
-  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-THEN
-  RESPONSE #100
-    SetInterrupt(FALSE)
-    SpellRES("SPIN101",LastSeenBy(Myself))  // Cure Light Wounds
     SetInterrupt(TRUE)
 END
 

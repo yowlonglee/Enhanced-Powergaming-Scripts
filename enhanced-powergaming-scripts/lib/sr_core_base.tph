@@ -5320,6 +5320,8 @@ THEN
 END
 
 IF
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_HealCast","GLOBAL")
   ActionListEmpty()
   HaveSpellRES("SPIN101")  // Healing Touch
   OR(2)
@@ -5345,6 +5347,8 @@ IF
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
 THEN
   RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_HealCast","GLOBAL",3)
     SetInterrupt(FALSE)
     SpellRES("SPIN101",LastSeenBy(Myself))  // Healing Touch
     SetInterrupt(TRUE)
