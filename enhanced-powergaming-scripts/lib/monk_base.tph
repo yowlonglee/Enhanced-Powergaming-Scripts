@@ -251,12 +251,18 @@ THEN
 END
 
 IF
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_HealCast","GLOBAL")
   ActionListEmpty()
   HPPercentLT(Myself,61)
   HaveSpell(MONK_LAY_ON_HANDS)  // SPCL815.SPL (Lay On Hands)
 THEN
   RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_HealCast","GLOBAL",3)
+    SetInterrupt(FALSE)
     Spell(Myself,MONK_LAY_ON_HANDS)  // SPCL815.SPL (Lay On Hands)
+    SetInterrupt(TRUE)
 END
 
 IF
