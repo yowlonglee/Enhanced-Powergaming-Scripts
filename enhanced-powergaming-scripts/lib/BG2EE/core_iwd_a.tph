@@ -788,6 +788,8 @@ END
     verbose = 0
     STR_VAR
     pattern = ~~~~~IF
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_HealCast","GLOBAL")
   ActionListEmpty()
   OR(2)
     !See([EVILCUTOFF])
@@ -813,11 +815,15 @@ END
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_HealCast","GLOBAL",3)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_CURE_MEDIUM_WOUNDS)  // SPPR315.SPL (Cure Medium Wounds)
     SetInterrupt(TRUE)
 END~~~~~
     string = ~~~~~IF
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_HealCast","GLOBAL")
   ActionListEmpty()
   OR(2)
     !See([EVILCUTOFF])
@@ -843,12 +849,16 @@ END~~~~~
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_HealCast","GLOBAL",3)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_CURE_MEDIUM_WOUNDS)  // SPPR315.SPL (Cure Medium Wounds)
     SetInterrupt(TRUE)
 END
 
 IF
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_HealCast","GLOBAL")
   ActionListEmpty()
   OR(2)
     !See([EVILCUTOFF])
@@ -874,6 +884,8 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_HealCast","GLOBAL",3)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)  // sppr215.SPL (Cure Moderate Wounds)
     SetInterrupt(TRUE)
