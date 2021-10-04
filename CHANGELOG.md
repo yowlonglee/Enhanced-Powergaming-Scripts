@@ -9,7 +9,7 @@ October 3, 2021
 - BG:EE, BGII: EE, and EET
   - Corrected harmless warning if IWDIfication is installed
   - Updated Skald battlesong to not sing if another action is in progress
-  - Spell Revisions - Updated Luck to cast on all party members
+  - Spell Revisions - Updated Luck and Strength of One to cast on all party members
   - Spell Revisions - Corrected warnings when installed with SCS
 
 ## Version 5.2
