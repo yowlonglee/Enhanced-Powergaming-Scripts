@@ -1,5 +1,14 @@
 # Changelog
 
+## Version 5.4
+
+October XX, 2021
+
+### Changed 
+
+- BG:EE, BGII: EE, and EET
+  - Something Something Dummy Comments
+
 ## Version 5.3
 
 October 3, 2021

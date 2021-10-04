@@ -1969,8 +1969,10 @@ THEN
 END
 
 IF
+	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+	!GlobalTimerNotExpired("MO_HealCast","GLOBAL")
 	ActionListEmpty()
-	Allegiance(Myself,ENEMY)
+	!Allegiance(Myself,ENEMY)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_HEAL)  // SPPR607.SPL (Heal)
 	See(MostDamagedOf([PC]))
@@ -1992,6 +1994,7 @@ IF
 THEN
 	RESPONSE #100
 		SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+		SetGlobalTimer("MO_HealCast","GLOBAL",5)
 		SetInterrupt(FALSE)
 		Spell(LastSeenBy(Myself),CLERIC_HEAL)  // SPPR607.SPL (Heal)
 		SetInterrupt(TRUE)
