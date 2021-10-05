@@ -6,8 +6,9 @@ October XX, 2021
 
 ### Changed 
 
-- BG:EE, BGII: EE, and EET
-  - Something Something Dummy Comments
+- All Games
+  - Updated healing so characters take turns to prevent overhealing
+  - Updated Resurrection spell to prevent accidental healing on a newly resurrected player
 
 ## Version 5.3
 
