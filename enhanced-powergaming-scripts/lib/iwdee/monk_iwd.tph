@@ -1041,7 +1041,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
-    SetGlobalTimer("MO_HealCast","GLOBAL",3)
+    SetGlobalTimer("MO_HealCast","GLOBAL",4)
     SetInterrupt(FALSE)
     SpellRES("SPIN101",LastSeenBy(Myself))  // Healing Touch
     SetInterrupt(TRUE)

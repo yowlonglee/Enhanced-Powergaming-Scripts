@@ -1995,7 +1995,7 @@ IF
 THEN
 	RESPONSE #100
 		SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
-		SetGlobalTimer("MO_HealCast","GLOBAL",5)
+		SetGlobalTimer("MO_HealCast","GLOBAL",ONE_ROUND)
 		SetInterrupt(FALSE)
 		Spell(LastSeenBy(Myself),CLERIC_HEAL)  // SPPR607.SPL (Heal)
 		SetInterrupt(TRUE)
