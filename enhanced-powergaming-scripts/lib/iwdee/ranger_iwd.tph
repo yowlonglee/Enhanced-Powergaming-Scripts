@@ -934,9 +934,11 @@ IF~~~~~
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
-    SetGlobalTimer("MO_HealCast","GLOBAL",4)
+    SetGlobalTimer("MO_HealCast","GLOBAL",TWO_ROUNDS)
+    SetGlobal("MO_CastingHeal","GLOBAL",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_CURE_MEDIUM_WOUNDS)  // SPPR315.SPL (Cure Medium Wounds)
+    SetGlobal("MO_CastingHeal","GLOBAL",0)
     SetInterrupt(TRUE)
 END~~~~~
     string = ~~~~~IF
@@ -967,9 +969,11 @@ END~~~~~
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
-    SetGlobalTimer("MO_HealCast","GLOBAL",4)
+    SetGlobalTimer("MO_HealCast","GLOBAL",TWO_ROUNDS)
+    SetGlobal("MO_CastingHeal","GLOBAL",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_CURE_MEDIUM_WOUNDS)  // SPPR315.SPL (Cure Medium Wounds)
+    SetGlobal("MO_CastingHeal","GLOBAL",0)
     SetInterrupt(TRUE)
 END
 
@@ -1001,7 +1005,8 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
-    SetGlobalTimer("MO_HealCast","GLOBAL",4)
+    SetGlobalTimer("MO_HealCast","GLOBAL",TWO_ROUNDS)
+    SetGlobal("MO_CastingHeal","GLOBAL",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)  // sppr215.SPL (Cure Moderate Wounds)
     SetInterrupt(TRUE)
@@ -1224,9 +1229,11 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
-    SetGlobalTimer("MO_HealCast","GLOBAL",4)
+    SetGlobalTimer("MO_HealCast","GLOBAL",TWO_ROUNDS)
+    SetGlobal("MO_CastingHeal","GLOBAL",1)
     SetInterrupt(FALSE)
     SpellRES("SPIN101",LastSeenBy(Myself))  // Healing Touch
+    SetGlobal("MO_CastingHeal","GLOBAL",0)
     SetInterrupt(TRUE)
 END
 

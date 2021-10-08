@@ -6,6 +6,14 @@
 // * This script sets for sr plangood
 
 IF
+  !GlobalTimerNotExpired("MO_HealCast","GLOBAL")
+  Global("MO_CastingHeal","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_CastingHeal","GLOBAL",0)
+END
+
+IF
 	Die()
 	Alignment(Myself,MASK_EVIL)
 THEN
@@ -1995,9 +2003,11 @@ IF
 THEN
 	RESPONSE #100
 		SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
-		SetGlobalTimer("MO_HealCast","GLOBAL",ONE_ROUND)
+		SetGlobalTimer("MO_HealCast","GLOBAL",TWO_ROUNDS)
+    	SetGlobal("MO_CastingHeal","GLOBAL",1)
 		SetInterrupt(FALSE)
 		Spell(LastSeenBy(Myself),CLERIC_HEAL)  // SPPR607.SPL (Heal)
+    	SetGlobal("MO_CastingHeal","GLOBAL",0)
 		SetInterrupt(TRUE)
 END
 

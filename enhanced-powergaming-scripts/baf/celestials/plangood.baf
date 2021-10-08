@@ -6,6 +6,14 @@
 // * This script sets for plangood
 
 IF
+  !GlobalTimerNotExpired("MO_HealCast","GLOBAL")
+  Global("MO_CastingHeal","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_CastingHeal","GLOBAL",0)
+END
+
+IF
 	Global("MO_TrueSightActive","LOCALS",1)
 	CheckStat(Myself,0,TRUE_SIGHT)
 	Allegiance(Myself,GOODCUTOFF)
@@ -2032,7 +2040,7 @@ END
 
 IF
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-    !GlobalTimerNotExpired("MO_HealCast","GLOBAL")
+    GlobalLT("MO_CastingHeal","GLOBAL",1)
 	ActionListEmpty()
 	!Allegiance(Myself,ENEMY)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -2057,9 +2065,11 @@ IF
 THEN
 	RESPONSE #100
 		SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
-		SetGlobalTimer("MO_HealCast","GLOBAL",ONE_ROUND)
+		SetGlobalTimer("MO_HealCast","GLOBAL",TWO_ROUNDS)
+    	SetGlobal("MO_CastingHeal","GLOBAL",1)
 		SetInterrupt(FALSE)
 		Spell(LastSeenBy(Myself),CLERIC_HEAL)  // SPPR607.SPL (Heal)
+    	SetGlobal("MO_CastingHeal","GLOBAL",0)
 		SetInterrupt(TRUE)
 END
 
