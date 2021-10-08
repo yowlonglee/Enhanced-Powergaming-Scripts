@@ -106,7 +106,7 @@ This is a script specifically designed for the Paladin class. This script will c
 
 ##### MO-RANGER
 
-This is a script specifically designed for the Ranger class. This script will cast pre-buff spells when the "D" key is pressed. In addition to pre-buffing, the script will intelligently heal and use abilities both in and out of combat.
+This is a script specifically designed for the Ranger class (NON-dual or multi). This script will cast pre-buff spells when the "D" key is pressed. In addition to pre-buffing, the script will intelligently heal and use abilities both in and out of combat. If you are playing a Cleric/Ranger dual or multiclass, please use the MO-Core or MO-BasicAI script instead.
 
 ##### MO-SKALD
 
