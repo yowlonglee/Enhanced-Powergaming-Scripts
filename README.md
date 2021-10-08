@@ -149,6 +149,7 @@ Requires Spell Revisions - Offers the vanilla, non-SR(R) versions of Haste and I
 - Cahir for testing and providing feedback on IWD: EE scripts.
 - CamDawg_G3 for providing insight and feedback into difficult code.
 - Ulpian for providing Russian translation.
+- Jastey for testing and providing feedback on improving healing with multiple healers.
 
 ## Copyright
 
