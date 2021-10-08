@@ -18,6 +18,14 @@
 // * are: Ilbratha +1, Ring of Duplication, Amulet of the Cheetah, and Gargoyle Boots.
 
 IF
+  !GlobalTimerNotExpired("MO_HealCast","GLOBAL")
+  Global("MO_CastingHeal","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_CastingHeal","GLOBAL",0)
+END
+
+IF
   PartyRested()
 THEN
   RESPONSE #100

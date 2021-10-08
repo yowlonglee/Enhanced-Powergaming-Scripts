@@ -15,6 +15,14 @@
 // * Ring of Duplication, Amulet of the Cheetah, Headband of the Devout, and Gargoyle Boots.
 
 IF
+  !GlobalTimerNotExpired("MO_HealCast","GLOBAL")
+  Global("MO_CastingHeal","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_CastingHeal","GLOBAL",0)
+END
+
+IF
   PartyRested()
 THEN
   RESPONSE #100

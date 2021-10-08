@@ -9,6 +9,14 @@
 // * is pressed. If the character is able, the script will constantly be detecting traps.
 
 IF
+  !GlobalTimerNotExpired("MO_HealCast","GLOBAL")
+  Global("MO_CastingHeal","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_CastingHeal","GLOBAL",0)
+END
+
+IF
   PartyRested()
 THEN
   RESPONSE #100
