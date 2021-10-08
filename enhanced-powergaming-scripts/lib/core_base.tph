@@ -4543,7 +4543,7 @@ END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  !GlobalTimerNotExpired("MO_HealCast","GLOBAL")
+  GlobalLT("MO_CastingHeal","GLOBAL",1)
   ActionListEmpty()
   OR(2)
     !See([EVILCUTOFF])
@@ -4577,7 +4577,7 @@ END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  !GlobalTimerNotExpired("MO_HealCast","GLOBAL")
+  GlobalLT("MO_CastingHeal","GLOBAL",1)
   ActionListEmpty()
   OR(2)
     !See([EVILCUTOFF])
@@ -4612,7 +4612,7 @@ END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  !GlobalTimerNotExpired("MO_HealCast","GLOBAL")
+  GlobalLT("MO_CastingHeal","GLOBAL",1)
   ActionListEmpty()
   OR(2)
     !See([EVILCUTOFF])
@@ -4648,7 +4648,7 @@ END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  !GlobalTimerNotExpired("MO_HealCast","GLOBAL")
+  GlobalLT("MO_CastingHeal","GLOBAL",1)
   ActionListEmpty()
   OR(2)
     !See([EVILCUTOFF])
@@ -4684,7 +4684,7 @@ END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  !GlobalTimerNotExpired("MO_HealCast","GLOBAL")
+  GlobalLT("MO_CastingHeal","GLOBAL",1)
   ActionListEmpty()
   HaveSpellRES("SPIN101")  // Healing Touch
   OR(2)

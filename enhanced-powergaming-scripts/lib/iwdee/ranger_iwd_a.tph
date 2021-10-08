@@ -909,7 +909,7 @@ IF~~~~~
     STR_VAR
     pattern = ~~~~~IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  !GlobalTimerNotExpired("MO_HealCast","GLOBAL")
+  GlobalLT("MO_CastingHeal","GLOBAL",1)
   ActionListEmpty()
   !See([EVILCUTOFF])
   HaveSpell(CLERIC_CURE_MEDIUM_WOUNDS)  // SPPR315.SPL (Cure Medium Wounds)
@@ -942,7 +942,7 @@ THEN
 END~~~~~
     string = ~~~~~IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  !GlobalTimerNotExpired("MO_HealCast","GLOBAL")
+  GlobalLT("MO_CastingHeal","GLOBAL",1)
   ActionListEmpty()
   !See([EVILCUTOFF])
   HaveSpell(CLERIC_CURE_MEDIUM_WOUNDS)  // SPPR315.SPL (Cure Medium Wounds)
@@ -976,7 +976,7 @@ END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  !GlobalTimerNotExpired("MO_HealCast","GLOBAL")
+  GlobalLT("MO_CastingHeal","GLOBAL",1)
   ActionListEmpty()
   !See([EVILCUTOFF])
   HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)  // sppr215.SPL (Cure Moderate Wounds)
@@ -1202,7 +1202,7 @@ END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  !GlobalTimerNotExpired("MO_HealCast","GLOBAL")
+  GlobalLT("MO_CastingHeal","GLOBAL",1)
   ActionListEmpty()
   HaveSpellRES("SPIN101")  // Healing Touch
   !See([EVILCUTOFF])

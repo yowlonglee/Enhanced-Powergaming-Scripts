@@ -91,7 +91,7 @@ END
     STR_VAR
     pattern = ~~~~~IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  !GlobalTimerNotExpired("MO_HealCast","GLOBAL")
+  GlobalLT("MO_CastingHeal","GLOBAL",1)
   ActionListEmpty()
   OR(2)
     !See([EVILCUTOFF])
@@ -126,7 +126,7 @@ THEN
 END~~~~~
     string = ~~~~~IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  !GlobalTimerNotExpired("MO_HealCast","GLOBAL")
+  GlobalLT("MO_CastingHeal","GLOBAL",1)
   ActionListEmpty()
   OR(2)
     !See([EVILCUTOFF])
@@ -162,7 +162,7 @@ END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  !GlobalTimerNotExpired("MO_HealCast","GLOBAL")
+  GlobalLT("MO_CastingHeal","GLOBAL",1)
   ActionListEmpty()
   OR(2)
     !See([EVILCUTOFF])
