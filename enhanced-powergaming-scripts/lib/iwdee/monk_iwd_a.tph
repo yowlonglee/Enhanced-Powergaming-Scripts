@@ -1021,7 +1021,6 @@ IF
   HaveSpellRES("SPIN101")  // Healing Touch
   !See([EVILCUTOFF])
   See(MostDamagedOf([PC]))
-  !CheckSpellState(LastSeenBy(Myself),RAISED)
   HPPercentLT(LastSeenBy(Myself),80)
   OR(2)
     Range(MostDamagedOf([PC]),6)

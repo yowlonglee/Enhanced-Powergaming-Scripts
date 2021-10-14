@@ -1,5 +1,14 @@
 # Changelog
 
+## Version 5.4.1
+
+October 14, 2021
+
+### Changed 
+
+- All Games
+  - Removed changes to Resurrection spell from previous release. The previous changes appears to be conflicting with older EE installs and/or specific mods. 
+
 ## Version 5.4
 
 October 8, 2021
