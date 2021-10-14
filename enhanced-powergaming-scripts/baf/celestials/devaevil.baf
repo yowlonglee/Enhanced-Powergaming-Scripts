@@ -954,7 +954,6 @@ IF
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_CURE_CRITICAL_WOUNDS)  // SPPR502.SPL (Cure Critical Wounds)
 	See(MostDamagedOf([PC]))
-    !CheckSpellState(LastSeenBy(Myself),RAISED)
 	HPPercentLT(LastSeenBy(Myself),40)
 	!StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
 	!StateCheck(LastSeenBy(Myself),STATE_NOT_APPROACHABLE)

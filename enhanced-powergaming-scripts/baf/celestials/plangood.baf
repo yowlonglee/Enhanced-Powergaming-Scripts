@@ -2046,7 +2046,6 @@ IF
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_HEAL)  // SPPR607.SPL (Heal)
 	See(MostDamagedOf([PC]))
-    !CheckSpellState(LastSeenBy(Myself),RAISED)
 	HPPercentLT(LastSeenBy(Myself),40)
 	!StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
 	!StateCheck(LastSeenBy(Myself),STATE_NOT_APPROACHABLE)
@@ -2066,10 +2065,10 @@ THEN
 	RESPONSE #100
 		SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
 		SetGlobalTimer("MO_HealCast","GLOBAL",TWO_ROUNDS)
-    	SetGlobal("MO_CastingHeal","GLOBAL",1)
+    SetGlobal("MO_CastingHeal","GLOBAL",1)
 		SetInterrupt(FALSE)
 		Spell(LastSeenBy(Myself),CLERIC_HEAL)  // SPPR607.SPL (Heal)
-    	SetGlobal("MO_CastingHeal","GLOBAL",0)
+    SetGlobal("MO_CastingHeal","GLOBAL",0)
 		SetInterrupt(TRUE)
 END
 
