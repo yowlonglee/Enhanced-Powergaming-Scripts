@@ -4,7 +4,8 @@
  *
  */
 
-BACKUP ~enhanced-powergaming-scripts/backup~
+BACKUP ~weidu_external/backup/enhanced-powergaming-scripts~
+//BACKUP ~enhanced-powergaming-scripts/backup~
 AUTHOR ~morpheus562~
 
 VERSION ~v5.5~
@@ -13,11 +14,28 @@ README ~enhanced-powergaming-scripts/readme.html~
 ASK_EVERY_COMPONENT
 
 ALWAYS
+	// required because of non-standard BACKUP path
+  	OUTER_TEXT_SPRINT MOD_FOLDER ~enhanced-powergaming-scripts~
+  	// root folder for mutable data
+  	OUTER_TEXT_SPRINT WORK_FOLDER ~weidu_external~
 
 	ACTION_IF ((FILE_EXISTS ~dlc/sod-dlc.zip~) OR (FILE_EXISTS ~sod-dlc.zip~)) THEN BEGIN FAIL @3001 END
 
-	ACTION_DEFINE_ARRAY cdreload BEGIN item_descriptions script_descriptions spell_descriptions script_dialog END
-	LAF HANDLE_CHARSETS INT_VAR infer_charsets = 1 STR_VAR tra_path = ~enhanced-powergaming-scripts/languages~ reload_array = cdreload END
+	ACTION_DEFINE_ARRAY monoconvert BEGIN setup END
+	ACTION_DEFINE_ARRAY moreload BEGIN item_descriptions script_descriptions spell_descriptions script_dialog END
+	//LAF HANDLE_CHARSETS INT_VAR infer_charsets = 1 STR_VAR tra_path = ~enhanced-powergaming-scripts/languages~ reload_array = moreload END
+	LAF HANDLE_CHARSETS
+        INT_VAR
+            from_utf8 = 1
+            infer_charset = 1
+            verbose = 1
+        STR_VAR
+            default_language = english
+            tra_path = EVAL ~%MOD_FOLDER%/languages~
+            out_path = EVAL ~%WORK_FOLDER%/lang/%MOD_FOLDER%~
+            noconvert_array = monoconvert
+            reload_array = moreload
+    END
 
 	//Block of code provided by subtledoctor
 	INCLUDE ~enhanced-powergaming-scripts/func/misc_functions.tpa~
