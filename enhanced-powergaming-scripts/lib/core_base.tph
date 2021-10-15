@@ -30,7 +30,7 @@ IF
   HasItemEquiped("POTN17",Myself)  // Elixir of Health
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     UseItem("POTN17",Myself)  // Elixir of Health
     DisplayStringHead(Myself,@5005)
 END
@@ -41,7 +41,7 @@ IF
   HasItemEquiped("POTN20",Myself)  // Antidote
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     UseItem("POTN20",Myself)  // Antidote
     DisplayStringHead(Myself,@5005)
 END
@@ -59,7 +59,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_VOCALIZE)  // SPWI219.SPL (Vocalize)
     SetInterrupt(TRUE)
@@ -82,7 +82,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_PROTECTION_FROM_MAGIC_WEAPONS)  // SPWI611.SPL (Protection From Magical Weapons)
     SetInterrupt(TRUE)
@@ -105,7 +105,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_ABSOLUTE_IMMUNITY)  // SPWI907.SPL (Absolute Immunity)
     SetInterrupt(TRUE)
@@ -128,7 +128,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_IMPROVED_MANTLE)  // SPWI808.SPL (Improved Mantle)
     SetInterrupt(TRUE)
@@ -151,7 +151,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_MANTLE)  // SPWI708.SPL (Mantle)
     SetInterrupt(TRUE)
@@ -170,7 +170,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_STONE_SKIN)  // SPWI408.SPL (Stoneskin)
     SetInterrupt(TRUE)
@@ -188,7 +188,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     Spell(Myself,CLERIC_IRONSKIN)  // SPPR506.SPL (Iron Skins)
 END
 
@@ -200,7 +200,7 @@ IF
   !CheckSpellState(Myself,GLOBE)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     UseItem("Boot12",Myself)  // Gargoyle Boots
     IncrementGlobal("MO_UsedGargoyle","GLOBAL",1)
 END
@@ -234,7 +234,7 @@ IF
   CheckStatLT(Myself,18,CON)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     UseItem("BELT09",Myself)  // Girdle of Fortitude
     IncrementGlobal("MO_UsedFortitude","GLOBAL",1)
 END
@@ -245,7 +245,7 @@ IF
   HasItemEquiped("CLCK25",Myself)  // Cloak of the Stars
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     UseItem("CLCK25",Myself)  // Cloak of the Stars
     IncrementGlobal("MO_UsedClkOfStars","GLOBAL",1)
 END
@@ -259,7 +259,7 @@ IF
   ActuallyInCombat()
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     UseItem("POTN55",Myself)  // Potion of Superior Healing
     DisplayStringHead(Myself,@5005)
 END
@@ -273,7 +273,7 @@ IF
   ActuallyInCombat()
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     UseItem("POTN52",Myself)  // Potion of Extra Healing
     DisplayStringHead(Myself,@5005)
 END
@@ -287,7 +287,7 @@ IF
   ActuallyInCombat()
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     UseItem("POTN08",Myself)  // Potion of Healing
     DisplayStringHead(Myself,@5005)
 END
@@ -308,7 +308,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,CLERIC_SANCTUARY)  // SPPR109.SPL (Sanctuary)
     SetInterrupt(TRUE)
@@ -354,7 +354,7 @@ IF
     StateCheck(Player6,STATE_REALLY_DEAD)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,CLERIC_MASS_RAISE_DEAD)  // SPPR729.SPL (Mass Raise Dead)
     SetInterrupt(TRUE)
@@ -374,7 +374,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Player1,CLERIC_RESURRECTION)  // SPPR712.SPL (Resurrection)
     SetInterrupt(TRUE)
@@ -394,7 +394,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Player2,CLERIC_RESURRECTION)  // SPPR712.SPL (Resurrection)
     SetInterrupt(TRUE)
@@ -414,7 +414,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Player3,CLERIC_RESURRECTION)  // SPPR712.SPL (Resurrection)
     SetInterrupt(TRUE)
@@ -434,7 +434,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Player4,CLERIC_RESURRECTION)  // SPPR712.SPL (Resurrection)
     SetInterrupt(TRUE)
@@ -454,7 +454,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Player5,CLERIC_RESURRECTION)  // SPPR712.SPL (Resurrection)
     SetInterrupt(TRUE)
@@ -474,7 +474,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Player6,CLERIC_RESURRECTION)  // SPPR712.SPL (Resurrection)
     SetInterrupt(TRUE)
@@ -494,7 +494,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Player1,CLERIC_RAISE_DEAD)  // SPPR504.SPL (Raise Dead)
     SetInterrupt(TRUE)
@@ -514,7 +514,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Player2,CLERIC_RAISE_DEAD)  // SPPR504.SPL (Raise Dead)
     SetInterrupt(TRUE)
@@ -534,7 +534,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Player3,CLERIC_RAISE_DEAD)  // SPPR504.SPL (Raise Dead)
     SetInterrupt(TRUE)
@@ -554,7 +554,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Player4,CLERIC_RAISE_DEAD)  // SPPR504.SPL (Raise Dead)
     SetInterrupt(TRUE)
@@ -574,7 +574,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Player5,CLERIC_RAISE_DEAD)  // SPPR504.SPL (Raise Dead)
     SetInterrupt(TRUE)
@@ -594,7 +594,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Player6,CLERIC_RAISE_DEAD)  // SPPR504.SPL (Raise Dead)
     SetInterrupt(TRUE)
@@ -614,7 +614,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     SpellRES("SPJA01",Player1)  // Harper's Call
     SetInterrupt(TRUE)
@@ -634,7 +634,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     SpellRES("SPJA01",Player2)  // Harper's Call
     SetInterrupt(TRUE)
@@ -654,7 +654,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     SpellRES("SPJA01",Player3)  // Harper's Call
     SetInterrupt(TRUE)
@@ -674,7 +674,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     SpellRES("SPJA01",Player4)  // Harper's Call
     SetInterrupt(TRUE)
@@ -694,7 +694,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     SpellRES("SPJA01",Player5)  // Harper's Call
     SetInterrupt(TRUE)
@@ -714,7 +714,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     SpellRES("SPJA01",Player6)  // Harper's Call
     SetInterrupt(TRUE)
@@ -733,7 +733,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_RESTORATION)  // SPPR713.SPL (Greater Restoration)
     SetInterrupt(TRUE)
@@ -752,7 +752,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_RESTORATION)  // SPPR713.SPL (Greater Restoration)
     SetInterrupt(TRUE)
@@ -771,7 +771,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_RESTORATION)  // SPPR713.SPL (Greater Restoration)
     SetInterrupt(TRUE)
@@ -790,7 +790,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_RESTORATION)  // SPPR713.SPL (Greater Restoration)
     SetInterrupt(TRUE)
@@ -809,7 +809,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_RESTORATION)  // SPPR713.SPL (Greater Restoration)
     SetInterrupt(TRUE)
@@ -828,7 +828,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_RESTORATION)  // SPPR713.SPL (Greater Restoration)
     SetInterrupt(TRUE)
@@ -847,7 +847,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_RESTORATION)  // SPPR713.SPL (Greater Restoration)
     SetInterrupt(TRUE)
@@ -867,7 +867,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_LESSER_RESTORATION)  // SPPR417.SPL (Lesser Restoration)
     SetInterrupt(TRUE)
@@ -887,7 +887,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_LESSER_RESTORATION)  // SPPR417.SPL (Lesser Restoration)
     SetInterrupt(TRUE)
@@ -907,7 +907,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_LESSER_RESTORATION)  // SPPR417.SPL (Lesser Restoration)
     SetInterrupt(TRUE)
@@ -927,7 +927,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_LESSER_RESTORATION)  // SPPR417.SPL (Lesser Restoration)
     SetInterrupt(TRUE)
@@ -947,7 +947,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_LESSER_RESTORATION)  // SPPR417.SPL (Lesser Restoration)
     SetInterrupt(TRUE)
@@ -967,7 +967,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_LESSER_RESTORATION)  // SPPR417.SPL (Lesser Restoration)
     SetInterrupt(TRUE)
@@ -987,7 +987,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_LESSER_RESTORATION)  // SPPR417.SPL (Lesser Restoration)
     SetInterrupt(TRUE)
@@ -1013,7 +1013,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
     SetInterrupt(TRUE)
@@ -1039,7 +1039,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
     SetInterrupt(TRUE)
@@ -1065,7 +1065,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
     SetInterrupt(TRUE)
@@ -1091,7 +1091,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
     SetInterrupt(TRUE)
@@ -1117,7 +1117,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
     SetInterrupt(TRUE)
@@ -1143,7 +1143,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
     SetInterrupt(TRUE)
@@ -1175,7 +1175,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
     SetInterrupt(TRUE)
@@ -1207,7 +1207,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
     SetInterrupt(TRUE)
@@ -1239,7 +1239,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
     SetInterrupt(TRUE)
@@ -1271,7 +1271,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
     SetInterrupt(TRUE)
@@ -1303,7 +1303,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
     SetInterrupt(TRUE)
@@ -1335,7 +1335,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
     SetInterrupt(TRUE)
@@ -1362,7 +1362,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
     SetInterrupt(TRUE)
@@ -1389,7 +1389,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
     SetInterrupt(TRUE)
@@ -1416,7 +1416,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
     SetInterrupt(TRUE)
@@ -1443,7 +1443,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
     SetInterrupt(TRUE)
@@ -1470,7 +1470,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
     SetInterrupt(TRUE)
@@ -1497,7 +1497,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
     SetInterrupt(TRUE)
@@ -1524,7 +1524,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
     SetInterrupt(TRUE)
@@ -1550,7 +1550,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
     SetInterrupt(TRUE)
@@ -1576,7 +1576,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
     SetInterrupt(TRUE)
@@ -1602,7 +1602,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
     SetInterrupt(TRUE)
@@ -1628,7 +1628,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
     SetInterrupt(TRUE)
@@ -1654,7 +1654,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
     SetInterrupt(TRUE)
@@ -1680,7 +1680,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
     SetInterrupt(TRUE)
@@ -1706,7 +1706,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
     SetInterrupt(TRUE)
@@ -1728,7 +1728,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_SLOW_POISON)  // SPPR212.SPL (Slow Poison)
     SetInterrupt(TRUE)
@@ -1750,7 +1750,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_SLOW_POISON)  // SPPR212.SPL (Slow Poison)
     SetInterrupt(TRUE)
@@ -1772,7 +1772,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_SLOW_POISON)  // SPPR212.SPL (Slow Poison)
     SetInterrupt(TRUE)
@@ -1794,7 +1794,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_SLOW_POISON)  // SPPR212.SPL (Slow Poison)
     SetInterrupt(TRUE)
@@ -1816,7 +1816,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_SLOW_POISON)  // SPPR212.SPL (Slow Poison)
     SetInterrupt(TRUE)
@@ -1838,7 +1838,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_SLOW_POISON)  // SPPR212.SPL (Slow Poison)
     SetInterrupt(TRUE)
@@ -1860,7 +1860,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_SLOW_POISON)  // SPPR212.SPL (Slow Poison)
     SetInterrupt(TRUE)
@@ -1882,7 +1882,7 @@ IF
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     SpellRES("SPIN102",LastSeenBy(Myself))  // Cure Affliction
     SetInterrupt(TRUE)
@@ -1904,7 +1904,7 @@ IF
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     SpellRES("SPIN102",LastSeenBy(Myself))  // Cure Affliction
     SetInterrupt(TRUE)
@@ -1926,7 +1926,7 @@ IF
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     SpellRES("SPIN102",LastSeenBy(Myself))  // Cure Affliction
     SetInterrupt(TRUE)
@@ -1948,7 +1948,7 @@ IF
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     SpellRES("SPIN102",LastSeenBy(Myself))  // Cure Affliction
     SetInterrupt(TRUE)
@@ -1970,7 +1970,7 @@ IF
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     SpellRES("SPIN102",LastSeenBy(Myself))  // Cure Affliction
     SetInterrupt(TRUE)
@@ -1992,7 +1992,7 @@ IF
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     SpellRES("SPIN102",LastSeenBy(Myself))  // Cure Affliction
     SetInterrupt(TRUE)
@@ -2014,7 +2014,7 @@ IF
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     SpellRES("SPIN102",LastSeenBy(Myself))  // Cure Affliction
     SetInterrupt(TRUE)
@@ -2035,7 +2035,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
     SetInterrupt(TRUE)
@@ -2056,7 +2056,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
     SetInterrupt(TRUE)
@@ -2077,7 +2077,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
     SetInterrupt(TRUE)
@@ -2098,7 +2098,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
     SetInterrupt(TRUE)
@@ -2119,7 +2119,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
     SetInterrupt(TRUE)
@@ -2140,7 +2140,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
     SetInterrupt(TRUE)
@@ -2170,7 +2170,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,CLERIC_ZONE_OF_SWEET_AIR)  // SPPR318.SPL (Zone of Sweet Air)
     SetInterrupt(TRUE)
@@ -2198,7 +2198,7 @@ THEN
   RESPONSE #100
     SetGlobal("MO_TrueSightActive","LOCALS",1)
     SetGlobal("MO_PartyTrueSight","GLOBAL",1)
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_TRUE_SIGHT)  // SPWI609.SPL (True Sight)
     SetInterrupt(TRUE)
@@ -2225,7 +2225,7 @@ THEN
   RESPONSE #100
     SetGlobal("MO_TrueSightActive","LOCALS",1)
     SetGlobal("MO_PartyTrueSight","GLOBAL",1)
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_TRUE_SIGHT)  // SPWI609.SPL (True Sight)
     SetInterrupt(TRUE)
@@ -2252,7 +2252,7 @@ THEN
   RESPONSE #100
     SetGlobal("MO_TrueSightActive","LOCALS",1)
     SetGlobal("MO_PartyTrueSight","GLOBAL",1)
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_TRUE_SIGHT)  // SPWI609.SPL (True Sight)
     SetInterrupt(TRUE)
@@ -2279,7 +2279,7 @@ THEN
   RESPONSE #100
     SetGlobal("MO_TrueSightActive","LOCALS",1)
     SetGlobal("MO_PartyTrueSight","GLOBAL",1)
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_TRUE_SIGHT)  // SPWI609.SPL (True Sight)
     SetInterrupt(TRUE)
@@ -2306,7 +2306,7 @@ THEN
   RESPONSE #100
     SetGlobal("MO_TrueSightActive","LOCALS",1)
     SetGlobal("MO_PartyTrueSight","GLOBAL",1)
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_TRUE_SIGHT)  // SPWI609.SPL (True Sight)
     SetInterrupt(TRUE)
@@ -2333,7 +2333,7 @@ THEN
   RESPONSE #100
     SetGlobal("MO_TrueSightActive","LOCALS",1)
     SetGlobal("MO_PartyTrueSight","GLOBAL",1)
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_TRUE_SIGHT)  // SPWI609.SPL (True Sight)
     SetInterrupt(TRUE)
@@ -2360,7 +2360,7 @@ THEN
   RESPONSE #100
     SetGlobal("MO_TrueSightActive","LOCALS",1)
     SetGlobal("MO_PartyTrueSight","GLOBAL",1)
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_TRUE_SIGHT)  // SPWI609.SPL (True Sight)
     SetInterrupt(TRUE)
@@ -2387,7 +2387,7 @@ THEN
   RESPONSE #100
     SetGlobal("MO_TrueSightActive","LOCALS",1)
     SetGlobal("MO_PartyTrueSight","GLOBAL",1)
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_TRUE_SIGHT)  // SPWI609.SPL (True Sight)
     SetInterrupt(TRUE)
@@ -2412,7 +2412,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetGlobal("MO_TrueSightActive","LOCALS",1)
     SetGlobal("MO_PartyTrueSight","GLOBAL",1)
     SetInterrupt(FALSE)
@@ -2438,7 +2438,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetGlobal("MO_TrueSightActive","LOCALS",1)
     SetGlobal("MO_PartyTrueSight","GLOBAL",1)
     SetInterrupt(FALSE)
@@ -2464,7 +2464,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetGlobal("MO_TrueSightActive","LOCALS",1)
     SetGlobal("MO_PartyTrueSight","GLOBAL",1)
     SetInterrupt(FALSE)
@@ -2490,7 +2490,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetGlobal("MO_TrueSightActive","LOCALS",1)
     SetGlobal("MO_PartyTrueSight","GLOBAL",1)
     SetInterrupt(FALSE)
@@ -2516,7 +2516,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetGlobal("MO_TrueSightActive","LOCALS",1)
     SetGlobal("MO_PartyTrueSight","GLOBAL",1)
     SetInterrupt(FALSE)
@@ -2542,7 +2542,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetGlobal("MO_TrueSightActive","LOCALS",1)
     SetGlobal("MO_PartyTrueSight","GLOBAL",1)
     SetInterrupt(FALSE)
@@ -2568,7 +2568,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetGlobal("MO_TrueSightActive","LOCALS",1)
     SetGlobal("MO_PartyTrueSight","GLOBAL",1)
     SetInterrupt(FALSE)
@@ -2594,7 +2594,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetGlobal("MO_TrueSightActive","LOCALS",1)
     SetGlobal("MO_PartyTrueSight","GLOBAL",1)
     SetInterrupt(FALSE)
@@ -2619,7 +2619,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
     SetInterrupt(TRUE)
@@ -2642,7 +2642,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
     SetInterrupt(TRUE)
@@ -2665,7 +2665,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
     SetInterrupt(TRUE)
@@ -2688,7 +2688,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
     SetInterrupt(TRUE)
@@ -2711,7 +2711,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
     SetInterrupt(TRUE)
@@ -2734,7 +2734,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
     SetInterrupt(TRUE)
@@ -2757,7 +2757,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
     SetInterrupt(TRUE)
@@ -2781,7 +2781,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_DETECT_INVISIBILITY)  // SPWI203.SPL (Detect Invisibility)
     SetInterrupt(TRUE)
@@ -2805,7 +2805,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_DETECT_INVISIBILITY)  // SPWI203.SPL (Detect Invisibility)
     SetInterrupt(TRUE)
@@ -2829,7 +2829,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_DETECT_INVISIBILITY)  // SPWI203.SPL (Detect Invisibility)
     SetInterrupt(TRUE)
@@ -2853,7 +2853,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_DETECT_INVISIBILITY)  // SPWI203.SPL (Detect Invisibility)
     SetInterrupt(TRUE)
@@ -2877,7 +2877,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_DETECT_INVISIBILITY)  // SPWI203.SPL (Detect Invisibility)
     SetInterrupt(TRUE)
@@ -2901,7 +2901,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_DETECT_INVISIBILITY)  // SPWI203.SPL (Detect Invisibility)
     SetInterrupt(TRUE)
@@ -2925,7 +2925,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_DETECT_INVISIBILITY)  // SPWI203.SPL (Detect Invisibility)
     SetInterrupt(TRUE)
@@ -2954,7 +2954,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_BREACH)  // SPWI513.SPL (Breach)
     SetInterrupt(TRUE)
@@ -2983,7 +2983,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_BREACH)  // SPWI513.SPL (Breach)
     SetInterrupt(TRUE)
@@ -3012,7 +3012,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_BREACH)  // SPWI513.SPL (Breach)
     SetInterrupt(TRUE)
@@ -3041,7 +3041,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_BREACH)  // SPWI513.SPL (Breach)
     SetInterrupt(TRUE)
@@ -3070,7 +3070,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_BREACH)  // SPWI513.SPL (Breach)
     SetInterrupt(TRUE)
@@ -3099,7 +3099,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_BREACH)  // SPWI513.SPL (Breach)
     SetInterrupt(TRUE)
@@ -3132,7 +3132,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
     SetInterrupt(TRUE)
@@ -3165,7 +3165,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
     SetInterrupt(TRUE)
@@ -3198,7 +3198,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
     SetInterrupt(TRUE)
@@ -3231,7 +3231,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
     SetInterrupt(TRUE)
@@ -3264,7 +3264,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
     SetInterrupt(TRUE)
@@ -3297,7 +3297,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
     SetInterrupt(TRUE)
@@ -3326,7 +3326,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
     SetInterrupt(TRUE)
@@ -3355,7 +3355,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
     SetInterrupt(TRUE)
@@ -3384,7 +3384,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
     SetInterrupt(TRUE)
@@ -3413,7 +3413,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
     SetInterrupt(TRUE)
@@ -3442,7 +3442,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
     SetInterrupt(TRUE)
@@ -3471,7 +3471,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
     SetInterrupt(TRUE)
@@ -3500,7 +3500,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_PIERCE_MAGIC)  // SPWI608.SPL (Pierce Magic)
     SetInterrupt(TRUE)
@@ -3529,7 +3529,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_PIERCE_MAGIC)  // SPWI608.SPL (Pierce Magic)
     SetInterrupt(TRUE)
@@ -3558,7 +3558,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_PIERCE_MAGIC)  // SPWI608.SPL (Pierce Magic)
     SetInterrupt(TRUE)
@@ -3587,7 +3587,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_PIERCE_MAGIC)  // SPWI608.SPL (Pierce Magic)
     SetInterrupt(TRUE)
@@ -3616,7 +3616,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_PIERCE_MAGIC)  // SPWI608.SPL (Pierce Magic)
     SetInterrupt(TRUE)
@@ -3645,7 +3645,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_PIERCE_MAGIC)  // SPWI608.SPL (Pierce Magic)
     SetInterrupt(TRUE)
@@ -3675,7 +3675,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_WARDING_WHIP)  // SPWI705.SPL (Khelben's Warding Whip)
     SetInterrupt(TRUE)
@@ -3705,7 +3705,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_WARDING_WHIP)  // SPWI705.SPL (Khelben's Warding Whip)
     SetInterrupt(TRUE)
@@ -3735,7 +3735,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_WARDING_WHIP)  // SPWI705.SPL (Khelben's Warding Whip)
     SetInterrupt(TRUE)
@@ -3765,7 +3765,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_WARDING_WHIP)  // SPWI705.SPL (Khelben's Warding Whip)
     SetInterrupt(TRUE)
@@ -3795,7 +3795,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_WARDING_WHIP)  // SPWI705.SPL (Khelben's Warding Whip)
     SetInterrupt(TRUE)
@@ -3825,7 +3825,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_WARDING_WHIP)  // SPWI705.SPL (Khelben's Warding Whip)
     SetInterrupt(TRUE)
@@ -3853,7 +3853,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
     SetInterrupt(TRUE)
@@ -3881,7 +3881,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
     SetInterrupt(TRUE)
@@ -3909,7 +3909,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
     SetInterrupt(TRUE)
@@ -3937,7 +3937,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
     SetInterrupt(TRUE)
@@ -3965,7 +3965,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
     SetInterrupt(TRUE)
@@ -3993,7 +3993,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
     SetInterrupt(TRUE)
@@ -4021,7 +4021,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_PIERCE_SHIELD)  // SPWI805.SPL (Pierce Shield)
     SetInterrupt(TRUE)
@@ -4049,7 +4049,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_PIERCE_SHIELD)  // SPWI805.SPL (Pierce Shield)
     SetInterrupt(TRUE)
@@ -4077,7 +4077,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_PIERCE_SHIELD)  // SPWI805.SPL (Pierce Shield)
     SetInterrupt(TRUE)
@@ -4105,7 +4105,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_PIERCE_SHIELD)  // SPWI805.SPL (Pierce Shield)
     SetInterrupt(TRUE)
@@ -4133,7 +4133,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_PIERCE_SHIELD)  // SPWI805.SPL (Pierce Shield)
     SetInterrupt(TRUE)
@@ -4161,7 +4161,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_PIERCE_SHIELD)  // SPWI805.SPL (Pierce Shield)
     SetInterrupt(TRUE)
@@ -4189,7 +4189,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
     SetInterrupt(TRUE)
@@ -4217,7 +4217,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
     SetInterrupt(TRUE)
@@ -4245,7 +4245,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
     SetInterrupt(TRUE)
@@ -4273,7 +4273,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
     SetInterrupt(TRUE)
@@ -4301,7 +4301,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
     SetInterrupt(TRUE)
@@ -4329,7 +4329,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
     SetInterrupt(TRUE)
@@ -4353,7 +4353,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_DETECT_ILLUSION)  // SPWI322.SPL (Detect Illusion)
     SetInterrupt(TRUE)
@@ -4377,7 +4377,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_DETECT_ILLUSION)  // SPWI322.SPL (Detect Illusion)
     SetInterrupt(TRUE)
@@ -4401,7 +4401,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_DETECT_ILLUSION)  // SPWI322.SPL (Detect Illusion)
     SetInterrupt(TRUE)
@@ -4425,7 +4425,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_DETECT_ILLUSION)  // SPWI322.SPL (Detect Illusion)
     SetInterrupt(TRUE)
@@ -4449,7 +4449,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_DETECT_ILLUSION)  // SPWI322.SPL (Detect Illusion)
     SetInterrupt(TRUE)
@@ -4473,7 +4473,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_DETECT_ILLUSION)  // SPWI322.SPL (Detect Illusion)
     SetInterrupt(TRUE)
@@ -4497,7 +4497,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_DETECT_ILLUSION)  // SPWI322.SPL (Detect Illusion)
     SetInterrupt(TRUE)
@@ -4517,7 +4517,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_MELF_METEOR)  // SPWI325.SPL (Melf's Minute Meteors)
     SetInterrupt(TRUE)
@@ -4536,7 +4536,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     UseItem("OHRCLCK1",Myself)  // Cowl of the Stars
     IncrementGlobal("MO_UsedCowlOfStars","GLOBAL",1)
 END
@@ -4567,8 +4567,8 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
-    SetGlobalTimer("MO_HealCast","GLOBAL",TWO_ROUNDS)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_HealCast","GLOBAL",12)
     SetGlobal("MO_CastingHeal","GLOBAL",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_HEAL)  // SPPR607.SPL (Heal)
@@ -4603,8 +4603,8 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
-    SetGlobalTimer("MO_HealCast","GLOBAL",TWO_ROUNDS)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_HealCast","GLOBAL",12)
     SetGlobal("MO_CastingHeal","GLOBAL",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS)  // SPPR401.SPL (Cure Serious Wounds)
@@ -4640,8 +4640,8 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
-    SetGlobalTimer("MO_HealCast","GLOBAL",TWO_ROUNDS)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_HealCast","GLOBAL",12)
     SetGlobal("MO_CastingHeal","GLOBAL",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_CURE_MEDIUM_WOUNDS)  // SPPR315.SPL (Cure Medium Wounds)
@@ -4677,8 +4677,8 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
-    SetGlobalTimer("MO_HealCast","GLOBAL",TWO_ROUNDS)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_HealCast","GLOBAL",12)
     SetGlobal("MO_CastingHeal","GLOBAL",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)  // SPPR103.SPL (Cure Light Wounds)
@@ -4712,8 +4712,8 @@ IF
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
-    SetGlobalTimer("MO_HealCast","GLOBAL",TWO_ROUNDS)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_HealCast","GLOBAL",12)
     SetGlobal("MO_CastingHeal","GLOBAL",1)
     SetInterrupt(FALSE)
     SpellRES("SPIN101",LastSeenBy(Myself))  // Healing Touch
@@ -4773,7 +4773,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_MIRROR_IMAGE)  // SPWI212.SPL (Mirror Image)
     SetInterrupt(TRUE)
@@ -4802,7 +4802,7 @@ IF
     NumCreatureGT([EVILCUTOFF],3)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     UseItemAbility("SW1H26",Myself,SLOT_AMMO3,1)  // Ilbratha +1
     IncrementGlobal("MO_UsedIlbratha","GLOBAL",1)
 END
@@ -4830,7 +4830,7 @@ IF
     NumCreatureGT([EVILCUTOFF],3)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     UseItem("OHRRING1",Myself)  // Ring of Duplication
     IncrementGlobal("MO_UsedDuplication","GLOBAL",1)
 END
@@ -4866,7 +4866,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_SPELL_SHIELD)  // SPWI519.SPL (Spell Shield)
     SetInterrupt(TRUE)
@@ -4903,7 +4903,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_SPELL_TRAP)  // SPWI902.SPL (Spell Trap)
     SetInterrupt(TRUE)
@@ -4940,7 +4940,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,2802)  // SPWI802.SPL (Spell Deflection)
     SetInterrupt(TRUE)
@@ -4977,7 +4977,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_SPELL_TURNING)  // SPWI701.SPL (Spell Turning)
     SetInterrupt(TRUE)
@@ -5010,7 +5010,7 @@ IF
   Global("MO_CastAthkatla","LOCALS",1)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     UseItem("OHNSHLD1",Myself)  // Shield of Fyrus Khal +2
     IncrementGlobal("MO_UsedShldFyrus","GLOBAL",1)
 END
@@ -5041,7 +5041,7 @@ IF
   !CheckSpellState(Myself,SPELL_TURNING)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     UseItem("RING34",Myself)  // Ring of Spell Turning
     IncrementGlobal("MO_UsedSpellTurning","GLOBAL",1)
 END
@@ -5078,7 +5078,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_GLOBE_OF_INVULNERABILITY)  // SPWI602.SPL (Globe of Invulnerability)
     SetInterrupt(TRUE)
@@ -5116,7 +5116,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_MINOR_SPELL_TURNING)  // SPWI522.SPL (Minor Spell Turning)
     SetInterrupt(TRUE)
@@ -5155,7 +5155,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_MINOR_SPELL_DEFLECTION)  // SPWI318.SPL (Minor Spell Deflection)
     SetInterrupt(TRUE)
@@ -5194,7 +5194,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_MINOR_GLOBE_OF_INVULNERABILITY)  // SPWI406.SPL (Minor Globe of Invulnerability)
     SetInterrupt(TRUE)
@@ -5233,7 +5233,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     UseItem("OHRBELT2",Myself)  // Belt of Minor Invulnerability
     IncrementGlobal("MO_UsedBltMnrInv","GLOBAL",1)
 END
@@ -5282,7 +5282,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,CLERIC_AURA_OF_FLAMING_DEATH)  // SPPR730.SPL (Aura of Flaming Death)
     SetInterrupt(TRUE)
@@ -5331,7 +5331,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,CLERIC_GLOBE_OF_BLADES)  // SPPR725.SPL (Globe of Blades)
     SetInterrupt(TRUE)
@@ -5373,7 +5373,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_FIRE_SHIELD_RED)  // SPWI418.SPL (Fire Shield (Red))
     SetInterrupt(TRUE)
@@ -5415,7 +5415,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_FIRE_SHIELD_BLUE)  // SPWI403.SPL (Fire Shield (Blue))
     SetInterrupt(TRUE)
@@ -5451,7 +5451,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,CLERIC_SHIELD_OF_THE_ARCHONS)  // SPPR701.SPL (Shield of the Archons)
     SetInterrupt(TRUE)
@@ -5484,7 +5484,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_PROTECTION_FROM_NORMAL_MISSILES)  // SPWI311.SPL (Protection From Normal Missiles)
     SetInterrupt(TRUE)
@@ -5514,7 +5514,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,CLERIC_PHYSICAL_MIRROR)  // sppr525.spl (Physical Mirror)
     SetInterrupt(TRUE)
@@ -5563,7 +5563,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,CLERIC_BLADE_BARRIER)  // SPPR603.SPL (Blade Barrier)
     SetInterrupt(TRUE)
@@ -5614,7 +5614,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,CLERIC_DRAW_UPON_HOLY_MIGHT)  // SPPR214.SPL (Draw Upon Holy Might)
     SetInterrupt(TRUE)
@@ -5663,7 +5663,7 @@ IF
   !StateCheck(Myself,STATE_SILENCED)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     SpellRES("SPIN103",Myself)  // Divine Might
     SetInterrupt(TRUE)
@@ -5711,7 +5711,7 @@ IF
   !StateCheck(Myself,STATE_SILENCED)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,CLERIC_ARMOR_OF_FAITH)  // SPPR111.SPL (Armor of Faith)
     SetInterrupt(TRUE)
@@ -5739,7 +5739,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_PROTECTION_FROM_FIRE)  // SPPR306.SPL (Protection From Fire)
     SetInterrupt(TRUE)
@@ -5787,7 +5787,7 @@ IF
     See([ENEMY.0.0.CLERIC_MAGE])
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     Spell(Myself,WIZARD_BLACK_BLADE_OF_DISASTER)
 END
 
@@ -5834,7 +5834,7 @@ IF
     See([ENEMY.0.0.CLERIC_MAGE])
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     Spell(Myself,BERSERKER_RAGE)  // SPCL321.SPL (Enrage)
 END
 
@@ -5880,7 +5880,7 @@ IF
     See([ENEMY.0.0.CLERIC_MAGE])
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     Spell(Myself,BARBARIAN_RAGE)  // SPCL152.SPL (Barbarian Rage)
 END
 
@@ -5926,7 +5926,7 @@ IF
     See([ENEMY.0.0.CLERIC_MAGE])
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     Spell(Myself,WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
 END
 
@@ -5986,7 +5986,7 @@ IF
     See([ENEMY.0.0.CLERIC_MAGE])
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     Spell(Myself,KENSAI_KIA)  // SPCL144.SPL (Kai)
 END
 
@@ -6046,7 +6046,7 @@ IF
     See([ENEMY.0.0.CLERIC_MAGE])
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     Spell(Myself,WARRIOR_GREATER_WHIRLWIND)  // SPCL901.SPL (Greater Whirlwind Attack)
 END
 
@@ -6119,7 +6119,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
     SetInterrupt(TRUE)
@@ -6188,7 +6188,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     UseItem("AMUL26",Myself)  // Amulet of Cheetah Speed
     IncrementGlobal("MO_UsedCheetah","GLOBAL",1)
 END
@@ -6212,7 +6212,7 @@ IF
   Range([EVILCUTOFF],30)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     BattleSong()
 END
 

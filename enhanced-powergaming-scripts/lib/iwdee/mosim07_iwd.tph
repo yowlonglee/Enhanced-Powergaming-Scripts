@@ -28,7 +28,7 @@ COPY ~enhanced-powergaming-scripts/baf/simulacrum/mosim07.baf~ ~enhanced-powerga
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     ForceSpell(LastSeenBy(Myself),WIZARD_REMOVE_MAGIC)  // SPWI302.SPL (Dispel Magic)
     SetInterrupt(TRUE)
@@ -36,16 +36,4 @@ END
 
 IF~~~~~
     string = ~~~~~IF~~~~~ //"
-  END
-
-///////////////////////////////////////////////////////////////////////////
-// Update Local Timers                                                   //
-///////////////////////////////////////////////////////////////////////////
-  LPF REPLACE_MULTILINE
-    INT_VAR
-    strict = 1
-    verbose = 0
-    STR_VAR
-    pattern = ~~~~~ONE_ROUND~~~~~
-    string = ~~~~~6~~~~~ //"
   END

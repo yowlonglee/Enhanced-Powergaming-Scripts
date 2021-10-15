@@ -30,7 +30,7 @@ IF
   HasItemEquiped("POTN17",Myself)  // Elixir of Health
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     UseItem("POTN17",Myself)  // Elixir of Health
     DisplayStringHead(Myself,@5005)
 END
@@ -41,7 +41,7 @@ IF
   HasItemEquiped("POTN20",Myself)  // Potion of Antidote
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     UseItem("POTN20",Myself)  // Potion of Antidote
     DisplayStringHead(Myself,@5005)
 END
@@ -55,7 +55,7 @@ IF
   ActuallyInCombat()
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     UseItem("POTN55",Myself)  // Potion of Superior Healing
     DisplayStringHead(Myself,@5005)
 END
@@ -69,7 +69,7 @@ IF
   ActuallyInCombat()
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     UseItem("POTN52",Myself)  // Potion of Extra Healing
     DisplayStringHead(Myself,@5005)
 END
@@ -83,7 +83,7 @@ IF
   ActuallyInCombat()
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     UseItem("POTN08",Myself)  // Potion of Healing
     DisplayStringHead(Myself,@5005)
 END
@@ -106,7 +106,7 @@ IF
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     SpellRES("SPIN102",LastSeenBy(Myself))  // Slow Poison
     SetInterrupt(TRUE)
@@ -129,7 +129,7 @@ IF
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     SpellRES("SPIN102",LastSeenBy(Myself))  // Slow Poison
     SetInterrupt(TRUE)
@@ -152,7 +152,7 @@ IF
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     SpellRES("SPIN102",LastSeenBy(Myself))  // Slow Poison
     SetInterrupt(TRUE)
@@ -175,7 +175,7 @@ IF
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     SpellRES("SPIN102",LastSeenBy(Myself))  // Slow Poison
     SetInterrupt(TRUE)
@@ -198,7 +198,7 @@ IF
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     SpellRES("SPIN102",LastSeenBy(Myself))  // Slow Poison
     SetInterrupt(TRUE)
@@ -221,7 +221,7 @@ IF
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     SpellRES("SPIN102",LastSeenBy(Myself))  // Slow Poison
     SetInterrupt(TRUE)
@@ -244,7 +244,7 @@ IF
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     SpellRES("SPIN102",LastSeenBy(Myself))  // Slow Poison
     SetInterrupt(TRUE)
@@ -278,8 +278,8 @@ IF
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
-    SetGlobalTimer("MO_HealCast","GLOBAL",TWO_ROUNDS)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_HealCast","GLOBAL",12)
     SetGlobal("MO_CastingHeal","GLOBAL",1)
     SetInterrupt(FALSE)
     SpellRES("SPIN101",LastSeenBy(Myself))  // Healing Touch
@@ -295,8 +295,8 @@ IF
   HaveSpell(MONK_LAY_ON_HANDS)  // SPCL815.SPL (Lay On Hands)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
-    SetGlobalTimer("MO_HealCast","GLOBAL",TWO_ROUNDS)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_HealCast","GLOBAL",12)
     SetGlobal("MO_CastingHeal","GLOBAL",1)
     SetInterrupt(FALSE)
     Spell(Myself,MONK_LAY_ON_HANDS)  // SPCL815.SPL (Lay On Hands)
@@ -311,7 +311,7 @@ IF
   HasItemEquiped("Boot12",Myself)  // Gargoyle Boots
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     UseItem("Boot12",Myself)  // Gargoyle Boots
     IncrementGlobal("MO_UsedGargoyle","GLOBAL",1)
 END
@@ -357,7 +357,7 @@ IF
     NumCreatureGT([EVILCUTOFF],3)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SpellRES("SPDM106",Myself)  // Mirror Image
 END
 
@@ -381,7 +381,7 @@ IF
     NumCreatureGT([EVILCUTOFF],3)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SpellRES("SPDM102",Myself)  // Blur
 END
 
@@ -406,7 +406,7 @@ IF
     NumCreatureGT([EVILCUTOFF],3)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     UseItem("OHRRING1",Myself)  // Ring of Duplication
     IncrementGlobal("MO_UsedDuplication","GLOBAL",1)
 END
@@ -432,7 +432,7 @@ IF
     NumCreatureGT([EVILCUTOFF],3)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     UseItemAbility("SW1H26",Myself,SLOT_AMMO3,1)  // Ilbratha +1
     IncrementGlobal("MO_UsedIlbratha","GLOBAL",1)
 END
@@ -504,7 +504,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     UseItem("OHRBELT2",Myself)  // Belt of Minor Invulnerability
     IncrementGlobal("MO_UsedBltMnrInv","GLOBAL",1)
 END
@@ -559,7 +559,7 @@ IF
   !StateCheck(Myself,STATE_SILENCED)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     Spell(Myself,MONK_STUNNING_BLOW)  // SPCL811.SPL (Stunning Blow)
 END
 
@@ -604,7 +604,7 @@ IF
     See([ENEMY.0.0.CLERIC_MAGE])
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     Spell(Myself,MONK_QUIVERING_PALM)  // SPCL820.SPL (Quivering Palm)
 END
 
@@ -655,7 +655,7 @@ IF
   !StateCheck(Myself,STATE_SILENCED)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SpellRES("SPDM105",Myself)  // Frozen Fist
 END
 
@@ -706,7 +706,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SpellRES("SPCL237",Myself)  // Greater Sun
 END
 
@@ -759,7 +759,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SpellRES("SPCL238",Myself)  // Flaming Fists
 END
 
@@ -819,7 +819,7 @@ IF
     See([ENEMY.0.0.CLERIC_MAGE])
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     UseItem("OHRHELM1",Myself)  // Headband of the Devout
     IncrementGlobal("MO_UsedDevout","GLOBAL",1)
 END
@@ -867,7 +867,7 @@ IF
   !StateCheck(Myself,STATE_SILENCED)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     SpellRES("SPIN103",Myself)  // Draw Upon Divine Might
     SetInterrupt(TRUE)
@@ -929,7 +929,7 @@ IF
     See([ENEMY.0.0.CLERIC_MAGE])
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     Spell(Myself,WARRIOR_GREATER_WHIRLWIND)  // SPCL901.SPL (Greater Whirlwind Attack)
 END
 

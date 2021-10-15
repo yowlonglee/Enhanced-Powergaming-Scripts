@@ -48,7 +48,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mopal.baf~ ~enhanced-powergaming-s
   !StateCheck(Myself,STATE_SILENCED)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,CLERIC_ARMOR_OF_FAITH)  // SPPR111.SPL (Armor of Faith)
     SetInterrupt(TRUE)
@@ -93,7 +93,7 @@ END~~~~~
   !StateCheck(Myself,STATE_SILENCED)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,CLERIC_ARMOR_OF_FAITH)  // SPPR111.SPL (Armor of Faith)
     SetInterrupt(TRUE)
@@ -142,7 +142,7 @@ IF
     See([ENEMY.0.0.CLERIC_MAGE])
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SpellRES("b_frz02",Myself)  // SPCL321.SPL (Enrage)
 END
 
@@ -189,7 +189,7 @@ IF
     See([ENEMY.0.0.CLERIC_MAGE])
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SpellRES("b_frz03",Myself)  // SPCL321.SPL (Enrage)
 END
 
@@ -236,7 +236,7 @@ IF
     See([ENEMY.0.0.CLERIC_MAGE])
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SpellRES("b_frz04",Myself)  // SPCL321.SPL (Enrage)
 END
 
@@ -283,7 +283,7 @@ IF
     See([ENEMY.0.0.CLERIC_MAGE])
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SpellRES("b_frz05",Myself)  // SPCL321.SPL (Enrage)
 END
 
@@ -330,7 +330,7 @@ IF
     See([ENEMY.0.0.CLERIC_MAGE])
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SpellRES("b_frz06",Myself)  // SPCL321.SPL (Enrage)
 END
 
@@ -377,7 +377,7 @@ IF
     See([ENEMY.0.0.CLERIC_MAGE])
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SpellRES("b_frz07",Myself)  // SPCL321.SPL (Enrage)
 END
 
@@ -424,7 +424,7 @@ IF
     See([ENEMY.0.0.CLERIC_MAGE])
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SpellRES("b_frz08",Myself)  // SPCL321.SPL (Enrage)
 END
 
@@ -471,7 +471,7 @@ IF
     See([ENEMY.0.0.CLERIC_MAGE])
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SpellRES("b_frz09",Myself)  // SPCL321.SPL (Enrage)
 END
 
@@ -518,7 +518,7 @@ IF
     See([ENEMY.0.0.CLERIC_MAGE])
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SpellRES("b_frz10",Myself)  // SPCL321.SPL (Enrage)
 END
 ~~~~~ //"

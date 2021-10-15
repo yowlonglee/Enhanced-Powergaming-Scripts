@@ -8,8 +8,8 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     strict = 1
     verbose = 0
     STR_VAR
-    pattern = ~~~~~SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)~~~~~
-    string = ~~~~~SetGlobalTimer("MO_SpellCast","LOCALS",TWO_ROUNDS)~~~~~ //"
+    pattern = ~~~~~SetGlobalTimer("MO_SpellCast","LOCALS",6)~~~~~
+    string = ~~~~~SetGlobalTimer("MO_SpellCast","LOCALS",12)~~~~~ //"
   END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -40,7 +40,7 @@ IF
   Range([EVILCUTOFF],30)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",TWO_ROUNDS)
+    SetGlobalTimer("MO_SpellCast","LOCALS",12)
     BattleSong()
 END
 
