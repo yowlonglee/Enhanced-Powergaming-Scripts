@@ -64,12 +64,9 @@ IF
 	Global("MO_BUFF","LOCALS",0)
 	HotKey(D)
 THEN
-	RESPONSE #50
+	RESPONSE #100
 		SetGlobal("MO_BUFF","LOCALS",1)
-		DisplayStringHead(Myself,91061)  // Right. I'll get started then.
-	RESPONSE #50
-		SetGlobal("MO_BUFF","LOCALS",1)
-		DisplayStringHead(Myself,91057)  // Right, I'll get started then. Please excuse me.
+		DisplayStringHead(Myself,@5002)
 END
 
 IF
@@ -80,7 +77,7 @@ IF
 THEN
 	RESPONSE #100
 		SetGlobal("MO_BUFF","LOCALS",0)
-		DisplayStringHead(Myself,50742)  // I have not yet completed the task.
+		DisplayStringHead(Myself,@5003)
 END
 
 IF

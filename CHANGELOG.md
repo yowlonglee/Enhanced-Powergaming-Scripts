@@ -1,5 +1,14 @@
 # Changelog
 
+## Version 5.5
+
+October xx, 2021
+
+### Changed 
+
+- All Games
+  - Updated all hovering texts for turn undead, pre-buffing, and potion use 
+
 ## Version 5.4.1
 
 October 14, 2021
