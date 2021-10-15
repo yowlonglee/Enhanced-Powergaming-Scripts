@@ -16,7 +16,7 @@ ALWAYS
 
 	ACTION_IF ((FILE_EXISTS ~dlc/sod-dlc.zip~) OR (FILE_EXISTS ~sod-dlc.zip~)) THEN BEGIN FAIL @3001 END
 
-	ACTION_DEFINE_ARRAY cdreload BEGIN item_descriptions script_descriptions spell_descriptions END
+	ACTION_DEFINE_ARRAY cdreload BEGIN item_descriptions script_descriptions spell_descriptions script_dialog END
 	LAF HANDLE_CHARSETS INT_VAR infer_charsets = 1 STR_VAR tra_path = ~enhanced-powergaming-scripts/languages~ reload_array = cdreload END
 
 	//Block of code provided by subtledoctor
