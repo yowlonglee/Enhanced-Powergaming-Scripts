@@ -107,68 +107,6 @@ END
 ~~~~~ //"
   END
 
-  LPF REPLACE_MULTILINE
-    INT_VAR
-    strict = 1
-    verbose = 0
-    STR_VAR
-    pattern = ~~~~~IF
-  OR(2)
-    CheckStatGT(Myself,0,STONESKINS)
-    GlobalGT("MO_UsedGargoyle","GLOBAL",1)
-  HasItem("Boot01",Myself)  // The Paws of the Cheetah
-  HasItemEquiped("Boot12",Myself)  // Gargoyle Boots
-THEN
-  RESPONSE #100
-    XEquipItem("Boot01",Myself,SLOT_BOOTS,EQUIP)  // The Paws of the Cheetah
-END~~~~~
-    string = ~~~~~IF
-  OR(2)
-    CheckStatGT(Myself,0,STONESKINS)
-    GlobalGT("MO_UsedGargoyle","GLOBAL",1)
-  HasItem("Boot01",Myself)  // The Paws of the Cheetah
-  HasItemEquiped("Boot12",Myself)  // Gargoyle Boots
-THEN
-  RESPONSE #100
-    XEquipItem("Boot01",Myself,SLOT_BOOTS,EQUIP)  // The Paws of the Cheetah
-END
-
-IF
-  ActionListEmpty()
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  HaveSpell(WIZARD_MIND_BLANK)  // spwi806.SPL (Mind Blank)
-  !CheckSpellState(Myself,MIND_BLANK)
-  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_SILENCED)
-  Global("MO_CastAthkatla","LOCALS",1)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SetInterrupt(FALSE)
-    Spell(Myself,WIZARD_MIND_BLANK)  // spwi806.SPL (Mind Blank)
-    SetInterrupt(TRUE)
-END
-
-IF
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  HaveSpell(CLERIC_IMPERVIOUS_SANCTITY_OF_MIND)  // sppr735.SPL (Impervious Sanctity of Mind)
-  !CheckSpellState(Myself,CHAOTIC_COMMANDS)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    Spell(Myself,CLERIC_IMPERVIOUS_SANCTITY_OF_MIND)  // sppr735.SPL (Impervious Sanctity of Mind)
-END
-~~~~~ //"
-  END
-
 ///////////////////////////////////////////////////////////////////////////
 // Add Seven Eyes                                                        //
 ///////////////////////////////////////////////////////////////////////////

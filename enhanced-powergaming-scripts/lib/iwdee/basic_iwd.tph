@@ -328,76 +328,6 @@ IF~~~~~
   END
 
 ///////////////////////////////////////////////////////////////////////////
-// Remove Gargoyle Boots, Girdle of Fortitude, and Cloak of Stars        //
-///////////////////////////////////////////////////////////////////////////
-  LPF REPLACE_MULTILINE
-    INT_VAR
-    strict = 1
-    verbose = 0
-    STR_VAR
-    pattern = ~~~~~IF
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  CheckStatLT(Myself,1,STONESKINS)
-  GlobalLT("MO_UsedGargoyle","GLOBAL",2)
-  HasItemEquiped("Boot12",Myself)  // Gargoyle Boots
-  !CheckSpellState(Myself,GLOBE)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    UseItem("Boot12",Myself)  // Gargoyle Boots
-    IncrementGlobal("MO_UsedGargoyle","GLOBAL",1)
-END
-
-IF
-  CheckStatLT(Myself,1,STONESKINS)
-  GlobalLT("MO_UsedGargoyle","GLOBAL",2)
-  HasItem("Boot12",Myself)  // Gargoyle Boots
-  HasItemEquiped("Boot01",Myself)  // The Paws of the Cheetah
-THEN
-  RESPONSE #100
-    XEquipItem("Boot12",Myself,SLOT_BOOTS,EQUIP)  // Gargoyle Boots
-END
-
-IF
-  OR(2)
-    CheckStatGT(Myself,0,STONESKINS)
-    GlobalGT("MO_UsedGargoyle","GLOBAL",1)
-  HasItem("Boot01",Myself)  // The Paws of the Cheetah
-  HasItemEquiped("Boot12",Myself)  // Gargoyle Boots
-THEN
-  RESPONSE #100
-    XEquipItem("Boot01",Myself,SLOT_BOOTS,EQUIP)  // The Paws of the Cheetah
-END
-
-IF
-  ActionListEmpty()
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  GlobalLT("MO_UsedFortitude","GLOBAL",1)
-  HasItem("BELT09",Myself)  // Girdle of Fortitude
-  CheckStatLT(Myself,18,CON)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    UseItem("BELT09",Myself)  // Girdle of Fortitude
-    IncrementGlobal("MO_UsedFortitude","GLOBAL",1)
-END
-
-IF
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  GlobalLT("MO_UsedClkOfStars","GLOBAL",1)
-  HasItemEquiped("CLCK25",Myself)  // Cloak of the Stars
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    UseItem("CLCK25",Myself)  // Cloak of the Stars
-    IncrementGlobal("MO_UsedClkOfStars","GLOBAL",1)
-END
-
-IF~~~~~
-    string = ~~~~~IF~~~~~ //"
-  END
-
-///////////////////////////////////////////////////////////////////////////
 // Remove Blade Barrier                                                  //
 ///////////////////////////////////////////////////////////////////////////
   LPF REPLACE_MULTILINE
@@ -573,61 +503,6 @@ END
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 ~~~~~ //"
-  END
-
-  LPF REPLACE_MULTILINE
-    INT_VAR
-    strict = 1
-    verbose = 0
-    STR_VAR
-    pattern = ~~~~~IF
-  ActionListEmpty()
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  CheckStatLT(Myself,1,STONESKINS)
-  HaveSpell(CLERIC_IRONSKIN)  // SPPR506.SPL (Iron Skins)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    Spell(Myself,CLERIC_IRONSKIN)  // SPPR506.SPL (Iron Skins)
-END~~~~~
-    string = ~~~~~IF
-  ActionListEmpty()
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  CheckStatLT(Myself,1,STONESKINS)
-  HaveSpell(CLERIC_IRONSKIN)  // SPPR506.SPL (Iron Skins)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    Spell(Myself,CLERIC_IRONSKIN)  // SPPR506.SPL (Iron Skins)
-END
-
-IF
-  ActionListEmpty()
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  HaveSpell(WIZARD_MIND_BLANK)  // spwi806.SPL (Mind Blank)
-  !CheckSpellState(Myself,MIND_BLANK)
-  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SetInterrupt(FALSE)
-    Spell(Myself,WIZARD_MIND_BLANK)  // spwi806.SPL (Mind Blank)
-    SetInterrupt(TRUE)
-END~~~~~ //"
   END
 
 ///////////////////////////////////////////////////////////////////////////
