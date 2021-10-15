@@ -51,6 +51,7 @@ BEGIN @7 DESIGNATED 14 SUBCOMPONENT @2 LABEL EnhancedPowergamingScripts-MainNorm
 REQUIRE_PREDICATE GAME_IS ~bgee bg2ee eet iwdee~ @3000
 
 LOAD_TRA ~enhanced-powergaming-scripts/languages/%LANGUAGE%/script_descriptions.tra~
+LOAD_TRA ~enhanced-powergaming-scripts/languages/%LANGUAGE%/script_dialog.tra~
 
 ACTION_IF GAME_IS ~bg2ee eet~ BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/initialize.tpa~
@@ -86,6 +87,8 @@ BEGIN @9 DESIGNATED 9 LABEL EnhancedPowergamingScripts-Celestials
 
 REQUIRE_PREDICATE GAME_IS ~bg2ee eet~ @3004
 
+LOAD_TRA ~enhanced-powergaming-scripts/languages/%LANGUAGE%/script_dialog.tra~
+
 INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/celestials.tpa~
 
 ///////////////////////////////////////////////////////////////////////////
@@ -95,6 +98,8 @@ INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/celestials.tpa~
 BEGIN @10 DESIGNATED 10 LABEL EnhancedPowergamingScripts-Simulacrum
 
 REQUIRE_PREDICATE GAME_IS ~bg2ee eet iwdee~ @3004
+
+LOAD_TRA ~enhanced-powergaming-scripts/languages/%LANGUAGE%/script_dialog.tra~
 
 INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/simulacrum.tpa~
 

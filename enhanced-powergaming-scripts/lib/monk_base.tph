@@ -12,14 +12,14 @@ COPY ~enhanced-powergaming-scripts/baf/upload/momonk.baf~ ~enhanced-powergaming-
 THEN
   RESPONSE #100
     SetGlobal("MO_BUFF","LOCALS",0)
-    DisplayStringHead(Myself,421)  // Combat ready!
+    DisplayStringHead(Myself,@5004)
 END~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
 THEN
   RESPONSE #100
     SetGlobal("MO_BUFF","LOCALS",0)
-    DisplayStringHead(Myself,421)  // Combat ready!
+    DisplayStringHead(Myself,@5004)
 END
 
 IF
