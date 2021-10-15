@@ -32,7 +32,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     UseItem("POTN17",Myself)  // Elixir of Health
-    DisplayString(Myself,46150)  // *quaffs a potion*
+    DisplayStringHead(Myself,@5005)
 END
 
 IF
@@ -43,7 +43,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     UseItem("POTN20",Myself)  // Potion of Antidote
-    DisplayString(Myself,46150)  // *quaffs a potion*
+    DisplayStringHead(Myself,@5005)
 END
 
 IF
@@ -278,7 +278,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     UseItem("POTN55",Myself)  // Potion of Superior Healing
-    DisplayString(Myself,46150)  // *quaffs a potion*
+    DisplayStringHead(Myself,@5005)
 END
 
 IF
@@ -292,7 +292,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     UseItem("POTN52",Myself)  // Potion of Extra Healing
-    DisplayString(Myself,46150)  // *quaffs a potion*
+    DisplayStringHead(Myself,@5005)
 END
 
 IF
@@ -306,7 +306,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     UseItem("POTN08",Myself)  // Potion of Healing
-    DisplayString(Myself,46150)  // *quaffs a potion*
+    DisplayStringHead(Myself,@5005)
 END
 
 IF
