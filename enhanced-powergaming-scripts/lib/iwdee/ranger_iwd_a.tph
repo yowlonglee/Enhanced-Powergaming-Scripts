@@ -536,59 +536,6 @@ IF~~~~~
   END
 
 ///////////////////////////////////////////////////////////////////////////
-// Remove Potion Dialogue                                                //
-///////////////////////////////////////////////////////////////////////////
-  LPF REPLACE_MULTILINE
-    INT_VAR
-    strict = 1
-    verbose = 0
-    STR_VAR
-    pattern = ~~~~~UseItem("POTN17",Myself)  // Elixir of Health
-    DisplayStringHead(Myself,@5005)~~~~~
-    string = ~~~~~UseItem("POTN17",Myself)  // Elixir of Health~~~~~ //"
-  END
-
-  LPF REPLACE_MULTILINE
-    INT_VAR
-    strict = 1
-    verbose = 0
-    STR_VAR
-    pattern = ~~~~~UseItem("POTN20",Myself)  // Antidote
-    DisplayStringHead(Myself,@5005)~~~~~
-    string = ~~~~~UseItem("POTN20",Myself)  // Antidote~~~~~ //"
-  END
-
-  LPF REPLACE_MULTILINE
-    INT_VAR
-    strict = 1
-    verbose = 0
-    STR_VAR
-    pattern = ~~~~~UseItem("POTN55",Myself)  // Potion of Superior Healing
-    DisplayStringHead(Myself,@5005)~~~~~
-    string = ~~~~~UseItem("POTN55",Myself)  // Potion of Superior Healing~~~~~ //"
-  END
-
-  LPF REPLACE_MULTILINE
-    INT_VAR
-    strict = 1
-    verbose = 0
-    STR_VAR
-    pattern = ~~~~~UseItem("POTN52",Myself)  // Potion of Extra Healing
-    DisplayStringHead(Myself,@5005)~~~~~
-    string = ~~~~~UseItem("POTN52",Myself)  // Potion of Extra Healing~~~~~ //"
-  END
-
-  LPF REPLACE_MULTILINE
-    INT_VAR
-    strict = 1
-    verbose = 0
-    STR_VAR
-    pattern = ~~~~~UseItem("POTN08",Myself)  // Potion of Healing
-    DisplayStringHead(Myself,@5005)~~~~~
-    string = ~~~~~UseItem("POTN08",Myself)  // Potion of Healing~~~~~ //"
-  END
-
-///////////////////////////////////////////////////////////////////////////
 // Remove Gargoyle Boots, Girdle of Fortitude, and Cloak of Stars        //
 ///////////////////////////////////////////////////////////////////////////
   LPF REPLACE_MULTILINE
