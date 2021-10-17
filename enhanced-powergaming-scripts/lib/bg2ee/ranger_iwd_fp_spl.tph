@@ -126,6 +126,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
     SetInterrupt(TRUE)
 END

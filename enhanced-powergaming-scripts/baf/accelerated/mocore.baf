@@ -142,7 +142,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",0)
-  HotKey(D)
+  HotKey(B)
 THEN
   RESPONSE #100
     SetGlobal("MO_BUFF","LOCALS",1)
@@ -152,7 +152,7 @@ END
 IF
   Global("MO_BUFF","LOCALS",1)
   OR(2)
-    HotKey(D)
+    HotKey(B)
     See([EVILCUTOFF])
 THEN
   RESPONSE #100

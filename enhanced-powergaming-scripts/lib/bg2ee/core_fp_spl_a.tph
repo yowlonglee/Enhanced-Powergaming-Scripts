@@ -59,15 +59,6 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     strict = 1
     verbose = 0
     STR_VAR
-    pattern = ~~~~~Spell(Myself,CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)~~~~~
-    string = ~~~~~SpellRES("D5P1317",Myself)~~~~~ //"
-  END
-
-  LPF REPLACE_MULTILINE
-    INT_VAR
-    strict = 1
-    verbose = 0
-    STR_VAR
     pattern = ~~~~~Spell(LastSeenBy(Myself),CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)~~~~~
     string = ~~~~~SpellRES("D5P1317",LastSeenBy(Myself))~~~~~ //"
   END

@@ -20,6 +20,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5014)
     Spell(Myself,WIZARD_DETECT_INVISIBILITY)  // SPWI203.SPL (Detect Invisibility)
     SetInterrupt(TRUE)
 END~~~~~
@@ -34,6 +35,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5014)
     Spell(Myself,WIZARD_DETECT_INVISIBILITY)  // SPWI203.SPL (Detect Invisibility)
     SetInterrupt(TRUE)
 END
@@ -72,7 +74,8 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
-    Spell(Myself,CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
+    DisplayStringHead(Myself,@5014)
+    Spell(Myself,CLERIC_INVISIBILITY_PURGE) // SPPR309.SPL (Invisibility Purge)
     SetInterrupt(TRUE)
 END~~~~~
     string = ~~~~~IF
@@ -99,7 +102,8 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
-    Spell(Myself,CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
+    DisplayStringHead(Myself,@5014)
+    Spell(Myself,CLERIC_INVISIBILITY_PURGE) // SPPR309.SPL (Invisibility Purge)
     SetInterrupt(TRUE)
 END
 
@@ -127,6 +131,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5017)
     Spell(Myself,WIZARD_DETECT_ILLUSION)
     SetInterrupt(TRUE)
 END
@@ -155,6 +160,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5017)
     Spell(Myself,WIZARD_DETECT_ILLUSION)
     SetInterrupt(TRUE)
 END
@@ -183,6 +189,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5017)
     Spell(Myself,WIZARD_DETECT_ILLUSION)
     SetInterrupt(TRUE)
 END
@@ -211,6 +218,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5017)
     Spell(Myself,WIZARD_DETECT_ILLUSION)
     SetInterrupt(TRUE)
 END
@@ -239,6 +247,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5017)
     Spell(Myself,WIZARD_DETECT_ILLUSION)
     SetInterrupt(TRUE)
 END
@@ -267,6 +276,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5017)
     Spell(Myself,WIZARD_DETECT_ILLUSION)
     SetInterrupt(TRUE)
 END
@@ -295,6 +305,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5017)
     Spell(Myself,WIZARD_DETECT_ILLUSION)
     SetInterrupt(TRUE)
 END

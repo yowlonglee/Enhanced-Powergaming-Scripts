@@ -1053,6 +1053,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5010)
     Spell(LastSeenBy(Myself),CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
     SetInterrupt(TRUE)
 END
@@ -1079,6 +1080,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5010)
     Spell(LastSeenBy(Myself),CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
     SetInterrupt(TRUE)
 END
@@ -1105,6 +1107,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5010)
     Spell(LastSeenBy(Myself),CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
     SetInterrupt(TRUE)
 END
@@ -1131,6 +1134,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5010)
     Spell(LastSeenBy(Myself),CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
     SetInterrupt(TRUE)
 END
@@ -1157,6 +1161,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5010)
     Spell(LastSeenBy(Myself),CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
     SetInterrupt(TRUE)
 END
@@ -1183,6 +1188,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5010)
     Spell(LastSeenBy(Myself),CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
     SetInterrupt(TRUE)
 END
@@ -1215,6 +1221,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5010)
     Spell(LastSeenBy(Myself),CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
     SetInterrupt(TRUE)
 END
@@ -1247,6 +1254,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5010)
     Spell(LastSeenBy(Myself),CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
     SetInterrupt(TRUE)
 END
@@ -1279,6 +1287,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5010)
     Spell(LastSeenBy(Myself),CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
     SetInterrupt(TRUE)
 END
@@ -1311,6 +1320,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5010)
     Spell(LastSeenBy(Myself),CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
     SetInterrupt(TRUE)
 END
@@ -1343,6 +1353,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5010)
     Spell(LastSeenBy(Myself),CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
     SetInterrupt(TRUE)
 END
@@ -1375,6 +1386,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5010)
     Spell(LastSeenBy(Myself),CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
     SetInterrupt(TRUE)
 END
@@ -1391,8 +1403,8 @@ IF
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
   HaveSpell(CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
-  !CheckSpellState(Myself,MINOR_GLOBE)
-  !CheckSpellState(Myself,GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -1402,7 +1414,8 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
-    Spell(Myself,CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
+    DisplayStringHead(Myself,@5010)
+    Spell(LastSeenBy(Myself),CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
     SetInterrupt(TRUE)
 END
 
@@ -1418,8 +1431,8 @@ IF
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
   HaveSpell(CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
-  !CheckSpellState(Myself,MINOR_GLOBE)
-  !CheckSpellState(Myself,GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -1429,7 +1442,8 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
-    Spell(Myself,CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
+    DisplayStringHead(Myself,@5010)
+    Spell(LastSeenBy(Myself),CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
     SetInterrupt(TRUE)
 END
 
@@ -1456,6 +1470,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5010)
     Spell(LastSeenBy(Myself),CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
     SetInterrupt(TRUE)
 END
@@ -1483,6 +1498,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5010)
     Spell(LastSeenBy(Myself),CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
     SetInterrupt(TRUE)
 END
@@ -1510,6 +1526,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5010)
     Spell(LastSeenBy(Myself),CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
     SetInterrupt(TRUE)
 END
@@ -1537,6 +1554,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5010)
     Spell(LastSeenBy(Myself),CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
     SetInterrupt(TRUE)
 END
@@ -1564,6 +1582,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5010)
     Spell(LastSeenBy(Myself),CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
     SetInterrupt(TRUE)
 END
@@ -1590,6 +1609,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5011)
     Spell(LastSeenBy(Myself),CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
     SetInterrupt(TRUE)
 END
@@ -1616,6 +1636,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5011)
     Spell(LastSeenBy(Myself),CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
     SetInterrupt(TRUE)
 END
@@ -1642,6 +1663,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5011)
     Spell(LastSeenBy(Myself),CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
     SetInterrupt(TRUE)
 END
@@ -1668,6 +1690,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5011)
     Spell(LastSeenBy(Myself),CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
     SetInterrupt(TRUE)
 END
@@ -1694,6 +1717,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5011)
     Spell(LastSeenBy(Myself),CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
     SetInterrupt(TRUE)
 END
@@ -1720,6 +1744,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5011)
     Spell(LastSeenBy(Myself),CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
     SetInterrupt(TRUE)
 END
@@ -1746,6 +1771,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5011)
     Spell(LastSeenBy(Myself),CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
     SetInterrupt(TRUE)
 END
@@ -1768,6 +1794,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5011)
     Spell(LastSeenBy(Myself),CLERIC_SLOW_POISON)  // SPPR212.SPL (Slow Poison)
     SetInterrupt(TRUE)
 END
@@ -1790,6 +1817,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5011)
     Spell(LastSeenBy(Myself),CLERIC_SLOW_POISON)  // SPPR212.SPL (Slow Poison)
     SetInterrupt(TRUE)
 END
@@ -1812,6 +1840,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5011)
     Spell(LastSeenBy(Myself),CLERIC_SLOW_POISON)  // SPPR212.SPL (Slow Poison)
     SetInterrupt(TRUE)
 END
@@ -1834,6 +1863,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5011)
     Spell(LastSeenBy(Myself),CLERIC_SLOW_POISON)  // SPPR212.SPL (Slow Poison)
     SetInterrupt(TRUE)
 END
@@ -1856,6 +1886,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5011)
     Spell(LastSeenBy(Myself),CLERIC_SLOW_POISON)  // SPPR212.SPL (Slow Poison)
     SetInterrupt(TRUE)
 END
@@ -1878,6 +1909,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5011)
     Spell(LastSeenBy(Myself),CLERIC_SLOW_POISON)  // SPPR212.SPL (Slow Poison)
     SetInterrupt(TRUE)
 END
@@ -1900,6 +1932,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5011)
     Spell(LastSeenBy(Myself),CLERIC_SLOW_POISON)  // SPPR212.SPL (Slow Poison)
     SetInterrupt(TRUE)
 END
@@ -1922,6 +1955,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5011)
     SpellRES("SPIN102",LastSeenBy(Myself))  // Cure Affliction
     SetInterrupt(TRUE)
 END
@@ -1944,6 +1978,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5011)
     SpellRES("SPIN102",LastSeenBy(Myself))  // Cure Affliction
     SetInterrupt(TRUE)
 END
@@ -1966,6 +2001,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5011)
     SpellRES("SPIN102",LastSeenBy(Myself))  // Cure Affliction
     SetInterrupt(TRUE)
 END
@@ -1988,6 +2024,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5011)
     SpellRES("SPIN102",LastSeenBy(Myself))  // Cure Affliction
     SetInterrupt(TRUE)
 END
@@ -2010,6 +2047,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5011)
     SpellRES("SPIN102",LastSeenBy(Myself))  // Cure Affliction
     SetInterrupt(TRUE)
 END
@@ -2032,6 +2070,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5011)
     SpellRES("SPIN102",LastSeenBy(Myself))  // Cure Affliction
     SetInterrupt(TRUE)
 END
@@ -2054,6 +2093,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5011)
     SpellRES("SPIN102",LastSeenBy(Myself))  // Cure Affliction
     SetInterrupt(TRUE)
 END
@@ -2075,6 +2115,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5012)
     Spell(LastSeenBy(Myself),CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
     SetInterrupt(TRUE)
 END
@@ -2096,6 +2137,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5012)
     Spell(LastSeenBy(Myself),CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
     SetInterrupt(TRUE)
 END
@@ -2117,6 +2159,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5012)
     Spell(LastSeenBy(Myself),CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
     SetInterrupt(TRUE)
 END
@@ -2138,6 +2181,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5012)
     Spell(LastSeenBy(Myself),CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
     SetInterrupt(TRUE)
 END
@@ -2159,6 +2203,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5012)
     Spell(LastSeenBy(Myself),CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
     SetInterrupt(TRUE)
 END
@@ -2180,6 +2225,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5012)
     Spell(LastSeenBy(Myself),CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
     SetInterrupt(TRUE)
 END
@@ -2210,6 +2256,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5013)
     Spell(Myself,CLERIC_ZONE_OF_SWEET_AIR)  // SPPR318.SPL (Zone of Sweet Air)
     SetInterrupt(TRUE)
 END
@@ -2238,6 +2285,7 @@ THEN
     SetGlobal("MO_PartyTrueSight","GLOBAL",1)
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5014)
     Spell(Myself,WIZARD_TRUE_SIGHT)  // SPWI609.SPL (True Sight)
     SetInterrupt(TRUE)
 END
@@ -2265,6 +2313,7 @@ THEN
     SetGlobal("MO_PartyTrueSight","GLOBAL",1)
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5014)
     Spell(Myself,WIZARD_TRUE_SIGHT)  // SPWI609.SPL (True Sight)
     SetInterrupt(TRUE)
 END
@@ -2292,6 +2341,7 @@ THEN
     SetGlobal("MO_PartyTrueSight","GLOBAL",1)
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5014)
     Spell(Myself,WIZARD_TRUE_SIGHT)  // SPWI609.SPL (True Sight)
     SetInterrupt(TRUE)
 END
@@ -2319,6 +2369,7 @@ THEN
     SetGlobal("MO_PartyTrueSight","GLOBAL",1)
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5014)
     Spell(Myself,WIZARD_TRUE_SIGHT)  // SPWI609.SPL (True Sight)
     SetInterrupt(TRUE)
 END
@@ -2346,6 +2397,7 @@ THEN
     SetGlobal("MO_PartyTrueSight","GLOBAL",1)
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5014)
     Spell(Myself,WIZARD_TRUE_SIGHT)  // SPWI609.SPL (True Sight)
     SetInterrupt(TRUE)
 END
@@ -2373,6 +2425,7 @@ THEN
     SetGlobal("MO_PartyTrueSight","GLOBAL",1)
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5014)
     Spell(Myself,WIZARD_TRUE_SIGHT)  // SPWI609.SPL (True Sight)
     SetInterrupt(TRUE)
 END
@@ -2400,6 +2453,7 @@ THEN
     SetGlobal("MO_PartyTrueSight","GLOBAL",1)
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5014)
     Spell(Myself,WIZARD_TRUE_SIGHT)  // SPWI609.SPL (True Sight)
     SetInterrupt(TRUE)
 END
@@ -2427,6 +2481,7 @@ THEN
     SetGlobal("MO_PartyTrueSight","GLOBAL",1)
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5014)
     Spell(Myself,WIZARD_TRUE_SIGHT)  // SPWI609.SPL (True Sight)
     SetInterrupt(TRUE)
 END
@@ -2454,6 +2509,7 @@ THEN
     SetGlobal("MO_TrueSightActive","LOCALS",1)
     SetGlobal("MO_PartyTrueSight","GLOBAL",1)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5014)
     Spell(Myself,CLERIC_TRUE_SIGHT)  // SPPR505.SPL (True Seeing)
     SetInterrupt(TRUE)
 END
@@ -2480,6 +2536,7 @@ THEN
     SetGlobal("MO_TrueSightActive","LOCALS",1)
     SetGlobal("MO_PartyTrueSight","GLOBAL",1)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5014)
     Spell(Myself,CLERIC_TRUE_SIGHT)  // SPPR505.SPL (True Seeing)
     SetInterrupt(TRUE)
 END
@@ -2506,6 +2563,7 @@ THEN
     SetGlobal("MO_TrueSightActive","LOCALS",1)
     SetGlobal("MO_PartyTrueSight","GLOBAL",1)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5014)
     Spell(Myself,CLERIC_TRUE_SIGHT)  // SPPR505.SPL (True Seeing)
     SetInterrupt(TRUE)
 END
@@ -2532,6 +2590,7 @@ THEN
     SetGlobal("MO_TrueSightActive","LOCALS",1)
     SetGlobal("MO_PartyTrueSight","GLOBAL",1)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5014)
     Spell(Myself,CLERIC_TRUE_SIGHT)  // SPPR505.SPL (True Seeing)
     SetInterrupt(TRUE)
 END
@@ -2558,6 +2617,7 @@ THEN
     SetGlobal("MO_TrueSightActive","LOCALS",1)
     SetGlobal("MO_PartyTrueSight","GLOBAL",1)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5014)
     Spell(Myself,CLERIC_TRUE_SIGHT)  // SPPR505.SPL (True Seeing)
     SetInterrupt(TRUE)
 END
@@ -2584,6 +2644,7 @@ THEN
     SetGlobal("MO_TrueSightActive","LOCALS",1)
     SetGlobal("MO_PartyTrueSight","GLOBAL",1)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5014)
     Spell(Myself,CLERIC_TRUE_SIGHT)  // SPPR505.SPL (True Seeing)
     SetInterrupt(TRUE)
 END
@@ -2610,6 +2671,7 @@ THEN
     SetGlobal("MO_TrueSightActive","LOCALS",1)
     SetGlobal("MO_PartyTrueSight","GLOBAL",1)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5014)
     Spell(Myself,CLERIC_TRUE_SIGHT)  // SPPR505.SPL (True Seeing)
     SetInterrupt(TRUE)
 END
@@ -2636,6 +2698,7 @@ THEN
     SetGlobal("MO_TrueSightActive","LOCALS",1)
     SetGlobal("MO_PartyTrueSight","GLOBAL",1)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5014)
     Spell(Myself,CLERIC_TRUE_SIGHT)  // SPPR505.SPL (True Seeing)
     SetInterrupt(TRUE)
 END
@@ -2659,7 +2722,8 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
-    Spell(Myself,CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
+    DisplayStringHead(Myself,@5014)
+    Spell(Myself,CLERIC_INVISIBILITY_PURGE) // SPPR309.SPL (Invisibility Purge)
     SetInterrupt(TRUE)
 END
 
@@ -2682,7 +2746,8 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
-    Spell(Myself,CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
+    DisplayStringHead(Myself,@5014)
+    Spell(Myself,CLERIC_INVISIBILITY_PURGE) // SPPR309.SPL (Invisibility Purge)
     SetInterrupt(TRUE)
 END
 
@@ -2705,7 +2770,8 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
-    Spell(Myself,CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
+    DisplayStringHead(Myself,@5014)
+    Spell(Myself,CLERIC_INVISIBILITY_PURGE) // SPPR309.SPL (Invisibility Purge)
     SetInterrupt(TRUE)
 END
 
@@ -2728,7 +2794,8 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
-    Spell(Myself,CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
+    DisplayStringHead(Myself,@5014)
+    Spell(Myself,CLERIC_INVISIBILITY_PURGE) // SPPR309.SPL (Invisibility Purge)
     SetInterrupt(TRUE)
 END
 
@@ -2751,7 +2818,8 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
-    Spell(Myself,CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
+    DisplayStringHead(Myself,@5014)
+    Spell(Myself,CLERIC_INVISIBILITY_PURGE) // SPPR309.SPL (Invisibility Purge)
     SetInterrupt(TRUE)
 END
 
@@ -2774,7 +2842,8 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
-    Spell(Myself,CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
+    DisplayStringHead(Myself,@5014)
+    Spell(Myself,CLERIC_INVISIBILITY_PURGE) // SPPR309.SPL (Invisibility Purge)
     SetInterrupt(TRUE)
 END
 
@@ -2797,7 +2866,8 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
-    Spell(Myself,CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
+    DisplayStringHead(Myself,@5014)
+    Spell(Myself,CLERIC_INVISIBILITY_PURGE) // SPPR309.SPL (Invisibility Purge)
     SetInterrupt(TRUE)
 END
 
@@ -2821,6 +2891,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5014)
     Spell(Myself,WIZARD_DETECT_INVISIBILITY)  // SPWI203.SPL (Detect Invisibility)
     SetInterrupt(TRUE)
 END
@@ -2845,6 +2916,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5014)
     Spell(Myself,WIZARD_DETECT_INVISIBILITY)  // SPWI203.SPL (Detect Invisibility)
     SetInterrupt(TRUE)
 END
@@ -2869,6 +2941,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5014)
     Spell(Myself,WIZARD_DETECT_INVISIBILITY)  // SPWI203.SPL (Detect Invisibility)
     SetInterrupt(TRUE)
 END
@@ -2893,6 +2966,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5014)
     Spell(Myself,WIZARD_DETECT_INVISIBILITY)  // SPWI203.SPL (Detect Invisibility)
     SetInterrupt(TRUE)
 END
@@ -2917,6 +2991,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5014)
     Spell(Myself,WIZARD_DETECT_INVISIBILITY)  // SPWI203.SPL (Detect Invisibility)
     SetInterrupt(TRUE)
 END
@@ -2941,6 +3016,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5014)
     Spell(Myself,WIZARD_DETECT_INVISIBILITY)  // SPWI203.SPL (Detect Invisibility)
     SetInterrupt(TRUE)
 END
@@ -2965,6 +3041,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5014)
     Spell(Myself,WIZARD_DETECT_INVISIBILITY)  // SPWI203.SPL (Detect Invisibility)
     SetInterrupt(TRUE)
 END
@@ -2994,6 +3071,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5015)
     Spell(LastSeenBy(Myself),WIZARD_BREACH)  // SPWI513.SPL (Breach)
     SetInterrupt(TRUE)
 END
@@ -3023,6 +3101,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5015)
     Spell(LastSeenBy(Myself),WIZARD_BREACH)  // SPWI513.SPL (Breach)
     SetInterrupt(TRUE)
 END
@@ -3052,6 +3131,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5015)
     Spell(LastSeenBy(Myself),WIZARD_BREACH)  // SPWI513.SPL (Breach)
     SetInterrupt(TRUE)
 END
@@ -3081,6 +3161,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5015)
     Spell(LastSeenBy(Myself),WIZARD_BREACH)  // SPWI513.SPL (Breach)
     SetInterrupt(TRUE)
 END
@@ -3110,6 +3191,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5015)
     Spell(LastSeenBy(Myself),WIZARD_BREACH)  // SPWI513.SPL (Breach)
     SetInterrupt(TRUE)
 END
@@ -3139,6 +3221,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5015)
     Spell(LastSeenBy(Myself),WIZARD_BREACH)  // SPWI513.SPL (Breach)
     SetInterrupt(TRUE)
 END
@@ -3172,6 +3255,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
     SetInterrupt(TRUE)
 END
@@ -3205,6 +3289,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
     SetInterrupt(TRUE)
 END
@@ -3238,6 +3323,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
     SetInterrupt(TRUE)
 END
@@ -3271,6 +3357,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
     SetInterrupt(TRUE)
 END
@@ -3304,6 +3391,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
     SetInterrupt(TRUE)
 END
@@ -3337,6 +3425,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
     SetInterrupt(TRUE)
 END
@@ -3366,6 +3455,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
     SetInterrupt(TRUE)
 END
@@ -3395,6 +3485,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
     SetInterrupt(TRUE)
 END
@@ -3424,6 +3515,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
     SetInterrupt(TRUE)
 END
@@ -3453,6 +3545,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
     SetInterrupt(TRUE)
 END
@@ -3482,6 +3575,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
     SetInterrupt(TRUE)
 END
@@ -3511,6 +3605,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
     SetInterrupt(TRUE)
 END
@@ -3540,6 +3635,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_PIERCE_MAGIC)  // SPWI608.SPL (Pierce Magic)
     SetInterrupt(TRUE)
 END
@@ -3569,6 +3665,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_PIERCE_MAGIC)  // SPWI608.SPL (Pierce Magic)
     SetInterrupt(TRUE)
 END
@@ -3598,6 +3695,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_PIERCE_MAGIC)  // SPWI608.SPL (Pierce Magic)
     SetInterrupt(TRUE)
 END
@@ -3627,6 +3725,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_PIERCE_MAGIC)  // SPWI608.SPL (Pierce Magic)
     SetInterrupt(TRUE)
 END
@@ -3656,6 +3755,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_PIERCE_MAGIC)  // SPWI608.SPL (Pierce Magic)
     SetInterrupt(TRUE)
 END
@@ -3685,6 +3785,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_PIERCE_MAGIC)  // SPWI608.SPL (Pierce Magic)
     SetInterrupt(TRUE)
 END
@@ -3715,6 +3816,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_WARDING_WHIP)  // SPWI705.SPL (Khelben's Warding Whip)
     SetInterrupt(TRUE)
 END
@@ -3745,6 +3847,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_WARDING_WHIP)  // SPWI705.SPL (Khelben's Warding Whip)
     SetInterrupt(TRUE)
 END
@@ -3775,6 +3878,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_WARDING_WHIP)  // SPWI705.SPL (Khelben's Warding Whip)
     SetInterrupt(TRUE)
 END
@@ -3805,6 +3909,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_WARDING_WHIP)  // SPWI705.SPL (Khelben's Warding Whip)
     SetInterrupt(TRUE)
 END
@@ -3835,6 +3940,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_WARDING_WHIP)  // SPWI705.SPL (Khelben's Warding Whip)
     SetInterrupt(TRUE)
 END
@@ -3865,6 +3971,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_WARDING_WHIP)  // SPWI705.SPL (Khelben's Warding Whip)
     SetInterrupt(TRUE)
 END
@@ -3893,6 +4000,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
     SetInterrupt(TRUE)
 END
@@ -3921,6 +4029,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
     SetInterrupt(TRUE)
 END
@@ -3949,6 +4058,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
     SetInterrupt(TRUE)
 END
@@ -3977,6 +4087,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
     SetInterrupt(TRUE)
 END
@@ -4005,6 +4116,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
     SetInterrupt(TRUE)
 END
@@ -4033,6 +4145,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
     SetInterrupt(TRUE)
 END
@@ -4061,6 +4174,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_PIERCE_SHIELD)  // SPWI805.SPL (Pierce Shield)
     SetInterrupt(TRUE)
 END
@@ -4089,6 +4203,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_PIERCE_SHIELD)  // SPWI805.SPL (Pierce Shield)
     SetInterrupt(TRUE)
 END
@@ -4117,6 +4232,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_PIERCE_SHIELD)  // SPWI805.SPL (Pierce Shield)
     SetInterrupt(TRUE)
 END
@@ -4145,6 +4261,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_PIERCE_SHIELD)  // SPWI805.SPL (Pierce Shield)
     SetInterrupt(TRUE)
 END
@@ -4173,6 +4290,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_PIERCE_SHIELD)  // SPWI805.SPL (Pierce Shield)
     SetInterrupt(TRUE)
 END
@@ -4201,6 +4319,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_PIERCE_SHIELD)  // SPWI805.SPL (Pierce Shield)
     SetInterrupt(TRUE)
 END
@@ -4229,6 +4348,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
     SetInterrupt(TRUE)
 END
@@ -4257,6 +4377,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
     SetInterrupt(TRUE)
 END
@@ -4285,6 +4406,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
     SetInterrupt(TRUE)
 END
@@ -4313,6 +4435,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
     SetInterrupt(TRUE)
 END
@@ -4341,6 +4464,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
     SetInterrupt(TRUE)
 END
@@ -4369,6 +4493,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
     SetInterrupt(TRUE)
 END
@@ -4393,6 +4518,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5017)
     Spell(Myself,WIZARD_DETECT_ILLUSION)  // SPWI322.SPL (Detect Illusion)
     SetInterrupt(TRUE)
 END
@@ -4417,6 +4543,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5017)
     Spell(Myself,WIZARD_DETECT_ILLUSION)  // SPWI322.SPL (Detect Illusion)
     SetInterrupt(TRUE)
 END
@@ -4441,6 +4568,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5017)
     Spell(Myself,WIZARD_DETECT_ILLUSION)  // SPWI322.SPL (Detect Illusion)
     SetInterrupt(TRUE)
 END
@@ -4465,6 +4593,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5017)
     Spell(Myself,WIZARD_DETECT_ILLUSION)  // SPWI322.SPL (Detect Illusion)
     SetInterrupt(TRUE)
 END
@@ -4489,6 +4618,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5017)
     Spell(Myself,WIZARD_DETECT_ILLUSION)  // SPWI322.SPL (Detect Illusion)
     SetInterrupt(TRUE)
 END
@@ -4513,6 +4643,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5017)
     Spell(Myself,WIZARD_DETECT_ILLUSION)  // SPWI322.SPL (Detect Illusion)
     SetInterrupt(TRUE)
 END
@@ -4537,6 +4668,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5017)
     Spell(Myself,WIZARD_DETECT_ILLUSION)  // SPWI322.SPL (Detect Illusion)
     SetInterrupt(TRUE)
 END

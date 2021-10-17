@@ -7,8 +7,10 @@ October xx, 2021
 ### Changed 
 
 - All Games
-  - Updated all hovering texts for turn undead, pre-buffing, and potion use 
-  - Updated MO-BASIC AI scripts to no longer cast long duration spells
+  - Changed keybinding key to pre-buff from "D" to "B".
+  - Updated all hovering texts for turn undead, pre-buffing, and potion use.
+  - Added new hovering text for when certain spells are being cast in combat.
+  - Updated MO-BASIC AI scripts to no longer cast long duration spells.
 
 ## Version 5.4.1
 

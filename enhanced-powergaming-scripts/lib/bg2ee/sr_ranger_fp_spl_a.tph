@@ -17,15 +17,6 @@ COPY ~enhanced-powergaming-scripts/baf/upload/morang.baf~ ~enhanced-powergaming-
     strict = 1
     verbose = 0
     STR_VAR
-    pattern = ~~~~~Spell(Myself,CLERIC_SLOW_POISON)  // SPPR212.SPL (Slow Poison)~~~~~
-    string = ~~~~~SpellRES("D5P1212",Myself)~~~~~ //"
-  END
-
-  LPF REPLACE_MULTILINE
-    INT_VAR
-    strict = 1
-    verbose = 0
-    STR_VAR
     pattern = ~~~~~Spell(LastSeenBy(Myself),CLERIC_SLOW_POISON)  // SPPR212.SPL (Slow Poison)~~~~~
     string = ~~~~~SpellRES("D5P1212",LastSeenBy(Myself))~~~~~ //"
   END
@@ -40,15 +31,6 @@ COPY ~enhanced-powergaming-scripts/baf/upload/morang.baf~ ~enhanced-powergaming-
     STR_VAR
     pattern = ~~~~~HaveSpell(CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)~~~~~
     string = ~~~~~HaveSpellRES("D5P1317")~~~~~ //"
-  END
-
-  LPF REPLACE_MULTILINE
-    INT_VAR
-    strict = 1
-    verbose = 0
-    STR_VAR
-    pattern = ~~~~~Spell(Myself,CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)~~~~~
-    string = ~~~~~SpellRES("D5P1317",Myself)~~~~~ //"
   END
 
   LPF REPLACE_MULTILINE
@@ -1480,7 +1462,8 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
-    Spell(Myself,CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
+    DisplayStringHead(Myself,@5014)
+    Spell(Myself,CLERIC_INVISIBILITY_PURGE) // SPPR309.SPL (Invisibility Purge)
     SetInterrupt(TRUE)
 END~~~~~
     string = ~~~~~IF
@@ -1703,7 +1686,8 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
-    Spell(Myself,CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
+    DisplayStringHead(Myself,@5014)
+    Spell(Myself,CLERIC_INVISIBILITY_PURGE) // SPPR309.SPL (Invisibility Purge)
     SetInterrupt(TRUE)
 END
 ~~~~~ //"
