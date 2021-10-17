@@ -1,0 +1,395 @@
+COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+
+///////////////////////////////////////////////////////////////////////////
+// Update Breach to Target Lich and Raksasha                             //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~!StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  !ImmuneToSpellLevel(LastSeenBy(Myself),5)~~~~~
+    string = ~~~~~!StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Update Breach for SCS Revisions                                       //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_BREACH)  // SPWI513.SPL (Breach)
+    SetInterrupt(TRUE)
+END~~~~~
+    string = ~~~~~CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  !CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_DEFLECTION)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_BREACH)  // SPWI513.SPL (Breach)
+    SetInterrupt(TRUE)
+END~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Update Spell Thrust for SCS Revisions                                 //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_DEFLECTION)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
+    SetInterrupt(TRUE)
+END~~~~~
+    string = ~~~~~OR(3)
+    CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+    CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
+    CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_DEFLECTION)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
+    SetInterrupt(TRUE)
+END~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Update Secret Word for SCS Revisions                                  //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
+    SetInterrupt(TRUE)
+END~~~~~
+    string = ~~~~~OR(6)    
+    CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+    CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+    CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+    CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+    CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
+    CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
+    SetInterrupt(TRUE)
+END~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Update Pierce Magic for SCS Revisions                                 //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_PIERCE_MAGIC)  // SPWI608.SPL (Pierce Magic)
+    SetInterrupt(TRUE)
+END~~~~~
+    string = ~~~~~OR(6)    
+    CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+    CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+    CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+    CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+    CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
+    CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_PIERCE_MAGIC)  // SPWI608.SPL (Pierce Magic)
+    SetInterrupt(TRUE)
+END~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Update Khelben's Warding Whip for SCS Revisions                       //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_KHELBENS_WARDING_WHIP)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_WARDING_WHIP)  // SPWI705.SPL (Khelben's Warding Whip)
+    SetInterrupt(TRUE)
+END~~~~~
+    string = ~~~~~OR(6)    
+    CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+    CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+    CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+    CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+    CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
+    CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_KHELBENS_WARDING_WHIP)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_WARDING_WHIP)  // SPWI705.SPL (Khelben's Warding Whip)
+    SetInterrupt(TRUE)
+END~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Update Spell Strike for SCS Revisions                                 //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
+    SetInterrupt(TRUE)
+END~~~~~
+    string = ~~~~~OR(8)    
+    CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+    CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+    CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+    CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+    CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
+    CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+    CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+    CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TRAP)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
+    SetInterrupt(TRUE)
+END~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Update Pierce Shield for SCS Revisions                                //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_PIERCE_SHIELD)  // SPWI805.SPL (Pierce Shield)
+    SetInterrupt(TRUE)
+END~~~~~
+    string = ~~~~~OR(7)    
+    CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+    CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+    CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+    CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+    CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
+    CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+    CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TRAP)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_PIERCE_SHIELD)  // SPWI805.SPL (Pierce Shield)
+    SetInterrupt(TRUE)
+END~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Update Ruby Ray of Reversal for SCS Revisions                         //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
+    SetInterrupt(TRUE)
+END~~~~~
+    string = ~~~~~OR(7)    
+    CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+    CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+    CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+    CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+    CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
+    CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+    CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TRAP)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
+    SetInterrupt(TRUE)
+END~~~~~ //"
+  END

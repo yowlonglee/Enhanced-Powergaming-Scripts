@@ -1,0 +1,25 @@
+LOAD_TRA ~enhanced-powergaming-scripts/languages/%LANGUAGE%/script_dialog.tra~
+
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+// Enhanced Scripts for Summoned Celestials                              //
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+
+ACTION_IF (MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
+	COPY ~enhanced-powergaming-scripts/baf/celestials/sr/devaevil.baf~   ~enhanced-powergaming-scripts/baf/upload/devaevil.baf~
+	COPY ~enhanced-powergaming-scripts/baf/celestials/sr/devagood.baf~   ~enhanced-powergaming-scripts/baf/upload/devagood.baf~
+	COPY ~enhanced-powergaming-scripts/baf/celestials/sr/plangood.baf~   ~enhanced-powergaming-scripts/baf/upload/plangood.baf~
+END ELSE BEGIN
+	COPY ~enhanced-powergaming-scripts/baf/celestials/devaevil.baf~   ~enhanced-powergaming-scripts/baf/upload/devaevil.baf~
+	COPY ~enhanced-powergaming-scripts/baf/celestials/devagood.baf~   ~enhanced-powergaming-scripts/baf/upload/devagood.baf~
+	COPY ~enhanced-powergaming-scripts/baf/celestials/plangood.baf~   ~enhanced-powergaming-scripts/baf/upload/plangood.baf~
+END
+
+///////////////////////////////////////////////////////////////////////////
+// Copy .BCS files to override folder                                    //
+///////////////////////////////////////////////////////////////////////////
+COPY ~enhanced-powergaming-scripts/baf/upload/devaevil.baf~   	   ~override/devaevil.bcs~
+	 ~enhanced-powergaming-scripts/baf/upload/devagood.baf~   	   ~override/devagood.bcs~
+	 ~enhanced-powergaming-scripts/baf/upload/plangood.baf~   	   ~override/plangood.bcs~
+  COMPILE_BAF_TO_BCS

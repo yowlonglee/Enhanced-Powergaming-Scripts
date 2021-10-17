@@ -1,0 +1,90 @@
+LOAD_TRA ~enhanced-powergaming-scripts/languages/%LANGUAGE%/script_dialog.tra~
+
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+// Add Mod Components to Normal Scripts                                  //
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////
+// Base Game - IWD: EE                                                   //
+///////////////////////////////////////////////////////////////////////////
+COPY ~enhanced-powergaming-scripts/baf/normal/morang.baf~  ~enhanced-powergaming-scripts/baf/upload/morang.baf~
+COPY ~enhanced-powergaming-scripts/baf/normal/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
+COPY ~enhanced-powergaming-scripts/baf/normal/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+COPY ~enhanced-powergaming-scripts/baf/normal/mopal.baf~   ~enhanced-powergaming-scripts/baf/upload/mopal.baf~
+COPY ~enhanced-powergaming-scripts/baf/normal/momonk.baf~  ~enhanced-powergaming-scripts/baf/upload/momonk.baf~
+
+INCLUDE ~enhanced-powergaming-scripts/lib/ranger_base.tph~
+INCLUDE ~enhanced-powergaming-scripts/lib/basic_base.tph~
+INCLUDE ~enhanced-powergaming-scripts/lib/core_base.tph~
+INCLUDE ~enhanced-powergaming-scripts/lib/monk_base.tph~
+INCLUDE ~enhanced-powergaming-scripts/lib/paladin_base.tph~
+
+INCLUDE ~enhanced-powergaming-scripts/lib/IWDEE/ranger_iwd.tph~
+INCLUDE ~enhanced-powergaming-scripts/lib/IWDEE/basic_iwd.tph~
+INCLUDE ~enhanced-powergaming-scripts/lib/IWDEE/core_iwd.tph~
+INCLUDE ~enhanced-powergaming-scripts/lib/IWDEE/monk_iwd.tph~
+INCLUDE ~enhanced-powergaming-scripts/lib/IWDEE/paladin_iwd.tph~
+
+///////////////////////////////////////////////////////////////////////////
+// Heart of Winter                                                       //
+///////////////////////////////////////////////////////////////////////////
+/*
+ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1500~ && MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1510~) || (MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 30 && MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 40) BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/ranger_iwd.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/basic_iwd.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_iwd.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/paladin_iwd.tph~
+END
+*/
+
+///////////////////////////////////////////////////////////////////////////
+// Make Skald Script after Core                                          //
+///////////////////////////////////////////////////////////////////////////
+INCLUDE ~enhanced-powergaming-scripts/lib/iwdee/skald_base.tph~
+
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+// Import AI Scripts into the Game                                       //
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////
+// Copy .BS files to scripts folder                                      //
+///////////////////////////////////////////////////////////////////////////
+COPY ~enhanced-powergaming-scripts/baf/upload/morang.baf~   ~scripts/morang.bs~
+	 ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~  ~scripts/mobasic.bs~
+	 ~enhanced-powergaming-scripts/baf/upload/mocore.baf~   ~scripts/mocore.bs~
+	 ~enhanced-powergaming-scripts/baf/upload/momonk.baf~   ~scripts/momonk.bs~
+	 ~enhanced-powergaming-scripts/baf/upload/mopal.baf~    ~scripts/mopal.bs~
+	 ~enhanced-powergaming-scripts/baf/upload/moskd.baf~    ~scripts/moskd.bs~
+  COMPILE_BAF_TO_BCS
+
+///////////////////////////////////////////////////////////////////////////
+// Add descriptions of the scripts to scrpdesc.2da                       //
+///////////////////////////////////////////////////////////////////////////
+APPEND ~scrpdesc.2DA~
+~morang		999990		 999989
+mobasic		999988		 999987
+mocore      999986       999985
+momonk		999984		 999983
+mopal		999982		 999981
+moskd		999980		 999979~
+
+///////////////////////////////////////////////////////////////////////////
+// Copy the appended scrpdesc.2da to the override folder                 //
+///////////////////////////////////////////////////////////////////////////
+COPY_EXISTING ~scrpdesc.2da~ ~override~
+REPLACE ~999990~ @1010
+REPLACE ~999989~ @1011
+REPLACE ~999988~ @1090
+REPLACE ~999987~ @1091
+REPLACE ~999986~ @1100
+REPLACE ~999985~ @1101
+REPLACE ~999984~ @1060
+REPLACE ~999983~ @1061
+REPLACE ~999982~ @1050
+REPLACE ~999981~ @1051
+REPLACE ~999980~ @1070
+REPLACE ~999979~ @1071
