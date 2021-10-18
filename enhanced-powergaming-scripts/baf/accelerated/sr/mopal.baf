@@ -67,7 +67,7 @@ IF
   Global("MO_TURNUNDEAD","LOCALS",0)
   Class(Myself,PALADIN_ALL)
   !Kit(Myself,INQUISITOR)
-  HotKey(V)
+  HotKey(%hot_key_TurnUndead%)
 THEN
   RESPONSE #100
     SetGlobal("MO_TURNUNDEAD","LOCALS",1)
@@ -76,7 +76,7 @@ END
 
 IF
   Global("MO_TURNUNDEAD","LOCALS",1)
-  HotKey(V)
+  HotKey(%hot_key_TurnUndead%)
 THEN
   RESPONSE #100
     SetGlobal("MO_TURNUNDEAD","LOCALS",0)
@@ -85,7 +85,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",0)
-  HotKey(B)
+  HotKey(%hot_key_Buffing%)
 THEN
   RESPONSE #100
     SetGlobal("MO_BUFF","LOCALS",1)
@@ -95,7 +95,7 @@ END
 IF
   Global("MO_BUFF","LOCALS",1)
   OR(2)
-    HotKey(B)
+    HotKey(%hot_key_Buffing%)
     See([EVILCUTOFF])
 THEN
   RESPONSE #100

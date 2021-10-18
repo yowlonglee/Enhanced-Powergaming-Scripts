@@ -42,7 +42,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",0)
-  HotKey(B)
+  HotKey(%hot_key_Buffing%)
 THEN
   RESPONSE #100
     SetGlobal("MO_#BUFF","LOCALS",1)
@@ -52,7 +52,7 @@ END
 IF
   Global("MO_BUFF","LOCALS",1)
   OR(2)
-    HotKey(B)
+    HotKey(%hot_key_Buffing%)
     See([EVILCUTOFF])
 THEN
   RESPONSE #100
