@@ -61,49 +61,50 @@ THEN
 END
 
 IF
-	Global("MO_BUFF","LOCALS",1)
-	HasItemEquiped("potn09",Myself)  // Potion of Heroism
-	!CheckSpellState(Myself,BUFF_ENHANCEMENT)
+  Global("MO_BUFF","LOCALS",1)
+  ActionListEmpty()
+  HasItemEquiped("potn09",Myself)  // Potion of Heroism
+  !CheckSpellState(Myself,BUFF_ENHANCEMENT)
 THEN
-	RESPONSE #100
-		UseItem("potn09",Myself)  // Potion of Heroism
+  RESPONSE #100
+    UseItem("potn09",Myself)  // Potion of Heroism
     DisplayStringHead(Myself,@5005)
 END
 
 IF
-	Global("MO_BUFF","LOCALS",1)
-	HasItemEquiped("potn02",Myself)  // Potion of Fire Resistance
+  Global("MO_BUFF","LOCALS",1)
+  HasItemEquiped("potn02",Myself)  // Potion of Fire Resistance
 THEN
-	RESPONSE #100
-		UseItem("potn02",Myself)  // Potion of Fire Resistance
+  RESPONSE #100
+    UseItem("potn02",Myself)  // Potion of Fire Resistance
     DisplayStringHead(Myself,@5005)
 END
 
 IF
-	Global("MO_BUFF","LOCALS",1)
-	HasItemEquiped("potn22",Myself)  // Potion of Cold Resistance
+  Global("MO_BUFF","LOCALS",1)
+  HasItemEquiped("potn22",Myself)  // Potion of Cold Resistance
 THEN
-	RESPONSE #100
-		UseItem("potn22",Myself)  // Potion of Cold Resistance
+  RESPONSE #100
+    UseItem("potn22",Myself)  // Potion of Cold Resistance
     DisplayStringHead(Myself,@5005)
 END
 
 IF
-	Global("MO_BUFF","LOCALS",1)
-	HasItemEquiped("potn18",Myself)  // Potion of Absorption
-	CheckStatLT(Myself,100,RESISTELECTRICITY)
+  Global("MO_BUFF","LOCALS",1)
+  HasItemEquiped("potn18",Myself)  // Potion of Absorption
+  CheckStatLT(Myself,100,RESISTELECTRICITY)
 THEN
-	RESPONSE #100
-		UseItem("potn18",Myself)  // Potion of Absorption
+  RESPONSE #100
+    UseItem("potn18",Myself)  // Potion of Absorption
     DisplayStringHead(Myself,@5005)
 END
 
 IF
-	Global("MO_BUFF","LOCALS",1)
-	HasItemEquiped("potn34",Myself)  // Potion of Magic Blocking
+  Global("MO_BUFF","LOCALS",1)
+  HasItemEquiped("potn34",Myself)  // Potion of Magic Protection
 THEN
-	RESPONSE #100
-		UseItem("potn34",Myself)  // Potion of Magic Blocking
+  RESPONSE #100
+    UseItem("potn34",Myself)  // Potion of Magic Protection
     DisplayStringHead(Myself,@5005)
 END
 
@@ -174,12 +175,12 @@ THEN
 END
 
 IF
-	Global("MO_BUFF","LOCALS",1)
-	HasItemEquiped("potn11",Myself)  // Potion of Invulnerability
-	CheckStatGT(Myself,0,ARMORCLASS)
+  Global("MO_BUFF","LOCALS",1)
+  HasItemEquiped("potn11",Myself)  // Potion of Invulnerability
+  CheckStatGT(Myself,0,ARMORCLASS)
 THEN
-	RESPONSE #100
-		UseItem("potn11",Myself)  // Potion of Invulnerability
+  RESPONSE #100
+    UseItem("potn11",Myself)  // Potion of Invulnerability
     DisplayStringHead(Myself,@5005)
 END
 

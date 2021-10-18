@@ -62,6 +62,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  ActionListEmpty()
   HasItemEquiped("potn09",Myself)  // Potion of Heroism
   !CheckSpellState(Myself,BUFF_ENHANCEMENT)
 THEN

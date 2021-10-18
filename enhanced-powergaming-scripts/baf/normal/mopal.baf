@@ -123,6 +123,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  ActionListEmpty()
   HasItemEquiped("potn09",Myself)  // Potion of Heroism
   !CheckSpellState(Myself,BUFF_ENHANCEMENT)
 THEN
@@ -170,6 +171,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  ActionListEmpty()
   HasItemEquiped("potn07",Myself)  // Potion of Storm Giant Strength
   CheckStatLT(Myself,24,STR)
 THEN
@@ -180,6 +182,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  ActionListEmpty()
   HasItemEquiped("potn06",Myself)  // Potion of Cloud Giant Strength
   CheckStatLT(Myself,23,STR)
 THEN
@@ -190,6 +193,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  ActionListEmpty()
   HasItemEquiped("potn05",Myself)  // Potion of Fire Giant Strength
   CheckStatLT(Myself,22,STR)
 THEN
@@ -200,6 +204,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  ActionListEmpty()
   HasItemEquiped("potn04",Myself)  // Potion of Frost Giant Strength
   CheckStatLT(Myself,21,STR)
 THEN
@@ -210,6 +215,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  ActionListEmpty()
   HasItemEquiped("potn12",Myself)  // Potion of Stone Giant Strength
   CheckStatLT(Myself,20,STR)
 THEN
@@ -220,6 +226,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  ActionListEmpty()
   HasItemEquiped("potn03",Myself)  // Potion of Hill Giant Strength
   CheckStatLT(Myself,19,STR)
 THEN

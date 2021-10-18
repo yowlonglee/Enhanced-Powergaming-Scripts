@@ -62,6 +62,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  ActionListEmpty()
   HasItemEquiped("potn09",Myself)  // Potion of Heroism
   !CheckSpellState(Myself,BUFF_ENHANCEMENT)
 THEN
@@ -170,6 +171,16 @@ IF
 THEN
   RESPONSE #100
     UseItem("potn03",Myself)  // Potion of Hill Giant Strength
+    DisplayStringHead(Myself,@5005)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HasItemEquiped("potn11",Myself)  // Potion of Invulnerability
+  CheckStatGT(Myself,0,ARMORCLASS)
+THEN
+  RESPONSE #100
+    UseItem("potn11",Myself)  // Potion of Invulnerability
     DisplayStringHead(Myself,@5005)
 END
 
