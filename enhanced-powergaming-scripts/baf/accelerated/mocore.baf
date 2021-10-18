@@ -124,7 +124,7 @@ END
 IF
   Global("MO_TURNUNDEAD","LOCALS",0)
   Class(Myself,CLERIC_ALL)
-  HotKey(~hot_key_TurnUndead~)
+  HotKey(hot_key_TurnUndead)
 THEN
   RESPONSE #100
     SetGlobal("MO_TURNUNDEAD","LOCALS",1)
@@ -133,7 +133,7 @@ END
 
 IF
   Global("MO_TURNUNDEAD","LOCALS",1)
-  HotKey(~hot_key_TurnUndead~)
+  HotKey(hot_key_TurnUndead)
 THEN
   RESPONSE #100
     SetGlobal("MO_TURNUNDEAD","LOCALS",0)
@@ -142,7 +142,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",0)
-  HotKey(~hot_key_Buffing~)
+  HotKey(hot_key_Buffing)
 THEN
   RESPONSE #100
     SetGlobal("MO_BUFF","LOCALS",1)
@@ -152,7 +152,7 @@ END
 IF
   Global("MO_BUFF","LOCALS",1)
   OR(2)
-    HotKey(~hot_key_Buffing~)
+    HotKey(hot_key_Buffing)
     See([EVILCUTOFF])
 THEN
   RESPONSE #100
