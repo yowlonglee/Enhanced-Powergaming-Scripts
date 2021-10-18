@@ -25,7 +25,7 @@ ACTION_IF !VARIABLE_IS_SET ~initialise~ BEGIN
    INCLUDE ~enhanced-powergaming-scripts/sfo/install_sfo.tpa~
    INCLUDE ~enhanced-powergaming-scripts/func/misc_functions.tpa~ //Block of code provided by subtledoctor
    INCLUDE ~enhanced-powergaming-scripts/func/replace_multiline.tpa~ //Block of code in EET
-   INCLUDE ~enhanced-powergaming-scripts/lib/ds/ds.tph~
+   INCLUDE ~enhanced-powergaming-scripts/lib/ds/ds.tph~ // Detectable Spells
 
    SILENT
 
@@ -41,25 +41,79 @@ ACTION_IF !VARIABLE_IS_SET ~initialise~ BEGIN
 ///////////////////////////////////////////////////////////////////////////
 // Detect third-party mods                                               //
 ///////////////////////////////////////////////////////////////////////////
-        // Detect Spell Revisions
-        ACTION_IF FILE_EXISTS_IN_GAME ~dvimhere.mrk~ THEN BEGIN
-           OUTER_SET spell_revisions=1
-        END ELSE BEGIN
-           OUTER_SET spell_revisions=0
-        END
-
-        // Detect Item Revisions      
-        ACTION_IF MOD_IS_INSTALLED "item_rev.tp2" 0 BEGIN
-           OUTER_SET item_revisions=1
-        END ELSE BEGIN
-           OUTER_SET item_revisions=0
-        END
-
-/*
-   ACTION_IF item_revisions BEGIN
-           OUTER_SPRINT ~sslvariables~ ~%sslvariables%~^~&~^~ItemRevisions=True~
-           OUTER_SPRINT ssllibrary ~%ssllibrary% %MOD_FOLDER%/ssl/library_ir~
+   // Detect Spell Revisions
+   ACTION_IF FILE_EXISTS_IN_GAME ~dvimhere.mrk~ THEN BEGIN
+      OUTER_SET spell_revisions=1
    END ELSE BEGIN
-           OUTER_SPRINT ssllibrary ~%ssllibrary% %MOD_FOLDER%/ssl/library_notir~
-   END 
-*/    
+      OUTER_SET spell_revisions=0
+   END
+
+   // Detect Item Revisions      
+   ACTION_IF MOD_IS_INSTALLED "item_rev.tp2" 0 BEGIN
+      OUTER_SET item_revisions=1
+   END ELSE BEGIN
+      OUTER_SET item_revisions=0
+   END
+
+   // Detect Song and Silence
+   ACTION_IF MOD_IS_INSTALLED ~setup-song_and_silence.tp2~ ~8~ BEGIN
+      OUTER_SET song_and_silence=1
+   END ELSE BEGIN
+      OUTER_SET song_and_silence=0
+   END
+
+   // Detect Tome and Blood
+   ACTION_IF MOD_IS_INSTALLED ~setup-TomeAndBlood.tp2~ ~14~ BEGIN
+      OUTER_SET tome_and_blood=1
+   END ELSE BEGIN
+      OUTER_SET tome_and_blood=0
+   END
+
+   // Detect Faith and Powers - Ranger Kits
+   ACTION_IF MOD_IS_INSTALLED ~setup-faiths_and_powers.tp2~ ~37~ BEGIN
+      OUTER_SET fp_ranger=1
+   END ELSE BEGIN
+      OUTER_SET fp_ranger=0
+   END
+
+   // Detect Faith and Powers - Paladin Kits
+   ACTION_IF MOD_IS_INSTALLED ~setup-faiths_and_powers.tp2~ ~35~ BEGIN
+      OUTER_SET fp_paladin=1
+   END ELSE BEGIN
+      OUTER_SET fp_paladin=0
+   END
+
+   // Detect Faith and Powers - Cleric Kits
+   ACTION_IF MOD_IS_INSTALLED ~setup-faiths_and_powers.tp2~ ~31~ BEGIN
+      OUTER_SET fp_cleric=1
+   END ELSE BEGIN
+      OUTER_SET fp_cleric=0
+   END
+
+   // Detect Faith and Powers - Spheres
+   ACTION_IF MOD_IS_INSTALLED ~setup-faiths_and_powers.tp2~ ~21~ BEGIN
+      OUTER_SET fp_spheres=1
+   END ELSE BEGIN
+      OUTER_SET fp_spheres=0
+   END
+
+   // Detect IWD Spells
+   ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1500~ && MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1510~) || (MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 30 && MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 40) BEGIN
+      OUTER_SET iwd_spells=1
+   END ELSE BEGIN
+      OUTER_SET iwd_spells=0
+   END
+
+   // Detect Sword Coast Stratagems - Breach
+   ACTION_IF MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~5900~ BEGIN
+      OUTER_SET scs_breach=1
+   END ELSE BEGIN
+      OUTER_SET scs_breach=0
+   END
+
+   // Detect Dark Side of the Sword Coast
+   ACTION_IF MOD_IS_INSTALLED ~Setup-DSotSC.tp2~ ~0~ BEGIN
+      OUTER_SET dark_side=1
+   END ELSE BEGIN
+      OUTER_SET dark_side=0
+   END

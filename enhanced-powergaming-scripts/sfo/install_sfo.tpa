@@ -1,4 +1,5 @@
 // NB: as of SCS v33.5 SFO needs the ini system to have been installed already (from lib_ini)
+// Taken and modified from SCS
 
 ACTION_IF !VARIABLE_IS_SET sfo_installed BEGIN
 
@@ -14,10 +15,10 @@ ACTION_IF !VARIABLE_IS_SET sfo_installed BEGIN
       FAIL "AUTO_EVAL_STRINGS is not set (you need to include it in your tp2 preamble to use SFO)"
  END
 
+/*
    //////////////////////////////////////////////////////////////
    /// set the default variables if they're not set already
    //////////////////////////////////////////////////////////////
-
    ACTION_IF !VARIABLE_IS_SET external_loc BEGIN
       OUTER_SPRINT external_loc weidu_external
    END
@@ -37,7 +38,6 @@ ACTION_IF !VARIABLE_IS_SET sfo_installed BEGIN
    //////////////////////////////////////////////////////////////
    /// make the external folders
    //////////////////////////////////////////////////////////////
-
    MKDIR "%external_loc%"
    MKDIR "%external_loc%/workspace"
    MKDIR "%external_loc%/workspace/ssl_out"
@@ -53,14 +53,13 @@ ACTION_IF !VARIABLE_IS_SET sfo_installed BEGIN
    //////////////////////////////////////////////////////////////
    /// Set variables for the external locations
    //////////////////////////////////////////////////////////////
-
    OUTER_SPRINT workspace "%external_loc%/workspace"
    OUTER_SPRINT data_loc_root "%external_loc%/data"
    OUTER_SPRINT data_loc "%external_loc%/data/%MOD_FOLDER%"
    OUTER_SPRINT marker_loc "%external_loc%/markers"
    OUTER_SPRINT ext_lang_loc "%external_loc%/lang/%MOD_FOLDER%"
 
-/*
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Set default values of control parameters
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -70,14 +69,14 @@ ACTION_IF !VARIABLE_IS_SET sfo_installed BEGIN
  ACTION_IF !VARIABLE_IS_SET sfo_loc BEGIN
       OUTER_SPRINT sfo_loc "sfo"
  END
-
+/*
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Get the debug variable from ini; run silent if it's set to zero
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 LAF check_ini STR_VAR ini="debug_variable" RET debug_variable=value END
 ACTION_IF debug_variable=0 BEGIN SILENT END
 
+/*
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Set defaults for component_loc and local_loc
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
