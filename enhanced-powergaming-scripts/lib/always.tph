@@ -8,17 +8,15 @@ ACTION_IF !VARIABLE_IS_SET ~initialise~ BEGIN
   ACTION_IF ((FILE_EXISTS ~dlc/sod-dlc.zip~) OR (FILE_EXISTS ~sod-dlc.zip~)) THEN BEGIN FAIL @3001 END // Modmerge check
 
   CLEAR_EVERYTHING            // occasionally, e.g. after installing IWD spells, we call this again. Make sure we get a fresh start.
-  SILENT
+  //SILENT
   OUTER_SET initialise=1
 
-/*
 ///////////////////////////////////////////////////////////////////////////
 // Set up ini system                                                     //
 ///////////////////////////////////////////////////////////////////////////
 	INCLUDE ~enhanced-powergaming-scripts/lib/lib_ini.tpa~
     OUTER_SPRINT ini_to_read "enhanced-powergaming-scripts/enhanced-powergaming-scripts.ini"
     LAF SFO_read_ini_file RET_ARRAY SFO_reserved_ini_hash END
-    */
 
 ///////////////////////////////////////////////////////////////////////////
 // General variables, macros and functions                               //
@@ -29,7 +27,7 @@ ACTION_IF !VARIABLE_IS_SET ~initialise~ BEGIN
    INCLUDE ~enhanced-powergaming-scripts/func/replace_multiline.tpa~ //Block of code in EET
    INCLUDE ~enhanced-powergaming-scripts/lib/ds/ds.tph~ // Detectable Spells
 
-   SILENT
+   //SILENT
 
 /*
 ///////////////////////////////////////////////////////////////////////////
