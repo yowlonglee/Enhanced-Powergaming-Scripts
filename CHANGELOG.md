@@ -7,8 +7,8 @@ October xx, 2021
 ### Changed 
 
 - All Games
-  - Changed keybinding key to pre-buff to "B" from "D".
-  - Updated all hovering texts for turn undead, pre-buffing, and potion use.
+  - Players now have the option to set their own hot keys for Pre-Buffing and Turn Undead by updating the .ini file. 
+  - Updated all hovering texts for turn undead, Pre-Buffing, and potion use.
   - Added new hovering text for when certain spells are being cast in combat.
   - Updated MO-BASIC AI scripts to no longer cast long duration spells.
   - Added Polish translation (courtesy of Cahir) and Spanish translation.

@@ -1,0 +1,15 @@
+COPY ~enhanced-powergaming-scripts/baf/upload/devagood.baf~ ~enhanced-powergaming-scripts/baf/upload/devagood.baf~
+
+///////////////////////////////////////////////////////////////////////////
+// Update Hotkey Buffing                                                 //
+///////////////////////////////////////////////////////////////////////////
+  SPRINT value_buff EVAL "%hot_key_Buffing%"
+
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~HotKey(hot_key_Buffing)~~~~~
+    string = ~~~~~HotKey(%value_buff%)~~~~~ //"
+  END

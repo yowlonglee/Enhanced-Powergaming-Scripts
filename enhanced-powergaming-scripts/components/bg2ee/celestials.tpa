@@ -6,7 +6,7 @@ LOAD_TRA ~enhanced-powergaming-scripts/languages/%LANGUAGE%/script_dialog.tra~
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 
-ACTION_IF (MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
+ACTION_IF spell_revisions BEGIN
 	COPY ~enhanced-powergaming-scripts/baf/celestials/sr/devaevil.baf~   ~enhanced-powergaming-scripts/baf/upload/devaevil.baf~
 	COPY ~enhanced-powergaming-scripts/baf/celestials/sr/devagood.baf~   ~enhanced-powergaming-scripts/baf/upload/devagood.baf~
 	COPY ~enhanced-powergaming-scripts/baf/celestials/sr/plangood.baf~   ~enhanced-powergaming-scripts/baf/upload/plangood.baf~
@@ -15,6 +15,13 @@ END ELSE BEGIN
 	COPY ~enhanced-powergaming-scripts/baf/celestials/devagood.baf~   ~enhanced-powergaming-scripts/baf/upload/devagood.baf~
 	COPY ~enhanced-powergaming-scripts/baf/celestials/plangood.baf~   ~enhanced-powergaming-scripts/baf/upload/plangood.baf~
 END
+
+///////////////////////////////////////////////////////////////////////////
+// Update Hot Keys                                                       //
+///////////////////////////////////////////////////////////////////////////
+	INCLUDE ~enhanced-powergaming-scripts/lib/devaevil_hotkey.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/devagood_hotkey.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/plangood_hotkey.tph~
 
 ///////////////////////////////////////////////////////////////////////////
 // Copy .BCS files to override folder                                    //
