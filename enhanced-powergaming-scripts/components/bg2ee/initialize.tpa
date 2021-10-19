@@ -84,7 +84,7 @@ APPEND ~stats.ids~ ~182 WIZARD_TENSERS_TRANSFORMATION~          UNLESS ~182 WIZA
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 
-ACTION_IF (MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
+ACTION_IF spell_revisions BEGIN
 
 ///////////////////////////////////////////////////////////////////////////
 // Create Spell State for Dispel Screen                                  //
@@ -361,7 +361,7 @@ ACTION_IF (MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
 	COPY_EXISTING ~SPWI318.SPL~ ~override~ 
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %min_spl_def% timing = 0 duration = 300 END
 
-	ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~5900~) BEGIN
+	ACTION_IF scs_breach BEGIN
 		COPY_EXISTING ~DWSW318.SPL~ ~override~ 
 		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %min_spl_def% timing = 0 duration = 300 END
 	END
@@ -373,7 +373,7 @@ ACTION_IF (MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
 	COPY_EXISTING ~SPWI522.SPL~ ~override~ 
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %spl_def% timing = 0 duration = 300 END
 
-	ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~5900~) BEGIN
+	ACTION_IF scs_breach BEGIN
 		COPY_EXISTING ~DWSW522.SPL~ ~override~ 
 		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %spl_def% timing = 0 duration = 300 END
 	END
@@ -385,7 +385,7 @@ ACTION_IF (MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
 	COPY_EXISTING ~SPWI701.SPL~ ~override~ 
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %gtr_spl_def% timing = 0 duration = 300 END
 
-	ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~5900~) BEGIN
+	ACTION_IF scs_breach BEGIN
 		COPY_EXISTING ~DWSW701.SPL~ ~override~ 
 		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %gtr_spl_def% timing = 0 duration = 300 END
 	END
@@ -432,7 +432,7 @@ ACTION_IF (MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
 	COPY_EXISTING ~SPWI519.SPL~ ~override~ 
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = 108 timing = 0 duration = 300 END
 
-	ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~5900~) BEGIN
+	ACTION_IF scs_breach BEGIN
 		COPY_EXISTING ~DWSW519.SPL~ ~override~ 
 		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = 108 timing = 0 duration = 300 END
 	END
@@ -476,7 +476,7 @@ ACTION_IF (MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
 // Add Spell State to Mind Blank                                         //
 ///////////////////////////////////////////////////////////////////////////
 
-	ACTION_IF !(MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~5900~) BEGIN
+	ACTION_IF !scs_breach BEGIN
 		COPY_EXISTING ~SPWI802.SPL~ ~override~ 
 		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %mnd_blnk% timing = 0 duration = 2400 END
 	END
@@ -485,7 +485,7 @@ ACTION_IF (MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
 // Add Spell State to True Strike                                        //
 ///////////////////////////////////////////////////////////////////////////
 
-	ACTION_IF !(MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~5900~) BEGIN
+	ACTION_IF !scs_breach BEGIN
 		COPY_EXISTING ~SPWI111.SPL~ ~override~ 
 		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %tru_strk% timing = 0 duration = 18 END
 	END
@@ -513,7 +513,7 @@ END
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 
-ACTION_IF (MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 30 && MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 40) BEGIN
+ACTION_IF iwdification BEGIN
 
 /* COMMENTING OUT BECAUSE IWDIFICATION NOW DOES THIS
 ///////////////////////////////////////////////////////////////////////////
@@ -788,7 +788,7 @@ END
 	COPY_EXISTING ~SPWI406.SPL~ ~override~ 
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %mnr_glb% timing = 0 duration = 72 END
 
-	ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~5900~) BEGIN
+	ACTION_IF scs_breach BEGIN
 		COPY_EXISTING ~DWSW406.SPL~ ~override~ 
 		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %mnr_glb% timing = 0 duration = 72 END
 	END
@@ -800,7 +800,7 @@ END
 	COPY_EXISTING ~SPWI602.SPL~ ~override~ 
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %glb% timing = 0 duration = 102 END
 
-	ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~5900~) BEGIN
+	ACTION_IF scs_breach BEGIN
 		COPY_EXISTING ~DWSW602.SPL~ ~override~ 
 		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %glb% timing = 0 duration = 102 END
 	END
@@ -918,7 +918,7 @@ END
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 
-ACTION_IF !(MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
+ACTION_IF !spell_revisions BEGIN
 
 ///////////////////////////////////////////////////////////////////////////
 // Create Spell State for Minor Spell Turning                            //
@@ -975,7 +975,7 @@ ACTION_IF !(MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
 	COPY_EXISTING ~SPWI522.SPL~ ~override~ 
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %mnr_spl_trn% timing = 0 duration = 90 END
 
-	ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~5900~) BEGIN
+	ACTION_IF scs_breach BEGIN
 		COPY_EXISTING ~DWSW522.SPL~ ~override~ 
 		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %mnr_spl_trn% timing = 0 duration = 90 END
 	END
@@ -987,7 +987,7 @@ ACTION_IF !(MOD_IS_INSTALLED ~setup-spell_rev.tp2~ ~0~) BEGIN
 	COPY_EXISTING ~SPWI701.SPL~ ~override~ 
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %spl_trn% timing = 0 duration = 324 END
 
-	ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~5900~) BEGIN
+	ACTION_IF scs_breach BEGIN
 		COPY_EXISTING ~DWSW701.SPL~ ~override~ 
 		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %spl_trn% timing = 0 duration = 324 END
 	END
@@ -1001,7 +1001,7 @@ END
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 
-ACTION_IF (MOD_IS_INSTALLED ~setup-faiths_and_powers.tp2~ ~21~) BEGIN
+ACTION_IF fp_spheres BEGIN
 
 ///////////////////////////////////////////////////////////////////////////
 // Create Spell State for Divine Aura                                    //

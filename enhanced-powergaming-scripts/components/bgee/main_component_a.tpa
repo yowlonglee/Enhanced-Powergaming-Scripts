@@ -30,7 +30,7 @@ INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/paladin_bgee_a.tph~
 ///////////////////////////////////////////////////////////////////////////
 // IWD Spells                                                            //
 ///////////////////////////////////////////////////////////////////////////
-ACTION_IF iwd_spells BEGIN
+ACTION_IF iwd_scs OR iwdification BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/ranger_iwd.tph~
 	INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/basic_iwd_a.tph~
 	INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/core_iwd_a.tph~
@@ -41,7 +41,7 @@ END
 // SCS - Breach                                                          //
 ///////////////////////////////////////////////////////////////////////////
 ACTION_IF scs_breach BEGIN
-	ACTION_IF iwd_spells BEGIN
+	ACTION_IF iwd_scs OR iwdification BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/core_breach_iwd.tph~
 	END ELSE BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/core_breach.tph~

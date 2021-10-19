@@ -87,11 +87,18 @@ ACTION_IF !VARIABLE_IS_SET ~initialise~ BEGIN
       OUTER_SET fp_spheres=0
    END
 
-   // Detect IWD Spells
-   ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1500~ && MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1510~) || (MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 30 && MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 40) BEGIN
-      OUTER_SET iwd_spells=1
+   // Detect IWD Spells - SCS
+   ACTION_IF MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1500~ && MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1510~ BEGIN
+      OUTER_SET iwd_scs=1
    END ELSE BEGIN
-      OUTER_SET iwd_spells=0
+      OUTER_SET iwd_scs=0
+   END
+
+   // Detect IWD Spells - IWDification
+   ACTION_IF MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 30 && MOD_IS_INSTALLED ~iwdification/setup-iwdification.tp2~ 40 BEGIN
+      OUTER_SET iwdification=1
+   END ELSE BEGIN
+      OUTER_SET iwdification=0
    END
 
    // Detect Sword Coast Stratagems - Breach

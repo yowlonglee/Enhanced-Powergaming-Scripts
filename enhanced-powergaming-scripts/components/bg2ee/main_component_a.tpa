@@ -71,7 +71,7 @@ ACTION_IF spell_revisions BEGIN
 ///////////////////////////////////////////////////////////////////////////
 // SR - IWD Spells                                                       //
 ///////////////////////////////////////////////////////////////////////////
-	ACTION_IF iwd_spells BEGIN
+	ACTION_IF iwd_scs OR iwdification BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_paladin_iwd.tph~
 
 		ACTION_IF fp_ranger BEGIN
@@ -88,7 +88,7 @@ ACTION_IF spell_revisions BEGIN
 // SR - SCS - Breach                                                     //
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF scs_breach BEGIN
-		ACTION_IF iwd_spells BEGIN
+		ACTION_IF iwd_scs OR iwdification BEGIN
 			INCLUDE ~enhanced-powergaming-scripts/lib/sr_core_breach_iwd.tph~
 		END ELSE BEGIN
 			INCLUDE ~enhanced-powergaming-scripts/lib/sr_core_breach.tph~
@@ -141,7 +141,7 @@ END ELSE BEGIN
 ///////////////////////////////////////////////////////////////////////////
 // IWD Spells                                                            //
 ///////////////////////////////////////////////////////////////////////////
-	ACTION_IF iwd_spells BEGIN
+	ACTION_IF iwd_scs OR iwdification BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/ranger_iwd_a.tph~
 		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/basic_iwd_a.tph~
 		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_iwd_a.tph~
@@ -162,7 +162,7 @@ END ELSE BEGIN
 	ACTION_IF fp_ranger BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/ranger_fp_kit_a.tph~
 			
-		ACTION_IF iwd_spells BEGIN
+		ACTION_IF iwd_scs OR iwdification BEGIN
 			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/ranger_iwd_fp_kit.tph~
 		END
 	END
@@ -189,7 +189,7 @@ END ELSE BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/basic_fp_spl_a.tph~
 		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_fp_spl_a.tph~
 
-		ACTION_IF iwd_spells BEGIN
+		ACTION_IF iwd_scs OR iwdification BEGIN
 			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/ranger_iwd_fp_spl.tph~
 		END
 	END
@@ -198,7 +198,7 @@ END ELSE BEGIN
 // SCS - Breach                                                          //
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF scs_breach BEGIN
-		ACTION_IF iwd_spells BEGIN
+		ACTION_IF iwd_scs OR iwdification BEGIN
 			INCLUDE ~enhanced-powergaming-scripts/lib/core_breach_iwd.tph~
 		END ELSE BEGIN
 			INCLUDE ~enhanced-powergaming-scripts/lib/core_breach.tph~
