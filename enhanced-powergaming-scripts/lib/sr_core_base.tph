@@ -6819,6 +6819,22 @@ END
 
 IF
   ActionListEmpty()
+  Global("MO_TURNUNDEAD","LOCALS",0)
+  Global("MO_DETECTILLUSIONS","LOCALS",1)
+  !ModalState(DETECTTRAPS)
+  !ModalState(STEALTH)
+  !ModalState(SHAMANDANCE)
+  OR(3)
+    Class(Myself,THIEF_ALL)
+    Class(Myself,MONK)
+    Class(Myself,SHAMAN)
+THEN
+  RESPONSE #100
+    FindTraps()
+END
+
+IF
+  ActionListEmpty()
   Global("MO_TURNUNDEAD","LOCALS",1)
   !CheckStat(Myself,1,SANCTUARY)
   Class(Myself,CLERIC_ALL)
