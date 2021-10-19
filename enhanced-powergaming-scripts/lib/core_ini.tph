@@ -43,7 +43,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
 ///////////////////////////////////////////////////////////////////////////
 // Update Potion Use During Pre-Buffing                                  //
 ///////////////////////////////////////////////////////////////////////////
-  LAF check_ini STR_VAR ini=buffing_potion_use RET value_pot END
+  LAF check_ini STR_VAR ini="buffing_potion_use" RET value_pot END
   ACTION_IF NOT value_pot BEGIN
     INCLUDE ~enhanced-powergaming-scripts/lib/ini/core_pot.tph~
   END
