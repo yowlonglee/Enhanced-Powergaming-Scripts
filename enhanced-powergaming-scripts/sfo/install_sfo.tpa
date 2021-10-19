@@ -15,112 +15,15 @@ ACTION_IF !VARIABLE_IS_SET sfo_installed BEGIN
       FAIL "AUTO_EVAL_STRINGS is not set (you need to include it in your tp2 preamble to use SFO)"
  END
 
-/*
-   //////////////////////////////////////////////////////////////
-   /// set the default variables if they're not set already
-   //////////////////////////////////////////////////////////////
-   ACTION_IF !VARIABLE_IS_SET external_loc BEGIN
-      OUTER_SPRINT external_loc weidu_external
-   END
-
-   ACTION_IF !VARIABLE_IS_SET tra_base BEGIN
-      OUTER_SPRINT tra_base lang
-   END
-
-   ACTION_IF !VARIABLE_IS_SET rel_iconv_path BEGIN
-      OUTER_SPRINT rel_iconv_path "lang/iconv"
-   END
-
-   ACTION_IF !VARIABLE_IS_SET base_language BEGIN
-      OUTER_SPRINT base_language english
-   END
-
-   //////////////////////////////////////////////////////////////
-   /// make the external folders
-   //////////////////////////////////////////////////////////////
-   MKDIR "%external_loc%"
-   MKDIR "%external_loc%/workspace"
-   MKDIR "%external_loc%/workspace/ssl_out"
-   MKDIR "%external_loc%/data/%MOD_FOLDER%"
-   MKDIR "%external_loc%/markers"
-   MKDIR "%external_loc%/lang"
-   MKDIR "%external_loc%/lang/%MOD_FOLDER%"
-
-   ACTION_IF !FILE_EXISTS "%external_loc%/readme.txt" BEGIN
-      COPY + "%MOD_FOLDER%/lib/resource/weidu_external_readme.txt" "%external_loc%/readme.txt"
-   END
-
-   //////////////////////////////////////////////////////////////
-   /// Set variables for the external locations
-   //////////////////////////////////////////////////////////////
-   OUTER_SPRINT workspace "%external_loc%/workspace"
-   OUTER_SPRINT data_loc_root "%external_loc%/data"
-   OUTER_SPRINT data_loc "%external_loc%/data/%MOD_FOLDER%"
-   OUTER_SPRINT marker_loc "%external_loc%/markers"
-   OUTER_SPRINT ext_lang_loc "%external_loc%/lang/%MOD_FOLDER%"
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Set default values of control parameters
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
- ACTION_IF !VARIABLE_IS_SET ssl_loc BEGIN
-      OUTER_SPRINT ssl_loc "ssl"
- END
- ACTION_IF !VARIABLE_IS_SET sfo_loc BEGIN
-      OUTER_SPRINT sfo_loc "sfo"
- END
-*/
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Get the debug variable from ini; run silent if it's set to zero
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 LAF check_ini STR_VAR ini="debug_variable" RET debug_variable=value END
 ACTION_IF debug_variable=0 BEGIN SILENT END
 
-/*
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Set defaults for component_loc and local_loc
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  OUTER_SPRINT ~component_loc~ ~~
-  OUTER_SPRINT ~local_loc~ ~~
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////       
-/////////////              Define some symbols
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-OUTER_SPRINT ~percentage~ ~%~
-OUTER_SPRINT ~atsymbol~ ~@~
-OUTER_SPRINT ~tilde~ "~"
-OUTER_SPRINT ~minus_one~ "-1"
-OUTER_SPRINT ~arrow~ ~=>~
-
-<<<<<<<< .../stratagems-inline/blank
->>>>>>>>
-
-OUTER_SPRINT former "0"
-ACTION_FOR_EACH val IN z y x w v u t s r q p o n m l k j i h g f e d c b a 9 8 7 6 5 4 3 2 1 0 BEGIN
-    OUTER_SPRINT $alphanumeric_next("%val%") "%former%"
-    ACTION_TO_UPPER val
-    ACTION_TO_UPPER former
-    OUTER_SPRINT $alphanumeric_next("%val%") "%former%"
-    OUTER_SPRINT former "%val%"
-END
-*/
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Define hotkey code
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-/*
-  ACTION_FOR_EACH hotkey IN Buffing TurnUndead BEGIN
-     LAF check_ini INT_VAR silent=1  STR_VAR ini="hot_key_%hotkey%" RET value END
-     ACTION_IF "%value%" STRING_EQUAL_CASE "0" BEGIN
-            OUTER_SPRINT "hot_key_%hotkey%" "%hotkey%"
-     END ELSE BEGIN
-            OUTER_SPRINT "hot_key_%hotkey%" "%value%"
-     END
-  END */
-
     LAF check_ini INT_VAR silent=1  STR_VAR ini="hot_key_Buffing" RET value END
     ACTION_IF "%value%" STRING_EQUAL_CASE "0" BEGIN
         OUTER_SPRINT "hot_key_Buffing" "B"
@@ -135,15 +38,22 @@ END
         OUTER_SPRINT "hot_key_TurnUndead" "%value%"
     END  
 
-/*
-  DEFINE_PATCH_FUNCTION ssl_hotkey_swap BEGIN
-     REPLACE_EVALUATE "HotKey(\([A-Z]\))" 
-     BEGIN
-         SPRINT value EVAL "%hot_key_%MATCH1%%"
-     END
-     ~HotKey(%value%)~
-  END */
+///////////////////////////////////////////////////////////////////////////
+// Detect ini Presets                                                    //
+///////////////////////////////////////////////////////////////////////////
+    LAF check_ini STR_VAR ini="buffing_potion_use" RET value END
+    ACTION_IF !value BEGIN
+      OUTER_SET pot_use=1
+    END ELSE BEGIN
+      OUTER_SET pot_use=0
+    END
 
+    LAF check_ini STR_VAR ini="basic_ai_auto_attack" RET value END
+    ACTION_IF value BEGIN
+      OUTER_SET bsc_atk=1
+    END ELSE BEGIN
+      OUTER_SET bsc_atk=0
+    END
 END
 VERBOSE
 
