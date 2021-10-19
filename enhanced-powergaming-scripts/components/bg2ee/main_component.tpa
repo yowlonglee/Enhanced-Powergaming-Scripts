@@ -220,6 +220,21 @@ END
 	INCLUDE ~enhanced-powergaming-scripts/lib/ranger_hotkey.tph~
 
 ///////////////////////////////////////////////////////////////////////////
+// Update ini Presets                                                    //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF pot_use BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/ini/core_pot.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/ini/basic_pot.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/ini/monk_pot.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/ini/paladin_pot.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/ini/ranger_pot.tph~
+	END
+
+	ACTION_IF bsc_atk BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/ini/basic_atk.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
 // Make Skald Script after Core                                          //
 ///////////////////////////////////////////////////////////////////////////
 	INCLUDE ~enhanced-powergaming-scripts/lib/skald_base.tph~
