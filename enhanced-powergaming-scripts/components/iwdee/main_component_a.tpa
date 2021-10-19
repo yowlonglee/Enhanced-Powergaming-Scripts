@@ -51,6 +51,8 @@ END
 ///////////////////////////////////////////////////////////////////////////
 // Update ini Presets                                                    //
 ///////////////////////////////////////////////////////////////////////////
+	
+	// Removes Potion Use in Pre-Buffing
 	ACTION_IF pot_use BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/ini/core_pot.tph~
 		INCLUDE ~enhanced-powergaming-scripts/lib/ini/basic_pot.tph~
@@ -59,8 +61,18 @@ END
 		INCLUDE ~enhanced-powergaming-scripts/lib/ini/ranger_pot.tph~
 	END
 
+	// Basic AI will Auto-Attack Enemies
 	ACTION_IF bsc_atk BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/ini/basic_atk.tph~
+	END
+
+	// Removes Dialog Hovertext from Scripts
+	ACTION_IF scp_dlg BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/ini/core_dialog.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/ini/basic_dialog.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/ini/monk_dialog.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/ini/paladin_dialog.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/ini/ranger_dialog.tph~
 	END
 
 ///////////////////////////////////////////////////////////////////////////

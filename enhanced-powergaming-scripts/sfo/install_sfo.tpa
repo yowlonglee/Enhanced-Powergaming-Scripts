@@ -54,6 +54,13 @@ ACTION_IF debug_variable=0 BEGIN SILENT END
     END ELSE BEGIN
       OUTER_SET bsc_atk=0
     END
+
+    LAF check_ini STR_VAR ini="script_dialog" RET value END
+    ACTION_IF value BEGIN
+      OUTER_SET scp_dlg=1
+    END ELSE BEGIN
+      OUTER_SET scp_dlg=0
+    END
 END
 VERBOSE
 
