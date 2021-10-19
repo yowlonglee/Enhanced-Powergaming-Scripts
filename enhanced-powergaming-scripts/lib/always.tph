@@ -111,15 +111,15 @@ ACTION_IF !VARIABLE_IS_SET ~initialise~ BEGIN
 ///////////////////////////////////////////////////////////////////////////
 // Detect ini Presets                                                    //
 ///////////////////////////////////////////////////////////////////////////
-  LAF check_ini STR_VAR ini=buffing_potion_use RET value END
-   ACTION_IF value BEGIN
+  LAF check_ini STR_VAR ini=buffing_potion_use RET pot_val=value END
+   ACTION_IF pot_val BEGIN
       OUTER_SET pot_use=0
    END ELSE BEGIN
       OUTER_SET pot_use=1
    END
 
-  LAF check_ini STR_VAR ini=basic_ai_auto_attack RET value END
-   ACTION_IF value BEGIN
+  LAF check_ini STR_VAR ini=basic_ai_auto_attack RET atk_val=value END
+   ACTION_IF atk_val BEGIN
       OUTER_SET bsc_atk=1
    END ELSE BEGIN
       OUTER_SET bsc_atk=0
