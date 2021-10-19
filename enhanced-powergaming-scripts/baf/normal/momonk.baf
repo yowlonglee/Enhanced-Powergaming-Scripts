@@ -41,6 +41,28 @@ THEN
 END
 
 IF
+  Global("MO_DETECTILLUSIONS","LOCALS",0)
+  OR(3)
+    Class(Myself,THIEF_ALL)
+    Class(Myself,MONK)
+    Class(Myself,SHAMAN)
+  HotKey(hot_key_DetectIllusion)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_DETECTILLUSIONS","LOCALS",1)
+    DisplayStringHead(Myself,@5018)
+END
+
+IF
+  Global("MO_DETECTILLUSIONS","LOCALS",1)
+  HotKey(hot_key_DetectIllusion)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_DETECTILLUSIONS","LOCALS",0)
+    DisplayStringHead(Myself,@5019)
+END
+
+IF
   Global("MO_BUFF","LOCALS",0)
   HotKey(hot_key_Buffing)
 THEN

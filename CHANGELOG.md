@@ -8,6 +8,7 @@ October xx, 2021
 
 - All Games
   - Added options in the ini file for players to fine tune the scripts hot keys along with some settings. Note: updates to the ini file need to be made BEFORE the installation of the scripts. Any changes made after will need the scripts to be reinstalled to take effect. 
+  - Pre-Buffing is now hotkey "B" and constantly Detect Illusions is added as hotkey "D".
   - Updated all hovering texts for turn undead, Pre-Buffing, and potion use.
   - Added new hovering text for when certain spells are being cast in combat.
   - Updated MO-BASIC AI scripts to no longer cast long duration spells.

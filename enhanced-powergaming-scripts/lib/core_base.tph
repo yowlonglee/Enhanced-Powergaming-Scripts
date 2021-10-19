@@ -6365,6 +6365,23 @@ END
 
 IF
   ActionListEmpty()
+  Global("MO_TURNUNDEAD","LOCALS",0)
+  Global("MO_DETECTILLUSIONS","LOCALS",1)
+  !See([EVILCUTOFF])
+  !ModalState(DETECTTRAPS)
+  !ModalState(STEALTH)
+  !ModalState(SHAMANDANCE)
+  OR(3)
+    Class(Myself,THIEF_ALL)
+    Class(Myself,MONK)
+    Class(Myself,SHAMAN)
+THEN
+  RESPONSE #100
+    FindTraps()
+END
+
+IF
+  ActionListEmpty()
   Global("MO_TURNUNDEAD","LOCALS",1)
   !CheckStat(Myself,1,SANCTUARY)
   Class(Myself,CLERIC_ALL)
@@ -6376,6 +6393,7 @@ END
 
 IF
   ActionListEmpty()
+  Global("MO_DETECTILLUSIONS","LOCALS",0)
   Class(Myself,SHAMAN)
   !ModalState(SHAMANDANCE)
   !CheckSpellState(Myself,SHAMANIC_DANCE)
@@ -6389,6 +6407,7 @@ END
 IF
   ActionListEmpty()
   Global("MO_TURNUNDEAD","LOCALS",0)
+  Global("MO_DETECTILLUSIONS","LOCALS",0)
   !ModalState(SHAMANDANCE)
   !CheckStat(Myself,1,SANCTUARY)
   !StateCheck(Myself,STATE_INVISIBLE)
@@ -6403,6 +6422,7 @@ END
 IF
   ActionListEmpty()
   Global("MO_TURNUNDEAD","LOCALS",0)
+  Global("MO_DETECTILLUSIONS","LOCALS",0)
   !ModalState(SHAMANDANCE)
   !CheckStat(Myself,1,SANCTUARY)
   !StateCheck(Myself,STATE_INVISIBLE)
@@ -6417,6 +6437,7 @@ END
 IF
   ActionListEmpty()
   Global("MO_TURNUNDEAD","LOCALS",0)
+  Global("MO_DETECTILLUSIONS","LOCALS",0)
   !ModalState(SHAMANDANCE)
   !CheckStat(Myself,1,SANCTUARY)
   !StateCheck(Myself,STATE_INVISIBLE)
@@ -6431,6 +6452,7 @@ END
 IF
   ActionListEmpty()
   Global("MO_TURNUNDEAD","LOCALS",0)
+  Global("MO_DETECTILLUSIONS","LOCALS",0)
   !ModalState(SHAMANDANCE)
   !CheckStat(Myself,1,SANCTUARY)
   !StateCheck(Myself,STATE_INVISIBLE)
@@ -6445,6 +6467,7 @@ END
 IF
   ActionListEmpty()
   Global("MO_TURNUNDEAD","LOCALS",0)
+  Global("MO_DETECTILLUSIONS","LOCALS",0)
   !ModalState(SHAMANDANCE)
   !CheckStat(Myself,1,SANCTUARY)
   !StateCheck(Myself,STATE_INVISIBLE)
@@ -6459,6 +6482,7 @@ END
 IF
   ActionListEmpty()
   Global("MO_TURNUNDEAD","LOCALS",0)
+  Global("MO_DETECTILLUSIONS","LOCALS",0)
   !ModalState(SHAMANDANCE)
   !CheckStat(Myself,1,SANCTUARY)
   !StateCheck(Myself,STATE_INVISIBLE)

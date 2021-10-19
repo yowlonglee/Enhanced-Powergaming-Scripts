@@ -33,3 +33,17 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming
     pattern = ~~~~~HotKey(hot_key_Buffing)~~~~~
     string = ~~~~~HotKey(%value_buff%)~~~~~ //"
   END
+
+///////////////////////////////////////////////////////////////////////////
+// Update Hotkey Detect Illusions                                        //
+///////////////////////////////////////////////////////////////////////////
+  SPRINT value_detect EVAL "%hot_key_DetectIllusion%"
+
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~HotKey(hot_key_DetectIllusion)~~~~~
+    string = ~~~~~HotKey(%value_detect%)~~~~~ //"
+  END
