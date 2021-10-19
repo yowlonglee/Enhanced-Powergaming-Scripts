@@ -1,0 +1,137 @@
+COPY ~enhanced-powergaming-scripts/baf/upload/mopal.baf~ ~enhanced-powergaming-scripts/baf/upload/mopal.baf~
+
+///////////////////////////////////////////////////////////////////////////
+// Update Potion Use During Pre-Buffing                                  //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  ActionListEmpty()
+  HasItemEquiped("potn09",Myself)  // Potion of Heroism
+  !CheckSpellState(Myself,BUFF_ENHANCEMENT)
+THEN
+  RESPONSE #100
+    UseItem("potn09",Myself)  // Potion of Heroism
+    DisplayStringHead(Myself,@5005)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HasItemEquiped("potn02",Myself)  // Potion of Fire Resistance
+THEN
+  RESPONSE #100
+    UseItem("potn02",Myself)  // Potion of Fire Resistance
+    DisplayStringHead(Myself,@5005)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HasItemEquiped("potn22",Myself)  // Potion of Cold Resistance
+THEN
+  RESPONSE #100
+    UseItem("potn22",Myself)  // Potion of Cold Resistance
+    DisplayStringHead(Myself,@5005)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HasItemEquiped("potn18",Myself)  // Potion of Absorption
+  CheckStatLT(Myself,100,RESISTELECTRICITY)
+THEN
+  RESPONSE #100
+    UseItem("potn18",Myself)  // Potion of Absorption
+    DisplayStringHead(Myself,@5005)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HasItemEquiped("potn34",Myself)  // Potion of Magic Protection
+THEN
+  RESPONSE #100
+    UseItem("potn34",Myself)  // Potion of Magic Protection
+    DisplayStringHead(Myself,@5005)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  ActionListEmpty()
+  HasItemEquiped("potn07",Myself)  // Potion of Storm Giant Strength
+  CheckStatLT(Myself,24,STR)
+THEN
+  RESPONSE #100
+    UseItem("potn07",Myself)  // Potion of Storm Giant Strength
+    DisplayStringHead(Myself,@5005)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  ActionListEmpty()
+  HasItemEquiped("potn06",Myself)  // Potion of Cloud Giant Strength
+  CheckStatLT(Myself,23,STR)
+THEN
+  RESPONSE #100
+    UseItem("potn06",Myself)  // Potion of Cloud Giant Strength
+    DisplayStringHead(Myself,@5005)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  ActionListEmpty()
+  HasItemEquiped("potn05",Myself)  // Potion of Fire Giant Strength
+  CheckStatLT(Myself,22,STR)
+THEN
+  RESPONSE #100
+    UseItem("potn05",Myself)  // Potion of Fire Giant Strength
+    DisplayStringHead(Myself,@5005)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  ActionListEmpty()
+  HasItemEquiped("potn04",Myself)  // Potion of Frost Giant Strength
+  CheckStatLT(Myself,21,STR)
+THEN
+  RESPONSE #100
+    UseItem("potn04",Myself)  // Potion of Frost Giant Strength
+    DisplayStringHead(Myself,@5005)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  ActionListEmpty()
+  HasItemEquiped("potn12",Myself)  // Potion of Stone Giant Strength
+  CheckStatLT(Myself,20,STR)
+THEN
+  RESPONSE #100
+    UseItem("potn12",Myself)  // Potion of Stone Giant Strength
+    DisplayStringHead(Myself,@5005)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  ActionListEmpty()
+  HasItemEquiped("potn03",Myself)  // Potion of Hill Giant Strength
+  CheckStatLT(Myself,19,STR)
+THEN
+  RESPONSE #100
+    UseItem("potn03",Myself)  // Potion of Hill Giant Strength
+    DisplayStringHead(Myself,@5005)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HasItemEquiped("potn11",Myself)  // Potion of Invulnerability
+  CheckStatGT(Myself,0,ARMORCLASS)
+THEN
+  RESPONSE #100
+    UseItem("potn11",Myself)  // Potion of Invulnerability
+    DisplayStringHead(Myself,@5005)
+END
+
+IF~~~~~
+      string = ~~~~~IF~~~~~ //"
+  END

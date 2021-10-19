@@ -1,0 +1,127 @@
+COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
+
+///////////////////////////////////////////////////////////////////////////
+// Update Basic AI to Attack                                             //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~IF
+  ActionListEmpty()
+  Global("MO_TURNUNDEAD","LOCALS",1)
+  !CheckStat(Myself,1,SANCTUARY)
+  Class(Myself,CLERIC_ALL)
+  !ModalState(TURNUNDEAD)
+THEN
+  RESPONSE #100
+    Turn()
+END~~~~~
+      string = ~~~~~IF
+  ActionListEmpty()
+  Global("MO_TURNUNDEAD","LOCALS",1)
+  !CheckStat(Myself,1,SANCTUARY)
+  Class(Myself,CLERIC_ALL)
+  !ModalState(TURNUNDEAD)
+THEN
+  RESPONSE #100
+    Turn()
+END
+
+IF
+  ActionListEmpty()
+  Class(Myself,SHAMAN)
+  !ModalState(SHAMANDANCE)
+  !CheckSpellState(Myself,SHAMANIC_DANCE)
+  Range([EVILCUTOFF],30)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    BattleSong()
+END
+
+IF
+  ActionListEmpty()
+  Global("MO_TURNUNDEAD","LOCALS",0)
+  !ModalState(SHAMANDANCE)
+  !CheckStat(Myself,1,SANCTUARY)
+  !StateCheck(Myself,STATE_INVISIBLE)
+  See(NearestEnemyOf(Myself))
+  WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
+  WeaponCanDamage(NearestEnemyOf(Myself),MAINHAND)
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  ActionListEmpty()
+  Global("MO_TURNUNDEAD","LOCALS",0)
+  !ModalState(SHAMANDANCE)
+  !CheckStat(Myself,1,SANCTUARY)
+  !StateCheck(Myself,STATE_INVISIBLE)
+  See(SecondNearestEnemyOf(Myself))
+  WeaponEffectiveVs(SecondNearestEnemyOf(Myself),MAINHAND)
+  WeaponCanDamage(SecondNearestEnemyOf(Myself),MAINHAND)
+THEN
+  RESPONSE #100
+    Attack(SecondNearestEnemyOf(Myself))
+END
+
+IF
+  ActionListEmpty()
+  Global("MO_TURNUNDEAD","LOCALS",0)
+  !ModalState(SHAMANDANCE)
+  !CheckStat(Myself,1,SANCTUARY)
+  !StateCheck(Myself,STATE_INVISIBLE)
+  See(ThirdNearestEnemyOf(Myself))
+  WeaponEffectiveVs(ThirdNearestEnemyOf(Myself),MAINHAND)
+  WeaponCanDamage(ThirdNearestEnemyOf(Myself),MAINHAND)
+THEN
+  RESPONSE #100
+    Attack(ThirdNearestEnemyOf(Myself))
+END
+
+IF
+  ActionListEmpty()
+  Global("MO_TURNUNDEAD","LOCALS",0)
+  !ModalState(SHAMANDANCE)
+  !CheckStat(Myself,1,SANCTUARY)
+  !StateCheck(Myself,STATE_INVISIBLE)
+  See(FourthNearestEnemyOf(Myself))
+  WeaponEffectiveVs(FourthNearestEnemyOf(Myself),MAINHAND)
+  WeaponCanDamage(FourthNearestEnemyOf(Myself),MAINHAND)
+THEN
+  RESPONSE #100
+    Attack(FourthNearestEnemyOf(Myself))
+END
+
+IF
+  ActionListEmpty()
+  Global("MO_TURNUNDEAD","LOCALS",0)
+  !ModalState(SHAMANDANCE)
+  !CheckStat(Myself,1,SANCTUARY)
+  !StateCheck(Myself,STATE_INVISIBLE)
+  See(FifthNearestEnemyOf(Myself))
+  WeaponEffectiveVs(FifthNearestEnemyOf(Myself),MAINHAND)
+  WeaponCanDamage(FifthNearestEnemyOf(Myself),MAINHAND)
+THEN
+  RESPONSE #100
+    Attack(FifthNearestEnemyOf(Myself))
+END
+
+IF
+  ActionListEmpty()
+  Global("MO_TURNUNDEAD","LOCALS",0)
+  !ModalState(SHAMANDANCE)
+  !CheckStat(Myself,1,SANCTUARY)
+  !StateCheck(Myself,STATE_INVISIBLE)
+  See(SixthNearestEnemyOf(Myself))
+  WeaponEffectiveVs(SixthNearestEnemyOf(Myself),MAINHAND)
+  WeaponCanDamage(SixthNearestEnemyOf(Myself),MAINHAND)
+THEN
+  RESPONSE #100
+    Attack(SixthNearestEnemyOf(Myself))
+END~~~~~ //"
+  END
