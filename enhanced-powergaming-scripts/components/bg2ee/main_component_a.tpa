@@ -213,11 +213,26 @@ END
 ///////////////////////////////////////////////////////////////////////////
 // Update Hot Keys                                                       //
 ///////////////////////////////////////////////////////////////////////////
-	INCLUDE ~enhanced-powergaming-scripts/lib/core_ini.tph~
-	INCLUDE ~enhanced-powergaming-scripts/lib/basic_ini.tph~
-	INCLUDE ~enhanced-powergaming-scripts/lib/monk_ini.tph~
-	INCLUDE ~enhanced-powergaming-scripts/lib/paladin_ini.tph~
-	INCLUDE ~enhanced-powergaming-scripts/lib/ranger_ini.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/core_hotkey.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/basic_hotkey.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/monk_hotkey.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/paladin_hotkey.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/ranger_hotkey.tph~
+
+///////////////////////////////////////////////////////////////////////////
+// Update ini Presets                                                    //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF pot_use BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/ini/core_pot.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/ini/basic_pot.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/ini/monk_pot.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/ini/paladin_pot.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/ini/ranger_pot.tph~
+	END
+
+	ACTION_IF bsc_atk BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/ini/basic_atk.tph~
+	END
 
 ///////////////////////////////////////////////////////////////////////////
 // Create Skald Script Modeled After Core                                //
