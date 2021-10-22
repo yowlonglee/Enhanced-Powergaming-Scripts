@@ -28,7 +28,7 @@ You are right to ask why I'm releasing these when there are already so many AI s
 
 These scripts are focused on heavy physical damage parties in both melee and ranged. To me, spells are only there to protect me from enemy damage, enhance my physical damage, and strip the enemies of their spell protections. These scripts do everything to manage the minutiae of play, so the player can focus on other things. Specifically these:
 
-- Allow the player to pre-buff before any fight by pressing the "D" key. I hate pre-buffing, it is tedious to go through all spells and manually cast. Additionally, you have to check to ensure you cast long duration spells first and such. No bueno. Know what is bueno? Hitting the "D" key and watching all selected characters start pre-buffing. This is literally the "Easy Button" to buffing saving you time and allowing you to focus on what really matters. Characters will state when they begin pre-buffing and when they complete pre-buffing. If an enemy is sighted or the "D" key is pressed again, pre-buffing will cancel and the character will announce they were not able to complete the pre-buffing. Buffs will be cast with longest duration ones first moving to shortest duration. This takes all the guessing out of it.
+- Allow the player to pre-buff before any fight by pressing the "B" key. I hate pre-buffing, it is tedious to go through all spells and manually cast. Additionally, you have to check to ensure you cast long duration spells first and such. No bueno. Know what is bueno? Hitting the "B" key and watching all selected characters start pre-buffing. This is literally the "Easy Button" to buffing saving you time and allowing you to focus on what really matters. Characters will state when they begin pre-buffing and when they complete pre-buffing. If an enemy is sighted or the "B" key is pressed again, pre-buffing will cancel and the character will announce they were not able to complete the pre-buffing. Buffs will be cast with longest duration ones first moving to shortest duration. This takes all the guessing out of it.
 
 - Automatically using appropriate healing potions and antidotes in combat.
 
@@ -66,7 +66,7 @@ Below are the components for the install allowing you to pick and choose what ch
 
 ### Main Component
 
-This is the main component that will auto-detect your mod installations and provide scripts based on the installs listed above. These can dynamically create over 1.5 MILLION scripts depending on what spell/kit mods you have installed. You will have the option to select having either pre-buffing cast at a normal speed or an accelerated speed. Regardless of either option chosen, characters will stop pre-buffing if either the "D" key is pressed again or an enemy is sighted.
+This is the main component that will auto-detect your mod installations and provide scripts based on the installs listed above. These can dynamically create over 1.5 MILLION scripts depending on what spell/kit mods you have installed. You will have the option to select having either pre-buffing cast at a normal speed or an accelerated speed. Regardless of either option chosen, characters will stop pre-buffing if either the "B" key is pressed again or an enemy is sighted.
 
 #### Normal Pre-Buffing Speed
 
@@ -90,7 +90,7 @@ Below are a listing of the different scripts included in the Main Component.
 
 ##### MO-BasicAI
 
-This script is designed for the minimalists who normally turn party AI off in their games. All classes can use this script. This script will constantly Turn Undead when the "V" key is pressed and will cast pre-buffing spells when the "D" key is pressed. If playing a thief or monk class, the script will detect traps while not in combat. If playing a Bard class, the script will constantly be singing the applicable Bard song. Unlike the other scripts, these will not attack or use spells/abilities in or out of combat (only exception is very long duration spells like Stoneskin will be cast).  
+This script is designed for the minimalists who normally turn party AI off in their games. All classes can use this script. This script will constantly Turn Undead when the "V" key is pressed and will cast pre-buffing spells when the "B" key is pressed. If playing a thief or monk class, the script will detect traps while not in combat. If playing a Bard class, the script will constantly be singing the applicable Bard song. Unlike the other scripts, these will not attack or use spells/abilities in or out of combat (only exception is very long duration spells like Stoneskin will be cast).  
 
 ##### MO-CORE
 
@@ -98,27 +98,27 @@ This script is designed for all core classes: Fighter, Mage, Thief, Cleric, Drui
 
 ##### MO-MONK
 
-This is a script specifically designed for the Monk class. The script will constantly be detecting traps while idle. This script will cast pre-buff spells when the "D" key is pressed. In addition to pre-buffing, the script will intelligently use abilities both in and out of combat.
+This is a script specifically designed for the Monk class. The script will constantly be detecting traps while idle. This script will cast pre-buff spells when the "B" key is pressed. In addition to pre-buffing, the script will intelligently use abilities both in and out of combat.
 
 ##### MO-PALADIN
 
-This is a script specifically designed for the Paladin class. This script will constantly Turn Undead when the "V" key is pressed and will cast pre-buff spells when the "D" key is pressed. In addition to pre-buffing, the script will intelligently use abilities both in and out of combat. 
+This is a script specifically designed for the Paladin class. This script will constantly Turn Undead when the "V" key is pressed and will cast pre-buff spells when the "B" key is pressed. In addition to pre-buffing, the script will intelligently use abilities both in and out of combat. 
 
 ##### MO-RANGER
 
-This is a script specifically designed for the Ranger class (NON-dual or multi). This script will cast pre-buff spells when the "D" key is pressed. In addition to pre-buffing, the script will intelligently heal and use abilities both in and out of combat. If you are playing a Cleric/Ranger dual or multiclass, please use the MO-Core or MO-BasicAI script instead.
+This is a script specifically designed for the Ranger class (NON-dual or multi). This script will cast pre-buff spells when the "B" key is pressed. In addition to pre-buffing, the script will intelligently heal and use abilities both in and out of combat. If you are playing a Cleric/Ranger dual or multiclass, please use the MO-Core or MO-BasicAI script instead.
 
 ##### MO-SKALD
 
-This is a script specifically designed for the Skald Kit. This script will cast pre-buff spells when the "D" key is pressed. In addition to pre-buffing, the script will intelligently use abilities both in and out of combat. When not casting spells, the Skald will constantly be singing the Skald song. Additionally, between casting spells, the Skald will start singing again to attempt to keep the Skald song up constantly in combat. This script is written to use up to Level 9 Spells.
+This is a script specifically designed for the Skald Kit. This script will cast pre-buff spells when the "B" key is pressed. In addition to pre-buffing, the script will intelligently use abilities both in and out of combat. When not casting spells, the Skald will constantly be singing the Skald song. Additionally, between casting spells, the Skald will start singing again to attempt to keep the Skald song up constantly in combat. This script is written to use up to Level 9 Spells.
 
 ### Enhanced Scripts for Summoned Celestials (BGII: EE and EET Required)
 
-This provides enhanced ai scripts for simulacrums. Overall, the scripts allows the player to be more hands off with summoned celestials, and they will act intelligently in targeting enemy players. Hostile summoned celestials will also act more intelligently when attacking your party if you find yourselves facing off in battle. Like the other scripts listed above, this script will cast pre-buff spells when the "D" key is pressed. Spell Revisions also rewrote their spellbooks, and the scripts will accomodate these changes.
+This provides enhanced ai scripts for simulacrums. Overall, the scripts allows the player to be more hands off with summoned celestials, and they will act intelligently in targeting enemy players. Hostile summoned celestials will also act more intelligently when attacking your party if you find yourselves facing off in battle. Like the other scripts listed above, this script will cast pre-buff spells when the "B" key is pressed. Spell Revisions also rewrote their spellbooks, and the scripts will accomodate these changes.
 
 ### Enhanced Scripts for Simulacrums (BGII: EE, EET, or IWD: EE Required)
 
-This provides enhanced ai scripts for summoned Simulacrums. Upon creation, the Simulacrum will choose one of the enhanced ai scripts above based upon their class. This allows the player to be more hands off while the Simulacrums will act intelligently in targeting enemy players, casting protection spells, detecting invisible/hidden enemies, debuffing enemy protections, and capable of pre-buffing! This script will have the Simulacrum Turn Undead when the "V" key is pressed and will cast pre-buff spells when the "D" key is pressed. 
+This provides enhanced ai scripts for summoned Simulacrums. Upon creation, the Simulacrum will choose one of the enhanced ai scripts above based upon their class. This allows the player to be more hands off while the Simulacrums will act intelligently in targeting enemy players, casting protection spells, detecting invisible/hidden enemies, debuffing enemy protections, and capable of pre-buffing! This script will have the Simulacrum Turn Undead when the "V" key is pressed and will cast pre-buff spells when the "B" key is pressed. 
 
 ### Restore Vanilla Belm and Kundane (Item Revisions Required)
 
