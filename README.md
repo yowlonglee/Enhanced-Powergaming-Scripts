@@ -90,15 +90,15 @@ Below are a listing of the different scripts included in the Main Component.
 
 ##### MO-BasicAI
 
-This script is designed for the minimalists who normally turn party AI off in their games. All classes can use this script. This script will constantly Turn Undead when the "V" key is pressed and will cast pre-buffing spells when the "B" key is pressed. If playing a thief or monk class, the script will detect traps while not in combat. If playing a Bard class, the script will constantly be singing the applicable Bard song. Unlike the other scripts, these will not attack or use spells/abilities in or out of combat (only exception is very long duration spells like Stoneskin will be cast).  
+This script will constantly Turn Undead when the "V" key is pressed and will cast pre-buffing spells when the "B" key is pressed. If playing a thief or monk class, this script will detect traps while not in combat or constantly when the "D" key is pressed. If playing a Bard class, the script will constantly be singing the applicable Bard song. This script will NOT auto-attack by default, but this can be changed in the ini file.  
 
 ##### MO-CORE
 
-This script is designed for all core classes: Fighter, Mage, Thief, Cleric, Druid, Shaman, and any combination of multiclass/dualclass to include kits. This script will constantly Turn Undead when the V key is pressed and will cast pre-buffing spells when the D key is pressed. If the character is able, the script will constantly be detecting traps.
+This script is designed for all core classes: Fighter, Mage, Thief, Cleric, Druid, Shaman, and any combination of multiclass/dualclass to include kits. This script will constantly Turn Undead when the "V" key is pressed and will cast pre-buffing spells when the "B" key is pressed. If the character is able, this script will constantly be detecting traps while idle or when the "D" key is pressed.
 
 ##### MO-MONK
 
-This is a script specifically designed for the Monk class. The script will constantly be detecting traps while idle. This script will cast pre-buff spells when the "B" key is pressed. In addition to pre-buffing, the script will intelligently use abilities both in and out of combat.
+This is a script specifically designed for the Monk class. This script will constantly be detecting traps while idle or when the "D" key is pressed. This script will cast pre-buff spells when the "B" key is pressed. In addition to pre-buffing, the script will intelligently use abilities both in and out of combat.
 
 ##### MO-PALADIN
 
@@ -135,6 +135,29 @@ Requires Item Revisions - Offers the vanilla, non-IR(R) version of Amulet of the
 ### Restore Vanilla Haste and Improved Haste (Spell Revisions Required)
 
 Requires Spell Revisions - Offers the vanilla, non-SR(R) versions of Haste and Improved Haste.
+
+## ini File
+The ini file allows players to customize certain settings to their preference.
+
+### Hotkeys
+
+Type in the hotkey you wish to map to the corresponding action. 
+
+- hot_key_Buffing toggles the key to begin and cancel pre-buffing.
+
+- hot_key_TurnUndead toggles on and off constantly turn undead.
+
+- hot_key_DetectIllusion toggles on and off constantly detecting illusions.
+
+### Script Tweaks
+
+This allows the player to fine-tune aspects of the scripts. 1 turns the feature on while 0 turns it off.
+
+- buffing_potion_use is defaulted to 1. This turns on or off using potions during pre-buffing.
+
+- basic_ai_auto_attack is defaulted to 0. This turns on or off the Basic AI script using auto-attacks.
+
+- script_dialog is defaulted to 1. This turns on or off hover text appearing when certain abilities are used in combat.
 
 ## Special Thanks
 
