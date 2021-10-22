@@ -169,7 +169,7 @@ This allows the player to fine-tune aspects of the scripts. 1 turns the feature 
 - DavidW for using your Organize an IDS macro to assist in creating new spell states.
 - marcnivar for identifying a couple bugs with pre-buffing.
 - K4thos for using a function within the EET mod to cut and paste snippets of scripts into a BAF file. Without this function, being able to sync multiple mod scripts together would be impossible.
-- Cahir for testing and providing feedback on IWD: EE scripts.
+- Cahir for providing Polish translations, testing, and providing feedback on IWD: EE scripts.
 - CamDawg_G3 for providing insight and feedback into difficult code.
 - Ulpian for providing Russian translation.
 - Jastey for testing and providing feedback on improving healing with multiple healers.
