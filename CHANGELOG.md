@@ -1,5 +1,14 @@
 # Changelog
 
+## Version 5.5.1
+
+October XX, 2021
+
+### Changed 
+
+- BG:EE, BGII: EE, and EET
+  - Corrected issue with Mind Blank if IWDification is installed.
+
 ## Version 5.5
 
 October 22, 2021
