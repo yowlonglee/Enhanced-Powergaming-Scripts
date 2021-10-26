@@ -6,6 +6,8 @@ October XX, 2021
 
 ### Changed 
 
+- All Games
+  - Minor optimizations to spell tracking that will mostly go unnoticed by the player.
 - BG:EE, BGII: EE, and EET
   - Corrected issue with Mind Blank if IWDification is installed.
 
