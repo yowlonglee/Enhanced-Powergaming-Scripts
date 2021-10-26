@@ -477,7 +477,7 @@ ACTION_IF spell_revisions BEGIN
 ///////////////////////////////////////////////////////////////////////////
 
 	ACTION_IF !scs_breach BEGIN
-		COPY_EXISTING ~SPWI802.SPL~ ~override~ 
+		COPY_EXISTING ~SPWI806.SPL~ ~override~ 
 		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %mnd_blnk% timing = 0 duration = 2400 END
 	END
 
