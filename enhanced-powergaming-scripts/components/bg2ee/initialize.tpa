@@ -336,23 +336,16 @@ ACTION_IF spell_revisions BEGIN
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Wizard Armor                                       //
 ///////////////////////////////////////////////////////////////////////////
-
-	COPY_EXISTING ~%WIZARD_ARMOR%.SPL~ ~override~ 
+	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_ARMOR~ RET spell_res END
+	COPY_EXISTING ~%spell_res%.spl~ ~override~ 
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %mag_armor% timing = 0 duration = 2400 END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Dispel Screen                                      //
 ///////////////////////////////////////////////////////////////////////////
-
-	ACTION_IF FILE_EXISTS_IN_GAME ~spwi525.spl~ BEGIN
-		COPY_EXISTING ~spwi525.spl~ ~override~ 
-	  		LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %disp_screen% timing = 0 duration = 120 END
-	END
-
-	ACTION_IF FILE_EXISTS_IN_GAME ~spwi510.spl~ BEGIN
-		COPY_EXISTING ~spwi510.spl~ ~override~ 
-	  		LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %disp_screen% timing = 0 duration = 120 END
-	END
+	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_DISPELLING_SCREEN~ RET spell_res END
+	COPY_EXISTING ~%spell_res%.spl~ ~override~ 
+  		LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %disp_screen% timing = 0 duration = 120 END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Minor Spell Deflection                             //
