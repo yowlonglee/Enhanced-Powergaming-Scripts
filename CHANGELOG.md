@@ -2,7 +2,7 @@
 
 ## Version 5.5.1
 
-October XX, 2021
+October 26, 2021
 
 ### Changed 
 
