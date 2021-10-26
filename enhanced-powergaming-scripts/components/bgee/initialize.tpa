@@ -7,13 +7,11 @@
 ///////////////////////////////////////////////////////////////////////////
 // Detectable Spells                                                     //
 ///////////////////////////////////////////////////////////////////////////
-
 LAF detectable_spells END
 
 ///////////////////////////////////////////////////////////////////////////
 // Adds States used in AI Scripts                                        //
 ///////////////////////////////////////////////////////////////////////////
-
 APPEND ~STATE.IDS~ ~0x00000001 STATE_SLEEPING~				UNLESS ~0x00000001 STATE_SLEEPING~
 APPEND ~STATE.IDS~ ~0x00000004 STATE_PANIC~					UNLESS ~0x00000004 STATE_PANIC~
 APPEND ~STATE.IDS~ ~0x00000008 STATE_STUNNED~				UNLESS ~0x00000008 STATE_STUNNED~
@@ -81,7 +79,6 @@ APPEND ~stats.ids~ ~182 WIZARD_TENSERS_TRANSFORMATION~          UNLESS ~182 WIZA
 ///////////////////////////////////////////////////////////////////////////
 // Create Spell State for Minor Globe of Invulnerability                 //
 ///////////////////////////////////////////////////////////////////////////
-
 	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~MINOR_GLOBE~)) BEGIN
 	  COPY_EXISTING ~splstate.ids~ ~override~
 		COUNT_2DA_COLS cols
@@ -105,7 +102,6 @@ APPEND ~stats.ids~ ~182 WIZARD_TENSERS_TRANSFORMATION~          UNLESS ~182 WIZA
 ///////////////////////////////////////////////////////////////////////////
 // Create Spell State for Globe of Invulnerability                       //
 ///////////////////////////////////////////////////////////////////////////
-
 	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~GLOBE~)) BEGIN
 	  COPY_EXISTING ~splstate.ids~ ~override~
 		COUNT_2DA_COLS cols
@@ -129,7 +125,6 @@ APPEND ~stats.ids~ ~182 WIZARD_TENSERS_TRANSFORMATION~          UNLESS ~182 WIZA
 ///////////////////////////////////////////////////////////////////////////
 // Create Spell State for Righteous Magic                                //
 ///////////////////////////////////////////////////////////////////////////
-
 	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~RIGHTEOUS_MAGIC~)) BEGIN
 	  COPY_EXISTING ~splstate.ids~ ~override~
 		COUNT_2DA_COLS cols
@@ -160,33 +155,33 @@ APPEND ~stats.ids~ ~182 WIZARD_TENSERS_TRANSFORMATION~          UNLESS ~182 WIZA
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Minor Globe of Invulnerability                     //
 ///////////////////////////////////////////////////////////////////////////
-
-	COPY_EXISTING ~SPWI406.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %mnr_glb% timing = 0 duration = 72 END
+	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_MINOR_GLOBE_OF_INVULNERABILITY~ RET spell_res END
+	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
+	  LPF CLONE_EFFECT INT_VAR match_opcode = 155 opcode = 328 parameter2 = %mnr_glb% special = 1 END
 
 	ACTION_IF scs_breach BEGIN
 		COPY_EXISTING ~DWSW406.SPL~ ~override~ 
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %mnr_glb% timing = 0 duration = 72 END
+		  LPF CLONE_EFFECT INT_VAR match_opcode = 155 opcode = 328 parameter2 = %mnr_glb% special = 1 END
 	END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Globe of Invulnerability                           //
 ///////////////////////////////////////////////////////////////////////////
-
-	COPY_EXISTING ~SPWI602.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %glb% timing = 0 duration = 102 END
+	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_GLOBE_OF_INVULNERABILITY~ RET spell_res END
+	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
+	  LPF CLONE_EFFECT INT_VAR match_opcode = 155 opcode = 328 parameter2 = %glb% special = 1 END
 
 	ACTION_IF scs_breach BEGIN
 		COPY_EXISTING ~DWSW602.SPL~ ~override~ 
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %glb% timing = 0 duration = 102 END
+		  LPF CLONE_EFFECT INT_VAR match_opcode = 155 opcode = 328 parameter2 = %glb% special = 1 END
 	END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Righteous Magic                                    //
 ///////////////////////////////////////////////////////////////////////////
-
-	COPY_EXISTING ~SPPR513.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %rght_mgc% timing = 0 duration = 54 END
+	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~CLERIC_RIGHTEOUS_MAGIC~ RET spell_res END
+	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
+	  LPF CLONE_EFFECT INT_VAR match_opcode = 282 opcode = 328 parameter2 = %rght_mgc% special = 1 END
 
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
@@ -194,13 +189,11 @@ APPEND ~stats.ids~ ~182 WIZARD_TENSERS_TRANSFORMATION~          UNLESS ~182 WIZA
 // Block of code provided by subtledoctor                                //
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
-
 ACTION_IF !spell_revisions BEGIN
 
 ///////////////////////////////////////////////////////////////////////////
 // Create Spell State for Minor Spell Turning                            //
 ///////////////////////////////////////////////////////////////////////////
-
 	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~MINOR_SPELL_TURNING~)) BEGIN
 	  COPY_EXISTING ~splstate.ids~ ~override~
 		COUNT_2DA_COLS cols
@@ -224,7 +217,6 @@ ACTION_IF !spell_revisions BEGIN
 ///////////////////////////////////////////////////////////////////////////
 // Create Spell State for Spell Turning                                  //
 ///////////////////////////////////////////////////////////////////////////
-
 	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~SPELL_TURNING~)) BEGIN
 	  COPY_EXISTING ~splstate.ids~ ~override~
 		COUNT_2DA_COLS cols
@@ -248,25 +240,25 @@ ACTION_IF !spell_revisions BEGIN
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Minor Spell Turning                                //
 ///////////////////////////////////////////////////////////////////////////
-
-	COPY_EXISTING ~SPWI522.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %mnr_spl_trn% timing = 0 duration = 90 END
+	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_MINOR_SPELL_TURNING~ RET spell_res END
+	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
+	  LPF CLONE_EFFECT INT_VAR match_opcode = 233 opcode = 328 parameter2 = %mnr_spl_trn% special = 1 END
 
 	ACTION_IF scs_breach BEGIN
 		COPY_EXISTING ~DWSW522.SPL~ ~override~ 
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %mnr_spl_trn% timing = 0 duration = 90 END
+		  LPF CLONE_EFFECT INT_VAR match_opcode = 233 opcode = 328 parameter2 = %mnr_spl_trn% special = 1 END
 	END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Spell Turning                                      //
 ///////////////////////////////////////////////////////////////////////////
-
-	COPY_EXISTING ~SPWI701.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %spl_trn% timing = 0 duration = 324 END
+	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_SPELL_TURNING~ RET spell_res END
+	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
+	  LPF CLONE_EFFECT INT_VAR match_opcode = 233 opcode = 328 parameter2 = %spl_trn% special = 1 END
 
 	ACTION_IF scs_breach BEGIN
 		COPY_EXISTING ~DWSW701.SPL~ ~override~ 
-		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %spl_trn% timing = 0 duration = 324 END
+		  LPF CLONE_EFFECT INT_VAR match_opcode = 233 opcode = 328 parameter2 = %spl_trn% special = 1 END
 	END
 
 END
@@ -277,13 +269,11 @@ END
 // Block of code provided by subtledoctor                                //
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
-
 ACTION_IF iwdification BEGIN
 
 ///////////////////////////////////////////////////////////////////////////
 // Create Spell State for Mind Blank                                     //
 ///////////////////////////////////////////////////////////////////////////
-
 	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~MIND_BLANK~)) BEGIN
 	  COPY_EXISTING ~splstate.ids~ ~override~
 		COUNT_2DA_COLS cols
@@ -307,7 +297,6 @@ ACTION_IF iwdification BEGIN
 ///////////////////////////////////////////////////////////////////////////
 // Create and Assign Spell State for Emotion, Courage                    //
 ///////////////////////////////////////////////////////////////////////////
-
 	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~EMOTION_COURAGE~)) BEGIN
 	  COPY_EXISTING ~splstate.ids~ ~override~
 		COUNT_2DA_COLS cols
@@ -327,8 +316,9 @@ ACTION_IF iwdification BEGIN
 		LAF d5_resolve_state STR_VAR new_state_id = ~EMOTION_COURAGE~ RET new_state_ind END
 		OUTER_SET emt_crg = %new_state_ind%
 
-		COPY_EXISTING ~SPWI427.SPL~ ~override~ 
-	  		LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %emt_crg% timing = 0 duration = 300 END
+		LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_EMOTION_COURAGE~ RET spell_res END
+		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
+	  		LPF CLONE_EFFECT INT_VAR match_opcode = 161 opcode = 328 parameter2 = %emt_crg% special = 1 END
 	END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -354,8 +344,9 @@ ACTION_IF iwdification BEGIN
 		LAF d5_resolve_state STR_VAR new_state_id = ~EMOTION_HOPE~ RET new_state_ind END
 		OUTER_SET emt_hpe = %new_state_ind%
 
-		COPY_EXISTING ~SPWI428.SPL~ ~override~ 
-	  		LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %emt_hpe% timing = 0 duration = 300 END
+		LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_EMOTION_HOPE~ RET spell_res END
+		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
+	  		LPF CLONE_EFFECT INT_VAR match_opcode = 325 opcode = 328 parameter2 = %emt_hpe% special = 1 END
 	END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -368,8 +359,8 @@ ACTION_IF iwdification BEGIN
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Mind Blank                                         //
 ///////////////////////////////////////////////////////////////////////////
-
-	COPY_EXISTING ~SPWI806.SPL~ ~override~ 
+	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_MIND_BLANK~ RET spell_res END
+	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
 	  LPF CLONE_EFFECT INT_VAR match_opcode = 161 opcode = 328 parameter2 = %mnd_blnk% special = 1 END
 
 END
