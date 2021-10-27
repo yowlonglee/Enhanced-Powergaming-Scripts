@@ -171,7 +171,7 @@ This allows the player to fine-tune aspects of the scripts. 1 turns the feature 
 - K4thos for using a function within the EET mod to cut and paste snippets of scripts into a BAF file. Without this function, being able to sync multiple mod scripts together would be impossible.
 - Cahir for providing Polish translations, testing, and providing feedback on IWD: EE scripts.
 - CamDawg_G3 for providing insight and feedback into difficult code.
-- Ulpian for providing Russian translation.
+- Ulpian and yota13 for providing Russian translation.
 - Jastey for testing and providing feedback on improving healing with multiple healers.
 
 ## Copyright
