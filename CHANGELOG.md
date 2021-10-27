@@ -1,5 +1,14 @@
 # Changelog
 
+## Version 5.5.2
+
+October xx, 2021
+
+### Changed 
+
+- All Games
+  - Updated Russian translations.
+
 ## Version 5.5.1
 
 October 26, 2021
