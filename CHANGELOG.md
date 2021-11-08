@@ -8,6 +8,7 @@ November XX, 2021
 
 - EET
   - Updated to prevent conflicts from DSotSC added spells with other mods.
+  - Fixed issue with not doing the Cowled Wizard casting check in the Bridge District.
 
 ## Version 5.5.2
 
