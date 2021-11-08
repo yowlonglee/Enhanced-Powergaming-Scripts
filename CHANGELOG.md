@@ -1,5 +1,14 @@
 # Changelog
 
+## Version 5.5.3
+
+November XX, 2021
+
+### Changed 
+
+- EET
+  - Updated to prevent conflicts from DSotSC added spells with other mods.
+
 ## Version 5.5.2
 
 November 3, 2021

@@ -802,7 +802,7 @@ END
 // Block of code provided by subtledoctor                                //
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
-ACTION_IF FILE_EXISTS_IN_GAME ~spwi327.spl~ BEGIN
+ACTION_IF dsotsc_arcane BEGIN
 
 ///////////////////////////////////////////////////////////////////////////
 // Create Spell State for Army of One                                    //
@@ -830,14 +830,15 @@ ACTION_IF FILE_EXISTS_IN_GAME ~spwi327.spl~ BEGIN
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Army of One                                        //
 ///////////////////////////////////////////////////////////////////////////
-	COPY_EXISTING ~spwi327.spl~ ~override~ 
+	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_ARMY_OF_ONE~ RET spell_res END
+	COPY_EXISTING ~%spell_res%.SPL~ ~override~
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %army_one% timing = 0 duration = 60 END
 END
 
 ///////////////////////////////////////////////////////////////////////////
 // Create Spell State for Aura of Protection                             //
 ///////////////////////////////////////////////////////////////////////////
-ACTION_IF FILE_EXISTS_IN_GAME ~sppr716.spl~ BEGIN
+ACTION_IF dsotsc_divine BEGIN
 
 	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~AURA_OF_PROT~)) BEGIN
 	  COPY_EXISTING ~splstate.ids~ ~override~
@@ -862,15 +863,15 @@ ACTION_IF FILE_EXISTS_IN_GAME ~sppr716.spl~ BEGIN
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Aura of Protection                                 //
 ///////////////////////////////////////////////////////////////////////////
-	COPY_EXISTING ~sppr716.spl~ ~override~ 
+	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~CLERIC_AURA_OF_PROTECTION~ RET spell_res END
+	COPY_EXISTING ~%spell_res%.SPL~ ~override~
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %aura_prot% timing = 0 duration = 60 END
-END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Selune's Blessing                                  //
 ///////////////////////////////////////////////////////////////////////////
-ACTION_IF FILE_EXISTS_IN_GAME ~sppr716.spl~ BEGIN
-	COPY_EXISTING ~sppr519.spl~ ~override~ 
+	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~CLERIC_SELUNES_BLESSING~ RET spell_res END
+	COPY_EXISTING ~%spell_res%.SPL~ ~override~
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %mnr_glb% timing = 0 duration = 60 END
 END
 
