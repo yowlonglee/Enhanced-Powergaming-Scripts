@@ -1,5 +1,14 @@
 # Changelog
 
+## Version 5.6
+
+November 8, 2021
+
+### Changed 
+
+- BG2: EE and EET
+  - Can now manually override check for casting in Athkatla. This allows you to toggle your characters (using the "T" key) to cast spells in Athkatla if they have not paid the bounty or finished fighting the Cowled Wizards.
+
 ## Version 5.5.3
 
 November 8, 2021

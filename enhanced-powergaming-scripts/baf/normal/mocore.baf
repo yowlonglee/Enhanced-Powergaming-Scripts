@@ -73,6 +73,26 @@ THEN
 END
 
 IF
+  Global("MO_DISABLECOWLED","LOCALS",0)
+  HotKey(hot_key_CowledCheck)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_DISABLECOWLED","LOCALS",1)
+    SetGlobal("MO_CastAthkatla","LOCALS",1)
+    DisplayStringHead(Myself,@5020)
+END
+
+IF
+  Global("MO_DISABLECOWLED","LOCALS",1)
+  HotKey(hot_key_CowledCheck)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_DISABLECOWLED","LOCALS",0)
+    SetGlobal("MO_CastAthkatla","LOCALS",0)
+    DisplayStringHead(Myself,@5021)
+END
+
+IF
   OR(8)
     AreaCheck("AR0700")  // Waukeen's Promenade
     AreaCheck("AR0020")  // City Gates
@@ -83,6 +103,7 @@ IF
     AreaCheck("AR1000")  // Government District
     AreaCheck("AR0900")  // Temple District
   Global("BRIBEDCOWLED","GLOBAL",0)
+  Global("MO_DISABLECOWLED","LOCALS",0)
   GlobalLT("CowledWarning","GLOBAL",7)
   Global("MO_CastAthkatla","LOCALS",1)
 THEN

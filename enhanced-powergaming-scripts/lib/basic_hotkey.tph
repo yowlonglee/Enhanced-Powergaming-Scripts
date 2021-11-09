@@ -47,3 +47,17 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming
     pattern = ~~~~~HotKey(hot_key_DetectIllusion)~~~~~
     string = ~~~~~HotKey(%value_detect%)~~~~~ //"
   END
+
+///////////////////////////////////////////////////////////////////////////
+// Update Hotkey Cowled Check                                            //
+///////////////////////////////////////////////////////////////////////////
+  SPRINT value_cowled EVAL "%hot_key_CowledCheck%"
+
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~HotKey(hot_key_CowledCheck)~~~~~
+    string = ~~~~~HotKey(%value_cowled%)~~~~~ //"
+  END
