@@ -217,6 +217,14 @@ END ELSE BEGIN
 			INCLUDE ~enhanced-powergaming-scripts/lib/ranger_breach.tph~
 		END
 	END
+
+///////////////////////////////////////////////////////////////////////////
+// SCS - Golems                                                          //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF scs_golem BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_golem.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/paladin_golem.tph~
+	END
 END
 
 ///////////////////////////////////////////////////////////////////////////
