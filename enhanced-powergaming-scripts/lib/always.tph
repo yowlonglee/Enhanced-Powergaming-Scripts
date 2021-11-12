@@ -143,4 +143,11 @@ ACTION_IF !VARIABLE_IS_SET ~initialise~ BEGIN
       OUTER_SET mih_divine=0
    END
 
+   // Detect aTweaks - PnP Undead
+   ACTION_IF MOD_IS_INSTALLED ~setup-atweaks.tp2~ ~160~ BEGIN
+      OUTER_SET pnp_undead=1
+   END ELSE BEGIN
+      OUTER_SET pnp_undead=0
+   END
+
 END
