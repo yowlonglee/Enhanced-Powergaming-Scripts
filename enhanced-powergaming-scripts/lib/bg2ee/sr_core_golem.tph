@@ -1,0 +1,31 @@
+COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+
+///////////////////////////////////////////////////////////////////////////
+// Add Remove Curse                                                      //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~OR(8)
+    StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
+    StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
+    StateCheck(LastSeenBy(Myself),STATE_CHARMED)
+    StateCheck(LastSeenBy(Myself),STATE_SLEEPING)
+    StateCheck(LastSeenBy(Myself),STATE_SILENCED)
+    StateCheck(LastSeenBy(Myself),STATE_PANIC)
+    CheckSpellState(LastSeenBy(Myself),DEAFENED)
+    CheckStatGT(LastSeenBy(Myself),0,HELD)~~~~~
+    string = ~~~~~OR(9)
+    StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
+    StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
+    StateCheck(LastSeenBy(Myself),STATE_CHARMED)
+    StateCheck(LastSeenBy(Myself),STATE_SLEEPING)
+    StateCheck(LastSeenBy(Myself),STATE_SILENCED)
+    StateCheck(LastSeenBy(Myself),STATE_PANIC)
+    CheckSpellState(LastSeenBy(Myself),DEAFENED)
+    CheckStatGT(LastSeenBy(Myself),0,HELD)
+    CheckSpellState(LastSeenBy(Myself),GOLEM_CURSE)~~~~~ //"
+  END
+

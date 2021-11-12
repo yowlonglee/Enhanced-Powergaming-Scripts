@@ -96,6 +96,14 @@ ACTION_IF spell_revisions BEGIN
 	END
 
 ///////////////////////////////////////////////////////////////////////////
+// SCS - Golems                                                          //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF scs_golem BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_core_golem.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_paladin_golem.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 // Add Mod Components to Accelerated Scripts without Spell Revisions     //
 ///////////////////////////////////////////////////////////////////////////
@@ -127,17 +135,6 @@ END ELSE BEGIN
 	ACTION_IF dsotsc_divine && !mih_divine && !iwdification BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_dsotsc_d_a.tph~
 	END
-
-/*
-	ACTION_IF dark_side BEGIN
-		ACTION_IF FILE_EXISTS_IN_GAME ~WIZARD_ARMY_OF_ONE~ BEGIN
-			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_dsotsc_w_a.tph~
-		END 
-			
-		ACTION_IF FILE_EXISTS_IN_GAME ~sppr519.spl~ && FILE_EXISTS_IN_GAME ~sppr716.spl~ BEGIN
-			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_dsotsc_d_a.tph~
-		END
-	END*/
 
 ///////////////////////////////////////////////////////////////////////////
 // Song & Silence                                                        //

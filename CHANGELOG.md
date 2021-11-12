@@ -7,7 +7,7 @@ November XX, 2021
 ### Changed 
 
 - All Games
-  - Add Remove Curse to scripts
+  - Add Remove Curse to scripts to counter SCS "Smarter" Golems since Clay Golem applies a curse effect.
 - BG2: EE and EET
   - Can now manually override check for casting in Athkatla. This allows you to toggle your characters (using the "T" key) to cast spells in Athkatla if they have not paid the bounty or finished fighting the Cowled Wizards.
   - Added Cowled Wizard casting check for all non-arcane classes since certain item usage still triggers the Cowled Wizards.
