@@ -1054,11 +1054,11 @@ ACTION_IF pnp_undead BEGIN
 ///////////////////////////////////////////////////////////////////////////
 	// Mummy Attack
 	COPY_EXISTING ~FL#MUM.SPL~ ~override~ 
-	  LPF CLONE_EFFECT INT_VAR match_opcode = 13 opcode = 328 parameter2 = %disd% special = 1 END
+	  LPF CLONE_EFFECT INT_VAR match_opcode = 142 opcode = 328 parameter2 = %disd% special = 1 END
 
 	// Greater Mummy Attack
 	COPY_EXISTING ~FL#GMUM.SPL~ ~override~ 
-	  LPF CLONE_EFFECT INT_VAR match_opcode = 13 opcode = 328 parameter2 = %disd% special = 1 END
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 2 parameter2 = %disd% timing = 0 duration = 360000000 END
 
 END
 
@@ -1097,7 +1097,7 @@ ACTION_IF scs_golem BEGIN
 // Add Spell State to Clay Golem Curse Attack                            //
 ///////////////////////////////////////////////////////////////////////////
 	COPY_EXISTING ~DW#CURSE.SPL~ ~override~ 
-	  LPF CLONE_EFFECT INT_VAR match_opcode = 321 opcode = 328 parameter2 = %glm_curse% special = 1 END
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 2 parameter2 = %glm_curse% timing = 9 END
 
 END
 
