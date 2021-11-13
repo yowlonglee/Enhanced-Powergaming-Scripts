@@ -1103,10 +1103,10 @@ ACTION_IF scs_golem BEGIN
 // Add Remove Effects by Resource to Remove Curse                        //
 ///////////////////////////////////////////////////////////////////////////
 	COPY_EXISTING ~SPPR307.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 timing = 9 STR_VAR = ~DW#CURSE~ END
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 timing = 9 STR_VAR = ~DW#CURSE.SPL~ END
 
 	COPY_EXISTING ~SPWI410.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 timing = 9 STR_VAR = ~DW#CURSE~ END
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 timing = 9 STR_VAR = ~DW#CURSE.SPL~ END
 
 END
 
