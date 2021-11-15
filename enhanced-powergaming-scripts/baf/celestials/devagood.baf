@@ -721,6 +721,7 @@ THEN
 END
 
 IF
+	ActionListEmpty()
 	Allegiance(Myself,ENEMY)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_DISPEL_MAGIC)  // SPPR303.SPL (Dispel Magic)
@@ -749,6 +750,7 @@ THEN
 END
 
 IF
+	ActionListEmpty()
 	Allegiance(Myself,ENEMY)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_DISPEL_MAGIC)  // SPPR303.SPL (Dispel Magic)
@@ -777,6 +779,7 @@ THEN
 END
 
 IF
+	ActionListEmpty()
 	Allegiance(Myself,ENEMY)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_DISPEL_MAGIC)  // SPPR303.SPL (Dispel Magic)
@@ -805,6 +808,7 @@ THEN
 END
 
 IF
+	ActionListEmpty()
 	Allegiance(Myself,ENEMY)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_DISPEL_MAGIC)  // SPPR303.SPL (Dispel Magic)
@@ -833,6 +837,7 @@ THEN
 END
 
 IF
+	ActionListEmpty()
 	Allegiance(Myself,ENEMY)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_DISPEL_MAGIC)  // SPPR303.SPL (Dispel Magic)
@@ -861,6 +866,7 @@ THEN
 END
 
 IF
+	ActionListEmpty()
 	Allegiance(Myself,ENEMY)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_DISPEL_MAGIC)  // SPPR303.SPL (Dispel Magic)
@@ -885,92 +891,6 @@ THEN
 		SetGlobalTimer("MO_SpellCast","LOCALS",6)
 		SetInterrupt(FALSE)
 		Spell(LastSeenBy(Myself),CLERIC_DISPEL_MAGIC)  // SPPR303.SPL (Dispel Magic)
-		SetInterrupt(TRUE)
-END
-
-IF
-	ActionListEmpty()
-	Allegiance(Myself,ENEMY)
-	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-	HaveSpell(CLERIC_CURE_CRITICAL_WOUNDS)  // SPPR502.SPL (Cure Critical Wounds)
-	HPPercentLT(Myself,40)
-	!StateCheck(Myself,STATE_NOT_TARGETABLE)
-	!StateCheck(Myself,STATE_NOT_APPROACHABLE)
-	!StateCheck(Myself,STATE_REALLY_DEAD)
-	CheckStat(Myself,0,MINORGLOBE)
-	!CheckStatGT(Myself,0,WIZARD_SPELL_DEFLECTION)
-	!CheckStatGT(Myself,0,WIZARD_SPELL_TURNING)
-	!CheckStat(Myself,1,WIZARD_SPELL_TRAP)
-	!CheckStat(Myself,1,CLERIC_SHIELD_OF_THE_ARCHONS)
-	!CheckStat(Myself,7,WIZARD_SPELL_IMMUNITY)
-	CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-	!StateCheck(Myself,STATE_SILENCED)
-	!CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-	!CheckSpellState(Myself,WILD_MAGIC_AREA)
-	!CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-	RESPONSE #100
-		SetGlobalTimer("MO_SpellCast","LOCALS",6)
-		SetInterrupt(FALSE)
-		Spell(Myself,CLERIC_CURE_CRITICAL_WOUNDS)  // SPPR502.SPL (Cure Critical Wounds)
-		SetInterrupt(TRUE)
-END
-
-IF
-	ActionListEmpty()
-	Allegiance(Myself,ENEMY)
-	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-	HaveSpell(CLERIC_CURE_CRITICAL_WOUNDS)  // SPPR502.SPL (Cure Critical Wounds)
-	See(MostDamagedOf([ENEMY]))
-	HPPercentLT(LastSeenBy(Myself),40)
-	!StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
-	!StateCheck(LastSeenBy(Myself),STATE_NOT_APPROACHABLE)
-	!StateCheck(LastSeenBy(Myself),STATE_REALLY_DEAD)
-	CheckStat(LastSeenBy(Myself),0,MINORGLOBE)
-	!CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-	!CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
-	!CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
-	!CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
-	!CheckStat(LastSeenBy(Myself),7,WIZARD_SPELL_IMMUNITY)
-	CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-	!StateCheck(Myself,STATE_SILENCED)
-	!CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-	!CheckSpellState(Myself,WILD_MAGIC_AREA)
-	!CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-	RESPONSE #100
-		SetGlobalTimer("MO_SpellCast","LOCALS",6)
-		SetInterrupt(FALSE)
-		Spell(LastSeenBy(Myself),CLERIC_CURE_CRITICAL_WOUNDS)  // SPPR502.SPL (Cure Critical Wounds)
-		SetInterrupt(TRUE)
-END
-
-IF
-	ActionListEmpty()
-	Allegiance(Myself,ENEMY)
-	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-	HaveSpell(CLERIC_CURE_CRITICAL_WOUNDS)  // SPPR502.SPL (Cure Critical Wounds)
-	See(MostDamagedOf([PC]))
-	HPPercentLT(LastSeenBy(Myself),40)
-	!StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
-	!StateCheck(LastSeenBy(Myself),STATE_NOT_APPROACHABLE)
-	!StateCheck(LastSeenBy(Myself),STATE_REALLY_DEAD)
-	CheckStat(LastSeenBy(Myself),0,MINORGLOBE)
-	!CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-	!CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
-	!CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
-	!CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
-	!CheckStat(LastSeenBy(Myself),7,WIZARD_SPELL_IMMUNITY)
-	CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-	!StateCheck(Myself,STATE_SILENCED)
-	!CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-	!CheckSpellState(Myself,WILD_MAGIC_AREA)
-	!CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-	RESPONSE #100
-		SetGlobalTimer("MO_SpellCast","LOCALS",6)
-		SetInterrupt(FALSE)
-		Spell(LastSeenBy(Myself),CLERIC_CURE_CRITICAL_WOUNDS)  // SPPR502.SPL (Cure Critical Wounds)
 		SetInterrupt(TRUE)
 END
 
