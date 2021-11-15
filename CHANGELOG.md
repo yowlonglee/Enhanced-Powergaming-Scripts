@@ -1,6 +1,6 @@
 # Changelog
 
-## Version 6.0
+## Version 6.0 DRAFT
 
 December XX, 2021
 
@@ -13,6 +13,10 @@ December XX, 2021
   - Can now manually override check for casting in Athkatla. This allows you to toggle your characters (using the "T" key) to cast spells in Athkatla if they have not paid the bounty or finished fighting the Cowled Wizards.
   - Added Cowled Wizard casting check for all non-arcane classes since certain item usage still triggers the Cowled Wizards.
   - Corrects aTweaks PnP Undead component to properly track diseased status for mummy attacks.
+- To Do
+  - Combine Monk, Paladin, and Ranger scripts into MO-CORE scripts.
+  - Add compatibility with Made in Heaven series of mods, Artisan's kitpack, and Might and Guile.
+  - Identify other mods to add.
 
 ## Version 5.5.3
 
