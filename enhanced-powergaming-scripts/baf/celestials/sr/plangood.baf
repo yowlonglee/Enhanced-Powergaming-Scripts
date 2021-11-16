@@ -1964,7 +1964,7 @@ IF
 	Allegiance(Myself,ENEMY)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_HEAL)  // SPPR607.SPL (Heal)
-	See(MostDamagedOf([ENEMY]))
+	See(MostDamagedOf([EVILCUTOFF]))
 	HPPercentLT(LastSeenBy(Myself),40)
 	!StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
 	!StateCheck(LastSeenBy(Myself),STATE_NOT_APPROACHABLE)
@@ -2100,175 +2100,6 @@ END
 
 IF
 	ActionListEmpty()
-	Allegiance(Myself,ENEMY)
-	See(Nearest([PC]))
-	OR(5)
-		Class(LastSeenBy(Myself),MAGE_ALL)
-		Class(LastSeenBy(Myself),BARD_ALL)
-		Class(LastSeenBy(Myself),CLERIC_ALL)
-		Class(LastSeenBy(Myself),DRUID_ALL)
-		Class(LastSeenBy(Myself),SORCERER)
-	WeaponEffectiveVs(LastSeenBy(Myself),MAINHAND)
-	WeaponCanDamage(LastSeenBy(Myself),MAINHAND)
-THEN
-	RESPONSE #100
-		Attack(LastSeenBy(Myself))
-END
-
-IF
-	ActionListEmpty()
-	Allegiance(Myself,ENEMY)
-	See(SecondNearest([PC]))
-	OR(5)
-		Class(LastSeenBy(Myself),MAGE_ALL)
-		Class(LastSeenBy(Myself),BARD_ALL)
-		Class(LastSeenBy(Myself),CLERIC_ALL)
-		Class(LastSeenBy(Myself),DRUID_ALL)
-		Class(LastSeenBy(Myself),SORCERER)
-	WeaponEffectiveVs(LastSeenBy(Myself),MAINHAND)
-	WeaponCanDamage(LastSeenBy(Myself),MAINHAND)
-THEN
-	RESPONSE #100
-		Attack(LastSeenBy(Myself))
-END
-
-IF
-	ActionListEmpty()
-	Allegiance(Myself,ENEMY)
-	See(ThirdNearest([PC]))
-	OR(5)
-		Class(LastSeenBy(Myself),MAGE_ALL)
-		Class(LastSeenBy(Myself),BARD_ALL)
-		Class(LastSeenBy(Myself),CLERIC_ALL)
-		Class(LastSeenBy(Myself),DRUID_ALL)
-		Class(LastSeenBy(Myself),SORCERER)
-	WeaponEffectiveVs(LastSeenBy(Myself),MAINHAND)
-	WeaponCanDamage(LastSeenBy(Myself),MAINHAND)
-THEN
-	RESPONSE #100
-		Attack(LastSeenBy(Myself))
-END
-
-IF
-	ActionListEmpty()
-	Allegiance(Myself,ENEMY)
-	See(FourthNearest([PC]))
-	OR(5)
-		Class(LastSeenBy(Myself),MAGE_ALL)
-		Class(LastSeenBy(Myself),BARD_ALL)
-		Class(LastSeenBy(Myself),CLERIC_ALL)
-		Class(LastSeenBy(Myself),DRUID_ALL)
-		Class(LastSeenBy(Myself),SORCERER)
-	WeaponEffectiveVs(LastSeenBy(Myself),MAINHAND)
-	WeaponCanDamage(LastSeenBy(Myself),MAINHAND)
-THEN
-	RESPONSE #100
-		Attack(LastSeenBy(Myself))
-END
-
-IF
-	ActionListEmpty()
-	Allegiance(Myself,ENEMY)
-	See(FifthNearest([PC]))
-	OR(5)
-		Class(LastSeenBy(Myself),MAGE_ALL)
-		Class(LastSeenBy(Myself),BARD_ALL)
-		Class(LastSeenBy(Myself),CLERIC_ALL)
-		Class(LastSeenBy(Myself),DRUID_ALL)
-		Class(LastSeenBy(Myself),SORCERER)
-	WeaponEffectiveVs(LastSeenBy(Myself),MAINHAND)
-	WeaponCanDamage(LastSeenBy(Myself),MAINHAND)
-THEN
-	RESPONSE #100
-		Attack(LastSeenBy(Myself))
-END
-
-IF
-	ActionListEmpty()
-	Allegiance(Myself,ENEMY)
-	See(SixthNearest([PC]))
-	OR(5)
-		Class(LastSeenBy(Myself),MAGE_ALL)
-		Class(LastSeenBy(Myself),BARD_ALL)
-		Class(LastSeenBy(Myself),CLERIC_ALL)
-		Class(LastSeenBy(Myself),DRUID_ALL)
-		Class(LastSeenBy(Myself),SORCERER)
-	WeaponEffectiveVs(LastSeenBy(Myself),MAINHAND)
-	WeaponCanDamage(LastSeenBy(Myself),MAINHAND)
-THEN
-	RESPONSE #100
-		Attack(LastSeenBy(Myself))
-END
-
-IF
-	ActionListEmpty()
-	Allegiance(Myself,ENEMY)
-	See(Nearest([PC]))
-	WeaponEffectiveVs(LastSeenBy(Myself),MAINHAND)
-	WeaponCanDamage(LastSeenBy(Myself),MAINHAND)
-THEN
-	RESPONSE #100
-		Attack(LastSeenBy(Myself))
-END
-
-IF
-	ActionListEmpty()
-	Allegiance(Myself,ENEMY)
-	See(SecondNearest([PC]))
-	WeaponEffectiveVs(LastSeenBy(Myself),MAINHAND)
-	WeaponCanDamage(LastSeenBy(Myself),MAINHAND)
-THEN
-	RESPONSE #100
-		Attack(LastSeenBy(Myself))
-END
-
-IF
-	ActionListEmpty()
-	Allegiance(Myself,ENEMY)
-	See(ThirdNearest([PC]))
-	WeaponEffectiveVs(LastSeenBy(Myself),MAINHAND)
-	WeaponCanDamage(LastSeenBy(Myself),MAINHAND)
-THEN
-	RESPONSE #100
-		Attack(LastSeenBy(Myself))
-END
-
-IF
-	ActionListEmpty()
-	Allegiance(Myself,ENEMY)
-	See(FourthNearest([PC]))
-	WeaponEffectiveVs(LastSeenBy(Myself),MAINHAND)
-	WeaponCanDamage(LastSeenBy(Myself),MAINHAND)
-THEN
-	RESPONSE #100
-		Attack(LastSeenBy(Myself))
-END
-
-IF
-	ActionListEmpty()
-	Allegiance(Myself,ENEMY)
-	See(FifthNearest([PC]))
-	WeaponEffectiveVs(LastSeenBy(Myself),MAINHAND)
-	WeaponCanDamage(LastSeenBy(Myself),MAINHAND)
-THEN
-	RESPONSE #100
-		Attack(LastSeenBy(Myself))
-END
-
-IF
-	ActionListEmpty()
-	Allegiance(Myself,ENEMY)
-	See(SixthNearest([PC]))
-	WeaponEffectiveVs(LastSeenBy(Myself),MAINHAND)
-	WeaponCanDamage(LastSeenBy(Myself),MAINHAND)
-THEN
-	RESPONSE #100
-		Attack(LastSeenBy(Myself))
-END
-
-IF
-	ActionListEmpty()
-	!Allegiance(Myself,ENEMY)
 	See(NearestEnemyOf(Myself))
 	OR(5)
 		Class(LastSeenBy(Myself),MAGE_ALL)
@@ -2280,12 +2111,11 @@ IF
 	WeaponCanDamage(LastSeenBy(Myself),MAINHAND)
 THEN
 	RESPONSE #100
-		Attack(LastSeenBy(Myself))
+		Attack(NearestEnemyOf(Myself))
 END
 
 IF
 	ActionListEmpty()
-	!Allegiance(Myself,ENEMY)
 	See(SecondNearestEnemyOf(Myself))
 	OR(5)
 		Class(LastSeenBy(Myself),MAGE_ALL)
@@ -2297,12 +2127,11 @@ IF
 	WeaponCanDamage(LastSeenBy(Myself),MAINHAND)
 THEN
 	RESPONSE #100
-		Attack(LastSeenBy(Myself))
+		Attack(SecondNearestEnemyOf(Myself))
 END
 
 IF
 	ActionListEmpty()
-	!Allegiance(Myself,ENEMY)
 	See(ThirdNearestEnemyOf(Myself))
 	OR(5)
 		Class(LastSeenBy(Myself),MAGE_ALL)
@@ -2314,12 +2143,11 @@ IF
 	WeaponCanDamage(LastSeenBy(Myself),MAINHAND)
 THEN
 	RESPONSE #100
-		Attack(LastSeenBy(Myself))
+		Attack(ThirdNearestEnemyOf(Myself))
 END
 
 IF
 	ActionListEmpty()
-	!Allegiance(Myself,ENEMY)
 	See(FourthNearestEnemyOf(Myself))
 	OR(5)
 		Class(LastSeenBy(Myself),MAGE_ALL)
@@ -2331,12 +2159,11 @@ IF
 	WeaponCanDamage(LastSeenBy(Myself),MAINHAND)
 THEN
 	RESPONSE #100
-		Attack(LastSeenBy(Myself))
+		Attack(FourthNearestEnemyOf(Myself))
 END
 
 IF
 	ActionListEmpty()
-	!Allegiance(Myself,ENEMY)
 	See(FifthNearestEnemyOf(Myself))
 	OR(5)
 		Class(LastSeenBy(Myself),MAGE_ALL)
@@ -2348,12 +2175,11 @@ IF
 	WeaponCanDamage(LastSeenBy(Myself),MAINHAND)
 THEN
 	RESPONSE #100
-		Attack(LastSeenBy(Myself))
+		Attack(FifthNearestEnemyOf(Myself))
 END
 
 IF
 	ActionListEmpty()
-	!Allegiance(Myself,ENEMY)
 	See(SixthNearestEnemyOf(Myself))
 	OR(5)
 		Class(LastSeenBy(Myself),MAGE_ALL)
@@ -2365,12 +2191,11 @@ IF
 	WeaponCanDamage(LastSeenBy(Myself),MAINHAND)
 THEN
 	RESPONSE #100
-		Attack(LastSeenBy(Myself))
+		Attack(SixthNearestEnemyOf(Myself))
 END
 
 IF
 	ActionListEmpty()
-	!Allegiance(Myself,ENEMY)
 	See(NearestEnemyOf(Myself))
 	WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
 	WeaponCanDamage(NearestEnemyOf(Myself),MAINHAND)
@@ -2381,7 +2206,6 @@ END
 
 IF
 	ActionListEmpty()
-	!Allegiance(Myself,ENEMY)
 	See(SecondNearestEnemyOf(Myself))
 	WeaponEffectiveVs(SecondNearestEnemyOf(Myself),MAINHAND)
 	WeaponCanDamage(SecondNearestEnemyOf(Myself),MAINHAND)
@@ -2392,7 +2216,6 @@ END
 
 IF
 	ActionListEmpty()
-	!Allegiance(Myself,ENEMY)
 	See(ThirdNearestEnemyOf(Myself))
 	WeaponEffectiveVs(ThirdNearestEnemyOf(Myself),MAINHAND)
 	WeaponCanDamage(ThirdNearestEnemyOf(Myself),MAINHAND)
@@ -2403,7 +2226,6 @@ END
 
 IF
 	ActionListEmpty()
-	!Allegiance(Myself,ENEMY)
 	See(FourthNearestEnemyOf(Myself))
 	WeaponEffectiveVs(FourthNearestEnemyOf(Myself),MAINHAND)
 	WeaponCanDamage(FourthNearestEnemyOf(Myself),MAINHAND)
@@ -2414,7 +2236,6 @@ END
 
 IF
 	ActionListEmpty()
-	!Allegiance(Myself,ENEMY)
 	See(FifthNearestEnemyOf(Myself))
 	WeaponEffectiveVs(FifthNearestEnemyOf(Myself),MAINHAND)
 	WeaponCanDamage(FifthNearestEnemyOf(Myself),MAINHAND)
@@ -2425,7 +2246,6 @@ END
 
 IF
 	ActionListEmpty()
-	!Allegiance(Myself,ENEMY)
 	See(SixthNearestEnemyOf(Myself))
 	WeaponEffectiveVs(SixthNearestEnemyOf(Myself),MAINHAND)
 	WeaponCanDamage(SixthNearestEnemyOf(Myself),MAINHAND)
@@ -2433,4 +2253,3 @@ THEN
 	RESPONSE #100
 		Attack(SixthNearestEnemyOf(Myself))
 END
-
