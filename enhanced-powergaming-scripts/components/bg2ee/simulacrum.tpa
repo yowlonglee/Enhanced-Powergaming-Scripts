@@ -23,4 +23,5 @@ COPY ~enhanced-powergaming-scripts/baf/upload/morang.baf~   	   ~override/mosim0
   COMPILE_BAF_TO_BCS
 
 COPY_EXISTING ~SIMULACR.SPL~ ~override~ 
+	  LPF DELETE_SPELL_EFFECT INT_VAR opcode_to_delete = 82 END
 	  LPF ADD_SPELL_EFFECT STR_VAR opcode = 82 target = 1 power = 0 parameter2 = 6 timing = 9 resource = ~mosim01~ END
