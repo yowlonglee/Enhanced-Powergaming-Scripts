@@ -160,7 +160,10 @@ END
 
 IF
   Global("MO_TURNUNDEAD","LOCALS",0)
-  Class(Myself,CLERIC_ALL)
+  OR(2)
+    Class(Myself,CLERIC_ALL)
+    Class(Myself,PALADIN_ALL)
+  !Kit(Myself,INQUISITOR)
   HotKey(hot_key_TurnUndead)
 THEN
   RESPONSE #100
@@ -335,6 +338,23 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES("SPRA303")
+  !CheckSpellState(Myself,PROTECTION_FROM_NORMAL_MISSILES)
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SpellRES("SPRA303",Myself)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
   HaveSpell(WIZARD_SPIRIT_ARMOR)  // SPWI414.SPL (Spirit Armor)
   CheckStatGT(Myself,1,ARMORCLASS)
   !CheckSpellState(Myself,GLOBE)
@@ -398,6 +418,22 @@ IF
 THEN
   RESPONSE #100
     Spell(Myself,WIZARD_RESIST_FEAR)  // SPWI210.SPL (Resist Fear)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpell(CAVALIER_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
+  !CheckSpellState(Myself,RESIST_FEAR)
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(Myself,CAVALIER_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
 END
 
 IF
@@ -1541,6 +1577,167 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  Global("MO_TeamProtEvil","GLOBAL",0)
+  HaveSpell(PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
+  See(Myself)
+  CheckStat(LastSeenBy(Myself),0,PROTECTION_FROM_EVIL)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  Global("MO_TeamProtEvil","GLOBAL",0)
+  HaveSpell(PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
+  See([PC])
+  CheckStat(LastSeenBy(Myself),0,PROTECTION_FROM_EVIL)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  Global("MO_TeamProtEvil","GLOBAL",0)
+  HaveSpell(PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
+  See(SecondNearest([PC]))
+  CheckStat(LastSeenBy(Myself),0,PROTECTION_FROM_EVIL)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  Global("MO_TeamProtEvil","GLOBAL",0)
+  HaveSpell(PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
+  See(ThirdNearest([PC]))
+  CheckStat(LastSeenBy(Myself),0,PROTECTION_FROM_EVIL)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  Global("MO_TeamProtEvil","GLOBAL",0)
+  HaveSpell(PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
+  See(FourthNearest([PC]))
+  CheckStat(LastSeenBy(Myself),0,PROTECTION_FROM_EVIL)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  Global("MO_TeamProtEvil","GLOBAL",0)
+  HaveSpell(PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
+  See(FifthNearest([PC]))
+  CheckStat(LastSeenBy(Myself),0,PROTECTION_FROM_EVIL)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  Global("MO_TeamProtEvil","GLOBAL",0)
+  HaveSpell(PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
+  See(SixthNearest([PC]))
+  CheckStat(LastSeenBy(Myself),0,PROTECTION_FROM_EVIL)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
   HaveSpell(CLERIC_PROTECTION_FROM_LIGHTNING)  // SPPR407.SPL (Protection From Lightning)
   See(Myself)
   CheckStatLT(LastSeenBy(Myself),100,RESISTELECTRICITY)
@@ -1990,6 +2187,23 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES("SPRA302")
+  CheckStatLT(Myself,1,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SpellRES("SPRA302",Myself)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
   HaveSpell(WIZARD_BLUR)  // SPWI201.SPL (Blur)
   !StateCheck(Myself,STATE_BLUR)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
@@ -2000,6 +2214,20 @@ IF
 THEN
   RESPONSE #100
     Spell(Myself,WIZARD_BLUR)  // SPWI201.SPL (Blur)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  !StateCheck(Myself,STATE_BLUR)
+  HaveSpellRES("SPDM102")  // Blur
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SpellRES("SPDM102",Myself)  // Blur
 END
 
 IF
@@ -2018,6 +2246,20 @@ IF
 THEN
   RESPONSE #100
     Spell(Myself,WIZARD_MIRROR_IMAGE)  // SPWI212.SPL (Mirror Image)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  !StateCheck(Myself,STATE_MIRRORIMAGE)
+  HaveSpellRES("SPDM106")  // Mirror Image
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SpellRES("SPDM106",Myself)  // Mirror Image
 END
 
 IF
@@ -2219,6 +2461,41 @@ THEN
   RESPONSE #100
     UseItemAbility("SW1H26",Myself,SLOT_AMMO3,1)  // Ilbratha +1
     IncrementGlobal("MO_UsedIlbratha","GLOBAL",1)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  Class(Myself,MONK)
+  !StateCheck(Myself,STATE_MIRRORIMAGE)
+  !Global("MO_UsedIlbratha","GLOBAL",1)
+  HasItem("SW1H26",Myself)  // Ilbratha +1
+  HasItemEquiped("WANINJA",Myself)  // Ninjatō of the Scarlet Brotherhood +3
+THEN
+  RESPONSE #100
+    XEquipItem("SW1H26",Myself,SLOT_SHIELD,EQUIP)  // Ilbratha +1
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  Class(Myself,MONK)
+  OR(2)
+    StateCheck(Myself,STATE_MIRRORIMAGE)
+    Global("MO_UsedIlbratha","GLOBAL",1)
+  HasItem("WANINJA",Myself)  // Ninjatō of the Scarlet Brotherhood +3
+  HasItemEquiped("SW1H26",Myself)  // Ilbratha +1
+THEN
+  RESPONSE #100
+    XEquipItem("WANINJA",Myself,SLOT_SHIELD,EQUIP)  // Ninjatō of the Scarlet Brotherhood +3
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  GlobalLT("MO_UsedDevout","GLOBAL",1)
+  HasItemEquiped("OHRHELM1",Myself)  // Headband of the Devout
+THEN
+  RESPONSE #100
+    UseItem("OHRHELM1",Myself)  // Headband of the Devout
+    IncrementGlobal("MO_UsedDevout","GLOBAL",1)
 END
 
 IF
@@ -2449,6 +2726,20 @@ IF
 THEN
   RESPONSE #100
     Spell(Myself,WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES("SPCL237")  // Greater Sun
+  CheckStatLT(Myself,50,RESISTFIRE)
+  CheckStatLT(Myself,50,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SpellRES("SPCL237",Myself)  // Greater Sun
 END
 
 IF

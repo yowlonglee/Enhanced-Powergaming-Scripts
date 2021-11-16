@@ -328,7 +328,7 @@ IF~~~~~
   END
 
 ///////////////////////////////////////////////////////////////////////////
-// Remove Ilbratha+1 and Ring of Duplication                             //
+// Remove Ilbratha+1, Ring of Duplication, and Headband of the Devout    //
 ///////////////////////////////////////////////////////////////////////////
   LPF REPLACE_MULTILINE
     INT_VAR
@@ -346,6 +346,41 @@ THEN
   RESPONSE #100
     UseItemAbility("SW1H26",Myself,SLOT_AMMO3,1)  // Ilbratha +1
     IncrementGlobal("MO_UsedIlbratha","GLOBAL",1)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  Class(Myself,MONK)
+  !StateCheck(Myself,STATE_MIRRORIMAGE)
+  !Global("MO_UsedIlbratha","GLOBAL",1)
+  HasItem("SW1H26",Myself)  // Ilbratha +1
+  HasItemEquiped("WANINJA",Myself)  // Ninjatō of the Scarlet Brotherhood +3
+THEN
+  RESPONSE #100
+    XEquipItem("SW1H26",Myself,SLOT_SHIELD,EQUIP)  // Ilbratha +1
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  Class(Myself,MONK)
+  OR(2)
+    StateCheck(Myself,STATE_MIRRORIMAGE)
+    Global("MO_UsedIlbratha","GLOBAL",1)
+  HasItem("WANINJA",Myself)  // Ninjatō of the Scarlet Brotherhood +3
+  HasItemEquiped("SW1H26",Myself)  // Ilbratha +1
+THEN
+  RESPONSE #100
+    XEquipItem("WANINJA",Myself,SLOT_SHIELD,EQUIP)  // Ninjatō of the Scarlet Brotherhood +3
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  GlobalLT("MO_UsedDevout","GLOBAL",1)
+  HasItemEquiped("OHRHELM1",Myself)  // Headband of the Devout
+THEN
+  RESPONSE #100
+    UseItem("OHRHELM1",Myself)  // Headband of the Devout
+    IncrementGlobal("MO_UsedDevout","GLOBAL",1)
 END
 
 IF
@@ -399,6 +434,42 @@ THEN
 END
 
 IF
+  Class(Myself,MONK)
+  !StateCheck(Myself,STATE_MIRRORIMAGE)
+  !Global("MO_UsedIlbratha","GLOBAL",1)
+  HasItem("SW1H26",Myself)  // Ilbratha +1
+  HasItemEquiped("WANINJA",Myself)  // Ninjatō of the Scarlet Brotherhood +3
+  See(NearestEnemyOf(Myself))
+  OR(11)
+    Range([EVILCUTOFF.0.FAIRY],30)
+    Range([EVILCUTOFF.0.DEMONIC],30)
+    Range([EVILCUTOFF.0.RAKSHASA],30)
+    Range([EVILCUTOFF.0.DRAGON],30)
+    Range([EVILCUTOFF.0.DEMILICH],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.SOLAR],30)
+    Range([EVILCUTOFF.0.PLANATAR],30)
+    Range([EVILCUTOFF.0.ANTISOLAR],30)
+    Range([EVILCUTOFF.0.DARKPLANATAR],30)
+    NumCreatureGT([EVILCUTOFF],3)
+THEN
+  RESPONSE #100
+    XEquipItem("SW1H26",Myself,SLOT_SHIELD,EQUIP)  // Ilbratha +1
+END
+
+IF
+  Class(Myself,MONK)
+  OR(2)
+    StateCheck(Myself,STATE_MIRRORIMAGE)
+    Global("MO_UsedIlbratha","GLOBAL",1)
+  HasItem("WANINJA",Myself)  // Ninjatō of the Scarlet Brotherhood +3
+  HasItemEquiped("SW1H26",Myself)  // Ilbratha +1
+THEN
+  RESPONSE #100
+    XEquipItem("WANINJA",Myself,SLOT_SHIELD,EQUIP)  // Ninjatō of the Scarlet Brotherhood +3
+END
+
+IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   !StateCheck(Myself,STATE_MIRRORIMAGE)
@@ -424,6 +495,76 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     UseItem("OHRRING1",Myself)  // Ring of Duplication
     IncrementGlobal("MO_UsedDuplication","GLOBAL",1)
+END
+
+IF~~~~~
+    string = ~~~~~IF~~~~~ //"
+  END
+
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~IF
+  ActionListEmpty()
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  GlobalLT("MO_UsedDevout","GLOBAL",1)
+  HasItemEquiped("OHRHELM1",Myself)  // Headband of the Devout
+  See([EVILCUTOFF])
+  OR(6)
+    WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(SecondNearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(ThirdNearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(FourthNearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(FifthNearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(SixthNearestEnemyOf(Myself),MAINHAND)
+  OR(6)
+    WeaponCanDamage(NearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(SecondNearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(ThirdNearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(FourthNearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(FifthNearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(SixthNearestEnemyOf(Myself),MAINHAND)
+  OR(33)
+    Range([EVILCUTOFF.0.GOLEM],30)
+    Range([EVILCUTOFF.0.MIST],30)
+    Range([EVILCUTOFF.0.KUO-TOA],30)
+    Range([EVILCUTOFF.0.GENIE],30)
+    Range([EVILCUTOFF.0.GITHYANKI],30)
+    Range([EVILCUTOFF.0.RAKSHASA],30)
+    Range([EVILCUTOFF.0.VAMPYRE],30)
+    Range([EVILCUTOFF.0.MIND_FLAYER],30)
+    Range([EVILCUTOFF.0.DRAGON],30)
+    Range([EVILCUTOFF.0.DEMONIC],30)
+    Range([EVILCUTOFF.0.BEHOLDER],30)
+    Range([EVILCUTOFF.0.UMBERHULK],30)
+    Range([EVILCUTOFF.0.MYCONID],30)
+    Range([EVILCUTOFF.0.VAMPIRE],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.DEMILICH],30)
+    Range([EVILCUTOFF.0.FAIRY],30)
+    Range([EVILCUTOFF.0.0.WRAITH],30)
+    Range([EVILCUTOFF.0.0.WIGHT],30)
+    Range([EVILCUTOFF.0.0.SPECTRE],30)
+    Range([EVILCUTOFF.0.0.WYVERN],30)
+    Range([EVILCUTOFF.0.0.BASILISK],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.SOLAR],30)
+    Range([EVILCUTOFF.0.PLANATAR],30)
+    Range([EVILCUTOFF.0.ANTISOLAR],30)
+    Range([EVILCUTOFF.0.DARKPLANATAR],30)
+    See([ENEMY.0.0.MAGE_ALL])
+    See([ENEMY.0.0.BARD_ALL])
+    See([ENEMY.0.0.CLERIC_ALL])
+    See([ENEMY.0.0.DRUID_ALL])
+    See([ENEMY.0.0.SORCERER])
+    See([ENEMY.0.0.CLERIC_MAGE])
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    UseItem("OHRHELM1",Myself)  // Headband of the Devout
+    IncrementGlobal("MO_UsedDevout","GLOBAL",1)
 END
 
 IF~~~~~
@@ -2011,6 +2152,19 @@ END
   CheckStatLT(LastSeenBy(Myself),100,RESISTFIRE)~~~~~
     string = ~~~~~HaveSpell(CLERIC_PROTECTION_FROM_FIRE)  // SPPR306.SPL (Protection From Fire)
   CheckStatLT(LastSeenBy(Myself),80,RESISTFIRE)~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Update Stunning Blow                                                  //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~!General(LastSeenBy(Myself),UNDEAD)
+  !General(LastSeenBy(Myself),PLANT)~~~~~
+    string = ~~~~~!General(LastSeenBy(Myself),UNDEAD)~~~~~ //"
   END
 
 ///////////////////////////////////////////////////////////////////////////

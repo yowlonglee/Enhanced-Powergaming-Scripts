@@ -360,6 +360,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  Class(Myself,MONK)
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   !Global("MO_UsedIlbratha","GLOBAL",1)
   HasItem("SW1H26",Myself)  // Ilbratha +1
@@ -371,6 +372,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  Class(Myself,MONK)
   OR(2)
     StateCheck(Myself,STATE_MIRRORIMAGE)
     Global("MO_UsedIlbratha","GLOBAL",1)

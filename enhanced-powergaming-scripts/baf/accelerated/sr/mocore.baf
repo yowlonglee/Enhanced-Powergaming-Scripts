@@ -141,13 +141,16 @@ THEN
 END
 
 IF
-	Global("MO_TURNUNDEAD","LOCALS",0)
-	Class(Myself,CLERIC_ALL)
-	HotKey(hot_key_TurnUndead)
+  Global("MO_TURNUNDEAD","LOCALS",0)
+  OR(2)
+    Class(Myself,CLERIC_ALL)
+    Class(Myself,PALADIN_ALL)
+  !Kit(Myself,INQUISITOR)
+  HotKey(hot_key_TurnUndead)
 THEN
-	RESPONSE #100
-		SetGlobal("MO_TURNUNDEAD","LOCALS",1)
-		DisplayStringHead(Myself,@5000)
+  RESPONSE #100
+    SetGlobal("MO_TURNUNDEAD","LOCALS",1)
+    DisplayStringHead(Myself,@5000)
 END
 
 IF
