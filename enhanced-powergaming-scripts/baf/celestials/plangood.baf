@@ -2053,7 +2053,7 @@ IF
 	Allegiance(Myself,ENEMY)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_HEAL)  // SPPR607.SPL (Heal)
-	See(MostDamagedOf([ENEMY]))
+	See(MostDamagedOf([EVILCUTOFF]))
 	HPPercentLT(LastSeenBy(Myself),40)
 	!StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
 	!StateCheck(LastSeenBy(Myself),STATE_NOT_APPROACHABLE)
@@ -2071,7 +2071,7 @@ IF
 	!CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
 	RESPONSE #100
-		SetGlobalTimer("MO_SpellCast","LOCALS",6)
+		SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
 		SetInterrupt(FALSE)
 		Spell(LastSeenBy(Myself),CLERIC_HEAL)  // SPPR607.SPL (Heal)
 		SetInterrupt(TRUE)
@@ -2733,6 +2733,14 @@ THEN
 END
 
 IF
+	Global("MO_CastInsect","LOCALS",1)
+THEN
+	RESPONSE #100
+		SetGlobal("Mo_CastInsect","LOCALS",0)
+		Continue()
+END
+
+IF
 	ActionListEmpty()
 	Allegiance(Myself,ENEMY)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -2801,7 +2809,6 @@ END
 
 IF
 	ActionListEmpty()
-	//!Allegiance(Myself,ENEMY)
 	See(NearestEnemyOf(Myself))
 	OR(5)
 		Class(LastSeenBy(Myself),MAGE_ALL)
@@ -2818,7 +2825,6 @@ END
 
 IF
 	ActionListEmpty()
-	//!Allegiance(Myself,ENEMY)
 	See(SecondNearestEnemyOf(Myself))
 	OR(5)
 		Class(LastSeenBy(Myself),MAGE_ALL)
@@ -2835,7 +2841,6 @@ END
 
 IF
 	ActionListEmpty()
-	//!Allegiance(Myself,ENEMY)
 	See(ThirdNearestEnemyOf(Myself))
 	OR(5)
 		Class(LastSeenBy(Myself),MAGE_ALL)
@@ -2852,7 +2857,6 @@ END
 
 IF
 	ActionListEmpty()
-	//!Allegiance(Myself,ENEMY)
 	See(FourthNearestEnemyOf(Myself))
 	OR(5)
 		Class(LastSeenBy(Myself),MAGE_ALL)
@@ -2869,7 +2873,6 @@ END
 
 IF
 	ActionListEmpty()
-	//!Allegiance(Myself,ENEMY)
 	See(FifthNearestEnemyOf(Myself))
 	OR(5)
 		Class(LastSeenBy(Myself),MAGE_ALL)
@@ -2886,7 +2889,6 @@ END
 
 IF
 	ActionListEmpty()
-	//!Allegiance(Myself,ENEMY)
 	See(SixthNearestEnemyOf(Myself))
 	OR(5)
 		Class(LastSeenBy(Myself),MAGE_ALL)
@@ -2903,7 +2905,6 @@ END
 
 IF
 	ActionListEmpty()
-	//!Allegiance(Myself,ENEMY)
 	See(NearestEnemyOf(Myself))
 	WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
 	WeaponCanDamage(NearestEnemyOf(Myself),MAINHAND)
@@ -2914,7 +2915,6 @@ END
 
 IF
 	ActionListEmpty()
-	//!Allegiance(Myself,ENEMY)
 	See(SecondNearestEnemyOf(Myself))
 	WeaponEffectiveVs(SecondNearestEnemyOf(Myself),MAINHAND)
 	WeaponCanDamage(SecondNearestEnemyOf(Myself),MAINHAND)
@@ -2925,7 +2925,6 @@ END
 
 IF
 	ActionListEmpty()
-	//!Allegiance(Myself,ENEMY)
 	See(ThirdNearestEnemyOf(Myself))
 	WeaponEffectiveVs(ThirdNearestEnemyOf(Myself),MAINHAND)
 	WeaponCanDamage(ThirdNearestEnemyOf(Myself),MAINHAND)
@@ -2936,7 +2935,6 @@ END
 
 IF
 	ActionListEmpty()
-	//!Allegiance(Myself,ENEMY)
 	See(FourthNearestEnemyOf(Myself))
 	WeaponEffectiveVs(FourthNearestEnemyOf(Myself),MAINHAND)
 	WeaponCanDamage(FourthNearestEnemyOf(Myself),MAINHAND)
@@ -2947,7 +2945,6 @@ END
 
 IF
 	ActionListEmpty()
-	//!Allegiance(Myself,ENEMY)
 	See(FifthNearestEnemyOf(Myself))
 	WeaponEffectiveVs(FifthNearestEnemyOf(Myself),MAINHAND)
 	WeaponCanDamage(FifthNearestEnemyOf(Myself),MAINHAND)
@@ -2958,7 +2955,6 @@ END
 
 IF
 	ActionListEmpty()
-	//!Allegiance(Myself,ENEMY)
 	See(SixthNearestEnemyOf(Myself))
 	WeaponEffectiveVs(SixthNearestEnemyOf(Myself),MAINHAND)
 	WeaponCanDamage(SixthNearestEnemyOf(Myself),MAINHAND)
