@@ -6,6 +6,15 @@
 // * This script sets ai for enemy simulacrums
 
 IF
+  Global("MO_IsEnemy","LOCALS",0)
+  Allegiance(Myself,EVILCUTOFF)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_IsEnemy","LOCALS",1)
+    Enemy()
+END
+
+IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   OR(2)
     StateCheck(Myself,STATE_POISONED)

@@ -24,8 +24,23 @@ THEN
 END
 
 IF
+	Global("MO_IsEnemy","LOCALS",0)
+	Allegiance(Myself,EVILCUTOFF)
+THEN
+	RESPONSE #100
+		SetGlobal("MO_IsEnemy","LOCALS",1)
+		Enemy()
+END
+
+IF
 	ActionListEmpty()
-	AttackedBy([GOODCUTOFF],DEFAULT)
+	OR(6)
+		AttackedBy([GOODCUTOFF.0.0.0.0.SUMMONED],DEFAULT)
+		AttackedBy([PC],DEFAULT)
+		AttackedBy([FAMILIAR],DEFAULT)
+		AttackedBy([ALLY],DEFAULT)
+		AttackedBy([CONTROLLED],DEFAULT)
+		AttackedBy([CHARMED],DEFAULT)
 	!Allegiance(Myself,ENEMY)
 THEN
 	RESPONSE #100
