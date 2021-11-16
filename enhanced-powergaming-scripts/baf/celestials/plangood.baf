@@ -2847,7 +2847,7 @@ IF
 	WeaponCanDamage(LastSeenBy(Myself),MAINHAND)
 THEN
 	RESPONSE #100
-		Attack(ThirdNearestEnemy(Myself))
+		Attack(ThirdNearestEnemyOf(Myself))
 END
 
 IF
@@ -2881,7 +2881,7 @@ IF
 	WeaponCanDamage(LastSeenBy(Myself),MAINHAND)
 THEN
 	RESPONSE #100
-		Attack(FifthNearestEnemy(Myself))
+		Attack(FifthNearestEnemyOf(Myself))
 END
 
 IF
@@ -2898,7 +2898,7 @@ IF
 	WeaponCanDamage(LastSeenBy(Myself),MAINHAND)
 THEN
 	RESPONSE #100
-		Attack(SixthNearestEnemy(Myself))
+		Attack(SixthNearestEnemyOf(Myself))
 END
 
 IF
@@ -2966,4 +2966,3 @@ THEN
 	RESPONSE #100
 		Attack(SixthNearestEnemyOf(Myself))
 END
-
