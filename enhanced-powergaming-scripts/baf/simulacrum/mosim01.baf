@@ -7,7 +7,7 @@
 
 IF
   Allegiance(Myself,GOODCUTOFF)
-  OR(8)
+  OR(11)
     Class(Myself,CLERIC_ALL)
     Class(Myself,DRUID_ALL)
     Class(Myself,FIGHTER_ALL)
@@ -16,34 +16,13 @@ IF
     Class(Myself,SHAMAN)
     Class(Myself,SORCERER)
     Class(Myself,BARD_ALL)
+    Class(Myself,MONK)
+    Class(Myself,PALADIN_ALL)
+    Class(Myself,RANGER_ALL)
   !Kit(Myself,SKALD)
 THEN
   RESPONSE #100
     ChangeAIScript("mosim02",GENERAL)
-END
-
-IF
-  Allegiance(Myself,GOODCUTOFF)
-  Class(Myself,MONK)
-THEN
-  RESPONSE #100
-    ChangeAIScript("mosim03",GENERAL)
-END
-
-IF
-  Allegiance(Myself,GOODCUTOFF)
-  Class(Myself,PALADIN_ALL)
-THEN
-  RESPONSE #100
-    ChangeAIScript("mosim04",GENERAL)
-END
-
-IF
-  Allegiance(Myself,GOODCUTOFF)
-  Class(Myself,RANGER_ALL)
-THEN
-  RESPONSE #100
-    ChangeAIScript("mosim05",GENERAL)
 END
 
 IF
