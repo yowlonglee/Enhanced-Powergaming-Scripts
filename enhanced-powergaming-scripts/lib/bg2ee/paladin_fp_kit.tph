@@ -1,4 +1,4 @@
-COPY ~enhanced-powergaming-scripts/baf/upload/mopal.baf~ ~enhanced-powergaming-scripts/baf/upload/mopal.baf~
+COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Rage/Frenzy Abilities                                             //
@@ -11,6 +11,8 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mopal.baf~ ~enhanced-powergaming-s
     pattern = ~~~~~IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
   HaveSpell(CLERIC_PROTECTION_FROM_FIRE)  // SPPR306.SPL (Protection From Fire)
   OR(7)
     Class(NearestEnemyOfType,MAGE_ALL)
@@ -36,6 +38,8 @@ END~~~~~
     string = ~~~~~IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
   HaveSpell(CLERIC_PROTECTION_FROM_FIRE)  // SPPR306.SPL (Protection From Fire)
   OR(7)
     Class(NearestEnemyOfType,MAGE_ALL)
