@@ -923,6 +923,16 @@ IF~~~~~
     string = ~~~~~See([EVILCUTOFF])~~~~~ //"
   END
 
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~!CheckSpellState(Myself,GREATER_WHIRLWIND)
+  !CheckSpellState(Myself,ARCHER_CALL_SHOT)~~~~~
+    string = ~~~~~!CheckSpellState(Myself,ARCHER_CALL_SHOT)~~~~~ //"
+  END
+
 ///////////////////////////////////////////////////////////////////////////
 // Remove Amulet of Cheetah Speed                                        //
 ///////////////////////////////////////////////////////////////////////////
@@ -1683,14 +1693,8 @@ END
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SetInterrupt(FALSE)
-    DisplayStringHead(Myself,@5015)
-    Spell(LastSeenBy(Myself),WIZARD_BREACH)  // SPWI513.SPL (Breach)
-    SetInterrupt(TRUE)
-END~~~~~
+THEN // Breach
+  RESPONSE #100~~~~~
     string = ~~~~~!CheckSpellState(LastSeenBy(Myself),ENTROPY_SHIELD)
   CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
@@ -1698,15 +1702,8 @@ END~~~~~
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SetInterrupt(FALSE)
-    DisplayStringHead(Myself,@5015)
-    Spell(LastSeenBy(Myself),WIZARD_BREACH)  // SPWI513.SPL (Breach)
-    SetInterrupt(TRUE)
-END
-~~~~~ //"
+THEN // Breach
+  RESPONSE #100~~~~~ //"
   END
 
   // Spell Thrust
@@ -1725,14 +1722,8 @@ END
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SetInterrupt(FALSE)
-    DisplayStringHead(Myself,@5016)
-    Spell(LastSeenBy(Myself),WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
-    SetInterrupt(TRUE)
-END~~~~~
+THEN // Spell Thrust
+  RESPONSE #100~~~~~
     string = ~~~~~!CheckSpellState(LastSeenBy(Myself),ENTROPY_SHIELD)
   CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -1744,15 +1735,8 @@ END~~~~~
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SetInterrupt(FALSE)
-    DisplayStringHead(Myself,@5016)
-    Spell(LastSeenBy(Myself),WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
-    SetInterrupt(TRUE)
-END
-~~~~~ //"
+THEN // Spell Thrust
+  RESPONSE #100~~~~~ //"
   END
 
   // Secret Word
@@ -1770,14 +1754,8 @@ END
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SetInterrupt(FALSE)
-    DisplayStringHead(Myself,@5016)
-    Spell(LastSeenBy(Myself),WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
-    SetInterrupt(TRUE)
-END~~~~~
+THEN // Secret Word
+  RESPONSE #100~~~~~
     string = ~~~~~OR(2)
     CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
     CheckSpellState(LastSeenBy(Myself),ENTROPY_SHIELD)
@@ -1789,15 +1767,8 @@ END~~~~~
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SetInterrupt(FALSE)
-    DisplayStringHead(Myself,@5016)
-    Spell(LastSeenBy(Myself),WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
-    SetInterrupt(TRUE)
-END
-~~~~~ //"
+THEN // Secret Word
+  RESPONSE #100~~~~~ //"
   END
 
   // Pierce Magic
