@@ -296,6 +296,7 @@ IF
   Global("MO_BUFF","LOCALS",1)
   GlobalLT("MO_UsedDevout","GLOBAL",1)
   HasItemEquiped("OHRHELM1",Myself)  // Headband of the Devout
+  !CheckSpellState(Myself,RIGHTEOUS_MAGIC)
 THEN
   RESPONSE #100
     UseItem("OHRHELM1",Myself)  // Headband of the Devout
