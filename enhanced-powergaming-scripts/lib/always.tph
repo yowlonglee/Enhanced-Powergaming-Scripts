@@ -115,6 +115,13 @@ ACTION_IF !VARIABLE_IS_SET ~initialise~ BEGIN
       OUTER_SET scs_golem=0
    END
 
+   // Detect Sword Coast Stratagems - Extend area requiring a mage license
+   ACTION_IF MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~4150~ BEGIN
+      OUTER_SET scs_mage_license=1
+   END ELSE BEGIN
+      OUTER_SET scs_mage_license=0
+   END
+
    // Detect Dark Side of the Sword Coast
    ACTION_IF MOD_IS_INSTALLED ~Setup-DSotSC.tp2~ ~0~ BEGIN
       OUTER_SET dark_side=1

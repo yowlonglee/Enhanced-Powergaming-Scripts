@@ -10,8 +10,11 @@ ACTION_IF spell_revisions BEGIN
 ///////////////////////////////////////////////////////////////////////////
 // SR - Base Game                                                        //
 ///////////////////////////////////////////////////////////////////////////
-	COPY ~enhanced-powergaming-scripts/baf/normal/sr/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
 	COPY ~enhanced-powergaming-scripts/baf/normal/sr/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+	ACTION_IF scs_mage_license BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/license_range.tph~
+	END
+	COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
 
 	INCLUDE ~enhanced-powergaming-scripts/lib/sr_basic_base.tph~
 	INCLUDE ~enhanced-powergaming-scripts/lib/sr_core_base.tph~
@@ -104,8 +107,11 @@ END ELSE BEGIN
 ///////////////////////////////////////////////////////////////////////////
 // Base Game                                                             //
 ///////////////////////////////////////////////////////////////////////////
-	COPY ~enhanced-powergaming-scripts/baf/normal/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
 	COPY ~enhanced-powergaming-scripts/baf/normal/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+	ACTION_IF scs_mage_license BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/license_range.tph~
+	END
+	COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
 
 	INCLUDE ~enhanced-powergaming-scripts/lib/basic_base.tph~
 	INCLUDE ~enhanced-powergaming-scripts/lib/core_base.tph~
