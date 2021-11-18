@@ -54,28 +54,26 @@ ACTION_IF spell_revisions BEGIN
 	END
 
 ///////////////////////////////////////////////////////////////////////////
+// SR - IWD Spells                                                       //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF iwd_scs OR iwdification BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_core_iwd_a.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_basic_iwd_a.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
 // SR - Faiths & Powers - FnP Spheres                                    //
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF fp_spheres BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_ranger_fp_spl_a.tph~
 		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_basic_fp_spl_a.tph~
 		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_core_fp_spl_a.tph~
 	END
 
 ///////////////////////////////////////////////////////////////////////////
-// SR - IWD Spells                                                       //
+// SR - Update IWD Dispelling Checks                                     //
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF iwd_scs OR iwdification BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_paladin_iwd.tph~
-
-		ACTION_IF fp_ranger BEGIN
-			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_ranger_iwd_fp_kit.tph~
-			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_core_iwd_fp_a.tph~
-			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_basic_iwd_fp_a.tph~
-		END ELSE BEGIN
-			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_core_iwd_a.tph~
-			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_basic_iwd_a.tph~
-		END
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_iwd_dispelling.tph~
 	END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -94,7 +92,6 @@ ACTION_IF spell_revisions BEGIN
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF scs_golem BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_core_golem.tph~
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_paladin_golem.tph~
 	END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -162,6 +159,14 @@ END ELSE BEGIN
 	END
 
 ///////////////////////////////////////////////////////////////////////////
+// IWD Spells                                                            //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF iwd_scs OR iwdification BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/basic_iwd_a.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_iwd_a.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
 // Faiths & Powers - FnP Spheres                                         //
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF fp_spheres BEGIN
@@ -170,11 +175,10 @@ END ELSE BEGIN
 	END
 
 ///////////////////////////////////////////////////////////////////////////
-// IWD Spells                                                            //
+// Update IWD Dispelling Checks                                          //
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF iwd_scs OR iwdification BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/basic_iwd_a.tph~
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_iwd_a.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/iwd_dispelling.tph~
 	END
 
 ///////////////////////////////////////////////////////////////////////////

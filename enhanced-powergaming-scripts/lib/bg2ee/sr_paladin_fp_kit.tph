@@ -1,4 +1,4 @@
-COPY ~enhanced-powergaming-scripts/baf/upload/mopal.baf~ ~enhanced-powergaming-scripts/baf/upload/mopal.baf~
+COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Rage/Frenzy Abilities                                             //
@@ -11,11 +11,10 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mopal.baf~ ~enhanced-powergaming-s
     pattern = ~~~~~IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  HaveSpell(CLERIC_ARMOR_OF_FAITH)  // SPPR111.SPL (Armor of Faith)
-  !CheckSpellState(Myself,ARMOR_OF_FAITH)
+  HaveSpell(BARBARIAN_RAGE)  // SPCL152.SPL (Barbarian Rage)
+  !CheckSpellState(Myself,BARBARIAN_RAGE)
   See([EVILCUTOFF])
-  OR(28)
-    NumCreatureGT([EVILCUTOFF],3)
+  OR(33)
     Range([EVILCUTOFF.0.GOLEM],30)
     Range([EVILCUTOFF.0.MIST],30)
     Range([EVILCUTOFF.0.KUO-TOA],30)
@@ -43,24 +42,24 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mopal.baf~ ~enhanced-powergaming-s
     Range([EVILCUTOFF.0.PLANATAR],30)
     Range([EVILCUTOFF.0.ANTISOLAR],30)
     Range([EVILCUTOFF.0.DARKPLANATAR],30)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_SILENCED)
+    See([ENEMY.0.0.MAGE_ALL])
+    See([ENEMY.0.0.BARD_ALL])
+    See([ENEMY.0.0.CLERIC_ALL])
+    See([ENEMY.0.0.DRUID_ALL])
+    See([ENEMY.0.0.SORCERER])
+    See([ENEMY.0.0.CLERIC_MAGE])
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SetInterrupt(FALSE)
-    Spell(Myself,CLERIC_ARMOR_OF_FAITH)  // SPPR111.SPL (Armor of Faith)
-    SetInterrupt(TRUE)
+    Spell(Myself,BARBARIAN_RAGE)  // SPCL152.SPL (Barbarian Rage)
 END~~~~~
     string = ~~~~~IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  HaveSpell(CLERIC_ARMOR_OF_FAITH)  // SPPR111.SPL (Armor of Faith)
-  !CheckSpellState(Myself,ARMOR_OF_FAITH)
+  HaveSpell(BARBARIAN_RAGE)  // SPCL152.SPL (Barbarian Rage)
+  !CheckSpellState(Myself,BARBARIAN_RAGE)
   See([EVILCUTOFF])
-  OR(28)
-    NumCreatureGT([EVILCUTOFF],3)
+  OR(33)
     Range([EVILCUTOFF.0.GOLEM],30)
     Range([EVILCUTOFF.0.MIST],30)
     Range([EVILCUTOFF.0.KUO-TOA],30)
@@ -88,15 +87,16 @@ END~~~~~
     Range([EVILCUTOFF.0.PLANATAR],30)
     Range([EVILCUTOFF.0.ANTISOLAR],30)
     Range([EVILCUTOFF.0.DARKPLANATAR],30)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_SILENCED)
+    See([ENEMY.0.0.MAGE_ALL])
+    See([ENEMY.0.0.BARD_ALL])
+    See([ENEMY.0.0.CLERIC_ALL])
+    See([ENEMY.0.0.DRUID_ALL])
+    See([ENEMY.0.0.SORCERER])
+    See([ENEMY.0.0.CLERIC_MAGE])
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SetInterrupt(FALSE)
-    Spell(Myself,CLERIC_ARMOR_OF_FAITH)  // SPPR111.SPL (Armor of Faith)
-    SetInterrupt(TRUE)
+    Spell(Myself,BARBARIAN_RAGE)  // SPCL152.SPL (Barbarian Rage)
 END
 
 IF
@@ -531,12 +531,22 @@ LPF REPLACE_MULTILINE
     STR_VAR
     pattern = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
+  HaveSpell(BARBARIAN_RAGE)  // SPCL152.SPL (Barbarian Rage)
+  !CheckSpellState(Myself,BARBARIAN_RAGE)
 THEN
   RESPONSE #100
-    SetGlobal("MO_BUFF","LOCALS",0)
-    DisplayStringHead(Myself,@5004)
+    Spell(Myself,BARBARIAN_RAGE)  // SPCL152.SPL (Barbarian Rage)
 END~~~~~
     string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpell(BARBARIAN_RAGE)  // SPCL152.SPL (Barbarian Rage)
+  !CheckSpellState(Myself,BARBARIAN_RAGE)
+THEN
+  RESPONSE #100
+    Spell(Myself,BARBARIAN_RAGE)  // SPCL152.SPL (Barbarian Rage)
+END
+
+IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpellRES("b_frz02")
   !CheckSpellState(Myself,STATE_ENRAGED)
@@ -626,12 +636,5 @@ THEN
     SpellRES("b_frz10",Myself)
 END
 
-IF
-  Global("MO_BUFF","LOCALS",1)
-THEN
-  RESPONSE #100
-    SetGlobal("MO_BUFF","LOCALS",0)
-    DisplayStringHead(Myself,@5004)
-END
 ~~~~~ //"
   END

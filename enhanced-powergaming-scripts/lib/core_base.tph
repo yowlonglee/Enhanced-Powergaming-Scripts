@@ -162,6 +162,7 @@ THEN
 END
 
 IF
+  ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   CheckStatLT(Myself,1,STONESKINS)
   HaveSpell(WIZARD_STONE_SKIN)  // SPWI408.SPL (Stoneskin)
@@ -197,6 +198,7 @@ THEN
 END
 
 IF
+  ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   CheckStatLT(Myself,1,STONESKINS)
   GlobalLT("MO_UsedGargoyle","GLOBAL",2)
@@ -7186,7 +7188,10 @@ IF
   ActionListEmpty()
   Global("MO_TURNUNDEAD","LOCALS",1)
   !CheckStat(Myself,1,SANCTUARY)
-  Class(Myself,CLERIC_ALL)
+  OR(2)
+    Class(Myself,CLERIC_ALL)
+    Class(Myself,PALADIN_ALL)
+  !Kit(Myself,INQUISITOR)
   !ModalState(TURNUNDEAD)
 THEN
   RESPONSE #100

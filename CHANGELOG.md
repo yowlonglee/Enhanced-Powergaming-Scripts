@@ -7,6 +7,7 @@ December XX, 2021
 ### Changed
 
 - All Games
+  - Combined Monk, Paladin, and Ranger scripts into MO-CORE scripts.
   - Add Remove Curse to scripts to counter SCS "Smarter" Golems since Clay Golem applies a curse effect.
   - Improved and removed bugs from Celestial and Simulacrum AI.
 - BG2: EE and EET
@@ -14,9 +15,10 @@ December XX, 2021
   - Added Cowled Wizard casting check for all non-arcane classes since certain item usage still triggers the Cowled Wizards.
   - Corrects aTweaks PnP Undead component to properly track diseased status for mummy attacks.
 - To Do
-  - Combine Monk, Paladin, and Ranger scripts into MO-CORE scripts.
   - Add compatibility with Made in Heaven series of mods, Artisan's kitpack, and Might and Guile.
   - Identify other mods to add.
+  - Cowled Wizard Detect Casting in Indoor Areas add  to scripts
+  - Set temporary (couple second long) spellstate on character when debuffing spells are cast on enemy. Can I set a temporary local variable on an enemy?
 
 ## Version 5.5.3
 

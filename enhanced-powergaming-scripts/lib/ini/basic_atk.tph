@@ -12,7 +12,10 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming
   ActionListEmpty()
   Global("MO_TURNUNDEAD","LOCALS",1)
   !CheckStat(Myself,1,SANCTUARY)
-  Class(Myself,CLERIC_ALL)
+  OR(2)
+    Class(Myself,CLERIC_ALL)
+    Class(Myself,PALADIN_ALL)
+  !Kit(Myself,INQUISITOR)
   !ModalState(TURNUNDEAD)
 THEN
   RESPONSE #100
@@ -22,7 +25,10 @@ END~~~~~
   ActionListEmpty()
   Global("MO_TURNUNDEAD","LOCALS",1)
   !CheckStat(Myself,1,SANCTUARY)
-  Class(Myself,CLERIC_ALL)
+  OR(2)
+    Class(Myself,CLERIC_ALL)
+    Class(Myself,PALADIN_ALL)
+  !Kit(Myself,INQUISITOR)
   !ModalState(TURNUNDEAD)
 THEN
   RESPONSE #100
