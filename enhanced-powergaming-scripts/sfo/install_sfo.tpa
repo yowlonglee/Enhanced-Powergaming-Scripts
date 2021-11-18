@@ -76,6 +76,13 @@ ACTION_IF debug_variable=0 BEGIN SILENT END
     END ELSE BEGIN
       OUTER_SET scp_dlg=0
     END
+
+    LAF check_ini STR_VAR ini="target_dancing_sword" RET value END
+    ACTION_IF !value BEGIN
+      OUTER_SET dnc_swrd=1
+    END ELSE BEGIN
+      OUTER_SET dnc_swrd=0
+    END
 END
 VERBOSE
 
