@@ -289,6 +289,52 @@ APPEND ~stats.ids~ ~182 WIZARD_TENSERS_TRANSFORMATION~          UNLESS ~182 WIZA
 	END
 
 ///////////////////////////////////////////////////////////////////////////
+// Create Spell State for Removing Spell Protections                     //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~REMOVE_SPELL_PROT~)) BEGIN
+	  COPY_EXISTING ~splstate.ids~ ~override~
+		COUNT_2DA_COLS cols
+		READ_2DA_ENTRIES_NOW rows cols
+		FOR (row = 1; row < rows; ++row) BEGIN
+		  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
+		  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
+		  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~REMOVE_SPELL_PROT~) BEGIN
+			SET rmv_spl_prt = %state_ind%
+		  END
+		END
+	  BUT_ONLY
+	END
+
+	ACTION_IF !(VARIABLE_IS_SET %rmv_spl_prt%) BEGIN
+		LAF ds_sort_ids STR_VAR ids=splstate END
+		LAF d5_resolve_state STR_VAR new_state_id = ~REMOVE_SPELL_PROT~ RET new_state_ind END
+		OUTER_SET rmv_spl_prt = %new_state_ind%
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// Create Spell State for Removing Combat Protections                    //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~REMOVE_COMBAT_PROT~)) BEGIN
+	  COPY_EXISTING ~splstate.ids~ ~override~
+		COUNT_2DA_COLS cols
+		READ_2DA_ENTRIES_NOW rows cols
+		FOR (row = 1; row < rows; ++row) BEGIN
+		  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
+		  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
+		  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~REMOVE_COMBAT_PROT~) BEGIN
+			SET rmv_cbt_prt = %state_ind%
+		  END
+		END
+	  BUT_ONLY
+	END
+
+	ACTION_IF !(VARIABLE_IS_SET %rmv_cbt_prt%) BEGIN
+		LAF ds_sort_ids STR_VAR ids=splstate END
+		LAF d5_resolve_state STR_VAR new_state_id = ~REMOVE_COMBAT_PROT~ RET new_state_ind END
+		OUTER_SET rmv_cbt_prt = %new_state_ind%
+	END
+
+///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 // Assign New Spell States                                               //
 // Block of code provided by subtledoctor                                //
@@ -367,7 +413,19 @@ APPEND ~stats.ids~ ~182 WIZARD_TENSERS_TRANSFORMATION~          UNLESS ~182 WIZA
 ///////////////////////////////////////////////////////////////////////////
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~CLERIC_DRAW_UPON_HOLY_MIGHT~ RET spell_res END
 	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
-	  LPF CLONE_EFFECT INT_VAR match_opcode = 44 opcode = 132 special = 1 END
+	  LPF CLONE_EFFECT INT_VAR match_opcode = 44 opcode = 132 special = 1 
+
+///////////////////////////////////////////////////////////////////////////
+// Add State to track when Dispelling Spell Protections                  //
+///////////////////////////////////////////////////////////////////////////
+	COPY ~enhanced-powergaming-scripts/spl/mosprt.spl~ ~override~
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 2 special = 1 parameter2 = %rmv_spl_prt% timing = 0 duration = 6 END
+
+//////////////////////////////////////////////////////////////////////////
+// Add State to track when Dispelling Combat Protections                //
+//////////////////////////////////////////////////////////////////////////
+	COPY ~enhanced-powergaming-scripts/spl/mocprt.spl~ ~override~
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 2 special = 1 parameter2 = %rmv_cbt_prt% timing = 0 duration = 6 END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Prayer                                             //
