@@ -7,18 +7,19 @@ December XX, 2021
 ### Changed
 
 - All Games
-  - Combined Monk, Paladin, and Ranger scripts into MO-CORE scripts.
+  - Combined Monk, Paladin, and Ranger class scripts into MO-CORE scripts.
+  - Improved dispelling tracking to prevent over-dispelling of enemy spell/combat protections.
   - Add Remove Curse to scripts to counter SCS "Smarter" Golems since Clay Golem applies a curse effect.
   - Improved and removed bugs from Celestial and Simulacrum AI.
 - BG2: EE and EET
   - Can now manually override check for casting in Athkatla. This allows you to toggle your characters (using the "T" key) to cast spells in Athkatla if they have not paid the bounty or finished fighting the Cowled Wizards.
-  - Added Cowled Wizard casting check for all non-arcane classes since certain item usage still triggers the Cowled Wizards.
-  - Corrects aTweaks PnP Undead component to properly track diseased status for mummy attacks.
+  - Corrects aTweaks PnP Undead component to properly track diseased status from mummy attacks.
 - To Do
   - Add compatibility with Made in Heaven series of mods, Artisan's kitpack, and Might and Guile.
   - Identify other mods to add.
   - Cowled Wizard Detect Casting in Indoor Areas add  to scripts
   - Set temporary (couple second long) spellstate on character when debuffing spells are cast on enemy. Can I set a temporary local variable on an enemy?
+  - Update dispelling tracking for SR
 
 ## Version 5.5.3
 
