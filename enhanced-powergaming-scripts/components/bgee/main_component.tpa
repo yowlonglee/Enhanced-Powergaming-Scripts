@@ -13,6 +13,13 @@ COPY ~enhanced-powergaming-scripts/baf/normal/mocore.baf~  ~enhanced-powergaming
 INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/prebuff_bgee.tph~
 
 ///////////////////////////////////////////////////////////////////////////
+// Remove Dialog Hovertext from Scripts                                  //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF scp_dlg BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/ini/prebuff_dialog.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
 // Hotkey Setup                                                          //
 ///////////////////////////////////////////////////////////////////////////
 INCLUDE ~enhanced-powergaming-scripts/lib/core_hotkey.tph~
@@ -69,7 +76,6 @@ END
 	// Removes Dialog Hovertext from Scripts
 	ACTION_IF scp_dlg BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/ini/core_dialog.tph~
-		INCLUDE ~enhanced-powergaming-scripts/lib/ini/basic_dialog.tph~
 	END
 
 ///////////////////////////////////////////////////////////////////////////
