@@ -9,8 +9,9 @@ LOAD_TRA ~enhanced-powergaming-scripts/languages/%LANGUAGE%/script_dialog.tra~
 ///////////////////////////////////////////////////////////////////////////
 // Base Game - IWD: EE                                                   //
 ///////////////////////////////////////////////////////////////////////////
-COPY ~enhanced-powergaming-scripts/baf/normal/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
 COPY ~enhanced-powergaming-scripts/baf/normal/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+INCLUDE ~enhanced-powergaming-scripts/lib/core_hotkey.tph~
+COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
 
 INCLUDE ~enhanced-powergaming-scripts/lib/basic_base.tph~
 INCLUDE ~enhanced-powergaming-scripts/lib/core_base.tph~
@@ -27,12 +28,6 @@ ACTION_IF (MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1500~ && MOD_IS_INSTALLED ~s
 	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_iwd.tph~
 END
 */
-
-///////////////////////////////////////////////////////////////////////////
-// Update Hot Keys                                                       //
-///////////////////////////////////////////////////////////////////////////
-	INCLUDE ~enhanced-powergaming-scripts/lib/core_hotkey.tph~
-	INCLUDE ~enhanced-powergaming-scripts/lib/basic_hotkey.tph~
 
 ///////////////////////////////////////////////////////////////////////////
 // Update ini Presets                                                    //

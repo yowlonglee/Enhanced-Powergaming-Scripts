@@ -11,7 +11,8 @@ ACTION_IF spell_revisions BEGIN
 // SR - MO-Core Initial                                                  //
 ///////////////////////////////////////////////////////////////////////////
 	COPY ~enhanced-powergaming-scripts/baf/normal/sr/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
-	
+	INCLUDE ~enhanced-powergaming-scripts/lib/core_hotkey.tph~
+
 ///////////////////////////////////////////////////////////////////////////
 // SR - SCS extending the area requiring a mage license                  //
 ///////////////////////////////////////////////////////////////////////////
@@ -138,6 +139,7 @@ END ELSE BEGIN
 // MO-Core Initial                                                       //
 ///////////////////////////////////////////////////////////////////////////
 	COPY ~enhanced-powergaming-scripts/baf/normal/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+	INCLUDE ~enhanced-powergaming-scripts/lib/core_hotkey.tph~
 
 ///////////////////////////////////////////////////////////////////////////
 // SCS extending the area requiring a mage license                       //
@@ -254,12 +256,6 @@ END ELSE BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_golem.tph~
 	END
 END
-
-///////////////////////////////////////////////////////////////////////////
-// Update Hot Keys                                                       //
-///////////////////////////////////////////////////////////////////////////
-	INCLUDE ~enhanced-powergaming-scripts/lib/core_hotkey.tph~
-	INCLUDE ~enhanced-powergaming-scripts/lib/basic_hotkey.tph~
 
 ///////////////////////////////////////////////////////////////////////////
 // Update ini Presets                                                    //
