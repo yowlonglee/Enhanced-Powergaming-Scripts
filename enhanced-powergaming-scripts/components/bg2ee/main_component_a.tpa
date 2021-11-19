@@ -8,23 +8,54 @@ LOAD_TRA ~enhanced-powergaming-scripts/languages/%LANGUAGE%/script_dialog.tra~
 ACTION_IF spell_revisions BEGIN
 
 ///////////////////////////////////////////////////////////////////////////
-// SR- Base Game                                                         //
+// SR - MO-Core Initial                                                  //
 ///////////////////////////////////////////////////////////////////////////
 	COPY ~enhanced-powergaming-scripts/baf/Accelerated/sr/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+
+///////////////////////////////////////////////////////////////////////////
+// SR - SCS extending the area requiring a mage license                  //
+///////////////////////////////////////////////////////////////////////////	
 	ACTION_IF scs_mage_license BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/license_range.tph~
 	END
-	COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
-
-	INCLUDE ~enhanced-powergaming-scripts/lib/sr_basic_base.tph~
-	INCLUDE ~enhanced-powergaming-scripts/lib/sr_core_base.tph~
 
 ///////////////////////////////////////////////////////////////////////////
 // SR - Song & Silence                                                   //
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF song_and_silence BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_basic_ss_a.tph~
 		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_core_ss_a.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// SR - DSotSC Pre-Buffing                                               //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF dsotsc_arcane && !mih_arcane && !iwdification BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_prebuff_dsotsc_w_a.tph~
+	END
+
+	ACTION_IF dsotsc_divine && !mih_divine && !iwdification BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_prebuff_dsotsc_d_a.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// SR - IWD Spells Pre-Buffing                                           //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF iwd_scs OR iwdification BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_prebuff_iwd_a.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// SR - Build out MO-Core and MO-BasicAi                                 //
+///////////////////////////////////////////////////////////////////////////	
+	COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
+	INCLUDE ~enhanced-powergaming-scripts/lib/sr_basic_base.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/sr_core_base.tph~
+
+///////////////////////////////////////////////////////////////////////////
+// SR - DSotSC                                                           //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF dsotsc_divine && !mih_divine && !iwdification BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_core_dsotsc_d.tph~
 	END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -60,8 +91,7 @@ ACTION_IF spell_revisions BEGIN
 // SR - IWD Spells                                                       //
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF iwd_scs OR iwdification BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_core_iwd_a.tph~
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_basic_iwd_a.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_core_iwd.tph~
 	END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -105,34 +135,54 @@ ACTION_IF spell_revisions BEGIN
 
 END ELSE BEGIN
 ///////////////////////////////////////////////////////////////////////////
-// Base Game                                                             //
+// MO-Core Initial                                                       //
 ///////////////////////////////////////////////////////////////////////////
 	COPY ~enhanced-powergaming-scripts/baf/Accelerated/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+	
+///////////////////////////////////////////////////////////////////////////
+// SCS extending the area requiring a mage license                       //
+///////////////////////////////////////////////////////////////////////////
 	ACTION_IF scs_mage_license BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/license_range.tph~
-	END
-	COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
-
-	INCLUDE ~enhanced-powergaming-scripts/lib/basic_base.tph~
-	INCLUDE ~enhanced-powergaming-scripts/lib/core_base.tph~
-
-///////////////////////////////////////////////////////////////////////////
-// DSotSC                                                                //
-///////////////////////////////////////////////////////////////////////////
-	ACTION_IF dsotsc_arcane && !mih_arcane && !iwdification BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_dsotsc_w_a.tph~
-	END
-
-	ACTION_IF dsotsc_divine && !mih_divine && !iwdification BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_dsotsc_d_a.tph~
 	END
 
 ///////////////////////////////////////////////////////////////////////////
 // Song & Silence                                                        //
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF song_and_silence BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/basic_ss_a.tph~
 		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_ss_a.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// DSotSC Pre-Buffing                                                    //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF dsotsc_arcane && !mih_arcane && !iwdification BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_dsotsc_w_a.tph~
+	END
+
+	ACTION_IF dsotsc_divine && !mih_divine && !iwdification BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_dsotsc_d_a.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// IWD Spells Pre-Buffing                                                //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF iwd_scs OR iwdification BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_iwd_a.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// Build out MO-Core and MO-BasicAi                                      //
+///////////////////////////////////////////////////////////////////////////	
+	COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
+	INCLUDE ~enhanced-powergaming-scripts/lib/basic_base.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/core_base.tph~
+
+///////////////////////////////////////////////////////////////////////////
+// DSotSC                                                                //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF dsotsc_divine && !mih_divine && !iwdification BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_dsotsc_d.tph~
 	END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -168,8 +218,7 @@ END ELSE BEGIN
 // IWD Spells                                                            //
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF iwd_scs OR iwdification BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/basic_iwd_a.tph~
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_iwd_a.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_iwd.tph~
 	END
 
 ///////////////////////////////////////////////////////////////////////////

@@ -1,4 +1,4 @@
-COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
+COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Emotion Courage and Emotion Hope                                  //
@@ -19,7 +19,8 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    Spell(Myself,CLERIC_REMOVE_FEAR)
+    ReallyForceSpell(Myself,CLERIC_REMOVE_FEAR)
+    RemoveSpell(CLERIC_REMOVE_FEAR)
 END~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
@@ -32,7 +33,8 @@ END~~~~~
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    Spell(Myself,CLERIC_REMOVE_FEAR)
+    ReallyForceSpell(Myself,CLERIC_REMOVE_FEAR)
+    RemoveSpell(CLERIC_REMOVE_FEAR)
 END
 
 IF
@@ -47,7 +49,8 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    Spell(Myself,WIZARD_EMOTION_COURAGE)
+    ReallyForceSpell(Myself,WIZARD_EMOTION_COURAGE)
+    RemoveSpell(WIZARD_EMOTION_COURAGE)
 END
 
 IF
@@ -62,13 +65,14 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    Spell(Myself,WIZARD_EMOTION_HOPE)
+    ReallyForceSpell(Myself,WIZARD_EMOTION_HOPE)
+    RemoveSpell(WIZARD_EMOTION_HOPE)
 END
 ~~~~~ //"
   END
 
 ///////////////////////////////////////////////////////////////////////////
-// Add Mind Blank and Impervious Sanctity of Mind                        //
+// Add Mind Blank                                                        //
 ///////////////////////////////////////////////////////////////////////////
   LPF REPLACE_MULTILINE
     INT_VAR
@@ -127,7 +131,8 @@ END
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    Spell(Myself,WIZARD_MINOR_SPELL_DEFLECTION)  // SPWI318.SPL (Minor Spell Deflection)
+    ReallyForceSpell(Myself,WIZARD_MINOR_SPELL_DEFLECTION)  // SPWI318.SPL (Minor Spell Deflection)
+    RemoveSpell(WIZARD_MINOR_SPELL_DEFLECTION)  // SPWI318.SPL (Minor Spell Deflection)
 END~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
@@ -145,7 +150,8 @@ END~~~~~
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    Spell(Myself,WIZARD_MINOR_SPELL_DEFLECTION)  // SPWI318.SPL (Minor Spell Deflection)
+    ReallyForceSpell(Myself,WIZARD_MINOR_SPELL_DEFLECTION)  // SPWI318.SPL (Minor Spell Deflection)
+    RemoveSpell(WIZARD_MINOR_SPELL_DEFLECTION)  // SPWI318.SPL (Minor Spell Deflection)
 END
 
 IF
@@ -166,12 +172,13 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    Spell(Myself,WIZARD_SEVEN_EYES)  // spwi727.SPL (Seven Eyes)
+    ReallyForceSpell(Myself,WIZARD_SEVEN_EYES)  // spwi727.SPL (Seven Eyes)
+    RemoveSpell(WIZARD_SEVEN_EYES)  // spwi727.SPL (Seven Eyes)
 END~~~~~ //"
   END
-
+  
 ///////////////////////////////////////////////////////////////////////////
-// Add Prayer, Recitation, and Entropy Shield                            //
+// Add Prayer, Restoration, and Entropy Shield                           //
 ///////////////////////////////////////////////////////////////////////////
   LPF REPLACE_MULTILINE
     INT_VAR
@@ -190,7 +197,8 @@ END~~~~~ //"
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    Spell(Myself,WIZARD_DISPELLING_SCREEN)  // spwi525.spl (Dispelling Screen)
+    ReallyForceSpell(Myself,WIZARD_DISPELLING_SCREEN)  // spwi525.spl (Dispelling Screen)
+    RemoveSpell(WIZARD_DISPELLING_SCREEN)  // spwi525.spl (Dispelling Screen)
 END~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
@@ -204,7 +212,8 @@ END~~~~~
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    Spell(Myself,WIZARD_DISPELLING_SCREEN)  // spwi525.spl (Dispelling Screen)
+    ReallyForceSpell(Myself,WIZARD_DISPELLING_SCREEN)  // spwi525.spl (Dispelling Screen)
+    RemoveSpell(WIZARD_DISPELLING_SCREEN)  // spwi525.spl (Dispelling Screen)
 END
 
 IF
@@ -220,13 +229,15 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    Spell(Myself,CLERIC_PRAYER)  // sppr320.SPL (Prayer)
+    ReallyForceSpell(Myself,CLERIC_PRAYER)  // sppr320.SPL (Prayer)
+    RemoveSpell(CLERIC_PRAYER)  // sppr320.SPL (Prayer)
 END
 
 IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(CLERIC_RECITATION)  // sppr420.SPL (Recitation)
   !CheckSpellState(Myself,BENEFICIAL_RECITATION)
+  !CheckSpellState(Myself,MINOR_GLOBE)
   !CheckSpellState(Myself,GLOBE)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -235,7 +246,8 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    Spell(Myself,CLERIC_RECITATION)  // sppr420.SPL (Recitation)
+    ReallyForceSpell(Myself,CLERIC_RECITATION)  // sppr420.SPL (Recitation)
+    RemoveSpell(CLERIC_RECITATION)  // sppr420.SPL (Recitation)
 END
 
 IF
@@ -250,8 +262,8 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    Spell(Myself,CLERIC_ENTROPY_SHIELD)  // sppr615.SPL (Entropy Shield)
+    ReallyForceSpell(Myself,CLERIC_ENTROPY_SHIELD)  // sppr615.SPL (Entropy Shield)
+    RemoveSpell(CLERIC_ENTROPY_SHIELD)  // sppr615.SPL (Entropy Shield)
 END
 ~~~~~ //"
   END
-

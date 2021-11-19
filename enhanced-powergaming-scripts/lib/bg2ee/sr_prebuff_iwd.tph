@@ -1,4 +1,4 @@
-COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
+COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Emotion Courage and Emotion Hope                                  //
@@ -10,10 +10,8 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming
     STR_VAR
     pattern = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
-  HaveSpell(CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
+  HaveSpell(CLERIC_REMOVE_FEAR)
   !CheckSpellState(Myself,RESIST_FEAR)
-  !CheckSpellState(Myself,MINOR_GLOBE)
-  !CheckSpellState(Myself,GLOBE)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -21,14 +19,12 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    Spell(Myself,CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
+    Spell(Myself,CLERIC_REMOVE_FEAR)
 END~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
-  HaveSpell(CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
+  HaveSpell(CLERIC_REMOVE_FEAR)
   !CheckSpellState(Myself,RESIST_FEAR)
-  !CheckSpellState(Myself,MINOR_GLOBE)
-  !CheckSpellState(Myself,GLOBE)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -36,7 +32,7 @@ END~~~~~
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    Spell(Myself,CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
+    Spell(Myself,CLERIC_REMOVE_FEAR)
 END
 
 IF
@@ -72,7 +68,7 @@ END
   END
 
 ///////////////////////////////////////////////////////////////////////////
-// Add Mind Blank and Impervious Sanctity of Mind                        //
+// Add Mind Blank                                                        //
 ///////////////////////////////////////////////////////////////////////////
   LPF REPLACE_MULTILINE
     INT_VAR
@@ -82,8 +78,8 @@ END
     pattern = ~~~~~!CheckSpellState(LastSeenBy(Myself),CHAOTIC_COMMANDS)
   HaveSpell(CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
   !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -95,8 +91,8 @@ END
   !CheckSpellState(LastSeenBy(Myself),MIND_BLANK)
   HaveSpell(CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
   !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -118,7 +114,9 @@ END
     pattern = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(WIZARD_MINOR_SPELL_DEFLECTION)  // SPWI318.SPL (Minor Spell Deflection)
-  CheckStatLT(Myself,1,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(Myself,GREATER_SPELL_DEFLECTION)
+  !CheckSpellState(Myself,SPELL_DEFLECTION)
+  !CheckSpellState(Myself,MINOR_SPELL_DEFLECTION)
   !CheckSpellState(Myself,MINOR_GLOBE)
   !CheckSpellState(Myself,GLOBE)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
@@ -134,7 +132,9 @@ END~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(WIZARD_MINOR_SPELL_DEFLECTION)  // SPWI318.SPL (Minor Spell Deflection)
-  CheckStatLT(Myself,1,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(Myself,GREATER_SPELL_DEFLECTION)
+  !CheckSpellState(Myself,SPELL_DEFLECTION)
+  !CheckSpellState(Myself,MINOR_SPELL_DEFLECTION)
   !CheckSpellState(Myself,MINOR_GLOBE)
   !CheckSpellState(Myself,GLOBE)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
@@ -169,9 +169,9 @@ THEN
     Spell(Myself,WIZARD_SEVEN_EYES)  // spwi727.SPL (Seven Eyes)
 END~~~~~ //"
   END
-
+  
 ///////////////////////////////////////////////////////////////////////////
-// Add Prayer, Recitation, and Entropy Shield                            //
+// Add Prayer, Restoration, and Entropy Shield                           //
 ///////////////////////////////////////////////////////////////////////////
   LPF REPLACE_MULTILINE
     INT_VAR
@@ -180,8 +180,8 @@ END~~~~~ //"
     STR_VAR
     pattern = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
-  HaveSpell(WIZARD_SPELL_IMMUNITY)  // SPWI510.SPL (Spell Immunity)
-  !CheckStat(Myself,1,WIZARD_SPELL_IMMUNITY)
+  HaveSpell(WIZARD_DISPELLING_SCREEN)  // spwi525.spl (Dispelling Screen)
+  !CheckSpellState(Myself,DISPEL_SCREEN)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
@@ -190,12 +190,12 @@ END~~~~~ //"
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    Spell(Myself,WIZARD_SPELL_IMMUNITY_ABJURATION)  // SPWI590.SPL (Immunity: Abjuration)
+    Spell(Myself,WIZARD_DISPELLING_SCREEN)  // spwi525.spl (Dispelling Screen)
 END~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
-  HaveSpell(WIZARD_SPELL_IMMUNITY)  // SPWI510.SPL (Spell Immunity)
-  !CheckStat(Myself,1,WIZARD_SPELL_IMMUNITY)
+  HaveSpell(WIZARD_DISPELLING_SCREEN)  // spwi525.spl (Dispelling Screen)
+  !CheckSpellState(Myself,DISPEL_SCREEN)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
@@ -204,7 +204,7 @@ END~~~~~
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    Spell(Myself,WIZARD_SPELL_IMMUNITY_ABJURATION)  // SPWI590.SPL (Immunity: Abjuration)
+    Spell(Myself,WIZARD_DISPELLING_SCREEN)  // spwi525.spl (Dispelling Screen)
 END
 
 IF
@@ -227,6 +227,7 @@ IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(CLERIC_RECITATION)  // sppr420.SPL (Recitation)
   !CheckSpellState(Myself,BENEFICIAL_RECITATION)
+  !CheckSpellState(Myself,MINOR_GLOBE)
   !CheckSpellState(Myself,GLOBE)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -254,4 +255,3 @@ THEN
 END
 ~~~~~ //"
   END
-
