@@ -7,22 +7,36 @@ LOAD_TRA ~enhanced-powergaming-scripts/languages/%LANGUAGE%/script_dialog.tra~
 ///////////////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////////////////////
-// Base Game                                                             //
+// MO-Core Initial                                                       //
+///////////////////////////////////////////////////////////////////////////
+COPY ~enhanced-powergaming-scripts/baf/normal/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/prebuff_bgee.tph~
+
+///////////////////////////////////////////////////////////////////////////
+// Hotkey Setup                                                          //
+///////////////////////////////////////////////////////////////////////////
+INCLUDE ~enhanced-powergaming-scripts/lib/core_hotkey.tph~
+
+///////////////////////////////////////////////////////////////////////////
+// IWD Spells Pre-Buffing                                                //
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF iwd_scs OR iwdification BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/prebuff_iwd.tph~
+END
+
+///////////////////////////////////////////////////////////////////////////
+// Build out MO-Core and MO-BasicAi                                      //
 ///////////////////////////////////////////////////////////////////////////
 COPY ~enhanced-powergaming-scripts/baf/normal/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
-COPY ~enhanced-powergaming-scripts/baf/normal/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
 
 INCLUDE ~enhanced-powergaming-scripts/lib/basic_base.tph~
 INCLUDE ~enhanced-powergaming-scripts/lib/core_base.tph~
-
-INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/basic_bgee.tph~
 INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/core_bgee.tph~
 
 ///////////////////////////////////////////////////////////////////////////
 // IWD Spells                                                            //
 ///////////////////////////////////////////////////////////////////////////
 ACTION_IF iwd_scs OR iwdification BEGIN
-	INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/basic_iwd.tph~
 	INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/core_iwd.tph~
 END
 
@@ -36,12 +50,6 @@ ACTION_IF scs_breach BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/core_breach.tph~
 	END
 END
-
-///////////////////////////////////////////////////////////////////////////
-// Update Hot Keys                                                       //
-///////////////////////////////////////////////////////////////////////////
-	INCLUDE ~enhanced-powergaming-scripts/lib/core_hotkey.tph~
-	INCLUDE ~enhanced-powergaming-scripts/lib/basic_hotkey.tph~
 
 ///////////////////////////////////////////////////////////////////////////
 // Update ini Presets                                                    //
@@ -64,15 +72,17 @@ END
 		INCLUDE ~enhanced-powergaming-scripts/lib/ini/basic_dialog.tph~
 	END
 
-	// Removes Targeting Dancing Swords with Magic Missiles
-	ACTION_IF dnc_swrd BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/ini/rmv_dnc_swrd.tph~
-	END
-
 ///////////////////////////////////////////////////////////////////////////
 // Create Skald Script Modeled After Core                                //
 ///////////////////////////////////////////////////////////////////////////
 INCLUDE ~enhanced-powergaming-scripts/lib/skald_base.tph~
+
+///////////////////////////////////////////////////////////////////////////
+// Removes Targeting Dancing Swords with Magic Missiles                  //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF dnc_swrd BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/ini/rmv_dnc_swrd.tph~
+	END
 
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////

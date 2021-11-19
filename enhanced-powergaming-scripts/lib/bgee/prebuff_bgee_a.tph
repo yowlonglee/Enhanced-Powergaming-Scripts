@@ -1,4 +1,4 @@
-COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
+COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
 
 ///////////////////////////////////////////////////////////////////////////
 // Remove BGII: EE Item Variables                                        //
@@ -358,11 +358,14 @@ IF~~~~~
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    Spell(Myself,WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
+    ReallyForceSpell(Myself,WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
+    RemoveSpell(WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
 END
 
-IF~~~~~
-    string = ~~~~~IF~~~~~ //"
+IF
+  Global("MO_BUFF","LOCALS",1)~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)~~~~~ //"
   END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -384,11 +387,14 @@ IF~~~~~
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    Spell(Myself,CLERIC_PHYSICAL_MIRROR)  // sppr525.spl (Physical Mirror)
+    ReallyForceSpell(Myself,CLERIC_PHYSICAL_MIRROR)  // sppr525.spl (Physical Mirror)
+    RemoveSpell(CLERIC_PHYSICAL_MIRROR)  // sppr525.spl (Physical Mirror)
 END
 
-IF~~~~~
-    string = ~~~~~IF~~~~~ //"
+IF
+  Global("MO_BUFF","LOCALS",1)~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)~~~~~ //"
   END
 
 ///////////////////////////////////////////////////////////////////////////

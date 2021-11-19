@@ -1,4 +1,4 @@
-COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
+COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Emotion Courage and Emotion Hope                                  //
@@ -72,7 +72,7 @@ END
   END
 
 ///////////////////////////////////////////////////////////////////////////
-// Add Mind Blank and Impervious Sanctity of Mind                        //
+// Add Mind Blank                                                        //
 ///////////////////////////////////////////////////////////////////////////
   LPF REPLACE_MULTILINE
     INT_VAR
@@ -168,7 +168,7 @@ END~~~~~ //"
   END
 
 ///////////////////////////////////////////////////////////////////////////
-// Add Prayer, Recitation, and Entropy Shield                            //
+// Add Prayer, Restoration, and Entropy Shield                           //
 ///////////////////////////////////////////////////////////////////////////
   LPF REPLACE_MULTILINE
     INT_VAR
@@ -222,6 +222,7 @@ IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(CLERIC_RECITATION)  // sppr420.SPL (Recitation)
   !CheckSpellState(Myself,BENEFICIAL_RECITATION)
+  !CheckSpellState(Myself,MINOR_GLOBE)
   !CheckSpellState(Myself,GLOBE)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -249,4 +250,3 @@ THEN
 END
 ~~~~~ //"
   END
-
