@@ -7,17 +7,25 @@ LOAD_TRA ~enhanced-powergaming-scripts/languages/%LANGUAGE%/script_dialog.tra~
 ///////////////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////////////////////
-// Base Game - IWD: EE                                                   //
+// MO-Core Initial                                                       //
 ///////////////////////////////////////////////////////////////////////////
 COPY ~enhanced-powergaming-scripts/baf/Accelerated/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+INCLUDE ~enhanced-powergaming-scripts/lib/IWDEE/prebuff_iwd_a.tph~
+
+///////////////////////////////////////////////////////////////////////////
+// Hotkey Setup                                                          //
+///////////////////////////////////////////////////////////////////////////
 INCLUDE ~enhanced-powergaming-scripts/lib/core_hotkey.tph~
+
+///////////////////////////////////////////////////////////////////////////
+// Build out MO-Core and MO-BasicAi                                      //
+///////////////////////////////////////////////////////////////////////////
 COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
 
 INCLUDE ~enhanced-powergaming-scripts/lib/basic_base.tph~
 INCLUDE ~enhanced-powergaming-scripts/lib/core_base.tph~
 
-INCLUDE ~enhanced-powergaming-scripts/lib/IWDEE/basic_iwd_a.tph~
-INCLUDE ~enhanced-powergaming-scripts/lib/IWDEE/core_iwd_a.tph~
+INCLUDE ~enhanced-powergaming-scripts/lib/IWDEE/core_iwd.tph~
 
 ///////////////////////////////////////////////////////////////////////////
 // Heart of Winter                                                       //

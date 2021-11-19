@@ -1,4 +1,4 @@
-COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
+COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
 
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
@@ -196,10 +196,6 @@ THEN
     IncrementGlobal("MO_UsedShldFyrus","GLOBAL",1)
 END
 
-IF~~~~~
-    string = ~~~~~IF~~~~~ //"
-  END
-
 ///////////////////////////////////////////////////////////////////////////
 // Remove Ring of Spell Turning                                          //
 ///////////////////////////////////////////////////////////////////////////
@@ -219,10 +215,8 @@ THEN
     IncrementGlobal("MO_UsedSpellTurning","GLOBAL",1)
 END
 
-IF
-  Global("MO_BUFF","LOCALS",1)~~~~~
-    string = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)~~~~~ //"
+IF~~~~~
+    string = ~~~~~IF~~~~~ //"
   END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -244,10 +238,8 @@ THEN
     IncrementGlobal("MO_UsedCheetah","GLOBAL",1)
 END
 
-IF
-  Global("MO_BUFF","LOCALS",1)~~~~~
-    string = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)~~~~~ //"
+IF~~~~~
+    string = ~~~~~IF~~~~~ //"
   END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -345,10 +337,8 @@ THEN
     IncrementGlobal("MO_UsedBltMnrInv","GLOBAL",1)
 END
 
-IF
-  Global("MO_BUFF","LOCALS",1)~~~~~
-    string = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)~~~~~ //"
+IF~~~~~
+    string = ~~~~~IF~~~~~ //"
   END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -370,12 +360,13 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpell(Myself,WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
-    RemoveSpell(WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
+    Spell(Myself,WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
 END
 
-IF~~~~~
-    string = ~~~~~IF~~~~~ //"
+IF
+  Global("MO_BUFF","LOCALS",1)~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)~~~~~ //"
   END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -413,8 +404,7 @@ IF~~~~~
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpell(Myself,CLERIC_BLADE_BARRIER)  // SPPR603.SPL (Blade Barrier)
-    RemoveSpell(CLERIC_BLADE_BARRIER)  // SPPR603.SPL (Blade Barrier)
+    Spell(Myself,CLERIC_BLADE_BARRIER)  // SPPR603.SPL (Blade Barrier)
 END
 
 IF~~~~~
@@ -440,8 +430,7 @@ IF~~~~~
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpell(Myself,CLERIC_CHANT)  // SPPR203.SPL (Chant)
-    RemoveSpell(CLERIC_CHANT)  // SPPR203.SPL (Chant)
+    Spell(Myself,CLERIC_CHANT)  // SPPR203.SPL (Chant)
 END
 
 IF~~~~~
@@ -459,6 +448,7 @@ IF~~~~~
     pattern = ~~~~~!HasItemEquiped("BLAKBLAD",Myself)  // Black Blade of Disaster~~~~~
     string = ~~~~~!HasItem("BLAKBLAD",Myself)  // Black Blade of Disaster~~~~~ //"
   END
+
 
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
@@ -487,8 +477,7 @@ IF~~~~~
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpell(Myself,CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
-    RemoveSpell(CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
+    Spell(Myself,CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
 END~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
@@ -503,8 +492,7 @@ END~~~~~
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpell(Myself,CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
-    RemoveSpell(CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
+    Spell(Myself,CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
 END
 
 IF
@@ -519,8 +507,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpell(Myself,WIZARD_EMOTION_COURAGE)
-    RemoveSpell(WIZARD_EMOTION_COURAGE)
+    Spell(Myself,WIZARD_EMOTION_COURAGE)
 END
 
 IF
@@ -535,8 +522,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpell(Myself,WIZARD_EMOTION_HOPE)
-    RemoveSpell(WIZARD_EMOTION_HOPE)
+    Spell(Myself,WIZARD_EMOTION_HOPE)
 END
 ~~~~~ //"
   END
@@ -598,8 +584,7 @@ END
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpell(Myself,WIZARD_MINOR_SPELL_DEFLECTION)  // SPWI318.SPL (Minor Spell Deflection)
-    RemoveSpell(WIZARD_MINOR_SPELL_DEFLECTION)  // SPWI318.SPL (Minor Spell Deflection)
+    Spell(Myself,WIZARD_MINOR_SPELL_DEFLECTION)  // SPWI318.SPL (Minor Spell Deflection)
 END~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
@@ -614,8 +599,7 @@ END~~~~~
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpell(Myself,WIZARD_MINOR_SPELL_DEFLECTION)  // SPWI318.SPL (Minor Spell Deflection)
-    RemoveSpell(WIZARD_MINOR_SPELL_DEFLECTION)  // SPWI318.SPL (Minor Spell Deflection)
+    Spell(Myself,WIZARD_MINOR_SPELL_DEFLECTION)  // SPWI318.SPL (Minor Spell Deflection)
 END
 
 IF
@@ -635,13 +619,12 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpell(Myself,WIZARD_SEVEN_EYES)  // spwi727.SPL (Seven Eyes)
-    RemoveSpell(WIZARD_SEVEN_EYES)  // spwi727.SPL (Seven Eyes)
+    Spell(Myself,WIZARD_SEVEN_EYES)  // spwi727.SPL (Seven Eyes)
 END~~~~~ //"
   END
-
+  
 ///////////////////////////////////////////////////////////////////////////
-// Add Prayer, Recitation, and Entropy Shield                            //
+// Add Prayer, Restoration, and Entropy Shield                           //
 ///////////////////////////////////////////////////////////////////////////
   LPF REPLACE_MULTILINE
     INT_VAR
@@ -659,8 +642,7 @@ END~~~~~ //"
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpell(Myself,WIZARD_SPELL_IMMUNITY_ABJURATION)  // SPWI590.SPL (Immunity: Abjuration)
-    RemoveSpell(WIZARD_SPELL_IMMUNITY)  // SPWI510.SPL (Spell Immunity)
+    Spell(Myself,WIZARD_SPELL_IMMUNITY_ABJURATION)  // SPWI590.SPL (Immunity: Abjuration)
 END~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
@@ -673,8 +655,7 @@ END~~~~~
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpell(Myself,WIZARD_SPELL_IMMUNITY_ABJURATION)  // SPWI590.SPL (Immunity: Abjuration)
-    RemoveSpell(WIZARD_SPELL_IMMUNITY)  // SPWI510.SPL (Spell Immunity)
+    Spell(Myself,WIZARD_SPELL_IMMUNITY_ABJURATION)  // SPWI590.SPL (Immunity: Abjuration)
 END
 
 IF
@@ -690,14 +671,14 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpell(Myself,CLERIC_PRAYER)  // sppr320.SPL (Prayer)
-    RemoveSpell(CLERIC_PRAYER)  // sppr320.SPL (Prayer)
+    Spell(Myself,CLERIC_PRAYER)  // sppr320.SPL (Prayer)
 END
 
 IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(CLERIC_RECITATION)  // sppr420.SPL (Recitation)
   !CheckSpellState(Myself,BENEFICIAL_RECITATION)
+  !CheckSpellState(Myself,MINOR_GLOBE)
   !CheckSpellState(Myself,GLOBE)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -706,8 +687,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpell(Myself,CLERIC_RECITATION)  // sppr420.SPL (Recitation)
-    RemoveSpell(CLERIC_RECITATION)  // sppr420.SPL (Recitation)
+    Spell(Myself,CLERIC_RECITATION)  // sppr420.SPL (Recitation)
 END
 
 IF
@@ -722,8 +702,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpell(Myself,CLERIC_ENTROPY_SHIELD)  // sppr615.SPL (Entropy Shield)
-    RemoveSpell(CLERIC_ENTROPY_SHIELD)  // sppr615.SPL (Entropy Shield)
+    Spell(Myself,CLERIC_ENTROPY_SHIELD)  // sppr615.SPL (Entropy Shield)
 END
 ~~~~~ //"
   END
@@ -768,8 +747,7 @@ END
   !StateCheck(Myself,STATE_SILENCED)
 THEN
   RESPONSE #100
-    ReallyForceSpellRES("SPIN103",Myself)  // Divine Might
-    RemoveSpellRES("SPIN103")  // Divine Might
+    SpellRES("SPIN103",Myself)  // Divine Might
 END
 
 IF~~~~~
