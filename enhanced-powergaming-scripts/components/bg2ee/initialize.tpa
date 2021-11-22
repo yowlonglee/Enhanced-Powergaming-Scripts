@@ -848,40 +848,35 @@ END
 	COPY ~enhanced-powergaming-scripts/spl/mosprt.spl~ ~override~
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 2 special = 1 parameter2 = %rmv_spl_prt% timing = 0 duration = 6 END
 
-	// Spell Thrust
-	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_SPELL_THRUST~ RET spell_res END
-	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 timing = 0 STR_VAR resource = "MOSPRT" END
+	ACTION_FOR_EACH spell IN
+			SPELL_THRUST
+			SECRET_WORD
+			PIERCE_MAGIC
+			WARDING_WHIP
+			RUBY_RAY_OF_REVERSAL
+			PIERCE_SHIELD
+			SPELL_STRIKE
+		BEGIN
+			LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_%spell%~ RET spell_res END
+			COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
+				LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 timing = 0 STR_VAR resource = "MOSPRT" END
+			END
+		END
 
-	// Secret Word
-	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_SECRET_WORD~ RET spell_res END
-	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 timing = 0 STR_VAR resource = "MOSPRT" END
-
-	// Pierce Magic
-	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_PIERCE_MAGIC~ RET spell_res END
-	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 timing = 0 STR_VAR resource = "MOSPRT" END
-
-	// Khelben's Warding Whip
-	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_WARDING_WHIP~ RET spell_res END
-	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 timing = 0 STR_VAR resource = "MOSPRT" END
-
-	// Ruby Ray
-	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_RUBY_RAY_OF_REVERSAL~ RET spell_res END
-	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 timing = 0 STR_VAR resource = "MOSPRT" END
-
-	// Pierce Shield
-	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_PIERCE_SHIELD~ RET spell_res END
-	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 timing = 0 STR_VAR resource = "MOSPRT" END
-
-	// Spellstrike
-	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_SPELL_STRIKE~ RET spell_res END
-	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 timing = 0 STR_VAR resource = "MOSPRT" END
+	/*
+	// FP Spheres 
+	ACTION_IF fp_spheres BEGIN
+		ACTION_FOR_EACH spell IN
+				SPELL_THRUST
+				SECRET_WORD
+			BEGIN
+				LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_%spell%~ RET spell_res END
+				COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
+					LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 timing = 0 STR_VAR resource = "MOSPRT" END
+				END
+			END
+	END
+	*/
 
 //////////////////////////////////////////////////////////////////////////
 // Add State to track when Dispelling Combat Protections                //
@@ -893,6 +888,22 @@ END
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_BREACH~ RET spell_res END
 	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 timing = 0 insert_point = 0 STR_VAR resource = "MOCPRT" END
+
+	// SR Pierce Shield
+	ACTION_IF spell_revisions BEGIN
+		LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_PIERCE_SHIELD~ RET spell_res END
+		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 timing = 0 insert_point = 0 STR_VAR resource = "MOCPRT" END
+	END
+
+	/*
+	// Ranger Breach
+	ACTION_IF fp_ranger BEGIN
+		LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_BREACH~ RET spell_res END
+		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
+	  	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 timing = 0 insert_point = 0 STR_VAR resource = "MOCPRT" END
+	END
+	*/
 
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////

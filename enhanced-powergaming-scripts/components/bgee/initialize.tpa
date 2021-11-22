@@ -235,8 +235,20 @@ APPEND ~stats.ids~ ~182 WIZARD_TENSERS_TRANSFORMATION~          UNLESS ~182 WIZA
 	COPY ~enhanced-powergaming-scripts/spl/mosprt.spl~ ~override~
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 2 special = 1 parameter2 = %rmv_spl_prt% timing = 0 duration = 6 END
 
-	COPY ~enhanced-powergaming-scripts/spl/mosprt.spl~ ~override/morspt.spl~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 timing = 0 STR_VAR resource = "MOSPRT" END
+	ACTION_FOR_EACH spell IN
+			SPELL_THRUST
+			SECRET_WORD
+			PIERCE_MAGIC
+			WARDING_WHIP
+			RUBY_RAY_OF_REVERSAL
+			PIERCE_SHIELD
+			SPELL_STRIKE
+		BEGIN
+			LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_%spell%~ RET spell_res END
+			COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
+				LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 timing = 0 STR_VAR resource = "MOSPRT" END
+			END
+		END
 
 //////////////////////////////////////////////////////////////////////////
 // Add State to track when Dispelling Combat Protections                //
@@ -244,8 +256,10 @@ APPEND ~stats.ids~ ~182 WIZARD_TENSERS_TRANSFORMATION~          UNLESS ~182 WIZA
 	COPY ~enhanced-powergaming-scripts/spl/mocprt.spl~ ~override~
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 2 special = 1 parameter2 = %rmv_cbt_prt% timing = 0 duration = 6 END
 
-	COPY ~enhanced-powergaming-scripts/spl/mocprt.spl~ ~override/morcpt.spl~
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 timing = 0 STR_VAR resource = "MOCPRT" END
+	// Breach
+	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_BREACH~ RET spell_res END
+	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 timing = 0 insert_point = 0 STR_VAR resource = "MOCPRT" END
 
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
