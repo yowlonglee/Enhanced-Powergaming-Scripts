@@ -1,4 +1,25 @@
-COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
+COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+
+///////////////////////////////////////////////////////////////////////////
+// Update Neutralize Poison                                              //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~Spell(CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)~~~~~
+    string = ~~~~~SpellRES("D5P1404")~~~~~ //"
+  END
+
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~Spell(LastSeenBy(Myself),CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)~~~~~
+    string = ~~~~~SpellRES("D5P1404",LastSeenBy(Myself))~~~~~ //"
+  END
 
 ///////////////////////////////////////////////////////////////////////////
 // Update Draw Upon Holy Might                                           //
@@ -82,6 +103,15 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming
     STR_VAR
     pattern = ~~~~~Spell(Myself,CLERIC_REMOVE_FEAR)~~~~~
     string = ~~~~~SpellRES("D5P1108",Myself)~~~~~ //"
+  END
+
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~Spell(LastSeenBy(Myself),CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Resist Fear)~~~~~
+    string = ~~~~~SpellRES("D5P1108",LastSeenBy(Myself))~~~~~ //"
   END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -287,7 +317,7 @@ IF
   !CheckStat(Myself,8,WIZARD_SPELL_IMMUNITY)
   !CheckSpellState(Myself,MINOR_GLOBE)
   !CheckSpellState(Myself,GLOBE)
-  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
   Global("MO_CastAthkatla","LOCALS",1)
@@ -356,7 +386,7 @@ IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpellRES("D5P2613")
   !CheckStatGT(Myself,0,IMPROVEDHASTE)
-  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
   Global("MO_CastAthkatla","LOCALS",1)

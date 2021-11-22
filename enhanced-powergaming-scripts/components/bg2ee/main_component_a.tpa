@@ -60,6 +60,13 @@ ACTION_IF spell_revisions BEGIN
 	END
 
 ///////////////////////////////////////////////////////////////////////////
+// SR - Faiths & Powers - FnP Spheres Pre-Buffing                        //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF fp_spheres BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_prebuff_fp_spl_a.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
 // SR - Build out MO-Core and MO-BasicAi                                 //
 ///////////////////////////////////////////////////////////////////////////	
 	COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
@@ -113,8 +120,7 @@ ACTION_IF spell_revisions BEGIN
 // SR - Faiths & Powers - FnP Spheres                                    //
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF fp_spheres BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_basic_fp_spl_a.tph~
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_core_fp_spl_a.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_core_fp_spl.tph~
 	END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -202,6 +208,13 @@ END ELSE BEGIN
 	END
 
 ///////////////////////////////////////////////////////////////////////////
+// Faiths & Powers - FnP Spheres Pre-Buffing                             //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF fp_spheres BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_fp_spl_a.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
 // Build out MO-Core and MO-BasicAi                                      //
 ///////////////////////////////////////////////////////////////////////////	
 	COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
@@ -255,8 +268,7 @@ END ELSE BEGIN
 // Faiths & Powers - FnP Spheres                                         //
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF fp_spheres BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/basic_fp_spl_a.tph~
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_fp_spl_a.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_fp_spl.tph~
 	END
 
 ///////////////////////////////////////////////////////////////////////////
