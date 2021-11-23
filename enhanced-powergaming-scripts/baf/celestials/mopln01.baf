@@ -1,0 +1,20 @@
+// **********************************************************************
+// *           Segment Name: mopln01.baf
+// **********************************************************************
+// *
+// * Description:
+// * This script sets ai for Planetar
+
+IF
+  Allegiance(Myself,GOODCUTOFF)
+THEN
+  RESPONSE #100
+    ChangeAIScript("mopln03",GENERAL)
+END
+
+IF
+  !Allegiance(Myself,GOODCUTOFF)
+THEN
+  RESPONSE #100
+    ChangeAIScript("mopln02",GENERAL)
+END

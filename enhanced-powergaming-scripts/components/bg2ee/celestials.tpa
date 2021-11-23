@@ -14,6 +14,14 @@ END ELSE BEGIN
 	COPY ~enhanced-powergaming-scripts/baf/celestials/plangood.baf~   	~enhanced-powergaming-scripts/baf/upload/plangood.baf~
 END
 
+COPY_EXISTING ~devagood.bcs~ 	~override/mogdd02.bcs~
+COPY_EXISTING ~devaevil.bcs~ 	~override/moevd02.bcs~
+COPY_EXISTING ~moplangood.bcs~ 	~override/mopln02.bcs~ 
+
+COPY ~enhanced-powergaming-scripts/baf/celestials/mopln01.baf~ ~enhanced-powergaming-scripts/baf/upload/mopln01.baf~
+COPY ~enhanced-powergaming-scripts/baf/celestials/moevd01.baf~ ~enhanced-powergaming-scripts/baf/upload/moevd01.baf~
+COPY ~enhanced-powergaming-scripts/baf/celestials/mogdd01.baf~ ~enhanced-powergaming-scripts/baf/upload/mogdd01.baf~
+
 ///////////////////////////////////////////////////////////////////////////
 // Update Hot Keys                                                       //
 ///////////////////////////////////////////////////////////////////////////
@@ -28,7 +36,10 @@ COPY ~enhanced-powergaming-scripts/baf/upload/devaevil.baf~   		~enhanced-powerg
 ///////////////////////////////////////////////////////////////////////////
 // Copy .BCS files to override folder                                    //
 ///////////////////////////////////////////////////////////////////////////
-COPY ~enhanced-powergaming-scripts/baf/upload/devaevil.baf~   	   ~override/devaevil.bcs~
-	 ~enhanced-powergaming-scripts/baf/upload/devagood.baf~   	   ~override/devagood.bcs~
-	 ~enhanced-powergaming-scripts/baf/upload/plangood.baf~   	   ~override/plangood.bcs~
+COPY ~enhanced-powergaming-scripts/baf/upload/devaevil.baf~   	   ~override/moevd03.bcs~
+	 ~enhanced-powergaming-scripts/baf/upload/devagood.baf~   	   ~override/mogdd03.bcs~
+	 ~enhanced-powergaming-scripts/baf/upload/plangood.baf~   	   ~override/mopln03.bcs~
+	 ~enhanced-powergaming-scripts/baf/upload/mopln01.baf~		   ~override/plangood.bcs~
+	 ~enhanced-powergaming-scripts/baf/upload/moevd01.baf~		   ~override/devaevil.bcs~
+	 ~enhanced-powergaming-scripts/baf/upload/mogdd01.baf~		   ~override/devagood.bcs~
   COMPILE_BAF_TO_BCS
