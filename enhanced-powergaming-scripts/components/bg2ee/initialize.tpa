@@ -791,6 +791,29 @@ END
 	END
 
 ///////////////////////////////////////////////////////////////////////////
+// Grab Protection from Magical Weapons Spellstate                       //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~PROTECTION_FROM_MAGICAL_WEAPONS~)) BEGIN
+	  COPY_EXISTING ~splstate.ids~ ~override~
+		COUNT_2DA_COLS cols
+		READ_2DA_ENTRIES_NOW rows cols
+		FOR (row = 1; row < rows; ++row) BEGIN
+		  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
+		  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
+		  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~PROTECTION_FROM_MAGICAL_WEAPONS~) BEGIN
+			SET prt_mg_wpn = %state_ind%
+		  END
+		END
+	  BUT_ONLY
+	END
+
+	ACTION_IF !(VARIABLE_IS_SET %prt_mg_wpn%) BEGIN
+		LAF ds_sort_ids STR_VAR ids=splstate END
+		LAF d5_resolve_state STR_VAR new_state_id = ~PROTECTION_FROM_MAGICAL_WEAPONS~ RET new_state_ind END
+		OUTER_SET prt_mg_wpn = %new_state_ind%
+	END
+
+///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 // Assign Spell States or Stats to Spells                                //
 // Block of code provided by subtledoctor                                //
@@ -904,6 +927,12 @@ END
 	  	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 timing = 0 insert_point = 0 STR_VAR resource = "MOCPRT" END
 	END
 	*/
+
+///////////////////////////////////////////////////////////////////////////
+// Assign Protection from Magical Weapons Spellstate                     //
+///////////////////////////////////////////////////////////////////////////
+	COPY_EXISTING ~SPIN686.SPL~ ~override~ 
+	  LPF CLONE_EFFECT INT_VAR match_opcode = 233 opcode = 328 parameter2 = %prt_mg_wpn% special = 1 END
 
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
