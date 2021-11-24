@@ -21,9 +21,12 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~   	   ~override/mosim0
 
 
 ACTION_IF scs_breach BEGIN
+	EXTEND_BOTTOM ~dw#image.bcs~ ~enhanced-powergaming-scripts/baf/simulacrum/mosim01.baf~
+	/*
 	COPY_EXISTING ~SIMULACR.SPL~ ~override~ 
 		  LPF DELETE_SPELL_EFFECT INT_VAR opcode_to_delete = 82 END
 		  LPF ADD_SPELL_EFFECT STR_VAR opcode = 82 target = 1 power = 0 parameter2 = 6 timing = 9 resource = ~mosim01~ END
+		  */
 END ELSE BEGIN
 	COPY_EXISTING ~SIMULACR.SPL~ ~override~ 
 		  LPF ADD_SPELL_EFFECT STR_VAR opcode = 82 target = 1 power = 0 parameter2 = 6 timing = 9 resource = ~mosim01~ END
