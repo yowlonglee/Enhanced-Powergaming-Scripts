@@ -612,13 +612,14 @@ ACTION_IF iwdification BEGIN
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Shield of Lathander                                //
 ///////////////////////////////////////////////////////////////////////////
-	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~CLERIC_GREATER_SHIELD_OF_LATHANDER~ RET spell_res END
-	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
-	  LPF CLONE_EFFECT INT_VAR match_opcode = 101 opcode = 328 parameter2 = %shld_lath% special = 1 END
-
-	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~CLERIC_SHIELD_OF_LATHANDER~ RET spell_res END
-	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
-	  LPF CLONE_EFFECT INT_VAR match_opcode = 101 opcode = 328 parameter2 = %shld_lath% special = 1 END
+	ACTION_FOR_EACH spell IN
+			GREATER_SHIELD_OF_LATHANDER
+			SHIELD_OF_LATHANDER
+		BEGIN
+			LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~CLERIC_%spell%~ RET spell_res END
+			COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
+				LPF CLONE_EFFECT INT_VAR match_opcode = 101 opcode = 328 parameter2 = %shld_lath% special = 1 END
+		END
 
 END
 
@@ -885,20 +886,17 @@ END
 				LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 timing = 0 STR_VAR resource = "MOSPRT" END
 		END
 
-	/*
 	// FP Spheres 
 	ACTION_IF fp_spheres BEGIN
 		ACTION_FOR_EACH spell IN
-				SPELL_THRUST
-				SECRET_WORD
+				D5P2321
+				D5P2419
 			BEGIN
-				LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_%spell%~ RET spell_res END
 				COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
 					LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 timing = 0 STR_VAR resource = "MOSPRT" END
 				END
 			END
 	END
-	*/
 
 //////////////////////////////////////////////////////////////////////////
 // Add State to track when Dispelling Combat Protections                //
@@ -918,14 +916,11 @@ END
 		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 timing = 0 insert_point = 0 STR_VAR resource = "MOCPRT" END
 	END
 
-	/*
 	// Ranger Breach
 	ACTION_IF fp_ranger BEGIN
-		LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_BREACH~ RET spell_res END
-		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
+		COPY_EXISTING ~D5_RABRE.SPL~ ~override~ 
 	  	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 timing = 0 insert_point = 0 STR_VAR resource = "MOCPRT" END
 	END
-	*/
 
 ///////////////////////////////////////////////////////////////////////////
 // Assign Protection from Magical Weapons Spellstate                     //
@@ -1244,6 +1239,59 @@ ACTION_IF scs_golem BEGIN
 
 	COPY_EXISTING ~SPWI410.SPL~ ~override~ 
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 timing = 9 STR_VAR resource = "DW#CURSE" END
+
+	ACTION_FOR_EACH spell IN
+			SPPR307
+			SPWI410
+		BEGIN
+			COPY_EXISTING ~%spell%.SPL~ ~override~ 
+				LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 timing = 9 STR_VAR resource = "DW#CURSE" END
+		END
+
+END
+
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+// Add Spellstates for Made in Heaven - Spell Restorations               //
+// Block of code provided by subtledoctor                                //
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF mih_restorations BEGIN
+
+///////////////////////////////////////////////////////////////////////////
+// Create Spell State for Protection Circle & Circle of Protection       //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~PROTECTION_CIRCLE~)) BEGIN
+	  COPY_EXISTING ~splstate.ids~ ~override~
+		COUNT_2DA_COLS cols
+		READ_2DA_ENTRIES_NOW rows cols
+		FOR (row = 1; row < rows; ++row) BEGIN
+		  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
+		  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
+		  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~PROTECTION_CIRCLE~) BEGIN
+			SET prt_crcl = %state_ind%
+		  END
+		END
+	  BUT_ONLY
+	END
+
+	ACTION_IF !(VARIABLE_IS_SET %prt_crcl%) BEGIN
+		LAF ds_sort_ids STR_VAR ids=splstate END
+		LAF d5_resolve_state STR_VAR new_state_id = ~PROTECTION_CIRCLE~ RET new_state_ind END
+		OUTER_SET prt_crcl = %new_state_ind%
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Spell State to Protection Circle & Circle of Protection           //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_FOR_EACH spell IN
+			WIZARD_PROTECTION_CIRCLE
+			CLERIC_CIRCLE_OF_PROTECTION
+		BEGIN
+			LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%spell%~ RET spell_res END
+			COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
+				LPF ADD_SPELL_EFFECT INT_VAR opcode = 0 target = 2 timing = 0 STR_VAR resource = "prt_crcl" END
+		END
 
 END
 

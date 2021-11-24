@@ -1,0 +1,36 @@
+COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+
+///////////////////////////////////////////////////////////////////////////
+// Add Protection Circle and Cirlce of Protection                        //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~Spell(CLERIC_DRAW_UPON_HOLY_MIGHT)  // SPPR214.SPL (Draw Upon Holy Might)~~~~~
+    string = ~~~~~SpellRES("D5P1214")~~~~~ //"
+  END
+
+
+
+///////////////////////////////////////////////////////////////////////////
+// Update Death Ward                                                     //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~Spell(CLERIC_DEATH_WARD)  // SPPR409.SPL (Death Ward)~~~~~
+    string = ~~~~~SpellRES("D5P1409")~~~~~ //"
+  END
+
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~Spell(LastSeenBy(Myself),CLERIC_DEATH_WARD)  // SPPR409.SPL (Death Ward)~~~~~
+    string = ~~~~~SpellRES("D5P1409",LastSeenBy(Myself))~~~~~ //"
+  END

@@ -143,6 +143,13 @@ ACTION_IF !VARIABLE_IS_SET ~initialise~ BEGIN
       OUTER_SET dsotsc_divine=0
    END
 
+   // Detect Made in Heaven Spellpack - Restored Spells
+   ACTION_IF MOD_IS_INSTALLED ~Setup-mih_sp.tp2~ ~0~ BEGIN
+      OUTER_SET mih_restorations=1
+   END ELSE BEGIN
+      OUTER_SET mih_restorations=0
+   END
+
    // Detect Made in Heaven Spellpack - Arcane Spells
    ACTION_IF MOD_IS_INSTALLED ~Setup-mih_sp.tp2~ ~1~ BEGIN
       OUTER_SET mih_arcane=1
