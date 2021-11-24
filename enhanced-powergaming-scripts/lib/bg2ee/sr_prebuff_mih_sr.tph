@@ -21,8 +21,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpell(LastSeenBy(Myself),WIZARD_PROTECTION_FROM_MAGIC_ENERGY)  // SPWI606.SPL (Protection From Magic Energy)
-    RemoveSpell(WIZARD_PROTECTION_FROM_MAGIC_ENERGY)  // SPWI606.SPL (Protection From Magic Energy)
+    Spell(LastSeenBy(Myself),WIZARD_PROTECTION_FROM_MAGIC_ENERGY)  // SPWI606.SPL (Protection From Magic Energy)
 END~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
@@ -37,8 +36,7 @@ END~~~~~
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpell(LastSeenBy(Myself),WIZARD_PROTECTION_FROM_MAGIC_ENERGY)  // SPWI606.SPL (Protection From Magic Energy)
-    RemoveSpell(WIZARD_PROTECTION_FROM_MAGIC_ENERGY)  // SPWI606.SPL (Protection From Magic Energy)
+    Spell(LastSeenBy(Myself),WIZARD_PROTECTION_FROM_MAGIC_ENERGY)  // SPWI606.SPL (Protection From Magic Energy)
 END
 
 IF
@@ -47,11 +45,10 @@ IF
   HaveSpell(WIZARD_PROTECTION_CIRCLE)
   !CheckSpellState(LastSeenBy(Myself),PROTECTION_CIRCLE)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
   !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
@@ -62,8 +59,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpell(LastSeenBy(Myself),WIZARD_PROTECTION_CIRCLE)
-    RemoveSpell(WIZARD_PROTECTION_CIRCLE)
+    Spell(LastSeenBy(Myself),WIZARD_PROTECTION_CIRCLE)
 END
 
 IF
@@ -72,11 +68,11 @@ IF
   HaveSpell(WIZARD_PROTECTION_CIRCLE)
   !CheckSpellState(LastSeenBy(Myself),PROTECTION_CIRCLE)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
   !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
@@ -87,8 +83,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpell(LastSeenBy(Myself),WIZARD_PROTECTION_CIRCLE)
-    RemoveSpell(WIZARD_PROTECTION_CIRCLE)
+    Spell(LastSeenBy(Myself),WIZARD_PROTECTION_CIRCLE)
 END
 
 IF
@@ -97,11 +92,10 @@ IF
   HaveSpell(WIZARD_PROTECTION_CIRCLE)
   !CheckSpellState(LastSeenBy(Myself),PROTECTION_CIRCLE)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
   !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
@@ -112,8 +106,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpell(LastSeenBy(Myself),WIZARD_PROTECTION_CIRCLE)
-    RemoveSpell(WIZARD_PROTECTION_CIRCLE)
+    Spell(LastSeenBy(Myself),WIZARD_PROTECTION_CIRCLE)
 END
 
 IF
@@ -122,11 +115,10 @@ IF
   HaveSpell(WIZARD_PROTECTION_CIRCLE)
   !CheckSpellState(LastSeenBy(Myself),PROTECTION_CIRCLE)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
   !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
@@ -137,8 +129,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpell(LastSeenBy(Myself),WIZARD_PROTECTION_CIRCLE)
-    RemoveSpell(WIZARD_PROTECTION_CIRCLE)
+    Spell(LastSeenBy(Myself),WIZARD_PROTECTION_CIRCLE)
 END
 
 IF
@@ -147,11 +138,10 @@ IF
   HaveSpell(WIZARD_PROTECTION_CIRCLE)
   !CheckSpellState(LastSeenBy(Myself),PROTECTION_CIRCLE)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
   !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
@@ -162,8 +152,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpell(LastSeenBy(Myself),WIZARD_PROTECTION_CIRCLE)
-    RemoveSpell(WIZARD_PROTECTION_CIRCLE)
+    Spell(LastSeenBy(Myself),WIZARD_PROTECTION_CIRCLE)
 END
 
 IF
@@ -172,11 +161,10 @@ IF
   HaveSpell(WIZARD_PROTECTION_CIRCLE)
   !CheckSpellState(LastSeenBy(Myself),PROTECTION_CIRCLE)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
   !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
@@ -187,8 +175,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpell(LastSeenBy(Myself),WIZARD_PROTECTION_CIRCLE)
-    RemoveSpell(WIZARD_PROTECTION_CIRCLE)
+    Spell(LastSeenBy(Myself),WIZARD_PROTECTION_CIRCLE)
 END
 
 IF
@@ -197,11 +184,10 @@ IF
   HaveSpell(WIZARD_PROTECTION_CIRCLE)
   !CheckSpellState(LastSeenBy(Myself),PROTECTION_CIRCLE)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
   !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
@@ -212,8 +198,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpell(LastSeenBy(Myself),WIZARD_PROTECTION_CIRCLE)
-    RemoveSpell(WIZARD_PROTECTION_CIRCLE)
+    Spell(LastSeenBy(Myself),WIZARD_PROTECTION_CIRCLE)
 END
 
 IF
@@ -222,11 +207,10 @@ IF
   HaveSpell(CLERIC_CIRCLE_OF_PROTECTION)
   !CheckSpellState(LastSeenBy(Myself),PROTECTION_CIRCLE)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
   !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -237,8 +221,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpell(LastSeenBy(Myself),CLERIC_CIRCLE_OF_PROTECTION)
-    RemoveSpell(CLERIC_CIRCLE_OF_PROTECTION)
+    Spell(LastSeenBy(Myself),CLERIC_CIRCLE_OF_PROTECTION)
 END
 
 IF
@@ -247,11 +230,10 @@ IF
   HaveSpell(CLERIC_CIRCLE_OF_PROTECTION)
   !CheckSpellState(LastSeenBy(Myself),PROTECTION_CIRCLE)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
   !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -262,8 +244,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpell(LastSeenBy(Myself),CLERIC_CIRCLE_OF_PROTECTION)
-    RemoveSpell(CLERIC_CIRCLE_OF_PROTECTION)
+    Spell(LastSeenBy(Myself),CLERIC_CIRCLE_OF_PROTECTION)
 END
 
 IF
@@ -272,11 +253,10 @@ IF
   HaveSpell(CLERIC_CIRCLE_OF_PROTECTION)
   !CheckSpellState(LastSeenBy(Myself),PROTECTION_CIRCLE)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
   !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -287,8 +267,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpell(LastSeenBy(Myself),CLERIC_CIRCLE_OF_PROTECTION)
-    RemoveSpell(CLERIC_CIRCLE_OF_PROTECTION)
+    Spell(LastSeenBy(Myself),CLERIC_CIRCLE_OF_PROTECTION)
 END
 
 IF
@@ -297,11 +276,10 @@ IF
   HaveSpell(CLERIC_CIRCLE_OF_PROTECTION)
   !CheckSpellState(LastSeenBy(Myself),PROTECTION_CIRCLE)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
   !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -312,8 +290,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpell(LastSeenBy(Myself),CLERIC_CIRCLE_OF_PROTECTION)
-    RemoveSpell(CLERIC_CIRCLE_OF_PROTECTION)
+    Spell(LastSeenBy(Myself),CLERIC_CIRCLE_OF_PROTECTION)
 END
 
 IF
@@ -322,11 +299,10 @@ IF
   HaveSpell(CLERIC_CIRCLE_OF_PROTECTION)
   !CheckSpellState(LastSeenBy(Myself),PROTECTION_CIRCLE)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
   !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -337,8 +313,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpell(LastSeenBy(Myself),CLERIC_CIRCLE_OF_PROTECTION)
-    RemoveSpell(CLERIC_CIRCLE_OF_PROTECTION)
+    Spell(LastSeenBy(Myself),CLERIC_CIRCLE_OF_PROTECTION)
 END
 
 IF
@@ -347,11 +322,10 @@ IF
   HaveSpell(CLERIC_CIRCLE_OF_PROTECTION)
   !CheckSpellState(LastSeenBy(Myself),PROTECTION_CIRCLE)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
   !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -362,8 +336,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpell(LastSeenBy(Myself),CLERIC_CIRCLE_OF_PROTECTION)
-    RemoveSpell(CLERIC_CIRCLE_OF_PROTECTION)
+    Spell(LastSeenBy(Myself),CLERIC_CIRCLE_OF_PROTECTION)
 END
 
 IF
@@ -372,11 +345,10 @@ IF
   HaveSpell(CLERIC_CIRCLE_OF_PROTECTION)
   !CheckSpellState(LastSeenBy(Myself),PROTECTION_CIRCLE)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
   !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -387,8 +359,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpell(LastSeenBy(Myself),CLERIC_CIRCLE_OF_PROTECTION)
-    RemoveSpell(CLERIC_CIRCLE_OF_PROTECTION)
+    Spell(LastSeenBy(Myself),CLERIC_CIRCLE_OF_PROTECTION)
 END
 ~~~~~ //"
   END
@@ -403,37 +374,29 @@ END
     STR_VAR
     pattern = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
-  HaveSpell(WIZARD_MINOR_SPELL_DEFLECTION)  // SPWI318.SPL (Minor Spell Deflection)
-  CheckStatLT(Myself,1,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(Myself,MINOR_GLOBE)
-  !CheckSpellState(Myself,GLOBE)
-  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  HaveSpell(CLERIC_PHYSICAL_MIRROR)  // SPPR613.SPL (Physical Mirror)
+  CheckStatLT(Myself,1,CLERIC_PHYSICAL_MIRROR)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
-  Global("MO_CastAthkatla","LOCALS",1)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpell(Myself,WIZARD_MINOR_SPELL_DEFLECTION)  // SPWI318.SPL (Minor Spell Deflection)
-    RemoveSpell(WIZARD_MINOR_SPELL_DEFLECTION)  // SPWI318.SPL (Minor Spell Deflection)
+    Spell(Myself,CLERIC_PHYSICAL_MIRROR)  // SPPR613.SPL (Physical Mirror)
 END~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
-  HaveSpell(WIZARD_MINOR_SPELL_DEFLECTION)  // SPWI318.SPL (Minor Spell Deflection)
-  CheckStatLT(Myself,1,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(Myself,MINOR_GLOBE)
-  !CheckSpellState(Myself,GLOBE)
-  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  HaveSpell(CLERIC_PHYSICAL_MIRROR)  // SPPR613.SPL (Physical Mirror)
+  CheckStatLT(Myself,1,CLERIC_PHYSICAL_MIRROR)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
-  Global("MO_CastAthkatla","LOCALS",1)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpell(Myself,WIZARD_MINOR_SPELL_DEFLECTION)  // SPWI318.SPL (Minor Spell Deflection)
-    RemoveSpell(WIZARD_MINOR_SPELL_DEFLECTION)  // SPWI318.SPL (Minor Spell Deflection)
+    Spell(Myself,CLERIC_PHYSICAL_MIRROR)  // SPPR613.SPL (Physical Mirror)
 END
 
 IF
@@ -448,8 +411,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpell(Myself,WIZARD_SPELL_INVULNERABILITY)
-    RemoveSpell(WIZARD_SPELL_INVULNERABILITY)
+    Spell(Myself,WIZARD_SPELL_INVULNERABILITY)
 END
 ~~~~~ //"
   END
