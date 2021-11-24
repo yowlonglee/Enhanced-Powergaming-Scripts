@@ -1,18 +1,6 @@
 COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/moskd.baf~
 
 ///////////////////////////////////////////////////////////////////////////
-// Adjust Wait Time Between Spellcasts to Two Rounds                     //
-///////////////////////////////////////////////////////////////////////////
-  LPF REPLACE_MULTILINE
-    INT_VAR
-    strict = 1
-    verbose = 0
-    STR_VAR
-    pattern = ~~~~~SetGlobalTimer("MO_SpellCast","LOCALS",6)~~~~~
-    string = ~~~~~SetGlobalTimer("MO_SpellCast","LOCALS",12)~~~~~ //"
-  END
-
-///////////////////////////////////////////////////////////////////////////
 // Have Skald Sing Song Instead of Attacking                             //
 ///////////////////////////////////////////////////////////////////////////
   LPF REPLACE_MULTILINE
@@ -286,4 +274,16 @@ THEN
   RESPONSE #100
     BattleSong()
 END~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Adjust Wait Time Between Spellcasts to Two Rounds                     //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~SetGlobalTimer("MO_SpellCast","LOCALS",6)~~~~~
+    string = ~~~~~SetGlobalTimer("MO_SpellCast","LOCALS",12)~~~~~ //"
   END
