@@ -433,7 +433,6 @@ APPEND ~stats.ids~ ~182 WIZARD_TENSERS_TRANSFORMATION~          UNLESS ~182 WIZA
 			LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_%spell%~ RET spell_res END
 			COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
 				LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 timing = 0 STR_VAR resource = "MOSPRT" END
-			END
 		END
 
 //////////////////////////////////////////////////////////////////////////
