@@ -10,17 +10,17 @@ December XX, 2021
   - Optimized scripts resulting in removal of over 54k lines of code (46%) and 65 files (31%).
   - Combined Monk, Paladin, and Ranger class scripts into MO-CORE scripts.
   - Improved dispelling tracking to prevent over-dispelling of enemy spell/combat protections.
-  - Add Remove Curse to scripts to counter SCS "Smarter" Golems since Clay Golem applies a curse effect.
+  - Added Remove Curse to scripts to counter SCS "Smarter" Golems since Clay Golem applies a curse effect.
   - Improved and removed bugs from Celestial and Simulacrum AI.
-  - Targets Dancing Swords with Magic Missiles when no other enemies are present/targetable. This can be toggled on/off before installation in the ini file.
+  - Added targeting Dancing Swords with Magic Missiles when no other enemies are present/targetable. This can be toggled on/off before installation in the ini file.
   - Corrected specific monster/high-level enemy unique versions of spells to allow for proper dispel tracking.
 - BG2: EE and EET
   - Can now manually override check for casting in Athkatla. This allows you to toggle your characters (using the "T" key) to cast spells in Athkatla if they have not paid the bounty or finished fighting the Cowled Wizards.
   - Corrects aTweaks PnP Undead component to properly track diseased status from mummy attacks.
   - Added detection of SCS component extending the area requiring a mage license.
 - To Do
-  - Add compatibility with: Artisan's kitpack
   - Made in Heaven series of mods, Artisan's kitpack, and Might and Guile.
+  - MiH Spell Restorations - 5 new spells.
   - Identify other mods to add.
 
 ## Version 5.5.3
