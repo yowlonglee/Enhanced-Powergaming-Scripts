@@ -1,6 +1,13 @@
 LOAD_TRA ~enhanced-powergaming-scripts/languages/%LANGUAGE%/script_dialog.tra~
 
 ///////////////////////////////////////////////////////////////////////////
+// MiH - Arcane Spells Major Globe                                       //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF mih_arcane BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_mih_globe.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 // Add SR Mod Components to Scripts for BGII: EE and EET                 //
 ///////////////////////////////////////////////////////////////////////////
@@ -58,6 +65,13 @@ ACTION_IF spell_revisions BEGIN
 	END
 
 ///////////////////////////////////////////////////////////////////////////
+// SR - MiH Arcane Spells                                                //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF mih_arcane BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_core_mih_arcane.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
 // SR - IWD Spells                                                       //
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF iwd_scs OR iwdification BEGIN
@@ -83,28 +97,23 @@ ACTION_IF spell_revisions BEGIN
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF scs_breach BEGIN
 		ACTION_IF iwd_scs OR iwdification BEGIN
-			INCLUDE ~enhanced-powergaming-scripts/lib/sr_core_breach_iwd.tph~
+			ACTION_IF mih_arcane BEGIN
+				INCLUDE ~enhanced-powergaming-scripts/lib/sr_core_breach_globe_iwd.tph~
+			END ELSE BEGIN
+				INCLUDE ~enhanced-powergaming-scripts/lib/sr_core_breach_iwd.tph~
+			END
 		END ELSE BEGIN
-			INCLUDE ~enhanced-powergaming-scripts/lib/sr_core_breach.tph~
+			ACTION_IF mih_arcane BEGIN
+				INCLUDE ~enhanced-powergaming-scripts/lib/sr_core_breach_globe.tph~
+			END ELSE BEGIN
+				INCLUDE ~enhanced-powergaming-scripts/lib/sr_core_breach.tph~
+			END			
 		END
-	END
-
-///////////////////////////////////////////////////////////////////////////
-// SR MiH Major Globe of Invulnerability                                  //
-///////////////////////////////////////////////////////////////////////////
-	ACTION_IF mih_arcane BEGIN
-		ACTION_IF scs_breach BEGIN
-			ACTION_IF iwd_scs OR iwdification BEGIN
-				INCLUDE ~enhanced-powergaming-scripts/lib/sr_scs_globe_iwd.tph~
-			END ELSE BEGIN
-				INCLUDE ~enhanced-powergaming-scripts/lib/sr_scs_globe.tph~
-			END
+	END ELSE BEGIN
+		ACTION_IF iwd_scs OR iwdification BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/sr_globe_iwd.tph~
 		END ELSE BEGIN
-			ACTION_IF iwd_scs OR iwdification BEGIN
-				INCLUDE ~enhanced-powergaming-scripts/lib/sr_globe_iwd.tph~
-			END ELSE BEGIN
-				INCLUDE ~enhanced-powergaming-scripts/lib/sr_globe.tph~
-			END
+			INCLUDE ~enhanced-powergaming-scripts/lib/sr_globe.tph~
 		END
 	END
 
@@ -173,6 +182,13 @@ END ELSE BEGIN
 	END
 
 ///////////////////////////////////////////////////////////////////////////
+// MiH - Arcane Spells                                                   //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF mih_arcane BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_mih_arcane.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
 // IWD Spells                                                            //
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF iwd_scs OR iwdification BEGIN
@@ -198,28 +214,23 @@ END ELSE BEGIN
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF scs_breach BEGIN
 		ACTION_IF iwd_scs OR iwdification BEGIN
-			INCLUDE ~enhanced-powergaming-scripts/lib/core_breach_iwd.tph~
+			ACTION_IF mih_arcane BEGIN
+				INCLUDE ~enhanced-powergaming-scripts/lib/core_breach_globe_iwd.tph~
+			END ELSE BEGIN
+				INCLUDE ~enhanced-powergaming-scripts/lib/core_breach_iwd.tph~
+			END
 		END ELSE BEGIN
-			INCLUDE ~enhanced-powergaming-scripts/lib/core_breach.tph~
+			ACTION_IF mih_arcane BEGIN
+				INCLUDE ~enhanced-powergaming-scripts/lib/core_breach_globe.tph~
+			END ELSE BEGIN
+				INCLUDE ~enhanced-powergaming-scripts/lib/core_breach.tph~
+			END			
 		END
-	END
-
-///////////////////////////////////////////////////////////////////////////
-// MiH - Major Globe of Invulnerability                                  //
-///////////////////////////////////////////////////////////////////////////
-	ACTION_IF mih_arcane BEGIN
-		ACTION_IF scs_breach BEGIN
-			ACTION_IF iwd_scs OR iwdification BEGIN
-				INCLUDE ~enhanced-powergaming-scripts/lib/scs_globe_iwd.tph~
-			END ELSE BEGIN
-				INCLUDE ~enhanced-powergaming-scripts/lib/scs_globe.tph~
-			END
+	END ELSE BEGIN
+		ACTION_IF iwd_scs OR iwdification BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/globe_iwd.tph~
 		END ELSE BEGIN
-			ACTION_IF iwd_scs OR iwdification BEGIN
-				INCLUDE ~enhanced-powergaming-scripts/lib/globe_iwd.tph~
-			END ELSE BEGIN
-				INCLUDE ~enhanced-powergaming-scripts/lib/globe.tph~
-			END
+			INCLUDE ~enhanced-powergaming-scripts/lib/globe.tph~
 		END
 	END
 
@@ -244,6 +255,13 @@ END
 		INCLUDE ~enhanced-powergaming-scripts/lib/ini/core_dialog.tph~
 	END
 
+///////////////////////////////////////////////////////////////////////////
+// MiH - Arcane Spells Major Globe                                       //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF mih_arcane BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_mih_globe.tph~
+	END
+	
 ///////////////////////////////////////////////////////////////////////////
 // Make Skald Script after Core                                          //
 ///////////////////////////////////////////////////////////////////////////
