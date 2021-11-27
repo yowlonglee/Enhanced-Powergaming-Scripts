@@ -8,40 +8,8 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     strict = 1
     verbose = 0
     STR_VAR
-    pattern = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)
-  HaveSpell(CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
-  !CheckSpellState(Myself,RESIST_FEAR)
-  !CheckSpellState(Myself,MINOR_GLOBE)
-  !CheckSpellState(Myself,GLOBE)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    ReallyForceSpell(Myself,CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
-    RemoveSpell(CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
-END~~~~~
+    pattern = ~~~~~// IWD Emotion Courage and Hope~~~~~
     string = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)
-  HaveSpell(CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
-  !CheckSpellState(Myself,RESIST_FEAR)
-  !CheckSpellState(Myself,MINOR_GLOBE)
-  !CheckSpellState(Myself,GLOBE)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    ReallyForceSpell(Myself,CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
-    RemoveSpell(CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
-END
-
-IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(WIZARD_EMOTION_COURAGE)
   !CheckSpellState(Myself,EMOTION_COURAGE)
@@ -95,28 +63,8 @@ END
     strict = 1
     verbose = 0
     STR_VAR
-    pattern = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)
-  !CheckStatGT(Myself,0,IMPROVEDHASTE)
-  GlobalLT("MO_UsedCheetah","GLOBAL",1)
-  HasItemEquiped("AMUL26",Myself)  // Amulet of Cheetah Speed
-THEN
-  RESPONSE #100
-    UseItem("AMUL26",Myself)  // Amulet of Cheetah Speed
-    IncrementGlobal("MO_UsedCheetah","GLOBAL",1)
-END~~~~~
+    pattern = ~~~~~// IWD Seven Eyes~~~~~
     string = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)
-  !CheckStatGT(Myself,0,IMPROVEDHASTE)
-  GlobalLT("MO_UsedCheetah","GLOBAL",1)
-  HasItemEquiped("AMUL26",Myself)  // Amulet of Cheetah Speed
-THEN
-  RESPONSE #100
-    UseItem("AMUL26",Myself)  // Amulet of Cheetah Speed
-    IncrementGlobal("MO_UsedCheetah","GLOBAL",1)
-END
-
-IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(WIZARD_SEVEN_EYES)  // spwi727.SPL (Seven Eyes)
   !CheckSpellState(Myself,EYE_OF_THE_MIND)
@@ -147,40 +95,8 @@ END~~~~~ //"
     strict = 1
     verbose = 0
     STR_VAR
-    pattern = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)
-  HaveSpell(WIZARD_SPELL_IMMUNITY)  // SPWI510.SPL (Spell Immunity)
-  !CheckStat(Myself,1,WIZARD_SPELL_IMMUNITY)
-  // Major Globe
-  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_SILENCED)
-  Global("MO_CastAthkatla","LOCALS",1)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    ReallyForceSpell(Myself,WIZARD_SPELL_IMMUNITY_ABJURATION)  // SPWI590.SPL (Immunity: Abjuration)
-    RemoveSpell(WIZARD_SPELL_IMMUNITY)  // SPWI510.SPL (Spell Immunity)
-END~~~~~
+    pattern = ~~~~~// IWD Prayer, Restoration, and Entropy Shield~~~~~
     string = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)
-  HaveSpell(WIZARD_SPELL_IMMUNITY)  // SPWI510.SPL (Spell Immunity)
-  !CheckStat(Myself,1,WIZARD_SPELL_IMMUNITY)
-  // Major Globe
-  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_SILENCED)
-  Global("MO_CastAthkatla","LOCALS",1)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    ReallyForceSpell(Myself,WIZARD_SPELL_IMMUNITY_ABJURATION)  // SPWI590.SPL (Immunity: Abjuration)
-    RemoveSpell(WIZARD_SPELL_IMMUNITY)  // SPWI510.SPL (Spell Immunity)
-END
-
-IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(CLERIC_PRAYER)  // sppr320.SPL (Prayer)
   !CheckSpellState(Myself,BENEFICIAL_PRAYER)

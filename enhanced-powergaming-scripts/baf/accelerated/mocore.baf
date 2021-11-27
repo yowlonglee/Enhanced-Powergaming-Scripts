@@ -467,6 +467,8 @@ THEN
     RemoveSpell(CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
 END
 
+// IWD Emotion Courage and Hope
+
 IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(WIZARD_PROTECTION_FROM_NORMAL_MISSILES)  // SPWI311.SPL (Protection From Normal Missiles)
@@ -2421,6 +2423,8 @@ THEN
     IncrementGlobal("MO_UsedCheetah","GLOBAL",1)
 END
 
+// IWD Seven Eyes
+
 IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(CLERIC_ARMOR_OF_FAITH)  // SPPR111.SPL (Armor of Faith)
@@ -2935,6 +2939,8 @@ THEN
     ReallyForceSpell(Myself,WIZARD_SPELL_IMMUNITY_ABJURATION)  // SPWI590.SPL (Immunity: Abjuration)
     RemoveSpell(WIZARD_SPELL_IMMUNITY)  // SPWI510.SPL (Spell Immunity)
 END
+
+// IWD Prayer, Restoration, and Entropy Shield
 
 IF
   Global("MO_BUFF","LOCALS",1)

@@ -1624,6 +1624,8 @@ THEN
 		RemoveSpell(CLERIC_REMOVE_FEAR)
 END
 
+// IWD Emotion Courage and Hope
+
 IF
 	Global("MO_BUFF","LOCALS",1)
 	HaveSpell(CLERIC_PROTECTION_FROM_EVIL_10_FOOT)  // SPPR408.SPL (Magic Circle Against Evil)
@@ -2298,6 +2300,8 @@ END
 
 // FP Cleric Minor Spell Deflection
 
+// IWD Seven Eyes
+
 IF
 	Global("MO_BUFF","LOCALS",1)
 	!StateCheck(Myself,STATE_MIRRORIMAGE)
@@ -2332,6 +2336,8 @@ THEN
 		ReallyForceSpell(Myself,WIZARD_DISPELLING_SCREEN)  // spwi525.spl (Dispelling Screen)
 		RemoveSpell(WIZARD_DISPELLING_SCREEN)  // spwi525.spl (Dispelling Screen)
 END
+
+// IWD Prayer, Restoration, and Entropy Shield
 
 // DSotSC Army of One
 
