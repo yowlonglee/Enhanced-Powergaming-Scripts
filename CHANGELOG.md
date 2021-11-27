@@ -21,6 +21,7 @@ December XX, 2021
 - To Do
   - Made in Heaven series of mods, Artisan's kitpack, and Might and Guile.
   - MiH Spell Restorations - 5 new spells.
+  - MiH Arcane - 4 new spells.
   - Identify other mods to add.
 
 ## Version 5.5.3
