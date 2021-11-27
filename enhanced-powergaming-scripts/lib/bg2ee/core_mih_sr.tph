@@ -8,50 +8,8 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     strict = 1
     verbose = 0
     STR_VAR
-    pattern = ~~~~~IF
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(SixthNearest([PC]))
-  StateCheck(LastSeenBy(Myself),STATE_PANIC)
-  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  HaveSpell(CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SetInterrupt(FALSE)
-    DisplayStringHead(Myself,@5012)
-    Spell(LastSeenBy(Myself),CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
-    SetInterrupt(TRUE)
-END~~~~~
+    pattern = ~~~~~// MiH Remove Deaf Blind~~~~~
     string = ~~~~~IF
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(SixthNearest([PC]))
-  StateCheck(LastSeenBy(Myself),STATE_PANIC)
-  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  HaveSpell(CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SetInterrupt(FALSE)
-    DisplayStringHead(Myself,@5012)
-    Spell(LastSeenBy(Myself),CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
-    SetInterrupt(TRUE)
-END
-
-IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(CLERIC_CURE_BLIND_DEAF)

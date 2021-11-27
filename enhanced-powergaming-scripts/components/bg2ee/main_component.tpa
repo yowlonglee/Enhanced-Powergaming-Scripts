@@ -1,6 +1,26 @@
 LOAD_TRA ~enhanced-powergaming-scripts/languages/%LANGUAGE%/script_dialog.tra~
 
 ///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+// Final Modifications to Base Script                                    //
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////
+// SR- Faiths & Powers - Cleric Kits                                     //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF fp_cleric BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_fp_cleric_kit.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// SR- Faiths & Powers - Paladin Kits                                    //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF fp_paladin BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_fp_paladin_kit.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
 // MiH - Arcane Spells Major Globe                                       //
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF mih_arcane BEGIN
@@ -9,7 +29,7 @@ LOAD_TRA ~enhanced-powergaming-scripts/languages/%LANGUAGE%/script_dialog.tra~
 
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
-// Add SR Mod Components to Scripts for BGII: EE and EET                 //
+// SR - Split up and Modify Individual Scripts                           //
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 ACTION_IF spell_revisions BEGIN
@@ -25,7 +45,7 @@ ACTION_IF spell_revisions BEGIN
 // SR - DSotSC                                                           //
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF dsotsc_divine && !mih_divine && !iwdification BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_core_dsotsc_d.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_dsotsc_d.tph~
 	END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -47,14 +67,7 @@ ACTION_IF spell_revisions BEGIN
 // SR - Faiths & Powers - Paladin Kits                                   //
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF fp_paladin BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_paladin_fp_kit.tph~
-	END
-
-///////////////////////////////////////////////////////////////////////////
-// SR- Faiths & Powers - Cleric Kits                                     //
-///////////////////////////////////////////////////////////////////////////
-	ACTION_IF fp_cleric BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_fp_kit.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/paladin_fp_kit.tph~
 	END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -68,7 +81,7 @@ ACTION_IF spell_revisions BEGIN
 // SR - MiH Arcane Spells                                                //
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF mih_arcane BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_core_mih_arcane.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_mih_arcane.tph~
 	END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -111,9 +124,13 @@ ACTION_IF spell_revisions BEGIN
 		END
 	END ELSE BEGIN
 		ACTION_IF iwd_scs OR iwdification BEGIN
-			INCLUDE ~enhanced-powergaming-scripts/lib/sr_globe_iwd.tph~
+			ACTION_IF mih_arcane BEGIN
+				INCLUDE ~enhanced-powergaming-scripts/lib/sr_globe_iwd.tph~
+			END
 		END ELSE BEGIN
-			INCLUDE ~enhanced-powergaming-scripts/lib/sr_globe.tph~
+			ACTION_IF mih_arcane BEGIN
+				INCLUDE ~enhanced-powergaming-scripts/lib/sr_globe.tph~
+			END
 		END
 	END
 
@@ -165,13 +182,6 @@ END ELSE BEGIN
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF fp_paladin BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/paladin_fp_kit.tph~
-	END
-
-///////////////////////////////////////////////////////////////////////////
-// Faiths & Powers - Cleric Kits                                         //
-///////////////////////////////////////////////////////////////////////////
-	ACTION_IF fp_cleric BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_fp_kit.tph~
 	END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -228,9 +238,13 @@ END ELSE BEGIN
 		END
 	END ELSE BEGIN
 		ACTION_IF iwd_scs OR iwdification BEGIN
-			INCLUDE ~enhanced-powergaming-scripts/lib/globe_iwd.tph~
+			ACTION_IF mih_arcane BEGIN
+				INCLUDE ~enhanced-powergaming-scripts/lib/globe_iwd.tph~
+			END
 		END ELSE BEGIN
-			INCLUDE ~enhanced-powergaming-scripts/lib/globe.tph~
+			ACTION_IF mih_arcane BEGIN
+				INCLUDE ~enhanced-powergaming-scripts/lib/globe.tph~
+			END
 		END
 	END
 

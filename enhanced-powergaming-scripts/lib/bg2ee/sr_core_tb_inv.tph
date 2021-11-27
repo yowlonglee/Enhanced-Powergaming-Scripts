@@ -50,64 +50,8 @@ END
     strict = 1
     verbose = 0
     STR_VAR
-    pattern = ~~~~~IF
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  HaveSpell(CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
-  See(SixthNearestEnemyOf(Myself))
-  OR(3)
-    StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-    StateCheck(LastSeenBy(Myself),STATE_INVISIBLE)
-    CheckStatGT(LastSeenBy(Myself),0,SANCTUARY)
-  OR(4)
-    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
-    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
-    CheckSpellState(LastSeenBy(Myself),MANTLE)
-    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
-  !StateCheck(LastSeenBy(Myself),STATE_NONDETECTION)
-  CheckStatLT(Myself,1,TRUE_SIGHT)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SetInterrupt(FALSE)
-    DisplayStringHead(Myself,@5014)
-    Spell(Myself,CLERIC_INVISIBILITY_PURGE) // SPPR309.SPL (Invisibility Purge)
-    SetInterrupt(TRUE)
-END~~~~~
+    pattern = ~~~~~// Wizard Invisibility Purge~~~~~
     string = ~~~~~IF
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  HaveSpell(CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
-  See(SixthNearestEnemyOf(Myself))
-  OR(3)
-    StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-    StateCheck(LastSeenBy(Myself),STATE_INVISIBLE)
-    CheckStatGT(LastSeenBy(Myself),0,SANCTUARY)
-  OR(4)
-    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
-    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
-    CheckSpellState(LastSeenBy(Myself),MANTLE)
-    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
-  !StateCheck(LastSeenBy(Myself),STATE_NONDETECTION)
-  CheckStatLT(Myself,1,TRUE_SIGHT)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SetInterrupt(FALSE)
-    DisplayStringHead(Myself,@5014)
-    Spell(Myself,CLERIC_INVISIBILITY_PURGE) // SPPR309.SPL (Invisibility Purge)
-    SetInterrupt(TRUE)
-END
-
-IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_DETECT_ILLUSION)
   Detect([EVILCUTOFF])

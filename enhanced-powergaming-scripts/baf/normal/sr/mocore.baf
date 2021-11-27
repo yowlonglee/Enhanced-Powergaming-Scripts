@@ -677,6 +677,8 @@ THEN
     Spell(LastSeenBy(Myself),WIZARD_PROTECTION_FROM_MAGIC_ENERGY)  // SPWI606.SPL (Protection From Magic Energy)
 END
 
+// MiH Circle of Protection
+
 IF
 	Global("MO_BUFF","LOCALS",1)
 	See(Myself)
@@ -1138,7 +1140,7 @@ IF
 	!CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
 	!CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
 	!CheckSpellState(LastSeenBy(Myself),CHAOTIC_COMMANDS)
-  // Mind Blank
+  // NOT HAS Mind Blank Check
 	HaveSpell(CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
 	!StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
 	// Major Globe
@@ -1158,7 +1160,7 @@ IF
 	!CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
 	!CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
 	!CheckSpellState(LastSeenBy(Myself),CHAOTIC_COMMANDS)
-  // Mind Blank
+  // NOT HAS Mind Blank Check
 	HaveSpell(CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
 	!StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   // Major Globe
@@ -1182,7 +1184,7 @@ IF
 	!CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
 	!CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
 	!CheckSpellState(LastSeenBy(Myself),CHAOTIC_COMMANDS)
-  // Mind Blank
+  // NOT HAS Mind Blank Check
 	HaveSpell(CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
 	!StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   // Major Globe
@@ -1206,7 +1208,7 @@ IF
 	!CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
 	!CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
 	!CheckSpellState(LastSeenBy(Myself),CHAOTIC_COMMANDS)
-  // Mind Blank
+  // NOT HAS Mind Blank Check
 	HaveSpell(CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
 	!StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   // Major Globe
@@ -1230,7 +1232,7 @@ IF
 	!CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
 	!CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
 	!CheckSpellState(LastSeenBy(Myself),CHAOTIC_COMMANDS)
-  // Mind Blank
+  // NOT HAS Mind Blank Check
 	HaveSpell(CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
 	!StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   // Major Globe
@@ -1254,7 +1256,7 @@ IF
 	!CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
 	!CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
 	!CheckSpellState(LastSeenBy(Myself),CHAOTIC_COMMANDS)
-  // Mind Blank
+  // NOT HAS Mind Blank Check
 	HaveSpell(CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
 	!StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   // Major Globe
@@ -1278,7 +1280,7 @@ IF
 	!CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
 	!CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
 	!CheckSpellState(LastSeenBy(Myself),CHAOTIC_COMMANDS)
-  // Mind Blank
+  // NOT HAS Mind Blank Check
 	HaveSpell(CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
 	!StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   // Major Globe
@@ -2134,6 +2136,8 @@ THEN
 		Spell(Myself,CLERIC_PHYSICAL_MIRROR)  // SPPR613.SPL (Physical Mirror)
 END
 
+// MiH Spell Invulnerability
+
 IF
 	Global("MO_BUFF","LOCALS",1)
 	HaveSpell(WIZARD_SPELL_SHIELD)  // SPWI519.SPL (Spell Shield)
@@ -2204,6 +2208,8 @@ THEN
 		Spell(Myself,WIZARD_MINOR_SPELL_DEFLECTION)  // SPWI318.SPL (Minor Spell Deflection)
 END
 
+// FP Cleric Minor Spell Deflection
+
 IF
 	Global("MO_BUFF","LOCALS",1)
 	!StateCheck(Myself,STATE_MIRRORIMAGE)
@@ -2237,6 +2243,10 @@ THEN
 		Spell(Myself,WIZARD_DISPELLING_SCREEN)  // spwi525.spl (Dispelling Screen)
 END
 
+// DSotSC Army of One
+
+// DSotSC Wizard Army of One
+
 IF
 	Global("MO_BUFF","LOCALS",1)
 	HaveSpellRES("SPIN103")  // Draw Upon Divine Might
@@ -2251,6 +2261,8 @@ THEN
 	RESPONSE #100
 		SpellRES("SPIN103",Myself)  // Draw Upon Divine Might
 END
+
+// FP Cleric Divine Aura, Warding Winds, and EPIC Divine Might
 
 IF
 	Global("MO_BUFF","LOCALS",1)
@@ -2355,6 +2367,8 @@ THEN
 		Spell(Myself,CLERIC_BLADE_BARRIER)  // SPPR603.SPL (Blade Barrier)
 END
 
+// DSotSC Selunes Blessing and Aura of Protection
+
 IF
   Global("MO_BUFF","LOCALS",1)
   GlobalLT("MO_UsedBltMnrInv","GLOBAL",1)
@@ -2402,6 +2416,10 @@ THEN
     Spell(Myself,BARBARIAN_RAGE)  // SPCL152.SPL (Barbarian Rage)
 END
 
+// FP Kit Rage
+
+// FP Kit Paladin Rage/Frenzy
+
 IF
 	Global("MO_BUFF","LOCALS",1)
 	HaveSpell(WIZARD_PROTECTION_FROM_ENERGY)  // SPWI803.SPL (Protection from Energy)
@@ -2417,6 +2435,8 @@ THEN
 	RESPONSE #100
 		Spell(Myself,WIZARD_PROTECTION_FROM_ENERGY)  // SPWI803.SPL (Protection from Energy)
 END
+
+// MiH Wizard Superheroism
 
 IF
 	Global("MO_BUFF","LOCALS",1)
@@ -2486,6 +2506,8 @@ THEN
 		Spell(Myself,WIZARD_HASTE)  // SPWI305.SPL (Haste)
 END
 
+// FP Cleric Divine Haste
+
 IF
 	Global("MO_BUFF","LOCALS",1)
 	HaveSpell(WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
@@ -2505,6 +2527,8 @@ THEN
 		Spell(Myself,WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
 END
 
+// FP Cleric Divine Improved Haste
+
 IF
 	Global("MO_BUFF","LOCALS",1)
 	HaveSpell(CLERIC_RIGHTEOUS_MAGIC)  // SPPR513.SPL (Righteous Fury)
@@ -2519,6 +2543,10 @@ THEN
 	RESPONSE #100
 		Spell(Myself,CLERIC_RIGHTEOUS_MAGIC)  // SPPR513.SPL (Righteous Fury)
 END
+
+// Song & Silence Mind Blade
+
+// MiH Wizard Heroism
 
 IF
 	Global("MO_BUFF","LOCALS",1)

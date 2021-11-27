@@ -89,6 +89,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// IWD (Greater) Divine Protection
+
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([EVILCUTOFF])
@@ -112,6 +114,8 @@ THEN
     Spell(Myself,WIZARD_ABSOLUTE_IMMUNITY)  // SPWI907.SPL (Absolute Immunity)
     SetInterrupt(TRUE)
 END
+
+// FP Cleric Absolute Immunity
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -231,6 +235,8 @@ THEN
   RESPONSE #100
     XEquipItem("Boot01",Myself,SLOT_BOOTS,EQUIP)  // The Paws of the Cheetah
 END
+
+// IWD Mind Blank and Impervious Sanctity of Mind
 
 IF
   ActionListEmpty()
@@ -1208,7 +1214,7 @@ IF
   !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
   !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
   !CheckSpellState(LastSeenBy(Myself),CHAOTIC_COMMANDS)
-  // Mind Blank
+  // NOT HAS Mind Blank Check
   HaveSpell(CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
@@ -1242,7 +1248,7 @@ IF
   !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
   !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
   !CheckSpellState(LastSeenBy(Myself),CHAOTIC_COMMANDS)
-  // Mind Blank
+  // NOT HAS Mind Blank Check
   HaveSpell(CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
@@ -1276,7 +1282,7 @@ IF
   !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
   !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
   !CheckSpellState(LastSeenBy(Myself),CHAOTIC_COMMANDS)
-  // Mind Blank
+  // NOT HAS Mind Blank Check
   HaveSpell(CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
@@ -1310,7 +1316,7 @@ IF
   !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
   !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
   !CheckSpellState(LastSeenBy(Myself),CHAOTIC_COMMANDS)
-  // Mind Blank
+  // NOT HAS Mind Blank Check
   HaveSpell(CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
@@ -1344,7 +1350,7 @@ IF
   !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
   !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
   !CheckSpellState(LastSeenBy(Myself),CHAOTIC_COMMANDS)
-  // Mind Blank
+  // NOT HAS Mind Blank Check
   HaveSpell(CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
@@ -1378,7 +1384,7 @@ IF
   !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
   !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
   !CheckSpellState(LastSeenBy(Myself),CHAOTIC_COMMANDS)
-  // Mind Blank
+  // NOT HAS Mind Blank Check
   HaveSpell(CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
@@ -1398,6 +1404,8 @@ THEN
     Spell(LastSeenBy(Myself),CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
     SetInterrupt(TRUE)
 END
+
+// FP Spiritual Clarity
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -2237,6 +2245,10 @@ THEN
     Spell(LastSeenBy(Myself),CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
     SetInterrupt(TRUE)
 END
+
+// MiH Remove Deaf Blind
+
+// SCS Golem Curse
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -3463,6 +3475,8 @@ THEN // Breach
     SetInterrupt(TRUE)
 END
 
+// FP Ranger Breach
+
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
@@ -3691,6 +3705,8 @@ THEN // Spell Thrust
     SetInterrupt(TRUE)
 END
 
+// FP Spell Thrust
+
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
@@ -3894,6 +3910,8 @@ THEN // Secret Word
     Spell(LastSeenBy(Myself),WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
     SetInterrupt(TRUE)
 END
+
+// FP Secret Word
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -5224,6 +5242,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// IWD Cure Moderate Wounds
+
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_CastingHeal","GLOBAL",1)
@@ -5874,6 +5894,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// FP Ranger Minor Spell Deflection
+
 IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -6284,6 +6306,10 @@ END
 
 // DSotSC - Army of One
 
+// FP Epic Divine Might
+
+// MiH (Super)Heroism
+
 IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -6531,6 +6557,8 @@ THEN
     Spell(LastSeenBy(Myself),CLERIC_PROTECTION_FROM_FIRE)  // SPPR306.SPL (Protection From Fire)
     SetInterrupt(TRUE)
 END
+
+// FP Kit Paladin Rage/Frenzy
 
 IF
   ActionListEmpty()
@@ -7226,6 +7254,8 @@ THEN
     Spell(Myself,WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
     SetInterrupt(TRUE)
 END
+
+// FP Divine Improved Haste
 
 IF
   ActionListEmpty()

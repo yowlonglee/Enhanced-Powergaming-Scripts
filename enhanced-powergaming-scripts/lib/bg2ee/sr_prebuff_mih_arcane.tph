@@ -8,20 +8,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     strict = 1
     verbose = 0
     STR_VAR
-    pattern = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)
-  HaveSpell(WIZARD_SPELL_TRAP)  // SPWI902.SPL (Spell Trap)
-  CheckStatLT(Myself,1,WIZARD_SPELL_TRAP)
-  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_SILENCED)
-  Global("MO_CastAthkatla","LOCALS",1)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    Spell(Myself,WIZARD_SPELL_TRAP)  // SPWI902.SPL (Spell Trap)
-END~~~~~
+    pattern = ~~~~~// MiH Wizard Heroism~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
   See(Myself)
@@ -168,21 +155,7 @@ THEN
   RESPONSE #100
     Spell(LastSeenBy(Myself),WIZARD_HEROISM)
 END
-
-IF
-  Global("MO_BUFF","LOCALS",1)
-  HaveSpell(WIZARD_SPELL_TRAP)  // SPWI902.SPL (Spell Trap)
-  CheckStatLT(Myself,1,WIZARD_SPELL_TRAP)
-  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_SILENCED)
-  Global("MO_CastAthkatla","LOCALS",1)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    Spell(Myself,WIZARD_SPELL_TRAP)  // SPWI902.SPL (Spell Trap)
-END~~~~~ //"
+~~~~~ //"
   END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -193,38 +166,8 @@ END~~~~~ //"
     strict = 1
     verbose = 0
     STR_VAR
-    pattern = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)
-  HaveSpell(WIZARD_PROTECTION_FROM_ENERGY)  // SPWI803.SPL (Protection from Energy)
-  !CheckStatGT(Myself,0,WIZARD_PROTECTION_FROM_ENERGY)
-  !CheckStatGT(Myself,0,WIZARD_PROTECTION_FROM_THE_ELEMENTS)
-  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_SILENCED)
-  Global("MO_CastAthkatla","LOCALS",1)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    Spell(Myself,WIZARD_PROTECTION_FROM_ENERGY)  // SPWI803.SPL (Protection from Energy)
-END~~~~~
+    pattern = ~~~~~// MiH Wizard Superheroism~~~~~
     string = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)
-  HaveSpell(WIZARD_PROTECTION_FROM_ENERGY)  // SPWI803.SPL (Protection from Energy)
-  !CheckStatGT(Myself,0,WIZARD_PROTECTION_FROM_ENERGY)
-  !CheckStatGT(Myself,0,WIZARD_PROTECTION_FROM_THE_ELEMENTS)
-  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_SILENCED)
-  Global("MO_CastAthkatla","LOCALS",1)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    Spell(Myself,WIZARD_PROTECTION_FROM_ENERGY)  // SPWI803.SPL (Protection from Energy)
-END
-
-IF
   Global("MO_BUFF","LOCALS",1)
   See(Myself)
   HaveSpell(WIZARD_SUPERHEROISM)

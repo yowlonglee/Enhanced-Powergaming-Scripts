@@ -122,40 +122,8 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     strict = 1
     verbose = 0
     STR_VAR
-    pattern = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)
-  HaveSpell(WIZARD_MINOR_SPELL_DEFLECTION)  // SPWI318.SPL (Minor Spell Deflection)
-  CheckStatLT(Myself,1,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(Myself,MINOR_GLOBE)
-  !CheckSpellState(Myself,GLOBE)
-  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_SILENCED)
-  Global("MO_CastAthkatla","LOCALS",1)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    Spell(Myself,WIZARD_MINOR_SPELL_DEFLECTION)  // SPWI318.SPL (Minor Spell Deflection)
-END~~~~~
+    pattern = ~~~~~// FP Cleric Minor Spell Deflection~~~~~
     string = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)
-  HaveSpell(WIZARD_MINOR_SPELL_DEFLECTION)  // SPWI318.SPL (Minor Spell Deflection)
-  CheckStatLT(Myself,1,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(Myself,MINOR_GLOBE)
-  !CheckSpellState(Myself,GLOBE)
-  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_SILENCED)
-  Global("MO_CastAthkatla","LOCALS",1)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    Spell(Myself,WIZARD_MINOR_SPELL_DEFLECTION)  // SPWI318.SPL (Minor Spell Deflection)
-END
-
-IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpellRES("D5P2318")
   CheckStatLT(Myself,1,WIZARD_SPELL_DEFLECTION)
@@ -182,36 +150,8 @@ END
     strict = 1
     verbose = 0
     STR_VAR
-    pattern = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)
-  HaveSpellRES("SPIN103")  // Divine Might
-  !StateCheck(Myself,STATE_DRAWUPONHOLYMIGHT)
-  CheckStatLT(Myself,25,STR)
-  !CheckSpellState(Myself,MINOR_GLOBE)
-  !CheckSpellState(Myself,GLOBE)
-  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_SILENCED)
-THEN
-  RESPONSE #100
-    SpellRES("SPIN103",Myself)  // Divine Might
-END~~~~~
+    pattern = ~~~~~// FP Cleric Divine Aura, Warding Winds, and EPIC Divine Might~~~~~
     string = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)
-  HaveSpellRES("SPIN103")  // Divine Might
-  !StateCheck(Myself,STATE_DRAWUPONHOLYMIGHT)
-  CheckStatLT(Myself,25,STR)
-  !CheckSpellState(Myself,MINOR_GLOBE)
-  !CheckSpellState(Myself,GLOBE)
-  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_SILENCED)
-THEN
-  RESPONSE #100
-    SpellRES("SPIN103",Myself)  // Divine Might
-END
-
-IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpellRES("B_PH06")
   !CheckSpellState(Myself,DIVINE_AURA)
@@ -257,46 +197,8 @@ END
     strict = 1
     verbose = 0
     STR_VAR
-    pattern = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)
-  HaveSpell(WIZARD_HASTE)  // SPWI305.SPL (Haste)
-  !StateCheck(Myself,STATE_HASTED)
-  CheckStat(Myself,0,IMPROVEDHASTE)
-  !StateCheck(Myself,STATE_NOT_TARGETABLE)
-  !CheckStat(Myself,8,WIZARD_SPELL_IMMUNITY)
-  !CheckSpellState(Myself,MINOR_GLOBE)
-  !CheckSpellState(Myself,GLOBE)
-  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_SILENCED)
-  Global("MO_CastAthkatla","LOCALS",1)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    Spell(Myself,WIZARD_HASTE)  // SPWI305.SPL (Haste)
-END~~~~~
+    pattern = ~~~~~// FP Cleric Divine Haste~~~~~
     string = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)
-  HaveSpell(WIZARD_HASTE)  // SPWI305.SPL (Haste)
-  !StateCheck(Myself,STATE_HASTED)
-  CheckStat(Myself,0,IMPROVEDHASTE)
-  !StateCheck(Myself,STATE_NOT_TARGETABLE)
-  !CheckStat(Myself,8,WIZARD_SPELL_IMMUNITY)
-  !CheckSpellState(Myself,MINOR_GLOBE)
-  !CheckSpellState(Myself,GLOBE)
-  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_SILENCED)
-  Global("MO_CastAthkatla","LOCALS",1)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    Spell(Myself,WIZARD_HASTE)  // SPWI305.SPL (Haste)
-END
-
-IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpellRES("D5P2305")
   !StateCheck(Myself,STATE_HASTED)
@@ -326,48 +228,8 @@ END
     strict = 1
     verbose = 0
     STR_VAR
-    pattern = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)
-  HaveSpell(WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
-  !CheckStatGT(Myself,0,IMPROVEDHASTE)
-  OR(5)
-		Class(Myself,THIEF_ALL)
-		Class(Myself,FIGHTER_ALL)
-		Class(Myself,BARD_ALL)
-		Class(Myself,DRUID_ALL)
-		Class(Myself,CLERIC_ALL)
-  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_SILENCED)
-  Global("MO_CastAthkatla","LOCALS",1)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    Spell(Myself,WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
-END~~~~~
+    pattern = ~~~~~// FP Cleric Divine Improved Haste~~~~~
     string = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)
-  HaveSpell(WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
-  !CheckStatGT(Myself,0,IMPROVEDHASTE)
-  OR(5)
-		Class(Myself,THIEF_ALL)
-		Class(Myself,FIGHTER_ALL)
-		Class(Myself,BARD_ALL)
-		Class(Myself,DRUID_ALL)
-		Class(Myself,CLERIC_ALL)
-  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_SILENCED)
-  Global("MO_CastAthkatla","LOCALS",1)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    Spell(Myself,WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
-END
-
-IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpellRES("D5P2613")
   !CheckStatGT(Myself,0,IMPROVEDHASTE)

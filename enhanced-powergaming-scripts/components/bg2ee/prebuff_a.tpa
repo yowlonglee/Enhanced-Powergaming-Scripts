@@ -38,18 +38,25 @@ ACTION_IF spell_revisions BEGIN
 // SR - Song & Silence                                                   //
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF song_and_silence BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_core_ss_a.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_ss_a.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// SR Faiths & Powers - Ranger Kits Prebuffing                           //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF fp_ranger BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_prebuff_fp_ranger_kit_a.tph~
 	END
 
 ///////////////////////////////////////////////////////////////////////////
 // SR - DSotSC Pre-Buffing                                               //
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF dsotsc_arcane && !mih_arcane && !iwdification BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_prebuff_dsotsc_w_a.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_dsotsc_w_a.tph~
 	END
 
 	ACTION_IF dsotsc_divine && !mih_divine && !iwdification BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_prebuff_dsotsc_d_a.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_dsotsc_d_a.tph~
 	END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -122,10 +129,10 @@ END ELSE BEGIN
 	END
 
 ///////////////////////////////////////////////////////////////////////////
-// SR- Faiths & Powers - Cleric Kits                                     //
+// Faiths & Powers - Ranger Kits Prebuffing                              //
 ///////////////////////////////////////////////////////////////////////////
-	ACTION_IF fp_cleric BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_fp_kit.tph~
+	ACTION_IF fp_ranger BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_fp_ranger_kit_a.tph~
 	END
 
 ///////////////////////////////////////////////////////////////////////////
