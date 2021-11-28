@@ -2614,6 +2614,8 @@ THEN
     Spell(LastSeenBy(Myself),CLERIC_PROTECTION_FROM_FIRE)  // SPPR306.SPL (Protection From Fire)
 END
 
+// MiH Resist Acid/Corrosion
+
 IF
   Global("MO_BUFF","LOCALS",1)
   !StateCheck(Myself,STATE_MIRRORIMAGE)
@@ -3041,6 +3043,8 @@ THEN
 END
 
 // FP Cleric Divine Aura, Warding Winds, and EPIC Divine Might
+
+// MiH Cleric Mass Negative Plane Protection
 
 IF
   Global("MO_BUFF","LOCALS",1)

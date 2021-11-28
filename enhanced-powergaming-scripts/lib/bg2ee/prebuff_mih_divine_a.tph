@@ -715,3 +715,212 @@ THEN
 END
 ~~~~~ //"
   END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Cleric Resist Acid/Corrosion                                      //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// MiH Resist Acid/Corrosion~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  See(Myself)
+  HaveSpell(CLERIC_RESIST_ACID_CORROSION)
+  OR(2)
+    CheckStatLT(LastSeenBy(Myself),50,RESISTACID)
+    CheckStatLT(LastSeenBy(Myself),50,RESISTPOISON)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),CLERIC_RESIST_ACID_CORROSION)
+    RemoveSpell(CLERIC_RESIST_ACID_CORROSION)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See([PC])
+  HaveSpell(CLERIC_RESIST_ACID_CORROSION)
+  OR(2)
+    CheckStatLT(LastSeenBy(Myself),50,RESISTACID)
+    CheckStatLT(LastSeenBy(Myself),50,RESISTPOISON)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),CLERIC_RESIST_ACID_CORROSION)
+    RemoveSpell(CLERIC_RESIST_ACID_CORROSION)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(SecondNearest([PC]))
+  HaveSpell(CLERIC_RESIST_ACID_CORROSION)
+  OR(2)
+    CheckStatLT(LastSeenBy(Myself),50,RESISTACID)
+    CheckStatLT(LastSeenBy(Myself),50,RESISTPOISON)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),CLERIC_RESIST_ACID_CORROSION)
+    RemoveSpell(CLERIC_RESIST_ACID_CORROSION)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(ThirdNearest([PC]))
+  HaveSpell(CLERIC_RESIST_ACID_CORROSION)
+  OR(2)
+    CheckStatLT(LastSeenBy(Myself),50,RESISTACID)
+    CheckStatLT(LastSeenBy(Myself),50,RESISTPOISON)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),CLERIC_RESIST_ACID_CORROSION)
+    RemoveSpell(CLERIC_RESIST_ACID_CORROSION)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(FourthNearest([PC]))
+  HaveSpell(CLERIC_RESIST_ACID_CORROSION)
+  OR(2)
+    CheckStatLT(LastSeenBy(Myself),50,RESISTACID)
+    CheckStatLT(LastSeenBy(Myself),50,RESISTPOISON)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),CLERIC_RESIST_ACID_CORROSION)
+    RemoveSpell(CLERIC_RESIST_ACID_CORROSION)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(FifthNearest([PC]))
+  HaveSpell(CLERIC_RESIST_ACID_CORROSION)
+  OR(2)
+    CheckStatLT(LastSeenBy(Myself),50,RESISTACID)
+    CheckStatLT(LastSeenBy(Myself),50,RESISTPOISON)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),CLERIC_RESIST_ACID_CORROSION)
+    RemoveSpell(CLERIC_RESIST_ACID_CORROSION)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(SixthNearest([PC]))
+  HaveSpell(CLERIC_RESIST_ACID_CORROSION)
+  OR(2)
+    CheckStatLT(LastSeenBy(Myself),50,RESISTACID)
+    CheckStatLT(LastSeenBy(Myself),50,RESISTPOISON)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),CLERIC_RESIST_ACID_CORROSION)
+    RemoveSpell(CLERIC_RESIST_ACID_CORROSION)
+END
+~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Mass Negative Plane Protection                                    //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// MiH Cleric Mass Negative Plane Protection~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpell(CLERIC_MASS_NEGATIVE_PLANE_PROTECTION)
+  !CheckStatGT(LastSeenBy(Myself),0,LEVEL_DRAIN_IMMUNITY)
+  !StateCheck(Myself,STATE_IMPROVEDINVISIBILITY)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,CLERIC_MASS_NEGATIVE_PLANE_PROTECTION)
+    RemoveSpell(CLERIC_MASS_NEGATIVE_PLANE_PROTECTION)
+END
+~~~~~ //"
+  END

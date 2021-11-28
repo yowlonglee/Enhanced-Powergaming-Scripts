@@ -1300,6 +1300,8 @@ THEN
 		Spell(LastSeenBy(Myself),CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
 END
 
+// MiH Cleric Mass Negative Plane Protection
+
 IF
 	Global("MO_BUFF","LOCALS",1)
 	HaveSpell(CLERIC_NEGATIVE_PLANE_PROTECTION)  // SPPR413.SPL (Negative Plane Protection)
@@ -2561,6 +2563,8 @@ END
 // MiH Wizard Heroism
 
 // MiH Cleric Heroism
+
+// MiH Resist Acid/Corrosion
 
 IF
 	Global("MO_BUFF","LOCALS",1)
