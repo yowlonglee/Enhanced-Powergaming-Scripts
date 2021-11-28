@@ -14,9 +14,6 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
   See(Myself)
   HaveSpell(WIZARD_HEROISM)
   !CheckSpellState(LastSeenBy(Myself),HEROISM)
-  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
@@ -172,8 +169,6 @@ END
   See(Myself)
   HaveSpell(WIZARD_SUPERHEROISM)
   !CheckSpellState(LastSeenBy(Myself),HEROISM)
-  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
   !CheckSpellState(LastSeenBy(Myself),MAJOR_GLOBE)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -323,6 +318,168 @@ END
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    Spell(Myself,FORESIGHT)
+    Spell(Myself,WIZARD_FORESIGHT)
 END~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Wizard Seeking                                                    //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// MiH Wizard Seeking~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  See(Myself)
+  HaveSpell(WIZARD_SEEKING)
+  IsWeaponRanged(Myself)
+  !CheckSpellState(LastSeenBy(Myself),STRIKING_SEEKING)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_SEEKING)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See([PC])
+  HaveSpell(WIZARD_SEEKING)
+  IsWeaponRanged(Myself)
+  !CheckSpellState(LastSeenBy(Myself),STRIKING_SEEKING)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_SEEKING)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(SecondNearest([PC]))
+  HaveSpell(WIZARD_SEEKING)
+  IsWeaponRanged(Myself)
+  !CheckSpellState(LastSeenBy(Myself),STRIKING_SEEKING)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_SEEKING)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(ThirdNearest([PC]))
+  HaveSpell(WIZARD_SEEKING)
+  IsWeaponRanged(Myself)
+  !CheckSpellState(LastSeenBy(Myself),STRIKING_SEEKING)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_SEEKING)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(FourthNearest([PC]))
+  HaveSpell(WIZARD_SEEKING)
+  IsWeaponRanged(Myself)
+  !CheckSpellState(LastSeenBy(Myself),STRIKING_SEEKING)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_SEEKING)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(FifthNearest([PC]))
+  HaveSpell(WIZARD_SEEKING)
+  IsWeaponRanged(Myself)
+  !CheckSpellState(LastSeenBy(Myself),STRIKING_SEEKING)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_SEEKING)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(SixthNearest([PC]))
+  HaveSpell(WIZARD_SEEKING)
+  IsWeaponRanged(Myself)
+  !CheckSpellState(LastSeenBy(Myself),STRIKING_SEEKING)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_SEEKING)
+END
+~~~~~ //"
   END

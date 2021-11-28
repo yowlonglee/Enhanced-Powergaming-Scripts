@@ -1,19 +1,6 @@
 COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
 
 ///////////////////////////////////////////////////////////////////////////
-// Update Breach to Target Lich and Raksasha                             //
-///////////////////////////////////////////////////////////////////////////
-  LPF REPLACE_MULTILINE
-    INT_VAR
-    strict = 1
-    verbose = 0
-    STR_VAR
-    pattern = ~~~~~!StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
-  !ImmuneToSpellLevel(LastSeenBy(Myself),5)~~~~~
-    string = ~~~~~!StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)~~~~~ //"
-  END
-
-///////////////////////////////////////////////////////////////////////////
 // Update Breach for SCS Revisions                                       //
 ///////////////////////////////////////////////////////////////////////////
   LPF REPLACE_MULTILINE

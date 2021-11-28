@@ -261,6 +261,13 @@ APPEND ~stats.ids~ ~182 WIZARD_TENSERS_TRANSFORMATION~          UNLESS ~182 WIZA
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 timing = 0 insert_point = 0 STR_VAR resource = "MOCPRT" END
 
 ///////////////////////////////////////////////////////////////////////////
+// Add Stat to Negative Plane Protection                                 //
+///////////////////////////////////////////////////////////////////////////
+	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~CLERIC_NEGATIVE_PLANE_PROTECTION~ RET spell_res END
+	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
+	  LPF CLONE_EFFECT INT_VAR match_opcode = 282 opcode = 233 parameter2 = 158 special = 1 END
+
+///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 // Create New Spell States if Spell Revisions is NOT Installed           //
 // Block of code provided by subtledoctor                                //

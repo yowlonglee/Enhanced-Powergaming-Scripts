@@ -1,19 +1,6 @@
 COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
 
 ///////////////////////////////////////////////////////////////////////////
-// Update Breach to Target Lich and Raksasha                             //
-///////////////////////////////////////////////////////////////////////////
-  LPF REPLACE_MULTILINE
-    INT_VAR
-    strict = 1
-    verbose = 0
-    STR_VAR
-    pattern = ~~~~~!StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
-  !ImmuneToSpellLevel(LastSeenBy(Myself),5)~~~~~
-    string = ~~~~~!StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)~~~~~ //"
-  END
-
-///////////////////////////////////////////////////////////////////////////
 // Update Breach for SCS Revisions                                       //
 ///////////////////////////////////////////////////////////////////////////
   LPF REPLACE_MULTILINE
@@ -34,6 +21,7 @@ THEN // Breach
   !CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
   !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
   !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+  !CheckSpellState(Myself,MAJOR_GLOBE)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_DEFLECTION)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
@@ -124,6 +112,7 @@ THEN // Secret Word
     CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
     CheckSpellState(LastSeenBy(Myself),ENTROPY_SHIELD)
   !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  !CheckSpellState(Myself,MAJOR_GLOBE)
   CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -165,7 +154,7 @@ THEN
     Spell(LastSeenBy(Myself),WIZARD_PIERCE_MAGIC)  // SPWI608.SPL (Pierce Magic)
     SetInterrupt(TRUE)
 END~~~~~
-    string = ~~~~~OR(7)
+    string = ~~~~~OR(8)
     CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
     CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
     CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
@@ -173,6 +162,7 @@ END~~~~~
     CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
     CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
     CheckSpellState(LastSeenBy(Myself),ENTROPY_SHIELD)
+    CheckSpellState(Myself,MAJOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
   CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
@@ -223,7 +213,7 @@ THEN
     Spell(LastSeenBy(Myself),WIZARD_WARDING_WHIP)  // SPWI705.SPL (Khelben's Warding Whip)
     SetInterrupt(TRUE)
 END~~~~~
-    string = ~~~~~OR(7)
+    string = ~~~~~OR(8)
     CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
     CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
     CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
@@ -231,6 +221,7 @@ END~~~~~
     CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
     CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
     CheckSpellState(LastSeenBy(Myself),ENTROPY_SHIELD)
+    CheckSpellState(Myself,MAJOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
   CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_KHELBENS_WARDING_WHIP)
@@ -280,7 +271,7 @@ THEN
     Spell(LastSeenBy(Myself),WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
     SetInterrupt(TRUE)
 END~~~~~
-    string = ~~~~~OR(9)    
+    string = ~~~~~OR(10)    
     CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
     CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
     CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
@@ -290,6 +281,7 @@ END~~~~~
     CheckSpellState(LastSeenBy(Myself),ENTROPY_SHIELD)
     CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
     CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TRAP)
+    CheckSpellState(Myself,MAJOR_GLOBE)
   CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
@@ -336,7 +328,7 @@ THEN
     Spell(LastSeenBy(Myself),WIZARD_PIERCE_SHIELD)  // SPWI805.SPL (Pierce Shield)
     SetInterrupt(TRUE)
 END~~~~~
-    string = ~~~~~OR(8)    
+    string = ~~~~~OR(9)    
     CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
     CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
     CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
@@ -345,6 +337,7 @@ END~~~~~
     CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
     CheckSpellState(LastSeenBy(Myself),ENTROPY_SHIELD)
     CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TRAP)
+    CheckSpellState(Myself,MAJOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
   CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -392,7 +385,7 @@ THEN
     Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
     SetInterrupt(TRUE)
 END~~~~~
-    string = ~~~~~OR(8)    
+    string = ~~~~~OR(9)    
     CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
     CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
     CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
@@ -401,6 +394,7 @@ END~~~~~
     CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
     CheckSpellState(LastSeenBy(Myself),ENTROPY_SHIELD)
     CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TRAP)
+    CheckSpellState(Myself,MAJOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
   CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)

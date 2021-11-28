@@ -1351,7 +1351,7 @@ IF
 	See(Myself)
 	!Kit(LastSeenBy(Myself),UNDEADHUNTER)
 	!CheckSpellState(LastSeenBy(Myself),LATHANDER_BOON)
-	!CheckSpellState(LastSeenBy(Myself),LEVEL_DRAIN_IMMUNITY)
+	!CheckStatGT(LastSeenBy(Myself),0,LEVEL_DRAIN_IMMUNITY)
 	!HasItemEquipedReal("BLUN25",LastSeenBy(Myself))  // Mace of Disruption +4
 	!HasItemEquipedReal("SW1H69",LastSeenBy(Myself))  // Spectral Brand +5
 	!StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
@@ -1373,7 +1373,7 @@ IF
 	See([PC])
 	!Kit(LastSeenBy(Myself),UNDEADHUNTER)
 	!CheckSpellState(LastSeenBy(Myself),LATHANDER_BOON)
-	!CheckSpellState(LastSeenBy(Myself),LEVEL_DRAIN_IMMUNITY)
+	!CheckStatGT(LastSeenBy(Myself),0,LEVEL_DRAIN_IMMUNITY)
 	!HasItemEquipedReal("BLUN25",LastSeenBy(Myself))  // Mace of Disruption +4
 	!HasItemEquipedReal("SW1H69",LastSeenBy(Myself))  // Spectral Brand +5
 	!StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
@@ -1400,7 +1400,7 @@ IF
 	See(SecondNearest([PC]))
 	!Kit(LastSeenBy(Myself),UNDEADHUNTER)
 	!CheckSpellState(LastSeenBy(Myself),LATHANDER_BOON)
-	!CheckSpellState(LastSeenBy(Myself),LEVEL_DRAIN_IMMUNITY)
+	!CheckStatGT(LastSeenBy(Myself),0,LEVEL_DRAIN_IMMUNITY)
 	!HasItemEquipedReal("BLUN25",LastSeenBy(Myself))  // Mace of Disruption +4
 	!HasItemEquipedReal("SW1H69",LastSeenBy(Myself))  // Spectral Brand +5
 	!StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
@@ -1427,7 +1427,7 @@ IF
 	See(ThirdNearest([PC]))
 	!Kit(LastSeenBy(Myself),UNDEADHUNTER)
 	!CheckSpellState(LastSeenBy(Myself),LATHANDER_BOON)
-	!CheckSpellState(LastSeenBy(Myself),LEVEL_DRAIN_IMMUNITY)
+	!CheckStatGT(LastSeenBy(Myself),0,LEVEL_DRAIN_IMMUNITY)
 	!HasItemEquipedReal("BLUN25",LastSeenBy(Myself))  // Mace of Disruption +4
 	!HasItemEquipedReal("SW1H69",LastSeenBy(Myself))  // Spectral Brand +5
 	!StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
@@ -1454,7 +1454,7 @@ IF
 	See(FourthNearest([PC]))
 	!Kit(LastSeenBy(Myself),UNDEADHUNTER)
 	!CheckSpellState(LastSeenBy(Myself),LATHANDER_BOON)
-	!CheckSpellState(LastSeenBy(Myself),LEVEL_DRAIN_IMMUNITY)
+	!CheckStatGT(LastSeenBy(Myself),0,LEVEL_DRAIN_IMMUNITY)
 	!HasItemEquipedReal("BLUN25",LastSeenBy(Myself))  // Mace of Disruption +4
 	!HasItemEquipedReal("SW1H69",LastSeenBy(Myself))  // Spectral Brand +5
 	!StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
@@ -1481,7 +1481,7 @@ IF
 	See(FifthNearest([PC]))
 	!Kit(LastSeenBy(Myself),UNDEADHUNTER)
 	!CheckSpellState(LastSeenBy(Myself),LATHANDER_BOON)
-	!CheckSpellState(LastSeenBy(Myself),LEVEL_DRAIN_IMMUNITY)
+	!CheckStatGT(LastSeenBy(Myself),0,LEVEL_DRAIN_IMMUNITY)
 	!HasItemEquipedReal("BLUN25",LastSeenBy(Myself))  // Mace of Disruption +4
 	!HasItemEquipedReal("SW1H69",LastSeenBy(Myself))  // Spectral Brand +5
 	!StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
@@ -1508,7 +1508,7 @@ IF
 	See(SixthNearest([PC]))
 	!Kit(LastSeenBy(Myself),UNDEADHUNTER)
 	!CheckSpellState(LastSeenBy(Myself),LATHANDER_BOON)
-	!CheckSpellState(LastSeenBy(Myself),LEVEL_DRAIN_IMMUNITY)
+	!CheckStatGT(LastSeenBy(Myself),0,LEVEL_DRAIN_IMMUNITY)
 	!HasItemEquipedReal("BLUN25",LastSeenBy(Myself))  // Mace of Disruption +4
 	!HasItemEquipedReal("SW1H69",LastSeenBy(Myself))  // Spectral Brand +5
 	!StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
@@ -2642,6 +2642,8 @@ END
 
 // FP Cleric Divine Improved Haste
 
+// MiH Cleric Striking
+
 IF
 	Global("MO_BUFF","LOCALS",1)
 	HaveSpell(CLERIC_RIGHTEOUS_MAGIC)  // SPPR513.SPL (Righteous Fury)
@@ -2692,6 +2694,10 @@ THEN
 		ReallyForceSpell(Myself,WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
 		RemoveSpell(WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
 END
+
+// MiH Wizard Seeking
+
+// MiH Cleric Seeking
 
 IF
   Global("MO_BUFF","LOCALS",1)

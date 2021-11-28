@@ -2807,6 +2807,8 @@ END
 
 // FP Cleric Divine Improved Haste
 
+// MiH Cleric Striking
+
 IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(CLERIC_AID)  // SPPR201.SPL (Aid)
@@ -2943,6 +2945,10 @@ THEN
     ReallyForceSpell(Myself,WIZARD_SPELL_IMMUNITY_ABJURATION)  // SPWI590.SPL (Immunity: Abjuration)
     RemoveSpell(WIZARD_SPELL_IMMUNITY)  // SPWI510.SPL (Spell Immunity)
 END
+
+// MiH Wizard Seeking
+
+// MiH Cleric Seeking
 
 // IWD Prayer, Restoration, and Entropy Shield
 
@@ -3217,7 +3223,7 @@ IF
   See(Myself)
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
   !CheckSpellState(LastSeenBy(Myself),LATHANDER_BOON)
-  !CheckSpellState(LastSeenBy(Myself),LEVEL_DRAIN_IMMUNITY)
+  !CheckStatGT(LastSeenBy(Myself),0,LEVEL_DRAIN_IMMUNITY)
   !HasItemEquiped("AMUL21",Myself)  // Amulet of Power
   !HasItemEquipedReal("BLUN25",LastSeenBy(Myself))  // Mace of Disruption +2
   !HasItemEquipedReal("SW1H69",LastSeenBy(Myself))  // Spectral Brand +5
@@ -3241,7 +3247,7 @@ IF
   See([PC])
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
   !CheckSpellState(LastSeenBy(Myself),LATHANDER_BOON)
-  !CheckSpellState(LastSeenBy(Myself),LEVEL_DRAIN_IMMUNITY)
+  !CheckStatGT(LastSeenBy(Myself),0,LEVEL_DRAIN_IMMUNITY)
   !HasItemEquiped("AMUL21",Myself)  // Amulet of Power
   !HasItemEquipedReal("BLUN25",LastSeenBy(Myself))  // Mace of Disruption +2
   !HasItemEquipedReal("SW1H69",LastSeenBy(Myself))  // Spectral Brand +5
@@ -3270,7 +3276,7 @@ IF
   See(SecondNearest([PC]))
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
   !CheckSpellState(LastSeenBy(Myself),LATHANDER_BOON)
-  !CheckSpellState(LastSeenBy(Myself),LEVEL_DRAIN_IMMUNITY)
+  !CheckStatGT(LastSeenBy(Myself),0,LEVEL_DRAIN_IMMUNITY)
   !HasItemEquiped("AMUL21",Myself)  // Amulet of Power
   !HasItemEquipedReal("BLUN25",LastSeenBy(Myself))  // Mace of Disruption +2
   !HasItemEquipedReal("SW1H69",LastSeenBy(Myself))  // Spectral Brand +5
@@ -3299,7 +3305,7 @@ IF
   See(ThirdNearest([PC]))
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
   !CheckSpellState(LastSeenBy(Myself),LATHANDER_BOON)
-  !CheckSpellState(LastSeenBy(Myself),LEVEL_DRAIN_IMMUNITY)
+  !CheckStatGT(LastSeenBy(Myself),0,LEVEL_DRAIN_IMMUNITY)
   !HasItemEquiped("AMUL21",Myself)  // Amulet of Power
   !HasItemEquipedReal("BLUN25",LastSeenBy(Myself))  // Mace of Disruption +2
   !HasItemEquipedReal("SW1H69",LastSeenBy(Myself))  // Spectral Brand +5
@@ -3328,7 +3334,7 @@ IF
   See(FourthNearest([PC]))
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
   !CheckSpellState(LastSeenBy(Myself),LATHANDER_BOON)
-  !CheckSpellState(LastSeenBy(Myself),LEVEL_DRAIN_IMMUNITY)
+  !CheckStatGT(LastSeenBy(Myself),0,LEVEL_DRAIN_IMMUNITY)
   !HasItemEquiped("AMUL21",Myself)  // Amulet of Power
   !HasItemEquipedReal("BLUN25",LastSeenBy(Myself))  // Mace of Disruption +2
   !HasItemEquipedReal("SW1H69",LastSeenBy(Myself))  // Spectral Brand +5
@@ -3357,7 +3363,7 @@ IF
   See(FifthNearest([PC]))
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
   !CheckSpellState(LastSeenBy(Myself),LATHANDER_BOON)
-  !CheckSpellState(LastSeenBy(Myself),LEVEL_DRAIN_IMMUNITY)
+  !CheckStatGT(LastSeenBy(Myself),0,LEVEL_DRAIN_IMMUNITY)
   !HasItemEquiped("AMUL21",Myself)  // Amulet of Power
   !HasItemEquipedReal("BLUN25",LastSeenBy(Myself))  // Mace of Disruption +2
   !HasItemEquipedReal("SW1H69",LastSeenBy(Myself))  // Spectral Brand +5
@@ -3386,7 +3392,7 @@ IF
   See(SixthNearest([PC]))
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
   !CheckSpellState(LastSeenBy(Myself),LATHANDER_BOON)
-  !CheckSpellState(LastSeenBy(Myself),LEVEL_DRAIN_IMMUNITY)
+  !CheckStatGT(LastSeenBy(Myself),0,LEVEL_DRAIN_IMMUNITY)
   !HasItemEquiped("AMUL21",Myself)  // Amulet of Power
   !HasItemEquipedReal("BLUN25",LastSeenBy(Myself))  // Mace of Disruption +2
   !HasItemEquipedReal("SW1H69",LastSeenBy(Myself))  // Spectral Brand +5
