@@ -1407,19 +1407,8 @@ THEN
 END
 
 IF
-	Global("MO_CastInsect","LOCALS",0)
-THEN
-	RESPONSE #50
-		SetGlobal("Mo_CastInsect","LOCALS",1)
-		Continue()
-	RESPONSE #50
-		Continue()
-END
-
-IF
 	ActionListEmpty()
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-	Global("MO_CastInsect","LOCALS",1)
 	HaveSpell(CLERIC_INSECT_PLAGUE)  // SPPR517.SPL (Insect Plague)
 	See(NearestEnemyOf(Myself))
 	!Race(LastSeenBy(Myself),DEMILICH)
@@ -1461,7 +1450,6 @@ END
 If
 	ActionListEmpty()
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-	Global("MO_CastInsect","LOCALS",1)
 	HaveSpell(CLERIC_INSECT_PLAGUE)  // SPPR517.SPL (Insect Plague)
 	See(SecondNearestEnemyOf(Myself))
 	!Race(LastSeenBy(Myself),DEMILICH)
@@ -1503,7 +1491,6 @@ END
 IF
 	ActionListEmpty()
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-	Global("MO_CastInsect","LOCALS",1)
 	HaveSpell(CLERIC_INSECT_PLAGUE)  // SPPR517.SPL (Insect Plague)
 	See(ThirdNearestEnemyOf(Myself))
 	!Race(LastSeenBy(Myself),DEMILICH)
@@ -1545,7 +1532,6 @@ END
 IF
 	ActionListEmpty()
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-	Global("MO_CastInsect","LOCALS",1)
 	HaveSpell(CLERIC_INSECT_PLAGUE)  // SPPR517.SPL (Insect Plague)
 	See(FourthNearestEnemyOf(Myself))
 	!Race(LastSeenBy(Myself),DEMILICH)
@@ -1587,7 +1573,6 @@ END
 IF
 	ActionListEmpty()
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-	Global("MO_CastInsect","LOCALS",1)
 	HaveSpell(CLERIC_INSECT_PLAGUE)  // SPPR517.SPL (Insect Plague)
 	See(FifthNearestEnemyOf(Myself))
 	!Race(LastSeenBy(Myself),DEMILICH)
@@ -1629,7 +1614,6 @@ END
 IF
 	ActionListEmpty()
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-	Global("MO_CastInsect","LOCALS",1)
 	HaveSpell(CLERIC_INSECT_PLAGUE)  // SPPR517.SPL (Insect Plague)
 	See(SixthNearestEnemyOf(Myself))
 	!Race(LastSeenBy(Myself),DEMILICH)
@@ -1666,14 +1650,6 @@ THEN
 		SetInterrupt(FALSE)
 		Spell(LastSeenBy(Myself),CLERIC_INSECT_PLAGUE)  // SPPR517.SPL (Insect Plague)
 		SetInterrupt(TRUE)
-END
-
-IF
-	Global("MO_CastInsect","LOCALS",1)
-THEN
-	RESPONSE #100
-		SetGlobal("Mo_CastInsect","LOCALS",0)
-		Continue()
 END
 
 IF
