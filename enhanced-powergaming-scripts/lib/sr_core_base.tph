@@ -761,6 +761,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// MiH Cleric Repel Insects
+
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(CLERIC_BREAK_ENCHANTMENT)  // SPPR307.SPL (Break Enchantment)
@@ -1319,8 +1321,6 @@ IF
   CheckStatGT(LastSeenBy(Myself),0,LEVELDRAIN)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
   HaveSpell(CLERIC_LESSER_RESTORATION)  // SPPR417.SPL (Lesser Restoration)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !StateCheck(Myself,STATE_SILENCED)
