@@ -18,11 +18,9 @@ December XX, 2021
   - Can now manually override check for casting in Athkatla. This allows you to toggle your characters (using the "T" key) to cast spells in Athkatla if they have not paid the bounty or finished fighting the Cowled Wizards.
   - Corrects aTweaks PnP Undead component to properly track diseased status from mummy attacks.
   - Added detection of the SCS component extending the area requiring a mage license.
+  - Added 20 new spells from Made in Heaven Spellpack.
 - To Do
-  - Made in Heaven series of mods, Artisan's kitpack, and Might and Guile.
-  - MiH Spell Restorations - 5 new spells.
-  - MiH Arcane - 5 new spells.
-  - MiH Divine - 10 new spells.
+  - Artisan's kitpack and Might and Guile.
   - Identify other mods to add.
 
 ## Version 5.5.3
