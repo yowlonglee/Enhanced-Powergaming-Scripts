@@ -1485,9 +1485,30 @@ END
 // Block of code provided by subtledoctor                                //
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
-
 ACTION_IF mih_divine BEGIN
 
+///////////////////////////////////////////////////////////////////////////
+// Create Spell State for Celestial Protection                           //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~CELESTIAL_PROTECTION~)) BEGIN
+	  COPY_EXISTING ~splstate.ids~ ~override~
+		COUNT_2DA_COLS cols
+		READ_2DA_ENTRIES_NOW rows cols
+		FOR (row = 1; row < rows; ++row) BEGIN
+		  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
+		  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
+		  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~CELESTIAL_PROTECTION~) BEGIN
+			SET clstl_prtctn = %state_ind%
+		  END
+		END
+	  BUT_ONLY
+	END
+
+	ACTION_IF !(VARIABLE_IS_SET %clstl_prtctn%) BEGIN
+		LAF ds_sort_ids STR_VAR ids=splstate END
+		LAF d5_resolve_state STR_VAR new_state_id = ~CELESTIAL_PROTECTION~ RET new_state_ind END
+		OUTER_SET clstl_prtctn = %new_state_ind%
+	END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Cleric Seeking                                     //
@@ -1502,6 +1523,13 @@ ACTION_IF mih_divine BEGIN
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~CLERIC_STRIKING~ RET spell_res END
 	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
 		LPF CLONE_EFFECT INT_VAR match_opcode = 285 opcode = 328 parameter2 = %strk_skng% special = 1 END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Spell State to Celestial Protection                               //
+///////////////////////////////////////////////////////////////////////////
+	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~CLERIC_CELESTIAL_PROTECTION~ RET spell_res END
+	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
+		LPF CLONE_EFFECT INT_VAR match_opcode = 120 opcode = 328 parameter2 = %clstl_prtctn% special = 1 END
 END
 
 CLEAR_IDS_MAP
