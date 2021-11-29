@@ -33,6 +33,16 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     string = ~~~~~!CheckSpellState(LastSeenBy(Myself),MAJOR_GLOBE)~~~~~ //"
   END
 
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    warn = 0
+    STR_VAR
+    pattern = ~~~~~// Major Globe (Myself)~~~~~
+    string = ~~~~~!CheckSpellState(Myself,MAJOR_GLOBE)~~~~~ //"
+  END
+
   // Cleanup line to remove accidental duplicates. 
   LPF REPLACE_MULTILINE
     INT_VAR
