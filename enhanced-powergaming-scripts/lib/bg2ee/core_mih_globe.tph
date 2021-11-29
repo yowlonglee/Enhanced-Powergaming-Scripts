@@ -8,6 +8,16 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     strict = 1
     verbose = 0
     STR_VAR
+    pattern = ~~~~~!CheckSpellState(LastSeenBy(Myself),GLOBE)~~~~~
+    string = ~~~~~!CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MAJOR_GLOBE)~~~~~ //"
+  END
+
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
     pattern = ~~~~~!CheckSpellState(Myself,GLOBE)~~~~~
     string = ~~~~~!CheckSpellState(Myself,GLOBE)
   !CheckSpellState(Myself,MAJOR_GLOBE)~~~~~ //"
@@ -20,7 +30,19 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     warn = 0
     STR_VAR
     pattern = ~~~~~// Major Globe~~~~~
-    string = ~~~~~!CheckSpellState(Myself,MAJOR_GLOBE)~~~~~ //"
+    string = ~~~~~!CheckSpellState(LastSeenBy(Myself),MAJOR_GLOBE)~~~~~ //"
+  END
+
+  // Cleanup line to remove accidental duplicates. 
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    warn = 0
+    STR_VAR
+    pattern = ~~~~~!CheckSpellState(LastSeenBy(Myself),MAJOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MAJOR_GLOBE)~~~~~
+    string = ~~~~~!CheckSpellState(LastSeenBy(Myself),MAJOR_GLOBE)~~~~~ //"
   END
 
   // Cleanup line to remove accidental duplicates. 
