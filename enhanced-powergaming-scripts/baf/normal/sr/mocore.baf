@@ -970,7 +970,7 @@ END
 IF
 	Global("MO_BUFF","LOCALS",1)
 	HaveSpell(CLERIC_PROTECTION_FROM_FIRE)  // sppr521.spl (Protection from Fire)
-  // Major Globe (Myself)
+  // (Myself) Major Globe
 	CheckStatLT(Myself,80,RESISTFIRE)
 	CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
 	!CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -2150,7 +2150,7 @@ IF
 	Global("MO_BUFF","LOCALS",1)
 	HaveSpell(WIZARD_SPELL_SHIELD)  // SPWI519.SPL (Spell Shield)
 	!CheckSpellState(Myself,SPELL_SHIELD)
-  // Major Globe (Myself)
+  // (Myself) Major Globe
 	CheckStatLT(Myself,20,SPELLFAILUREMAGE)
 	!CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
 	!StateCheck(Myself,STATE_SILENCED)
@@ -2185,7 +2185,7 @@ IF
 	!CheckSpellState(Myself,GREATER_SPELL_DEFLECTION)
 	!CheckSpellState(Myself,SPELL_DEFLECTION)
 	!CheckSpellState(Myself,MINOR_SPELL_DEFLECTION)
-  // Major Globe (Myself)
+  // (Myself) Major Globe
 	CheckStatLT(Myself,20,SPELLFAILUREMAGE)
 	!CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
 	!StateCheck(Myself,STATE_SILENCED)
@@ -2456,7 +2456,7 @@ IF
 	Global("MO_BUFF","LOCALS",1)
 	HaveSpell(CLERIC_MAGIC_RESISTANCE)  // SPPR509.SPL (Magic Resistance)
 	CheckStatLT(Myself,20,RESISTMAGIC)
-  // Major Globe (Myself)
+  // (Myself) Major Globe
 	CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
 	!CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
 	!StateCheck(Myself,STATE_SILENCED)
@@ -2472,7 +2472,7 @@ IF
 	HaveSpell(WIZARD_MESTILS_ACID_SHEATH)  // SPWI524.spl (Mestil's Acid Sheath)
 	!CheckSpellState(Myself,RED_FIRESHIELD)
 	!CheckSpellState(Myself,ACID_SHEATH)
-  // Major Globe (Myself)
+  // (Myself) Major Globe
 	CheckStatLT(Myself,20,SPELLFAILUREMAGE)
 	!CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
 	!StateCheck(Myself,STATE_SILENCED)
@@ -2549,7 +2549,7 @@ IF
 	Global("MO_BUFF","LOCALS",1)
 	HaveSpell(CLERIC_RIGHTEOUS_MAGIC)  // SPPR513.SPL (Righteous Fury)
 	!CheckSpellState(Myself,RIGHTEOUS_MAGIC)
-  // Major Globe (Myself)
+  // (Myself) Major Globe
 	CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
 	!CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
 	!StateCheck(Myself,STATE_SILENCED)

@@ -2328,7 +2328,7 @@ IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(WIZARD_SPELL_SHIELD)  // SPWI519.SPL (Spell Shield)
   !CheckSpellState(Myself,SPELL_SHIELD)
-  // Major Globe (Myself)
+  // (Myself) Major Globe
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
@@ -2384,7 +2384,7 @@ IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(WIZARD_MINOR_SPELL_TURNING)  // SPWI522.SPL (Minor Spell Turning)
   !CheckSpellState(Myself,MINOR_SPELL_TURNING)
-  // Major Globe (Myself)
+  // (Myself) Major Globe
   !CheckSpellState(Myself,SPELL_TURNING)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -2863,7 +2863,7 @@ IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(CLERIC_MAGIC_RESISTANCE)  // SPPR509.SPL (Magic Resistance)
   CheckStatLT(Myself,20,RESISTMAGIC)
-  // Major Globe (Myself)
+  // (Myself) Major Globe
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
@@ -2967,7 +2967,7 @@ IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(WIZARD_SPELL_IMMUNITY)  // SPWI510.SPL (Spell Immunity)
   !CheckStat(Myself,1,WIZARD_SPELL_IMMUNITY)
-  // Major Globe (Myself)
+  // (Myself) Major Globe
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
@@ -2992,7 +2992,7 @@ IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(CLERIC_RIGHTEOUS_MAGIC)  // SPPR513.SPL (Righteous Magic)
   !CheckSpellState(Myself,RIGHTEOUS_MAGIC)
-  // Major Globe (Myself)
+  // (Myself) Major Globe
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
@@ -3210,7 +3210,7 @@ IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(CLERIC_PHYSICAL_MIRROR)  // sppr525.spl (Physical Mirror)
   CheckStatLT(Myself,1,CLERIC_PHYSICAL_MIRROR)
-  // Major Globe (Myself)
+  // (Myself) Major Globe
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
