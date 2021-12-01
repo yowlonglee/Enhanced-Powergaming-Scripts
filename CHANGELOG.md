@@ -19,9 +19,7 @@ December XX, 2021
   - Corrects aTweaks PnP Undead component to properly track diseased status from mummy attacks.
   - Added detection of the SCS component extending the area requiring a mage license.
   - Added 20 new spells from Made in Heaven Spellpack.
-- To Do
-  - Artisan's kitpack and Might and Guile.
-  - Identify other mods to add.
+  - Added compatibility for D5 Random Tweaks component for cure spells to ignore deflection.
 
 ## Version 5.5.3
 
