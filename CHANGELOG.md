@@ -20,6 +20,8 @@ December XX, 2021
   - Added detection of the SCS component extending the area requiring a mage license.
   - Added 20 new spells from Made in Heaven Spellpack.
   - Added compatibility for D5 Random Tweaks component for cure spells to ignore deflection.
+- BG: EE, BG2: EE, and EET
+  - Added compatibility for my Thieving Skills for Bard mod, so Bards using the MO-CORE and MO-Basic AI scripts will now automatically detect traps when idle. If running MO-SKALD script, Bards will still constantly sing when idle and only detect traps when the "D" key is pressed.
 
 ## Version 5.5.3
 
