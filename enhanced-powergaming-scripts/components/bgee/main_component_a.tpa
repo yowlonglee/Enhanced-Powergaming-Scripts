@@ -13,6 +13,13 @@ COPY ~enhanced-powergaming-scripts/baf/Accelerated/mocore.baf~  ~enhanced-powerg
 INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/prebuff_bgee_a.tph~
 
 ///////////////////////////////////////////////////////////////////////////
+// Thieving Skills for Bards                                             //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF bard_thief BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/bard_thief.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
 // Remove Dialog Hovertext from Scripts                                  //
 ///////////////////////////////////////////////////////////////////////////
 ACTION_IF scp_dlg BEGIN
@@ -82,6 +89,14 @@ END
 // Create Skald Script Modeled After Core                                //
 ///////////////////////////////////////////////////////////////////////////
 INCLUDE ~enhanced-powergaming-scripts/lib/bgee/skald_base.tph~
+
+///////////////////////////////////////////////////////////////////////////
+// Thieving Skills for Bards                                             //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF bard_thief BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/bard_thief.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/skald_bard_thief.tph~
+	END
 
 ///////////////////////////////////////////////////////////////////////////
 // Removes Targeting Dancing Swords with Magic Missiles                  //
