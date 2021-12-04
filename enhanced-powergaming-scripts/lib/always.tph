@@ -32,7 +32,7 @@ ACTION_IF !VARIABLE_IS_SET ~initialise~ BEGIN
 // Detect third-party mods                                               //
 ///////////////////////////////////////////////////////////////////////////
    // Detect Spell Revisions
-   ACTION_IF FILE_EXISTS_IN_GAME ~thieving-skills-for-bards.tp2~ ~1~THEN BEGIN
+   ACTION_IF FILE_EXISTS_IN_GAME ~thieving-skills-for-bards.tp2~ ~1~ THEN BEGIN
       OUTER_SET bard_thief=1
    END ELSE BEGIN
       OUTER_SET bard_thief=0
