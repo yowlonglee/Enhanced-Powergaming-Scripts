@@ -1,8 +1,8 @@
 # Changelog
 
-## Version 6.0 DRAFT
+## Version 6.0
 
-December XX, 2021
+December 7, 2021
 
 ### Changed
 
