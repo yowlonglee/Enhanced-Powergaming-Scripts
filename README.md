@@ -50,12 +50,12 @@ If you are upgrading from an earlier version of this mod, I recommend uninstalli
 If you are installing any of the below listed mods, they should be installed before this mod. Typically, I recommend to install my scripts at the very end of the mod install order.
 
 ### Baldur's Gate: Enhanced Edition
-The mod has support for IWD spells (from either Sword Coast Stratagems or IWDification) and Sword Coast Stratagems.
+The mod has support for IWD spells (from either Sword Coast Stratagems or IWDification), Thieving Skills for Bards, and Sword Coast Stratagems.
 
 Before modding SoD games, it requires use of either DLCMerger or ModMerge (DLCMerger Preferred).
 
 ### Baldur's Gate II: Enhanced Edition and Enhanced Edition Trilogy
-The mod has support for IWD spells (from either Sword Coast Stratagems or IWDification), Sword Coast Stratagems, Dark Side of the Sword Coast, Song & Silence, Tome & Blood, Faith & Powers, and for changes from Spell Revisions (Revised) and Item Revisions (Revised).
+The mod has support for aTweaks, IWD spells (from either Sword Coast Stratagems or IWDification), Thieving Skills for Bards, Sword Coast Stratagems, D5 Random Tweaks, Dark Side of the Sword Coast, Made in Heaven Spellpack, Song & Silence, Tome & Blood, Faith & Powers, and for changes from Spell Revisions (Revised) and Item Revisions (Revised).
 
 ### Icewind Dale: Enhanced Edition
 Currently, this mod supports only the base game for Icewind Dale: Enhanced Edition.
@@ -94,19 +94,7 @@ This script will constantly Turn Undead when the "V" key is pressed and will cas
 
 ##### MO-CORE
 
-This script is designed for all core classes: Fighter, Mage, Thief, Cleric, Druid, Shaman, and any combination of multiclass/dualclass to include kits. This script will constantly Turn Undead when the "V" key is pressed and will cast pre-buffing spells when the "B" key is pressed. If the character is able, this script will constantly be detecting traps while idle or when the "D" key is pressed.
-
-##### MO-MONK
-
-This is a script specifically designed for the Monk class. This script will constantly be detecting traps while idle or when the "D" key is pressed. This script will cast pre-buff spells when the "B" key is pressed. In addition to pre-buffing, the script will intelligently use abilities both in and out of combat.
-
-##### MO-PALADIN
-
-This is a script specifically designed for the Paladin class. This script will constantly Turn Undead when the "V" key is pressed and will cast pre-buff spells when the "B" key is pressed. In addition to pre-buffing, the script will intelligently use abilities both in and out of combat. 
-
-##### MO-RANGER
-
-This is a script specifically designed for the Ranger class (NON-dual or multi). This script will cast pre-buff spells when the "B" key is pressed. In addition to pre-buffing, the script will intelligently heal and use abilities both in and out of combat. If you are playing a Cleric/Ranger dual or multiclass, please use the MO-Core or MO-BasicAI script instead.
+This script is designed for all core classes: Fighter, Mage, Thief, Cleric, Druid, Shaman, Monk, Ranger, Paladin, and any combination of multiclass/dualclass to include kits. This script will constantly Turn Undead when the "V" key is pressed and will cast pre-buffing spells when the "B" key is pressed. If the character is able, this script will constantly be detecting traps while idle or when the "D" key is pressed.
 
 ##### MO-SKALD
 
@@ -149,6 +137,8 @@ Type in the hotkey you wish to map to the corresponding action.
 
 - hot_key_DetectIllusion toggles on and off constantly detecting illusions.
 
+- hot_key_CowledCheck toggles on and off to cast spells in Athkatla if they have not paid the bounty or finished fighting the Cowled Wizards. 
+
 ### Script Tweaks
 
 This allows the player to fine-tune aspects of the scripts. 1 turns the feature on while 0 turns it off.
@@ -158,6 +148,8 @@ This allows the player to fine-tune aspects of the scripts. 1 turns the feature 
 - basic_ai_auto_attack is defaulted to 0. This turns on or off the Basic AI script using auto-attacks.
 
 - script_dialog is defaulted to 1. This turns on or off hover text appearing when certain abilities are used in combat.
+
+- target_dancing_sword is defaulted to 1. This targets Dancing Swords with Magic Missiles when no other enemies are present/targetable. 
 
 ## Special Thanks
 
