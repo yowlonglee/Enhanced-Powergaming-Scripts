@@ -38,7 +38,7 @@ These scripts are focused on heavy physical damage parties in both melee and ran
 
 - Detecting Invisibility and intelligent debuffing of enemy protections.
 
-- Spells will not be cast in Wild Magic Areas, Dead Magic Areas, or in Athkatla when the licence to use magic is not purchased/Cowled Wizards are harassing you.
+- Spells will not be cast in Wild Magic Areas, Dead Magic Areas, or in Athkatla when the licence to use magic is not purchased/Cowled Wizards are harassing you. The casting in Athkatla can be toggled on/off by pressing the "T" key in the event the player wants to fight the Cowled Wizards.
 
 - Intelligent use of equipment special abilities.
 
