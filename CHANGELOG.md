@@ -1,5 +1,14 @@
 # Changelog
 
+## Version 6.1
+
+January xx, 2022
+
+### Changed 
+
+- All Games
+  - Updated compatability/install order for PI.
+
 ## Version 6.0
 
 December 7, 2021
