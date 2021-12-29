@@ -2,11 +2,12 @@
 
 ## Version 6.1
 
-January xx, 2022
+December 28, 2021
 
 ### Changed 
 
 - All Games
+  - Updated Russian translation courtesy of Ulpian
   - Updated compatability/install order for PI.
 
 ## Version 6.0
