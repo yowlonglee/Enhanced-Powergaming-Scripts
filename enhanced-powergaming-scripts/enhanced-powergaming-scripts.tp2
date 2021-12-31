@@ -49,7 +49,7 @@ LANGUAGE ~Spanish~
 
 BEGIN @7 DESIGNATED 14 SUBCOMPONENT @2 LABEL EnhancedPowergamingScripts-MainNormal
 
-REQUIRE_PREDICATE GAME_IS ~bgee bg2ee eet iwdee~ @3000
+REQUIRE_PREDICATE GAME_IS ~bgee bg2ee eet iwdee tob bgt~ @3000
 
 LOAD_TRA ~enhanced-powergaming-scripts/languages/%LANGUAGE%/script_descriptions.tra~
 
@@ -63,6 +63,9 @@ END ELSE ACTION_IF GAME_IS ~bgee~ BEGIN
 END ELSE ACTION_IF GAME_IS ~iwdee~ BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/components/IWDEE/initialize.tpa~
 	INCLUDE ~enhanced-powergaming-scripts/components/IWDEE/main_component.tpa~
+END ELSE ACTION_IF GAME_IS ~tob bgt~ BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/components/bgt/initialize.tpa~
+	INCLUDE ~enhanced-powergaming-scripts/components/bgt/main_component.tpa~
 END
 
 ////////////////////////////////////////////////////
