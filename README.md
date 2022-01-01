@@ -1,7 +1,7 @@
 # Enhanced Powergaming Scripts
 
 [![Latest Release](https://img.shields.io/github/v/release/gibberlings3/Enhanced-Powergaming-Scripts?include_prereleases)](https://github.com/Gibberlings3/Enhanced-Powergaming-Scripts/releases/latest)
-![Language](https://img.shields.io/static/v1?label=language&message=english%20%7C%20russian%20%7C%20polish%20%7C%20spanish&color=informational)
+![Language](https://img.shields.io/static/v1?label=language&message=english%20%7C%20german%20%7C%20polish%20%7C%20russian%20%7C%20spanish&color=informational)
 ![Platform](https://img.shields.io/static/v1?label=platform&message=windows%20%7C%20macos%20%7C%20linux&color=informational)
 
 [A Gibberlings Three Mod](https://www.gibberlings3.net/)
@@ -165,6 +165,7 @@ This allows the player to fine-tune aspects of the scripts. 1 turns the feature 
 - CamDawg_G3 for providing insight and feedback into difficult code.
 - Ulpian and yota13 for providing Russian translation.
 - Jastey for testing and providing feedback on improving healing with multiple healers.
+- Morywen for providing German translation.
 
 ## Copyright
 
