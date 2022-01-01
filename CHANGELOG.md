@@ -1,5 +1,15 @@
 # Changelog
 
+## Version 6.2
+
+December 28, 2021
+
+### Changed 
+
+- BG2: EE and EET
+  - Removed issue with installing Made In Heaven Spellpack (Divine component) without installing the Arcane Component.
+  - Updated initialization file to be more accomodating for older versions of mods.
+
 ## Version 6.1
 
 December 28, 2021
