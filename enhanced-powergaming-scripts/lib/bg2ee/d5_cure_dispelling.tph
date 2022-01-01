@@ -259,7 +259,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     CheckSpellState(LastSeenBy(Myself),DEAFENED)
     CheckStatGT(LastSeenBy(Myself),0,HELD)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)  
-  !CheckSpellState(LastSeenBy(Myself),MAJOR_GLOBE)
+  // Major Globe
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)~~~~~
     string = ~~~~~HaveSpell(CLERIC_BREAK_ENCHANTMENT)
   OR(8)
@@ -272,6 +272,6 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     CheckSpellState(LastSeenBy(Myself),DEAFENED)
     CheckStatGT(LastSeenBy(Myself),0,HELD)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)  
-  !CheckSpellState(LastSeenBy(Myself),MAJOR_GLOBE)~~~~~ //"
+  // Major Globe~~~~~ //"
   END
 
