@@ -206,8 +206,10 @@ APPEND ~stats.ids~ ~182 WIZARD_TENSERS_TRANSFORMATION~          UNLESS ~182 WIZA
 	  LPF CLONE_EFFECT INT_VAR match_opcode = 155 opcode = 328 parameter2 = %mnr_glb% special = 1 END
 
 	ACTION_IF scs_breach BEGIN
-		COPY_EXISTING ~DWSW406.SPL~ ~override~ 
-		  LPF CLONE_EFFECT INT_VAR match_opcode = 155 opcode = 328 parameter2 = %mnr_glb% special = 1 END
+		ACTION_IF FILE_EXISTS_IN_GAME ~DWSW406.SPL~ BEGIN
+			COPY_EXISTING ~DWSW406.SPL~ ~override~ 
+			  LPF CLONE_EFFECT INT_VAR match_opcode = 155 opcode = 328 parameter2 = %mnr_glb% special = 1 END
+		END
 	END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -218,8 +220,10 @@ APPEND ~stats.ids~ ~182 WIZARD_TENSERS_TRANSFORMATION~          UNLESS ~182 WIZA
 	  LPF CLONE_EFFECT INT_VAR match_opcode = 155 opcode = 328 parameter2 = %glb% special = 1 END
 
 	ACTION_IF scs_breach BEGIN
-		COPY_EXISTING ~DWSW602.SPL~ ~override~ 
-		  LPF CLONE_EFFECT INT_VAR match_opcode = 155 opcode = 328 parameter2 = %glb% special = 1 END
+		ACTION_IF FILE_EXISTS_IN_GAME ~DWSW602.SPL~ BEGIN
+			COPY_EXISTING ~DWSW602.SPL~ ~override~ 
+			  LPF CLONE_EFFECT INT_VAR match_opcode = 155 opcode = 328 parameter2 = %glb% special = 1 END
+		END
 	END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -329,8 +333,10 @@ ACTION_IF !spell_revisions BEGIN
 	  LPF CLONE_EFFECT INT_VAR match_opcode = 233 opcode = 328 parameter2 = %mnr_spl_trn% special = 1 END
 
 	ACTION_IF scs_breach BEGIN
-		COPY_EXISTING ~DWSW522.SPL~ ~override~ 
-		  LPF CLONE_EFFECT INT_VAR match_opcode = 233 opcode = 328 parameter2 = %mnr_spl_trn% special = 1 END
+		ACTION_IF FILE_EXISTS_IN_GAME ~DWSW522.SPL~ BEGIN
+			COPY_EXISTING ~DWSW522.SPL~ ~override~ 
+			  LPF CLONE_EFFECT INT_VAR match_opcode = 233 opcode = 328 parameter2 = %mnr_spl_trn% special = 1 END
+		END
 	END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -341,8 +347,10 @@ ACTION_IF !spell_revisions BEGIN
 	  LPF CLONE_EFFECT INT_VAR match_opcode = 233 opcode = 328 parameter2 = %spl_trn% special = 1 END
 
 	ACTION_IF scs_breach BEGIN
-		COPY_EXISTING ~DWSW701.SPL~ ~override~ 
-		  LPF CLONE_EFFECT INT_VAR match_opcode = 233 opcode = 328 parameter2 = %spl_trn% special = 1 END
+		ACTION_IF FILE_EXISTS_IN_GAME ~DWSW701.SPL~ BEGIN
+			COPY_EXISTING ~DWSW701.SPL~ ~override~ 
+			  LPF CLONE_EFFECT INT_VAR match_opcode = 233 opcode = 328 parameter2 = %spl_trn% special = 1 END
+		END
 	END
 
 END
