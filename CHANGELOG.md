@@ -7,7 +7,7 @@ January 1, 2022
 ### Changed 
 
 - All Games
-  - Added German translation courtesy of Morywen
+  - Added German translation courtesy of Morywen.
 - BG2: EE and EET
   - Removed issue with installing Made In Heaven Spellpack (Divine component) without installing the Arcane Component.
   - Updated initialization file to be more accomodating for older versions of mods.
