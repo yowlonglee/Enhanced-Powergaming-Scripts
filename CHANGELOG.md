@@ -1,5 +1,14 @@
 # Changelog
 
+## Version 6.3
+
+January x, 2022
+
+### Changed 
+
+- BG2: EE and EET
+  - Missing text for Gargoyle boots.
+
 ## Version 6.2
 
 January 1, 2022
