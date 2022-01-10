@@ -8,6 +8,7 @@ January x, 2022
 
 - BG2: EE and EET
   - Missing text for Gargoyle boots.
+  - Corrected issue d5 Tweak Mantle was causing with Spell Revision
 
 ## Version 6.2
 

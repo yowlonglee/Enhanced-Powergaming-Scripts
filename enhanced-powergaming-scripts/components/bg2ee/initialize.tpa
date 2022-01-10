@@ -384,9 +384,11 @@ ACTION_IF spell_revisions BEGIN
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Prismatic Mantle                                   //
 ///////////////////////////////////////////////////////////////////////////
-	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_MANTLE~ RET spell_res END
-	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
-	  LPF CLONE_EFFECT INT_VAR match_opcode = 233 opcode = 328 parameter2 = 121 special = 1 END
+	ACTION_IF NOT d5_tweak_mantle BEGIN // Will not add if d5 Tweak Mantle is installed
+		LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_MANTLE~ RET spell_res END
+		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
+		  LPF CLONE_EFFECT INT_VAR match_opcode = 233 opcode = 328 parameter2 = 121 special = 1 END
+	END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Moment of Prescience                               //
@@ -1545,6 +1547,18 @@ ACTION_IF mih_divine BEGIN
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~CLERIC_CELESTIAL_PROTECTION~ RET spell_res END
 	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
 		LPF CLONE_EFFECT INT_VAR match_opcode = 120 opcode = 328 parameter2 = %clstl_prtctn% special = 1 END
+END
+
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+// Remove Spell State for Mantle if d5 Tweak Mantle Component            //
+// Block of code provided by subtledoctor                                //
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF d5_tweak_mantle BEGIN
+	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_MANTLE~ RET spell_res END
+	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
+		LPF DELETE_EFFECT INT_VAR match_opcode = 328 parameter2 = 121 END
 END
 
 CLEAR_IDS_MAP
