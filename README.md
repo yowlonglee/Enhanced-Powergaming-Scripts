@@ -49,6 +49,8 @@ If you are upgrading from an earlier version of this mod, I recommend uninstalli
 
 If you are installing any of the below listed mods, they should be installed before this mod. Typically, I recommend to install my scripts at the very end of the mod install order.
 
+These scripts cannot be installed if Olvyn spells are previously installed.
+
 ### Baldur's Gate: Enhanced Edition
 The mod has support for IWD spells (from either Sword Coast Stratagems or IWDification), Thieving Skills for Bards, and Sword Coast Stratagems.
 
