@@ -1555,10 +1555,12 @@ END
 // Block of code provided by subtledoctor                                //
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
+/*
 ACTION_IF d5_tweak_mantle BEGIN
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_MANTLE~ RET spell_res END
 	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
 		LPF DELETE_EFFECT INT_VAR match_opcode = 328 parameter2 = 121 END
 END
+*/
 
 CLEAR_IDS_MAP
