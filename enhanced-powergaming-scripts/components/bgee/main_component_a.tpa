@@ -10,7 +10,7 @@ LOAD_TRA ~enhanced-powergaming-scripts/languages/%LANGUAGE%/script_dialog.tra~
 // MO-Core Initial                                                       //
 ///////////////////////////////////////////////////////////////////////////
 COPY ~enhanced-powergaming-scripts/baf/Accelerated/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
-INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/prebuff_bgee_a.tph~
+INCLUDE ~enhanced-powergaming-scripts/lib/bgee/prebuff_bgee_a.tph~
 
 ///////////////////////////////////////////////////////////////////////////
 // Thieving Skills for Bards                                             //
@@ -42,7 +42,7 @@ END
 // IWD Spells Pre-Buffing                                                //
 ///////////////////////////////////////////////////////////////////////////
 ACTION_IF iwd_scs OR iwdification BEGIN
-	INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/prebuff_iwd_a.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/bgee/prebuff_iwd_a.tph~
 END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -52,13 +52,13 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~  ~enhanced-powergaming
 
 INCLUDE ~enhanced-powergaming-scripts/lib/basic_base.tph~
 INCLUDE ~enhanced-powergaming-scripts/lib/core_base.tph~
-INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/core_bgee.tph~
+INCLUDE ~enhanced-powergaming-scripts/lib/bgee/core_bgee.tph~
 
 ///////////////////////////////////////////////////////////////////////////
 // IWD Spells                                                            //
 ///////////////////////////////////////////////////////////////////////////
 ACTION_IF iwd_scs OR iwdification BEGIN
-	INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/core_iwd.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/bgee/core_iwd.tph~
 END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -66,9 +66,9 @@ END
 ///////////////////////////////////////////////////////////////////////////
 ACTION_IF scs_breach BEGIN
 	ACTION_IF iwd_scs OR iwdification BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/core_breach_iwd.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/bgee/core_breach_iwd.tph~
 	END ELSE BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/core_breach.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/bgee/core_breach.tph~
 	END
 END
 
