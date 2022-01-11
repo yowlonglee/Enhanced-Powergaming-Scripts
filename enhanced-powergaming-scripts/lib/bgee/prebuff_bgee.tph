@@ -379,7 +379,7 @@ IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(CLERIC_PHYSICAL_MIRROR)  // sppr525.spl (Physical Mirror)
   CheckStatLT(Myself,1,CLERIC_PHYSICAL_MIRROR)
-  // Major Globe
+  // (Myself) Major Globe
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
@@ -390,10 +390,8 @@ THEN
     Spell(Myself,CLERIC_PHYSICAL_MIRROR)  // sppr525.spl (Physical Mirror)
 END
 
-IF
-  Global("MO_BUFF","LOCALS",1)~~~~~
-    string = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)~~~~~ //"
+IF~~~~~
+    string = ~~~~~IF~~~~~ //"
   END
 
 ///////////////////////////////////////////////////////////////////////////
