@@ -2,7 +2,7 @@
 
 ## Version 6.3
 
-January x, 2022
+January 11, 2022
 
 ### Changed 
 
