@@ -7,11 +7,11 @@ January 11, 2022
 ### Changed 
 
 - BG2: EE and EET
-  - Missing text for Gargoyle boots.
+  - Replaced missing text for Gargoyle boots.
   - Corrected issue d5 Tweak Mantle was causing with Spell Revision.
 
 - BG: EE and IWD: EE
-  - Corrected some errors so it will not install without warnings.
+  - Corrected some errors so it will install without warnings.
 
 ## Version 6.2
 
