@@ -1,0 +1,20 @@
+LOAD_TRA ~enhanced-powergaming-scripts/languages/%LANGUAGE%/script_dialog.tra~
+
+///////////////////////////////////////////////////////////////////////////
+// Add descriptions of the scripts to scrpdesc.2da                       //
+///////////////////////////////////////////////////////////////////////////
+APPEND ~scrpdesc.2DA~
+~mobasic	mbasic1		 mbasic2
+mocore      mcore1       mcore2
+moskd		mskd1		 mskd2~
+
+///////////////////////////////////////////////////////////////////////////
+// Copy the appended scrpdesc.2da to the override folder                 //
+///////////////////////////////////////////////////////////////////////////
+COPY_EXISTING ~scrpdesc.2da~ ~override~
+REPLACE ~mbasic1~ @1090
+REPLACE ~mbasic2~ @1091
+REPLACE ~mcore1~  @1100
+REPLACE ~mcore2~  @1101
+REPLACE ~mskd1~   @1070
+REPLACE ~mskd2~   @1071

@@ -118,23 +118,3 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~  ~scripts/mobasic.bs~
 	 ~enhanced-powergaming-scripts/baf/upload/mocore.baf~   ~scripts/mocore.bs~
 	 ~enhanced-powergaming-scripts/baf/upload/moskd.baf~    ~scripts/moskd.bs~
   COMPILE_BAF_TO_BCS
-
-
-///////////////////////////////////////////////////////////////////////////
-// Add descriptions of the scripts to scrpdesc.2da                       //
-///////////////////////////////////////////////////////////////////////////
-APPEND ~scrpdesc.2DA~
-~mobasic	999988		 999987
-mocore      999986       999985
-moskd		999980		 999979~
-
-///////////////////////////////////////////////////////////////////////////
-// Copy the appended scrpdesc.2da to the override folder                 //
-///////////////////////////////////////////////////////////////////////////
-COPY_EXISTING ~scrpdesc.2da~ ~override~
-REPLACE ~999988~ @1090
-REPLACE ~999987~ @1091
-REPLACE ~999986~ @1100
-REPLACE ~999985~ @1101
-REPLACE ~999980~ @1070
-REPLACE ~999979~ @1071
