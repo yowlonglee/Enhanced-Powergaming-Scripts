@@ -62,22 +62,20 @@ ACTION_IF GAME_IS ~bg2ee eet~ BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/initialize.tpa~
 	INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/prebuff.tpa~
 	INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/main_component.tpa~
-	INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/scrp_desc.tpa~
 END ELSE ACTION_IF GAME_IS ~bgee~ BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/components/BGEE/initialize.tpa~
 	INCLUDE ~enhanced-powergaming-scripts/components/BGEE/main_component.tpa~
-	INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/scrp_desc.tpa~
 END ELSE ACTION_IF GAME_IS ~iwdee~ BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/components/IWDEE/initialize.tpa~
 	INCLUDE ~enhanced-powergaming-scripts/components/IWDEE/main_component.tpa~
-	INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/scrp_desc.tpa~
 /* NOT IN USE YET
 END ELSE ACTION_IF GAME_IS ~tob bgt~ BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/components/bgt/initialize.tpa~
 	INCLUDE ~enhanced-powergaming-scripts/components/bgt/main_component.tpa~
-	INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/scrp_desc.tpa~
 */
 END
+
+INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/scrp_desc.tpa~
 
 ////////////////////////////////////////////////////
 
