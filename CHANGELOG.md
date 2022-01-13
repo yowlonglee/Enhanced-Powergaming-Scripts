@@ -1,5 +1,14 @@
 # Changelog
 
+## Version 6.4
+
+January xx, 2022
+
+### Changed 
+
+- BG2: EE and EET
+  - Corrected some harmless warnings from Faith & Powers and SR(R).
+
 ## Version 6.3
 
 January 11, 2022
