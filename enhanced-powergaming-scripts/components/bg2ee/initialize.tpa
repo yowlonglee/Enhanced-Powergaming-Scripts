@@ -709,6 +709,29 @@ END
 		OUTER_SET gtr_whirl = %new_state_ind%
 	END
 
+///////////////////////////////////////////////////////////////////////////
+// Create Spell State for Critical Strike                                //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~CRITICAL_STRIKE~)) BEGIN
+	  COPY_EXISTING ~splstate.ids~ ~override~
+		COUNT_2DA_COLS cols
+		READ_2DA_ENTRIES_NOW rows cols
+		FOR (row = 1; row < rows; ++row) BEGIN
+		  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
+		  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
+		  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~CRITICAL_STRIKE~) BEGIN
+			SET ctr_strk = %state_ind%
+		  END
+		END
+	  BUT_ONLY
+	END
+
+	ACTION_IF !(VARIABLE_IS_SET %ctr_strk%) BEGIN
+		LAF ds_sort_ids STR_VAR ids=splstate END
+		LAF d5_resolve_state STR_VAR new_state_id = ~CRITICAL_STRIKE~ RET new_state_ind END
+		OUTER_SET ctr_strk = %new_state_ind%
+	END
+
 /*
 ///////////////////////////////////////////////////////////////////////////
 // Create Spell State for Negative Plane Protection                      //
@@ -867,6 +890,13 @@ END
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WARRIOR_GREATER_WHIRLWIND~ RET spell_res END
 	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
 	  LPF CLONE_EFFECT INT_VAR match_opcode = 282 opcode = 328 parameter2 = %gtr_whirl% special = 1 END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Spell State to Critical Strike                                    //
+///////////////////////////////////////////////////////////////////////////
+	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WARRIOR_CRITICAL_STRIKE~ RET spell_res END
+	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
+	  LPF CLONE_EFFECT INT_VAR match_opcode = 282 opcode = 328 parameter2 = %ctr_strk% special = 1 END
 
 /*
 ///////////////////////////////////////////////////////////////////////////
