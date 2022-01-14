@@ -10,6 +10,7 @@ January xx, 2022
   - Corrected some harmless warnings from Faith & Powers and SR(R).
   - Optimize use of Greater Whirlwind and Critical Strike.
   - Added healing potions from Extra Expanded Enhanced Encounters.
+  - Minor optimization of enemy dispelling scripts.
 
 ## Version 6.3
 
