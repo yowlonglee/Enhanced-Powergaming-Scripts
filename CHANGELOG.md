@@ -9,6 +9,7 @@ January xx, 2022
 - BG2: EE and EET
   - Corrected some harmless warnings from Faith & Powers and SR(R).
   - Optimize use of Greater Whirlwind and Critical Strike.
+  - Added healing potions from Extra Expanded Enhanced Encounters.
 
 ## Version 6.3
 
