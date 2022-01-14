@@ -288,44 +288,51 @@ END ELSE BEGIN
 END
 
 ///////////////////////////////////////////////////////////////////////////
+// Extra Expanded Enhanced Encounters - Healing Potions                  //
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF heal_pot BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_heal_pot.tph~
+END
+
+///////////////////////////////////////////////////////////////////////////
 // Update ini Presets                                                    //
 ///////////////////////////////////////////////////////////////////////////
-	// Basic AI will Auto-Attack Enemies
-	ACTION_IF bsc_atk BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/ini/basic_atk.tph~
-	END
+// Basic AI will Auto-Attack Enemies
+ACTION_IF bsc_atk BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/ini/basic_atk.tph~
+END
 
-	// Removes Dialog Hovertext from Scripts
-	ACTION_IF scp_dlg BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/ini/core_dialog.tph~
-	END
+// Removes Dialog Hovertext from Scripts
+ACTION_IF scp_dlg BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/ini/core_dialog.tph~
+END
 
 ///////////////////////////////////////////////////////////////////////////
 // MiH - Arcane Spells Major Globe                                       //
 ///////////////////////////////////////////////////////////////////////////
-	ACTION_IF mih_arcane BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_mih_globe.tph~
-	END
+ACTION_IF mih_arcane BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_mih_globe.tph~
+END
 	
 ///////////////////////////////////////////////////////////////////////////
 // Make Skald Script after Core                                          //
 ///////////////////////////////////////////////////////////////////////////
-	INCLUDE ~enhanced-powergaming-scripts/lib/skald_base.tph~
+INCLUDE ~enhanced-powergaming-scripts/lib/skald_base.tph~
 
 ///////////////////////////////////////////////////////////////////////////
 // Thieving Skills for Bards                                             //
 ///////////////////////////////////////////////////////////////////////////
-	ACTION_IF bard_thief BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/bard_thief.tph~
-		INCLUDE ~enhanced-powergaming-scripts/lib/skald_bard_thief.tph~
-	END
+ACTION_IF bard_thief BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/bard_thief.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/skald_bard_thief.tph~
+END
 
 ///////////////////////////////////////////////////////////////////////////
 // Removes Targeting Dancing Swords with Magic Missiles                  //
 ///////////////////////////////////////////////////////////////////////////
-	ACTION_IF dnc_swrd BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/ini/rmv_dnc_swrd.tph~
-	END
+ACTION_IF dnc_swrd BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/ini/rmv_dnc_swrd.tph~
+END
 
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
