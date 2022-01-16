@@ -7,11 +7,10 @@ January xx, 2022
 ### Changed 
 
 - All Games
-  - Characters, if able to, will now use the Detect Illusions thieving skill if hidden/illusioned enemies are detected. This will coordinate to ensure it will not be used if True Sight/Seeing is in effect within the group (unless playing on SR). Additionally, no detection spells (i.e. True Sight, Detect Invisibility, Invisibility Purge, etc.) will be used if a character in the party is currently using the Detect Illusions thieving skill. This will all happen automatically without any player intervention required.
+  - Characters, if able to, will now use the Detect Illusions thieving skill if hidden/illusioned enemies are detected and there are over 80 skill points assigned. This will coordinate to ensure it will not be used if True Sight/Seeing is in effect within the group (unless playing on SR). Additionally, no detection spells (i.e. True Sight, Detect Invisibility, Invisibility Purge, etc.) will be used if a character in the party is currently using the Detect Illusions thieving skill. This will all happen automatically without any player intervention required.
 - BG2: EE and EET
-  - Corrected some harmless warnings from Faith & Powers and SR(R).
+  - Corrected some harmless warnings if Faith & Powers and SR(R) are both installed.
   - Optimize use of Greater Whirlwind and Critical Strike.
-  - Added healing potions from Extra Expanded Enhanced Encounters.
   - Minor optimization of enemy dispelling scripts.
 
 ## Version 6.3
