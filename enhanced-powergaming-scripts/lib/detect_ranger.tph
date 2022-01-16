@@ -19,20 +19,3 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     Class(Myself,RANGER_ALL)
     Class(Myself,CLERIC_RANGER)~~~~~ //"
   END
-
-  LPF REPLACE_MULTILINE
-    INT_VAR
-    strict = 1
-    verbose = 0
-    STR_VAR
-    pattern = ~~~~~OR(3)
-    Class(Myself,THIEF_ALL)
-    Class(Myself,MONK)
-    Class(Myself,SHAMAN)~~~~~
-    string = ~~~~~OR(5)
-    Class(Myself,THIEF_ALL)
-    Class(Myself,MONK)
-    Class(Myself,SHAMAN)
-    Class(Myself,RANGER_ALL)
-    Class(Myself,CLERIC_RANGER)~~~~~ //"
-  END
