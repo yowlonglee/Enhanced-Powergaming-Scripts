@@ -25,6 +25,16 @@ THEN
 END
 
 IF
+  !GlobalTimerNotExpired("MO_DetectEnemyIllusionTimer","GLOBAL")
+  Global("MO_DetectEnemyIllusion","GLOBAL",1)
+  Global("MO_MyDetectEnemyIllusion","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_DetectEnemyIllusion","GLOBAL",0)
+    SetGlobal("MO_MyDetectEnemyIllusion","LOCALS",0)
+END
+
+IF
   PartyRested()
 THEN
   RESPONSE #100
