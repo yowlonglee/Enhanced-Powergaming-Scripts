@@ -199,11 +199,4 @@ ACTION_IF !VARIABLE_IS_SET ~initialise~ BEGIN
       OUTER_SET d5_tweak_mantle=0
    END
 
-   // Detect Extra Expanded Enhanced Encounters - Healing Potions
-   ACTION_IF FILE_EXISTS_IN_GAME ~OLPOTN01.ITM~ THEN BEGIN
-      OUTER_SET heal_pot=1
-   END ELSE BEGIN
-      OUTER_SET heal_pot=0
-   END
-
 END
