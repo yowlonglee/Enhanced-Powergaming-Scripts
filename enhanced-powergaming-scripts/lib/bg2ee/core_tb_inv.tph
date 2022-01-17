@@ -11,6 +11,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     pattern = ~~~~~!StateCheck(LastSeenBy(Myself),STATE_NONDETECTION)
   !CheckStat(LastSeenBy(Myself),3,WIZARD_SPELL_IMMUNITY)
   Global("MO_PartyTrueSight","GLOBAL",0)
+  Global("MO_DetectEnemyIllusion","GLOBAL",0)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -27,6 +28,7 @@ THEN
 END~~~~~
     string = ~~~~~!CheckStat(LastSeenBy(Myself),3,WIZARD_SPELL_IMMUNITY)
   Global("MO_PartyTrueSight","GLOBAL",0)
+  Global("MO_DetectEnemyIllusion","GLOBAL",0)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -45,7 +47,7 @@ END
   END
 
 ///////////////////////////////////////////////////////////////////////////
-// Add Wizard Invisibility Purge (Detect Illusions)                      //
+// Remove Non-Detection from Invisibility Purge (Detect Illusions)       //
 ///////////////////////////////////////////////////////////////////////////
   LPF REPLACE_MULTILINE
     INT_VAR
@@ -58,6 +60,7 @@ END
     StateCheck(LastSeenBy(Myself),STATE_NONDETECTION)
   !CheckStat(LastSeenBy(Myself),3,WIZARD_SPELL_IMMUNITY)
   Global("MO_PartyTrueSight","GLOBAL",0)
+  Global("MO_DetectEnemyIllusion","GLOBAL",0)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -78,6 +81,7 @@ END~~~~~
   !StateCheck(LastSeenBy(Myself),STATE_NONDETECTION)
   !CheckStat(LastSeenBy(Myself),3,WIZARD_SPELL_IMMUNITY)
   Global("MO_PartyTrueSight","GLOBAL",0)
+  Global("MO_DetectEnemyIllusion","GLOBAL",0)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)

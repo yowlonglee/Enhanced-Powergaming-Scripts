@@ -10,6 +10,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     STR_VAR
     pattern = ~~~~~!StateCheck(LastSeenBy(Myself),STATE_NONDETECTION)
   CheckStatLT(Myself,1,TRUE_SIGHT)
+  Global("MO_DetectEnemyIllusion","GLOBAL",0)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -25,6 +26,7 @@ THEN
     SetInterrupt(TRUE)
 END~~~~~
     string = ~~~~~CheckStatLT(Myself,1,TRUE_SIGHT)
+  Global("MO_DetectEnemyIllusion","GLOBAL",0)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
