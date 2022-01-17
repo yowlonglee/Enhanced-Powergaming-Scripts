@@ -416,12 +416,12 @@ ACTION_IF spell_revisions BEGIN
 ///////////////////////////////////////////////////////////////////////////
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_SPELL_SHIELD~ RET spell_res END
 	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
-	  LPF CLONE_EFFECT INT_VAR match_opcode = 282 opcode = 328 parameter2 = 108 special = 1 END
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = 108 timing = 0 duration = 300 END
 
 	ACTION_IF scs_breach BEGIN
 		ACTION_IF FILE_EXISTS_IN_GAME ~DWSW519.SPL~ BEGIN
 			COPY_EXISTING ~DWSW519.SPL~ ~override~ 
-			  LPF CLONE_EFFECT INT_VAR match_opcode = 282 opcode = 328 parameter2 = 108 special = 1 END
+			  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = 108 timing = 0 duration = 300 END
 		END
 	END
 
