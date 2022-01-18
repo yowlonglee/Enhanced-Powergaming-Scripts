@@ -52,13 +52,6 @@ ACTION_IF !VARIABLE_IS_SET ~initialise~ BEGIN
       OUTER_SET bard_thief=0
    END
 
-   // Detect Thieving Skills for Rangers
-   ACTION_IF MOD_IS_INSTALLED ~thieving-skills-for-bards.tp2~ ~3~ THEN BEGIN
-      OUTER_SET ranger_detect=1
-   END ELSE BEGIN
-      OUTER_SET ranger_detect=0
-   END
-
    // Detect Song and Silence
    ACTION_IF MOD_IS_INSTALLED ~setup-song_and_silence.tp2~ ~8~ BEGIN
       OUTER_SET song_and_silence=1
