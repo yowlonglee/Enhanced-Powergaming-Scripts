@@ -1310,6 +1310,7 @@ ACTION_IF scs_golem BEGIN
 ///////////////////////////////////////////////////////////////////////////
 // Add Remove Effects by Resource to Remove Curse                        //
 ///////////////////////////////////////////////////////////////////////////
+// Please note, the Remove Curse Spell already removes the curse, this is to remove the spell tracking on it.
 	COPY_EXISTING ~SPPR307.SPL~ ~override~ 
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 timing = 9 STR_VAR resource = "DW#CURSE" END
 
