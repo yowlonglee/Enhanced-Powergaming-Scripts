@@ -2,7 +2,7 @@
 
 ## Version 6.4
 
-January xx, 2022
+February xx, 2022
 
 ### Changed 
 
@@ -12,6 +12,9 @@ January xx, 2022
   - Corrected some harmless warnings if Faith & Powers and SR(R) are both installed.
   - Optimize use of Greater Whirlwind and Critical Strike.
   - Minor optimization of enemy dispelling scripts.
+  - Removed components regarding SR(R) and IR(R) reverting back to their vanilla version. 
+- IWD: EE
+  - Will detect if Bards can use Thieving Skills.
 
 ## Version 6.3
 
