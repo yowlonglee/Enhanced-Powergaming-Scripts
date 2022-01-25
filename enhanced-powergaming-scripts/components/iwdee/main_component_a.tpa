@@ -59,6 +59,14 @@ INCLUDE ~enhanced-powergaming-scripts/lib/IWDEE/core_iwd.tph~
 INCLUDE ~enhanced-powergaming-scripts/lib/iwdee/skald_base.tph~
 
 ///////////////////////////////////////////////////////////////////////////
+// Thieving Skills for Bards                                             //
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF bard_thief BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/bard_thief.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/skald_bard_thief.tph~
+END
+
+///////////////////////////////////////////////////////////////////////////
 // Removes Targeting Dancing Swords with Magic Missiles                  //
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF dnc_swrd BEGIN

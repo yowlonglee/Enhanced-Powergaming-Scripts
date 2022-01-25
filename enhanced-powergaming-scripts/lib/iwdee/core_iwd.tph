@@ -607,7 +607,6 @@ IF~~~~~
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WARRIOR_CRITICAL_STRIKE)  // SPCL905.SPL (Critical Strike)
   !CheckSpellState(Myself,CRITICAL_STRIKE)
-  !CheckSpellState(Myself,GREATER_WHIRLWIND)
   See([EVILCUTOFF])
   OR(6)
     WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
