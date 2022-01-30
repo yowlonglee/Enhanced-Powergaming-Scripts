@@ -9,12 +9,12 @@ IF
   Allegiance(Myself,GOODCUTOFF)
 THEN
   RESPONSE #100
-    ChangeAIScript("moevd03",GENERAL)
+    ChangeAIScript("moevd03",OVERRIDE)
 END
 
 IF
   !Allegiance(Myself,GOODCUTOFF)
 THEN
   RESPONSE #100
-    ChangeAIScript("moevd02",GENERAL)
+    ChangeAIScript("moevd02",OVERRIDE)
 END

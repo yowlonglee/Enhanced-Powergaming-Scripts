@@ -22,7 +22,7 @@ IF
   !Kit(Myself,SKALD)
 THEN
   RESPONSE #100
-    ChangeAIScript("mosim02",GENERAL)
+    ChangeAIScript("mosim02",OVERRIDE)
 END
 
 IF
@@ -30,12 +30,12 @@ IF
   Kit(Myself,SKALD)
 THEN
   RESPONSE #100
-    ChangeAIScript("mosim06",GENERAL)
+    ChangeAIScript("mosim06",OVERRIDE)
 END
 
 IF
   Allegiance(Myself,ENEMY)
 THEN
   RESPONSE #100
-    ChangeAIScript("mosim07",GENERAL)
+    ChangeAIScript("mosim07",OVERRIDE)
 END
