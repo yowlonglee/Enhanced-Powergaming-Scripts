@@ -46,7 +46,7 @@ ACTION_IF !VARIABLE_IS_SET ~initialise~ BEGIN
    END
 
    // Detect Thieving Skills for Bards
-   ACTION_IF MOD_IS_INSTALLED ~thieving-skills-for-bards.tp2~ ~1~ THEN BEGIN
+   ACTION_IF MOD_IS_INSTALLED ~thieving-skills-for-bards.tp2~ ~1~ OR MOD_IS_INSTALLED ~skills-and-abilities.tp2~ ~12~ THEN BEGIN
       OUTER_SET bard_thief=1
    END ELSE BEGIN
       OUTER_SET bard_thief=0
