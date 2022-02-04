@@ -16,8 +16,9 @@ ASK_EVERY_COMPONENT
 ALWAYS
 	INCLUDE ~enhanced-powergaming-scripts/lib/always.tph~
 
-	ACTION_DEFINE_ARRAY moreload BEGIN item_descriptions script_descriptions spell_descriptions script_dialog END
-	LAF HANDLE_CHARSETS INT_VAR infer_charsets = 1 STR_VAR tra_path = ~enhanced-powergaming-scripts/languages~ reload_array = moreload END
+	AUTO_TRA ~enhanced-powergaming-scripts/languages/%s~
+	//ACTION_DEFINE_ARRAY moreload BEGIN item_descriptions script_descriptions spell_descriptions script_dialog END
+	//LAF HANDLE_CHARSETS INT_VAR infer_charsets = 1 STR_VAR tra_path = ~enhanced-powergaming-scripts/languages~ reload_array = moreload END
 
 END
 
