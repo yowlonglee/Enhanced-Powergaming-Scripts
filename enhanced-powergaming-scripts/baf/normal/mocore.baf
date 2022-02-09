@@ -12,8 +12,18 @@ IF
   !GlobalTimerNotExpired("MO_HealCast","GLOBAL")
   Global("MO_CastingHeal","GLOBAL",1)
 THEN
-  RESPONSE #1009
+  RESPONSE #100
     SetGlobal("MO_CastingHeal","GLOBAL",0)
+END
+
+IF
+  !GlobalTimerNotExpired("MO_DetectEnemyIllusionTimer","LOCALS")
+  Global("MO_DetectEnemyIllusion","GLOBAL",1)
+  Global("MO_MyDetectEnemyIllusion","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_DetectEnemyIllusion","GLOBAL",0)
+    SetGlobal("MO_MyDetectEnemyIllusion","LOCALS",0)
 END
 
 IF
