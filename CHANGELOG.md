@@ -1,5 +1,14 @@
 # Changelog
 
+## Version 7.0
+
+March xx, 2022
+
+### Changed 
+
+- All Games
+  - 
+
 ## Version 6.4
 
 February 8, 2022

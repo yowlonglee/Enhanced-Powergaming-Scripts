@@ -194,7 +194,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
     Spell(Myself,CLERIC_IRONSKIN)  // SPPR506.SPL (Stoneskin)
+    SetInterrupt(TRUE)
 END
 
 IF
