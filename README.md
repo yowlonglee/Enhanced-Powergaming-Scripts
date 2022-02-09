@@ -32,7 +32,7 @@ These scripts are focused on heavy physical damage parties in both melee and ran
 
 - Automatically using appropriate healing potions and antidotes in combat.
 
-- Automatic use of healing spells when out of combat. Focus is on casting the appropriate healing spell in relation to the amount of damage being healed (i.e. reduced overhealing).
+- Automatic use of healing spells when out of combat. Focus is on casting the appropriate healing spell in relation to the amount of damage being healed (i.e. reduced overhealing). Additionally, characters using these scripts will take turns when healing to avoid overhealing.
 
 - Casting PfMW or Shield of Lathander (SCS IWD spell that acts as the Cleric version of PfMW) if health drops below a threshold.
 
