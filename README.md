@@ -110,22 +110,6 @@ This provides enhanced ai scripts for simulacrums. Overall, the scripts allows t
 
 This provides enhanced ai scripts for summoned Simulacrums allowing the player to be more hands off while the Simulacrums will act intelligently in targeting enemies, casting protection spells, detecting invisible/hidden enemies, debuffing enemy protections, and capable of pre-buffing! The Simulacrum will work with all of the hotkeys offered in my scripts.
 
-### Restore Vanilla Belm and Kundane (Item Revisions Required)
-
-Requires Item Revisions - Offers the vanilla, non-IR(R) versions of Belm and Kundane which include the full 1 APR increase for both items.
-
-### Restore Vanilla Gargoyle Boots (Item Revisions Required)
-
-Requires Item Revisions - Offers the vanilla, non-IR(R) version of Gargoyle Boots which includes Stoneskin for 8 hours (per SR(R)'s updated Stoneskin spell).
-
-### Restore Vanilla Amulet of the Cheetah (Item Revisions Required)
-
-Requires Item Revisions - Offers the vanilla, non-IR(R) version of Amulet of the Cheetah.
-
-### Restore Vanilla Haste and Improved Haste (Spell Revisions Required)
-
-Requires Spell Revisions - Offers the vanilla, non-SR(R) versions of Haste and Improved Haste.
-
 ## ini File
 The ini file allows players to customize certain settings to their preference.
 
