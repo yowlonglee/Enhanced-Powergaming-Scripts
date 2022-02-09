@@ -2510,6 +2510,7 @@ END
 
 IF
   Global("MO_DetectEnemyIllusion","GLOBAL",0)
+  ModalState(DETECTTRAPS)
   CheckStatGT(Myself,80,DETECTILLUSIONS)
   OR(6)
     SpellCast([EVILCUTOFF],WIZARD_PROJECT_IMAGE)  // SPWI703.SPL (Project Image)
@@ -2530,6 +2531,7 @@ END
 
 IF
   Global("MO_DetectEnemyIllusion","GLOBAL",0)
+  ModalState(DETECTTRAPS)
   CheckStatGT(Myself,80,DETECTILLUSIONS)
   Detect([EVILCUTOFF])
   OR(4)
@@ -2549,6 +2551,7 @@ END
 
 IF
   Global("MO_DetectEnemyIllusion","GLOBAL",0)
+  ModalState(DETECTTRAPS)
   CheckStatGT(Myself,80,DETECTILLUSIONS)
   See(NearestEnemyOf(Myself))
   OR(4)
@@ -2569,6 +2572,7 @@ END
 
 IF
   Global("MO_DetectEnemyIllusion","GLOBAL",0)
+  ModalState(DETECTTRAPS)
   CheckStatGT(Myself,80,DETECTILLUSIONS)
   See(SecondNearestEnemyOf(Myself))
   OR(4)
@@ -2589,6 +2593,7 @@ END
 
 IF
   Global("MO_DetectEnemyIllusion","GLOBAL",0)
+  ModalState(DETECTTRAPS)
   CheckStatGT(Myself,80,DETECTILLUSIONS)
   See(ThirdNearestEnemyOf(Myself))
   OR(4)
@@ -2608,6 +2613,7 @@ END
 
 IF
   Global("MO_DetectEnemyIllusion","GLOBAL",0)
+  ModalState(DETECTTRAPS)
   CheckStatGT(Myself,80,DETECTILLUSIONS)
   See(FourthNearestEnemyOf(Myself))
   OR(4)
@@ -2627,6 +2633,7 @@ END
 
 IF
   Global("MO_DetectEnemyIllusion","GLOBAL",0)
+  ModalState(DETECTTRAPS)
   CheckStatGT(Myself,80,DETECTILLUSIONS)
   See(FifthNearestEnemyOf(Myself))
   OR(4)
@@ -2646,6 +2653,7 @@ END
 
 IF
   Global("MO_DetectEnemyIllusion","GLOBAL",0)
+  ModalState(DETECTTRAPS)
   CheckStatGT(Myself,80,DETECTILLUSIONS)
   See(SixthNearestEnemyOf(Myself))
   OR(4)
