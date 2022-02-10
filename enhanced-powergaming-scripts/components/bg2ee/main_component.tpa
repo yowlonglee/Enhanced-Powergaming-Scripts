@@ -329,6 +329,39 @@ END
 
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
+// 5e Spellcasting names                                                 //
+// Code in this section provided by Subtledoctor                         //
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF 5e_spellcasting BEGIN
+	COPY_EXISTING ~d5zclons.2da~ ~override~
+  	COUNT_2D_COLS cols
+  	COUNT_2DA_ROWS cols rows
+  	FOR (row = 1; row < rows; ++row) BEGIN
+    	READ_2DA_ENTRY row 0 cols ind_num
+    	READ_2DA_ENTRY row 1 cols mem_spl
+    	SPRINT $5e_spells_array(~d5z%ind_num%i~)~%mem_spl%~
+  	END
+	BUT_ONLY
+
+	COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
+	  PHP_EACH 5e_spells_array AS new_spl => old_spl BEGIN
+	    REPLACE_TEXTUALLY CASE_INSENSITIVE ~%old_spl%~ ~"%new_spl%"~
+	  END
+
+	COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+	  PHP_EACH 5e_spells_array AS new_spl => old_spl BEGIN
+	    REPLACE_TEXTUALLY CASE_INSENSITIVE ~%old_spl%~ ~"%new_spl%"~
+	  END
+
+	COPY ~enhanced-powergaming-scripts/baf/upload/moskd.baf~ ~enhanced-powergaming-scripts/baf/upload/moskd.baf~
+	  PHP_EACH 5e_spells_array AS new_spl => old_spl BEGIN
+	    REPLACE_TEXTUALLY CASE_INSENSITIVE ~%old_spl%~ ~"%new_spl%"~
+	  END
+END
+
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
 // Import AI Scripts into the Game                                       //
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
