@@ -1,6 +1,57 @@
 COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
 
 ///////////////////////////////////////////////////////////////////////////
+// Prot from Evil 10' Check                                              //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~IF
+  HaveSpell(CLERIC_PROTECTION_FROM_EVIL_10_FOOT)  // SPPR408.SPL (Protection From Evil, 10' Radius)
+  OR(2)
+    Global("MO_ProtEvil","LOCALS",0)
+    Global("MO_TeamProtEvil","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_ProtEvil","LOCALS",1)
+    SetGlobal("MO_TeamProtEvil","GLOBAL",1)
+END
+
+IF
+  !HaveSpell(CLERIC_PROTECTION_FROM_EVIL_10_FOOT)  // SPPR408.SPL (Protection From Evil, 10' Radius)
+  Global("MO_ProtEvil","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_ProtEvil","LOCALS",0)
+    SetGlobal("MO_TeamProtEvil","GLOBAL",0)
+END~~~~~
+    string = ~~~~~IF
+  OR(2)
+    HaveSpell(CLERIC_PROTECTION_FROM_EVIL_10_FOOT)  // SPPR408.SPL (Protection From Evil, 10' Radius)
+    HaveSpellRES(SPPR408)
+  OR(2)
+    Global("MO_ProtEvil","LOCALS",0)
+    Global("MO_TeamProtEvil","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_ProtEvil","LOCALS",1)
+    SetGlobal("MO_TeamProtEvil","GLOBAL",1)
+END
+
+IF
+  !HaveSpell(CLERIC_PROTECTION_FROM_EVIL_10_FOOT)  // SPPR408.SPL (Protection From Evil, 10' Radius)
+  !HaveSpellRES(SPPR408)
+  Global("MO_ProtEvil","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_ProtEvil","LOCALS",0)
+    SetGlobal("MO_TeamProtEvil","GLOBAL",0)
+END~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
 // Stoneskin                                                             //
 ///////////////////////////////////////////////////////////////////////////
   LPF REPLACE_MULTILINE
@@ -1452,6 +1503,32 @@ THEN
   RESPONSE #100
     ReallyForceSpellRES(SPWI517,LastSeenBy(Myself))
     RemoveSpellRES(SPWI517)
+END
+~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Shield of the Archons                                                 //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Prebuff Shield of the Archons~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES(SPPR701)
+  CheckStatLT(Myself,1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(SPPR701,Myself)
+    RemoveSpellRES(SPPR701)
 END
 ~~~~~ //"
   END
