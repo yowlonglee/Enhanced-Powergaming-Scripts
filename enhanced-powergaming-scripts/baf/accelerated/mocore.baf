@@ -461,6 +461,8 @@ THEN
     RemoveSpell(WIZARD_SHIELD)  // SPWI114.SPL (Shield)
 END
 
+// 5e Spellcasting Prebuff Resist Fear
+
 IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(WIZARD_RESIST_FEAR)  // SPWI210.SPL (Resist Fear)
@@ -496,6 +498,8 @@ THEN
     RemoveSpell(CAVALIER_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
 END
 
+// 5e Spellcasting Prebuff Cleric Remove Fear
+
 IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
@@ -513,7 +517,11 @@ THEN
     RemoveSpell(CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
 END
 
+// 5e Spellcasting Prebuff - IWD Emotion Courage and Hope
+
 // IWD Emotion Courage and Hope
+
+// 5e Spellcasting Prebuff Prot Normal Missiles
 
 IF
   Global("MO_BUFF","LOCALS",1)
@@ -533,6 +541,8 @@ THEN
     RemoveSpell(WIZARD_PROTECTION_FROM_NORMAL_MISSILES)  // SPWI311.SPL (Protection From Normal Missiles)
 END
 
+// 5e Spellcasting Prebuff Death Ward
+
 IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(CLERIC_DEATH_WARD)  // SPPR409.SPL (Death Ward)
@@ -695,6 +705,8 @@ THEN
     ReallyForceSpell(LastSeenBy(Myself),CLERIC_DEATH_WARD)  // SPPR409.SPL (Death Ward)
     RemoveSpell(CLERIC_DEATH_WARD)  // SPPR409.SPL (Death Ward)
 END
+
+// 5e Spellcasting Prebuff Prot Evil 10'
 
 IF
   Global("MO_BUFF","LOCALS",1)
@@ -712,6 +724,8 @@ THEN
     RemoveSpell(CLERIC_PROTECTION_FROM_EVIL_10_FOOT)  // SPPR408.SPL (Protection From Evil, 10' Radius)
 END
 
+// 5e Spellcasting Prebuff Chaotic Commands
+
 IF
   Global("MO_BUFF","LOCALS",1)
   See(Myself)
@@ -882,9 +896,13 @@ THEN
     ReallyForceSpell(LastSeenBy(Myself),CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
     RemoveSpell(CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
 END
+
+// 5e Spellcasting Prebuff - MiH Foresight
 
 // MiH Foresight
 
+// 5e Spellcasting Prebuff Prot Magic Energy
+
 IF
   Global("MO_BUFF","LOCALS",1)
   See(Myself)
@@ -1027,11 +1045,17 @@ THEN
     ReallyForceSpell(LastSeenBy(Myself),WIZARD_PROTECTION_FROM_MAGIC_ENERGY)  // SPWI606.SPL (Protection From Magic Energy)
     RemoveSpell(WIZARD_PROTECTION_FROM_MAGIC_ENERGY)  // SPWI606.SPL (Protection From Magic Energy)
 END
+
+// 5e Spellcasting Prebuff - MiH Cleric Celestial Protection
 
 // MiH Cleric Celestial Protection
 
+// 5e Spellcasting Prebuff - MiH Circle of Protection
+
 // MiH Circle of Protection
 
+// 5e Spellcasting Prebuff Prot from Electricity
+
 IF
   Global("MO_BUFF","LOCALS",1)
   See(Myself)
@@ -1182,6 +1206,8 @@ THEN
     RemoveSpell(WIZARD_PROTECTION_FROM_ELECTRICITY)  // SPWI512.SPL (Protection From Electricity)
 END
 
+// 5e Spellcasting Prebuff Prot from Fire
+
 IF
   Global("MO_BUFF","LOCALS",1)
   See(Myself)
@@ -1352,6 +1378,8 @@ THEN
     RemoveSpell(WIZARD_PROTECTION_FROM_FIRE)  // SPWI319.SPL (Protection From Fire)
 END
 
+// 5e Spellcasting Prebuff Prot from Cold
+
 IF
   Global("MO_BUFF","LOCALS",1)
   See(Myself)
@@ -1521,6 +1549,8 @@ THEN
     ReallyForceSpell(LastSeenBy(Myself),WIZARD_PROTECTION_FROM_COLD)  // SPWI320.SPL (Protection From Cold)
     RemoveSpell(WIZARD_PROTECTION_FROM_COLD)  // SPWI320.SPL (Protection From Cold)
 END
+
+// 5e Spellcasting Prebuff Prot from Acid
 
 IF
   Global("MO_BUFF","LOCALS",1)
