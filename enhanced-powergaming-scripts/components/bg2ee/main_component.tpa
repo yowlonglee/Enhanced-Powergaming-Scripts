@@ -335,7 +335,7 @@ END
 ///////////////////////////////////////////////////////////////////////////
 ACTION_IF 5e_spellcasting BEGIN
 	COPY_EXISTING ~d5zclons.2da~ ~override~
-  	COUNT_2DA_COLS cols
+  	COUNT_2DAq_COLS cols
   	COUNT_2DA_ROWS cols rows
   	FOR (row = 1; row < rows; ++row) BEGIN
     	READ_2DA_ENTRY row 0 cols ind_num
