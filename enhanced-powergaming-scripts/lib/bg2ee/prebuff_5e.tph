@@ -1,0 +1,138 @@
+COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+
+///////////////////////////////////////////////////////////////////////////
+// Stoneskin                                                             //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Prebuff Stoneskin~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  ActionListEmpty()
+  CheckStatLT(Myself,1,STONESKINS)
+  HaveSpellRES("d5z250i")
+  !CheckSpellState(Myself,GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SpellRES("d5z250i",Myself)
+END
+~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Iron Skins                                                            //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Prebuff Iron Skins~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  ActionListEmpty()
+  CheckStatLT(Myself,1,STONESKINS)
+  HaveSpellRES("d5z171i")
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SpellRES("d5z171i",Myself)
+END
+~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Spirit Armor                                                          //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Prebuff Spirit Armor~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES("d5z267i")
+  CheckStatGT(Myself,1,ARMORCLASS)
+  !CheckSpellState(Myself,GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SpellRES("d5z267i",Myself)
+END
+~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Ghost Armor                                                           //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Prebuff Ghost Armor~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES("d5z248i")
+  CheckStatGT(Myself,2,ARMORCLASS)
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SpellRES("d5z248i",Myself)
+END
+~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Shield                                                                //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Prebuff Shield~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES("d5z310i")
+  !CheckSpellState(Myself,WIZARD_SHIELD)
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SpellRES("d5z310i",Myself)
+END
+~~~~~ //"
+  END

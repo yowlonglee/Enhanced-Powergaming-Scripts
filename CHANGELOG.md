@@ -6,7 +6,7 @@ March xx, 2022
 
 ### Changed 
 
-- All Games
+- BG: EE, BG2: EE, and EET
   - 
 
 ## Version 6.4

@@ -210,6 +210,8 @@ THEN
     DisplayStringHead(Myself,@5003)
 END
 
+// 5e Spellcasting Prebuff Stoneskin
+
 IF
   Global("MO_BUFF","LOCALS",1)
   ActionListEmpty()
@@ -227,6 +229,8 @@ THEN
     ReallyForceSpell(Myself,WIZARD_STONE_SKIN)  // SPWI408.SPL (Stoneskin)
     RemoveSpell(WIZARD_STONE_SKIN)  // SPWI408.SPL (Stoneskin)
 END
+
+// 5e Spellcasting Prebuff Iron Skins
 
 IF
   Global("MO_BUFF","LOCALS",1)
@@ -398,6 +402,8 @@ THEN
     RemoveSpellRES("SPRA303")
 END
 
+// 5e Spellcasting Prebuff Spirit Armor
+
 IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(WIZARD_SPIRIT_ARMOR)  // SPWI414.SPL (Spirit Armor)
@@ -414,6 +420,8 @@ THEN
     ReallyForceSpell(Myself,WIZARD_SPIRIT_ARMOR)  // SPWI414.SPL (Spirit Armor)
     RemoveSpell(WIZARD_SPIRIT_ARMOR)  // SPWI414.SPL (Spirit Armor)
 END
+
+// 5e Spellcasting Prebuff Ghost Armor
 
 IF
   Global("MO_BUFF","LOCALS",1)
@@ -432,6 +440,8 @@ THEN
     ReallyForceSpell(Myself,WIZARD_GHOST_ARMOR)  // SPWI317.SPL (Ghost Armor)
     RemoveSpell(WIZARD_GHOST_ARMOR)  // SPWI317.SPL (Ghost Armor)
 END
+
+// 5e Spellcasting Prebuff Shield
 
 IF
   Global("MO_BUFF","LOCALS",1)

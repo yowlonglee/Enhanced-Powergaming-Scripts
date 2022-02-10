@@ -192,4 +192,11 @@ ACTION_IF !VARIABLE_IS_SET ~initialise~ BEGIN
       OUTER_SET d5_tweak_mantle=0
    END
 
+   // Detect 5E Spellcasting
+   ACTION_IF MOD_IS_INSTALLED ~5E_spellcasting.tp2~ ~100~ BEGIN
+      OUTER_SET 5e_spellcasting=1
+   END ELSE BEGIN
+      OUTER_SET 5e_spellcasting=0
+   END
+
 END
