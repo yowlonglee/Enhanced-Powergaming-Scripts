@@ -1726,6 +1726,8 @@ THEN
     RemoveSpell(CLERIC_SHIELD_OF_THE_ARCHONS)  // SPPR701.SPL (Shield of the Archons)
 END
 
+// 5e Spellcasting Prebuff Prot from Evil
+
 IF
   Global("MO_BUFF","LOCALS",1)
   Global("MO_TeamProtEvil","GLOBAL",0)
@@ -2066,6 +2068,8 @@ THEN
     RemoveSpell(PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
 END
 
+// 5e Spellcasting Prebuff Prot from Lightning
+
 IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(CLERIC_PROTECTION_FROM_LIGHTNING)  // SPPR407.SPL (Protection From Lightning)
@@ -2215,6 +2219,8 @@ THEN
     ReallyForceSpell(LastSeenBy(Myself),CLERIC_PROTECTION_FROM_LIGHTNING)  // SPPR407.SPL (Protection From Lightning)
     RemoveSpell(CLERIC_PROTECTION_FROM_LIGHTNING)  // SPPR407.SPL (Protection From Lightning)
 END
+
+// 5e Spellcasting Prebuff Spirit Ward
 
 IF
   Global("MO_BUFF","LOCALS",1)
