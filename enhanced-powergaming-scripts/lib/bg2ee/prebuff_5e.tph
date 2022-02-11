@@ -1969,6 +1969,311 @@ END
 ~~~~~ //"
   END
 
+///////////////////////////////////////////////////////////////////////////
+// Haste                                                                 //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Prebuff Haste~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES(SPWI305)
+  !StateCheck(Myself,STATE_HASTED)
+  CheckStat(Myself,0,IMPROVEDHASTE)
+  !StateCheck(Myself,STATE_NOT_TARGETABLE)
+  !CheckStat(Myself,8,WIZARD_SPELL_IMMUNITY)
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SpellRES(SPWI305,Myself)
+END
+~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Spell Shield                                                          //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Prebuff Spell Shield~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES(SPWI519)
+  !CheckSpellState(Myself,SPELL_SHIELD)
+  // (Myself) Major Globe
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SpellRES(SPWI519,Myself)
+END
+~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Spell Turning                                                         //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Prebuff Spell Turning~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES(SPWI701)
+  !CheckSpellState(Myself,SPELL_TURNING)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SpellRES(SPWI701,Myself)
+END
+~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Minor Spell Turning                                                   //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Prebuff Minor Spell Turning~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES(SPWI522)
+  !CheckSpellState(Myself,MINOR_SPELL_TURNING)
+  // (Myself) Major Globe
+  !CheckSpellState(Myself,SPELL_TURNING)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SpellRES(SPWI522,Myself)
+END
+~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Spell Deflection                                                      //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Prebuff Spell Deflection~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES(SPWI618)
+  CheckStatLT(Myself,1,WIZARD_SPELL_DEFLECTION)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SpellRES(SPWI618,Myself)
+END
+~~~~~ //"
+  END  
+
+///////////////////////////////////////////////////////////////////////////
+// Minor Spell Deflection                                                //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Prebuff Minor Spell Deflection~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES(SPWI318)
+  CheckStatLT(Myself,1,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SpellRES(SPWI318,Myself)
+END
+~~~~~ //"
+  END  
+
+///////////////////////////////////////////////////////////////////////////
+// Armor of Faith                                                        //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Prebuff Armor of Faith~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES(SPPR111)
+  !CheckSpellState(Myself,ARMOR_OF_FAITH)
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SpellRES(SPPR111,Myself)
+END
+~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Blur                                                                  //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Prebuff Blur~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES(SPWI201)
+  !StateCheck(Myself,STATE_BLUR)
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SpellRES(SPWI201,Myself)
+END
+~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Mirror Image                                                          //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Prebuff Mirror Image~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  !StateCheck(Myself,STATE_MIRRORIMAGE)
+  HaveSpellRES(SPWI212)
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStat(Myself,1,PUPPETTYPE)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SpellRES(SPWI212,Myself)
+END
+~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Fire Shield (Red)                                                     //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Prebuff Fire Shield Red~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES(SPWI418)
+  !CheckSpellState(Myself,RED_FIRESHIELD)
+  !CheckSpellState(Myself,BLUE_FIRESHIELD)
+  !CheckSpellState(Myself,GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SpellRES(SPWI418,Myself)
+END
+~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Fire Shield (Blue)                                                    //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Prebuff Fire Shield Blue~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES(SPWI403)
+  !CheckSpellState(Myself,RED_FIRESHIELD)
+  !CheckSpellState(Myself,BLUE_FIRESHIELD)
+  !CheckSpellState(Myself,GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SpellRES(SPWI403,Myself)
+END
+~~~~~ //"
+  END
+
 /*
 ///////////////////////////////////////////////////////////////////////////
 // DUMMY                                                  //

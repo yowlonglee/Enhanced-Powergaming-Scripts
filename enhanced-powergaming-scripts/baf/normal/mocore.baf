@@ -2296,6 +2296,8 @@ THEN
     Spell(LastSeenBy(Myself),CLERIC_SPIRIT_WARD)  // SPPR150.SPL (Spirit Ward)
 END
 
+// 5e Spellcasting Prebuff Haste
+
 IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(WIZARD_HASTE)  // SPWI305.SPL (Haste)
@@ -2316,7 +2318,11 @@ THEN
     Spell(Myself,WIZARD_HASTE)  // SPWI305.SPL (Haste)
 END
 
+// 5e Spellcasting Prebuff - FP Cleric Divine Haste
+
 // FP Cleric Divine Haste
+
+// 5e Spellcasting Prebuff Spell Shield
 
 IF
   Global("MO_BUFF","LOCALS",1)
@@ -2333,6 +2339,8 @@ THEN
   RESPONSE #100
     Spell(Myself,WIZARD_SPELL_SHIELD)  // SPWI519.SPL (Spell Shield)
 END
+
+// 5e Spellcasting Prebuff Spell Turning
 
 IF
   Global("MO_BUFF","LOCALS",1)
@@ -2372,6 +2380,8 @@ THEN
     IncrementGlobal("MO_UsedSpellTurning","GLOBAL",1)
 END
 
+// 5e Spellcasting Prebuff Minor Spell Turning
+
 IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(WIZARD_MINOR_SPELL_TURNING)  // SPWI522.SPL (Minor Spell Turning)
@@ -2389,6 +2399,8 @@ THEN
     Spell(Myself,WIZARD_MINOR_SPELL_TURNING)  // SPWI522.SPL (Minor Spell Turning)
 END
 
+// 5e Spellcasting Prebuff Spell Deflection
+
 IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(WIZARD_SPELL_DEFLECTION)  // SPWI618.SPL (Spell Deflection)
@@ -2403,6 +2415,8 @@ THEN
   RESPONSE #100
     Spell(Myself,WIZARD_SPELL_DEFLECTION)  // SPWI618.SPL (Spell Deflection)
 END
+
+// 5e Spellcasting Prebuff Minor Spell Deflection
 
 IF
   Global("MO_BUFF","LOCALS",1)
@@ -2421,13 +2435,23 @@ THEN
     Spell(Myself,WIZARD_MINOR_SPELL_DEFLECTION)  // SPWI318.SPL (Minor Spell Deflection)
 END
 
+// 5e Spellcasting Prebuff - FP Ranger Minor Spell Deflection
+
 // FP Ranger Minor Spell Deflection
+
+// 5e Spellcasting Prebuff - FP Cleric Minor Spell Deflection
 
 // FP Cleric Minor Spell Deflection
 
+// 5e Spellcasting Prebuff - MiH Wizard Superheroism
+
 // MiH Wizard Superheroism
 
+// 5e Spellcasting Prebuff - MiH Cleric Superheroism
+
 // MiH Cleric Superheroism
+
+// 5e Spellcasting Prebuff - MiH Spell Invulnerability
 
 // MiH Spell Invulnerability
 
@@ -2442,7 +2466,11 @@ THEN
     IncrementGlobal("MO_UsedCheetah","GLOBAL",1)
 END
 
+// 5e Spellcasting Prebuff - IWD Seven Eyes
+
 // IWD Seven Eyes
+
+// 5e Spellcasting Prebuff Armor of Faith
 
 IF
   Global("MO_BUFF","LOCALS",1)
@@ -2477,6 +2505,8 @@ THEN
     SpellRES("SPRA302",Myself)
 END
 
+// 5e Spellcasting Prebuff Blur
+
 IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(WIZARD_BLUR)  // SPWI201.SPL (Blur)
@@ -2506,6 +2536,8 @@ THEN
   RESPONSE #100
     SpellRES("SPDM102",Myself)  // Blur
 END
+
+// 5e Spellcasting Prebuff Mirror Image
 
 IF
   Global("MO_BUFF","LOCALS",1)
@@ -2539,6 +2571,8 @@ THEN
     SpellRES("SPDM106",Myself)  // Mirror Image
 END
 
+// 5e Spellcasting Prebuff Fire Shield Red
+
 IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(WIZARD_FIRE_SHIELD_RED)  // SPWI418.SPL (Fire Shield (Red))
@@ -2555,6 +2589,8 @@ THEN
   RESPONSE #100
     Spell(Myself,WIZARD_FIRE_SHIELD_RED)  // SPWI418.SPL (Fire Shield (Red))
 END
+
+// 5e Spellcasting Prebuff Fire Shield Blue
 
 IF
   Global("MO_BUFF","LOCALS",1)
