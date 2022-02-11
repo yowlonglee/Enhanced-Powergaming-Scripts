@@ -3412,6 +3412,8 @@ THEN
     RemoveSpell(CLERIC_PHYSICAL_MIRROR)  // sppr525.spl (Physical Mirror)
 END
 
+// 5e Spellcasting Prebuff Bless
+
 IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(CLERIC_BLESS)  // SPPR101.SPL (Bless)
@@ -3429,6 +3431,8 @@ THEN
     RemoveSpell(CLERIC_BLESS)  // SPPR101.SPL (Bless)
 END
 
+// 5e Spellcasting Prebuff Defensive Harmony
+
 IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(CLERIC_DEFENSIVE_HARMONY)  // SPPR406.SPL (Defensive Harmony)
@@ -3444,6 +3448,8 @@ THEN
     ReallyForceSpell(Myself,CLERIC_DEFENSIVE_HARMONY)  // SPPR406.SPL (Defensive Harmony)
     RemoveSpell(CLERIC_DEFENSIVE_HARMONY)  // SPPR406.SPL (Defensive Harmony)
 END
+
+// 5e Spellcasting Prebuff Negative Plane Protection
 
 IF
   Global("MO_BUFF","LOCALS",1)
