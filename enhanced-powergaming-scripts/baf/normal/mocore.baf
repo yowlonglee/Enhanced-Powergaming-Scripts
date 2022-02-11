@@ -2609,6 +2609,8 @@ THEN
     Spell(Myself,WIZARD_FIRE_SHIELD_BLUE)  // SPWI403.SPL (Fire Shield (Blue))
 END
 
+// 5e Spellcasting Prebuff Cleric Prot from Fire
+
 IF
   Global("MO_BUFF","LOCALS",1)
   See(Myself)
@@ -2759,7 +2761,11 @@ THEN
     Spell(LastSeenBy(Myself),CLERIC_PROTECTION_FROM_FIRE)  // SPPR306.SPL (Protection From Fire)
 END
 
+// 5e Spellcasting Prebuff - MiH Resist Acid/Corrosion
+
 // MiH Resist Acid/Corrosion
+
+// 5e Spellcasting Prebuff - MiH Protect Cold
 
 // MiH Protect Cold
 
@@ -2825,6 +2831,8 @@ THEN
     IncrementGlobal("MO_UsedDuplication","GLOBAL",1)
 END
 
+// 5e Spellcasting Prebuff Improved Haste
+
 IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
@@ -2846,9 +2854,15 @@ THEN
     Spell(Myself,WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
 END
 
+// 5e Spellcasting Prebuff - FP Cleric Divine Improved Haste
+
 // FP Cleric Divine Improved Haste
 
+// 5e Spellcasting Prebuff - MiH Cleric Striking
+
 // MiH Cleric Striking
+
+// 5e Spellcasting Prebuff Aid
 
 IF
   Global("MO_BUFF","LOCALS",1)
@@ -2867,6 +2881,8 @@ THEN
     Spell(Myself,CLERIC_AID)  // SPPR201.SPL (Aid)
 END
 
+// 5e Spellcasting Prebuff Magic Resistance
+
 IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(CLERIC_MAGIC_RESISTANCE)  // SPPR509.SPL (Magic Resistance)
@@ -2881,6 +2897,8 @@ THEN
   RESPONSE #100
     Spell(Myself,CLERIC_MAGIC_RESISTANCE)  // SPPR509.SPL (Magic Resistance)
 END
+
+// 5e Spellcasting Prebuff Prot from Energy
 
 IF
   Global("MO_BUFF","LOCALS",1)
@@ -2898,6 +2916,8 @@ THEN
     Spell(Myself,WIZARD_PROTECTION_FROM_ENERGY)  // SPWI803.SPL (Protection From Energy)
 END
 
+// 5e Spellcasting Prebuff Prot from the Elements
+
 IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(WIZARD_PROTECTION_FROM_THE_ELEMENTS)  // SPWI702.SPL (Protection From The Elements)
@@ -2914,11 +2934,19 @@ THEN
     Spell(Myself,WIZARD_PROTECTION_FROM_THE_ELEMENTS)  // SPWI702.SPL (Protection From The Elements)
 END
 
+// 5e Spellcasting Prebuff - MiH Wizard Heroism
+
 // MiH Wizard Heroism
+
+// 5e Spellcasting Prebuff - MiH Cleric Heroism
 
 // MiH Cleric Heroism
 
+// 5e Spellcasting Prebuff - MiH Major Globe Prebuff
+
 // MiH Major Globe Prebuff
+
+// 5e Spellcasting Prebuff Globe of Invulnerability
 
 IF
   Global("MO_BUFF","LOCALS",1)
@@ -2935,6 +2963,8 @@ THEN
   RESPONSE #100
     Spell(Myself,WIZARD_GLOBE_OF_INVULNERABILITY)  // SPWI602.SPL (Globe of Invulnerability)
 END
+
+// 5e Spellcasting Prebuff Minor Globe of Invulnerability
 
 IF
   Global("MO_BUFF","LOCALS",1)
@@ -2966,6 +2996,8 @@ THEN
     IncrementGlobal("MO_UsedBltMnrInv","GLOBAL",1)
 END
 
+// 5e Spellcasting Prebuff Spell Immunity
+
 IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(WIZARD_SPELL_IMMUNITY)  // SPWI510.SPL (Spell Immunity)
@@ -2982,13 +3014,23 @@ THEN
     Spell(Myself,WIZARD_SPELL_IMMUNITY_ABJURATION)  // SPWI590.SPL (Immunity: Abjuration)
 END
 
+// 5e Spellcasting Prebuff - MiH Cleric Aura of Vitality
+
 // MiH Cleric Aura of Vitality
+
+// 5e Spellcasting Prebuff - MiH Wizard Seeking
 
 // MiH Wizard Seeking
 
+// 5e Spellcasting Prebuff - MiH Cleric Seeking
+
 // MiH Cleric Seeking
 
+// 5e Spellcasting Prebuff - IWD Prayer, Restoration, and Entropy Shield
+
 // IWD Prayer, Restoration, and Entropy Shield
+
+// 5e Spellcasting Prebuff Righteous Magic
 
 IF
   Global("MO_BUFF","LOCALS",1)
@@ -3004,6 +3046,8 @@ THEN
   RESPONSE #100
     Spell(Myself,CLERIC_RIGHTEOUS_MAGIC)  // SPPR513.SPL (Righteous Magic)
 END
+
+// 5e Spellcasting Prebuff - Song & Silence Mind Blade
 
 // Song & Silence Mind Blade
 
@@ -3034,6 +3078,8 @@ THEN
   RESPONSE #100
     Spell(Myself,TALOS_STORMSHIELD)
 END
+
+// 5e Spellcasting Prebuff Aura of Flaming Death
 
 IF
   Global("MO_BUFF","LOCALS",1)
@@ -3079,6 +3125,8 @@ THEN
     SpellRES("SPCL237",Myself)  // Greater Sun
 END
 
+// 5e Spellcasting Prebuff Spell Trap
+
 IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(WIZARD_SPELL_TRAP)  // SPWI902.SPL (Spell Trap)
@@ -3093,6 +3141,8 @@ THEN
   RESPONSE #100
     Spell(Myself,WIZARD_SPELL_TRAP)  // SPWI902.SPL (Spell Trap)
 END
+
+// 5e Spellcasting Prebuff Black Blade of Disaster
 
 IF
   Global("MO_BUFF","LOCALS",1)
@@ -3109,6 +3159,8 @@ THEN
     Spell(Myself,WIZARD_BLACK_BLADE_OF_DISASTER)  // SPWI915.SPL (Black Blade of Disaster)
 END
 
+// 5e Spellcasting Prebuff Globe of Blades
+
 IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(CLERIC_GLOBE_OF_BLADES)  // SPPR725.SPL (Globe of Blades)
@@ -3123,6 +3175,8 @@ THEN
   RESPONSE #100
     Spell(Myself,CLERIC_GLOBE_OF_BLADES)  // SPPR725.SPL (Globe of Blades)
 END
+
+// 5e Spellcasting Prebuff Blade Barrier
 
 IF
   Global("MO_BUFF","LOCALS",1)
@@ -3139,7 +3193,11 @@ THEN
     Spell(Myself,CLERIC_BLADE_BARRIER)  // SPPR603.SPL (Blade Barrier)
 END
 
+// 5e Spellcasting Prebuff - DSotSC Selunes Blessing and Aura of Protection
+
 // DSotSC Selunes Blessing and Aura of Protection
+
+// 5e Spellcasting Prebuff Chant
 
 IF
   Global("MO_BUFF","LOCALS",1)
@@ -3155,9 +3213,15 @@ THEN
     Spell(Myself,CLERIC_CHANT)  // SPPR203.SPL (Chant)
 END
 
+// 5e Spellcasting Prebuff - DSotSC Army of One
+
 // DSotSC Army of One
 
+// 5e Spellcasting Prebuff - DSotSC Wizard Army of One
+
 // DSotSC Wizard Army of One
+
+// 5e Spellcasting Prebuff Draw Upon Holy Might
 
 IF
   Global("MO_BUFF","LOCALS",1)
@@ -3191,9 +3255,15 @@ THEN
     SpellRES("SPIN103",Myself)  // Divine Might
 END
 
+// 5e Spellcasting Prebuff - FP Cleric Divine Aura, Warding Winds, and EPIC Divine Might
+
 // FP Cleric Divine Aura, Warding Winds, and EPIC Divine Might
 
+// 5e Spellcasting Prebuff - MiH Cleric Mass Negative Plane Protection
+
 // MiH Cleric Mass Negative Plane Protection
+
+// 5e Spellcasting Prebuff Physical Mirror
 
 IF
   Global("MO_BUFF","LOCALS",1)
