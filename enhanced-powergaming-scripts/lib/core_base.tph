@@ -46,6 +46,8 @@ THEN
     DisplayStringHead(Myself,@5005)
 END
 
+// 5e Spellcasting Vocalize
+
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(NearestEnemyOf(Myself))
@@ -64,6 +66,8 @@ THEN
     Spell(Myself,WIZARD_VOCALIZE)  // SPWI219.SPL (Vocalize)
     SetInterrupt(TRUE)
 END
+
+// 5e Spellcasting PfMW
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -89,7 +93,11 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting - IWD (Greater) Divine Protection
+
 // IWD (Greater) Divine Protection
+
+// 5e Spellcasting Absolute Immunity
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -115,7 +123,11 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting - FP Cleric Absolute Immunity
+
 // FP Cleric Absolute Immunity
+
+// 5e Spellcasting Improved Mantle
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -141,6 +153,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Mantle
+
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([EVILCUTOFF])
@@ -165,6 +179,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Stoneskin
+
 IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -184,6 +200,8 @@ THEN
     Spell(Myself,WIZARD_STONE_SKIN)  // SPWI408.SPL (Stoneskin)
     SetInterrupt(TRUE)
 END
+
+// 5e Spellcasting Iron Skins
 
 IF
   ActionListEmpty()
@@ -306,6 +324,8 @@ THEN
     DisplayStringHead(Myself,@5005)
 END
 
+// 5e Spellcasting Sanctuary
+
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(NearestEnemyOf(Myself))
@@ -328,6 +348,8 @@ THEN
     Spell(Myself,CLERIC_SANCTUARY)  // SPPR109.SPL (Sanctuary)
     SetInterrupt(TRUE)
 END
+
+// 5e Spellcasting Mass Raise Dead
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -375,6 +397,8 @@ THEN
     Spell(Myself,CLERIC_MASS_RAISE_DEAD)  // SPPR729.SPL (Mass Raise Dead)
     SetInterrupt(TRUE)
 END
+
+// 5e Spellcasting Resurrection
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -501,6 +525,8 @@ THEN
     Spell(Player6,CLERIC_RESURRECTION)  // SPPR712.SPL (Resurrection)
     SetInterrupt(TRUE)
 END
+
+// 5e Spellcasting Raise Dead
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -754,183 +780,191 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting - MiH Cleric Repel Insects
+
 // MiH Cleric Repel Insects
+
+// 5e Spellcasting - MiH Cleric Break Enchantment
 
 // MiH Cleric Break Enchantment
 
-IF
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(Myself)
-  CheckStatGT(LastSeenBy(Myself),0,LEVELDRAIN)
-  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  HaveSpell(CLERIC_RESTORATION)  // SPPR713.SPL (Greater Restoration)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
-  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
-  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SetInterrupt(FALSE)
-    DisplayStringHead(Myself,@5009)
-    Spell(LastSeenBy(Myself),CLERIC_RESTORATION)  // SPPR713.SPL (Greater Restoration)
-    SetInterrupt(TRUE)
-END
-
-IF
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See([PC])
-  CheckStatGT(LastSeenBy(Myself),0,LEVELDRAIN)
-  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  HaveSpell(CLERIC_RESTORATION)  // SPPR713.SPL (Greater Restoration)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
-  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
-  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SetInterrupt(FALSE)
-    DisplayStringHead(Myself,@5009)
-    Spell(LastSeenBy(Myself),CLERIC_RESTORATION)  // SPPR713.SPL (Greater Restoration)
-    SetInterrupt(TRUE)
-END
-
-IF
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(SecondNearest([PC]))
-  CheckStatGT(LastSeenBy(Myself),0,LEVELDRAIN)
-  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  HaveSpell(CLERIC_RESTORATION)  // SPPR713.SPL (Greater Restoration)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
-  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
-  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SetInterrupt(FALSE)
-    DisplayStringHead(Myself,@5009)
-    Spell(LastSeenBy(Myself),CLERIC_RESTORATION)  // SPPR713.SPL (Greater Restoration)
-    SetInterrupt(TRUE)
-END
-
-IF
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(ThirdNearest([PC]))
-  CheckStatGT(LastSeenBy(Myself),0,LEVELDRAIN)
-  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  HaveSpell(CLERIC_RESTORATION)  // SPPR713.SPL (Greater Restoration)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
-  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
-  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SetInterrupt(FALSE)
-    DisplayStringHead(Myself,@5009)
-    Spell(LastSeenBy(Myself),CLERIC_RESTORATION)  // SPPR713.SPL (Greater Restoration)
-    SetInterrupt(TRUE)
-END
-
-IF
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(FourthNearest([PC]))
-  CheckStatGT(LastSeenBy(Myself),0,LEVELDRAIN)
-  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  HaveSpell(CLERIC_RESTORATION)  // SPPR713.SPL (Greater Restoration)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
-  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
-  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SetInterrupt(FALSE)
-    DisplayStringHead(Myself,@5009)
-    Spell(LastSeenBy(Myself),CLERIC_RESTORATION)  // SPPR713.SPL (Greater Restoration)
-    SetInterrupt(TRUE)
-END
-
-IF
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(FifthNearest([PC]))
-  CheckStatGT(LastSeenBy(Myself),0,LEVELDRAIN)
-  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  HaveSpell(CLERIC_RESTORATION)  // SPPR713.SPL (Greater Restoration)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
-  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
-  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SetInterrupt(FALSE)
-    DisplayStringHead(Myself,@5009)
-    Spell(LastSeenBy(Myself),CLERIC_RESTORATION)  // SPPR713.SPL (Greater Restoration)
-    SetInterrupt(TRUE)
-END
-
-IF
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(SixthNearest([PC]))
-  CheckStatGT(LastSeenBy(Myself),0,LEVELDRAIN)
-  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  HaveSpell(CLERIC_RESTORATION)  // SPPR713.SPL (Greater Restoration)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
-  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
-  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SetInterrupt(FALSE)
-    DisplayStringHead(Myself,@5009)
-    Spell(LastSeenBy(Myself),CLERIC_RESTORATION)  // SPPR713.SPL (Greater Restoration)
-    SetInterrupt(TRUE)
-END
+// 5e Spellcasting Greater Restoration
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(Myself)
   CheckStatGT(LastSeenBy(Myself),0,LEVELDRAIN)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  HaveSpell(CLERIC_RESTORATION)  // SPPR713.SPL (Greater Restoration)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5009)
+    Spell(LastSeenBy(Myself),CLERIC_RESTORATION)  // SPPR713.SPL (Greater Restoration)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  See([PC])
+  CheckStatGT(LastSeenBy(Myself),0,LEVELDRAIN)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  HaveSpell(CLERIC_RESTORATION)  // SPPR713.SPL (Greater Restoration)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5009)
+    Spell(LastSeenBy(Myself),CLERIC_RESTORATION)  // SPPR713.SPL (Greater Restoration)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  See(SecondNearest([PC]))
+  CheckStatGT(LastSeenBy(Myself),0,LEVELDRAIN)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  HaveSpell(CLERIC_RESTORATION)  // SPPR713.SPL (Greater Restoration)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5009)
+    Spell(LastSeenBy(Myself),CLERIC_RESTORATION)  // SPPR713.SPL (Greater Restoration)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  See(ThirdNearest([PC]))
+  CheckStatGT(LastSeenBy(Myself),0,LEVELDRAIN)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  HaveSpell(CLERIC_RESTORATION)  // SPPR713.SPL (Greater Restoration)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5009)
+    Spell(LastSeenBy(Myself),CLERIC_RESTORATION)  // SPPR713.SPL (Greater Restoration)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  See(FourthNearest([PC]))
+  CheckStatGT(LastSeenBy(Myself),0,LEVELDRAIN)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  HaveSpell(CLERIC_RESTORATION)  // SPPR713.SPL (Greater Restoration)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5009)
+    Spell(LastSeenBy(Myself),CLERIC_RESTORATION)  // SPPR713.SPL (Greater Restoration)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  See(FifthNearest([PC]))
+  CheckStatGT(LastSeenBy(Myself),0,LEVELDRAIN)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  HaveSpell(CLERIC_RESTORATION)  // SPPR713.SPL (Greater Restoration)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5009)
+    Spell(LastSeenBy(Myself),CLERIC_RESTORATION)  // SPPR713.SPL (Greater Restoration)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  See(SixthNearest([PC]))
+  CheckStatGT(LastSeenBy(Myself),0,LEVELDRAIN)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  HaveSpell(CLERIC_RESTORATION)  // SPPR713.SPL (Greater Restoration)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5009)
+    Spell(LastSeenBy(Myself),CLERIC_RESTORATION)  // SPPR713.SPL (Greater Restoration)
+    SetInterrupt(TRUE)
+END
+
+// 5e Spellcasting Lesser Restoration
+
+IF
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  See(Myself)
+  CheckStatGT(LastSeenBy(Myself),0,LEVELDRAIN)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   HaveSpell(CLERIC_LESSER_RESTORATION)  // SPPR417.SPL (Lesser Restoration)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -1103,6 +1137,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Remove Paralysis
+
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([PC])
@@ -1265,6 +1301,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Chaotic Commands
+
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([PC])
@@ -1468,208 +1506,214 @@ THEN
     Spell(LastSeenBy(Myself),CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
     SetInterrupt(TRUE)
 END
+
+// 5e Spellcasting - FP Spiritual Clarity
 
 // FP Spiritual Clarity
 
-IF
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(Myself)
-  OR(5)
-    StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
-    StateCheck(LastSeenBy(Myself),STATE_BLIND)
-    StateCheck(LastSeenBy(Myself),STATE_DISEASED)
-    CheckSpellState(LastSeenBy(Myself),DISEASED)
-    CheckSpellState(LastSeenBy(Myself),DEAFENED)
-  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  HaveSpell(CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SetInterrupt(FALSE)
-    DisplayStringHead(Myself,@5010)
-    Spell(LastSeenBy(Myself),CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
-    SetInterrupt(TRUE)
-END
-
-IF
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See([PC])
-  OR(5)
-    StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
-    StateCheck(LastSeenBy(Myself),STATE_BLIND)
-    StateCheck(LastSeenBy(Myself),STATE_DISEASED)
-    CheckSpellState(LastSeenBy(Myself),DISEASED)
-    CheckSpellState(LastSeenBy(Myself),DEAFENED)
-  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  HaveSpell(CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SetInterrupt(FALSE)
-    DisplayStringHead(Myself,@5010)
-    Spell(LastSeenBy(Myself),CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
-    SetInterrupt(TRUE)
-END
-
-IF
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(SecondNearest([PC]))
-  OR(5)
-    StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
-    StateCheck(LastSeenBy(Myself),STATE_BLIND)
-    StateCheck(LastSeenBy(Myself),STATE_DISEASED)
-    CheckSpellState(LastSeenBy(Myself),DISEASED)
-    CheckSpellState(LastSeenBy(Myself),DEAFENED)
-  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  HaveSpell(CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SetInterrupt(FALSE)
-    DisplayStringHead(Myself,@5010)
-    Spell(LastSeenBy(Myself),CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
-    SetInterrupt(TRUE)
-END
-
-IF
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(ThirdNearest([PC]))
-  OR(5)
-    StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
-    StateCheck(LastSeenBy(Myself),STATE_BLIND)
-    StateCheck(LastSeenBy(Myself),STATE_DISEASED)
-    CheckSpellState(LastSeenBy(Myself),DISEASED)
-    CheckSpellState(LastSeenBy(Myself),DEAFENED)
-  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  HaveSpell(CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SetInterrupt(FALSE)
-    DisplayStringHead(Myself,@5010)
-    Spell(LastSeenBy(Myself),CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
-    SetInterrupt(TRUE)
-END
-
-IF
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(FourthNearest([PC]))
-  OR(5)
-    StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
-    StateCheck(LastSeenBy(Myself),STATE_BLIND)
-    StateCheck(LastSeenBy(Myself),STATE_DISEASED)
-    CheckSpellState(LastSeenBy(Myself),DISEASED)
-    CheckSpellState(LastSeenBy(Myself),DEAFENED)
-  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  HaveSpell(CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SetInterrupt(FALSE)
-    DisplayStringHead(Myself,@5010)
-    Spell(LastSeenBy(Myself),CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
-    SetInterrupt(TRUE)
-END
-
-IF
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(FifthNearest([PC]))
-  OR(5)
-    StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
-    StateCheck(LastSeenBy(Myself),STATE_BLIND)
-    StateCheck(LastSeenBy(Myself),STATE_DISEASED)
-    CheckSpellState(LastSeenBy(Myself),DISEASED)
-    CheckSpellState(LastSeenBy(Myself),DEAFENED)
-  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  HaveSpell(CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SetInterrupt(FALSE)
-    DisplayStringHead(Myself,@5010)
-    Spell(LastSeenBy(Myself),CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
-    SetInterrupt(TRUE)
-END
-
-IF
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  See(SixthNearest([PC]))
-  OR(5)
-    StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
-    StateCheck(LastSeenBy(Myself),STATE_BLIND)
-    StateCheck(LastSeenBy(Myself),STATE_DISEASED)
-    CheckSpellState(LastSeenBy(Myself),DISEASED)
-    CheckSpellState(LastSeenBy(Myself),DEAFENED)
-  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  HaveSpell(CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SetInterrupt(FALSE)
-    DisplayStringHead(Myself,@5010)
-    Spell(LastSeenBy(Myself),CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
-    SetInterrupt(TRUE)
-END
+// 5e Spellcasting Cure Disease
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(Myself)
   OR(5)
+    StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
+    StateCheck(LastSeenBy(Myself),STATE_BLIND)
+    StateCheck(LastSeenBy(Myself),STATE_DISEASED)
+    CheckSpellState(LastSeenBy(Myself),DISEASED)
+    CheckSpellState(LastSeenBy(Myself),DEAFENED)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  HaveSpell(CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5010)
+    Spell(LastSeenBy(Myself),CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  See([PC])
+  OR(5)
+    StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
+    StateCheck(LastSeenBy(Myself),STATE_BLIND)
+    StateCheck(LastSeenBy(Myself),STATE_DISEASED)
+    CheckSpellState(LastSeenBy(Myself),DISEASED)
+    CheckSpellState(LastSeenBy(Myself),DEAFENED)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  HaveSpell(CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5010)
+    Spell(LastSeenBy(Myself),CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  See(SecondNearest([PC]))
+  OR(5)
+    StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
+    StateCheck(LastSeenBy(Myself),STATE_BLIND)
+    StateCheck(LastSeenBy(Myself),STATE_DISEASED)
+    CheckSpellState(LastSeenBy(Myself),DISEASED)
+    CheckSpellState(LastSeenBy(Myself),DEAFENED)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  HaveSpell(CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5010)
+    Spell(LastSeenBy(Myself),CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  See(ThirdNearest([PC]))
+  OR(5)
+    StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
+    StateCheck(LastSeenBy(Myself),STATE_BLIND)
+    StateCheck(LastSeenBy(Myself),STATE_DISEASED)
+    CheckSpellState(LastSeenBy(Myself),DISEASED)
+    CheckSpellState(LastSeenBy(Myself),DEAFENED)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  HaveSpell(CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5010)
+    Spell(LastSeenBy(Myself),CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  See(FourthNearest([PC]))
+  OR(5)
+    StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
+    StateCheck(LastSeenBy(Myself),STATE_BLIND)
+    StateCheck(LastSeenBy(Myself),STATE_DISEASED)
+    CheckSpellState(LastSeenBy(Myself),DISEASED)
+    CheckSpellState(LastSeenBy(Myself),DEAFENED)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  HaveSpell(CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5010)
+    Spell(LastSeenBy(Myself),CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  See(FifthNearest([PC]))
+  OR(5)
+    StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
+    StateCheck(LastSeenBy(Myself),STATE_BLIND)
+    StateCheck(LastSeenBy(Myself),STATE_DISEASED)
+    CheckSpellState(LastSeenBy(Myself),DISEASED)
+    CheckSpellState(LastSeenBy(Myself),DEAFENED)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  HaveSpell(CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5010)
+    Spell(LastSeenBy(Myself),CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  See(SixthNearest([PC]))
+  OR(5)
+    StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
+    StateCheck(LastSeenBy(Myself),STATE_BLIND)
+    StateCheck(LastSeenBy(Myself),STATE_DISEASED)
+    CheckSpellState(LastSeenBy(Myself),DISEASED)
+    CheckSpellState(LastSeenBy(Myself),DEAFENED)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  HaveSpell(CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5010)
+    Spell(LastSeenBy(Myself),CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
+    SetInterrupt(TRUE)
+END
+
+// 5e Spellcasting Neutralize Poison
+
+IF
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  See(Myself)
+  OR(5)
     StateCheck(LastSeenBy(Myself),STATE_POISONED)
     StateCheck(LastSeenBy(Myself),STATE_BLIND)
     StateCheck(LastSeenBy(Myself),STATE_DISEASED)
@@ -1853,6 +1897,8 @@ THEN
     Spell(LastSeenBy(Myself),CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
     SetInterrupt(TRUE)
 END
+
+// 5e Spellcasting Slow Poison
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -2174,6 +2220,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Remove Fear 
+
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([PC])
@@ -2305,10 +2353,16 @@ THEN
     Spell(LastSeenBy(Myself),CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
     SetInterrupt(TRUE)
 END
+
+// 5e Spellcasting - MiH Remove Deaf Blind
 
 // MiH Remove Deaf Blind
 
+// 5e Spellcasting - SCS Golem Curse
+
 // SCS Golem Curse
+
+// 5e Spellcasting Zone of Swee Air
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -2569,7 +2623,6 @@ THEN
     SetGlobal("MO_DetectEnemyIllusion","GLOBAL",1)
     SetGlobal("MO_MyDetectEnemyIllusion","LOCALS",1)
     DisplayStringHead(Myself,@5014)
-    FindTraps()
 END
 
 IF
@@ -2590,7 +2643,6 @@ THEN
     SetGlobal("MO_DetectEnemyIllusion","GLOBAL",1)
     SetGlobal("MO_MyDetectEnemyIllusion","LOCALS",1)
     DisplayStringHead(Myself,@5014)
-    FindTraps()
 END
 
 IF
@@ -2898,6 +2950,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Wizard True Sight
+
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_TRUE_SIGHT)  // SPWI609.SPL (True Sight)
@@ -3131,6 +3185,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Cleric True Seeing
+
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(CLERIC_TRUE_SIGHT)  // SPPR505.SPL (True Seeing)
@@ -3356,6 +3412,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Cleric Invisibility Purge
+
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
@@ -3531,6 +3589,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Wizard Detect Invisibility
+
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_DETECT_INVISIBILITY)  // SPWI203.SPL (Detect Invisibility)
@@ -3712,6 +3772,8 @@ THEN
     Spell(Myself,WIZARD_DETECT_INVISIBILITY)  // SPWI203.SPL (Detect Invisibility)
     SetInterrupt(TRUE)
 END
+
+// 5e Spellcasting Breach
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -3904,9 +3966,13 @@ THEN // Breach
     Spell(LastSeenBy(Myself),WIZARD_BREACH)  // SPWI513.SPL (Breach)
     SetInterrupt(TRUE)
 END
+
+// 5e Spellcasting - FP Ranger Breach
 
 // FP Ranger Breach
 
+// 5e Spellcasting Spell Thrust
+
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
@@ -4134,9 +4200,13 @@ THEN // Spell Thrust
     Spell(LastSeenBy(Myself),WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
     SetInterrupt(TRUE)
 END
+
+// 5e Spellcasting - FP Spell Thrust
 
 // FP Spell Thrust
 
+// 5e Spellcasting Secret Word
+
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
@@ -4340,9 +4410,13 @@ THEN // Secret Word
     Spell(LastSeenBy(Myself),WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
     SetInterrupt(TRUE)
 END
+
+// 5e Spellcasting - FP Secret Word
 
 // FP Secret Word
 
+// 5e Spellcasting Pierce Magic
+
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_PIERCE_MAGIC)  // SPWI608.SPL (Pierce Magic)
@@ -4547,6 +4621,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Khelben's Warding Whip
+
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_WARDING_WHIP)  // SPWI705.SPL (Khelben's Warding Whip)
@@ -4757,6 +4833,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Spellstrike
+
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
@@ -4973,6 +5051,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Pierce Shield
+
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_PIERCE_SHIELD)  // SPWI805.SPL (Pierce Shield)
@@ -5171,6 +5251,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Ruby Ray of Reversal
+
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
@@ -5368,6 +5450,8 @@ THEN
     Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
     SetInterrupt(TRUE)
 END
+
+// 5e Spellcasting Wizard Detect Illusion
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -5543,6 +5627,8 @@ THEN
     Spell(Myself,WIZARD_DETECT_ILLUSION)  // SPWI322.SPL (Detect Illusion)
     SetInterrupt(TRUE)
 END
+
+// 5e Spellcasting Melf's Minute Meteors
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -5582,6 +5668,8 @@ THEN
     IncrementGlobal("MO_UsedCowlOfStars","GLOBAL",1)
 END
 
+// 5e Spellcasting Heal
+
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_CastingHeal","GLOBAL",1)
@@ -5615,6 +5703,8 @@ THEN
     SetGlobal("MO_CastingHeal","GLOBAL",0)
     SetInterrupt(TRUE)
 END
+
+// 5e Spellcasting Cure Serious Wounds
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -5651,6 +5741,8 @@ THEN
     SetGlobal("MO_CastingHeal","GLOBAL",0)
     SetInterrupt(TRUE)
 END
+
+// 5e Spellcasting Cure Medium Wounds
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -5689,7 +5781,11 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting - IWD Cure Moderate Wounds
+
 // IWD Cure Moderate Wounds
+
+// 5e Spellcasting Cure Light Wounds
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -5816,6 +5912,8 @@ THEN
     SetGlobal("MO_CastingHeal","GLOBAL",0)
     SetInterrupt(TRUE)
 END
+
+// 5e Spellcasting Regeneration
 
 IF
   ActionListEmpty()
