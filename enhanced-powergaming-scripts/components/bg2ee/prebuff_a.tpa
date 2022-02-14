@@ -152,12 +152,18 @@ END ELSE BEGIN
 ///////////////////////////////////////////////////////////////////////////
 // DSotSC Pre-Buffing                                                    //
 ///////////////////////////////////////////////////////////////////////////
-	ACTION_IF dsotsc_arcane && !mih_arcane && !iwdification BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_dsotsc_w_a.tph~
-	END
+	ACTION_IF 5e_spellcasting BEGIN
+		ACTION_IF dsotsc_divine && !mih_divine && !iwdification BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_dsotsc_5e_d_a.tph~
+		END
+	END ELSE BEGIN
+		ACTION_IF dsotsc_arcane && !mih_arcane && !iwdification BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_dsotsc_w_a.tph~
+		END
 
-	ACTION_IF dsotsc_divine && !mih_divine && !iwdification BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_dsotsc_d_a.tph~
+		ACTION_IF dsotsc_divine && !mih_divine && !iwdification BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_dsotsc_d_a.tph~
+		END
 	END
 
 ///////////////////////////////////////////////////////////////////////////

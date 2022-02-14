@@ -12,7 +12,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     pattern = ~~~~~// DSotSC Selunes Blessing and Aura of Protection~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
-  HaveSpell(CLERIC_SELUNES_BLESSING)
+  HaveSpellRES(SPPR546)
   !CheckSpellState(Myself,MINOR_GLOBE)
   !CheckSpellState(Myself,GLOBE)
   !HasImmunityEffects(Myself)
@@ -24,13 +24,12 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpell(Myself,CLERIC_SELUNES_BLESSING)
-    RemoveSpell(CLERIC_SELUNES_BLESSING)
+    ReallyForceSpellRES(SPPR546,Myself)
 END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  HaveSpell(CLERIC_AURA_OF_PROTECTION)
+  HaveSpellRES(SPPR739)
   !CheckSpellState(Myself,AURA_OF_PROT)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -40,8 +39,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpell(Myself,CLERIC_AURA_OF_PROTECTION)
-    RemoveSpell(CLERIC_AURA_OF_PROTECTION)
+    ReallyForceSpellRES(SPPR739,Myself)
 END
 ~~~~~ //"
   END

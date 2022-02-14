@@ -42,31 +42,3 @@ THEN
 END
 ~~~~~ //"
   END
-
-///////////////////////////////////////////////////////////////////////////
-// Add Army of One                                                       //
-///////////////////////////////////////////////////////////////////////////
-  LPF REPLACE_MULTILINE
-    INT_VAR
-    strict = 1
-    verbose = 0
-    STR_VAR
-    pattern = ~~~~~// DSotSC Army of One~~~~~
-    string = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)
-  HaveSpell(WIZARD_ARMY_OF_ONE)  // spwi327.spl (Army of One)
-  !CheckSpellState(Myself,ARMY_OF_ONE)
-  CheckStatLT(Myself,25,STR)
-  !CheckSpellState(Myself,MINOR_GLOBE)
-  !CheckSpellState(Myself,GLOBE)
-  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    Spell(Myself,WIZARD_ARMY_OF_ONE)  // spwi327.spl (Army of One)
-END
-~~~~~ //"
-  END
