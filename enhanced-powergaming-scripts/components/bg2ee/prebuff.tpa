@@ -169,8 +169,14 @@ END ELSE BEGIN
 ///////////////////////////////////////////////////////////////////////////
 // MiH - Spell Restorations Pre-Buffing                                  //
 ///////////////////////////////////////////////////////////////////////////
-	ACTION_IF mih_restorations BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_mih_sr.tph~
+	ACTION_IF 5e_spellcasting BEGIN
+		ACTION_IF mih_restorations BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_mih_sr_5e.tph~
+		END
+	END ELSE BEGIN
+		ACTION_IF mih_restorations BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_mih_sr.tph~
+		END
 	END
 
 ///////////////////////////////////////////////////////////////////////////
