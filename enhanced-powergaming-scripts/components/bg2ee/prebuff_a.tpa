@@ -208,8 +208,14 @@ END ELSE BEGIN
 ///////////////////////////////////////////////////////////////////////////
 // IWD Spells Pre-Buffing                                                //
 ///////////////////////////////////////////////////////////////////////////
-	ACTION_IF iwd_scs OR iwdification BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_iwd_a.tph~
+	ACTION_IF 5e_spellcasting BEGIN
+		ACTION_IF iwd_scs OR iwdification BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_iwd_5e_a.tph~
+		END
+	END ELSE BEGIN
+		ACTION_IF iwd_scs OR iwdification BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_iwd_a.tph~
+		END
 	END
 
 ///////////////////////////////////////////////////////////////////////////

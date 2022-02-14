@@ -249,8 +249,14 @@ END ELSE BEGIN
 ///////////////////////////////////////////////////////////////////////////
 // IWD Spells                                                            //
 ///////////////////////////////////////////////////////////////////////////
-	ACTION_IF iwd_scs OR iwdification BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_iwd.tph~
+	ACTION_IF 5e_spellcasting BEGIN
+		ACTION_IF iwd_scs OR iwdification BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_iwd_5e.tph~
+		END
+	END ELSE BEGIN
+		ACTION_IF iwd_scs OR iwdification BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_iwd.tph~
+		END
 	END
 
 ///////////////////////////////////////////////////////////////////////////

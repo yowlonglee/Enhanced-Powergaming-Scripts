@@ -1,0 +1,143 @@
+COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+
+///////////////////////////////////////////////////////////////////////////
+// Add Emotion Courage and Emotion Hope                                  //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Prebuff - IWD Emotion Courage and Hope~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES(SPWI433)
+  !CheckSpellState(Myself,EMOTION_COURAGE)
+  !CheckSpellState(Myself,GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SpellRES(SPWI433,Myself)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES(SPWI434)
+  !CheckSpellState(Myself,EMOTION_HOPE)
+  !CheckSpellState(Myself,GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SpellRES(SPWI434,Myself)
+END
+~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Mind Blank                                                        //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// NOT HAS Mind Blank Check~~~~~
+    string = ~~~~~!CheckSpellState(LastSeenBy(Myself),MIND_BLANK)~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Seven Eyes                                                        //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// IWD Seven Eyes~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES(SPWI730)
+  !CheckSpellState(Myself,EYE_OF_THE_MIND)
+  !CheckSpellState(Myself,EYE_OF_THE_MAGE)
+  !CheckSpellState(Myself,EYE_OF_THE_SWORD)
+  !CheckSpellState(Myself,EYE_OF_VENOM)
+  !CheckSpellState(Myself,EYE_OF_THE_SPIRIT)
+  !CheckSpellState(Myself,EYE_OF_FORTITUDE)
+  !CheckSpellState(Myself,EYE_OF_STONE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SpellRES(SPWI730,Myself)
+END~~~~~ //"
+  END
+  
+///////////////////////////////////////////////////////////////////////////
+// Add Prayer, Restoration, and Entropy Shield                           //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// IWD Prayer, Restoration, and Entropy Shield~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES(SPPR316)
+  !CheckSpellState(Myself,BENEFICIAL_PRAYER)
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SpellRES(SPPR316,Myself)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES(SPPR424)
+  !CheckSpellState(Myself,BENEFICIAL_RECITATION)
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SpellRES(SPPR424,Myself)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES(SPPR618)
+  !CheckSpellState(Myself,ENTROPY_SHIELD)
+  !CheckSpellState(Myself,SI_ABJURATION)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SpellRES(SPPR618,Myself)
+END
+~~~~~ //"
+  END
