@@ -5938,7 +5938,11 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting - MiH Cleric Celestial Protection
+
 // MiH Cleric Celestial Protection
+
+// 5e Spellcasting Mirror Image
 
 IF
   ActionListEmpty()
@@ -6115,6 +6119,8 @@ THEN
     IncrementGlobal("MO_UsedDuplication","GLOBAL",1)
 END
 
+// 5e Spellcasting Spell Shield
+
 IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -6151,6 +6157,8 @@ THEN
     Spell(Myself,WIZARD_SPELL_SHIELD)  // SPWI519.SPL (Spell Shield)
     SetInterrupt(TRUE)
 END
+
+// 5e Spellcasting Spell Trap
 
 IF
   ActionListEmpty()
@@ -6189,6 +6197,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Spell Deflection
+
 IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -6222,9 +6232,11 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
-    Spell(Myself,2802)  // SPWI802.SPL (Spell Deflection)
+    Spell(Myself,WIZARD_SPELL_DEFLECTION)  // SPWI618.SPL (Spell Deflection)
     SetInterrupt(TRUE)
 END
+
+// 5e Spellcasting Spell Turning
 
 IF
   ActionListEmpty()
@@ -6326,6 +6338,8 @@ THEN
     IncrementGlobal("MO_UsedSpellTurning","GLOBAL",1)
 END
 
+// 5e Spellcasting Globe of Invulnerability
+
 IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -6364,6 +6378,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Minor Spell Turning
+
 IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -6401,6 +6417,8 @@ THEN
     Spell(Myself,WIZARD_MINOR_SPELL_TURNING)  // SPWI522.SPL (Minor Spell Turning)
     SetInterrupt(TRUE)
 END
+
+// 5e Spellcasting Minor Spell Deflection
 
 IF
   ActionListEmpty()
@@ -6441,7 +6459,11 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting - FP Ranger Minor Spell Deflection
+
 // FP Ranger Minor Spell Deflection
+
+// 5e Spellcasting Minor Globe of Invulnerability
 
 IF
   ActionListEmpty()
@@ -6520,6 +6542,8 @@ THEN
     IncrementGlobal("MO_UsedBltMnrInv","GLOBAL",1)
 END
 
+// 5e Spellcasting Aura of Flaming Death
+
 IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -6570,6 +6594,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Globe of Blades
+
 IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -6619,6 +6645,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Fire Shield (Red)
+
 IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -6660,6 +6688,8 @@ THEN
     Spell(Myself,WIZARD_FIRE_SHIELD_RED)  // SPWI418.SPL (Fire Shield (Red))
     SetInterrupt(TRUE)
 END
+
+// 5e Spellcasting Fire Shield (Blue)
 
 IF
   ActionListEmpty()
@@ -6703,6 +6733,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Shield of the Archons
+
 IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -6739,6 +6771,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Protection From Normal Missiles
+
 IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -6772,6 +6806,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Physical Mirror
+
 IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -6801,6 +6837,8 @@ THEN
     Spell(Myself,CLERIC_PHYSICAL_MIRROR)  // sppr525.spl (Physical Mirror)
     SetInterrupt(TRUE)
 END
+
+// 5e Spellcasting Blade Barrier
 
 IF
   ActionListEmpty()
@@ -6851,17 +6889,31 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting - DSotSC - Army of One
+
 // DSotSC - Army of One
+
+// 5e Spellcasting - FP Epic Divine Might
 
 // FP Epic Divine Might
 
+// 5e Spellcasting - MiH Wizard (Super)Heroism
+
 // MiH Wizard (Super)Heroism
+
+// 5e Spellcasting - MiH Cleric (Super)Heroism
 
 // MiH Cleric (Super)Heroism
 
+// 5e Spellcasting - MiH Wizard Seeking
+
 // MiH Wizard Seeking
 
+// 5e Spellcasting - MiH Cleric Striking/Seeking
+
 // MiH Cleric Striking/Seeking
+
+// 5e Spellcasting Draw Upon Holy Might
 
 IF
   ActionListEmpty()
@@ -7002,6 +7054,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Armor of Faith
+
 IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -7083,6 +7137,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Cleric Protection From Fire
+
 IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -7107,11 +7163,13 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
-    Spell(LastSeenBy(Myself),CLERIC_PROTECTION_FROM_FIRE)  // SPPR306.SPL (Protection From Fire)
+    Spell(Myself,CLERIC_PROTECTION_FROM_FIRE)  // SPPR306.SPL (Protection From Fire)
     SetInterrupt(TRUE)
 END
 
 // FP Kit Paladin Rage/Frenzy
+
+// 5e Spellcasting Black Blade of Disaster
 
 IF
   ActionListEmpty()
@@ -7613,6 +7671,8 @@ THEN
     Spell(Myself,WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
 END
 
+// 5e Spellcasting Improved Haste
+
 IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -7687,6 +7747,8 @@ THEN
     Spell(Myself,WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
     SetInterrupt(TRUE)
 END
+
+// 5e Spellcasting - FP Divine Improved Haste
 
 // FP Divine Improved Haste
 
@@ -8143,6 +8205,8 @@ THEN
   RESPONSE #100
     Attack(SixthNearestEnemyOf(Myself))
 END
+
+// 5e Spellcasting Magic Missile
 
 IF
   ActionListEmpty()

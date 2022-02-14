@@ -5109,21 +5109,271 @@ THEN
 END~~~~~ //"
   END
 
-/*
 ///////////////////////////////////////////////////////////////////////////
-// DUMMY                                                             //
+// Mirror Image                                                          //
 ///////////////////////////////////////////////////////////////////////////
   LPF REPLACE_MULTILINE
     INT_VAR
     strict = 1
     verbose = 0
     STR_VAR
-    pattern = ~~~~~// 5e Spellcasting DUMMY~~~~~
+    pattern = ~~~~~// 5e Spellcasting Mirror Image~~~~~
+    string = ~~~~~IF
+  ActionListEmpty()
+  !StateCheck(Myself,STATE_MIRRORIMAGE)
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  HaveSpellRES(SPWI212)
+  See(NearestEnemyOf(Myself))
+  NumCreatureGT([EVILCUTOFF],3)
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(NearestEnemyOf(Myself),0,TRUE_SIGHT)
+  !CheckStatGT(SecondNearestEnemyOf(Myself),0,TRUE_SIGHT)
+  !CheckStatGT(ThirdNearestEnemyOf(Myself),0,TRUE_SIGHT)
+  !CheckStatGT(FourthNearestEnemyOf(Myself),0,TRUE_SIGHT)
+  !CheckStatGT(SixthNearestEnemyOf(Myself),0,TRUE_SIGHT)
+  !CheckStatGT(SeventhNearestEnemyOf(Myself),0,TRUE_SIGHT)
+  !CheckStatGT(EighthNearestEnemyOf(Myself),0,TRUE_SIGHT)
+  !CheckStatGT(NinthNearestEnemyOf(Myself),0,TRUE_SIGHT)
+  !CheckStatGT(TenthNearestEnemyOf(Myself),0,TRUE_SIGHT)
+  !CheckStatGT([EVILCUTOFF.0.PLANATAR],0,TRUE_SIGHT)
+  !CheckStatGT([EVILCUTOFF.0.DARKPLANATAR],0,TRUE_SIGHT)
+  !CheckStat(Myself,1,PUPPETTYPE)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    SpellRES(SPWI212,Myself)
+    SetInterrupt(TRUE)
+END~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Spell Shield                                                          //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Spell Shield~~~~~
     string = ~~~~~IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  CheckStatLT(Myself,1,STONESKINS)
-  HaveSpellRES(SPWI408)
+  OR(17)
+    Range([EVILCUTOFF.0.FAIRY],30)
+    Range([EVILCUTOFF.0.DEMONIC],30)
+    Range([EVILCUTOFF.0.RAKSHASA],30)
+    Range([EVILCUTOFF.0.DRAGON],30)
+    Range([EVILCUTOFF.0.DEMILICH],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.SOLAR],30)
+    Range([EVILCUTOFF.0.PLANATAR],30)
+    Range([EVILCUTOFF.0.ANTISOLAR],30)
+    Range([EVILCUTOFF.0.DARKPLANATAR],30)
+    See([ENEMY.0.0.MAGE_ALL])
+    See([ENEMY.0.0.BARD_ALL])
+    See([ENEMY.0.0.CLERIC_ALL])
+    See([ENEMY.0.0.DRUID_ALL])
+    See([ENEMY.0.0.SORCERER])
+    See([ENEMY.0.0.CLERIC_MAGE])
+    See([ENEMY.0.0.MAGE_ALL])
+  HaveSpellRES(SPWI519)
+  !CheckSpellState(Myself,SPELL_SHIELD)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    SpellRES(SPWI519,Myself)
+    SetInterrupt(TRUE)
+END~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Spell Trap                                                            //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Spell Trap~~~~~
+    string = ~~~~~IF
+  ActionListEmpty()
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  OR(17)
+    Range([EVILCUTOFF.0.FAIRY],30)
+    Range([EVILCUTOFF.0.DEMONIC],30)
+    Range([EVILCUTOFF.0.RAKSHASA],30)
+    Range([EVILCUTOFF.0.DRAGON],30)
+    Range([EVILCUTOFF.0.DEMILICH],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.SOLAR],30)
+    Range([EVILCUTOFF.0.PLANATAR],30)
+    Range([EVILCUTOFF.0.ANTISOLAR],30)
+    Range([EVILCUTOFF.0.DARKPLANATAR],30)
+    See([ENEMY.0.0.MAGE_ALL])
+    See([ENEMY.0.0.BARD_ALL])
+    See([ENEMY.0.0.CLERIC_ALL])
+    See([ENEMY.0.0.DRUID_ALL])
+    See([ENEMY.0.0.SORCERER])
+    See([ENEMY.0.0.CLERIC_MAGE])
+    See([ENEMY.0.0.MAGE_ALL])
+  HaveSpellRES(SPWI902)
+  CheckStatLT(Myself,1,WIZARD_SPELL_TRAP)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    SpellRES(SPWI902,Myself)
+    SetInterrupt(TRUE)
+END~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Spell Deflection                                                      //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Spell Deflection~~~~~
+    string = ~~~~~IF
+  ActionListEmpty()
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  OR(17)
+    Range([EVILCUTOFF.0.FAIRY],30)
+    Range([EVILCUTOFF.0.DEMONIC],30)
+    Range([EVILCUTOFF.0.RAKSHASA],30)
+    Range([EVILCUTOFF.0.DRAGON],30)
+    Range([EVILCUTOFF.0.DEMILICH],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.SOLAR],30)
+    Range([EVILCUTOFF.0.PLANATAR],30)
+    Range([EVILCUTOFF.0.ANTISOLAR],30)
+    Range([EVILCUTOFF.0.DARKPLANATAR],30)
+    See([ENEMY.0.0.MAGE_ALL])
+    See([ENEMY.0.0.BARD_ALL])
+    See([ENEMY.0.0.CLERIC_ALL])
+    See([ENEMY.0.0.DRUID_ALL])
+    See([ENEMY.0.0.SORCERER])
+    See([ENEMY.0.0.CLERIC_MAGE])
+    See([ENEMY.0.0.MAGE_ALL])
+  HaveSpellRES(SPWI618)
+  CheckStatLT(Myself,1,WIZARD_SPELL_DEFLECTION)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    SpellRES(SPWI618,Myself)
+    SetInterrupt(TRUE)
+END~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Spell Turning                                                         //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Spell Turning~~~~~
+    string = ~~~~~IF
+  ActionListEmpty()
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  OR(17)
+    Range([EVILCUTOFF.0.FAIRY],30)
+    Range([EVILCUTOFF.0.DEMONIC],30)
+    Range([EVILCUTOFF.0.RAKSHASA],30)
+    Range([EVILCUTOFF.0.DRAGON],30)
+    Range([EVILCUTOFF.0.DEMILICH],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.SOLAR],30)
+    Range([EVILCUTOFF.0.PLANATAR],30)
+    Range([EVILCUTOFF.0.ANTISOLAR],30)
+    Range([EVILCUTOFF.0.DARKPLANATAR],30)
+    See([ENEMY.0.0.MAGE_ALL])
+    See([ENEMY.0.0.BARD_ALL])
+    See([ENEMY.0.0.CLERIC_ALL])
+    See([ENEMY.0.0.DRUID_ALL])
+    See([ENEMY.0.0.SORCERER])
+    See([ENEMY.0.0.CLERIC_MAGE])
+    See([ENEMY.0.0.MAGE_ALL])
+  HaveSpellRES(SPWI701)
+  !CheckSpellState(Myself,SPELL_TURNING)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    SpellRES(SPWI701,Myself)
+    SetInterrupt(TRUE)
+END~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Globe of Invulnerability                                              //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Globe of Invulnerability~~~~~
+    string = ~~~~~IF
+  ActionListEmpty()
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  OR(17)
+    Range([EVILCUTOFF.0.FAIRY],30)
+    Range([EVILCUTOFF.0.DEMONIC],30)
+    Range([EVILCUTOFF.0.RAKSHASA],30)
+    Range([EVILCUTOFF.0.DRAGON],30)
+    Range([EVILCUTOFF.0.DEMILICH],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.SOLAR],30)
+    Range([EVILCUTOFF.0.PLANATAR],30)
+    Range([EVILCUTOFF.0.ANTISOLAR],30)
+    Range([EVILCUTOFF.0.DARKPLANATAR],30)
+    See([ENEMY.0.0.MAGE_ALL])
+    See([ENEMY.0.0.BARD_ALL])
+    See([ENEMY.0.0.CLERIC_ALL])
+    See([ENEMY.0.0.DRUID_ALL])
+    See([ENEMY.0.0.SORCERER])
+    See([ENEMY.0.0.CLERIC_MAGE])
+    See([ENEMY.0.0.MAGE_ALL])
+  HaveSpellRES(SPWI602)
+  !CheckSpellState(Myself,MINOR_GLOBE)
   !CheckSpellState(Myself,GLOBE)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -5135,8 +5385,1010 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
-    SpellRES(SPWI408,Myself)
+    SpellRES(SPWI602,Myself)
     SetInterrupt(TRUE)
 END~~~~~ //"
   END
-*/
+
+///////////////////////////////////////////////////////////////////////////
+// Minor Spell Turning                                                   //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Minor Spell Turning~~~~~
+    string = ~~~~~IF
+  ActionListEmpty()
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  OR(17)
+    Range([EVILCUTOFF.0.FAIRY],30)
+    Range([EVILCUTOFF.0.DEMONIC],30)
+    Range([EVILCUTOFF.0.RAKSHASA],30)
+    Range([EVILCUTOFF.0.DRAGON],30)
+    Range([EVILCUTOFF.0.DEMILICH],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.SOLAR],30)
+    Range([EVILCUTOFF.0.PLANATAR],30)
+    Range([EVILCUTOFF.0.ANTISOLAR],30)
+    Range([EVILCUTOFF.0.DARKPLANATAR],30)
+    See([ENEMY.0.0.MAGE_ALL])
+    See([ENEMY.0.0.BARD_ALL])
+    See([ENEMY.0.0.CLERIC_ALL])
+    See([ENEMY.0.0.DRUID_ALL])
+    See([ENEMY.0.0.SORCERER])
+    See([ENEMY.0.0.CLERIC_MAGE])
+    See([ENEMY.0.0.MAGE_ALL])
+  HaveSpellRES(SPWI522)
+  !CheckSpellState(Myself,MINOR_SPELL_TURNING)
+  !CheckSpellState(Myself,SPELL_TURNING)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    SpellRES(SPWI522,Myself)
+    SetInterrupt(TRUE)
+END~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Minor Spell Deflection                                                //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Minor Spell Deflection~~~~~
+    string = ~~~~~IF
+  ActionListEmpty()
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  OR(17)
+    Range([EVILCUTOFF.0.FAIRY],30)
+    Range([EVILCUTOFF.0.DEMONIC],30)
+    Range([EVILCUTOFF.0.RAKSHASA],30)
+    Range([EVILCUTOFF.0.DRAGON],30)
+    Range([EVILCUTOFF.0.DEMILICH],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.SOLAR],30)
+    Range([EVILCUTOFF.0.PLANATAR],30)
+    Range([EVILCUTOFF.0.ANTISOLAR],30)
+    Range([EVILCUTOFF.0.DARKPLANATAR],30)
+    See([ENEMY.0.0.MAGE_ALL])
+    See([ENEMY.0.0.BARD_ALL])
+    See([ENEMY.0.0.CLERIC_ALL])
+    See([ENEMY.0.0.DRUID_ALL])
+    See([ENEMY.0.0.SORCERER])
+    See([ENEMY.0.0.CLERIC_MAGE])
+    See([ENEMY.0.0.MAGE_ALL])
+  HaveSpellRES(SPWI318)
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
+  CheckStatLT(Myself,1,WIZARD_SPELL_DEFLECTION)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    SpellRES(SPWI318,Myself)
+    SetInterrupt(TRUE)
+END~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Minor Globe of Invulnerability                                        //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Minor Globe of Invulnerability~~~~~
+    string = ~~~~~IF
+  ActionListEmpty()
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  OR(17)
+    Range([EVILCUTOFF.0.FAIRY],30)
+    Range([EVILCUTOFF.0.DEMONIC],30)
+    Range([EVILCUTOFF.0.RAKSHASA],30)
+    Range([EVILCUTOFF.0.DRAGON],30)
+    Range([EVILCUTOFF.0.DEMILICH],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.SOLAR],30)
+    Range([EVILCUTOFF.0.PLANATAR],30)
+    Range([EVILCUTOFF.0.ANTISOLAR],30)
+    Range([EVILCUTOFF.0.DARKPLANATAR],30)
+    See([ENEMY.0.0.MAGE_ALL])
+    See([ENEMY.0.0.BARD_ALL])
+    See([ENEMY.0.0.CLERIC_ALL])
+    See([ENEMY.0.0.DRUID_ALL])
+    See([ENEMY.0.0.SORCERER])
+    See([ENEMY.0.0.CLERIC_MAGE])
+    See([ENEMY.0.0.MAGE_ALL])
+  HaveSpellRES(SPWI406)
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
+  !HasImmunityEffects(Myself)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    SpellRES(SPWI406,Myself)
+    SetInterrupt(TRUE)
+END~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Aura of Flaming Death                                                 //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Aura of Flaming Death~~~~~
+    string = ~~~~~IF
+  ActionListEmpty()
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  HaveSpellRES(SPPR730)
+  See([EVILCUTOFF])
+  OR(28)
+    NumCreatureGT([EVILCUTOFF],3)
+    Range([EVILCUTOFF.0.GOLEM],30)
+    Range([EVILCUTOFF.0.MIST],30)
+    Range([EVILCUTOFF.0.KUO-TOA],30)
+    Range([EVILCUTOFF.0.GENIE],30)
+    Range([EVILCUTOFF.0.GITHYANKI],30)
+    Range([EVILCUTOFF.0.RAKSHASA],30)
+    Range([EVILCUTOFF.0.VAMPYRE],30)
+    Range([EVILCUTOFF.0.MIND_FLAYER],30)
+    Range([EVILCUTOFF.0.DRAGON],30)
+    Range([EVILCUTOFF.0.DEMONIC],30)
+    Range([EVILCUTOFF.0.BEHOLDER],30)
+    Range([EVILCUTOFF.0.UMBERHULK],30)
+    Range([EVILCUTOFF.0.MYCONID],30)
+    Range([EVILCUTOFF.0.VAMPIRE],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.DEMILICH],30)
+    Range([EVILCUTOFF.0.FAIRY],30)
+    Range([EVILCUTOFF.0.0.WRAITH],30)
+    Range([EVILCUTOFF.0.0.WIGHT],30)
+    Range([EVILCUTOFF.0.0.SPECTRE],30)
+    Range([EVILCUTOFF.0.0.WYVERN],30)
+    Range([EVILCUTOFF.0.0.BASILISK],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.SOLAR],30)
+    Range([EVILCUTOFF.0.PLANATAR],30)
+    Range([EVILCUTOFF.0.ANTISOLAR],30)
+    Range([EVILCUTOFF.0.DARKPLANATAR],30)
+  CheckStat(Myself,0,WIZARD_FIRE_SHIELD)
+  CheckStatLT(Myself,1,CLERIC_BLADE_BARRIER)
+  CheckStatLT(Myself,89,RESISTFIRE)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    SpellRES(SPPR730,Myself)
+    SetInterrupt(TRUE)
+END~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Globe of Blades                                                       //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Globe of Blades~~~~~
+    string = ~~~~~IF
+  ActionListEmpty()
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  HaveSpellRES(SPPR725)
+  See([EVILCUTOFF])
+  OR(28)
+    NumCreatureGT([EVILCUTOFF],3)
+    Range([EVILCUTOFF.0.GOLEM],30)
+    Range([EVILCUTOFF.0.MIST],30)
+    Range([EVILCUTOFF.0.KUO-TOA],30)
+    Range([EVILCUTOFF.0.GENIE],30)
+    Range([EVILCUTOFF.0.GITHYANKI],30)
+    Range([EVILCUTOFF.0.RAKSHASA],30)
+    Range([EVILCUTOFF.0.VAMPYRE],30)
+    Range([EVILCUTOFF.0.MIND_FLAYER],30)
+    Range([EVILCUTOFF.0.DRAGON],30)
+    Range([EVILCUTOFF.0.DEMONIC],30)
+    Range([EVILCUTOFF.0.BEHOLDER],30)
+    Range([EVILCUTOFF.0.UMBERHULK],30)
+    Range([EVILCUTOFF.0.MYCONID],30)
+    Range([EVILCUTOFF.0.VAMPIRE],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.DEMILICH],30)
+    Range([EVILCUTOFF.0.FAIRY],30)
+    Range([EVILCUTOFF.0.0.WRAITH],30)
+    Range([EVILCUTOFF.0.0.WIGHT],30)
+    Range([EVILCUTOFF.0.0.SPECTRE],30)
+    Range([EVILCUTOFF.0.0.WYVERN],30)
+    Range([EVILCUTOFF.0.0.BASILISK],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.SOLAR],30)
+    Range([EVILCUTOFF.0.PLANATAR],30)
+    Range([EVILCUTOFF.0.ANTISOLAR],30)
+    Range([EVILCUTOFF.0.DARKPLANATAR],30)
+  CheckStat(Myself,0,WIZARD_FIRE_SHIELD)
+  CheckStatLT(Myself,1,CLERIC_BLADE_BARRIER)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    SpellRES(SPPR725,Myself)
+    SetInterrupt(TRUE)
+END~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Fire Shield (Red)                                                     //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Fire Shield (Red)~~~~~
+    string = ~~~~~IF
+  ActionListEmpty()
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  HaveSpellRES(SPWI418)
+  See([EVILCUTOFF])
+  OR(19)
+    NumCreatureGT([EVILCUTOFF],3)
+    Range([EVILCUTOFF.0.KUO-TOA],30)
+    Range([EVILCUTOFF.0.GENIE],30)
+    Range([EVILCUTOFF.0.GITHYANKI],30)
+    Range([EVILCUTOFF.0.RAKSHASA],30)
+    Range([EVILCUTOFF.0.VAMPYRE],30)
+    Range([EVILCUTOFF.0.MIND_FLAYER],30)
+    Range([EVILCUTOFF.0.DRAGON],30)
+    Range([EVILCUTOFF.0.DEMONIC],30)
+    Range([EVILCUTOFF.0.BEHOLDER],30)
+    Range([EVILCUTOFF.0.VAMPIRE],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.DEMILICH],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.SOLAR],30)
+    Range([EVILCUTOFF.0.PLANATAR],30)
+    Range([EVILCUTOFF.0.ANTISOLAR],30)
+    Range([EVILCUTOFF.0.DARKPLANATAR],30)
+    See([ENEMY.0.0.DRUID_ALL])
+  !CheckSpellState(Myself,RED_FIRESHIELD)
+  !CheckSpellState(Myself,BLUE_FIRESHIELD)
+  !CheckSpellState(Myself,GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    SpellRES(SPWI418,Myself)
+    SetInterrupt(TRUE)
+END~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Fire Shield (Blue)                                                    //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Fire Shield (Blue)~~~~~
+    string = ~~~~~IF
+  ActionListEmpty()
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  HaveSpellRES(SPWI403)
+  See([EVILCUTOFF])
+  OR(19)
+    NumCreatureGT([EVILCUTOFF],3)
+    Range([EVILCUTOFF.0.KUO-TOA],30)
+    Range([EVILCUTOFF.0.GENIE],30)
+    Range([EVILCUTOFF.0.GITHYANKI],30)
+    Range([EVILCUTOFF.0.RAKSHASA],30)
+    Range([EVILCUTOFF.0.VAMPYRE],30)
+    Range([EVILCUTOFF.0.MIND_FLAYER],30)
+    Range([EVILCUTOFF.0.DRAGON],30)
+    Range([EVILCUTOFF.0.DEMONIC],30)
+    Range([EVILCUTOFF.0.BEHOLDER],30)
+    Range([EVILCUTOFF.0.VAMPIRE],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.DEMILICH],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.SOLAR],30)
+    Range([EVILCUTOFF.0.PLANATAR],30)
+    Range([EVILCUTOFF.0.ANTISOLAR],30)
+    Range([EVILCUTOFF.0.DARKPLANATAR],30)
+    See([ENEMY.0.0.DRUID_ALL])
+  !CheckSpellState(Myself,RED_FIRESHIELD)
+  !CheckSpellState(Myself,BLUE_FIRESHIELD)
+  !CheckSpellState(Myself,GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    SpellRES(SPWI403,Myself)
+    SetInterrupt(TRUE)
+END~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Shield of the Archons                                                 //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Shield of the Archons~~~~~
+    string = ~~~~~IF
+  ActionListEmpty()
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  OR(17)
+    Range([EVILCUTOFF.0.FAIRY],30)
+    Range([EVILCUTOFF.0.DEMONIC],30)
+    Range([EVILCUTOFF.0.RAKSHASA],30)
+    Range([EVILCUTOFF.0.DRAGON],30)
+    Range([EVILCUTOFF.0.DEMILICH],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.SOLAR],30)
+    Range([EVILCUTOFF.0.PLANATAR],30)
+    Range([EVILCUTOFF.0.ANTISOLAR],30)
+    Range([EVILCUTOFF.0.DARKPLANATAR],30)
+    See([ENEMY.0.0.MAGE_ALL])
+    See([ENEMY.0.0.BARD_ALL])
+    See([ENEMY.0.0.CLERIC_ALL])
+    See([ENEMY.0.0.DRUID_ALL])
+    See([ENEMY.0.0.SORCERER])
+    See([ENEMY.0.0.CLERIC_MAGE])
+    See([ENEMY.0.0.MAGE_ALL])
+  HaveSpellRES(SPPR701)
+  CheckStatLT(Myself,1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    SpellRES(SPPR701,Myself)
+    SetInterrupt(TRUE)
+END~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Protection From Normal Missiles                                       //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Protection From Normal Missiles~~~~~
+    string = ~~~~~IF
+  ActionListEmpty()
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  HaveSpellRES(SPWI311)
+  OR(11)
+    HitBy([ANYONE],MISSILE)
+    IsWeaponRanged(NearestEnemyOf(Myself))
+    IsWeaponRanged(SecondNearestEnemyOf(Myself))
+    IsWeaponRanged(ThirdNearestEnemyOf(Myself))
+    IsWeaponRanged(FourthNearestEnemyOf(Myself))
+    IsWeaponRanged(FifthNearestEnemyOf(Myself))
+    IsWeaponRanged(SixthNearestEnemyOf(Myself))
+    IsWeaponRanged(SeventhNearestEnemyOf(Myself))
+    IsWeaponRanged(EighthNearestEnemyOf(Myself))
+    IsWeaponRanged(NinthNearestEnemyOf(Myself))
+    IsWeaponRanged(TenthNearestEnemyOf(Myself))
+  !CheckSpellState(Myself,PROTECTION_FROM_NORMAL_MISSILES)
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    SpellRES(SPWI311,Myself)
+    SetInterrupt(TRUE)
+END~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Physical Mirror                                                       //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Physical Mirror~~~~~
+    string = ~~~~~IF
+  ActionListEmpty()
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  HaveSpellRES(SPPR613)
+  OR(11)
+    HitBy([ANYONE],MISSILE)
+    IsWeaponRanged(NearestEnemyOf(Myself))
+    IsWeaponRanged(SecondNearestEnemyOf(Myself))
+    IsWeaponRanged(ThirdNearestEnemyOf(Myself))
+    IsWeaponRanged(FourthNearestEnemyOf(Myself))
+    IsWeaponRanged(FifthNearestEnemyOf(Myself))
+    IsWeaponRanged(SixthNearestEnemyOf(Myself))
+    IsWeaponRanged(SeventhNearestEnemyOf(Myself))
+    IsWeaponRanged(EighthNearestEnemyOf(Myself))
+    IsWeaponRanged(NinthNearestEnemyOf(Myself))
+    IsWeaponRanged(TenthNearestEnemyOf(Myself))
+  CheckStatLT(Myself,1,CLERIC_PHYSICAL_MIRROR)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    SpellRES(SPPR613,Myself)
+    SetInterrupt(TRUE)
+END~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Blade Barrier                                                         //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Blade Barrier~~~~~
+    string = ~~~~~IF
+  ActionListEmpty()
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  HaveSpellRES(SPPR603)
+  See([EVILCUTOFF])
+  OR(28)
+    NumCreatureGT([EVILCUTOFF],3)
+    Range([EVILCUTOFF.0.GOLEM],30)
+    Range([EVILCUTOFF.0.MIST],30)
+    Range([EVILCUTOFF.0.KUO-TOA],30)
+    Range([EVILCUTOFF.0.GENIE],30)
+    Range([EVILCUTOFF.0.GITHYANKI],30)
+    Range([EVILCUTOFF.0.RAKSHASA],30)
+    Range([EVILCUTOFF.0.VAMPYRE],30)
+    Range([EVILCUTOFF.0.MIND_FLAYER],30)
+    Range([EVILCUTOFF.0.DRAGON],30)
+    Range([EVILCUTOFF.0.DEMONIC],30)
+    Range([EVILCUTOFF.0.BEHOLDER],30)
+    Range([EVILCUTOFF.0.UMBERHULK],30)
+    Range([EVILCUTOFF.0.MYCONID],30)
+    Range([EVILCUTOFF.0.VAMPIRE],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.DEMILICH],30)
+    Range([EVILCUTOFF.0.FAIRY],30)
+    Range([EVILCUTOFF.0.0.WRAITH],30)
+    Range([EVILCUTOFF.0.0.WIGHT],30)
+    Range([EVILCUTOFF.0.0.SPECTRE],30)
+    Range([EVILCUTOFF.0.0.WYVERN],30)
+    Range([EVILCUTOFF.0.0.BASILISK],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.SOLAR],30)
+    Range([EVILCUTOFF.0.PLANATAR],30)
+    Range([EVILCUTOFF.0.ANTISOLAR],30)
+    Range([EVILCUTOFF.0.DARKPLANATAR],30)
+  CheckStat(Myself,0,WIZARD_FIRE_SHIELD)
+  CheckStatLT(Myself,1,CLERIC_BLADE_BARRIER)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    SpellRES(SPPR603,Myself)
+    SetInterrupt(TRUE)
+END~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Draw Upon Holy Might                                                  //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Draw Upon Holy Might~~~~~
+    string = ~~~~~IF
+  ActionListEmpty()
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  HaveSpellRES(SPPR214)
+  See([EVILCUTOFF])
+  !StateCheck(Myself,STATE_DRAWUPONHOLYMIGHT)
+  CheckStatLT(Myself,25,STR)
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
+  OR(28)
+    NumCreatureGT([EVILCUTOFF],3)
+    Range([EVILCUTOFF.0.GOLEM],30)
+    Range([EVILCUTOFF.0.MIST],30)
+    Range([EVILCUTOFF.0.KUO-TOA],30)
+    Range([EVILCUTOFF.0.GENIE],30)
+    Range([EVILCUTOFF.0.GITHYANKI],30)
+    Range([EVILCUTOFF.0.RAKSHASA],30)
+    Range([EVILCUTOFF.0.VAMPYRE],30)
+    Range([EVILCUTOFF.0.MIND_FLAYER],30)
+    Range([EVILCUTOFF.0.DRAGON],30)
+    Range([EVILCUTOFF.0.DEMONIC],30)
+    Range([EVILCUTOFF.0.BEHOLDER],30)
+    Range([EVILCUTOFF.0.UMBERHULK],30)
+    Range([EVILCUTOFF.0.MYCONID],30)
+    Range([EVILCUTOFF.0.VAMPIRE],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.DEMILICH],30)
+    Range([EVILCUTOFF.0.FAIRY],30)
+    Range([EVILCUTOFF.0.0.WRAITH],30)
+    Range([EVILCUTOFF.0.0.WIGHT],30)
+    Range([EVILCUTOFF.0.0.SPECTRE],30)
+    Range([EVILCUTOFF.0.0.WYVERN],30)
+    Range([EVILCUTOFF.0.0.BASILISK],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.SOLAR],30)
+    Range([EVILCUTOFF.0.PLANATAR],30)
+    Range([EVILCUTOFF.0.ANTISOLAR],30)
+    Range([EVILCUTOFF.0.DARKPLANATAR],30)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    SpellRES(SPPR214,Myself)
+    SetInterrupt(TRUE)
+END~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Armor of Faith                                                        //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Armor of Faith~~~~~
+    string = ~~~~~IF
+  ActionListEmpty()
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
+  HaveSpellRES(SPPR111)
+  !CheckSpellState(Myself,ARMOR_OF_FAITH)
+  See([EVILCUTOFF])
+  OR(28)
+    NumCreatureGT([EVILCUTOFF],3)
+    Range([EVILCUTOFF.0.GOLEM],30)
+    Range([EVILCUTOFF.0.MIST],30)
+    Range([EVILCUTOFF.0.KUO-TOA],30)
+    Range([EVILCUTOFF.0.GENIE],30)
+    Range([EVILCUTOFF.0.GITHYANKI],30)
+    Range([EVILCUTOFF.0.RAKSHASA],30)
+    Range([EVILCUTOFF.0.VAMPYRE],30)
+    Range([EVILCUTOFF.0.MIND_FLAYER],30)
+    Range([EVILCUTOFF.0.DRAGON],30)
+    Range([EVILCUTOFF.0.DEMONIC],30)
+    Range([EVILCUTOFF.0.BEHOLDER],30)
+    Range([EVILCUTOFF.0.UMBERHULK],30)
+    Range([EVILCUTOFF.0.MYCONID],30)
+    Range([EVILCUTOFF.0.VAMPIRE],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.DEMILICH],30)
+    Range([EVILCUTOFF.0.FAIRY],30)
+    Range([EVILCUTOFF.0.0.WRAITH],30)
+    Range([EVILCUTOFF.0.0.WIGHT],30)
+    Range([EVILCUTOFF.0.0.SPECTRE],30)
+    Range([EVILCUTOFF.0.0.WYVERN],30)
+    Range([EVILCUTOFF.0.0.BASILISK],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.SOLAR],30)
+    Range([EVILCUTOFF.0.PLANATAR],30)
+    Range([EVILCUTOFF.0.ANTISOLAR],30)
+    Range([EVILCUTOFF.0.DARKPLANATAR],30)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    SpellRES(SPPR111,Myself)
+    SetInterrupt(TRUE)
+END~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Cleric Protection From Fire                                           //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Cleric Protection From Fire~~~~~
+    string = ~~~~~IF
+  ActionListEmpty()
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
+  HaveSpellRES(SPPR306)
+  OR(7)
+    Class(NearestEnemyOfType,MAGE_ALL)
+    Class(NearestEnemyOfType,SORCERER)
+    Class(NearestEnemyOfType,DRUID_ALL)
+    Class(NearestEnemyOfType,CLERIC_ALL)
+    Class(NearestEnemyOfType,ELEMENTAL_FIRE)
+    Class(NearestEnemyOfType,RED_DRAGON)
+    Class(NearestEnemyOfType,SILVER_DRAGON)
+  CheckStatLT(Myself,80,RESISTFIRE)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    SpellRES(SPPR306,Myself)
+    SetInterrupt(TRUE)
+END~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Black Blade of Disaster                                               //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Black Blade of Disaster~~~~~
+    string = ~~~~~IF
+  ActionListEmpty()
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  HaveSpellRES(SPWI915)
+  !HasItemEquiped("BLAKBLAD",Myself)
+  See([EVILCUTOFF])
+  OR(33)
+    Range([EVILCUTOFF.0.GOLEM],30)
+    Range([EVILCUTOFF.0.MIST],30)
+    Range([EVILCUTOFF.0.KUO-TOA],30)
+    Range([EVILCUTOFF.0.GENIE],30)
+    Range([EVILCUTOFF.0.GITHYANKI],30)
+    Range([EVILCUTOFF.0.RAKSHASA],30)
+    Range([EVILCUTOFF.0.VAMPYRE],30)
+    Range([EVILCUTOFF.0.MIND_FLAYER],30)
+    Range([EVILCUTOFF.0.DRAGON],30)
+    Range([EVILCUTOFF.0.DEMONIC],30)
+    Range([EVILCUTOFF.0.BEHOLDER],30)
+    Range([EVILCUTOFF.0.UMBERHULK],30)
+    Range([EVILCUTOFF.0.MYCONID],30)
+    Range([EVILCUTOFF.0.VAMPIRE],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.DEMILICH],30)
+    Range([EVILCUTOFF.0.FAIRY],30)
+    Range([EVILCUTOFF.0.0.WRAITH],30)
+    Range([EVILCUTOFF.0.0.WIGHT],30)
+    Range([EVILCUTOFF.0.0.SPECTRE],30)
+    Range([EVILCUTOFF.0.0.WYVERN],30)
+    Range([EVILCUTOFF.0.0.BASILISK],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.SOLAR],30)
+    Range([EVILCUTOFF.0.PLANATAR],30)
+    Range([EVILCUTOFF.0.ANTISOLAR],30)
+    Range([EVILCUTOFF.0.DARKPLANATAR],30)
+    See([ENEMY.0.0.MAGE_ALL])
+    See([ENEMY.0.0.BARD_ALL])
+    See([ENEMY.0.0.CLERIC_ALL])
+    See([ENEMY.0.0.DRUID_ALL])
+    See([ENEMY.0.0.SORCERER])
+    See([ENEMY.0.0.CLERIC_MAGE])
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SpellRES(SPWI915,Myself)
+END~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Improved Haste                                                        //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Improved Haste~~~~~
+    string = ~~~~~IF
+  ActionListEmpty()
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  HaveSpellRES(SPWI613)
+  !CheckStatGT(Myself,0,IMPROVEDHASTE)
+  OR(5)
+    Class(Myself,THIEF_ALL)
+    Class(Myself,FIGHTER_ALL)
+    Class(Myself,BARD_ALL)
+    Class(Myself,DRUID_ALL)
+    Class(Myself,CLERIC_ALL)
+  !CheckSpellState(Myself,GREATER_WHIRLWIND)
+  See([EVILCUTOFF])
+  OR(6)
+    WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(SecondNearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(ThirdNearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(FourthNearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(FifthNearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(SixthNearestEnemyOf(Myself),MAINHAND)
+  OR(6)
+    WeaponCanDamage(NearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(SecondNearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(ThirdNearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(FourthNearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(FifthNearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(SixthNearestEnemyOf(Myself),MAINHAND)
+  OR(33)
+    Range([EVILCUTOFF.0.GOLEM],30)
+    Range([EVILCUTOFF.0.MIST],30)
+    Range([EVILCUTOFF.0.KUO-TOA],30)
+    Range([EVILCUTOFF.0.GENIE],30)
+    Range([EVILCUTOFF.0.GITHYANKI],30)
+    Range([EVILCUTOFF.0.RAKSHASA],30)
+    Range([EVILCUTOFF.0.VAMPYRE],30)
+    Range([EVILCUTOFF.0.MIND_FLAYER],30)
+    Range([EVILCUTOFF.0.DRAGON],30)
+    Range([EVILCUTOFF.0.DEMONIC],30)
+    Range([EVILCUTOFF.0.BEHOLDER],30)
+    Range([EVILCUTOFF.0.UMBERHULK],30)
+    Range([EVILCUTOFF.0.MYCONID],30)
+    Range([EVILCUTOFF.0.VAMPIRE],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.DEMILICH],30)
+    Range([EVILCUTOFF.0.FAIRY],30)
+    Range([EVILCUTOFF.0.0.WRAITH],30)
+    Range([EVILCUTOFF.0.0.WIGHT],30)
+    Range([EVILCUTOFF.0.0.SPECTRE],30)
+    Range([EVILCUTOFF.0.0.WYVERN],30)
+    Range([EVILCUTOFF.0.0.BASILISK],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.SOLAR],30)
+    Range([EVILCUTOFF.0.PLANATAR],30)
+    Range([EVILCUTOFF.0.ANTISOLAR],30)
+    Range([EVILCUTOFF.0.DARKPLANATAR],30)
+    See([ENEMY.0.0.MAGE_ALL])
+    See([ENEMY.0.0.BARD_ALL])
+    See([ENEMY.0.0.CLERIC_ALL])
+    See([ENEMY.0.0.DRUID_ALL])
+    See([ENEMY.0.0.SORCERER])
+    See([ENEMY.0.0.CLERIC_MAGE])
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    SpellRES(SPWI613,Myself)
+    SetInterrupt(TRUE)
+END~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Magic Missile                                                         //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Magic Missile~~~~~
+    string = ~~~~~IF
+  ActionListEmpty()
+  Global("MO_TURNUNDEAD","LOCALS",0)
+  Global("MO_DETECTILLUSIONS","LOCALS",0)
+  Global("MO_MyDetectEnemyIllusion","LOCALS",0)
+  !ModalState(SHAMANDANCE)
+  See(NearestEnemyOf(Myself))
+  Race(LastSeenBy(Myself),SWORD)
+  HaveSpellRES(SPWI112)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    SpellRES(SPWI112,LastSeenBy(Myself))
+    SetInterrupt(TRUE)
+END
+
+IF
+  ActionListEmpty()
+  Global("MO_TURNUNDEAD","LOCALS",0)
+  Global("MO_DETECTILLUSIONS","LOCALS",0)
+  Global("MO_MyDetectEnemyIllusion","LOCALS",0)
+  !ModalState(SHAMANDANCE)
+  See(SecondNearestEnemyOf(Myself))
+  Race(LastSeenBy(Myself),SWORD)
+  HaveSpellRES(SPWI112)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    SpellRES(SPWI112,LastSeenBy(Myself))
+    SetInterrupt(TRUE)
+END
+
+IF
+  ActionListEmpty()
+  Global("MO_TURNUNDEAD","LOCALS",0)
+  Global("MO_DETECTILLUSIONS","LOCALS",0)
+  Global("MO_MyDetectEnemyIllusion","LOCALS",0)
+  !ModalState(SHAMANDANCE)
+  See(ThirdNearestEnemyOf(Myself))
+  Race(LastSeenBy(Myself),SWORD)
+  HaveSpellRES(SPWI112)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    SpellRES(SPWI112,LastSeenBy(Myself))
+    SetInterrupt(TRUE)
+END
+
+IF
+  ActionListEmpty()
+  Global("MO_TURNUNDEAD","LOCALS",0)
+  Global("MO_DETECTILLUSIONS","LOCALS",0)
+  Global("MO_MyDetectEnemyIllusion","LOCALS",0)
+  !ModalState(SHAMANDANCE)
+  See(FourthNearestEnemyOf(Myself))
+  Race(LastSeenBy(Myself),SWORD)
+  HaveSpellRES(SPWI112)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    SpellRES(SPWI112,LastSeenBy(Myself))
+    SetInterrupt(TRUE)
+END
+
+IF
+  ActionListEmpty()
+  Global("MO_TURNUNDEAD","LOCALS",0)
+  Global("MO_DETECTILLUSIONS","LOCALS",0)
+  Global("MO_MyDetectEnemyIllusion","LOCALS",0)
+  !ModalState(SHAMANDANCE)
+  See(FifthNearestEnemyOf(Myself))
+  Race(LastSeenBy(Myself),SWORD)
+  HaveSpellRES(SPWI112)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    SpellRES(SPWI112,LastSeenBy(Myself))
+    SetInterrupt(TRUE)
+END
+
+IF
+  ActionListEmpty()
+  Global("MO_TURNUNDEAD","LOCALS",0)
+  Global("MO_DETECTILLUSIONS","LOCALS",0)
+  Global("MO_MyDetectEnemyIllusion","LOCALS",0)
+  !ModalState(SHAMANDANCE)
+  See(SixthNearestEnemyOf(Myself))
+  Race(LastSeenBy(Myself),SWORD)
+  HaveSpellRES(SPWI112)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    SpellRES(SPWI112,LastSeenBy(Myself))
+    SetInterrupt(TRUE)
+END~~~~~ //"
+  END
