@@ -466,8 +466,8 @@ END
 // Make Skald Script after Core                                          //
 ///////////////////////////////////////////////////////////////////////////
 ACTION_IF 5e_spellcasting BEGIN
+	//INCLUDE ~enhanced-powergaming-scripts/lib/bg2ee/magic_missile_5e.tph~
 	INCLUDE ~enhanced-powergaming-scripts/lib/skald_5e_base.tph~
-	INCLUDE ~enhanced-powergaming-scripts/lib/bg2ee/magic_missile_5e.tph~
 
 	ACTION_FOR_EACH 5e_spell IN
 				WIZARD_MAGIC_MISSILE
