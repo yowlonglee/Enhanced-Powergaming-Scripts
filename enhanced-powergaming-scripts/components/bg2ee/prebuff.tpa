@@ -140,7 +140,7 @@ END ELSE BEGIN
 		BEGIN
 			LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_prebuff%~ RET spell_res END
 			COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
-				REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_prebuff%~ ~RES("%spell_res%"~
+				REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_prebuff%~ ~RES(%spell_res%~
 		END
 	END
 
