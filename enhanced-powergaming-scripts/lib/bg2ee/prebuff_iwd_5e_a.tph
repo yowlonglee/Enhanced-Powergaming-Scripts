@@ -11,7 +11,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     pattern = ~~~~~// 5e Spellcasting Prebuff - IWD Emotion Courage and Hope~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
-  HHaveSpellRES(SPWI433)
+  HaveSpellRES(SPWI433)
   !CheckSpellState(Myself,EMOTION_COURAGE)
   !CheckSpellState(Myself,GLOBE)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
