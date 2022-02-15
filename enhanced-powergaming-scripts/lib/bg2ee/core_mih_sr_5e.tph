@@ -12,7 +12,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     string = ~~~~~IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  HaveSpellRES(SPPR216)
+  HaveSpellRES(CLERIC_CURE_BLIND_DEAF)
   See(Myself)
   OR(2)
     StateCheck(LastSeenBy(Myself),STATE_BLIND)
@@ -30,14 +30,14 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5010)
-    SpellRES(SPPR216,LastSeenBy(Myself))
+    SpellRES(CLERIC_CURE_BLIND_DEAF,LastSeenBy(Myself))
     SetInterrupt(TRUE)
 END
 
 IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  HaveSpellRES(SPPR216)
+  HaveSpellRES(CLERIC_CURE_BLIND_DEAF)
   See([PC])
   OR(2)
     StateCheck(LastSeenBy(Myself),STATE_BLIND)
@@ -55,14 +55,14 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5010)
-    SpellRES(SPPR216,LastSeenBy(Myself))
+    SpellRES(CLERIC_CURE_BLIND_DEAF,LastSeenBy(Myself))
     SetInterrupt(TRUE)
 END
 
 IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  HaveSpellRES(SPPR216)
+  HaveSpellRES(CLERIC_CURE_BLIND_DEAF)
   See(SecondNearest([PC]))
   OR(2)
     StateCheck(LastSeenBy(Myself),STATE_BLIND)
@@ -80,14 +80,14 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5010)
-    SpellRES(SPPR216,LastSeenBy(Myself))
+    SpellRES(CLERIC_CURE_BLIND_DEAF,LastSeenBy(Myself))
     SetInterrupt(TRUE)
 END
 
 IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  HaveSpellRES(SPPR216)
+  HaveSpellRES(CLERIC_CURE_BLIND_DEAF)
   See(ThirdNearest([PC]))
   OR(2)
     StateCheck(LastSeenBy(Myself),STATE_BLIND)
@@ -105,14 +105,14 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5010)
-    SpellRES(SPPR216,LastSeenBy(Myself))
+    SpellRES(CLERIC_CURE_BLIND_DEAF,LastSeenBy(Myself))
     SetInterrupt(TRUE)
 END
 
 IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  HaveSpellRES(SPPR216)
+  HaveSpellRES(CLERIC_CURE_BLIND_DEAF)
   See(FourthNearest([PC]))
   OR(2)
     StateCheck(LastSeenBy(Myself),STATE_BLIND)
@@ -130,14 +130,14 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5010)
-    SpellRES(SPPR216,LastSeenBy(Myself))
+    SpellRES(CLERIC_CURE_BLIND_DEAF,LastSeenBy(Myself))
     SetInterrupt(TRUE)
 END
 
 IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  HaveSpellRES(SPPR216)
+  HaveSpellRES(CLERIC_CURE_BLIND_DEAF)
   See(FifthNearest([PC]))
   OR(2)
     StateCheck(LastSeenBy(Myself),STATE_BLIND)
@@ -155,14 +155,14 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5010)
-    SpellRES(SPPR216,LastSeenBy(Myself))
+    SpellRES(CLERIC_CURE_BLIND_DEAF,LastSeenBy(Myself))
     SetInterrupt(TRUE)
 END
 
 IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  HaveSpellRES(SPPR216)
+  HaveSpellRES(CLERIC_CURE_BLIND_DEAF)
   See(SixthNearest([PC]))
   OR(2)
     StateCheck(LastSeenBy(Myself),STATE_BLIND)
@@ -180,7 +180,7 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5010)
-    SpellRES(SPPR216,LastSeenBy(Myself))
+    SpellRES(CLERIC_CURE_BLIND_DEAF,LastSeenBy(Myself))
     SetInterrupt(TRUE)
 END
 ~~~~~ //"

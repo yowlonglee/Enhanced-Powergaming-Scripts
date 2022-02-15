@@ -12,7 +12,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     string = ~~~~~IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([PC])
-  HaveSpellRES(SPPR350)
+  HaveSpellRES(CLERIC_SPIRITUAL_CLARITY)
   OR(4)
     StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
     StateCheck(LastSeenBy(Myself),STATE_PANIC)
@@ -30,14 +30,14 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
-    SpellRES(SPPR350,LastSeenBy(Myself))
+    SpellRES(CLERIC_SPIRITUAL_CLARITY,LastSeenBy(Myself))
     SetInterrupt(TRUE)
 END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SecondNearest([PC]))
-  HaveSpellRES(SPPR350)
+  HaveSpellRES(CLERIC_SPIRITUAL_CLARITY)
   OR(4)
     StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
     StateCheck(LastSeenBy(Myself),STATE_PANIC)
@@ -55,14 +55,14 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
-    SpellRES(SPPR350,LastSeenBy(Myself))
+    SpellRES(CLERIC_SPIRITUAL_CLARITY,LastSeenBy(Myself))
     SetInterrupt(TRUE)
 END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(ThirdNearest([PC]))
-  HaveSpellRES(SPPR350)
+  HaveSpellRES(CLERIC_SPIRITUAL_CLARITY)
   OR(4)
     StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
     StateCheck(LastSeenBy(Myself),STATE_PANIC)
@@ -80,14 +80,14 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
-    SpellRES(SPPR350,LastSeenBy(Myself))
+    SpellRES(CLERIC_SPIRITUAL_CLARITY,LastSeenBy(Myself))
     SetInterrupt(TRUE)
 END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FourthNearest([PC]))
-  HaveSpellRES(SPPR350)
+  HaveSpellRES(CLERIC_SPIRITUAL_CLARITY)
   OR(4)
     StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
     StateCheck(LastSeenBy(Myself),STATE_PANIC)
@@ -105,14 +105,14 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
-    SpellRES(SPPR350,LastSeenBy(Myself))
+    SpellRES(CLERIC_SPIRITUAL_CLARITY,LastSeenBy(Myself))
     SetInterrupt(TRUE)
 END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FifthNearest([PC]))
-  HaveSpellRES(SPPR350)
+  HaveSpellRES(CLERIC_SPIRITUAL_CLARITY)
   OR(4)
     StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
     StateCheck(LastSeenBy(Myself),STATE_PANIC)
@@ -130,14 +130,14 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
-    SpellRES(SPPR350,LastSeenBy(Myself))
+    SpellRES(CLERIC_SPIRITUAL_CLARITY,LastSeenBy(Myself))
     SetInterrupt(TRUE)
 END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SixthNearest([PC]))
-  HaveSpellRES(SPPR350)
+  HaveSpellRES(CLERIC_SPIRITUAL_CLARITY)
   OR(4)
     StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
     StateCheck(LastSeenBy(Myself),STATE_PANIC)
@@ -155,7 +155,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
-    SpellRES(SPPR350,LastSeenBy(Myself))
+    SpellRES(CLERIC_SPIRITUAL_CLARITY,LastSeenBy(Myself))
     SetInterrupt(TRUE)
 END
 ~~~~~ //"

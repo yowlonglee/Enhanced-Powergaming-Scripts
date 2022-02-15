@@ -12,7 +12,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     string = ~~~~~IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  HaveSpellRES(SPWI524)
+  HaveSpellRES(WIZARD_SUPERHEROISM)
   See([EVILCUTOFF])
   !CheckSpellState(Myself,HEROISM)
   !CheckSpellState(Myself,MINOR_GLOBE)
@@ -56,14 +56,14 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
-    SpellRES(SPWI524,Myself)
+    SpellRES(WIZARD_SUPERHEROISM,Myself)
     SetInterrupt(TRUE)
 END
 
 IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  HaveSpellRES(SPWI327)
+  HaveSpellRES(WIZARD_HEROISM)
   See([EVILCUTOFF])
   !CheckSpellState(Myself,HEROISM)
   !CheckSpellState(Myself,MINOR_GLOBE)
@@ -107,7 +107,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
-    SpellRES(SPWI327,Myself)
+    SpellRES(WIZARD_HEROISM,Myself)
     SetInterrupt(TRUE)
 END
 ~~~~~ //"
@@ -125,7 +125,7 @@ END
     string = ~~~~~IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  HaveSpellRES(SPWI225)
+  HaveSpellRES(WIZARD_SEEKING)
   See([EVILCUTOFF])
   IsWeaponRanged(Myself)
   !CheckSpellState(LastSeenBy(Myself),STRIKING_SEEKING)
@@ -170,7 +170,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
-    SpellRES(SPWI225,Myself)
+    SpellRES(WIZARD_SEEKING,Myself)
     SetInterrupt(TRUE)
 END
 ~~~~~ //"

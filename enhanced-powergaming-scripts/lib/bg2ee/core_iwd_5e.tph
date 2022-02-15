@@ -12,7 +12,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     string = ~~~~~IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  HaveSpellRES(SPWI801)
+  HaveSpellRES(WIZARD_MIND_BLANK)
   !CheckSpellState(Myself,MIND_BLANK)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -24,13 +24,13 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
-    SpellRES(SPWI801,Myself)
+    SpellRES(WIZARD_MIND_BLANK,Myself)
     SetInterrupt(TRUE)
 END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  HaveSpellRES(SPPR736)
+  HaveSpellRES(CLERIC_IMPERVIOUS_SANCTITY_OF_MIND)
   !CheckSpellState(Myself,CHAOTIC_COMMANDS)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -40,7 +40,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SpellRES(SPPR736,Myself)
+    SpellRES(CLERIC_IMPERVIOUS_SANCTITY_OF_MIND,Myself)
 END~~~~~ //"
   END
 
@@ -58,7 +58,7 @@ END~~~~~ //"
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([EVILCUTOFF])
   HPPercentLT(Myself,51)
-  HaveSpellRES(SPPR738)
+  HaveSpellRES(CLERIC_GREATER_SHIELD_OF_LATHANDER)
   !CheckSpellState(Myself,SHIELD_OF_LATHANDER)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -68,7 +68,7 @@ END~~~~~ //"
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SpellRES(SPPR738,Myself)
+    SpellRES(CLERIC_GREATER_SHIELD_OF_LATHANDER,Myself)
 END
 
 IF
@@ -76,7 +76,7 @@ IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([EVILCUTOFF])
   HPPercentLT(Myself,51)
-  HaveSpellRES(SPPR525)
+  HaveSpellRES(CLERIC_SHIELD_OF_LATHANDER)
   !CheckSpellState(Myself,SHIELD_OF_LATHANDER)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -86,7 +86,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SpellRES(SPPR525,Myself)
+    SpellRES(CLERIC_SHIELD_OF_LATHANDER,Myself)
 END
 ~~~~~ //"
   END
@@ -107,7 +107,7 @@ END
   OR(2)
     !See([EVILCUTOFF])
     CheckStat(Myself,1,SANCTUARY)
-  HaveSpellRES(SPPR218)
+  HaveSpellRES(CLERIC_CURE_MODERATE_WOUNDS)
   See(MostDamagedOf([PC]))
   HPPercentLT(LastSeenBy(Myself),80)
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
@@ -132,7 +132,7 @@ THEN
     SetGlobalTimer("MO_HealCast","GLOBAL",12)
     SetGlobal("MO_CastingHeal","GLOBAL",1)
     SetInterrupt(FALSE)
-    SpellRES(SPPR218,LastSeenBy(Myself))
+    SpellRES(CLERIC_CURE_MODERATE_WOUNDS,LastSeenBy(Myself))
     SetInterrupt(TRUE)
 END
 ~~~~~ //"

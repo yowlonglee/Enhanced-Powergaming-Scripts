@@ -284,6 +284,14 @@ END ELSE BEGIN
 
 		ACTION_IF 5e_spellcasting BEGIN
 			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_mih_sr_5e.tph~
+
+			ACTION_FOR_EACH 5e_mih_sr IN
+				CLERIC_CURE_BLIND_DEAF
+			BEGIN
+				LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_mih_sr%~ RET spell_res END
+				COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+					REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_mih_sr%~ ~RES(%spell_res%~
+			END
 		END
 	END
 	
@@ -295,6 +303,16 @@ END ELSE BEGIN
 
 		ACTION_IF 5e_spellcasting BEGIN
 			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_mih_arcane_5e.tph~
+
+			ACTION_FOR_EACH 5e_mih_arcane IN
+				WIZARD_SUPERHEROISM
+				WIZARD_HEROISM
+				WIZARD_SEEKING
+			BEGIN
+				LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_mih_arcane%~ RET spell_res END
+				COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+					REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_mih_arcane%~ ~RES(%spell_res%~
+			END
 		END
 	END
 
@@ -306,6 +324,20 @@ END ELSE BEGIN
 
 		ACTION_IF 5e_spellcasting BEGIN
 			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_mih_divine_5e.tph~
+
+			ACTION_FOR_EACH 5e_mih_divine IN
+				CLERIC_SUPERHEROISM
+				CLERIC_HEROISM
+				CLERIC_SEEKING
+				CLERIC_STRIKING
+				CLERIC_CELESTIAL_PROTECTION
+				CLERIC_REPEL_INSECTS
+				CLERIC_BREAK_ENCHANTMENT
+			BEGIN
+				LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_mih_divine%~ RET spell_res END
+				COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+					REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_mih_divine%~ ~RES(%spell_res%~
+			END
 		END
 	END
 
@@ -317,6 +349,18 @@ END ELSE BEGIN
 
 		ACTION_IF 5e_spellcasting BEGIN
 			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_iwd_5e.tph~
+
+			ACTION_FOR_EACH 5e_iwd IN
+				WIZARD_MIND_BLANK
+				CLERIC_IMPERVIOUS_SANCTITY_OF_MIND
+				CLERIC_GREATER_SHIELD_OF_LATHANDER
+				CLERIC_SHIELD_OF_LATHANDER
+				CLERIC_CURE_MODERATE_WOUNDS
+			BEGIN
+				LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_iwd%~ RET spell_res END
+				COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+					REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_iwd%~ ~RES(%spell_res%~
+			END
 		END
 	END
 
@@ -339,6 +383,14 @@ END ELSE BEGIN
 
 		ACTION_IF 5e_spellcasting BEGIN
 			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_fp_spl_5e.tph~
+
+			ACTION_FOR_EACH 5e_fp_spl IN
+				CLERIC_SPIRITUAL_CLARITY
+			BEGIN
+				LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_fp_spl%~ RET spell_res END
+				COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+					REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_fp_spl%~ ~RES(%spell_res%~
+			END
 		END
 	END
 

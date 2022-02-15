@@ -12,7 +12,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     string = ~~~~~IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  HaveSpellRES(SPPR615)
+  HaveSpellRES(CLERIC_SUPERHEROISM)
   See([EVILCUTOFF])
   !CheckSpellState(Myself,HEROISM)
   !CheckSpellState(Myself,MINOR_GLOBE)
@@ -55,14 +55,14 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
-    SpellRES(SPPR615,Myself)
+    SpellRES(CLERIC_SUPERHEROISM,Myself)
     SetInterrupt(TRUE)
 END
 
 IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  HaveSpellRES(SPPR419)
+  HaveSpellRES(CLERIC_HEROISM)
   See([EVILCUTOFF])
   !CheckSpellState(Myself,HEROISM)
   !CheckSpellState(Myself,MINOR_GLOBE)
@@ -105,7 +105,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
-    SpellRES(SPPR419,Myself)
+    SpellRES(CLERIC_HEROISM,Myself)
     SetInterrupt(TRUE)
 END
 ~~~~~ //"
@@ -123,7 +123,7 @@ END
     string = ~~~~~IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  HaveSpellRES(SPPR215)
+  HaveSpellRES(CLERIC_SEEKING)
   See([EVILCUTOFF])
   IsWeaponRanged(Myself)
   !CheckSpellState(LastSeenBy(Myself),STRIKING_SEEKING)
@@ -167,14 +167,14 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
-    SpellRES(SPPR215,Myself)
+    SpellRES(CLERIC_SEEKING,Myself)
     SetInterrupt(TRUE)
 END
 
 IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  HaveSpellRES(SPPR116)
+  HaveSpellRES(CLERIC_STRIKING)
   See([EVILCUTOFF])
   !IsWeaponRanged(Myself)
   !CheckSpellState(LastSeenBy(Myself),STRIKING_SEEKING)
@@ -218,7 +218,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
-    SpellRES(SPPR116,Myself)
+    SpellRES(CLERIC_STRIKING,Myself)
     SetInterrupt(TRUE)
 END
 ~~~~~ //"
@@ -236,7 +236,7 @@ END
     string = ~~~~~IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
-  HaveSpellRES(SPPR616)
+  HaveSpellRES(CLERIC_CELESTIAL_PROTECTION)
   See([EVILCUTOFF])
   !CheckSpellState(Myself,CELESTIAL_PROTECTION)
   !Alignment(Myself,LAWFUL_EVIL)
@@ -280,7 +280,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
-    SpellRES(SPPR616,Myself)
+    SpellRES(CLERIC_CELESTIAL_PROTECTION,Myself)
     SetInterrupt(TRUE)
 END
 ~~~~~ //"
@@ -298,7 +298,7 @@ END
     string = ~~~~~IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(Myself)
-  HaveSpellRES(SPPR420)
+  HaveSpellRES(CLERIC_REPEL_INSECTS)
   CheckStatGT(LastSeenBy(Myself),0,CLERIC_INSECT_PLAGUE)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)  
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -311,14 +311,14 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5023)
-    SpellRES(SPPR420,LastSeenBy(Myself))
+    SpellRES(CLERIC_REPEL_INSECTS,LastSeenBy(Myself))
     SetInterrupt(TRUE)
 END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([PC])
-  HaveSpellRES(SPPR420)
+  HaveSpellRES(CLERIC_REPEL_INSECTS)
   CheckStatGT(LastSeenBy(Myself),0,CLERIC_INSECT_PLAGUE)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -336,14 +336,14 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5023)
-    SpellRES(SPPR420,LastSeenBy(Myself))
+    SpellRES(CLERIC_REPEL_INSECTS,LastSeenBy(Myself))
     SetInterrupt(TRUE)
 END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SecondNearest([PC]))
-  HaveSpellRES(SPPR420)
+  HaveSpellRES(CLERIC_REPEL_INSECTS)
   CheckStatGT(LastSeenBy(Myself),0,CLERIC_INSECT_PLAGUE)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -361,14 +361,14 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5023)
-    SpellRES(SPPR420,LastSeenBy(Myself))
+    SpellRES(CLERIC_REPEL_INSECTS,LastSeenBy(Myself))
     SetInterrupt(TRUE)
 END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(ThirdNearest([PC]))
-  HaveSpellRES(SPPR420)
+  HaveSpellRES(CLERIC_REPEL_INSECTS)
   CheckStatGT(LastSeenBy(Myself),0,CLERIC_INSECT_PLAGUE)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -386,14 +386,14 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5023)
-    SpellRES(SPPR420,LastSeenBy(Myself))
+    SpellRES(CLERIC_REPEL_INSECTS,LastSeenBy(Myself))
     SetInterrupt(TRUE)
 END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FourthNearest([PC]))
-  HaveSpellRES(SPPR420)
+  HaveSpellRES(CLERIC_REPEL_INSECTS)
   CheckStatGT(LastSeenBy(Myself),0,CLERIC_INSECT_PLAGUE)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -411,14 +411,14 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5023)
-    SpellRES(SPPR420,LastSeenBy(Myself))
+    SpellRES(CLERIC_REPEL_INSECTS,LastSeenBy(Myself))
     SetInterrupt(TRUE)
 END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FifthNearest([PC]))
-  HaveSpellRES(SPPR420)
+  HaveSpellRES(CLERIC_REPEL_INSECTS)
   CheckStatGT(LastSeenBy(Myself),0,CLERIC_INSECT_PLAGUE)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -436,14 +436,14 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5023)
-    SpellRES(SPPR420,LastSeenBy(Myself))
+    SpellRES(CLERIC_REPEL_INSECTS,LastSeenBy(Myself))
     SetInterrupt(TRUE)
 END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SixthNearest([PC]))
-  HaveSpellRES(SPPR420)
+  HaveSpellRES(CLERIC_REPEL_INSECTS)
   CheckStatGT(LastSeenBy(Myself),0,CLERIC_INSECT_PLAGUE)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -461,7 +461,7 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5023)
-    SpellRES(SPPR420,LastSeenBy(Myself))
+    SpellRES(CLERIC_REPEL_INSECTS,LastSeenBy(Myself))
     SetInterrupt(TRUE)
 END
 ~~~~~ //"
@@ -479,7 +479,7 @@ END
     string = ~~~~~IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(Myself)
-  HaveSpellRES(SPPR520)
+  HaveSpellRES(CLERIC_BREAK_ENCHANTMENT)
   OR(8)
     StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
     StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
@@ -501,14 +501,14 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5009)
-    SpellRES(SPPR520,LastSeenBy(Myself))
+    SpellRES(CLERIC_BREAK_ENCHANTMENT,LastSeenBy(Myself))
     SetInterrupt(TRUE)
 END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([PC])
-  HaveSpellRES(SPPR520)
+  HaveSpellRES(CLERIC_BREAK_ENCHANTMENT)
   OR(8)
     StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
     StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
@@ -520,7 +520,7 @@ IF
     CheckStatGT(LastSeenBy(Myself),0,HELD)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)  
   // Major Globe
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION) // d5 cure dispelling
   !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
   !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
@@ -534,14 +534,14 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5009)
-    SpellRES(SPPR520,LastSeenBy(Myself))
+    SpellRES(CLERIC_BREAK_ENCHANTMENT,LastSeenBy(Myself))
     SetInterrupt(TRUE)
 END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SecondNearest([PC]))
-  HaveSpellRES(SPPR520)
+  HaveSpellRES(CLERIC_BREAK_ENCHANTMENT)
   OR(8)
     StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
     StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
@@ -553,7 +553,7 @@ IF
     CheckStatGT(LastSeenBy(Myself),0,HELD)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)  
   // Major Globe
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION) // d5 cure dispelling
   !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
   !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
@@ -567,14 +567,14 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5009)
-    SpellRES(SPPR520,LastSeenBy(Myself))
+    SpellRES(CLERIC_BREAK_ENCHANTMENT,LastSeenBy(Myself))
     SetInterrupt(TRUE)
 END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(ThirdNearest([PC]))
-  HaveSpellRES(SPPR520)
+  HaveSpellRES(CLERIC_BREAK_ENCHANTMENT)
   OR(8)
     StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
     StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
@@ -586,7 +586,7 @@ IF
     CheckStatGT(LastSeenBy(Myself),0,HELD)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)  
   // Major Globe
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION) // d5 cure dispelling
   !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
   !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
@@ -600,14 +600,14 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5009)
-    SpellRES(SPPR520,LastSeenBy(Myself))
+    SpellRES(CLERIC_BREAK_ENCHANTMENT,LastSeenBy(Myself))
     SetInterrupt(TRUE)
 END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FourthNearest([PC]))
-  HaveSpellRES(SPPR520)
+  HaveSpellRES(CLERIC_BREAK_ENCHANTMENT)
   OR(8)
     StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
     StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
@@ -619,7 +619,7 @@ IF
     CheckStatGT(LastSeenBy(Myself),0,HELD)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)  
   // Major Globe
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION) // d5 cure dispelling
   !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
   !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
@@ -633,14 +633,14 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5009)
-    SpellRES(SPPR520,LastSeenBy(Myself))
+    SpellRES(CLERIC_BREAK_ENCHANTMENT,LastSeenBy(Myself))
     SetInterrupt(TRUE)
 END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FifthNearest([PC]))
-  HaveSpellRES(SPPR520)
+  HaveSpellRES(CLERIC_BREAK_ENCHANTMENT)
   OR(8)
     StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
     StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
@@ -652,7 +652,7 @@ IF
     CheckStatGT(LastSeenBy(Myself),0,HELD)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)  
   // Major Globe
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION) // d5 cure dispelling
   !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
   !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
@@ -666,14 +666,14 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5009)
-    SpellRES(SPPR520,LastSeenBy(Myself))
+    SpellRES(CLERIC_BREAK_ENCHANTMENT,LastSeenBy(Myself))
     SetInterrupt(TRUE)
 END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SixthNearest([PC]))
-  HaveSpellRES(SPPR520)
+  HaveSpellRES(CLERIC_BREAK_ENCHANTMENT)
   OR(8)
     StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
     StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
@@ -685,7 +685,7 @@ IF
     CheckStatGT(LastSeenBy(Myself),0,HELD)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)  
   // Major Globe
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION) // d5 cure dispelling
   !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
   !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
@@ -699,7 +699,7 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5009)
-    SpellRES(SPPR520,LastSeenBy(Myself))
+    SpellRES(CLERIC_BREAK_ENCHANTMENT,LastSeenBy(Myself))
     SetInterrupt(TRUE)
 END
 ~~~~~ //"

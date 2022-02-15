@@ -1,115 +1,15 @@
 COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
 
 ///////////////////////////////////////////////////////////////////////////
-// Greater Restoration                                                   //
+// Restoration, Disease, Poison, Heal, Break Enchantment (MiH)           //
 ///////////////////////////////////////////////////////////////////////////
   LPF REPLACE_MULTILINE
     INT_VAR
     strict = 1
     verbose = 0
     STR_VAR
-    pattern = ~~~~~HaveSpellRES(SPPR713)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)~~~~~
-    string = ~~~~~HaveSpellRES(SPPR713)~~~~~ //"
+    pattern = ~~~~~!CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION) // d5 cure dispelling~~~~~
+    string = ~~~~~~~~~~ //"
   END
 
-///////////////////////////////////////////////////////////////////////////
-// Lesser Restoration                                                    //
-///////////////////////////////////////////////////////////////////////////
-  LPF REPLACE_MULTILINE
-    INT_VAR
-    strict = 1
-    verbose = 0
-    STR_VAR
-    pattern = ~~~~~HaveSpellRES(SPPR417)
-  !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)~~~~~
-    string = ~~~~~HaveSpellRES(SPPR417)
-  !CheckSpellState(LastSeenBy(Myself),GLOBE)~~~~~ //"
-  END
-
-///////////////////////////////////////////////////////////////////////////
-// Cure Disease                                                          //
-///////////////////////////////////////////////////////////////////////////
-  LPF REPLACE_MULTILINE
-    INT_VAR
-    strict = 1
-    verbose = 0
-    STR_VAR
-    pattern = ~~~~~!CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  HaveSpellRES(SPPR317)~~~~~
-    string = ~~~~~HaveSpellRES(SPPR317)~~~~~ //"
-  END
-
-///////////////////////////////////////////////////////////////////////////
-// Neutralize Poison                                                     //
-///////////////////////////////////////////////////////////////////////////
-  LPF REPLACE_MULTILINE
-    INT_VAR
-    strict = 1
-    verbose = 0
-    STR_VAR
-    pattern = ~~~~~!CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  HaveSpellRES(SPPR404)~~~~~
-    string = ~~~~~HaveSpellRES(SPPR404)~~~~~ //"
-  END
-
-///////////////////////////////////////////////////////////////////////////
-// Heal                                                                  //
-///////////////////////////////////////////////////////////////////////////
-  LPF REPLACE_MULTILINE
-    INT_VAR
-    strict = 1
-    verbose = 0
-    STR_VAR
-    pattern = ~~~~~HaveSpellRES(SPPR607)
-  See(MostDamagedOf([PC]))
-  HPPercentLT(LastSeenBy(Myself),40)
-  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
-  !StateCheck(LastSeenBy(Myself),STATE_NOT_APPROACHABLE)
-  !StateCheck(LastSeenBy(Myself),STATE_REALLY_DEAD)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)~~~~~
-    string = ~~~~~HaveSpellRES(SPPR607)
-  See(MostDamagedOf([PC]))
-  HPPercentLT(LastSeenBy(Myself),40)
-  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
-  !StateCheck(LastSeenBy(Myself),STATE_NOT_APPROACHABLE)
-  !StateCheck(LastSeenBy(Myself),STATE_REALLY_DEAD)~~~~~ //"
-  END
-
-///////////////////////////////////////////////////////////////////////////
-// MiH Break Enchantment                                                 //
-///////////////////////////////////////////////////////////////////////////
-  LPF REPLACE_MULTILINE
-    INT_VAR
-    strict = 1
-    verbose = 0
-    warn = 0
-    STR_VAR
-    pattern = ~~~~~HaveSpellRES(SPPR520)
-  OR(8)
-    StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
-    StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
-    StateCheck(LastSeenBy(Myself),STATE_CHARMED)
-    StateCheck(LastSeenBy(Myself),STATE_SLEEPING)
-    StateCheck(LastSeenBy(Myself),STATE_SILENCED)
-    StateCheck(LastSeenBy(Myself),STATE_PANIC)
-    CheckSpellState(LastSeenBy(Myself),DEAFENED)
-    CheckStatGT(LastSeenBy(Myself),0,HELD)
-  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)  
-  // Major Globe
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)~~~~~
-    string = ~~~~~HaveSpellRES(SPPR520)
-  OR(8)
-    StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
-    StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
-    StateCheck(LastSeenBy(Myself),STATE_CHARMED)
-    StateCheck(LastSeenBy(Myself),STATE_SLEEPING)
-    StateCheck(LastSeenBy(Myself),STATE_SILENCED)
-    StateCheck(LastSeenBy(Myself),STATE_PANIC)
-    CheckSpellState(LastSeenBy(Myself),DEAFENED)
-    CheckStatGT(LastSeenBy(Myself),0,HELD)
-  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)  
-  // Major Globe~~~~~ //"
-  END
 
