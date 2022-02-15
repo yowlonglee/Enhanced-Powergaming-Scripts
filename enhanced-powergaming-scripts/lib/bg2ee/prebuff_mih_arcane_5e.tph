@@ -12,7 +12,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
   See(Myself)
-  HaveSpellRES(SPWI327)
+  HaveSpellRES(WIZARD_HEROISM)
   !CheckSpellState(LastSeenBy(Myself),HEROISM)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
@@ -25,13 +25,13 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SpellRES(SPWI327,LastSeenBy(Myself))
+    SpellRES(WIZARD_HEROISM,LastSeenBy(Myself))
 END
 
 IF
   Global("MO_BUFF","LOCALS",1)
   See([PC])
-  HaveSpellRES(SPWI327)
+  HaveSpellRES(WIZARD_HEROISM)
   !CheckSpellState(LastSeenBy(Myself),HEROISM)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
@@ -49,13 +49,13 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SpellRES(SPWI327,LastSeenBy(Myself))
+    SpellRES(WIZARD_HEROISM,LastSeenBy(Myself))
 END
 
 IF
   Global("MO_BUFF","LOCALS",1)
   See(SecondNearest([PC]))
-  HaveSpellRES(SPWI327)
+  HaveSpellRES(WIZARD_HEROISM)
   !CheckSpellState(LastSeenBy(Myself),HEROISM)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
@@ -73,13 +73,13 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SpellRES(SPWI327,LastSeenBy(Myself))
+    SpellRES(WIZARD_HEROISM,LastSeenBy(Myself))
 END
 
 IF
   Global("MO_BUFF","LOCALS",1)
   See(ThirdNearest([PC]))
-  HaveSpellRES(SPWI327)
+  HaveSpellRES(WIZARD_HEROISM)
   !CheckSpellState(LastSeenBy(Myself),HEROISM)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
@@ -97,13 +97,13 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SpellRES(SPWI327,LastSeenBy(Myself))
+    SpellRES(WIZARD_HEROISM,LastSeenBy(Myself))
 END
 
 IF
   Global("MO_BUFF","LOCALS",1)
   See(FourthNearest([PC]))
-  HaveSpellRES(SPWI327)
+  HaveSpellRES(WIZARD_HEROISM)
   !CheckSpellState(LastSeenBy(Myself),HEROISM)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
@@ -121,13 +121,13 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SpellRES(SPWI327,LastSeenBy(Myself))
+    SpellRES(WIZARD_HEROISM,LastSeenBy(Myself))
 END
 
 IF
   Global("MO_BUFF","LOCALS",1)
   See(FifthNearest([PC]))
-  HaveSpellRES(SPWI327)
+  HaveSpellRES(WIZARD_HEROISM)
   !CheckSpellState(LastSeenBy(Myself),HEROISM)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
@@ -145,13 +145,13 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SpellRES(SPWI327,LastSeenBy(Myself))
+    SpellRES(WIZARD_HEROISM,LastSeenBy(Myself))
 END
 
 IF
   Global("MO_BUFF","LOCALS",1)
   See(SixthNearest([PC]))
-  HaveSpellRES(SPWI327)
+  HaveSpellRES(WIZARD_HEROISM)
   !CheckSpellState(LastSeenBy(Myself),HEROISM)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
@@ -169,7 +169,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SpellRES(SPWI327,LastSeenBy(Myself))
+    SpellRES(WIZARD_HEROISM,LastSeenBy(Myself))
 END
 ~~~~~ //"
   END
@@ -186,7 +186,7 @@ END
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
   See(Myself)
-  HaveSpellRES(SPWI524)
+  HaveSpellRES(WIZARD_SUPERHEROISM)
   !CheckSpellState(LastSeenBy(Myself),HEROISM)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MAJOR_GLOBE)
@@ -198,13 +198,13 @@ END
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SpellRES(SPWI524,LastSeenBy(Myself))
+    SpellRES(WIZARD_SUPERHEROISM,LastSeenBy(Myself))
 END
 
 IF
   Global("MO_BUFF","LOCALS",1)
   See([PC])
-  HaveSpellRES(SPWI524)
+  HaveSpellRES(WIZARD_SUPERHEROISM)
   !CheckSpellState(LastSeenBy(Myself),HEROISM)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
@@ -220,13 +220,13 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SpellRES(SPWI524,LastSeenBy(Myself))
+    SpellRES(WIZARD_SUPERHEROISM,LastSeenBy(Myself))
 END
 
 IF
   Global("MO_BUFF","LOCALS",1)
   See(SecondNearest([PC]))
-  HaveSpellRES(SPWI524)
+  HaveSpellRES(WIZARD_SUPERHEROISM)
   !CheckSpellState(LastSeenBy(Myself),HEROISM)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
@@ -242,13 +242,13 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SpellRES(SPWI524,LastSeenBy(Myself))
+    SpellRES(WIZARD_SUPERHEROISM,LastSeenBy(Myself))
 END
 
 IF
   Global("MO_BUFF","LOCALS",1)
   See(ThirdNearest([PC]))
-  HaveSpellRES(SPWI524)
+  HaveSpellRES(WIZARD_SUPERHEROISM)
   !CheckSpellState(LastSeenBy(Myself),HEROISM)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
@@ -264,13 +264,13 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SpellRES(SPWI524,LastSeenBy(Myself))
+    SpellRES(WIZARD_SUPERHEROISM,LastSeenBy(Myself))
 END
 
 IF
   Global("MO_BUFF","LOCALS",1)
   See(FourthNearest([PC]))
-  HaveSpellRES(SPWI524)
+  HaveSpellRES(WIZARD_SUPERHEROISM)
   !CheckSpellState(LastSeenBy(Myself),HEROISM)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
@@ -286,13 +286,13 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SpellRES(SPWI524,LastSeenBy(Myself))
+    SpellRES(WIZARD_SUPERHEROISM,LastSeenBy(Myself))
 END
 
 IF
   Global("MO_BUFF","LOCALS",1)
   See(FifthNearest([PC]))
-  HaveSpellRES(SPWI524)
+  HaveSpellRES(WIZARD_SUPERHEROISM)
   !CheckSpellState(LastSeenBy(Myself),HEROISM)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
@@ -308,13 +308,13 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SpellRES(SPWI524,LastSeenBy(Myself))
+    SpellRES(WIZARD_SUPERHEROISM,LastSeenBy(Myself))
 END
 
 IF
   Global("MO_BUFF","LOCALS",1)
   See(SixthNearest([PC]))
-  HaveSpellRES(SPWI524)
+  HaveSpellRES(WIZARD_SUPERHEROISM)
   !CheckSpellState(LastSeenBy(Myself),HEROISM)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
@@ -330,7 +330,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SpellRES(SPWI524,LastSeenBy(Myself))
+    SpellRES(WIZARD_SUPERHEROISM,LastSeenBy(Myself))
 END
 ~~~~~ //"
   END
@@ -346,7 +346,7 @@ END
     pattern = ~~~~~// 5e Spellcasting Prebuff - MiH Foresight~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
-  HaveSpellRES(SPWI967)
+  HaveSpellRES(WIZARD_FORESIGHT)
   !CheckSpellState(Myself,FORESIGHT)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -356,7 +356,7 @@ END
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SpellRES(SPWI967,Myself)
+    SpellRES(WIZARD_FORESIGHT,Myself)
 END~~~~~ //"
   END
 
@@ -371,7 +371,7 @@ END~~~~~ //"
     pattern = ~~~~~// 5e Spellcasting Prebuff - MiH Major Globe Prebuff~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
-  HaveSpellRES(SPWI819)
+  HaveSpellRES(WIZARD_MAJOR_GLOBE_OF_INVULNERABILITY)
   !CheckSpellState(Myself,MINOR_GLOBE)
   !CheckSpellState(Myself,GLOBE)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
@@ -382,7 +382,7 @@ END~~~~~ //"
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SpellRES(SPWI819,Myself)
+    SpellRES(WIZARD_MAJOR_GLOBE_OF_INVULNERABILITY,Myself)
 END~~~~~ //"
   END
 
@@ -398,7 +398,7 @@ END~~~~~ //"
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
   See(Myself)
-  HaveSpellRES(SPWI225)
+  HaveSpellRES(WIZARD_SEEKING)
   IsWeaponRanged(Myself)
   !CheckSpellState(LastSeenBy(Myself),STRIKING_SEEKING)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
@@ -412,13 +412,13 @@ END~~~~~ //"
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SpellRES(SPWI225,LastSeenBy(Myself))
+    SpellRES(WIZARD_SEEKING,LastSeenBy(Myself))
 END
 
 IF
   Global("MO_BUFF","LOCALS",1)
   See([PC])
-  HaveSpellRES(SPWI225)
+  HaveSpellRES(WIZARD_SEEKING)
   IsWeaponRanged(LastSeenBy(Myself))
   !CheckSpellState(LastSeenBy(Myself),STRIKING_SEEKING)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
@@ -437,13 +437,13 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SpellRES(SPWI225,LastSeenBy(Myself))
+    SpellRES(WIZARD_SEEKING,LastSeenBy(Myself))
 END
 
 IF
   Global("MO_BUFF","LOCALS",1)
   See(SecondNearest([PC]))
-  HaveSpellRES(SPWI225)
+  HaveSpellRES(WIZARD_SEEKING)
   IsWeaponRanged(LastSeenBy(Myself))
   !CheckSpellState(LastSeenBy(Myself),STRIKING_SEEKING)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
@@ -462,13 +462,13 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SpellRES(SPWI225,LastSeenBy(Myself))
+    SpellRES(WIZARD_SEEKING,LastSeenBy(Myself))
 END
 
 IF
   Global("MO_BUFF","LOCALS",1)
   See(ThirdNearest([PC]))
-  HaveSpellRES(SPWI225)
+  HaveSpellRES(WIZARD_SEEKING)
   IsWeaponRanged(LastSeenBy(Myself))
   !CheckSpellState(LastSeenBy(Myself),STRIKING_SEEKING)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
@@ -487,13 +487,13 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SpellRES(SPWI225,LastSeenBy(Myself))
+    SpellRES(WIZARD_SEEKING,LastSeenBy(Myself))
 END
 
 IF
   Global("MO_BUFF","LOCALS",1)
   See(FourthNearest([PC]))
-  HaveSpellRES(SPWI225)
+  HaveSpellRES(WIZARD_SEEKING)
   IsWeaponRanged(LastSeenBy(Myself))
   !CheckSpellState(LastSeenBy(Myself),STRIKING_SEEKING)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
@@ -512,13 +512,13 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SpellRES(SPWI225,LastSeenBy(Myself))
+    SpellRES(WIZARD_SEEKING,LastSeenBy(Myself))
 END
 
 IF
   Global("MO_BUFF","LOCALS",1)
   See(FifthNearest([PC]))
-  HaveSpellRES(SPWI225)
+  HaveSpellRES(WIZARD_SEEKING)
   IsWeaponRanged(LastSeenBy(Myself))
   !CheckSpellState(LastSeenBy(Myself),STRIKING_SEEKING)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
@@ -537,13 +537,13 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SpellRES(SPWI225,LastSeenBy(Myself))
+    SpellRES(WIZARD_SEEKING,LastSeenBy(Myself))
 END
 
 IF
   Global("MO_BUFF","LOCALS",1)
   See(SixthNearest([PC]))
-  HaveSpellRES(SPWI225)
+  HaveSpellRES(WIZARD_SEEKING)
   IsWeaponRanged(LastSeenBy(Myself))
   !CheckSpellState(LastSeenBy(Myself),STRIKING_SEEKING)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
@@ -562,7 +562,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SpellRES(SPWI225,LastSeenBy(Myself))
+    SpellRES(WIZARD_SEEKING,LastSeenBy(Myself))
 END
 ~~~~~ //"
   END

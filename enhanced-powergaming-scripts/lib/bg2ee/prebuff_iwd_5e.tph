@@ -11,7 +11,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     pattern = ~~~~~// 5e Spellcasting Prebuff - IWD Emotion Courage and Hope~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
-  HaveSpellRES(SPWI433)
+  HaveSpellRES(WIZARD_EMOTION_COURAGE)
   !CheckSpellState(Myself,EMOTION_COURAGE)
   !CheckSpellState(Myself,GLOBE)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -21,12 +21,12 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SpellRES(SPWI433,Myself)
+    SpellRES(WIZARD_EMOTION_COURAGE,Myself)
 END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  HaveSpellRES(SPWI434)
+  HaveSpellRES(WIZARD_EMOTION_HOPE)
   !CheckSpellState(Myself,EMOTION_HOPE)
   !CheckSpellState(Myself,GLOBE)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -36,7 +36,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SpellRES(SPWI434,Myself)
+    SpellRES(WIZARD_EMOTION_HOPE,Myself)
 END
 ~~~~~ //"
   END
@@ -52,7 +52,7 @@ END
     pattern = ~~~~~// 5e Spellcasting Prebuff - IWD Seven Eyes~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
-  HaveSpellRES(SPWI730)
+  HaveSpellRES(WIZARD_SEVEN_EYES)
   !CheckSpellState(Myself,EYE_OF_THE_MIND)
   !CheckSpellState(Myself,EYE_OF_THE_MAGE)
   !CheckSpellState(Myself,EYE_OF_THE_SWORD)
@@ -68,7 +68,7 @@ END
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SpellRES(SPWI730,Myself)
+    SpellRES(WIZARD_SEVEN_EYES,Myself)
 END~~~~~ //"
   END
   
@@ -83,7 +83,7 @@ END~~~~~ //"
     pattern = ~~~~~// 5e Spellcasting Prebuff - IWD Prayer, Restoration, and Entropy Shield~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
-  HaveSpellRES(SPPR316)
+  HaveSpellRES(CLERIC_PRAYER)
   !CheckSpellState(Myself,BENEFICIAL_PRAYER)
   !CheckSpellState(Myself,MINOR_GLOBE)
   !CheckSpellState(Myself,GLOBE)
@@ -94,12 +94,12 @@ END~~~~~ //"
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SpellRES(SPPR316,Myself)
+    SpellRES(CLERIC_PRAYER,Myself)
 END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  HaveSpellRES(SPPR424)
+  HaveSpellRES(CLERIC_RECITATION)
   !CheckSpellState(Myself,BENEFICIAL_RECITATION)
   !CheckSpellState(Myself,MINOR_GLOBE)
   !CheckSpellState(Myself,GLOBE)
@@ -110,12 +110,12 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SpellRES(SPPR424,Myself)
+    SpellRES(CLERIC_RECITATION,Myself)
 END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  HaveSpellRES(SPPR618)
+  HaveSpellRES(CLERIC_ENTROPY_SHIELD)
   !CheckSpellState(Myself,ENTROPY_SHIELD)
   !CheckSpellState(Myself,SI_ABJURATION)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -125,7 +125,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SpellRES(SPPR618,Myself)
+    SpellRES(CLERIC_ENTROPY_SHIELD,Myself)
 END
 ~~~~~ //"
   END
