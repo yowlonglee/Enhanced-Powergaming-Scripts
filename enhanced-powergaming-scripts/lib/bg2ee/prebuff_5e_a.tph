@@ -2864,7 +2864,10 @@ THEN
   RESPONSE #100
     ReallyForceSpell(Myself,WIZARD_SPELL_IMMUNITY_ABJURATION)  // SPWI590.SPL (Immunity: Abjuration)
     SetGlobalTimer("MO_SpellCast","LOCALS",3)
-    //RemoveSpellRES(SPWI510)
+    ReallyForceSpellRES(d5src-5,Myself)
+    ReallyForceSpellRES(d5zz172,Myself)
+    ReallyForceSpellRES(d5zspld,Myself)
+    ReallyForceSpellRES(d5zspla,Myself)
 END
 ~~~~~ //"
   END
