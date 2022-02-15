@@ -15,8 +15,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
   Global("MO_CastAthkatla","LOCALS",1)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN // Breach
-  RESPONSE #100~~~~~
+THEN // Breach~~~~~
     string = ~~~~~CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
   !CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
   !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
@@ -30,8 +29,7 @@ THEN // Breach
   Global("MO_CastAthkatla","LOCALS",1)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN // Breach
-  RESPONSE #100~~~~~ //"
+THEN // Breach~~~~~ //"
   END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -56,15 +54,7 @@ THEN // Breach
   Global("MO_CastAthkatla","LOCALS",1)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN // Spell Thrust
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SetInterrupt(FALSE)
-    ApplySpellRES("MOSPRT",LastSeenBy(Myself))  // Spell Thrust
-    DisplayStringHead(Myself,@5016)
-    Spell(LastSeenBy(Myself),WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
-    SetInterrupt(TRUE)
-END~~~~~
+THEN // Spell Thrust~~~~~
     string = ~~~~~OR(3)
     CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
     CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
@@ -82,15 +72,7 @@ END~~~~~
   Global("MO_CastAthkatla","LOCALS",1)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN // Spell Thrust
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SetInterrupt(FALSE)
-    ApplySpellRES("MOSPRT",LastSeenBy(Myself))  // Spell Thrust
-    DisplayStringHead(Myself,@5016)
-    Spell(LastSeenBy(Myself),WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
-    SetInterrupt(TRUE)
-END~~~~~ //"
+THEN // Spell Thrust~~~~~ //"
   END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -111,8 +93,7 @@ END~~~~~ //"
   Global("MO_CastAthkatla","LOCALS",1)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN // Secret Word
-  RESPONSE #100~~~~~
+THEN // Secret Word~~~~~
     string = ~~~~~OR(6)    
     CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
     CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
@@ -130,8 +111,7 @@ THEN // Secret Word
   Global("MO_CastAthkatla","LOCALS",1)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN // Secret Word
-  RESPONSE #100~~~~~ //"
+THEN // Secret Word~~~~~ //"
   END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -152,15 +132,7 @@ THEN // Secret Word
   Global("MO_CastAthkatla","LOCALS",1)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SetInterrupt(FALSE)
-    ApplySpellRES("MOSPRT",LastSeenBy(Myself))  // Spell Thrust
-    DisplayStringHead(Myself,@5016)
-    Spell(LastSeenBy(Myself),WIZARD_PIERCE_MAGIC)  // SPWI608.SPL (Pierce Magic)
-    SetInterrupt(TRUE)
-END~~~~~
+THEN // Pierce Magic~~~~~
     string = ~~~~~OR(7)    
     CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
     CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
@@ -178,15 +150,7 @@ END~~~~~
   Global("MO_CastAthkatla","LOCALS",1)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SetInterrupt(FALSE)
-    ApplySpellRES("MOSPRT",LastSeenBy(Myself))  // Spell Thrust
-    DisplayStringHead(Myself,@5016)
-    Spell(LastSeenBy(Myself),WIZARD_PIERCE_MAGIC)  // SPWI608.SPL (Pierce Magic)
-    SetInterrupt(TRUE)
-END~~~~~ //"
+THEN // Pierce Magic~~~~~ //"
   END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -208,15 +172,7 @@ END~~~~~ //"
   Global("MO_CastAthkatla","LOCALS",1)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SetInterrupt(FALSE)
-    ApplySpellRES("MOSPRT",LastSeenBy(Myself))  // Spell Thrust
-    DisplayStringHead(Myself,@5016)
-    Spell(LastSeenBy(Myself),WIZARD_WARDING_WHIP)  // SPWI705.SPL (Khelben's Warding Whip)
-    SetInterrupt(TRUE)
-END~~~~~
+THEN // Khelben's Warding Whip~~~~~
     string = ~~~~~OR(7)    
     CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
     CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
@@ -235,15 +191,7 @@ END~~~~~
   Global("MO_CastAthkatla","LOCALS",1)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SetInterrupt(FALSE)
-    ApplySpellRES("MOSPRT",LastSeenBy(Myself))  // Spell Thrust
-    DisplayStringHead(Myself,@5016)
-    Spell(LastSeenBy(Myself),WIZARD_WARDING_WHIP)  // SPWI705.SPL (Khelben's Warding Whip)
-    SetInterrupt(TRUE)
-END~~~~~ //"
+THEN // Khelben's Warding Whip~~~~~ //"
   END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -263,15 +211,7 @@ END~~~~~ //"
   Global("MO_CastAthkatla","LOCALS",1)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SetInterrupt(FALSE)
-    ApplySpellRES("MOSPRT",LastSeenBy(Myself))  // Spell Thrust
-    DisplayStringHead(Myself,@5016)
-    Spell(LastSeenBy(Myself),WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
-    SetInterrupt(TRUE)
-END~~~~~
+THEN // Spellstrike~~~~~
     string = ~~~~~OR(9)    
     CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
     CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
@@ -289,15 +229,7 @@ END~~~~~
   Global("MO_CastAthkatla","LOCALS",1)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SetInterrupt(FALSE)
-    ApplySpellRES("MOSPRT",LastSeenBy(Myself))  // Spell Thrust
-    DisplayStringHead(Myself,@5016)
-    Spell(LastSeenBy(Myself),WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
-    SetInterrupt(TRUE)
-END~~~~~ //"
+THEN // Spellstrike~~~~~ //"
   END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -317,15 +249,7 @@ END~~~~~ //"
   Global("MO_CastAthkatla","LOCALS",1)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SetInterrupt(FALSE)
-    ApplySpellRES("MOSPRT",LastSeenBy(Myself))  // Spell Thrust
-    DisplayStringHead(Myself,@5016)
-    Spell(LastSeenBy(Myself),WIZARD_PIERCE_SHIELD)  // SPWI805.SPL (Pierce Shield)
-    SetInterrupt(TRUE)
-END~~~~~
+THEN // Pierce Shield~~~~~
     string = ~~~~~OR(8)    
     CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
     CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
@@ -343,15 +267,7 @@ END~~~~~
   Global("MO_CastAthkatla","LOCALS",1)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SetInterrupt(FALSE)
-    ApplySpellRES("MOSPRT",LastSeenBy(Myself))  // Spell Thrust
-    DisplayStringHead(Myself,@5016)
-    Spell(LastSeenBy(Myself),WIZARD_PIERCE_SHIELD)  // SPWI805.SPL (Pierce Shield)
-    SetInterrupt(TRUE)
-END~~~~~ //"
+THEN // Pierce Shield~~~~~ //"
   END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -371,15 +287,7 @@ END~~~~~ //"
   Global("MO_CastAthkatla","LOCALS",1)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SetInterrupt(FALSE)
-    ApplySpellRES("MOSPRT",LastSeenBy(Myself))  // Spell Thrust
-    DisplayStringHead(Myself,@5016)
-    Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
-    SetInterrupt(TRUE)
-END~~~~~
+THEN // Ruby Ray of Reversal~~~~~
     string = ~~~~~OR(8)    
     CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
     CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
@@ -397,13 +305,5 @@ END~~~~~
   Global("MO_CastAthkatla","LOCALS",1)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SetInterrupt(FALSE)
-    ApplySpellRES("MOSPRT",LastSeenBy(Myself))  // Spell Thrust
-    DisplayStringHead(Myself,@5016)
-    Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
-    SetInterrupt(TRUE)
-END~~~~~ //"
+THEN // Ruby Ray of Reversal~~~~~ //"
   END

@@ -152,72 +152,62 @@ END ELSE BEGIN
 ///////////////////////////////////////////////////////////////////////////
 // DSotSC Pre-Buffing                                                    //
 ///////////////////////////////////////////////////////////////////////////
-	ACTION_IF 5e_spellcasting BEGIN
-		ACTION_IF dsotsc_divine && !mih_divine && !iwdification BEGIN
-			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_dsotsc_5e_d_a.tph~
-		END
-	END ELSE BEGIN
-		ACTION_IF dsotsc_arcane && !mih_arcane && !iwdification BEGIN
-			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_dsotsc_w_a.tph~
-		END
-
-		ACTION_IF dsotsc_divine && !mih_divine && !iwdification BEGIN
-			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_dsotsc_d_a.tph~
-		END
+	ACTION_IF dsotsc_arcane && !mih_arcane && !iwdification BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_dsotsc_w_a.tph~
 	END
 
+	ACTION_IF dsotsc_divine && !mih_divine && !iwdification BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_dsotsc_d_a.tph~
+
+		ACTION_IF 5e_spellcasting BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_dsotsc_5e_d_a.tph~
+		END
+	END
+	
 ///////////////////////////////////////////////////////////////////////////
 // MiH - Spell Restorations Pre-Buffing                                  //
 ///////////////////////////////////////////////////////////////////////////
-	ACTION_IF 5e_spellcasting BEGIN
-		ACTION_IF mih_restorations BEGIN
+	ACTION_IF mih_restorations BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_mih_sr_a.tph~
+
+		ACTION_IF 5e_spellcasting BEGIN
 			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_mih_sr_5e_a.tph~
 		END
-	END ELSE BEGIN
-		ACTION_IF mih_restorations BEGIN
-			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_mih_sr_a.tph~
-		END
 	END
-
+	
 ///////////////////////////////////////////////////////////////////////////
 // MiH - Arcane Spells Pre-Buffing                                       //
 ///////////////////////////////////////////////////////////////////////////
-	ACTION_IF 5e_spellcasting BEGIN
-		ACTION_IF mih_arcane BEGIN
+	ACTION_IF mih_arcane BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_mih_arcane_a.tph~
+
+		ACTION_IF 5e_spellcasting BEGIN
 			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_mih_arcane_5e_a.tph~
 		END
-	END ELSE BEGIN
-		ACTION_IF mih_arcane BEGIN
-			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_mih_arcane_a.tph~
-		END
 	END
-
+	
 ///////////////////////////////////////////////////////////////////////////
 // MiH - Divine Spells Pre-Buffing                                       //
 ///////////////////////////////////////////////////////////////////////////
-	ACTION_IF 5e_spellcasting BEGIN
-		ACTION_IF mih_divine BEGIN
+	ACTION_IF mih_divine BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_mih_divine_a.tph~
+
+		ACTION_IF 5e_spellcasting BEGIN
 			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_mih_divine_5e_a.tph~
 		END
-	END ELSE BEGIN
-		ACTION_IF mih_divine BEGIN
-			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_mih_divine_a.tph~
-		END
 	END
-
+	
 ///////////////////////////////////////////////////////////////////////////
 // IWD Spells Pre-Buffing                                                //
 ///////////////////////////////////////////////////////////////////////////
-	ACTION_IF 5e_spellcasting BEGIN
-		ACTION_IF iwd_scs OR iwdification BEGIN
+	ACTION_IF iwd_scs OR iwdification BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_iwd_a.tph~
+
+		ACTION_IF 5e_spellcasting BEGIN
 			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_iwd_5e_a.tph~
 		END
-	END ELSE BEGIN
-		ACTION_IF iwd_scs OR iwdification BEGIN
-			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_iwd_a.tph~
-		END
 	END
-
+	
 ///////////////////////////////////////////////////////////////////////////
 // Faiths & Powers - FnP Spheres Pre-Buffing                             //
 ///////////////////////////////////////////////////////////////////////////

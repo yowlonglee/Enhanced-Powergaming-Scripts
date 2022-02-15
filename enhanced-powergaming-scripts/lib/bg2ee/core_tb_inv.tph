@@ -18,14 +18,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
   Global("MO_CastAthkatla","LOCALS",1)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SetInterrupt(FALSE)
-    DisplayStringHead(Myself,@5014)
-    Spell(Myself,WIZARD_DETECT_INVISIBILITY)  // SPWI203.SPL (Detect Invisibility)
-    SetInterrupt(TRUE)
-END~~~~~
+THEN // Detect Invisibility~~~~~
     string = ~~~~~!CheckStat(LastSeenBy(Myself),3,WIZARD_SPELL_IMMUNITY)
   Global("MO_PartyTrueSight","GLOBAL",0)
   Global("MO_DetectEnemyIllusion","GLOBAL",0)
@@ -35,15 +28,7 @@ END~~~~~
   Global("MO_CastAthkatla","LOCALS",1)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SetInterrupt(FALSE)
-    DisplayStringHead(Myself,@5014)
-    Spell(Myself,WIZARD_DETECT_INVISIBILITY)  // SPWI203.SPL (Detect Invisibility)
-    SetInterrupt(TRUE)
-END
-~~~~~ //"
+THEN // Detect Invisibility~~~~~ //"
   END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -67,14 +52,7 @@ END
   Global("MO_CastAthkatla","LOCALS",1)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SetInterrupt(FALSE)
-    DisplayStringHead(Myself,@5017)
-    Spell(Myself,WIZARD_DETECT_ILLUSION)  // SPWI322.SPL (Detect Illusion)
-    SetInterrupt(TRUE)
-END~~~~~
+THEN // Detect Illusion~~~~~
     string = ~~~~~OR(2)
     StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
     StateCheck(LastSeenBy(Myself),STATE_INVISIBLE)
@@ -88,13 +66,5 @@ END~~~~~
   Global("MO_CastAthkatla","LOCALS",1)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
-    SetInterrupt(FALSE)
-    DisplayStringHead(Myself,@5017)
-    Spell(Myself,WIZARD_DETECT_ILLUSION)
-    SetInterrupt(TRUE)
-END
-~~~~~ //"
+THEN // Detect Illusion~~~~~ //"
   END
