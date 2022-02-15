@@ -11,7 +11,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     pattern = ~~~~~// 5e Spellcasting Prebuff - DSotSC Selunes Blessing and Aura of Protection~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
-  HaveSpellRES(SPPR546)
+  HaveSpellRES(CLERIC_SELUNES_BLESSING)
   !CheckSpellState(Myself,MINOR_GLOBE)
   !CheckSpellState(Myself,GLOBE)
   !HasImmunityEffects(Myself)
@@ -23,12 +23,12 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SpellRES(SPPR546,Myself)
+    SpellRES(CLERIC_SELUNES_BLESSING,Myself)
 END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  HaveSpellRES(SPPR739)
+  HaveSpellRES(CLERIC_AURA_OF_PROTECTION)
   !CheckSpellState(Myself,AURA_OF_PROT)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -38,7 +38,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SpellRES(SPPR739,Myself)
+    SpellRES(CLERIC_AURA_OF_PROTECTION,Myself)
 END
 ~~~~~ //"
   END
