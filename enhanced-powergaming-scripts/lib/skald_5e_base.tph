@@ -142,7 +142,7 @@ IF
   !ModalState(SHAMANDANCE)
   See(NearestEnemyOf(Myself))
   Race(LastSeenBy(Myself),SWORD)
-  HaveSpellRES(SPWI112)
+  HaveSpellRES(WIZARD_MAGIC_MISSILE)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
@@ -153,7 +153,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
-    SpellRES(SPWI112,LastSeenBy(Myself))
+    SpellRES(WIZARD_MAGIC_MISSILE,LastSeenBy(Myself))
     SetInterrupt(TRUE)
 END
 
@@ -165,7 +165,7 @@ IF
   !ModalState(SHAMANDANCE)
   See(SecondNearestEnemyOf(Myself))
   Race(LastSeenBy(Myself),SWORD)
-  HaveSpellRES(SPWI112)
+  HaveSpellRES(WIZARD_MAGIC_MISSILE)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
@@ -176,7 +176,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
-    SpellRES(SPWI112,LastSeenBy(Myself))
+    SpellRES(WIZARD_MAGIC_MISSILE,LastSeenBy(Myself))
     SetInterrupt(TRUE)
 END
 
@@ -188,7 +188,7 @@ IF
   !ModalState(SHAMANDANCE)
   See(ThirdNearestEnemyOf(Myself))
   Race(LastSeenBy(Myself),SWORD)
-  HaveSpellRES(SPWI112)
+  HaveSpellRES(WIZARD_MAGIC_MISSILE)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
@@ -199,7 +199,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
-    SpellRES(SPWI112,LastSeenBy(Myself))
+    SpellRES(WIZARD_MAGIC_MISSILE,LastSeenBy(Myself))
     SetInterrupt(TRUE)
 END
 
@@ -211,7 +211,7 @@ IF
   !ModalState(SHAMANDANCE)
   See(FourthNearestEnemyOf(Myself))
   Race(LastSeenBy(Myself),SWORD)
-  HaveSpellRES(SPWI112)
+  HaveSpellRES(WIZARD_MAGIC_MISSILE)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
@@ -222,7 +222,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
-    SpellRES(SPWI112,LastSeenBy(Myself))
+    SpellRES(WIZARD_MAGIC_MISSILE,LastSeenBy(Myself))
     SetInterrupt(TRUE)
 END
 
@@ -234,7 +234,7 @@ IF
   !ModalState(SHAMANDANCE)
   See(FifthNearestEnemyOf(Myself))
   Race(LastSeenBy(Myself),SWORD)
-  HaveSpellRES(SPWI112)
+  HaveSpellRES(WIZARD_MAGIC_MISSILE)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
@@ -245,7 +245,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
-    SpellRES(SPWI112,LastSeenBy(Myself))
+    SpellRES(WIZARD_MAGIC_MISSILE,LastSeenBy(Myself))
     SetInterrupt(TRUE)
 END
 
@@ -257,7 +257,7 @@ IF
   !ModalState(SHAMANDANCE)
   See(SixthNearestEnemyOf(Myself))
   Race(LastSeenBy(Myself),SWORD)
-  HaveSpellRES(SPWI112)
+  HaveSpellRES(WIZARD_MAGIC_MISSILE)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
@@ -268,7 +268,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
-    SpellRES(SPWI112,LastSeenBy(Myself))
+    SpellRES(WIZARD_MAGIC_MISSILE,LastSeenBy(Myself))
     SetInterrupt(TRUE)
 END
 
@@ -280,7 +280,7 @@ IF
   !ModalState(SHAMANDANCE)
   See(NearestEnemyOf(Myself))
   Race(LastSeenBy(Myself),SWORD)
-  HaveSpell(WIZARD_MAGIC_MISSILE)  // SPWI112.SPL (Magic Missile)
+  HaveSpell(WIZARD_MAGIC_MISSILE)  // WIZARD_MAGIC_MISSILE.SPL (Magic Missile)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
@@ -291,7 +291,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
-    Spell(LastSeenBy(Myself),WIZARD_MAGIC_MISSILE)  // SPWI112.SPL (Magic Missile)
+    Spell(LastSeenBy(Myself),WIZARD_MAGIC_MISSILE)  // WIZARD_MAGIC_MISSILE.SPL (Magic Missile)
     SetInterrupt(TRUE)
 END
 
@@ -303,7 +303,7 @@ IF
   !ModalState(SHAMANDANCE)
   See(SecondNearestEnemyOf(Myself))
   Race(LastSeenBy(Myself),SWORD)
-  HaveSpell(WIZARD_MAGIC_MISSILE)  // SPWI112.SPL (Magic Missile)
+  HaveSpell(WIZARD_MAGIC_MISSILE)  // WIZARD_MAGIC_MISSILE.SPL (Magic Missile)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
@@ -314,7 +314,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
-    Spell(LastSeenBy(Myself),WIZARD_MAGIC_MISSILE)  // SPWI112.SPL (Magic Missile)
+    Spell(LastSeenBy(Myself),WIZARD_MAGIC_MISSILE)  // WIZARD_MAGIC_MISSILE.SPL (Magic Missile)
     SetInterrupt(TRUE)
 END
 
@@ -326,7 +326,7 @@ IF
   !ModalState(SHAMANDANCE)
   See(ThirdNearestEnemyOf(Myself))
   Race(LastSeenBy(Myself),SWORD)
-  HaveSpell(WIZARD_MAGIC_MISSILE)  // SPWI112.SPL (Magic Missile)
+  HaveSpell(WIZARD_MAGIC_MISSILE)  // WIZARD_MAGIC_MISSILE.SPL (Magic Missile)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
@@ -337,7 +337,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
-    Spell(LastSeenBy(Myself),WIZARD_MAGIC_MISSILE)  // SPWI112.SPL (Magic Missile)
+    Spell(LastSeenBy(Myself),WIZARD_MAGIC_MISSILE)  // WIZARD_MAGIC_MISSILE.SPL (Magic Missile)
     SetInterrupt(TRUE)
 END
 
@@ -349,7 +349,7 @@ IF
   !ModalState(SHAMANDANCE)
   See(FourthNearestEnemyOf(Myself))
   Race(LastSeenBy(Myself),SWORD)
-  HaveSpell(WIZARD_MAGIC_MISSILE)  // SPWI112.SPL (Magic Missile)
+  HaveSpell(WIZARD_MAGIC_MISSILE)  // WIZARD_MAGIC_MISSILE.SPL (Magic Missile)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
@@ -360,7 +360,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
-    Spell(LastSeenBy(Myself),WIZARD_MAGIC_MISSILE)  // SPWI112.SPL (Magic Missile)
+    Spell(LastSeenBy(Myself),WIZARD_MAGIC_MISSILE)  // WIZARD_MAGIC_MISSILE.SPL (Magic Missile)
     SetInterrupt(TRUE)
 END
 
@@ -372,7 +372,7 @@ IF
   !ModalState(SHAMANDANCE)
   See(FifthNearestEnemyOf(Myself))
   Race(LastSeenBy(Myself),SWORD)
-  HaveSpell(WIZARD_MAGIC_MISSILE)  // SPWI112.SPL (Magic Missile)
+  HaveSpell(WIZARD_MAGIC_MISSILE)  // WIZARD_MAGIC_MISSILE.SPL (Magic Missile)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
@@ -383,7 +383,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
-    Spell(LastSeenBy(Myself),WIZARD_MAGIC_MISSILE)  // SPWI112.SPL (Magic Missile)
+    Spell(LastSeenBy(Myself),WIZARD_MAGIC_MISSILE)  // WIZARD_MAGIC_MISSILE.SPL (Magic Missile)
     SetInterrupt(TRUE)
 END
 
@@ -395,7 +395,7 @@ IF
   !ModalState(SHAMANDANCE)
   See(SixthNearestEnemyOf(Myself))
   Race(LastSeenBy(Myself),SWORD)
-  HaveSpell(WIZARD_MAGIC_MISSILE)  // SPWI112.SPL (Magic Missile)
+  HaveSpell(WIZARD_MAGIC_MISSILE)  // WIZARD_MAGIC_MISSILE.SPL (Magic Missile)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_SILENCED)
@@ -406,7 +406,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
-    Spell(LastSeenBy(Myself),WIZARD_MAGIC_MISSILE)  // SPWI112.SPL (Magic Missile)
+    Spell(LastSeenBy(Myself),WIZARD_MAGIC_MISSILE)  // WIZARD_MAGIC_MISSILE.SPL (Magic Missile)
     SetInterrupt(TRUE)
 END
 
