@@ -135,11 +135,11 @@ END ELSE BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_5e.tph~
 
 		COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
-		ACTION_FOR_EACH spell IN
+		PATCH_FOR_EACH 5e_prebuff IN
 			CLERIC_PROTECTION_FROM_EVIL_10_FOOT
 		BEGIN
-			LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%spell%~ RET spell_res END
-			REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%spell%~ ~RES("%spell_res%"~
+			LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_prebuff%~ RET spell_res END
+			REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_prebuff%~ ~RES("%spell_res%"~
 		END
 	END
 
