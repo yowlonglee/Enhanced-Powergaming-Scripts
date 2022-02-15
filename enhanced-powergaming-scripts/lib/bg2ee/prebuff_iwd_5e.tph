@@ -42,18 +42,6 @@ END
   END
 
 ///////////////////////////////////////////////////////////////////////////
-// Add Mind Blank                                                        //
-///////////////////////////////////////////////////////////////////////////
-  LPF REPLACE_MULTILINE
-    INT_VAR
-    strict = 1
-    verbose = 0
-    STR_VAR
-    pattern = ~~~~~// NOT HAS Mind Blank Check~~~~~
-    string = ~~~~~!CheckSpellState(LastSeenBy(Myself),MIND_BLANK)~~~~~ //"
-  END
-
-///////////////////////////////////////////////////////////////////////////
 // Add Seven Eyes                                                        //
 ///////////////////////////////////////////////////////////////////////////
   LPF REPLACE_MULTILINE
@@ -61,7 +49,7 @@ END
     strict = 1
     verbose = 0
     STR_VAR
-    pattern = ~~~~~// IWD Seven Eyes~~~~~
+    pattern = ~~~~~// 5e Spellcasting Prebuff - IWD Seven Eyes~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpellRES(SPWI730)
@@ -92,7 +80,7 @@ END~~~~~ //"
     strict = 1
     verbose = 0
     STR_VAR
-    pattern = ~~~~~// IWD Prayer, Restoration, and Entropy Shield~~~~~
+    pattern = ~~~~~// 5e Spellcasting Prebuff - IWD Prayer, Restoration, and Entropy Shield~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpellRES(SPPR316)

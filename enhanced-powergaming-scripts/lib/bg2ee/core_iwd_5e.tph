@@ -8,15 +8,6 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     strict = 1
     verbose = 0
     STR_VAR
-    pattern = ~~~~~// NOT HAS Mind Blank Check~~~~~
-    string = ~~~~~!CheckSpellState(LastSeenBy(Myself),MIND_BLANK)~~~~~ //"
-  END
-
-  LPF REPLACE_MULTILINE
-    INT_VAR
-    strict = 1
-    verbose = 0
-    STR_VAR
     pattern = ~~~~~// 5e Spellcasting - IWD Mind Blank and Impervious Sanctity of Mind~~~~~
     string = ~~~~~IF
   ActionListEmpty()
