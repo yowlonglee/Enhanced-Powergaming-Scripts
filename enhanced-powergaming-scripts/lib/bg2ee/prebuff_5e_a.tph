@@ -30,7 +30,7 @@ END~~~~~
     string = ~~~~~IF
   OR(2)
     HaveSpell(CLERIC_PROTECTION_FROM_EVIL_10_FOOT)  // SPPR408.SPL (Protection From Evil, 10' Radius)
-    HaveSpellRES(SPPR408)
+    HaveSpellRES(CLERIC_PROTECTION_FROM_EVIL_10_FOOT)
   OR(2)
     Global("MO_ProtEvil","LOCALS",0)
     Global("MO_TeamProtEvil","GLOBAL",0)
@@ -42,7 +42,7 @@ END
 
 IF
   !HaveSpell(CLERIC_PROTECTION_FROM_EVIL_10_FOOT)  // SPPR408.SPL (Protection From Evil, 10' Radius)
-  !HaveSpellRES(SPPR408)
+  !HaveSpellRES(CLERIC_PROTECTION_FROM_EVIL_10_FOOT)
   Global("MO_ProtEvil","LOCALS",1)
 THEN
   RESPONSE #100
