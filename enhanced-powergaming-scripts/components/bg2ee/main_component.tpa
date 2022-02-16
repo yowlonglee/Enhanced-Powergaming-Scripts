@@ -469,12 +469,12 @@ ACTION_IF 5e_spellcasting BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/lib/skald_5e_base.tph~
 
 	INCLUDE ~enhanced-powergaming-scripts/lib/bg2ee/magic_missile_5e.tph~
-	ACTION_FOR_EACH 5e_spell IN
+	ACTION_FOR_EACH 5e_magic_missile IN
 				WIZARD_MAGIC_MISSILE
 			BEGIN
-				LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_spell%~ RET spell_res END
+				LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_magic_missile%~ RET spell_res END
 				COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
-					REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_spell%~ ~RES(%spell_res%~
+					REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_magic_missile%~ ~RES(%spell_res%~
 			END
 END ELSE BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/lib/skald_base.tph~
