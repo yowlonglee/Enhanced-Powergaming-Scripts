@@ -432,6 +432,8 @@ THEN
     XEquipItem("Boot01",Myself,SLOT_BOOTS,EQUIP)  // The Paws of the Cheetah
 END
 
+// 5e Spellcasting - IWD Mind Blank and Impervious Sanctity of Mind
+
 // IWD Mind Blank and Impervious Sanctity of Mind
 
 IF
@@ -457,7 +459,9 @@ THEN
     UseItem("CLCK25",Myself)  // Cloak of the Stars
     IncrementGlobal("MO_UsedClkOfStars","GLOBAL",1)
 END~~~~~
-    string = ~~~~~// IWD Mind Blank and Impervious Sanctity of Mind~~~~~ //"
+    string = ~~~~~// 5e Spellcasting - IWD Mind Blank and Impervious Sanctity of Mind
+
+// IWD Mind Blank and Impervious Sanctity of Mind~~~~~ //"
   END
 
 
@@ -484,10 +488,8 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     UseItem("OHRCLCK1",Myself)  // Cowl of the Stars
     IncrementGlobal("MO_UsedCowlOfStars","GLOBAL",1)
-END
-
-IF~~~~~
-    string = ~~~~~IF~~~~~ //"
+END~~~~~
+    string = ~~~~~~~~~~ //"
   END
 
 ///////////////////////////////////////////////////////////////////////////
