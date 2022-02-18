@@ -96,10 +96,8 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     UseItem("RING34",Myself)  // Ring of Spell Turning
     IncrementGlobal("MO_UsedSpellTurning","GLOBAL",1)
-END
-
-IF~~~~~
-    string = ~~~~~IF~~~~~ //"
+END~~~~~
+    string = ~~~~~~~~~~ //"
   END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -200,10 +198,8 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     UseItem("OHRRING1",Myself)  // Ring of Duplication
     IncrementGlobal("MO_UsedDuplication","GLOBAL",1)
-END
-
-IF~~~~~
-    string = ~~~~~IF~~~~~ //"
+END~~~~~
+    string = ~~~~~~~~~~ //"
   END
 
   LPF REPLACE_MULTILINE
@@ -319,10 +315,8 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     UseItem("OHRBELT2",Myself)  // Belt of Minor Invulnerability
     IncrementGlobal("MO_UsedBltMnrInv","GLOBAL",1)
-END
-
-IF~~~~~
-    string = ~~~~~IF~~~~~ //"
+END~~~~~
+    string = ~~~~~~~~~~ //"
   END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -377,10 +371,8 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     Spell(Myself,WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
-END
-
-IF~~~~~
-    string = ~~~~~IF~~~~~ //"
+END~~~~~
+    string = ~~~~~~~~~~ //"
   END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -419,10 +411,8 @@ THEN
     SetInterrupt(FALSE)
     Spell(Myself,CLERIC_PHYSICAL_MIRROR)  // sppr525.spl (Physical Mirror)
     SetInterrupt(TRUE)
-END
-
-IF~~~~~
-    string = ~~~~~IF~~~~~ //"
+END~~~~~
+    string = ~~~~~~~~~~ //"
   END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -468,6 +458,8 @@ THEN
     XEquipItem("Boot01",Myself,SLOT_BOOTS,EQUIP)  // The Paws of the Cheetah
 END
 
+// 5e Spellcasting - IWD Mind Blank and Impervious Sanctity of Mind
+
 // IWD Mind Blank and Impervious Sanctity of Mind
 
 IF
@@ -493,7 +485,9 @@ THEN
     UseItem("CLCK25",Myself)  // Cloak of the Stars
     IncrementGlobal("MO_UsedClkOfStars","GLOBAL",1)
 END~~~~~
-    string = ~~~~~// IWD Mind Blank and Impervious Sanctity of Mind~~~~~ //"
+    string = ~~~~~// 5e Spellcasting - IWD Mind Blank and Impervious Sanctity of Mind
+
+// IWD Mind Blank and Impervious Sanctity of Mind~~~~~ //"
   END
 
 
@@ -520,10 +514,8 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     UseItem("OHRCLCK1",Myself)  // Cowl of the Stars
     IncrementGlobal("MO_UsedCowlOfStars","GLOBAL",1)
-END
-
-IF~~~~~
-    string = ~~~~~IF~~~~~ //"
+END~~~~~
+    string = ~~~~~~~~~~ //"
   END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -698,6 +690,8 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     Spell(Myself,WARRIOR_CRITICAL_STRIKE)  // SPCL905.SPL (Critical Strike)
 END
+
+IF
 
 IF~~~~~
     string = ~~~~~IF~~~~~ //"
