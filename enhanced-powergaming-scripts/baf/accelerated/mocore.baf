@@ -446,6 +446,7 @@ END
 IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(WIZARD_SHIELD)  // SPWI114.SPL (Shield)
+  // IWD Shield Ring
   !CheckSpellState(Myself,WIZARD_SHIELD)
   !CheckSpellState(Myself,MINOR_GLOBE)
   !CheckSpellState(Myself,GLOBE)
@@ -2603,6 +2604,7 @@ END
 IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(WIZARD_BLUR)  // SPWI201.SPL (Blur)
+  // IWD Shimmering Sash
   !StateCheck(Myself,STATE_BLUR)
   !CheckSpellState(Myself,MINOR_GLOBE)
   !CheckSpellState(Myself,GLOBE)
@@ -2620,6 +2622,7 @@ END
 IF
   Global("MO_BUFF","LOCALS",1)
   !StateCheck(Myself,STATE_BLUR)
+  // IWD Shimmering Sash
   HaveSpellRES("SPDM102")  // Blur
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
