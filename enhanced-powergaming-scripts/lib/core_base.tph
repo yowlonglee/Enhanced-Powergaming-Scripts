@@ -5630,7 +5630,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_HasMelfMeteors","LOCALS",0)
-    ClearActions(Myself)
+    ActionOverride(Myself,ClearActions(Myself))
 END
 
 // 5e Spellcasting Melf's Minute Meteors
