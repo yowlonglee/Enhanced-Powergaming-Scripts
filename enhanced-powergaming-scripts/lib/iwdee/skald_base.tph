@@ -205,7 +205,7 @@ IF
   Class(Myself,MAGE_ALL)
 THEN
   RESPONSE #100
-    Attack(NearestEnemyOf(Myself))
+    AttackReevaluate(LastSeenBy(Myself),15)
 END
 
 IF
@@ -225,7 +225,7 @@ IF
   Class(Myself,MAGE_ALL)
 THEN
   RESPONSE #100
-    Attack(SecondNearestEnemyOf(Myself))
+    AttackReevaluate(LastSeenBy(Myself),15)
 END
 
 IF
@@ -245,7 +245,7 @@ IF
   Class(Myself,MAGE_ALL)
 THEN
   RESPONSE #100
-    Attack(ThirdNearestEnemyOf(Myself))
+    AttackReevaluate(LastSeenBy(Myself),15)
 END
 
 IF
@@ -265,7 +265,7 @@ IF
   Class(Myself,MAGE_ALL)
 THEN
   RESPONSE #100
-    Attack(FourthNearestEnemyOf(Myself))
+    AttackReevaluate(LastSeenBy(Myself),15)
 END
 
 IF
@@ -285,7 +285,7 @@ IF
   Class(Myself,MAGE_ALL)
 THEN
   RESPONSE #100
-    Attack(FifthNearestEnemyOf(Myself))
+    AttackReevaluate(LastSeenBy(Myself),15)
 END
 
 IF
@@ -305,7 +305,7 @@ IF
   Class(Myself,MAGE_ALL)
 THEN
   RESPONSE #100
-    Attack(SixthNearestEnemyOf(Myself))
+    AttackReevaluate(LastSeenBy(Myself),15)
 END
 
 // 5e Spellcasting Magic Missile
