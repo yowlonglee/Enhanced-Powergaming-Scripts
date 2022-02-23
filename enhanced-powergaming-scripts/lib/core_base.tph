@@ -5624,6 +5624,15 @@ THEN // Detect Illusion
     SetInterrupt(TRUE)
 END
 
+IF
+  !HasItem("melfmet",Myself)  // Melf's Minute Meteor
+  Global("MO_HasMelfMeteors","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_HasMelfMeteors","LOCALS",0)
+    ClearActions(Myself)
+END
+
 // 5e Spellcasting Melf's Minute Meteors
 
 IF
@@ -5641,6 +5650,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_HasMelfMeteors","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_MELF_METEOR)  // SPWI325.SPL (Melf's Minute Meteors)
     SetInterrupt(TRUE)
