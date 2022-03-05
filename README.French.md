@@ -24,7 +24,9 @@ Je suis un powergamer dans l'âme, constamment à la recherche de la manière la
 
 Vous avez raison de demander pourquoi je publie ces textes alors qu'il y a déjà tant de scripts d'IA sur le marché et certains d'entre eux sont vraiment bons. Je tiens d'ailleurs à souligner l'excellence des scripts de Sarevok57. Je n'étais pas satisfait des scripts proposés par le jeu et en cherchait de meilleurs lorsque j'ai trouvé ceux de Sarevok57. Ses scripts étaient vraiment bons, mais ils ne correspondaient pas à mon style de jeu. En tant qu'étudiant en informatique, je me suis demandé si cela serait difficile de créer mes propres scripts. J'ai donc utilisé les scripts de Sarevok57 comme base de référence et développé les miens à partir de son travail en faisant des mises à jour et des ajustements dans presque tous les domaines. Avec sa bénédiction, je les partage avec vous aujourd'hui.
 
-## Content ( "pré-buffer", "buffer" = "lancement des sorts de préparation au combat" )
+## Contenu 
+
+( "pré-buffer", "buffer" = "lancement des sorts de préparation au combat" )
 
 Ces scripts sont axés sur les dégâts physiques en mêlée et à distance. Pour moi, les sorts ne sont là que pour me protéger des dégâts ennemis, améliorer mes attaques physiques et priver les ennemis de leurs protections contre les sorts. Ces scripts font tout pour gérer ces détails du jeu, afin que le joueur puisse se concentrer sur d'autres choses. Plus précisément, ceux-ci :
 
@@ -66,7 +68,9 @@ Actuellement, ce mod ne prend en charge que le jeu de base pour Icewind Dale : E
 
 Vous trouverez ci-dessous les composants du mod, ce qui vous permet de choisir les changements que vous souhaitez apporter. Chaque composant est accompagné d'une commande qui vous permet d'ignorer ce que vous ne voulez pas.
 
-### Composant principal ( "pré-buffer", "buffer" = "lancement des sorts de préparation au combat" )
+### Composant principal 
+
+( "pré-buffer", "buffer" = "lancement des sorts de préparation au combat" )
 
 C'est le composant principal qui détectera automatiquement vos mods installés et fournira des scripts adéquats. Cela peut créer dynamiquement plus de 1,5 MILLIONS de scripts en fonction des mods de sorts/kits que vous avez installés. Vous aurez la possibilité de choisir entre une vitesse normale ou une vitesse accélérée pour l'incantation du pré-buffing. Indépendamment de l'option choisie, les personnages arrêteront le pré-buffing si vous appuyez à nouveau sur la touche "B" ou si vous apercevez un ennemi.
 
@@ -78,17 +82,22 @@ Cela prendra le temps habituel d'incantation pour qu'un sort soit lancé et le d
 
 C'est pour les personnes qui empruntent les escalators et qui veulent contourner un peu les règles. Les sorts seront lancés instantanément sans délai entre eux. Avec cette option, vous pouvez avoir des sorts actifs qui auraient normalement expiré au moment où le pré-buffing normal se serait terminé. Et ainsi avoir certains sorts actifs alors que vous ne devriez pas les avoir. Lors du test, en utilisant les mêmes sorts que pour le test de vitesse du pré-buffing normal, il a fallu environ 20 à 30 secondes pour terminer le pré-buffing. Une diminution d'un peu plus de 2 minutes du temps d'attente pour vos personnages.
 
-#### Intelligent Enemy Debuffing
-If an enemy has PfMW, Mantle, Improved Mantle, Absolute Immunity, or Shield of Lathander, the scripts will automatically get to work removing spell protections to take those down and allowing your fighters to do what they do best: putting the pointy end in the bad guy. The scripts use the minimum level spell necessary to strip spell protections, so you will not launch Spellstrike on an enemy when Secret Word will do (assuming you have Secret Word).
+#### Intelligent Debuffing/suppression des sorts ennemis
 
-#### Intelligent Detection of Invisible Enemies
-These are the most advanced scripts at detecting and countering invisible enemies. As soon as an enemy is detected that is invisible or stealthed, nomatter the means, characters will get to work using the appropriate spell to detect them. Many times, your characters will cast the appropriate detection spell before you even realize an invisible enemy is present. These are that advanced.
+Si un ennemi dispose de Protection contre les armes magiques, Manteau, Manteau amélioré, Immunité absolue ou Bouclier de Lathandre, les scripts se mettront automatiquement au travail pour supprimer les protections des ennemis et permettre à vos combattants de faire ce qu'ils savent faire le mieux : enfoncer le côté pointu dans les méchants. Les scripts utilisent le niveau minimum de sort nécessaire pour supprimer les protections adverses, de sorte que vous ne lancerez pas Sort d'assaut sur un ennemi si Mot secret est suffisant (en supposant que vous ayez Mot secret).
 
-#### Item Usage (BGII: EE and EET Required)
-These scripts will utilize items such as Amulet of the Cheetah, Ilbratha+1, Ring of Duplication, Gargoyle Boots, Headband of the Devout, Girdle of Fortitude, Ring of Spell Turning, Cloak of the Stars, Cowl of the Stars, Belt of Minor Invulnerability, Cloak of the Dark Moon, and the Shield of Fyrus Khal. Additionally, these scripts will also assist in automatically swapping items in order to cast an items effect and then swapping back to the original item. This will be done seamlessly. For example, if you have either Gargoyle Boots or Boots of Speed equipped with the other item in your inventory, then the script will automatically swap items to equip the Gargoyle Boots, cast Stoneskin (if there is a charge), then swap back to the Boots of Speed. The player will not notice any item swapping from the game screen, but they will have a seamless casting of Stoneskin. This saves a lot of micromanagement to swap boots and cast Stoneskin. Similarly, Monks will a similar swap with Ilbratha+1 and the Scarlet Ninja-To (in the off-hand) in order to cast Mirror Images.
+#### Détection intelligente des ennemis invisibles
 
-#### The Scripts
-Below are a listing of the different scripts included in the Main Component.
+
+Il s'agit des scripts les plus avancés pour détecter et contrer les ennemis invisibles. Dès qu'un adversaire invisible ou dissimulé est détecté, peu importe le moyen utilisé, vos alliés se mettront au travail en utilisant les sorts appropriés pour le rendre visible. Bien souvent, vos personnages lanceront le sort de détection nécessaire avant même que vous ne remarquiez la présence d'un ennemi invisible. Ces scripts en sont capables.
+
+#### Utilisation des objets (BGII: EE et EET Requis)
+
+Ces scripts utiliseront les objets tels que l'Amulette du guépard, Ilbratha+1, l'Anneau de dédoublement, les bottes de gargouille, Serre-tête du dévot, le Ceinturon de force, l'Anneau de renvoi des sorts, la Cape des étoiles, le Manteau des étoiles, la Ceinture d'invulnérabilité mineure, la Cape de la lune noire et le bouclier de Fyrus Khal.  De plus, ces scripts permettront également de permuter automatiquement des objets afin d'utiliser l'effet d'un objet, puis de revenir à l'objet d'origine. Ceci sera fait de manière imperceptible. Par exemple, si vous avez les Bottes de vitesse équipées et les Bottes de gargouille dans votre inventaire , le script échangera automatiquement les objets pour équiper les Bottes de gargouille, lancer Peau de pierre (s'il y a une charge), puis revenir aux Bottes de vitesse. Le joueur ne remarquera pas le changement d'objet sur l'écran de jeu, mais il pourra lancer la Peau de pierre en toute simplicité. Cela évite beaucoup de micro-gestion pour changer soi même de bottes et lancer la Peau de pierre. Les Moines effectueront un échange similaire avec Ilbratha+1 et le Ninja-To écarlate (dans la main secondaire) afin de lancer Images miroir.
+
+#### Les scripts
+
+Vous trouverez ci-dessous une liste des différents scripts inclus dans le composant principal.
 
 ##### MO-BASE AI
 
