@@ -8,6 +8,7 @@ March xx, 2022
 
 - All Games
   - Updated Mages and Sorcerers to ONLY attack if either Melf's Minute Missile or a ranged weapon is equipped. This does not effect multi/dual classed Mages.
+  - French translation provided by JohnBob.
 - BG: EE, BG2: EE, and EET
   - Added compatibility with the 5e Spellcasting mod.
 
