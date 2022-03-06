@@ -2079,6 +2079,8 @@ THEN
     RemoveSpellRES("SPRA303")
 END
 
+// 5e Spellcasting Prebuff Cleric Armor of Faith
+
 IF
 	Global("MO_BUFF","LOCALS",1)
 	HaveSpell(CLERIC_ARMOR_OF_FAITH)  // SPPR111.SPL (Armor of Faith)
@@ -2096,6 +2098,8 @@ THEN
 		RemoveSpell(CLERIC_ARMOR_OF_FAITH)  // SPPR111.SPL (Armor of Faith)
 END
 
+// 5e Spellcasting Prebuff Bless
+
 IF
 	Global("MO_BUFF","LOCALS",1)
 	HaveSpell(CLERIC_BLESS)  // SPPR101.SPL (Bless)
@@ -2110,6 +2114,8 @@ THEN
 		ReallyForceSpell(Myself,CLERIC_BLESS)  // SPPR101.SPL (Bless)
 		RemoveSpell(CLERIC_BLESS)  // SPPR101.SPL (Bless)
 END
+
+// 5e Spellcasting Prebuff Wizard Luck
 
 IF
 	Global("MO_BUFF","LOCALS",1)
@@ -2267,6 +2273,8 @@ THEN
     RemoveSpell(WIZARD_LUCK)  // SPWI209.SPL (Luck)
 END
 
+// 5e Spellcasting Prebuff Wizard Protection from the Elements
+
 IF
 	Global("MO_BUFF","LOCALS",1)
 	HaveSpell(WIZARD_PROTECTION_FROM_THE_ELEMENTS)  // SPWI702.SPL (Protection from the Elements)
@@ -2282,6 +2290,8 @@ THEN
 		ReallyForceSpell(Myself,WIZARD_PROTECTION_FROM_THE_ELEMENTS)  // SPWI702.SPL (Protection from the Elements)
 		RemoveSpell(WIZARD_PROTECTION_FROM_THE_ELEMENTS)  // SPWI702.SPL (Protection from the Elements)
 END
+
+// 5e Spellcasting Prebuff Wizard Protection from Missiles
 
 IF
 	Global("MO_BUFF","LOCALS",1)
@@ -2301,6 +2311,8 @@ THEN
 		RemoveSpell(WIZARD_PROTECTION_FROM_NORMAL_MISSILES)  // SPWI311.SPL (Protection from Missiles)
 END
 
+// 5e Spellcasting Prebuff Physical Mirror
+
 IF
 	Global("MO_BUFF","LOCALS",1)
 	HaveSpell(CLERIC_PHYSICAL_MIRROR)  // SPPR613.SPL (Physical Mirror)
@@ -2316,7 +2328,11 @@ THEN
 		RemoveSpell(CLERIC_PHYSICAL_MIRROR)  // SPPR613.SPL (Physical Mirror)
 END
 
+// 5e Spellcasting Prebuff - MiH Spell Invulnerability
+
 // MiH Spell Invulnerability
+
+// 5e Spellcasting Prebuff Spell Shield
 
 IF
 	Global("MO_BUFF","LOCALS",1)
@@ -2334,6 +2350,8 @@ THEN
 		ReallyForceSpell(Myself,WIZARD_SPELL_SHIELD)  // SPWI519.SPL (Spell Shield)
 		RemoveSpell(WIZARD_SPELL_SHIELD)  // SPWI519.SPL (Spell Shield)
 END
+
+// 5e Spellcasting Prebuff Greater Spell Deflection
 
 IF
 	Global("MO_BUFF","LOCALS",1)
@@ -2353,6 +2371,8 @@ THEN
 		RemoveSpell(WIZARD_GREATER_SPELL_DEFLECTION)  // SPWI701.SPL (Greater Spell Deflection)
 END
 
+// 5e Spellcasting Prebuff Spell Deflection
+
 IF
 	Global("MO_BUFF","LOCALS",1)
 	HaveSpell(WIZARD_SPELL_DEFLECTION)  // SPWI522.SPL (Spell Deflection)
@@ -2371,6 +2391,8 @@ THEN
 		ReallyForceSpell(Myself,WIZARD_SPELL_DEFLECTION)  // SPWI522.SPL (Spell Deflection)
 		RemoveSpell(WIZARD_SPELL_DEFLECTION)  // SPWI522.SPL (Spell Deflection)
 END
+
+// 5e Spellcasting Prebuff Minor Spell Deflection
 
 IF
 	Global("MO_BUFF","LOCALS",1)
@@ -2392,11 +2414,19 @@ THEN
 		RemoveSpell(WIZARD_MINOR_SPELL_DEFLECTION)  // SPWI318.SPL (Minor Spell Deflection)
 END
 
+// 5e Spellcasting Prebuff - FP Cleric Minor Spell Deflection
+
 // FP Cleric Minor Spell Deflection
+
+// 5e Spellcasting Prebuff - FP Ranger Minor Spell Deflection
 
 // FP Ranger Minor Spell Deflection
 
+// 5e Spellcasting Prebuff - IWD Seven Eyes
+
 // IWD Seven Eyes
+
+// 5e Spellcasting Prebuff Mirror Image
 
 IF
 	Global("MO_BUFF","LOCALS",1)
@@ -2417,6 +2447,8 @@ THEN
 		RemoveSpell(WIZARD_MIRROR_IMAGE)  // SPWI212.SPL (Mirror Image)
 END
 
+// 5e Spellcasting Prebuff Dispelling Screen
+
 IF
 	Global("MO_BUFF","LOCALS",1)
 	HaveSpell(WIZARD_DISPELLING_SCREEN)  // spwi525.spl (Dispelling Screen)
@@ -2433,9 +2465,15 @@ THEN
 		RemoveSpell(WIZARD_DISPELLING_SCREEN)  // spwi525.spl (Dispelling Screen)
 END
 
+// 5e Spellcasting Prebuff - IWD Prayer, Restoration, and Entropy Shield
+
 // IWD Prayer, Restoration, and Entropy Shield
 
+// 5e Spellcasting Prebuff - DSotSC Army of One
+
 // DSotSC Army of One
+
+// 5e Spellcasting Prebuff - DSotSC Wizard Army of One
 
 // DSotSC Wizard Army of One
 
@@ -2455,7 +2493,11 @@ THEN
 		RemoveSpellRES("SPIN103")  // Draw Upon Divine Might
 END
 
+// 5e Spellcasting Prebuff - FP Cleric Divine Aura, Warding Winds, and EPIC Divine Might
+
 // FP Cleric Divine Aura, Warding Winds, and EPIC Divine Might
+
+// 5e Spellcasting Prebuff Chant
 
 IF
 	Global("MO_BUFF","LOCALS",1)
@@ -2471,6 +2513,8 @@ THEN
 		ReallyForceSpell(Myself,CLERIC_CHANT)  // SPPR203.SPL (Chant)
 		RemoveSpell(CLERIC_CHANT)  // SPPR203.SPL (Chant)
 END
+
+// 5e Spellcasting Prebuff Draw Upon Holy Might
 
 IF
 	Global("MO_BUFF","LOCALS",1)
@@ -2488,6 +2532,8 @@ THEN
 		RemoveSpell(CLERIC_DRAW_UPON_HOLY_MIGHT)
 END
 
+// 5e Spellcasting Prebuff Defensive Harmony
+
 IF
 	Global("MO_BUFF","LOCALS",1)
 	HaveSpell(CLERIC_DEFENSIVE_HARMONY)  // SPPR406.SPL (Defensive Harmony)
@@ -2503,6 +2549,8 @@ THEN
 		RemoveSpell(CLERIC_DEFENSIVE_HARMONY)  // SPPR406.SPL (Defensive Harmony)
 END
 
+// 5e Spellcasting Prebuff Shield of the Archons
+
 IF
 	Global("MO_BUFF","LOCALS",1)
 	HaveSpell(CLERIC_SHIELD_OF_THE_ARCHONS)  // SPPR701.SPL (Shield of the Archons)
@@ -2517,6 +2565,8 @@ THEN
 		ReallyForceSpell(Myself,CLERIC_SHIELD_OF_THE_ARCHONS)  // SPPR701.SPL (Shield of the Archons)
 		RemoveSpell(CLERIC_SHIELD_OF_THE_ARCHONS)  // SPPR701.SPL (Shield of the Archons)
 END
+
+// 5e Spellcasting Prebuff Aura of Flaming Death
 
 IF
 	Global("MO_BUFF","LOCALS",1)
@@ -2535,6 +2585,8 @@ THEN
 		RemoveSpell(CLERIC_AURA_OF_FLAMING_DEATH)  // SPPR730.SPL (Aura of Flaming Death)
 END
 
+// 5e Spellcasting Prebuff Globe of Blades
+
 IF
 	Global("MO_BUFF","LOCALS",1)
 	HaveSpell(CLERIC_GLOBE_OF_BLADES)  // SPPR725.SPL (Globe of Blades)
@@ -2550,6 +2602,8 @@ THEN
 		ReallyForceSpell(Myself,CLERIC_GLOBE_OF_BLADES)  // SPPR725.SPL (Globe of Blades)
 		RemoveSpell(CLERIC_GLOBE_OF_BLADES)  // SPPR725.SPL (Globe of Blades)
 END
+
+// 5e Spellcasting Prebuff Blade Barrier
 
 IF
 	Global("MO_BUFF","LOCALS",1)
@@ -2567,6 +2621,8 @@ THEN
 		RemoveSpell(CLERIC_BLADE_BARRIER)  // SPPR603.SPL (Blade Barrier)
 END
 
+// 5e Spellcasting Prebuff - DSotSC Selunes Blessing and Aura of Protection
+
 // DSotSC Selunes Blessing and Aura of Protection
 
 IF
@@ -2581,6 +2637,8 @@ THEN
     UseItem("OHRBELT2",Myself)  // Belt of Minor Invulnerability
     IncrementGlobal("MO_UsedBltMnrInv","GLOBAL",1)
 END
+
+// 5e Spellcasting Prebuff Cleric Strength of One
 
 IF
   Global("MO_BUFF","LOCALS",1)
@@ -2621,6 +2679,8 @@ END
 
 // FP Kit Paladin Rage/Frenzy
 
+// 5e Spellcasting Prebuff Protection from Energy
+
 IF
 	Global("MO_BUFF","LOCALS",1)
 	HaveSpell(WIZARD_PROTECTION_FROM_ENERGY)  // SPWI803.SPL (Protection from Energy)
@@ -2638,9 +2698,15 @@ THEN
 		RemoveSpell(WIZARD_PROTECTION_FROM_ENERGY)  // SPWI803.SPL (Protection from Energy)
 END
 
+// 5e Spellcasting Prebuff - MiH Wizard Superheroism
+
 // MiH Wizard Superheroism
 
+// 5e Spellcasting Prebuff - MiH Cleric Superheroism
+
 // MiH Cleric Superheroism
+
+// 5e Spellcasting Prebuff Magic Resistance
 
 IF
 	Global("MO_BUFF","LOCALS",1)
@@ -2657,6 +2723,8 @@ THEN
 		ReallyForceSpell(Myself,CLERIC_MAGIC_RESISTANCE)  // SPPR509.SPL (Magic Resistance)
 		RemoveSpell(CLERIC_MAGIC_RESISTANCE)  // SPPR509.SPL (Magic Resistance)
 END
+
+// 5e Spellcasting Prebuff Mestil's Acid Sheath
 
 IF
 	Global("MO_BUFF","LOCALS",1)
