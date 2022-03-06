@@ -35,6 +35,37 @@ ACTION_IF spell_revisions BEGIN
 	END
 
 ///////////////////////////////////////////////////////////////////////////
+// 5e Spellcasting                                                       //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF 5e_spellcasting BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_prebuff_5e.tph~
+
+		ACTION_FOR_EACH 5e_prebuff IN
+			CLERIC_PROTECTION_FROM_EVIL_10_FOOT
+			WIZARD_STONE_SKIN
+			CLERIC_IRONSKIN
+			CLERIC_AID
+			WIZARD_PROTECTION_FROM_MAGIC_ENERGY
+			CLERIC_FREE_ACTION
+			CLERIC_NEUTRALIZE_POISON
+			CLERIC_PROTECTION_FROM_FIRE
+			CLERIC_DEATH_WARD
+			CLERIC_CHAOTIC_COMMANDS
+			CLERIC_NEGATIVE_PLANE_PROTECTION
+			WIZARD_GHOST_ARMOR
+			WIZARD_SHIELD
+			WIZARD_BLUR
+			WIZARD_RESIST_FEAR
+			CLERIC_REMOVE_FEAR
+			CLERIC_PROTECT_FROM_EVIL
+		BEGIN
+			LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_prebuff%~ RET spell_res END
+			COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+				REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_prebuff%~ ~RES(%spell_res%~
+		END
+	END
+
+///////////////////////////////////////////////////////////////////////////
 // SR - Song & Silence                                                   //
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF song_and_silence BEGIN

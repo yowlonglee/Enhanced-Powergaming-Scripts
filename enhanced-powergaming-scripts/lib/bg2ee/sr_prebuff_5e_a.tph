@@ -1,0 +1,1680 @@
+COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+
+///////////////////////////////////////////////////////////////////////////
+// Resting Delay                                                         //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~IF
+  PartyRested()
+THEN
+  RESPONSE #100~~~~~
+    string = ~~~~~IF
+  PartyRested()
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",12)~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Prot from Evil 10' Check                                              //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~IF
+  HaveSpell(CLERIC_PROTECTION_FROM_EVIL_10_FOOT)
+  OR(2)
+    Global("MO_ProtEvil","LOCALS",0)
+    Global("MO_TeamProtEvil","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_ProtEvil","LOCALS",1)
+    SetGlobal("MO_TeamProtEvil","GLOBAL",1)
+END
+
+IF
+  !HaveSpell(CLERIC_PROTECTION_FROM_EVIL_10_FOOT)
+  Global("MO_ProtEvil","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_ProtEvil","LOCALS",0)
+    SetGlobal("MO_TeamProtEvil","GLOBAL",0)
+END~~~~~
+    string = ~~~~~IF
+  OR(2)
+    HaveSpell(CLERIC_PROTECTION_FROM_EVIL_10_FOOT)  // SPPR408.SPL (Protection From Evil, 10' Radius)
+    HaveSpellRES(CLERIC_PROTECTION_FROM_EVIL_10_FOOT)
+  OR(2)
+    Global("MO_ProtEvil","LOCALS",0)
+    Global("MO_TeamProtEvil","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_ProtEvil","LOCALS",1)
+    SetGlobal("MO_TeamProtEvil","GLOBAL",1)
+END
+
+IF
+  !HaveSpell(CLERIC_PROTECTION_FROM_EVIL_10_FOOT)  // SPPR408.SPL (Protection From Evil, 10' Radius)
+  !HaveSpellRES(CLERIC_PROTECTION_FROM_EVIL_10_FOOT)
+  Global("MO_ProtEvil","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_ProtEvil","LOCALS",0)
+    SetGlobal("MO_TeamProtEvil","GLOBAL",0)
+END~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Wizard Stone Skin                                                     //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Prebuff Stoneskin~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  ActionListEmpty()
+  CheckStatLT(Myself,1,STONESKINS)
+  HaveSpellRES(WIZARD_STONE_SKIN)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(WIZARD_STONE_SKIN,Myself)
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Druid Ironskin                                                        //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Prebuff Ironskin~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  ActionListEmpty()
+  CheckStatLT(Myself,1,STONESKINS)
+  HaveSpellRES(CLERIC_IRONSKIN)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_IRONSKIN,Myself)
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Cleric Aid                                                            //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Prebuff Cleric Aid~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  See(Myself)
+  HaveSpellRES(CLERIC_AID)
+  !StateCheck(LastSeenBy(Myself),STATE_AID)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_AID,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See([PC])
+  HaveSpellRES(CLERIC_AID)
+  !StateCheck(LastSeenBy(Myself),STATE_AID)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_AID,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(SecondNearest([PC]))
+  HaveSpellRES(CLERIC_AID)
+  !StateCheck(LastSeenBy(Myself),STATE_AID)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_AID,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(ThirdNearest([PC]))
+  HaveSpellRES(CLERIC_AID)
+  !StateCheck(LastSeenBy(Myself),STATE_AID)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_AID,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(FourthNearest([PC]))
+  HaveSpellRES(CLERIC_AID)
+  !StateCheck(LastSeenBy(Myself),STATE_AID)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_AID,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(FifthNearest([PC]))
+  HaveSpellRES(CLERIC_AID)
+  !StateCheck(LastSeenBy(Myself),STATE_AID)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_AID,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(SixthNearest([PC]))
+  HaveSpellRES(CLERIC_AID)
+  !StateCheck(LastSeenBy(Myself),STATE_AID)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_AID,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Protection from Magic Energey                                         //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Prebuff Protection from Magic Energy~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  See(Myself)
+  HaveSpellRES(WIZARD_PROTECTION_FROM_MAGIC_ENERGY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_PROTECTION_FROM_MAGIC_ENERGY)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(WIZARD_PROTECTION_FROM_MAGIC_ENERGY,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See([PC])
+  HaveSpellRES(WIZARD_PROTECTION_FROM_MAGIC_ENERGY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_PROTECTION_FROM_MAGIC_ENERGY)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(WIZARD_PROTECTION_FROM_MAGIC_ENERGY,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(SecondNearest([PC]))
+  HaveSpellRES(WIZARD_PROTECTION_FROM_MAGIC_ENERGY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_PROTECTION_FROM_MAGIC_ENERGY)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(WIZARD_PROTECTION_FROM_MAGIC_ENERGY,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(ThirdNearest([PC]))
+  HaveSpellRES(WIZARD_PROTECTION_FROM_MAGIC_ENERGY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_PROTECTION_FROM_MAGIC_ENERGY)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(WIZARD_PROTECTION_FROM_MAGIC_ENERGY,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(FourthNearest([PC]))
+  HaveSpellRES(WIZARD_PROTECTION_FROM_MAGIC_ENERGY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_PROTECTION_FROM_MAGIC_ENERGY)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(WIZARD_PROTECTION_FROM_MAGIC_ENERGY,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(FifthNearest([PC]))
+  HaveSpellRES(WIZARD_PROTECTION_FROM_MAGIC_ENERGY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_PROTECTION_FROM_MAGIC_ENERGY)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(WIZARD_PROTECTION_FROM_MAGIC_ENERGY,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(SixthNearest([PC]))
+  HaveSpellRES(WIZARD_PROTECTION_FROM_MAGIC_ENERGY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_PROTECTION_FROM_MAGIC_ENERGY)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(WIZARD_PROTECTION_FROM_MAGIC_ENERGY,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Free Action                                                           //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Prebuff Free Action~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  See(Myself)
+  HaveSpellRES(CLERIC_FREE_ACTION)
+  !CheckStatGT(LastSeenBy(Myself),0,CLERIC_FREE_ACTION)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_FREE_ACTION,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See([PC])
+  HaveSpellRES(CLERIC_FREE_ACTION)
+  !CheckStatGT(LastSeenBy(Myself),0,CLERIC_FREE_ACTION)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_FREE_ACTION,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(SecondNearest([PC]))
+  HaveSpellRES(CLERIC_FREE_ACTION)
+  !CheckStatGT(LastSeenBy(Myself),0,CLERIC_FREE_ACTION)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_FREE_ACTION,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(ThirdNearest([PC]))
+  HaveSpellRES(CLERIC_FREE_ACTION)
+  !CheckStatGT(LastSeenBy(Myself),0,CLERIC_FREE_ACTION)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_FREE_ACTION,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(FourthNearest([PC]))
+  HaveSpellRES(CLERIC_FREE_ACTION)
+  !CheckStatGT(LastSeenBy(Myself),0,CLERIC_FREE_ACTION)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_FREE_ACTION,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(FifthNearest([PC]))
+  HaveSpellRES(CLERIC_FREE_ACTION)
+  !CheckStatGT(LastSeenBy(Myself),0,CLERIC_FREE_ACTION)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_FREE_ACTION,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(SixthNearest([PC]))
+  HaveSpellRES(CLERIC_FREE_ACTION)
+  !CheckStatGT(LastSeenBy(Myself),0,CLERIC_FREE_ACTION)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_FREE_ACTION,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Neutralize Poison                                                     //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Prebuff Neutralize Poison~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  See(Myself)
+  HaveSpellRES(CLERIC_NEUTRALIZE_POISON)
+  !CheckSpellState(LastSeenBy(Myself),NEUTRALIZE_POISON)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_NEUTRALIZE_POISON,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See([PC])
+  HaveSpellRES(CLERIC_NEUTRALIZE_POISON)
+  !CheckSpellState(LastSeenBy(Myself),NEUTRALIZE_POISON)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_NEUTRALIZE_POISON,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(SecondNearest([PC]))
+  HaveSpellRES(CLERIC_NEUTRALIZE_POISON)
+  !CheckSpellState(LastSeenBy(Myself),NEUTRALIZE_POISON)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_NEUTRALIZE_POISON,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(ThirdNearest([PC]))
+  HaveSpellRES(CLERIC_NEUTRALIZE_POISON)
+  !CheckSpellState(LastSeenBy(Myself),NEUTRALIZE_POISON)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_NEUTRALIZE_POISON,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(FourthNearest([PC]))
+  HaveSpellRES(CLERIC_NEUTRALIZE_POISON)
+  !CheckSpellState(LastSeenBy(Myself),NEUTRALIZE_POISON)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_NEUTRALIZE_POISON,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(FifthNearest([PC]))
+  HaveSpellRES(CLERIC_NEUTRALIZE_POISON)
+  !CheckSpellState(LastSeenBy(Myself),NEUTRALIZE_POISON)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_NEUTRALIZE_POISON,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(SixthNearest([PC]))
+  HaveSpellRES(CLERIC_NEUTRALIZE_POISON)
+  !CheckSpellState(LastSeenBy(Myself),NEUTRALIZE_POISON)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_NEUTRALIZE_POISON,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Cleric Protection from Fire                                           //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Prebuff Cleric Protection from Fire~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES(CLERIC_PROTECTION_FROM_FIRE)
+  // (Myself) Major Globe
+  CheckStatLT(Myself,80,RESISTFIRE)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_PROTECTION_FROM_FIRE,Myself)
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Death Ward                                                            //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Prebuff Death Ward~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES(CLERIC_DEATH_WARD)
+  See(Myself)
+  !Kit(LastSeenBy(Myself),UNDEADHUNTER)
+  !CheckSpellState(LastSeenBy(Myself),DEATH_WARD)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_DEATH_WARD,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES(CLERIC_DEATH_WARD)
+  See([PC])
+  !Kit(LastSeenBy(Myself),UNDEADHUNTER)
+  !CheckSpellState(LastSeenBy(Myself),DEATH_WARD)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_DEATH_WARD,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES(CLERIC_DEATH_WARD)
+  See(SecondNearest([PC]))
+  !Kit(LastSeenBy(Myself),UNDEADHUNTER)
+  !CheckSpellState(LastSeenBy(Myself),DEATH_WARD)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_DEATH_WARD,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES(CLERIC_DEATH_WARD)
+  See(ThirdNearest([PC]))
+  !Kit(LastSeenBy(Myself),UNDEADHUNTER)
+  !CheckSpellState(LastSeenBy(Myself),DEATH_WARD)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_DEATH_WARD,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES(CLERIC_DEATH_WARD)
+  See(FourthNearest([PC]))
+  !Kit(LastSeenBy(Myself),UNDEADHUNTER)
+  !CheckSpellState(LastSeenBy(Myself),DEATH_WARD)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_DEATH_WARD,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES(CLERIC_DEATH_WARD)
+  See(FifthNearest([PC]))
+  !Kit(LastSeenBy(Myself),UNDEADHUNTER)
+  !CheckSpellState(LastSeenBy(Myself),DEATH_WARD)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_DEATH_WARD,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES(CLERIC_DEATH_WARD)
+  See(SixthNearest([PC]))
+  !Kit(LastSeenBy(Myself),UNDEADHUNTER)
+  !CheckSpellState(LastSeenBy(Myself),DEATH_WARD)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_DEATH_WARD,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Chaotic Commands                                                      //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Prebuff Chaotic Commands~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  See(Myself)
+  !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),CHAOTIC_COMMANDS)
+  // NOT HAS Mind Blank Check
+  HaveSpellRES(CLERIC_CHAOTIC_COMMANDS)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  // Major Globe
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_CHAOTIC_COMMANDS,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See([PC])
+  !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),CHAOTIC_COMMANDS)
+  // NOT HAS Mind Blank Check
+  HaveSpellRES(CLERIC_CHAOTIC_COMMANDS)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  // Major Globe
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_CHAOTIC_COMMANDS,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(SecondNearest([PC]))
+  !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),CHAOTIC_COMMANDS)
+  // NOT HAS Mind Blank Check
+  HaveSpellRES(CLERIC_CHAOTIC_COMMANDS)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  // Major Globe
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_CHAOTIC_COMMANDS,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(ThirdNearest([PC]))
+  !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),CHAOTIC_COMMANDS)
+  // NOT HAS Mind Blank Check
+  HaveSpellRES(CLERIC_CHAOTIC_COMMANDS)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  // Major Globe
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_CHAOTIC_COMMANDS,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(FourthNearest([PC]))
+  !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),CHAOTIC_COMMANDS)
+  // NOT HAS Mind Blank Check
+  HaveSpellRES(CLERIC_CHAOTIC_COMMANDS)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  // Major Globe
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_CHAOTIC_COMMANDS,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(FifthNearest([PC]))
+  !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),CHAOTIC_COMMANDS)
+  // NOT HAS Mind Blank Check
+  HaveSpellRES(CLERIC_CHAOTIC_COMMANDS)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  // Major Globe
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_CHAOTIC_COMMANDS,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  See(SixthNearest([PC]))
+  !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
+  !CheckSpellState(LastSeenBy(Myself),CHAOTIC_COMMANDS)
+  // NOT HAS Mind Blank Check
+  HaveSpellRES(CLERIC_CHAOTIC_COMMANDS)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  // Major Globe
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_CHAOTIC_COMMANDS,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Negative Plane Protection                                             //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Prebuff Negative Plane Protection~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES(CLERIC_NEGATIVE_PLANE_PROTECTION)
+  See(Myself)
+  !Kit(LastSeenBy(Myself),UNDEADHUNTER)
+  !CheckSpellState(LastSeenBy(Myself),LATHANDER_BOON)
+  !CheckStatGT(LastSeenBy(Myself),0,LEVEL_DRAIN_IMMUNITY)
+  !HasItemEquipedReal("BLUN25",LastSeenBy(Myself))  // Mace of Disruption +4
+  !HasItemEquipedReal("SW1H69",LastSeenBy(Myself))  // Spectral Brand +5
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_NEGATIVE_PLANE_PROTECTION,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES(CLERIC_NEGATIVE_PLANE_PROTECTION)
+  See([PC])
+  !Kit(LastSeenBy(Myself),UNDEADHUNTER)
+  !CheckSpellState(LastSeenBy(Myself),LATHANDER_BOON)
+  !CheckStatGT(LastSeenBy(Myself),0,LEVEL_DRAIN_IMMUNITY)
+  !HasItemEquipedReal("BLUN25",LastSeenBy(Myself))  // Mace of Disruption +4
+  !HasItemEquipedReal("SW1H69",LastSeenBy(Myself))  // Spectral Brand +5
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_NEGATIVE_PLANE_PROTECTION,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES(CLERIC_NEGATIVE_PLANE_PROTECTION)
+  See(SecondNearest([PC]))
+  !Kit(LastSeenBy(Myself),UNDEADHUNTER)
+  !CheckSpellState(LastSeenBy(Myself),LATHANDER_BOON)
+  !CheckStatGT(LastSeenBy(Myself),0,LEVEL_DRAIN_IMMUNITY)
+  !HasItemEquipedReal("BLUN25",LastSeenBy(Myself))  // Mace of Disruption +4
+  !HasItemEquipedReal("SW1H69",LastSeenBy(Myself))  // Spectral Brand +5
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_NEGATIVE_PLANE_PROTECTION,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES(CLERIC_NEGATIVE_PLANE_PROTECTION)
+  See(ThirdNearest([PC]))
+  !Kit(LastSeenBy(Myself),UNDEADHUNTER)
+  !CheckSpellState(LastSeenBy(Myself),LATHANDER_BOON)
+  !CheckStatGT(LastSeenBy(Myself),0,LEVEL_DRAIN_IMMUNITY)
+  !HasItemEquipedReal("BLUN25",LastSeenBy(Myself))  // Mace of Disruption +4
+  !HasItemEquipedReal("SW1H69",LastSeenBy(Myself))  // Spectral Brand +5
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_NEGATIVE_PLANE_PROTECTION,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES(CLERIC_NEGATIVE_PLANE_PROTECTION)
+  See(FourthNearest([PC]))
+  !Kit(LastSeenBy(Myself),UNDEADHUNTER)
+  !CheckSpellState(LastSeenBy(Myself),LATHANDER_BOON)
+  !CheckStatGT(LastSeenBy(Myself),0,LEVEL_DRAIN_IMMUNITY)
+  !HasItemEquipedReal("BLUN25",LastSeenBy(Myself))  // Mace of Disruption +4
+  !HasItemEquipedReal("SW1H69",LastSeenBy(Myself))  // Spectral Brand +5
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_NEGATIVE_PLANE_PROTECTION,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES(CLERIC_NEGATIVE_PLANE_PROTECTION)
+  See(FifthNearest([PC]))
+  !Kit(LastSeenBy(Myself),UNDEADHUNTER)
+  !CheckSpellState(LastSeenBy(Myself),LATHANDER_BOON)
+  !CheckStatGT(LastSeenBy(Myself),0,LEVEL_DRAIN_IMMUNITY)
+  !HasItemEquipedReal("BLUN25",LastSeenBy(Myself))  // Mace of Disruption +4
+  !HasItemEquipedReal("SW1H69",LastSeenBy(Myself))  // Spectral Brand +5
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_NEGATIVE_PLANE_PROTECTION,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES(CLERIC_NEGATIVE_PLANE_PROTECTION)
+  See(SixthNearest([PC]))
+  !Kit(LastSeenBy(Myself),UNDEADHUNTER)
+  !CheckSpellState(LastSeenBy(Myself),LATHANDER_BOON)
+  !CheckStatGT(LastSeenBy(Myself),0,LEVEL_DRAIN_IMMUNITY)
+  !HasItemEquipedReal("BLUN25",LastSeenBy(Myself))  // Mace of Disruption +4
+  !HasItemEquipedReal("SW1H69",LastSeenBy(Myself))  // Spectral Brand +5
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_NEGATIVE_PLANE_PROTECTION,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Ghost Armor                                                           //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Prebuff Ghost Armor~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES(WIZARD_GHOST_ARMOR)
+  CheckStatGT(Myself,2,ARMORCLASS)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(WIZARD_GHOST_ARMOR,Myself)
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Wizard Shield                                                         //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Prebuff Wizard Shield~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES(WIZARD_SHIELD)
+  !CheckSpellState(Myself,WIZARD_SHIELD)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(WIZARD_SHIELD,Myself)
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Blur                                                                  //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Prebuff Blur~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES(WIZARD_BLUR)
+  !StateCheck(Myself,STATE_BLUR)
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(WIZARD_BLUR,Myself)
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Wizard Resist Fear                                                    //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Prebuff Wizard Resist Fear~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES(WIZARD_RESIST_FEAR)
+  !CheckSpellState(Myself,RESIST_FEAR)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(WIZARD_RESIST_FEAR,Myself)
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Cleric Remove Fear                                                    //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Prebuff Cleric Remove Fear~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES(CLERIC_REMOVE_FEAR)
+  !CheckSpellState(Myself,RESIST_FEAR)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_REMOVE_FEAR,Myself)
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+    Wait(1)
+END
+~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Magic Circle Against Evil                                             //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Prebuff Magic Circle Against Evil~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES(CLERIC_PROTECTION_FROM_EVIL_10_FOOT)
+  CheckStat(Myself,0,PROTECTION_FROM_EVIL)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_PROTECTION_FROM_EVIL_10_FOOT,Myself)
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Protection from Evil                                                  //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Prebuff Protection from Evil~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  Global("MO_TeamProtEvil","GLOBAL",0)
+  HaveSpellRES(CLERIC_PROTECT_FROM_EVIL)
+  See(Myself)
+  CheckStat(LastSeenBy(Myself),0,PROTECTION_FROM_EVIL)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_PROTECT_FROM_EVIL,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  Global("MO_TeamProtEvil","GLOBAL",0)
+  HaveSpellRES(CLERIC_PROTECT_FROM_EVIL)
+  See([PC])
+  CheckStat(LastSeenBy(Myself),0,PROTECTION_FROM_EVIL)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_PROTECT_FROM_EVIL,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  Global("MO_TeamProtEvil","GLOBAL",0)
+  HaveSpellRES(CLERIC_PROTECT_FROM_EVIL)
+  See(SecondNearest([PC]))
+  CheckStat(LastSeenBy(Myself),0,PROTECTION_FROM_EVIL)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_PROTECT_FROM_EVIL,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  Global("MO_TeamProtEvil","GLOBAL",0)
+  HaveSpellRES(CLERIC_PROTECT_FROM_EVIL)
+  See(ThirdNearest([PC]))
+  CheckStat(LastSeenBy(Myself),0,PROTECTION_FROM_EVIL)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_PROTECT_FROM_EVIL,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  Global("MO_TeamProtEvil","GLOBAL",0)
+  HaveSpellRES(CLERIC_PROTECT_FROM_EVIL)
+  See(FourthNearest([PC]))
+  CheckStat(LastSeenBy(Myself),0,PROTECTION_FROM_EVIL)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_PROTECT_FROM_EVIL,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  Global("MO_TeamProtEvil","GLOBAL",0)
+  HaveSpellRES(CLERIC_PROTECT_FROM_EVIL)
+  See(FifthNearest([PC]))
+  CheckStat(LastSeenBy(Myself),0,PROTECTION_FROM_EVIL)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_PROTECT_FROM_EVIL,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  Global("MO_TeamProtEvil","GLOBAL",0)
+  HaveSpellRES(CLERIC_PROTECT_FROM_EVIL)
+  See(SixthNearest([PC]))
+  CheckStat(LastSeenBy(Myself),0,PROTECTION_FROM_EVIL)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(CLERIC_PROTECT_FROM_EVIL,LastSeenBy(Myself))
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Prevent Prebuff from Ending Early                                     //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Prebuff Ending~~~~~
+    string = ~~~~~IF
+  GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  Global("MO_BUFF","LOCALS",1)
+THEN
+  RESPONSE #100
+    NoAction()
+END
+~~~~~ //"
+  END
