@@ -2640,6 +2640,8 @@ THEN
 		Spell(Myself,WIZARD_MESTILS_ACID_SHEATH)  // SPWI524.spl (Mestil's Acid Sheath)
 END
 
+// 5e Spellcasting Prebuff Wizard Fire Shield
+
 IF
 	Global("MO_BUFF","LOCALS",1)
 	HaveSpell(WIZARD_FIRE_SHIELD_RED)  // SPWI418.SPL (Fire Shield)
@@ -2656,6 +2658,8 @@ THEN
 	RESPONSE #100
 		Spell(Myself,WIZARD_FIRE_SHIELD_RED)  // SPWI418.SPL (Fire Shield)
 END
+
+// 5e Spellcasting Prebuff Haste
 
 IF
 	Global("MO_BUFF","LOCALS",1)
@@ -2676,7 +2680,11 @@ THEN
 		Spell(Myself,WIZARD_HASTE)  // SPWI305.SPL (Haste)
 END
 
+// 5e Spellcasting Prebuff - FP Cleric Divine Haste
+
 // FP Cleric Divine Haste
+
+// 5e Spellcasting Prebuff Improve Haste
 
 IF
 	Global("MO_BUFF","LOCALS",1)
@@ -2697,9 +2705,15 @@ THEN
 		Spell(Myself,WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
 END
 
+// 5e Spellcasting Prebuff - FP Cleric Divine Improved Haste
+
 // FP Cleric Divine Improved Haste
 
+// 5e Spellcasting Prebuff - MiH Cleric Striking
+
 // MiH Cleric Striking
+
+// 5e Spellcasting Prebuff Righteous Fury
 
 IF
 	Global("MO_BUFF","LOCALS",1)
@@ -2716,15 +2730,27 @@ THEN
 		Spell(Myself,CLERIC_RIGHTEOUS_MAGIC)  // SPPR513.SPL (Righteous Fury)
 END
 
+// 5e Spellcasting Prebuff - Song & Silence Mind Blade
+
 // Song & Silence Mind Blade
+
+// 5e Spellcasting Prebuff - MiH Wizard Heroism
 
 // MiH Wizard Heroism
 
+// 5e Spellcasting Prebuff - MiH Cleric Heroism
+
 // MiH Cleric Heroism
+
+// 5e Spellcasting Prebuff - MiH Resist Acid/Corrosion
 
 // MiH Resist Acid/Corrosion
 
+// 5e Spellcasting Prebuff - MiH Protect Cold
+
 // MiH Protect Cold
+
+// 5e Spellcasting Prebuff Spell Trap
 
 IF
 	Global("MO_BUFF","LOCALS",1)
@@ -2755,9 +2781,15 @@ THEN
 		Spell(Myself,WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
 END
 
+// 5e Spellcasting Prebuff - MiH Cleric Aura of Vitality
+
 // MiH Cleric Aura of Vitality
 
+// 5e Spellcasting Prebuff - MiH Wizard Seeking
+
 // MiH Wizard Seeking
+
+// 5e Spellcasting Prebuff - MiH Cleric Seeking
 
 // MiH Cleric Seeking
 
