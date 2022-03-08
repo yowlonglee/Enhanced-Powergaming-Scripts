@@ -46,6 +46,8 @@ THEN
     DisplayStringHead(Myself,@5005)
 END
 
+// 5e Spellcasting Vocalize
+
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(NearestEnemyOf(Myself))
@@ -64,6 +66,8 @@ THEN
     Spell(Myself,WIZARD_VOCALIZE)  // SPWI219.SPL (Vocalize)
     SetInterrupt(TRUE)
 END
+
+// 5e Spellcasting Wizard Absolute Immunity
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -89,7 +93,11 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting - FP Cleric Absolute Immunity
+
 // FP Cleric Absolute Immunity
+
+// 5e Spellcasting Protection from Magical Weapons
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -115,6 +123,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Moment of Prescience
+
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([EVILCUTOFF])
@@ -137,6 +147,8 @@ THEN
     Spell(Myself,WIZARD_MOMENT_OF_PRESCIENCE)  // SPWI808.SPL (Moment of Prescience)
     SetInterrupt(TRUE)
 END
+
+// 5e Spellcasting Prismatic Mantle
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -161,6 +173,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Stoneskin
+
 IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -180,6 +194,8 @@ THEN
     Spell(Myself,WIZARD_STONE_SKIN)  // SPWI408.SPL (Stoneskin)
     SetInterrupt(TRUE)
 END
+
+// 5e Spellcasting Ironskin
 
 IF
   ActionListEmpty()
@@ -233,6 +249,8 @@ THEN
     XEquipItem("Boot01",Myself,SLOT_BOOTS,EQUIP)  // Boots of Speed
 END
 
+// 5e Spellcasting Mage Armor
+
 IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -254,6 +272,8 @@ THEN
     Spell(Myself,WIZARD_ARMOR)  // SPWI102.SPL (Mage Armor)
     SetInterrupt(TRUE)
 END
+
+// 5e Spellcasting Mind Blank
 
 IF
   ActionListEmpty()
@@ -317,6 +337,8 @@ THEN
     DisplayStringHead(Myself,@5005)
 END
 
+// 5e Spellcasting Cleric Sanctuary
+
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(NearestEnemyOf(Myself))
@@ -337,6 +359,8 @@ THEN
     Spell(Myself,CLERIC_SANCTUARY)  // SPPR109.SPL (Sanctuary)
     SetInterrupt(TRUE)
 END
+
+// 5e Spellcasting Mass Raise Dead
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -384,6 +408,8 @@ THEN
     Spell(Myself,CLERIC_MASS_RAISE_DEAD)  // SPPR729.SPL (Mass Raise Dead)
     SetInterrupt(TRUE)
 END
+
+// 5e Spellcasting Resurrection
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -510,6 +536,8 @@ THEN
     Spell(Player6,CLERIC_RESURRECTION)  // SPPR712.SPL (Resurrection)
     SetInterrupt(TRUE)
 END
+
+// 5e Spellcasting Raise Dead
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -763,8 +791,12 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting - MiH Cleric Repel Insects
+
 // MiH Cleric Repel Insects
 
+// 5e Spellcasting Cleric Break Enchantment
+
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(CLERIC_BREAK_ENCHANTMENT)  // SPPR307.SPL (Break Enchantment)
@@ -939,6 +971,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Wizard Break Enchantment
+
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_BREAK_ENCHANTMENT)  // SPWI410.SPL (Break Enchantment)
@@ -1124,6 +1158,8 @@ THEN
     Spell(LastSeenBy(Myself),WIZARD_BREAK_ENCHANTMENT)  // SPWI410.SPL (Break Enchantment)
     SetInterrupt(TRUE)
 END
+
+// 5e Spellcasting Greater Restoration
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -1333,6 +1369,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Lesser Restoration
+
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(Myself)
@@ -1492,6 +1530,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Cleric Remove Paralysis
+
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([PC])
@@ -1672,6 +1712,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Chaotic Commands
+
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([PC])
@@ -1881,8 +1923,12 @@ THEN
     Spell(LastSeenBy(Myself),CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
     SetInterrupt(TRUE)
 END
+
+// 5e Spellcasting - FP Spiritual Clarity
 
 // FP Spiritual Clarity
+
+// 5e Spellcasting Cure Disease
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")

@@ -49,6 +49,40 @@ ACTION_IF spell_revisions BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/lib/sr_core_base.tph~
 
 ///////////////////////////////////////////////////////////////////////////
+// SR - 5e Spellcasting                                                  //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF 5e_spellcasting BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_core_5e.tph~
+
+		ACTION_FOR_EACH 5e_spell IN
+				WIZARD_VOCALIZE
+				WIZARD_ABSOLUTE_IMMUNITY
+				WIZARD_PROTECTION_FROM_MAGIC_WEAPONS
+				WIZARD_MOMENT_OF_PRESCIENCE
+				WIZARD_MANTLE
+				WIZARD_STONE_SKIN
+				CLERIC_IRONSKIN
+				WIZARD_ARMOR
+				WIZARD_MIND_BLANK
+				CLERIC_SANCTUARY
+				CLERIC_MASS_RAISE_DEAD
+				CLERIC_RESURRECTION
+				CLERIC_RAISE_DEAD
+				CLERIC_BREAK_ENCHANTMENT
+				WIZARD_BREAK_ENCHANTMENT
+				CLERIC_RESTORATION
+				CLERIC_LESSER_RESTORATION
+				CLERIC_REMOVE_PARALYSIS
+				CLERIC_CHAOTIC_COMMANDS
+				CLERIC_CURE_DISEASE
+			BEGIN
+				LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_spell%~ RET spell_res END
+				COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+					REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_spell%~ ~RES(%spell_res%~
+			END
+	END
+
+///////////////////////////////////////////////////////////////////////////
 // SR - DSotSC                                                           //
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF dsotsc_divine && !mih_divine && !iwdification BEGIN
