@@ -30,6 +30,7 @@ IF
   PartyRested()
 THEN
   RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",2)
     SetGlobal("MO_UsedIlbratha","GLOBAL",0)
     SetGlobal("MO_UsedDuplication","GLOBAL",0)
     SetGlobal("MO_UsedGargoyle","GLOBAL",0)
