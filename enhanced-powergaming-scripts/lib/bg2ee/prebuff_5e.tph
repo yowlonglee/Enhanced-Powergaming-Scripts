@@ -8,15 +8,8 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     strict = 1
     verbose = 0
     STR_VAR
-    pattern = ~~~~~IF
-  PartyRested()
-THEN
-  RESPONSE #100~~~~~
-    string = ~~~~~IF
-  PartyRested()
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",12)~~~~~ //"
+    pattern = ~~~~~SetGlobalTimer("MO_SpellCast","LOCALS",2)~~~~~
+    string = ~~~~~SetGlobalTimer("MO_SpellCast","LOCALS",12)~~~~~ //"
   END
 
 ///////////////////////////////////////////////////////////////////////////

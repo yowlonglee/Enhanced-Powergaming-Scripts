@@ -12,6 +12,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
   PartyRested()
 THEN
   RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",2)
     SetGlobal("MO_UsedIlbratha","GLOBAL",0)
     SetGlobal("MO_UsedDuplication","GLOBAL",0)
     SetGlobal("MO_UsedGargoyle","GLOBAL",0)
@@ -24,23 +25,12 @@ THEN
     SetGlobal("MO_UsedBltMnrInv","GLOBAL",0)
     SetGlobal("MO_UsedClkDrkMN","GLOBAL",0)
     SetGlobal("MO_UsedShldFyrus","GLOBAL",0)
-END
-
-IF
-  Global("MO_TrueSightActive","LOCALS",1)
-  CheckStat(Myself,0,TRUE_SIGHT)
-THEN
-  RESPONSE #100
-    SetGlobal("MO_TrueSightActive","LOCALS",0)
-    SetGlobal("MO_PartyTrueSight","GLOBAL",0)
 END~~~~~
     string = ~~~~~IF
-  Global("MO_TrueSightActive","LOCALS",1)
-  CheckStat(Myself,0,TRUE_SIGHT)
+  PartyRested()
 THEN
   RESPONSE #100
-    SetGlobal("MO_TrueSightActive","LOCALS",0)
-    SetGlobal("MO_PartyTrueSight","GLOBAL",0)
+    SetGlobalTimer("MO_SpellCast","LOCALS",2)
 END~~~~~ //"
   END
 
