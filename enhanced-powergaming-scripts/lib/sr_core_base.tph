@@ -2144,6 +2144,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Neutralize Poison
+
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(Myself)
@@ -2302,6 +2304,8 @@ THEN
     Spell(LastSeenBy(Myself),CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
     SetInterrupt(TRUE)
 END
+
+// 5e Spellcasting Slow Poison
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -2643,6 +2647,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Cleric Remove Fear
+
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([PC])
@@ -2793,7 +2799,11 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting - MiH Remove Deaf Blind
+
 // MiH Remove Deaf Blind
+
+// 5e Spellcasting Zone of Swee Air
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -3371,6 +3381,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Wizard True Sight
+
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_TRUE_SIGHT)  // SPWI609.SPL (True Seeing)
@@ -3610,6 +3622,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Cleric True Sight
+
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(CLERIC_TRUE_SIGHT)  // SPPR505.SPL (True Seeing)
@@ -3846,6 +3860,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Wizard Detect Invisibility
+
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_DETECT_INVISIBILITY)  // SPWI203.SPL (Detect Invisibility)
@@ -4058,6 +4074,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Cleric Invisibility Purge
+
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
@@ -4267,8 +4285,12 @@ THEN
     Spell(Myself,CLERIC_INVISIBILITY_PURGE) // SPPR309.SPL (Invisibility Purge)
     SetInterrupt(TRUE)
 END
+
+// 5e Spellcasting - Wizard Invisibility Purge
 
 // Wizard Invisibility Purge
+
+// 5e Spellcasting Breach
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -4470,6 +4492,8 @@ END
 
 // FP Ranger Breach
 
+// 5e Spellcasting Pierce Shield 1
+
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_PIERCE_SHIELD)  // SPWI805.SPL (Pierce Shield)
@@ -4655,6 +4679,8 @@ THEN
     Spell(LastSeenBy(Myself),WIZARD_PIERCE_SHIELD)  // SPWI805.SPL (Pierce Shield)
     SetInterrupt(TRUE)
 END
+
+// 5e Spellcasting Spell Thrust
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -4880,6 +4906,8 @@ END
 
 // FP Spell Thrust
 
+// 5e Spellcasting Secret Word
+
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
@@ -5104,6 +5132,8 @@ END
 
 // FP Secret Word
 
+// 5e Spellcasting Pierce Magic
+
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_PIERCE_MAGIC)  // SPWI608.SPL (Pierce Magic)
@@ -5326,6 +5356,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Khelben's Warding Whip
+
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_WARDING_WHIP)  // SPWI705.SPL (Khelben's Warding Whip)
@@ -5554,6 +5586,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Ruby Ray of Reversal
+
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
@@ -5776,6 +5810,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Spellstrike
+
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
@@ -5997,6 +6033,8 @@ THEN
     Spell(LastSeenBy(Myself),WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
     SetInterrupt(TRUE)
 END
+
+// 5e Spellcasting Pierce Shield 2
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -6205,6 +6243,8 @@ THEN
     ActionOverride(Myself,ClearActions(Myself))
 END
 
+// 5e Spellcasting Melf's Minute Meteors
+
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_MELF_METEOR)  // SPWI325.SPL (Melf's Minute Meteors)
@@ -6243,6 +6283,8 @@ THEN
     IncrementGlobal("MO_UsedCowlOfStars","GLOBAL",1)
 END
 
+// 5e Spellcasting Heal
+
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_CastingHeal","GLOBAL",1)
@@ -6276,6 +6318,8 @@ THEN
     SetGlobal("MO_CastingHeal","GLOBAL",0)
     SetInterrupt(TRUE)
 END
+
+// 5e Spellcasting Cure Critical Wounds
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -6312,6 +6356,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Cure Serious Wounds
+
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_CastingHeal","GLOBAL",1)
@@ -6346,6 +6392,8 @@ THEN
     Spell(LastSeenBy(Myself),CLERIC_CURE_MEDIUM_WOUNDS)  // SPPR315.SPL (Cure Serious Wounds)
     SetInterrupt(TRUE)
 END
+
+// 5e Spellcasting Cure Moderate Wounds
 
 IF
   ActionListEmpty()
@@ -6430,6 +6478,8 @@ THEN
     SetGlobal("MO_CastingHeal","GLOBAL",0)
     SetInterrupt(TRUE)
 END
+
+// 5e Spellcasting Cure Light Wounds
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
