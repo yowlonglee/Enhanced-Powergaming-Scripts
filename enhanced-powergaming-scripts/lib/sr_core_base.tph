@@ -6517,7 +6517,11 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting - MiH Cleric Celestial Protection
+
 // MiH Cleric Celestial Protection
+
+// 5e Spellcasting Spell Shield
 
 IF
   ActionListEmpty()
@@ -6556,6 +6560,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Spell Trap
+
 IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -6592,6 +6598,8 @@ THEN
     Spell(Myself,WIZARD_SPELL_TRAP)  // SPWI902.SPL (Spell Trap)
     SetInterrupt(TRUE)
 END
+
+// 5e Spellcasting Greater Spell Deflection
 
 IF
   ActionListEmpty()
@@ -6632,6 +6640,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Spell Deflection
+
 IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -6670,6 +6680,8 @@ THEN
     Spell(Myself,WIZARD_SPELL_DEFLECTION)  // SPWI522.SPL (Spell Deflection)
     SetInterrupt(TRUE)
 END
+
+// 5e Spellcasting Minor Spell Deflection
 
 IF
   ActionListEmpty()
@@ -6750,6 +6762,8 @@ THEN
     IncrementGlobal("MO_UsedBltMnrInv","GLOBAL",1)
 END
 
+// 5e Spellcasting Aura of Flaming Death
+
 IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -6800,6 +6814,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Globe of Blades
+
 IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -6849,6 +6865,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Mestil's Acid Sheath
+
 IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -6889,6 +6907,8 @@ THEN
     Spell(Myself,WIZARD_MESTILS_ACID_SHEATH)  // SPWI524.spl (Mestil's Acid Sheath)
     SetInterrupt(TRUE)
 END
+
+// 5e Spellcasting Wizard Fire Shield
 
 IF
   ActionListEmpty()
@@ -6932,6 +6952,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Shield of the Archons
+
 IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -6968,6 +6990,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Protection from Missiles
+
 IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -7001,6 +7025,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Physical Mirror
+
 IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -7030,6 +7056,8 @@ THEN
     Spell(Myself,CLERIC_PHYSICAL_MIRROR)  // SPPR613.SPL (Physical Mirror)
     SetInterrupt(TRUE)
 END
+
+// 5e Spellcasting Blade Barrier
 
 IF
   ActionListEmpty()
@@ -7080,17 +7108,31 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting - DSotSC - Army of One
+
 // DSotSC - Army of One
+
+// 5e Spellcasting - FP Epic Divine Might
 
 // FP Epic Divine Might
 
+// 5e Spellcasting - MiH Wizard (Super)Heroism
+
 // MiH Wizard (Super)Heroism
+
+// 5e Spellcasting - MiH Cleric (Super)Heroism
 
 // MiH Cleric (Super)Heroism
 
+// 5e Spellcasting - MiH Wizard Seeking
+
 // MiH Wizard Seeking
 
+// 5e Spellcasting - MiH Cleric Striking/Seeking
+
 // MiH Cleric Striking/Seeking
+
+// 5e Spellcasting Cleric Draw Upon Holy Might
 
 IF
   ActionListEmpty()
@@ -7190,6 +7232,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Armor of Faith
+
 IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -7236,6 +7280,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Cleric Protection from Fire
+
 IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -7258,9 +7304,11 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
-    Spell(LastSeenBy(Myself),CLERIC_PROTECTION_FROM_FIRE)  // sppr521.spl (Protection from Fire)
+    Spell(Myself,CLERIC_PROTECTION_FROM_FIRE)  // sppr521.spl (Protection from Fire)
     SetInterrupt(TRUE)
 END
+
+// 5e Spellcasting Mirror Image
 
 IF
   ActionListEmpty()
@@ -7844,6 +7892,8 @@ END
 
 // FP Kit Paladin Rage/Frenzy
 
+// 5e Spellcasting Improved Haste
+
 IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -7919,6 +7969,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting - FP Divine Improved Haste
+
 // FP Divine Improved Haste
 
 IF
@@ -7988,6 +8040,8 @@ THEN
     UseItem("AMUL26",Myself)  // Amulet of Cheetah Speed
     IncrementGlobal("MO_UsedCheetah","GLOBAL",1)
 END
+
+// 5e Spellcasting Wizard True Strike
 
 IF
   ActionListEmpty()
@@ -8615,6 +8669,8 @@ THEN
   RESPONSE #100
     AttackReevaluate(LastSeenBy(Myself),5)
 END
+
+// 5e Spellcasting Magic Missile
 
 IF
   ActionListEmpty()
