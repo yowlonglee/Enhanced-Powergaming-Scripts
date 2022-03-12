@@ -116,6 +116,19 @@ ACTION_IF spell_revisions BEGIN
 
 	ACTION_IF dsotsc_divine && !mih_divine && !iwdification BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_dsotsc_d_a.tph~
+
+		ACTION_IF 5e_spellcasting BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_dsotsc_5e_d_a.tph~
+
+			ACTION_FOR_EACH 5e_pre_dsotsc IN
+				CLERIC_SELUNES_BLESSING
+				CLERIC_AURA_OF_PROTECTION
+			BEGIN
+				LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_pre_dsotsc%~ RET spell_res END
+				COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+					REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_pre_dsotsc%~ ~RES(%spell_res%~
+			END
+		END
 	END
 
 ///////////////////////////////////////////////////////////////////////////
