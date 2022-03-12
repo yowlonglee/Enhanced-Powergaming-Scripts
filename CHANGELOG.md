@@ -10,7 +10,7 @@ March xx, 2022
   - Updated Mages and Sorcerers to ONLY attack if either Melf's Minute Missile or a ranged weapon is equipped. This does not effect multi/dual classed Mages.
   - French translation provided by JohnBob.
   - Fixed issue where imported characters would not cast spells.
-  - Fixed issue with spell being cast in Wild/Dead Magic Areas when they shouldn't.
+  - Fixed issue with spells being cast in Wild/Dead Magic Areas when they shouldn't.
 - BG: EE, BG2: EE, and EET
   - Added compatibility with the 5e Spellcasting mod.
 
