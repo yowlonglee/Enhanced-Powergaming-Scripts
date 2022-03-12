@@ -149,6 +149,15 @@ IF
   See(FifthNearestEnemyOf(Myself))
   WeaponEffectiveVs(FifthNearestEnemyOf(Myself),MAINHAND)
   WeaponCanDamage(FifthNearestEnemyOf(Myself),MAINHAND)
+  OR(8)
+    Class(Myself,FIGHTER_ALL)
+    Class(Myself,CLERIC_ALL)
+    Class(Myself,THIEF_ALL)
+    Class(Myself,BARD_ALL)
+    Class(Myself,PALADIN_ALL)
+    Class(Myself,DRUID_ALL)
+    Class(Myself,RANGER_ALL)
+    Class(Myself,SHAMAN)
 THEN
   RESPONSE #100
     Attack(FifthNearestEnemyOf(Myself))
