@@ -136,6 +136,21 @@ ACTION_IF spell_revisions BEGIN
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF mih_restorations BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_prebuff_mih_sr_a.tph~
+
+		ACTION_IF 5e_spellcasting BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_prebuff_mih_sr_5e_a.tph~
+
+			ACTION_FOR_EACH 5e_pre_mih_sr IN
+				WIZARD_PROTECTION_CIRCLE
+				CLERIC_CIRCLE_OF_PROTECTION
+				CLERIC_ENDURE_HEAT_COLD
+				WIZARD_SPELL_INVULNERABILITY
+			BEGIN
+				LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_pre_mih_sr%~ RET spell_res END
+				COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+					REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_pre_mih_sr%~ ~RES(%spell_res%~
+			END
+		END
 	END
 
 ///////////////////////////////////////////////////////////////////////////

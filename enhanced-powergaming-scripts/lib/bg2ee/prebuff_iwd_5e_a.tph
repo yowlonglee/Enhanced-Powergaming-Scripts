@@ -22,6 +22,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
 THEN
   RESPONSE #100
     ReallyForceSpellRES(WIZARD_EMOTION_COURAGE,Myself)
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
 END
 
 IF
@@ -37,6 +38,7 @@ IF
 THEN
   RESPONSE #100
     ReallyForceSpellRES(WIZARD_EMOTION_HOPE,Myself)
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
 END
 ~~~~~ //"
   END
@@ -69,6 +71,7 @@ END
 THEN
   RESPONSE #100
     ReallyForceSpellRES(WIZARD_SEVEN_EYES,Myself)
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
 END~~~~~ //"
   END
   
@@ -95,6 +98,7 @@ END~~~~~ //"
 THEN
   RESPONSE #100
     ReallyForceSpellRES(CLERIC_PRAYER,Myself)
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
 END
 
 IF
@@ -111,6 +115,7 @@ IF
 THEN
   RESPONSE #100
     ReallyForceSpellRES(CLERIC_RECITATION,Myself)
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
 END
 
 IF
@@ -126,6 +131,7 @@ IF
 THEN
   RESPONSE #100
     ReallyForceSpellRES(CLERIC_ENTROPY_SHIELD,Myself)
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
 END
 ~~~~~ //"
   END

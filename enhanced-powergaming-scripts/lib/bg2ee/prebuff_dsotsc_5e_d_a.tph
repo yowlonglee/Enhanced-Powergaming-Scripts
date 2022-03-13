@@ -25,6 +25,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
 THEN
   RESPONSE #100
     ReallyForceSpellRES(CLERIC_SELUNES_BLESSING,Myself)
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
 END
 
 IF
@@ -40,6 +41,7 @@ IF
 THEN
   RESPONSE #100
     ReallyForceSpellRES(CLERIC_AURA_OF_PROTECTION,Myself)
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
 END
 ~~~~~ //"
   END
