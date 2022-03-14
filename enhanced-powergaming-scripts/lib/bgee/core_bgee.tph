@@ -512,6 +512,7 @@ END~~~~~
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_HasMelfMeteors","LOCALS",1)
     UseItem("OHRCLCK1",Myself)  // Cowl of the Stars
     IncrementGlobal("MO_UsedCowlOfStars","GLOBAL",1)
 END~~~~~
