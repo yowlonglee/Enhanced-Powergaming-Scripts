@@ -543,6 +543,7 @@ APPEND ~stats.ids~ ~182 WIZARD_TENSERS_TRANSFORMATION~          UNLESS ~182 WIZA
 	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
 	  LPF CLONE_EFFECT INT_VAR match_opcode = 282 opcode = 233 parameter2 = 158 special = 1 END
 
+/*
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 // Assign Spell State for Wild and Dead Magic Areas                      //
@@ -602,5 +603,6 @@ END
 LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~DEAD_MAGIC_AREA~ RET spell_res END
 COPY_EXISTING ~%spell_res%.spl~ ~override~ 
   LPF CLONE_EFFECT INT_VAR match_opcode = 142 opcode = 328 parameter2 = %ded_mgc_ar% special = 1 END
+*/
 
 CLEAR_IDS_MAP
