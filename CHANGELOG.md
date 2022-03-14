@@ -13,6 +13,8 @@ March xx, 2022
   - Fixed issue with spells being cast in Wild/Dead Magic Areas when they shouldn't.
 - BG: EE, BG2: EE, and EET
   - Added compatibility with the 5e Spellcasting mod.
+- BG: EE
+  - Added more mod compatibility to match BG2: EE and EET.
 
 ## Version 6.4
 
