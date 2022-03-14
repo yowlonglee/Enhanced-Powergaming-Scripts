@@ -207,6 +207,23 @@ ACTION_IF spell_revisions BEGIN
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF iwd_scs OR iwdification BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_prebuff_iwd.tph~
+
+		ACTION_IF 5e_spellcasting BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_prebuff_iwd_5e.tph~
+
+			ACTION_FOR_EACH 5e_pre_iwd IN
+				WIZARD_EMOTION_COURAGE
+				WIZARD_EMOTION_HOPE
+				WIZARD_SEVEN_EYES
+				CLERIC_PRAYER
+				CLERIC_RECITATION
+				CLERIC_ENTROPY_SHIELD
+			BEGIN
+				LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_pre_iwd%~ RET spell_res END
+				COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+					REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_pre_iwd%~ ~RES(%spell_res%~
+			END
+		END
 	END
 
 ///////////////////////////////////////////////////////////////////////////
