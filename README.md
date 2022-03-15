@@ -51,13 +51,10 @@ If you are installing any of the below listed mods, they should be installed bef
 
 These scripts cannot be installed if Olvyn spells are previously installed.
 
-### Baldur's Gate: Enhanced Edition
-The mod has support for IWD spells (from either Sword Coast Stratagems or IWDification), Skills and Abilities, and Sword Coast Stratagems.
+### Baldur's Gate: Enhanced Edition, Baldur's Gate II: Enhanced Edition, and Enhanced Edition Trilogy
+The mod has support for aTweaks, IWD spells (from either Sword Coast Stratagems or IWDification), Skills and Abilities, Sword Coast Stratagems, D5 Random Tweaks, Dark Side of the Sword Coast, Made in Heaven Spellpack, Song & Silence, Tome & Blood, Faith & Powers, 5e Spellcasting, and for changes from Spell Revisions (Revised) and Item Revisions (Revised).
 
 Before modding SoD games, it requires use of either DLCMerger or ModMerge (DLCMerger Preferred).
-
-### Baldur's Gate II: Enhanced Edition and Enhanced Edition Trilogy
-The mod has support for aTweaks, IWD spells (from either Sword Coast Stratagems or IWDification), Skills and Abilities, Sword Coast Stratagems, D5 Random Tweaks, Dark Side of the Sword Coast, Made in Heaven Spellpack, Song & Silence, Tome & Blood, Faith & Powers, and for changes from Spell Revisions (Revised) and Item Revisions (Revised).
 
 ### Icewind Dale: Enhanced Edition
 Currently, this mod supports only the base game for Icewind Dale: Enhanced Edition.
