@@ -1,0 +1,633 @@
+COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+
+///////////////////////////////////////////////////////////////////////////
+// Remove Ilbratha+1                                                     //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~IF
+  ActionListEmpty()
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !StateCheck(Myself,STATE_MIRRORIMAGE)
+  GlobalLT("MO_UsedIlbratha","GLOBAL",1)
+  HasItemEquiped("SW1H26",Myself)  // Ilbratha +1
+  See(NearestEnemyOf(Myself))
+  OR(11)
+    Range([EVILCUTOFF.0.FAIRY],30)
+    Range([EVILCUTOFF.0.DEMONIC],30)
+    Range([EVILCUTOFF.0.RAKSHASA],30)
+    Range([EVILCUTOFF.0.DRAGON],30)
+    Range([EVILCUTOFF.0.DEMILICH],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.SOLAR],30)
+    Range([EVILCUTOFF.0.PLANATAR],30)
+    Range([EVILCUTOFF.0.ANTISOLAR],30)
+    Range([EVILCUTOFF.0.DARKPLANATAR],30)
+    NumCreatureGT([EVILCUTOFF],3)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    UseItemAbility("SW1H26",Myself,SLOT_AMMO3,1)  // Ilbratha +1
+    IncrementGlobal("MO_UsedIlbratha","GLOBAL",1)
+END
+
+IF
+  Class(Myself,MONK)
+  !StateCheck(Myself,STATE_MIRRORIMAGE)
+  !Global("MO_UsedIlbratha","GLOBAL",1)
+  HasItem("SW1H26",Myself)  // Ilbratha +1
+  HasItemEquiped("WANINJA",Myself)  // Scarlet Ninja-To +3
+  See(NearestEnemyOf(Myself))
+  OR(11)
+    Range([EVILCUTOFF.0.FAIRY],30)
+    Range([EVILCUTOFF.0.DEMONIC],30)
+    Range([EVILCUTOFF.0.RAKSHASA],30)
+    Range([EVILCUTOFF.0.DRAGON],30)
+    Range([EVILCUTOFF.0.DEMILICH],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.SOLAR],30)
+    Range([EVILCUTOFF.0.PLANATAR],30)
+    Range([EVILCUTOFF.0.ANTISOLAR],30)
+    Range([EVILCUTOFF.0.DARKPLANATAR],30)
+    NumCreatureGT([EVILCUTOFF],3)
+THEN
+  RESPONSE #100
+    XEquipItem("SW1H26",Myself,SLOT_SHIELD,EQUIP)  // Ilbratha +1
+END
+
+IF
+  Class(Myself,MONK)
+  OR(2)
+    StateCheck(Myself,STATE_MIRRORIMAGE)
+    Global("MO_UsedIlbratha","GLOBAL",1)
+  HasItem("WANINJA",Myself)  // Scarlet Ninja-To +3
+  HasItemEquiped("SW1H26",Myself)  // Ilbratha +1
+THEN
+  RESPONSE #100
+    XEquipItem("WANINJA",Myself,SLOT_SHIELD,EQUIP)  // Scarlet Ninja-To +3
+END~~~~~
+    string = ~~~~~~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Remove Ring of Duplication                                            //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~IF
+  ActionListEmpty()
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !StateCheck(Myself,STATE_MIRRORIMAGE)
+  GlobalLT("MO_UsedDuplication","GLOBAL",3)
+  HasItemEquiped("OHRRING1",Myself)  // Ring of Duplication
+  See(NearestEnemyOf(Myself))
+  OR(11)
+    Range([EVILCUTOFF.0.FAIRY],30)
+    Range([EVILCUTOFF.0.DEMONIC],30)
+    Range([EVILCUTOFF.0.RAKSHASA],30)
+    Range([EVILCUTOFF.0.DRAGON],30)
+    Range([EVILCUTOFF.0.DEMILICH],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.SOLAR],30)
+    Range([EVILCUTOFF.0.PLANATAR],30)
+    Range([EVILCUTOFF.0.ANTISOLAR],30)
+    Range([EVILCUTOFF.0.DARKPLANATAR],30)
+    NumCreatureGT([EVILCUTOFF],3)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    UseItem("OHRRING1",Myself)  // Ring of Duplication
+    IncrementGlobal("MO_UsedDuplication","GLOBAL",1)
+END~~~~~
+    string = ~~~~~~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Remove Headband of the Devout                                         //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~IF
+  ActionListEmpty()
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  GlobalLT("MO_UsedDevout","GLOBAL",1)
+  HasItemEquiped("OHRHELM1",Myself)  // Headband of the Devout
+  See([EVILCUTOFF])
+  OR(6)
+    WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(SecondNearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(ThirdNearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(FourthNearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(FifthNearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(SixthNearestEnemyOf(Myself),MAINHAND)
+  OR(6)
+    WeaponCanDamage(NearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(SecondNearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(ThirdNearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(FourthNearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(FifthNearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(SixthNearestEnemyOf(Myself),MAINHAND)
+  OR(33)
+    Range([EVILCUTOFF.0.GOLEM],30)
+    Range([EVILCUTOFF.0.MIST],30)
+    Range([EVILCUTOFF.0.KUO-TOA],30)
+    Range([EVILCUTOFF.0.GENIE],30)
+    Range([EVILCUTOFF.0.GITHYANKI],30)
+    Range([EVILCUTOFF.0.RAKSHASA],30)
+    Range([EVILCUTOFF.0.VAMPYRE],30)
+    Range([EVILCUTOFF.0.MIND_FLAYER],30)
+    Range([EVILCUTOFF.0.DRAGON],30)
+    Range([EVILCUTOFF.0.DEMONIC],30)
+    Range([EVILCUTOFF.0.BEHOLDER],30)
+    Range([EVILCUTOFF.0.UMBERHULK],30)
+    Range([EVILCUTOFF.0.MYCONID],30)
+    Range([EVILCUTOFF.0.VAMPIRE],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.DEMILICH],30)
+    Range([EVILCUTOFF.0.FAIRY],30)
+    Range([EVILCUTOFF.0.0.WRAITH],30)
+    Range([EVILCUTOFF.0.0.WIGHT],30)
+    Range([EVILCUTOFF.0.0.SPECTRE],30)
+    Range([EVILCUTOFF.0.0.WYVERN],30)
+    Range([EVILCUTOFF.0.0.BASILISK],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.SOLAR],30)
+    Range([EVILCUTOFF.0.PLANATAR],30)
+    Range([EVILCUTOFF.0.ANTISOLAR],30)
+    Range([EVILCUTOFF.0.DARKPLANATAR],30)
+    See([ENEMY.0.0.MAGE_ALL])
+    See([ENEMY.0.0.BARD_ALL])
+    See([ENEMY.0.0.CLERIC_ALL])
+    See([ENEMY.0.0.DRUID_ALL])
+    See([ENEMY.0.0.SORCERER])
+    See([ENEMY.0.0.CLERIC_MAGE])
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    UseItem("OHRHELM1",Myself)  // Headband of the Devout
+    IncrementGlobal("MO_UsedDevout","GLOBAL",1)
+END~~~~~
+    string = ~~~~~~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Remove Belt of Minor Invulnerability                                  //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~IF
+  ActionListEmpty()
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  GlobalLT("MO_UsedBltMnrInv","GLOBAL",1)
+  OR(17)
+    Range([EVILCUTOFF.0.FAIRY],30)
+    Range([EVILCUTOFF.0.DEMONIC],30)
+    Range([EVILCUTOFF.0.RAKSHASA],30)
+    Range([EVILCUTOFF.0.DRAGON],30)
+    Range([EVILCUTOFF.0.DEMILICH],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.SOLAR],30)
+    Range([EVILCUTOFF.0.PLANATAR],30)
+    Range([EVILCUTOFF.0.ANTISOLAR],30)
+    Range([EVILCUTOFF.0.DARKPLANATAR],30)
+    See([ENEMY.0.0.MAGE_ALL])
+    See([ENEMY.0.0.BARD_ALL])
+    See([ENEMY.0.0.CLERIC_ALL])
+    See([ENEMY.0.0.DRUID_ALL])
+    See([ENEMY.0.0.SORCERER])
+    See([ENEMY.0.0.CLERIC_MAGE])
+    See([ENEMY.0.0.MAGE_ALL])
+  HasItemEquiped("OHRBELT2",Myself)  // Belt of Minor Invulnerability
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
+  !HasImmunityEffects(Myself)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    UseItem("OHRBELT2",Myself)  // Belt of Minor Invulnerability
+    IncrementGlobal("MO_UsedBltMnrInv","GLOBAL",1)
+END~~~~~
+    string = ~~~~~~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Remove Physical Mirror                                                //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Physical Mirror
+
+IF
+  ActionListEmpty()
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  HaveSpell(CLERIC_PHYSICAL_MIRROR)  // SPPR613.SPL (Physical Mirror)
+  OR(11)
+    HitBy([ANYONE],MISSILE)
+    IsWeaponRanged(NearestEnemyOf(Myself))
+    IsWeaponRanged(SecondNearestEnemyOf(Myself))
+    IsWeaponRanged(ThirdNearestEnemyOf(Myself))
+    IsWeaponRanged(FourthNearestEnemyOf(Myself))
+    IsWeaponRanged(FifthNearestEnemyOf(Myself))
+    IsWeaponRanged(SixthNearestEnemyOf(Myself))
+    IsWeaponRanged(SeventhNearestEnemyOf(Myself))
+    IsWeaponRanged(EighthNearestEnemyOf(Myself))
+    IsWeaponRanged(NinthNearestEnemyOf(Myself))
+    IsWeaponRanged(TenthNearestEnemyOf(Myself))
+  CheckStatLT(Myself,1,CLERIC_PHYSICAL_MIRROR)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(Myself,CLERIC_PHYSICAL_MIRROR)  // SPPR613.SPL (Physical Mirror)
+    SetInterrupt(TRUE)
+END~~~~~
+    string = ~~~~~~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Remove Gargoyle Boots                                                 //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~IF
+  ActionListEmpty()
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  CheckStatLT(Myself,1,STONESKINS)
+  GlobalLT("MO_UsedGargoyle","GLOBAL",2)
+  HasItemEquiped("Boot12",Myself)  // Gargoyle Boots
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    UseItem("Boot12",Myself)  // Gargoyle Boots
+    IncrementGlobal("MO_UsedGargoyle","GLOBAL",1)
+END
+
+IF
+  CheckStatLT(Myself,1,STONESKINS)
+  GlobalLT("MO_UsedGargoyle","GLOBAL",2)
+  HasItem("Boot12",Myself)  // Gargoyle Boots
+  HasItemEquiped("Boot01",Myself)  // Boots of Speed
+THEN
+  RESPONSE #100
+    XEquipItem("Boot12",Myself,SLOT_BOOTS,EQUIP)  // Gargoyle Boots
+END
+
+IF
+  OR(2)
+    CheckStatGT(Myself,0,STONESKINS)
+    GlobalGT("MO_UsedGargoyle","GLOBAL",1)
+  HasItem("Boot01",Myself)  // Boots of Speed
+  HasItemEquiped("Boot12",Myself)  // Gargoyle Boots
+THEN
+  RESPONSE #100
+    XEquipItem("Boot01",Myself,SLOT_BOOTS,EQUIP)  // Boots of Speed
+END~~~~~
+    string = ~~~~~~~~~~ //"
+  END
+
+
+///////////////////////////////////////////////////////////////////////////
+// Remove Cowl of the Stars                                              //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~IF
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  GlobalLT("MO_UsedCowlOfStars","GLOBAL",3)
+  HasItemEquiped("OHRCLCK1",Myself)  // Cowl of the Stars
+  !HasItem("melfmet",Myself)  // Melf's Minute Meteor
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_HasMelfMeteors","LOCALS",1)
+    UseItem("OHRCLCK1",Myself)  // Cowl of the Stars
+    IncrementGlobal("MO_UsedCowlOfStars","GLOBAL",1)
+END~~~~~
+    string = ~~~~~~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Remove Critical Strike                                                //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~IF
+  ActionListEmpty()
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  HaveSpell(WARRIOR_CRITICAL_STRIKE)  // SPCL905.SPL (Critical Strike)
+  !CheckSpellState(Myself,CRITICAL_STRIKE)
+  !CheckSpellState(Myself,GREATER_WHIRLWIND)
+  See([EVILCUTOFF])
+  OR(6)
+    WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(SecondNearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(ThirdNearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(FourthNearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(FifthNearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(SixthNearestEnemyOf(Myself),MAINHAND)
+  OR(6)
+    WeaponCanDamage(NearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(SecondNearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(ThirdNearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(FourthNearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(FifthNearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(SixthNearestEnemyOf(Myself),MAINHAND)
+  OR(33)
+    Range([EVILCUTOFF.0.GOLEM],30)
+    Range([EVILCUTOFF.0.MIST],30)
+    Range([EVILCUTOFF.0.KUO-TOA],30)
+    Range([EVILCUTOFF.0.GENIE],30)
+    Range([EVILCUTOFF.0.GITHYANKI],30)
+    Range([EVILCUTOFF.0.RAKSHASA],30)
+    Range([EVILCUTOFF.0.VAMPYRE],30)
+    Range([EVILCUTOFF.0.MIND_FLAYER],30)
+    Range([EVILCUTOFF.0.DRAGON],30)
+    Range([EVILCUTOFF.0.DEMONIC],30)
+    Range([EVILCUTOFF.0.BEHOLDER],30)
+    Range([EVILCUTOFF.0.UMBERHULK],30)
+    Range([EVILCUTOFF.0.MYCONID],30)
+    Range([EVILCUTOFF.0.VAMPIRE],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.DEMILICH],30)
+    Range([EVILCUTOFF.0.FAIRY],30)
+    Range([EVILCUTOFF.0.0.WRAITH],30)
+    Range([EVILCUTOFF.0.0.WIGHT],30)
+    Range([EVILCUTOFF.0.0.SPECTRE],30)
+    Range([EVILCUTOFF.0.0.WYVERN],30)
+    Range([EVILCUTOFF.0.0.BASILISK],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.SOLAR],30)
+    Range([EVILCUTOFF.0.PLANATAR],30)
+    Range([EVILCUTOFF.0.ANTISOLAR],30)
+    Range([EVILCUTOFF.0.DARKPLANATAR],30)
+    See([ENEMY.0.0.MAGE_ALL])
+    See([ENEMY.0.0.BARD_ALL])
+    See([ENEMY.0.0.CLERIC_ALL])
+    See([ENEMY.0.0.DRUID_ALL])
+    See([ENEMY.0.0.SORCERER])
+    See([ENEMY.0.0.CLERIC_MAGE])
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    Spell(Myself,WARRIOR_CRITICAL_STRIKE)  // SPCL905.SPL (Critical Strike)
+END~~~~~
+    string = ~~~~~~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Remove Amulet of Cheetah Speed                                        //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~IF
+  ActionListEmpty()
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  GlobalLT("MO_UsedCheetah","GLOBAL",1)
+  HasItemEquiped("AMUL26",Myself)  // Amulet of Cheetah Speed
+  !CheckStatGT(Myself,0,IMPROVEDHASTE)
+  !CheckSpellState(Myself,GREATER_WHIRLWIND)
+  See([EVILCUTOFF])
+  OR(6)
+    WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(SecondNearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(ThirdNearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(FourthNearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(FifthNearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(SixthNearestEnemyOf(Myself),MAINHAND)
+  OR(6)
+    WeaponCanDamage(NearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(SecondNearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(ThirdNearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(FourthNearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(FifthNearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(SixthNearestEnemyOf(Myself),MAINHAND)
+  OR(33)
+    Range([EVILCUTOFF.0.GOLEM],30)
+    Range([EVILCUTOFF.0.MIST],30)
+    Range([EVILCUTOFF.0.KUO-TOA],30)
+    Range([EVILCUTOFF.0.GENIE],30)
+    Range([EVILCUTOFF.0.GITHYANKI],30)
+    Range([EVILCUTOFF.0.RAKSHASA],30)
+    Range([EVILCUTOFF.0.VAMPYRE],30)
+    Range([EVILCUTOFF.0.MIND_FLAYER],30)
+    Range([EVILCUTOFF.0.DRAGON],30)
+    Range([EVILCUTOFF.0.DEMONIC],30)
+    Range([EVILCUTOFF.0.BEHOLDER],30)
+    Range([EVILCUTOFF.0.UMBERHULK],30)
+    Range([EVILCUTOFF.0.MYCONID],30)
+    Range([EVILCUTOFF.0.VAMPIRE],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.DEMILICH],30)
+    Range([EVILCUTOFF.0.FAIRY],30)
+    Range([EVILCUTOFF.0.0.WRAITH],30)
+    Range([EVILCUTOFF.0.0.WIGHT],30)
+    Range([EVILCUTOFF.0.0.SPECTRE],30)
+    Range([EVILCUTOFF.0.0.WYVERN],30)
+    Range([EVILCUTOFF.0.0.BASILISK],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.SOLAR],30)
+    Range([EVILCUTOFF.0.PLANATAR],30)
+    Range([EVILCUTOFF.0.ANTISOLAR],30)
+    Range([EVILCUTOFF.0.DARKPLANATAR],30)
+    See([ENEMY.0.0.MAGE_ALL])
+    See([ENEMY.0.0.BARD_ALL])
+    See([ENEMY.0.0.CLERIC_ALL])
+    See([ENEMY.0.0.DRUID_ALL])
+    See([ENEMY.0.0.SORCERER])
+    See([ENEMY.0.0.CLERIC_MAGE])
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    UseItem("AMUL26",Myself)  // Amulet of Cheetah Speed
+    IncrementGlobal("MO_UsedCheetah","GLOBAL",1)
+END~~~~~
+    string = ~~~~~~~~~~ //"
+  END
+  
+///////////////////////////////////////////////////////////////////////////
+// Remove Greater Whirlwind                                              //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~IF
+  ActionListEmpty()
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  HaveSpell(WARRIOR_GREATER_WHIRLWIND)  // SPCL901.SPL (Greater Whirlwind Attack)
+  !CheckSpellState(Myself,CRITICAL_STRIKE)
+  !CheckSpellState(Myself,GREATER_WHIRLWIND)
+  See([EVILCUTOFF])
+  OR(6)
+    WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(SecondNearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(ThirdNearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(FourthNearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(FifthNearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(SixthNearestEnemyOf(Myself),MAINHAND)
+  OR(6)
+    WeaponCanDamage(NearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(SecondNearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(ThirdNearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(FourthNearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(FifthNearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(SixthNearestEnemyOf(Myself),MAINHAND)
+  OR(33)
+    Range([EVILCUTOFF.0.GOLEM],30)
+    Range([EVILCUTOFF.0.MIST],30)
+    Range([EVILCUTOFF.0.KUO-TOA],30)
+    Range([EVILCUTOFF.0.GENIE],30)
+    Range([EVILCUTOFF.0.GITHYANKI],30)
+    Range([EVILCUTOFF.0.RAKSHASA],30)
+    Range([EVILCUTOFF.0.VAMPYRE],30)
+    Range([EVILCUTOFF.0.MIND_FLAYER],30)
+    Range([EVILCUTOFF.0.DRAGON],30)
+    Range([EVILCUTOFF.0.DEMONIC],30)
+    Range([EVILCUTOFF.0.BEHOLDER],30)
+    Range([EVILCUTOFF.0.UMBERHULK],30)
+    Range([EVILCUTOFF.0.MYCONID],30)
+    Range([EVILCUTOFF.0.VAMPIRE],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.DEMILICH],30)
+    Range([EVILCUTOFF.0.FAIRY],30)
+    Range([EVILCUTOFF.0.0.WRAITH],30)
+    Range([EVILCUTOFF.0.0.WIGHT],30)
+    Range([EVILCUTOFF.0.0.SPECTRE],30)
+    Range([EVILCUTOFF.0.0.WYVERN],30)
+    Range([EVILCUTOFF.0.0.BASILISK],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.SOLAR],30)
+    Range([EVILCUTOFF.0.PLANATAR],30)
+    Range([EVILCUTOFF.0.ANTISOLAR],30)
+    Range([EVILCUTOFF.0.DARKPLANATAR],30)
+    See([ENEMY.0.0.MAGE_ALL])
+    See([ENEMY.0.0.BARD_ALL])
+    See([ENEMY.0.0.CLERIC_ALL])
+    See([ENEMY.0.0.DRUID_ALL])
+    See([ENEMY.0.0.SORCERER])
+    See([ENEMY.0.0.CLERIC_MAGE])
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    Spell(Myself,WARRIOR_GREATER_WHIRLWIND)  // SPCL901.SPL (Greater Whirlwind Attack)
+END~~~~~
+    string = ~~~~~~~~~~ //"
+  END
+
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~!CheckSpellState(Myself,GREATER_WHIRLWIND)~~~~~
+    string = ~~~~~~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Remove Aura of Flaming Death                                          //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~IF
+  ActionListEmpty()
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  HaveSpell(CLERIC_AURA_OF_FLAMING_DEATH)  // SPPR730.SPL (Aura of Flaming Death)
+  See([EVILCUTOFF])
+  OR(28)
+    NumCreatureGT([EVILCUTOFF],3)
+    Range([EVILCUTOFF.0.GOLEM],30)
+    Range([EVILCUTOFF.0.MIST],30)
+    Range([EVILCUTOFF.0.KUO-TOA],30)
+    Range([EVILCUTOFF.0.GENIE],30)
+    Range([EVILCUTOFF.0.GITHYANKI],30)
+    Range([EVILCUTOFF.0.RAKSHASA],30)
+    Range([EVILCUTOFF.0.VAMPYRE],30)
+    Range([EVILCUTOFF.0.MIND_FLAYER],30)
+    Range([EVILCUTOFF.0.DRAGON],30)
+    Range([EVILCUTOFF.0.DEMONIC],30)
+    Range([EVILCUTOFF.0.BEHOLDER],30)
+    Range([EVILCUTOFF.0.UMBERHULK],30)
+    Range([EVILCUTOFF.0.MYCONID],30)
+    Range([EVILCUTOFF.0.VAMPIRE],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.DEMILICH],30)
+    Range([EVILCUTOFF.0.FAIRY],30)
+    Range([EVILCUTOFF.0.0.WRAITH],30)
+    Range([EVILCUTOFF.0.0.WIGHT],30)
+    Range([EVILCUTOFF.0.0.SPECTRE],30)
+    Range([EVILCUTOFF.0.0.WYVERN],30)
+    Range([EVILCUTOFF.0.0.BASILISK],30)
+    Range([EVILCUTOFF.0.LICH],30)
+    Range([EVILCUTOFF.0.SOLAR],30)
+    Range([EVILCUTOFF.0.PLANATAR],30)
+    Range([EVILCUTOFF.0.ANTISOLAR],30)
+    Range([EVILCUTOFF.0.DARKPLANATAR],30)
+  CheckStat(Myself,0,WIZARD_FIRE_SHIELD)
+  CheckStatLT(Myself,1,CLERIC_BLADE_BARRIER)
+  CheckStatLT(Myself,89,RESISTFIRE)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(Myself,CLERIC_AURA_OF_FLAMING_DEATH)  // SPPR730.SPL (Aura of Flaming Death)
+    SetInterrupt(TRUE)
+END~~~~~
+    string = ~~~~~~~~~~ //"
+  END

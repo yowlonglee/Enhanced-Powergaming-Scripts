@@ -1,0 +1,336 @@
+COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+
+///////////////////////////////////////////////////////////////////////////
+// Remove BGII: EE Item Variables                                        //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~IF
+  PartyRested()
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",2)
+    SetGlobal("MO_UsedIlbratha","GLOBAL",0)
+    SetGlobal("MO_UsedDuplication","GLOBAL",0)
+    SetGlobal("MO_UsedGargoyle","GLOBAL",0)
+    SetGlobal("MO_UsedCheetah","GLOBAL",0)
+    SetGlobal("MO_UsedDevout","GLOBAL",0)
+    SetGlobal("MO_UsedFortitude","GLOBAL",0)
+    SetGlobal("MO_UsedSpellTurning","GLOBAL",0)
+    SetGlobal("MO_UsedClkOfStars","GLOBAL",0)
+    SetGlobal("MO_UsedCowlOfStars","GLOBAL",0)
+    SetGlobal("MO_UsedBltMnrInv","GLOBAL",0)
+    SetGlobal("MO_UsedClkDrkMN","GLOBAL",0)
+    SetGlobal("MO_UsedShldFyrus","GLOBAL",0)
+END~~~~~
+    string = ~~~~~IF
+  PartyRested()
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",2)
+END~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Remove Cowled Wizards Check                                           //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~IF
+  Global("MO_DISABLECOWLED","LOCALS",0)
+  HotKey(hot_key_CowledCheck)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_DISABLECOWLED","LOCALS",1)
+    SetGlobal("MO_CastAthkatla","LOCALS",1)
+    DisplayStringHead(Myself,@5020)
+END
+
+IF
+  Global("MO_DISABLECOWLED","LOCALS",1)
+  HotKey(hot_key_CowledCheck)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_DISABLECOWLED","LOCALS",0)
+    SetGlobal("MO_CastAthkatla","LOCALS",0)
+    DisplayStringHead(Myself,@5021)
+END
+
+IF
+  OR(8)
+    AreaCheck("AR0700")  // Waukeen's Promenade
+    AreaCheck("AR0020")  // City Gates
+    AreaCheck("AR0800")  // Graveyard
+    AreaCheck("AR0400")  // Slums
+    AreaCheck("AR0300")  // The Docks
+    AreaCheck("AR0500")  // Bridge District
+    AreaCheck("AR1000")  // Government District
+    AreaCheck("AR0900")  // Temple District
+  Global("BRIBEDCOWLED","GLOBAL",0)
+  Global("MO_DISABLECOWLED","LOCALS",0)
+  GlobalLT("CowledWarning","GLOBAL",7)
+  Global("MO_CastAthkatla","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_CastAthkatla","LOCALS",0)
+END
+
+IF
+  !AreaCheck("AR0700")  // Waukeen's Promenade
+  !AreaCheck("AR0020")  // City Gates
+  !AreaCheck("AR0800")  // Graveyard
+  !AreaCheck("AR0400")  // Slums
+  !AreaCheck("AR0300")  // The Docks
+  !AreaCheck("AR0500")  // Bridge District
+  !AreaCheck("AR1000")  // Government District
+  !AreaCheck("AR0900")  // Temple District
+  Global("MO_CastAthkatla","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_CastAthkatla","LOCALS",1)
+END
+
+IF
+  OR(2)
+    Global("BRIBEDCOWLED","GLOBAL",1)
+    Global("CowledWarning","GLOBAL",7)
+  Global("MO_CastAthkatla","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_CastAthkatla","LOCALS",1)
+END~~~~~
+    string = ~~~~~~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Remove Cloak of the Dark Moon                                         //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  HasItemEquiped("OHRCLCK4",Myself)  // Cloak of the Dark Moon
+  GlobalLT("MO_UsedClkDrkMN","GLOBAL",3)
+  !CheckStatGT(Myself,0,WIZARD_PROTECTION_FROM_MAGIC_ENERGY)
+  Global("MO_CastAthkatla","LOCALS",1)
+THEN
+  RESPONSE #100
+    UseItem("OHRCLCK4",Myself)  // Cloak of the Dark Moon
+    IncrementGlobal("MO_UsedClkDrkMN","GLOBAL",1)
+END~~~~~
+    string = ~~~~~~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Amulet of Cheetah Speed                                               //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  !CheckStatGT(Myself,0,IMPROVEDHASTE)
+  GlobalLT("MO_UsedCheetah","GLOBAL",1)
+  HasItemEquiped("AMUL26",Myself)  // Amulet of Cheetah Speed
+THEN
+  RESPONSE #100
+    UseItem("AMUL26",Myself)  // Amulet of Cheetah Speed
+    IncrementGlobal("MO_UsedCheetah","GLOBAL",1)
+END~~~~~
+    string = ~~~~~~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Remove Ilbratha+1, Ring of Duplication, and Headband of the Devout    //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  !StateCheck(Myself,STATE_MIRRORIMAGE)
+  GlobalLT("MO_UsedIlbratha","GLOBAL",1)
+  HasItemEquiped("SW1H26",Myself)  // Ilbratha +1
+THEN
+  RESPONSE #100
+    UseItemAbility("SW1H26",Myself,SLOT_AMMO3,1)  // Ilbratha +1
+    IncrementGlobal("MO_UsedIlbratha","GLOBAL",1)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  Class(Myself,MONK)
+  !StateCheck(Myself,STATE_MIRRORIMAGE)
+  !Global("MO_UsedIlbratha","GLOBAL",1)
+  HasItem("SW1H26",Myself)  // Ilbratha +1
+  HasItemEquiped("WANINJA",Myself)  // Ninjatō of the Scarlet Brotherhood +3
+THEN
+  RESPONSE #100
+    XEquipItem("SW1H26",Myself,SLOT_SHIELD,EQUIP)  // Ilbratha +1
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  Class(Myself,MONK)
+  OR(2)
+    StateCheck(Myself,STATE_MIRRORIMAGE)
+    Global("MO_UsedIlbratha","GLOBAL",1)
+  HasItem("WANINJA",Myself)  // Ninjatō of the Scarlet Brotherhood +3
+  HasItemEquiped("SW1H26",Myself)  // Ilbratha +1
+THEN
+  RESPONSE #100
+    XEquipItem("WANINJA",Myself,SLOT_SHIELD,EQUIP)  // Ninjatō of the Scarlet Brotherhood +3
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  GlobalLT("MO_UsedDevout","GLOBAL",1)
+  HasItemEquiped("OHRHELM1",Myself)  // Headband of the Devout
+  !CheckSpellState(Myself,RIGHTEOUS_MAGIC)
+THEN
+  RESPONSE #100
+    UseItem("OHRHELM1",Myself)  // Headband of the Devout
+    IncrementGlobal("MO_UsedDevout","GLOBAL",1)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  !StateCheck(Myself,STATE_MIRRORIMAGE)
+  GlobalLT("MO_UsedDuplication","GLOBAL",3)
+  HasItemEquiped("OHRRING1",Myself)  // Ring of Duplication
+THEN
+  RESPONSE #100
+    UseItem("OHRRING1",Myself)  // Ring of Duplication
+    IncrementGlobal("MO_UsedDuplication","GLOBAL",1)
+END~~~~~
+    string = ~~~~~~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Remove Belt of Minor Invulnerability                                  //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  GlobalLT("MO_UsedBltMnrInv","GLOBAL",1)
+  HasItemEquiped("OHRBELT2",Myself)  // Belt of Minor Invulnerability
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
+  Global("MO_CastAthkatla","LOCALS",1)
+THEN
+  RESPONSE #100
+    UseItem("OHRBELT2",Myself)  // Belt of Minor Invulnerability
+    IncrementGlobal("MO_UsedBltMnrInv","GLOBAL",1)
+END~~~~~
+    string = ~~~~~~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Remove Hardiness                                                      //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpell(WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
+  !CheckSpellState(Myself,HARDINESS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
+    RemoveSpell(WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
+END~~~~~
+    string = ~~~~~~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Remove Physical Mirror                                                //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Prebuff Physical Mirror
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpell(CLERIC_PHYSICAL_MIRROR)  // SPPR613.SPL (Physical Mirror)
+  CheckStatLT(Myself,1,CLERIC_PHYSICAL_MIRROR)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,CLERIC_PHYSICAL_MIRROR)  // SPPR613.SPL (Physical Mirror)
+    RemoveSpell(CLERIC_PHYSICAL_MIRROR)  // SPPR613.SPL (Physical Mirror)
+END~~~~~
+    string = ~~~~~~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Update Negative Plane Protection                                      //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~!HasItemEquipedReal("BLUN25",LastSeenBy(Myself))  // Mace of Disruption +4
+  !HasItemEquipedReal("SW1H69",LastSeenBy(Myself))  // Spectral Brand +5~~~~~
+    string = ~~~~~~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Remove Aura of Flaming Death                                          //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpell(CLERIC_AURA_OF_FLAMING_DEATH)  // SPPR730.SPL (Aura of Flaming Death)
+  CheckStat(Myself,0,WIZARD_FIRE_SHIELD)
+  CheckStatLT(Myself,1,CLERIC_BLADE_BARRIER)
+  CheckStatLT(Myself,89,RESISTFIRE)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,CLERIC_AURA_OF_FLAMING_DEATH)  // SPPR730.SPL (Aura of Flaming Death)
+    RemoveSpell(CLERIC_AURA_OF_FLAMING_DEATH)  // SPPR730.SPL (Aura of Flaming Death)
+END~~~~~
+    string = ~~~~~~~~~~ //"
+  END
+  
