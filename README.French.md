@@ -163,6 +163,7 @@ Cela permet au joueur d'affiner certains aspects des scripts. La valeur 1 active
 - Ulpian and yota13 for providing Russian translation.
 - Jastey for testing and providing feedback on improving healing with multiple healers.
 - Morywen for providing German translation.
+- JohnBob for providing French translation.
 
 ## Copyright
 
