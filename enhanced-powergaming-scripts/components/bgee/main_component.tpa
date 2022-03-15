@@ -2,15 +2,9 @@ LOAD_TRA ~enhanced-powergaming-scripts/languages/%LANGUAGE%/script_dialog.tra~
 
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
-// Add Mod Components to Normal Scripts without Spell Revisions          //
+// Final Modifications to Base Script                                    //
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
-
-///////////////////////////////////////////////////////////////////////////
-// MO-Core Initial                                                       //
-///////////////////////////////////////////////////////////////////////////
-COPY ~enhanced-powergaming-scripts/baf/normal/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
-INCLUDE ~enhanced-powergaming-scripts/lib/bgee/prebuff_bgee.tph~
 
 ///////////////////////////////////////////////////////////////////////////
 // Thieving Skills for Bards                                             //
@@ -20,90 +14,680 @@ INCLUDE ~enhanced-powergaming-scripts/lib/bgee/prebuff_bgee.tph~
 	END
 
 ///////////////////////////////////////////////////////////////////////////
-// Remove Dialog Hovertext from Scripts                                  //
-///////////////////////////////////q////////////////////////////////////////
-ACTION_IF scp_dlg BEGIN
-	INCLUDE ~enhanced-powergaming-scripts/lib/ini/prebuff_dialog.tph~
-END
+// Faiths & Powers - Cleric Kits                                         //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF fp_cleric BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_fp_cleric_kit.tph~
+	END
 
 ///////////////////////////////////////////////////////////////////////////
-// Hotkey Setup                                                          //
+// Faiths & Powers - Paladin Kits                                        //
 ///////////////////////////////////////////////////////////////////////////
-INCLUDE ~enhanced-powergaming-scripts/lib/core_hotkey.tph~
+	ACTION_IF fp_paladin BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_fp_paladin_kit.tph~
+	END
 
 ///////////////////////////////////////////////////////////////////////////
-// Removes Potion Use in Pre-Buffing                                     //
+// MiH - Arcane Spells Major Globe                                       //
 ///////////////////////////////////////////////////////////////////////////
-ACTION_IF pot_use BEGIN
-	INCLUDE ~enhanced-powergaming-scripts/lib/ini/core_pot.tph~
-END
+	ACTION_IF mih_arcane BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_mih_globe.tph~
+	END
 
 ///////////////////////////////////////////////////////////////////////////
-// IWD Spells Pre-Buffing                                                //
+// Remove Athkatla Check from Pre-Buffing                                //
 ///////////////////////////////////////////////////////////////////////////
-ACTION_IF iwd_scs OR iwdification BEGIN
-	INCLUDE ~enhanced-powergaming-scripts/lib/bgee/prebuff_iwd.tph~
-END
+INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/bgee_remove_athkatla.tph~
 
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+// SR - Split up and Modify Individual Scripts                           //
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF spell_revisions BEGIN
+
+///////////////////////////////////////////////////////////////////////////
+// SR - Build out MO-Core and MO-BasicAi                                 //
+///////////////////////////////////////////////////////////////////////////	
+	COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
+	INCLUDE ~enhanced-powergaming-scripts/lib/sr_basic_base.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/sr_core_base.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/bgee/sr_core_bgee.tph~
+
+///////////////////////////////////////////////////////////////////////////
+// SR - 5e Spellcasting                                                  //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF 5e_spellcasting BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_core_5e.tph~
+
+		ACTION_FOR_EACH 5e_spell IN
+				WIZARD_VOCALIZE
+				WIZARD_ABSOLUTE_IMMUNITY
+				WIZARD_PROTECTION_FROM_MAGIC_WEAPONS
+				WIZARD_MOMENT_OF_PRESCIENCE
+				WIZARD_MANTLE
+				WIZARD_STONE_SKIN
+				CLERIC_IRONSKIN
+				WIZARD_ARMOR
+				WIZARD_MIND_BLANK
+				CLERIC_SANCTUARY
+				CLERIC_MASS_RAISE_DEAD
+				CLERIC_RESURRECTION
+				CLERIC_RAISE_DEAD
+				CLERIC_BREAK_ENCHANTMENT
+				WIZARD_BREAK_ENCHANTMENT
+				CLERIC_RESTORATION
+				CLERIC_LESSER_RESTORATION
+				CLERIC_REMOVE_PARALYSIS
+				CLERIC_CHAOTIC_COMMANDS
+				CLERIC_CURE_DISEASE
+				CLERIC_NEUTRALIZE_POISON
+				CLERIC_SLOW_POISON
+				CLERIC_REMOVE_FEAR
+				CLERIC_GUST_OF_WIND
+				WIZARD_TRUE_SIGHT
+				CLERIC_TRUE_SIGHT
+				WIZARD_DETECT_INVISIBILITY
+				CLERIC_INVISIBILITY_PURGE
+				WIZARD_BREACH
+				WIZARD_PIERCE_SHIELD
+				WIZARD_SPELL_THRUST
+				WIZARD_SECRET_WORD
+				WIZARD_PIERCE_MAGIC
+				WIZARD_WARDING_WHIP
+				WIZARD_RUBY_RAY_OF_REVERSAL
+				WIZARD_SPELL_STRIKE
+				WIZARD_MELF_METEOR
+				CLERIC_HEAL
+				CLERIC_CURE_SERIOUS_WOUNDS
+				CLERIC_CURE_MEDIUM_WOUNDS
+				CLERIC_CURE_MODERATE_WOUNDS
+				CLERIC_CURE_LIGHT_WOUNDS
+				WIZARD_SPELL_SHIELD
+				WIZARD_SPELL_TRAP
+				WIZARD_GREATER_SPELL_DEFLECTION
+				WIZARD_SPELL_DEFLECTION
+				WIZARD_MINOR_SPELL_DEFLECTION
+				CLERIC_AURA_OF_FLAMING_DEATH
+				CLERIC_GLOBE_OF_BLADES
+				WIZARD_MESTILS_ACID_SHEATH
+				WIZARD_FIRE_SHIELD_RED
+				CLERIC_SHIELD_OF_THE_ARCHONS
+				WIZARD_PROTECTION_FROM_NORMAL_MISSILES
+				CLERIC_PHYSICAL_MIRROR
+				CLERIC_BLADE_BARRIER
+				CLERIC_DRAW_UPON_HOLY_MIGHT
+				CLERIC_ARMOR_OF_FAITH
+				CLERIC_PROTECTION_FROM_FIRE
+				WIZARD_MIRROR_IMAGE
+				WIZARD_IMPROVED_HASTE
+				WIZARD_TRUE_STRIKE
+			BEGIN
+				LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_spell%~ RET spell_res END
+				COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+					REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_spell%~ ~RES(%spell_res%~
+			END
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// SR - DSotSC                                                           //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF dsotsc_divine && !mih_divine && !iwdification BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_dsotsc_d.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// SR - Tome & Blood                                                     //
+///////////////////////////////////////////////////////////////////////////
+	// Invisibility Changes
+	ACTION_IF tome_and_blood BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_core_tb_inv.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// SR - Faiths & Powers - Ranger Kits                                    //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF fp_ranger BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_ranger_fp_kit.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// SR - Faiths & Powers - Paladin Kits                                   //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF fp_paladin BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/paladin_fp_kit.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// SR - MiH Spell Restorations                                           //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF mih_restorations BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_core_mih_sr.tph~
+
+		ACTION_IF 5e_spellcasting BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_core_mih_sr_5e.tph~
+
+			ACTION_FOR_EACH 5e_mih_sr IN
+				CLERIC_CURE_BLIND_DEAF
+			BEGIN
+				LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_mih_sr%~ RET spell_res END
+				COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+					REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_mih_sr%~ ~RES(%spell_res%~
+			END
+		END
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// SR - MiH Arcane Spells                                                //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF mih_arcane BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_mih_arcane.tph~
+
+		ACTION_IF 5e_spellcasting BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_mih_arcane_5e.tph~
+
+			ACTION_FOR_EACH 5e_mih_arcane IN
+				WIZARD_SUPERHEROISM
+				WIZARD_HEROISM
+				WIZARD_SEEKING
+			BEGIN
+				LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_mih_arcane%~ RET spell_res END
+				COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+					REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_mih_arcane%~ ~RES(%spell_res%~
+			END
+		END
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// SR - MiH Divine Spells                                                //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF mih_divine BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_core_mih_divine.tph~
+
+		ACTION_IF 5e_spellcasting BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_core_mih_divine_5e.tph~
+
+			ACTION_FOR_EACH 5e_mih_divine IN
+				CLERIC_SUPERHEROISM
+				CLERIC_HEROISM
+				CLERIC_SEEKING
+				CLERIC_STRIKING
+				CLERIC_CELESTIAL_PROTECTION
+				CLERIC_REPEL_INSECTS
+			BEGIN
+				LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_mih_divine%~ RET spell_res END
+				COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+					REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_mih_divine%~ ~RES(%spell_res%~
+			END
+		END
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// SR - IWD Spells                                                       //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF iwd_scs OR iwdification BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_core_iwd.tph~
+
+		ACTION_IF 5e_spellcasting BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_core_iwd_5e.tph~
+
+			ACTION_FOR_EACH 5e_iwd IN
+				CLERIC_IMPERVIOUS_SANCTITY_OF_MIND
+				CLERIC_GREATER_SHIELD_OF_LATHANDER
+				CLERIC_SHIELD_OF_LATHANDER
+			BEGIN
+				LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_iwd%~ RET spell_res END
+				COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+					REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_iwd%~ ~RES(%spell_res%~
+			END
+		END
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// SR - d5 Random Tweaks - Cure Bypass Deflection                        //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF d5_deflected BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_d5_cure_dispelling.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// SR - Faiths & Powers - FnP Spheres                                    //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF fp_spheres BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_core_fp_spl.tph~
+
+		ACTION_IF 5e_spellcasting BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_core_fp_spl_5e.tph~
+
+			ACTION_FOR_EACH 5e_fp_spl IN
+				CLERIC_SPIRITUAL_CLARITY
+			BEGIN
+				LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_fp_spl%~ RET spell_res END
+				COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+					REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_fp_spl%~ ~RES(%spell_res%~
+			END
+		END
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// SR - Update IWD Dispelling Checks                                     //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF iwd_scs OR iwdification BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_iwd_dispelling.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// SR - Update Dispelling - SCS, IWD, and MiH                            //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF scs_breach BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/scs_breach.tph~
+		ACTION_IF iwd_scs OR iwdification BEGIN
+			ACTION_IF mih_arcane BEGIN
+				INCLUDE ~enhanced-powergaming-scripts/lib/bg2ee/sr_core_breach_globe_iwd.tph~
+			END ELSE BEGIN
+				INCLUDE ~enhanced-powergaming-scripts/lib/sr_core_breach_iwd.tph~
+			END
+		END ELSE BEGIN
+			ACTION_IF mih_arcane BEGIN
+				INCLUDE ~enhanced-powergaming-scripts/lib/bg2ee/sr_core_breach_globe.tph~
+			END ELSE BEGIN
+				INCLUDE ~enhanced-powergaming-scripts/lib/sr_core_breach.tph~
+			END			
+		END
+	END ELSE BEGIN
+		ACTION_IF mih_arcane BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/bg2ee/sr_globe.tph~
+		END
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// SCS - Golems                                                          //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF scs_golem BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_core_golem.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+// Add Mod Components to Scripts without Spell Revisions                 //
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+
+END ELSE BEGIN
 ///////////////////////////////////////////////////////////////////////////
 // Build out MO-Core and MO-BasicAi                                      //
-///////////////////////////////////////////////////////////////////////////
-COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
+///////////////////////////////////////////////////////////////////////////		
+	COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
+	INCLUDE ~enhanced-powergaming-scripts/lib/basic_base.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/core_base.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/bgee/core_bgee.tph~
 
-INCLUDE ~enhanced-powergaming-scripts/lib/basic_base.tph~
-INCLUDE ~enhanced-powergaming-scripts/lib/core_base.tph~
-INCLUDE ~enhanced-powergaming-scripts/lib/bgee/core_bgee.tph~
+///////////////////////////////////////////////////////////////////////////
+// 5e Spellcasting                                                       //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF 5e_spellcasting BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_5e.tph~
+
+		ACTION_FOR_EACH 5e_spell IN
+				WIZARD_VOCALIZE
+				WIZARD_PROTECTION_FROM_MAGIC_WEAPONS
+				WIZARD_ABSOLUTE_IMMUNITY
+				WIZARD_IMPROVED_MANTLE
+				WIZARD_MANTLE
+				WIZARD_STONE_SKIN
+				CLERIC_IRONSKIN
+				CLERIC_SANCTUARY
+				CLERIC_MASS_RAISE_DEAD
+				CLERIC_RESURRECTION
+				CLERIC_RAISE_DEAD
+				CLERIC_RESTORATION
+				CLERIC_LESSER_RESTORATION
+				CLERIC_REMOVE_PARALYSIS
+				CLERIC_CHAOTIC_COMMANDS
+				CLERIC_CURE_DISEASE
+				CLERIC_NEUTRALIZE_POISON
+				CLERIC_SLOW_POISON
+				CLERIC_REMOVE_FEAR
+				CLERIC_ZONE_OF_SWEET_AIR
+				WIZARD_TRUE_SIGHT
+				CLERIC_TRUE_SIGHT
+				CLERIC_INVISIBILITY_PURGE
+				WIZARD_DETECT_INVISIBILITY
+				WIZARD_BREACH
+				WIZARD_SPELL_THRUST
+				WIZARD_SECRET_WORD
+				WIZARD_PIERCE_MAGIC
+				WIZARD_WARDING_WHIP
+				WIZARD_SPELL_STRIKE
+				WIZARD_PIERCE_SHIELD
+				WIZARD_RUBY_RAY_OF_REVERSAL
+				WIZARD_DETECT_ILLUSION
+				WIZARD_MELF_METEOR
+				CLERIC_HEAL
+				CLERIC_CURE_SERIOUS_WOUNDS
+				CLERIC_CURE_MEDIUM_WOUNDS
+				CLERIC_CURE_LIGHT_WOUNDS
+				CLERIC_REGENERATE
+				WIZARD_MIRROR_IMAGE
+				WIZARD_SPELL_SHIELD
+				WIZARD_SPELL_TRAP
+				WIZARD_SPELL_DEFLECTION
+				WIZARD_SPELL_TURNING
+				WIZARD_GLOBE_OF_INVULNERABILITY
+				WIZARD_MINOR_SPELL_TURNING
+				WIZARD_MINOR_SPELL_DEFLECTION
+				WIZARD_MINOR_GLOBE_OF_INVULNERABILITY
+				CLERIC_AURA_OF_FLAMING_DEATH
+				CLERIC_GLOBE_OF_BLADES
+				WIZARD_FIRE_SHIELD_RED
+				WIZARD_FIRE_SHIELD_BLUE
+				CLERIC_SHIELD_OF_THE_ARCHONS
+				WIZARD_PROTECTION_FROM_NORMAL_MISSILES
+				CLERIC_PHYSICAL_MIRROR
+				CLERIC_BLADE_BARRIER
+				CLERIC_DRAW_UPON_HOLY_MIGHT
+				CLERIC_ARMOR_OF_FAITH
+				CLERIC_PROTECTION_FROM_FIRE
+				WIZARD_BLACK_BLADE_OF_DISASTER
+				WIZARD_IMPROVED_HASTE
+			BEGIN
+				LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_spell%~ RET spell_res END
+				COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+					REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_spell%~ ~RES(%spell_res%~
+			END
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// DSotSC                                                                //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF dsotsc_divine && !mih_divine && !iwdification BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_dsotsc_d.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// Faiths & Powers - Ranger Kits                                          //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF fp_ranger BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/ranger_fp_kit.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// Tome & Blood                                                          //
+///////////////////////////////////////////////////////////////////////////
+	// Invisibility Changes
+	ACTION_IF tome_and_blood BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_tb_inv.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// Faiths & Powers - Paladin Kits                                        //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF fp_paladin BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/paladin_fp_kit.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// MiH - Spell Restorations                                              //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF mih_restorations BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_mih_sr.tph~
+
+		ACTION_IF 5e_spellcasting BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_mih_sr_5e.tph~
+
+			ACTION_FOR_EACH 5e_mih_sr IN
+				CLERIC_CURE_BLIND_DEAF
+			BEGIN
+				LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_mih_sr%~ RET spell_res END
+				COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+					REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_mih_sr%~ ~RES(%spell_res%~
+			END
+		END
+	END
+	
+///////////////////////////////////////////////////////////////////////////
+// MiH - Arcane Spells                                                   //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF mih_arcane BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_mih_arcane.tph~
+
+		ACTION_IF 5e_spellcasting BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_mih_arcane_5e.tph~
+
+			ACTION_FOR_EACH 5e_mih_arcane IN
+				WIZARD_SUPERHEROISM
+				WIZARD_HEROISM
+				WIZARD_SEEKING
+			BEGIN
+				LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_mih_arcane%~ RET spell_res END
+				COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+					REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_mih_arcane%~ ~RES(%spell_res%~
+			END
+		END
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// MiH - Divine Spells                                                   //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF mih_divine BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_mih_divine.tph~
+
+		ACTION_IF 5e_spellcasting BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_mih_divine_5e.tph~
+
+			ACTION_FOR_EACH 5e_mih_divine IN
+				CLERIC_SUPERHEROISM
+				CLERIC_HEROISM
+				CLERIC_SEEKING
+				CLERIC_STRIKING
+				CLERIC_CELESTIAL_PROTECTION
+				CLERIC_REPEL_INSECTS
+				CLERIC_BREAK_ENCHANTMENT
+			BEGIN
+				LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_mih_divine%~ RET spell_res END
+				COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+					REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_mih_divine%~ ~RES(%spell_res%~
+			END
+		END
+	END
 
 ///////////////////////////////////////////////////////////////////////////
 // IWD Spells                                                            //
 ///////////////////////////////////////////////////////////////////////////
-ACTION_IF iwd_scs OR iwdification BEGIN
-	INCLUDE ~enhanced-powergaming-scripts/lib/bgee/core_iwd.tph~
-END
+	ACTION_IF iwd_scs OR iwdification BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_iwd.tph~
+
+		ACTION_IF 5e_spellcasting BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_iwd_5e.tph~
+
+			ACTION_FOR_EACH 5e_iwd IN
+				WIZARD_MIND_BLANK
+				CLERIC_IMPERVIOUS_SANCTITY_OF_MIND
+				CLERIC_GREATER_SHIELD_OF_LATHANDER
+				CLERIC_SHIELD_OF_LATHANDER
+				CLERIC_CURE_MODERATE_WOUNDS
+			BEGIN
+				LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_iwd%~ RET spell_res END
+				COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+					REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_iwd%~ ~RES(%spell_res%~
+			END
+		END
+	END
 
 ///////////////////////////////////////////////////////////////////////////
-// SCS - Breach                                                          //
+// d5 Random Tweaks - Cure Bypass Deflection                             //
 ///////////////////////////////////////////////////////////////////////////
-ACTION_IF scs_breach BEGIN
+	ACTION_IF d5_deflected BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/d5_cure_dispelling.tph~
+
+		ACTION_IF 5e_spellcasting BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/d5_cure_dispelling_5e.tph~
+		END
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// Faiths & Powers - FnP Spheres                                         //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF fp_spheres BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_fp_spl.tph~
+
+		ACTION_IF 5e_spellcasting BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_fp_spl_5e.tph~
+
+			ACTION_FOR_EACH 5e_fp_spl IN
+				CLERIC_SPIRITUAL_CLARITY
+			BEGIN
+				LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_fp_spl%~ RET spell_res END
+				COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+					REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_fp_spl%~ ~RES(%spell_res%~
+			END
+		END
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// Update IWD Dispelling Checks                                          //
+///////////////////////////////////////////////////////////////////////////
 	ACTION_IF iwd_scs OR iwdification BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/bgee/core_breach_iwd.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/iwd_dispelling.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// Update Dispelling - SCS, IWD, and MiH                                 //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF scs_breach BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/scs_breach.tph~
+		ACTION_IF iwd_scs OR iwdification BEGIN
+			ACTION_IF mih_arcane BEGIN
+				INCLUDE ~enhanced-powergaming-scripts/lib/bg2ee/core_breach_globe_iwd.tph~
+			END ELSE BEGIN
+				INCLUDE ~enhanced-powergaming-scripts/lib/core_breach_iwd.tph~
+			END
+		END ELSE BEGIN
+			ACTION_IF mih_arcane BEGIN
+				INCLUDE ~enhanced-powergaming-scripts/lib/bg2ee/core_breach_globe.tph~
+			END ELSE BEGIN
+				INCLUDE ~enhanced-powergaming-scripts/lib/core_breach.tph~
+			END			
+		END
 	END ELSE BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/bgee/core_breach.tph~
+		ACTION_IF iwd_scs OR iwdification BEGIN
+			ACTION_IF mih_arcane BEGIN
+				INCLUDE ~enhanced-powergaming-scripts/lib/bg2ee/globe_iwd.tph~
+			END
+		END ELSE BEGIN
+			ACTION_IF mih_arcane BEGIN
+				INCLUDE ~enhanced-powergaming-scripts/lib/bg2ee/globe.tph~
+			END
+		END
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// Golems                                                                //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF scs_golem BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_golem.tph~
+
+		ACTION_IF 5e_spellcasting BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_golem_5e.tph~
+		END
 	END
 END
 
 ///////////////////////////////////////////////////////////////////////////
 // Update ini Presets                                                    //
 ///////////////////////////////////////////////////////////////////////////
-	// Basic AI will Auto-Attack Enemies
-	ACTION_IF bsc_atk BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/ini/basic_atk.tph~
-	END
+// Basic AI will Auto-Attack Enemies
+ACTION_IF bsc_atk BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/ini/basic_atk.tph~
+END
 
-	// Removes Dialog Hovertext from Scripts
-	ACTION_IF scp_dlg BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/ini/core_dialog.tph~
-	END
+// Removes Dialog Hovertext from Scripts
+ACTION_IF scp_dlg BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/ini/core_dialog.tph~
+END
 
 ///////////////////////////////////////////////////////////////////////////
-// Create Skald Script Modeled After Core                                //
+// MiH - Arcane Spells Major Globe                                       //
 ///////////////////////////////////////////////////////////////////////////
-INCLUDE ~enhanced-powergaming-scripts/lib/bgee/skald_base.tph~
+ACTION_IF mih_arcane BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_mih_globe.tph~
+END
+	
+///////////////////////////////////////////////////////////////////////////
+// Make Skald Script after Core                                          //
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF 5e_spellcasting BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/skald_5e_base.tph~
+
+	INCLUDE ~enhanced-powergaming-scripts/lib/bg2ee/magic_missile_5e.tph~
+	ACTION_FOR_EACH 5e_magic_missile IN
+				WIZARD_MAGIC_MISSILE
+			BEGIN
+				LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_magic_missile%~ RET spell_res END
+				COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+					REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_magic_missile%~ ~RES(%spell_res%~
+			END
+END ELSE BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/skald_base.tph~
+END
 
 ///////////////////////////////////////////////////////////////////////////
 // Thieving Skills for Bards                                             //
 ///////////////////////////////////////////////////////////////////////////
-	ACTION_IF bard_thief BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/bard_thief.tph~
-		INCLUDE ~enhanced-powergaming-scripts/lib/skald_bard_thief.tph~
-	END
+ACTION_IF bard_thief BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/bard_thief.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/skald_bard_thief.tph~
+END
+
+///////////////////////////////////////////////////////////////////////////
+// Remove Athkatla Check from Main                                       //
+///////////////////////////////////////////////////////////////////////////
+INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/bgee_remove_athkatla.tph~
+INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/bgee_remove_athkatla_skald.tph~
 
 ///////////////////////////////////////////////////////////////////////////
 // Removes Targeting Dancing Swords with Magic Missiles                  //
 ///////////////////////////////////////////////////////////////////////////
-	ACTION_IF dnc_swrd BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/ini/rmv_dnc_swrd.tph~
+ACTION_IF dnc_swrd BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/ini/rmv_dnc_swrd.tph~
+
+	ACTION_IF 5e_spellcasting BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/ini/rmv_dnc_swrd_5e.tph~
 	END
+END
+
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+// 5e Spellcasting names                                                 //
+// Code in this section provided by Subtledoctor                         //
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF 5e_spellcasting BEGIN
+	COPY_EXISTING ~d5zclons.2da~ ~override~
+  	COUNT_2DA_COLS cols
+  	COUNT_2DA_ROWS cols rows
+  	FOR (row = 1; row < rows; ++row) BEGIN
+    	READ_2DA_ENTRY row 0 cols ind_num
+    	READ_2DA_ENTRY row 1 cols mem_spl
+    	SPRINT $5e_spells_array(~d5z%ind_num%i~)~%mem_spl%~
+  	END
+	BUT_ONLY
+
+	COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
+	  PHP_EACH 5e_spells_array AS new_spl => old_spl BEGIN
+	    REPLACE_TEXTUALLY CASE_INSENSITIVE ~%old_spl%~ ~"%new_spl%"~
+	  END
+
+	COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+	  PHP_EACH 5e_spells_array AS new_spl => old_spl BEGIN
+	    REPLACE_TEXTUALLY CASE_INSENSITIVE ~%old_spl%~ ~"%new_spl%"~
+	  END
+
+	COPY ~enhanced-powergaming-scripts/baf/upload/moskd.baf~ ~enhanced-powergaming-scripts/baf/upload/moskd.baf~
+	  PHP_EACH 5e_spells_array AS new_spl => old_spl BEGIN
+	    REPLACE_TEXTUALLY CASE_INSENSITIVE ~%old_spl%~ ~"%new_spl%"~
+	  END
+END
 
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////

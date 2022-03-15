@@ -124,18 +124,6 @@ THEN
 END~~~~~ //"
   END
 
-  LPF REPLACE_MULTILINE
-    INT_VAR
-    strict = 1
-    verbose = 0
-    STR_VAR
-    pattern = ~~~~~Global("MO_CastAthkatla","LOCALS",1)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)~~~~~
-    string = ~~~~~!CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)~~~~~ //"
-  END
-
 ///////////////////////////////////////////////////////////////////////////
 // Remove Cloak of the Dark Moon                                         //
 ///////////////////////////////////////////////////////////////////////////
@@ -154,10 +142,8 @@ THEN
   RESPONSE #100
     UseItem("OHRCLCK4",Myself)  // Cloak of the Dark Moon
     IncrementGlobal("MO_UsedClkDrkMN","GLOBAL",1)
-END
-
-IF~~~~~
-    string = ~~~~~IF~~~~~ //"
+END~~~~~
+    string = ~~~~~~~~~~ //"
   END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -178,10 +164,8 @@ THEN
   RESPONSE #100
     UseItem("OHNSHLD1",Myself)  // Shield of Fyrus Khal +2
     IncrementGlobal("MO_UsedShldFyrus","GLOBAL",1)
-END
-
-IF~~~~~
-    string = ~~~~~IF~~~~~ //"
+END~~~~~
+    string = ~~~~~~~~~~ //"
   END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -342,12 +326,8 @@ THEN
   RESPONSE #100
     ReallyForceSpell(Myself,WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
     RemoveSpell(WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
-END
-
-IF
-  Global("MO_BUFF","LOCALS",1)~~~~~
-    string = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)~~~~~ //"
+END~~~~~
+    string = ~~~~~~~~~~ //"
   END
 
 ///////////////////////////////////////////////////////////////////////////
