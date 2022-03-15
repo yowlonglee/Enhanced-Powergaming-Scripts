@@ -149,7 +149,7 @@ This allows the player to fine-tune aspects of the scripts. 1 turns the feature 
 - Ulpian and yota13 for providing Russian translation.
 - Jastey for testing and providing feedback on improving healing with multiple healers.
 - Morywen for providing German translation.
-- JohnBob for translating to French.
+- JohnBob for providing French translation.
 
 ## Copyright
 
