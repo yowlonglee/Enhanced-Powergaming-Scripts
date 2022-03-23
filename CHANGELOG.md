@@ -1,5 +1,14 @@
 # Changelog
 
+## Version 7.1
+
+April xx, 2022
+
+### Changed 
+
+- All Games
+  - Added poison check to not cast spells when poisoned.
+
 ## Version 7.0
 
 March 14, 2022

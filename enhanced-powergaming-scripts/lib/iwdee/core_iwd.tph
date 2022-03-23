@@ -313,6 +313,7 @@ IF~~~~~
   !CheckSpellState(Myself,GLOBE)
   !HasImmunityEffects(Myself)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
@@ -473,6 +474,7 @@ END~~~~~
   !CheckSpellState(Myself,MINOR_GLOBE)
   !CheckSpellState(Myself,GLOBE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
@@ -726,6 +728,7 @@ IF~~~~~
     See([ENEMY.0.0.CLERIC_MAGE])
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
@@ -960,6 +963,7 @@ IF~~~~~
   !CheckSpellState(Myself,MIND_BLANK)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
@@ -990,6 +994,7 @@ END~~~~~ //"
   !CheckSpellState(Myself,SHIELD_OF_LATHANDER)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
@@ -1008,6 +1013,7 @@ IF
   !CheckSpellState(Myself,SHIELD_OF_LATHANDER)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
@@ -1052,6 +1058,7 @@ END
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN // Breach~~~~~
@@ -1060,6 +1067,7 @@ THEN // Breach~~~~~
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN // Breach~~~~~ //"
@@ -1077,6 +1085,7 @@ THEN // Breach~~~~~ //"
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_DEFLECTION)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
   !StateCheck(Myself,STATE_SILENCED)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
@@ -1089,6 +1098,7 @@ THEN // Spell Thrust~~~~~
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_DEFLECTION)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
   !StateCheck(Myself,STATE_SILENCED)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
@@ -1107,6 +1117,7 @@ THEN // Spell Thrust~~~~~ //"
   CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
   !StateCheck(Myself,STATE_SILENCED)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
@@ -1119,6 +1130,7 @@ THEN // Secret Word~~~~~
   CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
   !StateCheck(Myself,STATE_SILENCED)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
@@ -1137,6 +1149,7 @@ THEN // Secret Word~~~~~ //"
   CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
   !StateCheck(Myself,STATE_SILENCED)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
@@ -1149,6 +1162,7 @@ THEN // Pierce Magic~~~~~
   CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
   !StateCheck(Myself,STATE_SILENCED)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
@@ -1168,6 +1182,7 @@ THEN // Pierce Magic~~~~~ //"
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_KHELBENS_WARDING_WHIP)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
   !StateCheck(Myself,STATE_SILENCED)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
@@ -1181,6 +1196,7 @@ THEN // Khelben's Warding Whip~~~~~
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_KHELBENS_WARDING_WHIP)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
   !StateCheck(Myself,STATE_SILENCED)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
@@ -1198,6 +1214,7 @@ THEN // Khelben's Warding Whip~~~~~ //"
   !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
   CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
   !StateCheck(Myself,STATE_SILENCED)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
@@ -1209,6 +1226,7 @@ THEN // Spellstrike~~~~~
   !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
   CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
   !StateCheck(Myself,STATE_SILENCED)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
@@ -1226,6 +1244,7 @@ THEN // Spellstrike~~~~~ //"
   !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
   CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
   !StateCheck(Myself,STATE_SILENCED)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
@@ -1237,6 +1256,7 @@ THEN // Pierce Shield~~~~~
   !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
   CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
   !StateCheck(Myself,STATE_SILENCED)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
@@ -1254,6 +1274,7 @@ THEN // Pierce Shield~~~~~ //"
   !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
   CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
   !StateCheck(Myself,STATE_SILENCED)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
@@ -1265,6 +1286,7 @@ THEN // Ruby Ray of Reversal~~~~~
   !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
   CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
   !StateCheck(Myself,STATE_SILENCED)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
@@ -1305,6 +1327,7 @@ THEN // Ruby Ray of Reversal~~~~~ //"
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
@@ -1385,6 +1408,7 @@ END
     Range([EVILCUTOFF.0.DARKPLANATAR],30)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
   !StateCheck(Myself,STATE_SILENCED)
 THEN
   RESPONSE #100
@@ -1419,6 +1443,7 @@ IF~~~~~
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
@@ -1442,6 +1467,7 @@ IF
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
@@ -1465,6 +1491,7 @@ IF
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
@@ -1488,6 +1515,7 @@ IF
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
@@ -1511,6 +1539,7 @@ IF
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
@@ -1534,6 +1563,7 @@ IF
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
@@ -1557,6 +1587,7 @@ IF
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
@@ -1600,6 +1631,7 @@ END~~~~~
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
