@@ -205,7 +205,7 @@ IF
   Class(Myself,MAGE_ALL)
 THEN
   RESPONSE #100
-    AttackReevaluate(LastSeenBy(Myself),5)
+    AttackReevaluate(NearestEnemyOf(Myself),5)
 END
 
 IF
@@ -220,12 +220,12 @@ IF
   OR(2)
     HasItem("melfmet",Myself)  // Melf's Minute Meteor
     IsWeaponRanged(Myself)
-  WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
-  WeaponCanDamage(NearestEnemyOf(Myself),MAINHAND)
+  WeaponEffectiveVs(SecondNearestEnemyOf(Myself),MAINHAND)
+  WeaponCanDamage(SecondNearestEnemyOf(Myself),MAINHAND)
   Class(Myself,MAGE_ALL)
 THEN
   RESPONSE #100
-    AttackReevaluate(LastSeenBy(Myself),5)
+    AttackReevaluate(SecondNearestEnemyOf(Myself),5)
 END
 
 IF
@@ -240,12 +240,12 @@ IF
   OR(2)
     HasItem("melfmet",Myself)  // Melf's Minute Meteor
     IsWeaponRanged(Myself)
-  WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
-  WeaponCanDamage(NearestEnemyOf(Myself),MAINHAND)
+  WeaponEffectiveVs(ThirdNearestEnemyOf(Myself),MAINHAND)
+  WeaponCanDamage(ThirdNearestEnemyOf(Myself),MAINHAND)
   Class(Myself,MAGE_ALL)
 THEN
   RESPONSE #100
-    AttackReevaluate(LastSeenBy(Myself),5)
+    AttackReevaluate(ThirdNearestEnemyOf(Myself),5)
 END
 
 IF
@@ -260,12 +260,12 @@ IF
   OR(2)
     HasItem("melfmet",Myself)  // Melf's Minute Meteor
     IsWeaponRanged(Myself)
-  WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
-  WeaponCanDamage(NearestEnemyOf(Myself),MAINHAND)
+  WeaponEffectiveVs(FourthNearestEnemyOf(Myself),MAINHAND)
+  WeaponCanDamage(FourthNearestEnemyOf(Myself),MAINHAND)
   Class(Myself,MAGE_ALL)
 THEN
   RESPONSE #100
-    AttackReevaluate(LastSeenBy(Myself),5)
+    AttackReevaluate(FourthNearestEnemyOf(Myself),5)
 END
 
 IF
@@ -280,12 +280,12 @@ IF
   OR(2)
     HasItem("melfmet",Myself)  // Melf's Minute Meteor
     IsWeaponRanged(Myself)
-  WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
-  WeaponCanDamage(NearestEnemyOf(Myself),MAINHAND)
+  WeaponEffectiveVs(FifthNearestEnemyOf(Myself),MAINHAND)
+  WeaponCanDamage(FifthNearestEnemyOf(Myself),MAINHAND)
   Class(Myself,MAGE_ALL)
 THEN
   RESPONSE #100
-    AttackReevaluate(LastSeenBy(Myself),5)
+    AttackReevaluate(FifthNearestEnemyOf(Myself),5)
 END
 
 IF
@@ -300,12 +300,12 @@ IF
   OR(2)
     HasItem("melfmet",Myself)  // Melf's Minute Meteor
     IsWeaponRanged(Myself)
-  WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
-  WeaponCanDamage(NearestEnemyOf(Myself),MAINHAND)
+  WeaponEffectiveVs(SixthNearestEnemyOf(Myself),MAINHAND)
+  WeaponCanDamage(SixthNearestEnemyOf(Myself),MAINHAND)
   Class(Myself,MAGE_ALL)
 THEN
   RESPONSE #100
-    AttackReevaluate(LastSeenBy(Myself),5)
+    AttackReevaluate(SixthNearestEnemyOf(Myself),5)
 END
 
 // 5e Spellcasting Magic Missile
