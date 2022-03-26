@@ -2,12 +2,13 @@
 
 ## Version 7.1
 
-April xx, 2022
+March 25, 2022
 
 ### Changed 
 
 - All Games
   - Added poison check to not cast spells when poisoned.
+  - Fixed an issue with mage attacks.
 
 ## Version 7.0
 
