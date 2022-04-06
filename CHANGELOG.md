@@ -1,5 +1,16 @@
 # Changelog
 
+## Version 7.2
+
+April xx, 2022
+
+### Changed 
+
+- All Games
+  - Corrected issue with characters casting spells immediately upon entering a wild magic area.
+
+# Changelog
+
 ## Version 7.1
 
 March 25, 2022
