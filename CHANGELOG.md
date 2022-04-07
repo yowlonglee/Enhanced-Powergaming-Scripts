@@ -8,6 +8,7 @@ April xx, 2022
 
 - All Games
   - Corrected issue with characters casting spells immediately upon entering a wild magic area.
+  - More fixes to mage attacks, should now be corrected.
 
 # Changelog
 
