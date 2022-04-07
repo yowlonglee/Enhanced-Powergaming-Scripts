@@ -187,6 +187,7 @@ END
 IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  See([EVILCUTOFF])
   CheckStatLT(Myself,1,STONESKINS)
   HaveSpell(WIZARD_STONE_SKIN)  // SPWI408.SPL (Stoneskin)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -200,6 +201,50 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(Myself,WIZARD_STONE_SKIN)  // SPWI408.SPL (Stoneskin)
+    SetInterrupt(TRUE)
+END
+
+IF
+  ActionListEmpty()
+  !See([EVILCUTOFF])
+  Global("MO_WildStoneskin","LOCALS",0)
+  CheckStatLT(Myself,1,STONESKINS)
+  HaveSpell(WIZARD_STONE_SKIN)  // SPWI408.SPL (Stoneskin)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_WildStoneskin","LOCALS",1)
+    SetGlobalTimer("MO_SpellCast","LOCALS",2)
+END
+
+IF
+  ActionListEmpty()
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !See([EVILCUTOFF])
+  Global("MO_WildStoneskin","LOCALS",1)
+  CheckStatLT(Myself,1,STONESKINS)
+  HaveSpell(WIZARD_STONE_SKIN)  // SPWI408.SPL (Stoneskin)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_WildStoneskin","LOCALS",0)
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_STONE_SKIN)  // SPWI408.SPL (Stoneskin)
     SetInterrupt(TRUE)
@@ -295,6 +340,27 @@ IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   !See([EVILCUTOFF])
+  Global("MO_WildMindBlank","LOCALS",0)
+  HaveSpell(WIZARD_MIND_BLANK)  // SPWI802.SPL (Mind Blank)
+  !CheckSpellState(Myself,MIND_BLANK)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_WildMindBlank","LOCALS",1)
+    SetGlobalTimer("MO_SpellCast","LOCALS",2)
+END
+
+IF
+  ActionListEmpty()
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !See([EVILCUTOFF])
+  Global("MO_WildMindBlank","LOCALS",1)
   HaveSpell(WIZARD_MIND_BLANK)  // SPWI802.SPL (Mind Blank)
   !CheckSpellState(Myself,MIND_BLANK)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
@@ -307,6 +373,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_WildMindBlank","LOCALS",0)
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_MIND_BLANK)  // SPWI802.SPL (Mind Blank)
     SetInterrupt(TRUE)
