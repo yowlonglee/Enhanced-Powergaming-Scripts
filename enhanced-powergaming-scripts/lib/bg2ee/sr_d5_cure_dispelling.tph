@@ -41,12 +41,12 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
   !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
   !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
   !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
-  CheckStat(LastSeenBy(Myself),0,WEB)
+  !CheckSpellState(LastSeenBy(Myself),WEB)
   !StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
   !StateCheck(LastSeenBy(Myself),STATE_CHARMED)~~~~~
     string = ~~~~~!CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  CheckStat(LastSeenBy(Myself),0,WEB)
+  !CheckSpellState(LastSeenBy(Myself),WEB)
   !StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
   !StateCheck(LastSeenBy(Myself),STATE_CHARMED)~~~~~ //"
   END
