@@ -9,7 +9,7 @@ April xx, 2022
 - All Games
   - Corrected issue with characters casting spells immediately upon entering a wild magic area.
   - More fixes to mage attacks, should now be corrected.
-  - Fixed Remove Paralysis to NOT cast if a character is webbed.
+  - Fixes for Faith & Powers and 5e Spellcasting mods.
 
 # Changelog
 
