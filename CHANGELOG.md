@@ -2,7 +2,7 @@
 
 ## Version 7.2
 
-April xx, 2022
+April 22, 2022
 
 ### Changed 
 
