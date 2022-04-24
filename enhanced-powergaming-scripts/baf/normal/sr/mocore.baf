@@ -43,6 +43,8 @@ THEN
     SetGlobal("MO_UsedBltMnrInv","GLOBAL",0)
     SetGlobal("MO_UsedClkDrkMN","GLOBAL",0)
     SetGlobal("MO_UsedShldFyrus","GLOBAL",0)
+    SetGlobal("MO_UsedMirrorAmulet0","GLOBAL",0)
+    SetGlobal("MO_UsedMirrorAmulet1","GLOBAL",0)
 END
 
 IF
@@ -407,6 +409,8 @@ THEN
   RESPONSE #100
     SpellRES("SPDM106",Myself)  // Mirror Image
 END
+
+// MiH Prebuff Mirror Amulet
 
 IF
 	Global("MO_BUFF","LOCALS",1)

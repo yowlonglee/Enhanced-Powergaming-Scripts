@@ -1,5 +1,14 @@
 # Changelog
 
+## Version 7.3
+
+May xx, 2022
+
+### Changed 
+
+- All Games
+  - Added MiH Item Pack
+
 ## Version 7.2
 
 April 22, 2022
@@ -10,8 +19,6 @@ April 22, 2022
   - Corrected issue with characters casting spells immediately upon entering a wild magic area.
   - More fixes to mage attacks, should now be corrected.
   - Fixes for Faith & Powers and 5e Spellcasting mods.
-
-# Changelog
 
 ## Version 7.1
 

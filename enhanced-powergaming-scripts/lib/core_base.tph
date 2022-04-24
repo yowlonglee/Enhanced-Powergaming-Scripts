@@ -5848,6 +5848,8 @@ THEN // Detect Illusion
     SetInterrupt(TRUE)
 END
 
+// MiH Mirror Amulet - Detect Illusion
+
 IF
   !HasItem("melfmet",Myself)  // Melf's Minute Meteor
   Global("MO_HasMelfMeteors","LOCALS",1)
@@ -6332,6 +6334,8 @@ THEN
   RESPONSE #100
     XEquipItem("WANINJA",Myself,SLOT_SHIELD,EQUIP)  // Ninjatō of the Scarlet Brotherhood +3
 END
+
+// MiH Mirror Amulet - Mirror Image
 
 IF
   ActionListEmpty()

@@ -171,6 +171,13 @@ ACTION_IF !VARIABLE_IS_SET ~initialise~ BEGIN
       OUTER_SET mih_divine=0
    END
 
+   // Detect Made in Heaven Item Pack
+   ACTION_IF MOD_IS_INSTALLED ~Setup-mih_ip.tp2~ ~0~ BEGIN
+      OUTER_SET mih_items=1
+   END ELSE BEGIN
+      OUTER_SET mih_items=0
+   END
+
    // Detect aTweaks - PnP Undead
    ACTION_IF MOD_IS_INSTALLED ~setup-atweaks.tp2~ ~160~ BEGIN
       OUTER_SET pnp_undead=1
