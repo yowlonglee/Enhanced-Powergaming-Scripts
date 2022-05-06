@@ -8,6 +8,7 @@ May xx, 2022
 
 - All Games
   - Added MiH Item Pack
+  - Corrected bug with Simulacrum not assigning the correct script.
 
 ## Version 7.2
 
