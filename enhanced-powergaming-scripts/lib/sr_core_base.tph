@@ -6504,9 +6504,21 @@ END
 IF
   !HasItem("melfmet",Myself)  // Melf's Minute Meteor
   Global("MO_HasMelfMeteors","LOCALS",1)
+  CanEquipRanged()
 THEN
   RESPONSE #100
     SetGlobal("MO_HasMelfMeteors","LOCALS",0)
+    EquipRanged()
+    ActionOverride(Myself,ClearActions(Myself))
+END
+
+IF
+  !HasItem("melfmet",Myself)  // Melf's Minute Meteor
+  Global("MO_HasMelfMeteors","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_HasMelfMeteors","LOCALS",0)
+    EquipMostDamagingMelee()
     ActionOverride(Myself,ClearActions(Myself))
 END
 
