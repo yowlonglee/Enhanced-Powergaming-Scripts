@@ -4063,6 +4063,7 @@ END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_FindInvisible","GLOBAL")
   HaveSpell(WIZARD_DETECT_INVISIBILITY)  // SPWI203.SPL (Detect Invisibility)
   Detect([EVILCUTOFF])
   OR(3)
@@ -4082,6 +4083,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FindInvisible","GLOBAL",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5014)
     Spell(Myself,WIZARD_DETECT_INVISIBILITY)  // SPWI203.SPL (Detect Invisibility)
@@ -4090,6 +4092,7 @@ END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_FindInvisible","GLOBAL")
   HaveSpell(WIZARD_DETECT_INVISIBILITY)  // SPWI203.SPL (Detect Invisibility)
   See(NearestEnemyOf(Myself))
   OR(3)
@@ -4114,6 +4117,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FindInvisible","GLOBAL",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5014)
     Spell(Myself,WIZARD_DETECT_INVISIBILITY)  // SPWI203.SPL (Detect Invisibility)
@@ -4122,6 +4126,7 @@ END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_FindInvisible","GLOBAL")
   HaveSpell(WIZARD_DETECT_INVISIBILITY)  // SPWI203.SPL (Detect Invisibility)
   See(SecondNearestEnemyOf(Myself))
   OR(3)
@@ -4146,6 +4151,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FindInvisible","GLOBAL",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5014)
     Spell(Myself,WIZARD_DETECT_INVISIBILITY)  // SPWI203.SPL (Detect Invisibility)
@@ -4154,6 +4160,7 @@ END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_FindInvisible","GLOBAL")
   HaveSpell(WIZARD_DETECT_INVISIBILITY)  // SPWI203.SPL (Detect Invisibility)
   See(ThirdNearestEnemyOf(Myself))
   OR(3)
@@ -4178,6 +4185,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FindInvisible","GLOBAL",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5014)
     Spell(Myself,WIZARD_DETECT_INVISIBILITY)  // SPWI203.SPL (Detect Invisibility)
@@ -4186,6 +4194,7 @@ END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_FindInvisible","GLOBAL")
   HaveSpell(WIZARD_DETECT_INVISIBILITY)  // SPWI203.SPL (Detect Invisibility)
   See(FourthNearestEnemyOf(Myself))
   OR(3)
@@ -4210,6 +4219,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FindInvisible","GLOBAL",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5014)
     Spell(Myself,WIZARD_DETECT_INVISIBILITY)  // SPWI203.SPL (Detect Invisibility)
@@ -4218,6 +4228,7 @@ END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_FindInvisible","GLOBAL")
   HaveSpell(WIZARD_DETECT_INVISIBILITY)  // SPWI203.SPL (Detect Invisibility)
   See(FifthNearestEnemyOf(Myself))
   OR(3)
@@ -4242,6 +4253,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FindInvisible","GLOBAL",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5014)
     Spell(Myself,WIZARD_DETECT_INVISIBILITY)  // SPWI203.SPL (Detect Invisibility)
@@ -4250,6 +4262,7 @@ END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_FindInvisible","GLOBAL")
   HaveSpell(WIZARD_DETECT_INVISIBILITY)  // SPWI203.SPL (Detect Invisibility)
   See(SixthNearestEnemyOf(Myself))
   OR(3)
@@ -4274,6 +4287,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FindInvisible","GLOBAL",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5014)
     Spell(Myself,WIZARD_DETECT_INVISIBILITY)  // SPWI203.SPL (Detect Invisibility)
@@ -4284,6 +4298,7 @@ END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_FindInvisible","GLOBAL")
   HaveSpell(CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
   Detect([EVILCUTOFF])
   OR(3)
@@ -4307,6 +4322,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FindInvisible","GLOBAL",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5014)
     Spell(Myself,CLERIC_INVISIBILITY_PURGE) // SPPR309.SPL (Invisibility Purge)
@@ -4315,6 +4331,7 @@ END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_FindInvisible","GLOBAL")
   HaveSpell(CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
   See(NearestEnemyOf(Myself))
   OR(3)
@@ -4338,6 +4355,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FindInvisible","GLOBAL",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5014)
     Spell(Myself,CLERIC_INVISIBILITY_PURGE) // SPPR309.SPL (Invisibility Purge)
@@ -4346,6 +4364,7 @@ END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_FindInvisible","GLOBAL")
   HaveSpell(CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
   See(SecondNearestEnemyOf(Myself))
   OR(3)
@@ -4369,6 +4388,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FindInvisible","GLOBAL",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5014)
     Spell(Myself,CLERIC_INVISIBILITY_PURGE) // SPPR309.SPL (Invisibility Purge)
@@ -4377,6 +4397,7 @@ END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_FindInvisible","GLOBAL")
   HaveSpell(CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
   See(ThirdNearestEnemyOf(Myself))
   OR(3)
@@ -4400,6 +4421,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FindInvisible","GLOBAL",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5014)
     Spell(Myself,CLERIC_INVISIBILITY_PURGE) // SPPR309.SPL (Invisibility Purge)
@@ -4408,6 +4430,7 @@ END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_FindInvisible","GLOBAL")
   HaveSpell(CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
   See(FourthNearestEnemyOf(Myself))
   OR(3)
@@ -4431,6 +4454,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FindInvisible","GLOBAL",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5014)
     Spell(Myself,CLERIC_INVISIBILITY_PURGE) // SPPR309.SPL (Invisibility Purge)
@@ -4439,6 +4463,7 @@ END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_FindInvisible","GLOBAL")
   HaveSpell(CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
   See(FifthNearestEnemyOf(Myself))
   OR(3)
@@ -4462,6 +4487,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FindInvisible","GLOBAL",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5014)
     Spell(Myself,CLERIC_INVISIBILITY_PURGE) // SPPR309.SPL (Invisibility Purge)
@@ -4470,6 +4496,7 @@ END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_FindInvisible","GLOBAL")
   HaveSpell(CLERIC_INVISIBILITY_PURGE)  // SPPR309.SPL (Invisibility Purge)
   See(SixthNearestEnemyOf(Myself))
   OR(3)
@@ -4493,6 +4520,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FindInvisible","GLOBAL",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5014)
     Spell(Myself,CLERIC_INVISIBILITY_PURGE) // SPPR309.SPL (Invisibility Purge)

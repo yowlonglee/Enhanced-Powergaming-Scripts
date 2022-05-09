@@ -10,6 +10,7 @@ May xx, 2022
   - Added MiH Item Pack
   - Corrected bug with Simulacrum not assigning the correct script.
   - Will auto-equip a ranged weapon once Melf's Meteors runs out. If no ranged weapon available, it will equip the most damaging melee weapon instead.
+  - Updated casting spells to detect invisible/illusioned enemies to reduce duplicative and overcasting.
 
 ## Version 7.2
 

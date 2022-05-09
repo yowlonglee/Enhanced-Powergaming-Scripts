@@ -2717,6 +2717,7 @@ END~~~~~ //"
     pattern = ~~~~~// 5e Spellcasting Cleric Invisibility Purge~~~~~
     string = ~~~~~IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_FindInvisible","GLOBAL")
   HaveSpellRES(CLERIC_INVISIBILITY_PURGE)
   Detect([EVILCUTOFF])
   OR(2)
@@ -2735,6 +2736,7 @@ END~~~~~ //"
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FindInvisible","GLOBAL",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5014)
     SpellRES(CLERIC_INVISIBILITY_PURGE,Myself)
@@ -2743,6 +2745,7 @@ END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_FindInvisible","GLOBAL")
   HaveSpellRES(CLERIC_INVISIBILITY_PURGE)
   See(NearestEnemyOf(Myself))
   OR(2)
@@ -2761,6 +2764,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FindInvisible","GLOBAL",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5014)
     SpellRES(CLERIC_INVISIBILITY_PURGE,Myself)
@@ -2769,6 +2773,7 @@ END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_FindInvisible","GLOBAL")
   HaveSpellRES(CLERIC_INVISIBILITY_PURGE)
   See(SecondNearestEnemyOf(Myself))
   OR(2)
@@ -2787,6 +2792,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FindInvisible","GLOBAL",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5014)
     SpellRES(CLERIC_INVISIBILITY_PURGE,Myself)
@@ -2795,6 +2801,7 @@ END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_FindInvisible","GLOBAL")
   HaveSpellRES(CLERIC_INVISIBILITY_PURGE)
   See(ThirdNearestEnemyOf(Myself))
   OR(2)
@@ -2813,6 +2820,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FindInvisible","GLOBAL",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5014)
     SpellRES(CLERIC_INVISIBILITY_PURGE,Myself)
@@ -2821,6 +2829,7 @@ END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_FindInvisible","GLOBAL")
   HaveSpellRES(CLERIC_INVISIBILITY_PURGE)
   See(FourthNearestEnemyOf(Myself))
   OR(2)
@@ -2839,6 +2848,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FindInvisible","GLOBAL",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5014)
     SpellRES(CLERIC_INVISIBILITY_PURGE,Myself)
@@ -2847,6 +2857,7 @@ END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_FindInvisible","GLOBAL")
   HaveSpellRES(CLERIC_INVISIBILITY_PURGE)
   See(FifthNearestEnemyOf(Myself))
   OR(2)
@@ -2865,6 +2876,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FindInvisible","GLOBAL",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5014)
     SpellRES(CLERIC_INVISIBILITY_PURGE,Myself)
@@ -2873,6 +2885,7 @@ END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_FindInvisible","GLOBAL")
   HaveSpellRES(CLERIC_INVISIBILITY_PURGE)
   See(SixthNearestEnemyOf(Myself))
   OR(2)
@@ -2891,6 +2904,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FindInvisible","GLOBAL",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5014)
     SpellRES(CLERIC_INVISIBILITY_PURGE,Myself)
@@ -2909,6 +2923,7 @@ END~~~~~ //"
     pattern = ~~~~~// 5e Spellcasting Wizard Detect Invisibility~~~~~
     string = ~~~~~IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_FindInvisible","GLOBAL")
   HaveSpellRES(WIZARD_DETECT_INVISIBILITY)
   Detect([EVILCUTOFF])
   OR(2)
@@ -2928,6 +2943,7 @@ END~~~~~ //"
 THEN // Detect Invisibility
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FindInvisible","GLOBAL",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5014)
     SpellRES(WIZARD_DETECT_INVISIBILITY,Myself)
@@ -2936,6 +2952,7 @@ END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_FindInvisible","GLOBAL")
   HaveSpellRES(WIZARD_DETECT_INVISIBILITY)
   See(NearestEnemyOf(Myself))
   OR(2)
@@ -2955,6 +2972,7 @@ IF
 THEN // Detect Invisibility
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FindInvisible","GLOBAL",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5014)
     SpellRES(WIZARD_DETECT_INVISIBILITY,Myself)
@@ -2963,6 +2981,7 @@ END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_FindInvisible","GLOBAL")
   HaveSpellRES(WIZARD_DETECT_INVISIBILITY)
   See(SecondNearestEnemyOf(Myself))
   OR(2)
@@ -2982,6 +3001,7 @@ IF
 THEN // Detect Invisibility
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FindInvisible","GLOBAL",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5014)
     SpellRES(WIZARD_DETECT_INVISIBILITY,Myself)
@@ -2990,6 +3010,7 @@ END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_FindInvisible","GLOBAL")
   HaveSpellRES(WIZARD_DETECT_INVISIBILITY)
   See(ThirdNearestEnemyOf(Myself))
   OR(2)
@@ -3009,6 +3030,7 @@ IF
 THEN // Detect Invisibility
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FindInvisible","GLOBAL",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5014)
     SpellRES(WIZARD_DETECT_INVISIBILITY,Myself)
@@ -3017,6 +3039,7 @@ END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_FindInvisible","GLOBAL")
   HaveSpellRES(WIZARD_DETECT_INVISIBILITY)
   See(FourthNearestEnemyOf(Myself))
   OR(2)
@@ -3036,6 +3059,7 @@ IF
 THEN // Detect Invisibility
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FindInvisible","GLOBAL",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5014)
     SpellRES(WIZARD_DETECT_INVISIBILITY,Myself)
@@ -3044,6 +3068,7 @@ END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_FindInvisible","GLOBAL")
   HaveSpellRES(WIZARD_DETECT_INVISIBILITY)
   See(FifthNearestEnemyOf(Myself))
   OR(2)
@@ -3063,6 +3088,7 @@ IF
 THEN // Detect Invisibility
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FindInvisible","GLOBAL",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5014)
     SpellRES(WIZARD_DETECT_INVISIBILITY,Myself)
@@ -3071,6 +3097,7 @@ END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_FindInvisible","GLOBAL")
   HaveSpellRES(WIZARD_DETECT_INVISIBILITY)
   See(SixthNearestEnemyOf(Myself))
   OR(2)
@@ -3090,6 +3117,7 @@ IF
 THEN // Detect Invisibility
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FindInvisible","GLOBAL",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5014)
     SpellRES(WIZARD_DETECT_INVISIBILITY,Myself)
@@ -4886,6 +4914,7 @@ END~~~~~ //"
     pattern = ~~~~~// 5e Spellcasting Wizard Detect Illusion~~~~~
     string = ~~~~~IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_FindIllusion","GLOBAL")
   HaveSpellRES(WIZARD_DETECT_ILLUSION)
   Detect([EVILCUTOFF])
   OR(3)
@@ -4904,6 +4933,7 @@ END~~~~~ //"
 THEN // Detect Illusion
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FindIllusion","GLOBAL",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5017)
     SpellRES(WIZARD_DETECT_ILLUSION,Myself)
@@ -4912,6 +4942,7 @@ END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_FindIllusion","GLOBAL")
   HaveSpellRES(WIZARD_DETECT_ILLUSION)
   See(NearestEnemyOf(Myself))
   OR(3)
@@ -4930,6 +4961,7 @@ IF
 THEN // Detect Illusion
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FindIllusion","GLOBAL",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5017)
     SpellRES(WIZARD_DETECT_ILLUSION,Myself)
@@ -4938,6 +4970,7 @@ END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_FindIllusion","GLOBAL")
   HaveSpellRES(WIZARD_DETECT_ILLUSION)
   See(SecondNearestEnemyOf(Myself))
   OR(3)
@@ -4956,6 +4989,7 @@ IF
 THEN // Detect Illusion
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FindIllusion","GLOBAL",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5017)
     SpellRES(WIZARD_DETECT_ILLUSION,Myself)
@@ -4964,6 +4998,7 @@ END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_FindIllusion","GLOBAL")
   HaveSpellRES(WIZARD_DETECT_ILLUSION)
   See(ThirdNearestEnemyOf(Myself))
   OR(3)
@@ -4982,6 +5017,7 @@ IF
 THEN // Detect Illusion
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FindIllusion","GLOBAL",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5017)
     SpellRES(WIZARD_DETECT_ILLUSION,Myself)
@@ -4990,6 +5026,7 @@ END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_FindIllusion","GLOBAL")
   HaveSpellRES(WIZARD_DETECT_ILLUSION)
   See(FourthNearestEnemyOf(Myself))
   OR(3)
@@ -5008,6 +5045,7 @@ IF
 THEN // Detect Illusion
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FindIllusion","GLOBAL",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5017)
     SpellRES(WIZARD_DETECT_ILLUSION,Myself)
@@ -5016,6 +5054,7 @@ END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_FindIllusion","GLOBAL")
   HaveSpellRES(WIZARD_DETECT_ILLUSION)
   See(FifthNearestEnemyOf(Myself))
   OR(3)
@@ -5034,6 +5073,7 @@ IF
 THEN // Detect Illusion
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FindIllusion","GLOBAL",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5017)
     SpellRES(WIZARD_DETECT_ILLUSION,Myself)
@@ -5042,6 +5082,7 @@ END
 
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_FindIllusion","GLOBAL")
   HaveSpellRES(WIZARD_DETECT_ILLUSION)
   See(SixthNearestEnemyOf(Myself))
   OR(3)
@@ -5060,6 +5101,7 @@ IF
 THEN // Detect Illusion
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FindIllusion","GLOBAL",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5017)
     SpellRES(WIZARD_DETECT_ILLUSION,Myself)
