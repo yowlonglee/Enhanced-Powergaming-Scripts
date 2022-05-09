@@ -155,6 +155,8 @@ THEN
     XEquipItem("WANINJA",Myself,SLOT_SHIELD,EQUIP)  // Ninjatō of the Scarlet Brotherhood +3
 END
 
+// MiH Mirror Amulet - Mirror Image
+
 IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
@@ -182,7 +184,7 @@ THEN
     UseItem("OHRRING1",Myself)  // Ring of Duplication
     IncrementGlobal("MO_UsedDuplication","GLOBAL",1)
 END~~~~~
-    string = ~~~~~~~~~~ //"
+    string = ~~~~~// MiH Mirror Amulet - Mirror Image~~~~~ //"
   END
 
   LPF REPLACE_MULTILINE
