@@ -781,6 +781,29 @@ END
 	END
 
 ///////////////////////////////////////////////////////////////////////////
+// Create Spell State for Removing Poisons                               //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~REMOVE_POISON~)) BEGIN
+	  COPY_EXISTING ~splstate.ids~ ~override~
+		COUNT_2DA_COLS cols
+		READ_2DA_ENTRIES_NOW rows cols
+		FOR (row = 1; row < rows; ++row) BEGIN
+		  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
+		  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
+		  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~REMOVE_POISON~) BEGIN
+			SET rmv_psn = %state_ind%
+		  END
+		END
+	  BUT_ONLY
+	END
+
+	ACTION_IF !(VARIABLE_IS_SET %rmv_psn%) BEGIN
+		LAF ds_sort_ids STR_VAR ids=splstate END
+		LAF d5_resolve_state STR_VAR new_state_id = ~REMOVE_POISON~ RET new_state_ind END
+		OUTER_SET rmv_psn = %new_state_ind%
+	END
+
+///////////////////////////////////////////////////////////////////////////
 // Grab Protection from Magical Weapons Spellstate                       //
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~PROTECTION_FROM_MAGICAL_WEAPONS~)) BEGIN
@@ -906,6 +929,36 @@ END
 	  	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 timing = 0 insert_point = 0 STR_VAR resource = "MOCPRT" END
 	END
 
+///////////////////////////////////////////////////////////////////////////
+// Add State to track when Removing Poisons                              //
+///////////////////////////////////////////////////////////////////////////
+	COPY ~enhanced-powergaming-scripts/spl/mopois.spl~ ~override~
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 2 special = 1 parameter2 = %rmv_psn% timing = 0 duration = 6 END
+
+	ACTION_FOR_EACH poison_spell IN
+			SPIN102 // Innate - Slow Poison
+			SPIN201 // Innate - Neutralize Poison
+			SPPR212 // Slow Poison
+			SPPR404 // Neutralize Poison
+			D5P1212 // FP - Slow Poison
+			D5P1404 // FP - Neutralize Poison
+		BEGIN
+			ACTION_IF FILE_EXISTS_IN_GAME ~%poison_spell%.SPL~ BEGIN
+				COPY_EXISTING ~%poison_spell%.SPL~ ~override~ 
+					LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 timing = 0 STR_VAR resource = "MOPOIS" END
+			END
+		END
+
+	ACTION_FOR_EACH poison_item IN
+			POTN17 // Elixir of Health
+			POTN20 // Antidote
+		BEGIN
+			ACTION_IF FILE_EXISTS_IN_GAME ~%poison_item%.ITM~ BEGIN
+				COPY_EXISTING ~%poison_item%.ITM~ ~override~ 
+					LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 timing = 0 STR_VAR resource = "MOPOIS" END
+			END
+		END
+		
 ///////////////////////////////////////////////////////////////////////////
 // Assign Protection from Magical Weapons Spellstate                     //
 ///////////////////////////////////////////////////////////////////////////

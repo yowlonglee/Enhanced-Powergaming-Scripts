@@ -31,6 +31,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    ApplySpellRES("MOPOIS",LastSeenBy(Myself))
     UseItem("POTN17",Myself)  // Elixir of Health
     DisplayStringHead(Myself,@5005)
 END
@@ -42,6 +43,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    ApplySpellRES("MOPOIS",LastSeenBy(Myself))
     UseItem("POTN20",Myself)  // Antidote
     DisplayStringHead(Myself,@5005)
 END
@@ -1838,6 +1840,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    ApplySpellRES("MOPOIS",LastSeenBy(Myself))
     DisplayStringHead(Myself,@5011)
     Spell(LastSeenBy(Myself),CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
     SetInterrupt(TRUE)
@@ -1866,6 +1869,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    ApplySpellRES("MOPOIS",LastSeenBy(Myself))
     DisplayStringHead(Myself,@5011)
     Spell(LastSeenBy(Myself),CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
     SetInterrupt(TRUE)
@@ -1894,6 +1898,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    ApplySpellRES("MOPOIS",LastSeenBy(Myself))
     DisplayStringHead(Myself,@5011)
     Spell(LastSeenBy(Myself),CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
     SetInterrupt(TRUE)
@@ -1922,6 +1927,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    ApplySpellRES("MOPOIS",LastSeenBy(Myself))
     DisplayStringHead(Myself,@5011)
     Spell(LastSeenBy(Myself),CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
     SetInterrupt(TRUE)
@@ -1950,6 +1956,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    ApplySpellRES("MOPOIS",LastSeenBy(Myself))
     DisplayStringHead(Myself,@5011)
     Spell(LastSeenBy(Myself),CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
     SetInterrupt(TRUE)
@@ -1978,6 +1985,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    ApplySpellRES("MOPOIS",LastSeenBy(Myself))
     DisplayStringHead(Myself,@5011)
     Spell(LastSeenBy(Myself),CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
     SetInterrupt(TRUE)
@@ -2006,6 +2014,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    ApplySpellRES("MOPOIS",LastSeenBy(Myself))
     DisplayStringHead(Myself,@5011)
     Spell(LastSeenBy(Myself),CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
     SetInterrupt(TRUE)
@@ -2030,6 +2039,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    ApplySpellRES("MOPOIS",LastSeenBy(Myself))
     DisplayStringHead(Myself,@5011)
     Spell(LastSeenBy(Myself),CLERIC_SLOW_POISON)  // SPPR212.SPL (Slow Poison)
     SetInterrupt(TRUE)
@@ -2054,6 +2064,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    ApplySpellRES("MOPOIS",LastSeenBy(Myself))
     DisplayStringHead(Myself,@5011)
     Spell(LastSeenBy(Myself),CLERIC_SLOW_POISON)  // SPPR212.SPL (Slow Poison)
     SetInterrupt(TRUE)
@@ -2078,6 +2089,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    ApplySpellRES("MOPOIS",LastSeenBy(Myself))
     DisplayStringHead(Myself,@5011)
     Spell(LastSeenBy(Myself),CLERIC_SLOW_POISON)  // SPPR212.SPL (Slow Poison)
     SetInterrupt(TRUE)
@@ -2102,6 +2114,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    ApplySpellRES("MOPOIS",LastSeenBy(Myself))
     DisplayStringHead(Myself,@5011)
     Spell(LastSeenBy(Myself),CLERIC_SLOW_POISON)  // SPPR212.SPL (Slow Poison)
     SetInterrupt(TRUE)
@@ -2126,6 +2139,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    ApplySpellRES("MOPOIS",LastSeenBy(Myself))
     DisplayStringHead(Myself,@5011)
     Spell(LastSeenBy(Myself),CLERIC_SLOW_POISON)  // SPPR212.SPL (Slow Poison)
     SetInterrupt(TRUE)
@@ -2150,6 +2164,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    ApplySpellRES("MOPOIS",LastSeenBy(Myself))
     DisplayStringHead(Myself,@5011)
     Spell(LastSeenBy(Myself),CLERIC_SLOW_POISON)  // SPPR212.SPL (Slow Poison)
     SetInterrupt(TRUE)
@@ -2174,6 +2189,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    ApplySpellRES("MOPOIS",LastSeenBy(Myself))
     DisplayStringHead(Myself,@5011)
     Spell(LastSeenBy(Myself),CLERIC_SLOW_POISON)  // SPPR212.SPL (Slow Poison)
     SetInterrupt(TRUE)
@@ -2197,6 +2213,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    ApplySpellRES("MOPOIS",LastSeenBy(Myself))
     DisplayStringHead(Myself,@5011)
     SpellRES("SPIN102",LastSeenBy(Myself))  // Cure Affliction
     SetInterrupt(TRUE)
@@ -2221,6 +2238,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    ApplySpellRES("MOPOIS",LastSeenBy(Myself))
     DisplayStringHead(Myself,@5011)
     SpellRES("SPIN102",LastSeenBy(Myself))  // Cure Affliction
     SetInterrupt(TRUE)
@@ -2245,6 +2263,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    ApplySpellRES("MOPOIS",LastSeenBy(Myself))
     DisplayStringHead(Myself,@5011)
     SpellRES("SPIN102",LastSeenBy(Myself))  // Cure Affliction
     SetInterrupt(TRUE)
@@ -2269,6 +2288,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    ApplySpellRES("MOPOIS",LastSeenBy(Myself))
     DisplayStringHead(Myself,@5011)
     SpellRES("SPIN102",LastSeenBy(Myself))  // Cure Affliction
     SetInterrupt(TRUE)
@@ -2293,6 +2313,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    ApplySpellRES("MOPOIS",LastSeenBy(Myself))
     DisplayStringHead(Myself,@5011)
     SpellRES("SPIN102",LastSeenBy(Myself))  // Cure Affliction
     SetInterrupt(TRUE)
@@ -2317,6 +2338,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    ApplySpellRES("MOPOIS",LastSeenBy(Myself))
     DisplayStringHead(Myself,@5011)
     SpellRES("SPIN102",LastSeenBy(Myself))  // Cure Affliction
     SetInterrupt(TRUE)
@@ -2341,6 +2363,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    ApplySpellRES("MOPOIS",LastSeenBy(Myself))
     DisplayStringHead(Myself,@5011)
     SpellRES("SPIN102",LastSeenBy(Myself))  // Cure Affliction
     SetInterrupt(TRUE)
