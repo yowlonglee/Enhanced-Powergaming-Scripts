@@ -52,6 +52,13 @@ ACTION_IF !VARIABLE_IS_SET ~initialise~ BEGIN
       OUTER_SET bard_thief=0
    END
 
+   // Detect Turn Undead Overhaul
+   ACTION_IF MOD_IS_INSTALLED ~skills-and-abilities.tp2~ ~120~ THEN BEGIN
+      OUTER_SET turn_undead=1
+   END ELSE BEGIN
+      OUTER_SET turn_undead=0
+   END
+
    // Detect Song and Silence
    ACTION_IF MOD_IS_INSTALLED ~setup-song_and_silence.tp2~ ~8~ BEGIN
       OUTER_SET song_and_silence=1

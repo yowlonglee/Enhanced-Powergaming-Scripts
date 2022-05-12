@@ -1,0 +1,33 @@
+COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+
+///////////////////////////////////////////////////////////////////////////
+// Remove Turn Undead                                                    //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~IF
+  Global("MO_TURNUNDEAD","LOCALS",0)
+  OR(2)
+    Class(Myself,CLERIC_ALL)
+    Class(Myself,PALADIN_ALL)
+  !Kit(Myself,INQUISITOR)
+  HotKey(hot_key_TurnUndead)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_TURNUNDEAD","LOCALS",1)
+    DisplayStringHead(Myself,@5000)
+END
+
+IF
+  Global("MO_TURNUNDEAD","LOCALS",1)
+  HotKey(hot_key_TurnUndead)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_TURNUNDEAD","LOCALS",0)
+    DisplayStringHead(Myself,@5001)
+END~~~~~
+    string = ~~~~~~~~~~ //"
+  END

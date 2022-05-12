@@ -167,12 +167,12 @@ THEN
 END
 
 IF
-	Global("MO_TURNUNDEAD","LOCALS",1)
-	HotKey(hot_key_TurnUndead)
+  Global("MO_TURNUNDEAD","LOCALS",1)
+  HotKey(hot_key_TurnUndead)
 THEN
-	RESPONSE #100
-		SetGlobal("MO_TURNUNDEAD","LOCALS",0)
-		DisplayStringHead(Myself,@5001)
+  RESPONSE #100
+    SetGlobal("MO_TURNUNDEAD","LOCALS",0)
+    DisplayStringHead(Myself,@5001)
 END
 
 IF
