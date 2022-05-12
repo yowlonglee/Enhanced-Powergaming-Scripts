@@ -7,6 +7,7 @@ May xx, 2022
 ### Changed 
 
 - All Games
+  - Added compatibility with the Turn Undead Overhaul component of my Skills and Abilities mod.
   - Added MiH Item Pack
   - Corrected bug with Simulacrum not assigning the correct script.
   - Will auto-equip a ranged weapon once Melf's Meteors runs out. If no ranged weapon available, it will equip the most damaging melee weapon instead.
