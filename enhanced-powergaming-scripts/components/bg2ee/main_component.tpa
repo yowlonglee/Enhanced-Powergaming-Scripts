@@ -124,6 +124,13 @@ ACTION_IF spell_revisions BEGIN
 	END
 
 ///////////////////////////////////////////////////////////////////////////
+// SR - Turn Undead Overhaul                                             //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF turn_undead BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/core_turn_undead.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
 // SR - DSotSC                                                           //
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF dsotsc_divine && !mih_divine && !iwdification BEGIN
@@ -398,6 +405,13 @@ END ELSE BEGIN
 	END
 
 ///////////////////////////////////////////////////////////////////////////
+// Turn Undead Overhaul                                                  //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF turn_undead BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/core_turn_undead.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
 // DSotSC                                                                //
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF dsotsc_divine && !mih_divine && !iwdification BEGIN
@@ -658,11 +672,11 @@ ACTION_IF dnc_swrd BEGIN
 END
 
 ///////////////////////////////////////////////////////////////////////////
-// Turn Undead Overhaul                                                  //
+// Turn Undead Overhaul - END                                            //
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF turn_undead BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/basic_turn_undead.tph~
-		INCLUDE ~enhanced-powergaming-scripts/lib/core_turn_undead.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/basic_turn_undead_end.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/core_turn_undead_end.tph~
 	END
 
 ///////////////////////////////////////////////////////////////////////////
