@@ -15,7 +15,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
   HaveSpellRES("MOTURN1")
   See([EVILCUTOFF])
   OR(3)
-    NumCreatureVsPartyGT([UNDEAD],3)
+    NumCreatureGT([EVILCUTOFF.UNDEAD],3)
     Range([EVILCUTOFF.0.LICH],12)
     Range([EVILCUTOFF.0.DEMILICH],12)
   OR(9)
