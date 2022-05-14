@@ -101,11 +101,11 @@ This is a script specifically designed for the Skald Kit. This script will cast 
 
 #### Default Hot Keys
 
-"B" = Begin pre-buffing and pressing again will cancel pre-buffing prematurely.
-"D" = Toggle constantly detecting traps on/off, if able.
-"E" = Swap between melee and ranged weapons so long as they can be equipped.
-"T" = Turn on/off Cowled Wizard checks. Typically, players will not cast arcane spells when Cowled Wizards will intervene, this will toggle it off.
-"V" = Constantly Turn Undead when toggled on, if able.
+- "B" = Begin pre-buffing and pressing again will cancel pre-buffing prematurely.
+- "D" = Toggle constantly detecting traps on/off, if able.
+- "E" = Swap between melee and ranged weapons so long as they can be equipped.
+- "T" = Turn on/off Cowled Wizard checks. Typically, players will not cast arcane spells when Cowled Wizards will intervene, this will toggle it off.
+- "V" = Constantly Turn Undead when toggled on, if able.
 
 ### Enhanced Scripts for Summoned Celestials (BGII: EE and EET Required)
 
