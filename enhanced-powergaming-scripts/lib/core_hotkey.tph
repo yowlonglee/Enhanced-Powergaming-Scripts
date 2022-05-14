@@ -63,3 +63,18 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     pattern = ~~~~~HotKey(hot_key_CowledCheck)~~~~~
     string = ~~~~~HotKey(%value_cowled%)~~~~~ //"
   END
+
+///////////////////////////////////////////////////////////////////////////
+// Update Hotkey Weapon Swap                                             //
+///////////////////////////////////////////////////////////////////////////
+  SPRINT value_wswap EVAL "%hot_key_CowledCheck%"
+
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    warn = 0
+    STR_VAR
+    pattern = ~~~~~HotKey(hot_key_WeaponSwap)~~~~~
+    string = ~~~~~HotKey(%value_wswap%)~~~~~ //"
+  END

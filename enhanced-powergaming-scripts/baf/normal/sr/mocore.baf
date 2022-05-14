@@ -9,6 +9,29 @@
 // * is pressed. If the character is able, the script will constantly be detecting traps.
 
 IF
+  HotKey(hot_key_WeaponSwap)
+  !HasItem("melfmet",Myself)  // Melf's Minute Meteor
+  !HasItemEquiped("BLAKBLAD",Myself)  // Black Blade of Disaster
+  !IsWeaponRanged(Myself)
+  CanEquipRanged()
+THEN
+  RESPONSE #100
+    EquipRanged()
+    DisplayStringHead(Myself,@5025)  
+END
+
+IF
+  HotKey(hot_key_WeaponSwap)
+  !HasItem("melfmet",Myself)  // Melf's Minute Meteor
+  !HasItemEquiped("BLAKBLAD",Myself)  // Black Blade of Disaster
+  IsWeaponRanged(Myself)
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    DisplayStringHead(Myself,@5025)
+END
+
+IF
 	!GlobalTimerNotExpired("MO_HealCast","GLOBAL")
 	Global("MO_CastingHeal","GLOBAL",1)
 THEN

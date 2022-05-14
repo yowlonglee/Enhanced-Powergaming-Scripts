@@ -1,5 +1,14 @@
 # Changelog
 
+## Version 7.3.1
+
+May 13, 2022
+
+### Changed 
+
+- All Games
+  - Characters can switch between melee and ranged weapons using Hotkey 'E'. This was suggested by user saufall in reddit. 
+
 ## Version 7.3
 
 May 12, 2022
