@@ -67,14 +67,6 @@ Below are the components for the install allowing you to pick and choose what ch
 
 This is the main component that will auto-detect your mod installations and provide scripts based on the installs listed above. These can dynamically create over 1.5 MILLION scripts depending on what spell/kit mods you have installed. You will have the option to select having either pre-buffing cast at a normal speed or an accelerated speed. Regardless of either option chosen, characters will stop pre-buffing if either the "B" key is pressed again or an enemy is sighted. 
 
-#### Default Hot Keys
-
-"B" = Begin pre-buffing and pressing again will cancel pre-buffing prematurely.
-"D" = Toggle constantly detecting traps on/off, if able.
-"E" = Swap between melee and ranged weapons so long as they can be equipped.
-"T" = Turn on/off Cowled Wizard checks. Typically, players will not cast arcane spells when Cowled Wizards will intervene, this will toggle it off.
-"V" = Constantly Turn Undead when toggled on, if able.
-
 #### Normal Pre-Buffing Speed
 
 It will take the normal casting time for a spell to be cast and there will be the standard delay between spells being cast. This is meant for the purists that do not want to bend the rules for expediency sake. For testing, it can take 2 1/2 minutes plus to cycle through all spells if you have all spells for pre-buffing in your spellbook.
@@ -106,6 +98,14 @@ This script is designed for all core classes: Fighter, Mage, Thief, Cleric, Drui
 ##### MO-SKALD
 
 This is a script specifically designed for the Skald Kit. This script will cast pre-buff spells when the "B" key is pressed. In addition to pre-buffing, the script will intelligently use abilities both in and out of combat. When not casting spells, the Skald will constantly be singing the Skald song. Additionally, between casting spells, the Skald will start singing again to attempt to keep the Skald song up constantly in combat. This script is written to use up to Level 9 Spells.
+
+#### Default Hot Keys
+
+"B" = Begin pre-buffing and pressing again will cancel pre-buffing prematurely.
+"D" = Toggle constantly detecting traps on/off, if able.
+"E" = Swap between melee and ranged weapons so long as they can be equipped.
+"T" = Turn on/off Cowled Wizard checks. Typically, players will not cast arcane spells when Cowled Wizards will intervene, this will toggle it off.
+"V" = Constantly Turn Undead when toggled on, if able.
 
 ### Enhanced Scripts for Summoned Celestials (BGII: EE and EET Required)
 
