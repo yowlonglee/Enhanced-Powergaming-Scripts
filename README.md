@@ -99,13 +99,6 @@ This script is designed for all core classes: Fighter, Mage, Thief, Cleric, Drui
 
 This is a script specifically designed for the Skald Kit. This script will cast pre-buff spells when the "B" key is pressed. In addition to pre-buffing, the script will intelligently use abilities both in and out of combat. When not casting spells, the Skald will constantly be singing the Skald song. Additionally, between casting spells, the Skald will start singing again to attempt to keep the Skald song up constantly in combat. This script is written to use up to Level 9 Spells.
 
-#### Default Hot Keys
-
-- "B" = Begin pre-buffing and pressing again will cancel pre-buffing prematurely.
-- "D" = Toggle constantly detecting traps on/off, if able.
-- "E" = Swap between melee and ranged weapons so long as they can be equipped.
-- "T" = Turn on/off Cowled Wizard checks. Typically, players will not cast arcane spells when Cowled Wizards will intervene, this will toggle it off.
-- "V" = Constantly Turn Undead when toggled on, if able.
 
 ### Enhanced Scripts for Summoned Celestials (BGII: EE and EET Required)
 
@@ -120,17 +113,12 @@ The ini file allows players to customize certain settings to their preference.
 
 ### Hotkeys
 
-Type in the hotkey you wish to map to the corresponding action. 
-
-- hot_key_Buffing toggles the key to begin and cancel pre-buffing.
-
-- hot_key_TurnUndead toggles on and off constantly turn undead.
-
-- hot_key_DetectIllusion toggles on and off constantly detecting illusions.
-
-- hot_key_CowledCheck toggles on and off to cast spells in Athkatla if they have not paid the bounty or finished fighting the Cowled Wizards. 
-
-- hot_key_WeaponSwap swaps the between melee and ranged weapons so long as either can be equipped.
+Type in the hotkey you wish to map to the corresponding action.
+- hot_key_Buffing - Default "B" - toggles the key to begin and cancel pre-buffing.
+- hot_key_TurnUndead  - Default "V" - toggles on and off constantly turn undead.
+- hot_key_DetectIllusion - Default "D" - toggles on and off constantly detecting illusions.
+- hot_key_CowledCheck - Default "T" - toggles on and off to cast spells in Athkatla if they have not paid the bounty or finished fighting the Cowled Wizards.
+- hot_key_WeaponSwap - Default "E" - swaps the between melee and ranged weapons so long as either can be equipped.
 
 ### Script Tweaks
 
