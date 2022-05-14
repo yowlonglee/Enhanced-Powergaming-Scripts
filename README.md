@@ -65,7 +65,15 @@ Below are the components for the install allowing you to pick and choose what ch
 
 ### Main Component
 
-This is the main component that will auto-detect your mod installations and provide scripts based on the installs listed above. These can dynamically create over 1.5 MILLION scripts depending on what spell/kit mods you have installed. You will have the option to select having either pre-buffing cast at a normal speed or an accelerated speed. Regardless of either option chosen, characters will stop pre-buffing if either the "B" key is pressed again or an enemy is sighted.
+This is the main component that will auto-detect your mod installations and provide scripts based on the installs listed above. These can dynamically create over 1.5 MILLION scripts depending on what spell/kit mods you have installed. You will have the option to select having either pre-buffing cast at a normal speed or an accelerated speed. Regardless of either option chosen, characters will stop pre-buffing if either the "B" key is pressed again or an enemy is sighted. 
+
+#### Default Hot Keys
+
+"B" = Begin pre-buffing and pressing again will cancel pre-buffing prematurely.
+"D" = Toggle constantly detecting traps on/off, if able.
+"E" = Swap between melee and ranged weapons so long as they can be equipped.
+"T" = Turn on/off Cowled Wizard checks. Typically, players will not cast arcane spells when Cowled Wizards will intervene, this will toggle it off.
+"V" = Constantly Turn Undead when toggled on, if able.
 
 #### Normal Pre-Buffing Speed
 
@@ -121,6 +129,8 @@ Type in the hotkey you wish to map to the corresponding action.
 - hot_key_DetectIllusion toggles on and off constantly detecting illusions.
 
 - hot_key_CowledCheck toggles on and off to cast spells in Athkatla if they have not paid the bounty or finished fighting the Cowled Wizards. 
+
+- hot_key_WeaponSwap swaps the between melee and ranged weapons so long as either can be equipped.
 
 ### Script Tweaks
 
