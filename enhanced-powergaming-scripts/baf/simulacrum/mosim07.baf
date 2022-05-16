@@ -515,7 +515,7 @@ IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_BLACK_BLADE_OF_DISASTER)
-  CheckSpellState(Myself,BLACK_BLADE)
+  !CheckSpellState(Myself,BLACK_BLADE)
   RandomNum(5,1)
   OR(6)
     See([PC.0.0.MAGE_ALL])

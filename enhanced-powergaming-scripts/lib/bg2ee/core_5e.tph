@@ -6409,7 +6409,7 @@ END~~~~~ //"
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_BLACK_BLADE_OF_DISASTER)
-  CheckSpellState(Myself,BLACK_BLADE)
+  !CheckSpellState(Myself,BLACK_BLADE)
   See([EVILCUTOFF])
   OR(33)
     Range([EVILCUTOFF.0.GOLEM],30)
