@@ -22,6 +22,8 @@ THEN
     DisplayStringHead(Myself,@5004)
 END
 
+// ini auto-healing
+
 IF
   ActionListEmpty()
   Global("MO_TURNUNDEAD","LOCALS",0)
@@ -51,6 +53,8 @@ THEN
   RESPONSE #100
     Turn()
 END
+
+// ini basic attack
 
 IF
   ActionListEmpty()
