@@ -7521,7 +7521,7 @@ IF
   ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_BLACK_BLADE_OF_DISASTER)
-  !HasItemEquiped("BLAKBLAD",Myself)
+  CheckSpellState(Myself,BLACK_BLADE)
   See([EVILCUTOFF])
   OR(33)
     Range([EVILCUTOFF.0.GOLEM],30)

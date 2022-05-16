@@ -11,7 +11,7 @@
 IF
   HotKey(hot_key_WeaponSwap)
   !HasItem("melfmet",Myself)  // Melf's Minute Meteor
-  !HasItemEquiped("BLAKBLAD",Myself)  // Black Blade of Disaster
+  CheckSpellState(Myself,BLACK_BLADE)  // Black Blade of Disaster
   !IsWeaponRanged(Myself)
   CanEquipRanged()
 THEN
@@ -23,7 +23,7 @@ END
 IF
   HotKey(hot_key_WeaponSwap)
   !HasItem("melfmet",Myself)  // Melf's Minute Meteor
-  !HasItemEquiped("BLAKBLAD",Myself)  // Black Blade of Disaster
+  CheckSpellState(Myself,BLACK_BLADE)  // Black Blade of Disaster
   IsWeaponRanged(Myself)
 THEN
   RESPONSE #100
@@ -3296,7 +3296,7 @@ END
 IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(WIZARD_BLACK_BLADE_OF_DISASTER)  // SPWI915.SPL (Black Blade of Disaster)
-  !HasItemEquiped("BLAKBLAD",Myself)  // Black Blade of Disaster
+  CheckSpellState(Myself,BLACK_BLADE)  // Black Blade of Disaster
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_POISONED)
