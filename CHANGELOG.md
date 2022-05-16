@@ -1,5 +1,14 @@
 # Changelog
 
+## Version 7.3.2
+
+June xx, 2022
+
+### Changed 
+
+- All Games
+  - TO-DO: Update remove curse to be cast out of combat and reduce overcasting.
+
 ## Version 7.3.1
 
 May 13, 2022
