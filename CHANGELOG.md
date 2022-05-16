@@ -7,7 +7,8 @@ June xx, 2022
 ### Changed 
 
 - All Games
-  - TO-DO: Update remove curse to be cast out of combat and reduce overcasting.
+  - Updated remove curse to be cast out of combat and reduce overcasting.
+  - Corrected bug with Black Blade of Disaster being continually cast.
 
 ## Version 7.3.1
 
