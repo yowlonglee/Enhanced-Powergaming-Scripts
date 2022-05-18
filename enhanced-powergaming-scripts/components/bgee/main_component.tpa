@@ -55,6 +55,13 @@ ACTION_IF spell_revisions BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/lib/bgee/sr_core_bgee.tph~
 
 ///////////////////////////////////////////////////////////////////////////
+// Update ini Presets - BasicAI Healing                                  //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF bsc_heal BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/ini/sr_healing.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
 // SR - 5e Spellcasting                                                  //
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF 5e_spellcasting BEGIN
@@ -127,6 +134,21 @@ ACTION_IF spell_revisions BEGIN
 				COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
 					REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_spell%~ ~RES(%spell_res%~
 			END
+
+		ACTION_IF bsc_heal BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/ini/bg2ee/sr_basic_5e_healing.tph~
+			
+			ACTION_FOR_EACH 5e_spell_bsk_heal IN
+					CLERIC_HEAL
+					CLERIC_CURE_SERIOUS_WOUNDS
+					CLERIC_CURE_MEDIUM_WOUNDS
+					CLERIC_CURE_MODERATE_WOUNDS
+					CLERIC_CURE_LIGHT_WOUNDS
+				BEGIN
+					LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_spell_bsk_heal%~ RET spell_res END
+					COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
+						REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_spell_bsk_heal%~ ~RES(%spell_res%~
+		END
 	END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -337,6 +359,13 @@ END ELSE BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/lib/bgee/core_bgee.tph~
 
 ///////////////////////////////////////////////////////////////////////////
+// Update ini Presets - BasicAI Healing                                  //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF bsc_heal BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/ini/healing.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
 // 5e Spellcasting                                                       //
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF 5e_spellcasting BEGIN
@@ -409,6 +438,21 @@ END ELSE BEGIN
 				COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
 					REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_spell%~ ~RES(%spell_res%~
 			END
+
+		ACTION_IF bsc_heal BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/ini/bg2ee/basic_5e_healing.tph~
+
+			ACTION_FOR_EACH 5e_spell_bsk_heal IN
+					CLERIC_HEAL
+					CLERIC_CURE_SERIOUS_WOUNDS
+					CLERIC_CURE_MEDIUM_WOUNDS
+					CLERIC_CURE_LIGHT_WOUNDS
+					CLERIC_REGENERATE
+				BEGIN
+					LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_spell_bsk_heal%~ RET spell_res END
+					COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
+						REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_spell_bsk_heal%~ ~RES(%spell_res%~
+		END
 	END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -539,6 +583,15 @@ END ELSE BEGIN
 				COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
 					REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_iwd%~ ~RES(%spell_res%~
 			END
+		END
+
+		ACTION_IF bsc_heal BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/ini/bg2ee/basic_iwd_healing.tph~
+			INCLUDE ~enhanced-powergaming-scripts/lib/ini/bg2ee/basic_iwd_5e_healing.tph~
+
+			LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~CLERIC_CURE_MODERATE_WOUNDS~ RET spell_res END
+			COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
+				REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(CLERIC_CURE_MODERATE_WOUNDS~ ~RES(%spell_res%~
 		END
 	END
 
