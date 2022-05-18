@@ -49,6 +49,13 @@ ACTION_IF spell_revisions BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/lib/sr_core_base.tph~
 
 ///////////////////////////////////////////////////////////////////////////
+// Update ini Presets - BasicAI Healing                                  //
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF bsc_heal BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/ini/sr_healing.tph~
+END
+
+///////////////////////////////////////////////////////////////////////////
 // SR - 5e Spellcasting                                                  //
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF 5e_spellcasting BEGIN
@@ -328,6 +335,13 @@ END ELSE BEGIN
 	COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
 	INCLUDE ~enhanced-powergaming-scripts/lib/basic_base.tph~
 	INCLUDE ~enhanced-powergaming-scripts/lib/core_base.tph~
+
+///////////////////////////////////////////////////////////////////////////
+// Update ini Presets - BasicAI Healing                                  //
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF bsc_heal BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/ini/healing.tph~
+END
 
 ///////////////////////////////////////////////////////////////////////////
 // 5e Spellcasting                                                       //
