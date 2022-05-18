@@ -1,0 +1,26 @@
+COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
+
+///////////////////////////////////////////////////////////////////////////
+// Remove Turn Undead                                                    //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~IF
+  ActionListEmpty()
+  Global("MO_TURNUNDEAD","LOCALS",1)
+  !CheckStat(Myself,1,SANCTUARY)
+  OR(2)
+    Class(Myself,CLERIC_ALL)
+    Class(Myself,PALADIN_ALL)
+  !Kit(Myself,INQUISITOR)
+  !ModalState(TURNUNDEAD)
+THEN
+  RESPONSE #100
+    Turn()
+END~~~~~
+    string = ~~~~~~~~~~ //"
+  END
+

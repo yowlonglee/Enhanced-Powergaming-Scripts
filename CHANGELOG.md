@@ -9,6 +9,11 @@ June xx, 2022
 - All Games
   - Updated remove curse to be cast out of combat and reduce overcasting.
   - Corrected bug with Black Blade of Disaster being continually cast.
+  - To-Do:
+    - Add healing to basicai
+    - Add Impervious Sanctity of Mind to prebuffing
+    - Add Spirit Armor to Prebuffing
+    - Target others with IH during prebuffing
 
 ## Version 7.3.1
 
