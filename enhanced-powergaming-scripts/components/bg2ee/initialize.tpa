@@ -1219,6 +1219,17 @@ END
 	  LPF CLONE_EFFECT INT_VAR match_opcode = 111 opcode = 328 parameter2 = %blk_bld% special = 1 END
 
 ///////////////////////////////////////////////////////////////////////////
+// Add Spell State to ALL Spells showing Casting Spell                   //
+///////////////////////////////////////////////////////////////////////////
+	  COPY_EXISTING_REGEXP GLOB ~^.+\.spl$~ ~override~
+	  	LPF ADD_SPELL_EFFECT INT_VAR opcode = 282 target = 1 timing = 0 parameter2 = %cst_spl% duration = 6 END
+/*
+ACTION_IF !(VARIABLE_IS_SET %cst_spl%) BEGIN
+		LAF ds_sort_ids STR_VAR ids=splstate END
+		LAF d5_resolve_state STR_VAR new_state_id = ~CASTING_SPELL~ RET new_state_ind END
+		OUTER_SET cst_spl = %new_state_ind%
+*/
+///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 // Create New Spell States for DSotSC Spells                             //
 ///////////////////////////////////////////////////////////////////////////
