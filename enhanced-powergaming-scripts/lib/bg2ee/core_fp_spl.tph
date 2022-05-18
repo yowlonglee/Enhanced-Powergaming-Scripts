@@ -851,7 +851,9 @@ END
     STR_VAR
     pattern = ~~~~~// FP Epic Divine Might~~~~~
     string = ~~~~~IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("B_PH11")
   See([EVILCUTOFF])
@@ -911,7 +913,9 @@ END
     STR_VAR
     pattern = ~~~~~// FP Divine Improved Haste~~~~~
     string = ~~~~~IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5P2613")
   !CheckStatGT(Myself,0,IMPROVEDHASTE)

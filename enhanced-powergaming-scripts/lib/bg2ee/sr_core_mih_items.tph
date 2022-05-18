@@ -10,7 +10,9 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     STR_VAR
     pattern = ~~~~~// MiH Mirror Amulet - Mirror Image~~~~~
     string = ~~~~~IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   GlobalLT("MO_UsedMirrorAmulet0","GLOBAL",2)

@@ -36,7 +36,9 @@ END~~~~~ //"
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting - IWD (Greater) Divine Protection~~~~~
     string = ~~~~~IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([EVILCUTOFF])
   HPPercentLT(Myself,51)
@@ -55,7 +57,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([EVILCUTOFF])
   HPPercentLT(Myself,51)

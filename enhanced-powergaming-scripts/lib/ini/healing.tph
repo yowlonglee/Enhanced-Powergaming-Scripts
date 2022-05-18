@@ -14,7 +14,9 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_CastingHeal","GLOBAL",1)
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   OR(2)
     !See([EVILCUTOFF])
     CheckStat(Myself,1,SANCTUARY)
@@ -51,7 +53,9 @@ END
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_CastingHeal","GLOBAL",1)
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   OR(2)
     !See([EVILCUTOFF])
     CheckStat(Myself,1,SANCTUARY)
@@ -90,7 +94,9 @@ END
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_CastingHeal","GLOBAL",1)
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   OR(2)
     !See([EVILCUTOFF])
     CheckStat(Myself,1,SANCTUARY)
@@ -134,7 +140,9 @@ END
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_CastingHeal","GLOBAL",1)
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   OR(2)
     !See([EVILCUTOFF])
     CheckStat(Myself,1,SANCTUARY)
@@ -172,7 +180,9 @@ END
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_CastingHeal","GLOBAL",1)
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   HaveSpellRES("SPIN101")  // Healing Touch
   OR(2)
     !See([EVILCUTOFF])
@@ -208,7 +218,9 @@ END
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_CastingHeal","GLOBAL",1)
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   HPPercentLT(Myself,61)
   HaveSpell(MONK_LAY_ON_HANDS)  // SPCL815.SPL (Lay On Hands)
 THEN
@@ -225,7 +237,9 @@ END
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_CastingHeal","GLOBAL",1)
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   OR(2)
     !See([EVILCUTOFF])
     CheckStat(Myself,1,SANCTUARY)
@@ -263,7 +277,9 @@ END
 // 5e Spellcasting Regeneration
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   OR(2)
     !See([EVILCUTOFF])
     CheckStat(Myself,1,SANCTUARY)

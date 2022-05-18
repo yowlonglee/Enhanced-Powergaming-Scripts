@@ -74,7 +74,9 @@ END~~~~~ //"
     pattern = ~~~~~// 5e Spellcasting Prebuff Stoneskin~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   CheckStatLT(Myself,1,STONESKINS)
   HaveSpellRES(WIZARD_STONE_SKIN)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -104,7 +106,9 @@ END
     pattern = ~~~~~// 5e Spellcasting Prebuff Ironskin~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   CheckStatLT(Myself,1,STONESKINS)
   HaveSpellRES(CLERIC_IRONSKIN)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)

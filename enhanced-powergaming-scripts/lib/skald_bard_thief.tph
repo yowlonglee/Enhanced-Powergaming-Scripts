@@ -13,7 +13,9 @@ COPY ~enhanced-powergaming-scripts/baf/upload/moskd.baf~ ~enhanced-powergaming-s
     pattern = ~~~~~IF
   Class(Myself,BARD_ALL)
   !ModalState(BATTLESONG)
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 THEN
   RESPONSE #100
     BattleSong()
@@ -22,14 +24,18 @@ END~~~~~
   Class(Myself,BARD_ALL)
   !ModalState(BATTLESONG)
   Global("MO_DETECTILLUSIONS","LOCALS",0)
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 THEN
   RESPONSE #100
     BattleSong()
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !See([EVILCUTOFF])
   Global("MO_DETECTILLUSIONS","LOCALS",1)
   !ModalState(DETECTTRAPS)

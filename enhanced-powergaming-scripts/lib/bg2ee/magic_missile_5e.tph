@@ -10,7 +10,9 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Magic Missile~~~~~
     string = ~~~~~IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   Global("MO_TURNUNDEAD","LOCALS",0)
   Global("MO_DETECTILLUSIONS","LOCALS",0)
   Global("MO_MyDetectEnemyIllusion","LOCALS",0)
@@ -34,7 +36,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   Global("MO_TURNUNDEAD","LOCALS",0)
   Global("MO_DETECTILLUSIONS","LOCALS",0)
   Global("MO_MyDetectEnemyIllusion","LOCALS",0)
@@ -58,7 +62,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   Global("MO_TURNUNDEAD","LOCALS",0)
   Global("MO_DETECTILLUSIONS","LOCALS",0)
   Global("MO_MyDetectEnemyIllusion","LOCALS",0)
@@ -82,7 +88,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   Global("MO_TURNUNDEAD","LOCALS",0)
   Global("MO_DETECTILLUSIONS","LOCALS",0)
   Global("MO_MyDetectEnemyIllusion","LOCALS",0)
@@ -106,7 +114,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   Global("MO_TURNUNDEAD","LOCALS",0)
   Global("MO_DETECTILLUSIONS","LOCALS",0)
   Global("MO_MyDetectEnemyIllusion","LOCALS",0)
@@ -130,7 +140,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   Global("MO_TURNUNDEAD","LOCALS",0)
   Global("MO_DETECTILLUSIONS","LOCALS",0)
   Global("MO_MyDetectEnemyIllusion","LOCALS",0)

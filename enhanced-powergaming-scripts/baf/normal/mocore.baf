@@ -240,7 +240,9 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   CheckStatLT(Myself,1,STONESKINS)
   HaveSpell(WIZARD_STONE_SKIN)  // SPWI408.SPL (Stoneskin)
   !CheckSpellState(Myself,GLOBE)
@@ -260,7 +262,9 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   CheckStatLT(Myself,1,STONESKINS)
   HaveSpell(CLERIC_IRONSKIN)  // SPPR506.SPL (Iron Skins)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -280,7 +284,9 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   HasItemEquiped("potn09",Myself)  // Potion of Heroism
   !CheckSpellState(Myself,BUFF_ENHANCEMENT)
 THEN
@@ -328,7 +334,9 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   HasItemEquiped("potn07",Myself)  // Potion of Storm Giant Strength
   CheckStatLT(Myself,24,STR)
 THEN
@@ -339,7 +347,9 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   HasItemEquiped("potn06",Myself)  // Potion of Cloud Giant Strength
   CheckStatLT(Myself,23,STR)
 THEN
@@ -350,7 +360,9 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   HasItemEquiped("potn05",Myself)  // Potion of Fire Giant Strength
   CheckStatLT(Myself,22,STR)
 THEN
@@ -361,7 +373,9 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   HasItemEquiped("potn04",Myself)  // Potion of Frost Giant Strength
   CheckStatLT(Myself,21,STR)
 THEN
@@ -372,7 +386,9 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   HasItemEquiped("potn12",Myself)  // Potion of Stone Giant Strength
   CheckStatLT(Myself,20,STR)
 THEN
@@ -383,7 +399,9 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   HasItemEquiped("potn03",Myself)  // Potion of Hill Giant Strength
   CheckStatLT(Myself,19,STR)
 THEN

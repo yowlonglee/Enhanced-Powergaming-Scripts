@@ -23,6 +23,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   OR(2)
     StateCheck(Myself,STATE_POISONED)
@@ -37,6 +40,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   StateCheck(Myself,STATE_POISONED)
   HasItemEquiped("POTN20",Myself)  // Antidote
@@ -51,6 +57,9 @@ END
 // 5e Spellcasting Vocalize
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(NearestEnemyOf(Myself))
   StateCheck(Myself,STATE_SILENCED)
@@ -73,6 +82,9 @@ END
 // 5e Spellcasting PfMW
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([EVILCUTOFF])
   HPPercentLT(Myself,51)
@@ -104,6 +116,9 @@ END
 // 5e Spellcasting Absolute Immunity
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([EVILCUTOFF])
   HPPercentLT(Myself,51)
@@ -135,6 +150,9 @@ END
 // 5e Spellcasting Improved Mantle
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([EVILCUTOFF])
   HPPercentLT(Myself,51)
@@ -162,6 +180,9 @@ END
 // 5e Spellcasting Mantle
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([EVILCUTOFF])
   HPPercentLT(Myself,51)
@@ -189,7 +210,9 @@ END
 // 5e Spellcasting Stoneskin
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([EVILCUTOFF])
   CheckStatLT(Myself,1,STONESKINS)
@@ -211,7 +234,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !See([EVILCUTOFF])
   Global("MO_WildStoneskin","LOCALS",0)
   CheckStatLT(Myself,1,STONESKINS)
@@ -231,7 +256,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   !See([EVILCUTOFF])
   Global("MO_WildStoneskin","LOCALS",1)
@@ -257,7 +284,9 @@ END
 // 5e Spellcasting Iron Skins
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   CheckStatLT(Myself,1,STONESKINS)
   HaveSpell(CLERIC_IRONSKIN)  // SPPR506.SPL (Iron Skins)
@@ -276,7 +305,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   CheckStatLT(Myself,1,STONESKINS)
   GlobalLT("MO_UsedGargoyle","GLOBAL",2)
@@ -315,7 +346,9 @@ END
 // IWD Mind Blank and Impervious Sanctity of Mind
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_UsedFortitude","GLOBAL",1)
   HasItem("BELT09",Myself)  // Girdle of Fortitude
@@ -339,7 +372,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([EVILCUTOFF])
   HPPercentLT(Myself,51)
@@ -353,7 +388,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([EVILCUTOFF])
   HPPercentLT(Myself,51)
@@ -367,7 +404,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([EVILCUTOFF])
   HPPercentLT(Myself,51)
@@ -5987,7 +6026,9 @@ END
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_CastingHeal","GLOBAL",1)
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   OR(2)
     !See([EVILCUTOFF])
     CheckStat(Myself,1,SANCTUARY)
@@ -6024,7 +6065,9 @@ END
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_CastingHeal","GLOBAL",1)
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   OR(2)
     !See([EVILCUTOFF])
     CheckStat(Myself,1,SANCTUARY)
@@ -6063,7 +6106,9 @@ END
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_CastingHeal","GLOBAL",1)
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   OR(2)
     !See([EVILCUTOFF])
     CheckStat(Myself,1,SANCTUARY)
@@ -6107,7 +6152,9 @@ END
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_CastingHeal","GLOBAL",1)
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   OR(2)
     !See([EVILCUTOFF])
     CheckStat(Myself,1,SANCTUARY)
@@ -6145,7 +6192,9 @@ END
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_CastingHeal","GLOBAL",1)
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   HaveSpellRES("SPIN101")  // Healing Touch
   OR(2)
     !See([EVILCUTOFF])
@@ -6181,7 +6230,9 @@ END
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_CastingHeal","GLOBAL",1)
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   HPPercentLT(Myself,61)
   HaveSpell(MONK_LAY_ON_HANDS)  // SPCL815.SPL (Lay On Hands)
 THEN
@@ -6198,7 +6249,9 @@ END
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_CastingHeal","GLOBAL",1)
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   OR(2)
     !See([EVILCUTOFF])
     CheckStat(Myself,1,SANCTUARY)
@@ -6236,7 +6289,9 @@ END
 // 5e Spellcasting Regeneration
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   OR(2)
     !See([EVILCUTOFF])
     CheckStat(Myself,1,SANCTUARY)
@@ -6266,7 +6321,9 @@ END
 // 5e Spellcasting Mirror Image
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_MIRROR_IMAGE)  // SPWI212.SPL (Mirror Image)
@@ -6302,7 +6359,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   HaveSpellRES("SPDM106")  // Mirror Image
@@ -6326,7 +6385,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   !StateCheck(Myself,STATE_BLUR)
   HaveSpellRES("SPDM102")  // Blur
@@ -6351,7 +6412,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   GlobalLT("MO_UsedIlbratha","GLOBAL",1)
@@ -6417,7 +6480,9 @@ END
 // MiH Mirror Amulet - Mirror Image
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   GlobalLT("MO_UsedDuplication","GLOBAL",3)
@@ -6447,7 +6512,9 @@ END
 // 5e Spellcasting Spell Shield
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   OR(17)
     Range([EVILCUTOFF.0.FAIRY],30)
@@ -6487,7 +6554,9 @@ END
 // 5e Spellcasting Spell Trap
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   OR(17)
     Range([EVILCUTOFF.0.FAIRY],30)
@@ -6527,7 +6596,9 @@ END
 // 5e Spellcasting Spell Deflection
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   OR(17)
     Range([EVILCUTOFF.0.FAIRY],30)
@@ -6567,7 +6638,9 @@ END
 // 5e Spellcasting Spell Turning
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   OR(17)
     Range([EVILCUTOFF.0.FAIRY],30)
@@ -6605,7 +6678,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   OR(17)
     Range([EVILCUTOFF.0.FAIRY],30)
@@ -6637,7 +6712,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   OR(17)
     Range([EVILCUTOFF.0.FAIRY],30)
@@ -6670,7 +6747,9 @@ END
 // 5e Spellcasting Globe of Invulnerability
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   OR(17)
     Range([EVILCUTOFF.0.FAIRY],30)
@@ -6711,7 +6790,9 @@ END
 // 5e Spellcasting Minor Spell Turning
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   OR(17)
     Range([EVILCUTOFF.0.FAIRY],30)
@@ -6752,7 +6833,9 @@ END
 // 5e Spellcasting Minor Spell Deflection
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   OR(17)
     Range([EVILCUTOFF.0.FAIRY],30)
@@ -6798,7 +6881,9 @@ END
 // 5e Spellcasting Minor Globe of Invulnerability
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   OR(17)
     Range([EVILCUTOFF.0.FAIRY],30)
@@ -6838,7 +6923,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_UsedBltMnrInv","GLOBAL",1)
   OR(17)
@@ -6879,7 +6966,9 @@ END
 // 5e Spellcasting Aura of Flaming Death
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(CLERIC_AURA_OF_FLAMING_DEATH)  // SPPR730.SPL (Aura of Flaming Death)
   See([EVILCUTOFF])
@@ -6932,7 +7021,9 @@ END
 // 5e Spellcasting Globe of Blades
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(CLERIC_GLOBE_OF_BLADES)  // SPPR725.SPL (Globe of Blades)
   See([EVILCUTOFF])
@@ -6984,7 +7075,9 @@ END
 // 5e Spellcasting Fire Shield (Red)
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_FIRE_SHIELD_RED)  // SPWI418.SPL (Fire Shield (Red))
   See([EVILCUTOFF])
@@ -7029,7 +7122,9 @@ END
 // 5e Spellcasting Fire Shield (Blue)
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_FIRE_SHIELD_BLUE)  // SPWI403.SPL (Fire Shield (Blue))
   See([EVILCUTOFF])
@@ -7074,7 +7169,9 @@ END
 // 5e Spellcasting Shield of the Archons
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   OR(17)
     Range([EVILCUTOFF.0.FAIRY],30)
@@ -7113,7 +7210,9 @@ END
 // 5e Spellcasting Protection From Normal Missiles
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_PROTECTION_FROM_NORMAL_MISSILES)  // SPWI311.SPL (Protection From Normal Missiles)
   OR(11)
@@ -7149,7 +7248,9 @@ END
 // 5e Spellcasting Physical Mirror
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(CLERIC_PHYSICAL_MIRROR)  // sppr525.spl (Physical Mirror)
   OR(11)
@@ -7182,7 +7283,9 @@ END
 // 5e Spellcasting Blade Barrier
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(CLERIC_BLADE_BARRIER)  // SPPR603.SPL (Blade Barrier)
   See([EVILCUTOFF])
@@ -7256,7 +7359,9 @@ END
 // 5e Spellcasting Draw Upon Holy Might
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(CLERIC_DRAW_UPON_HOLY_MIGHT)  // SPPR214.SPL (Draw Upon Holy Might)
   See([EVILCUTOFF])
@@ -7308,7 +7413,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("SPIN103")  // Divine Might
   !CheckSpellState(Myself,MINOR_GLOBE)
@@ -7358,7 +7465,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   OR(17)
     Range([EVILCUTOFF.0.FAIRY],30)
@@ -7400,7 +7509,9 @@ END
 // 5e Spellcasting Armor of Faith
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   !CheckSpellState(Myself,MINOR_GLOBE)
   !CheckSpellState(Myself,GLOBE)
@@ -7449,7 +7560,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("SPRA303")
   OR(11)
@@ -7485,7 +7598,9 @@ END
 // 5e Spellcasting Cleric Protection From Fire
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   !CheckSpellState(Myself,MINOR_GLOBE)
   !CheckSpellState(Myself,GLOBE)
@@ -7518,7 +7633,9 @@ END
 // 5e Spellcasting Black Blade of Disaster
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_BLACK_BLADE_OF_DISASTER)
   !CheckSpellState(Myself,BLACK_BLADE)
@@ -7564,7 +7681,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(BERSERKER_RAGE)  // SPCL321.SPL (Enrage)
   !CheckSpellState(Myself,BERSERKER_RAGE_FATIGUE)
@@ -7611,7 +7730,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(BARBARIAN_RAGE)  // SPCL152.SPL (Barbarian Rage)
   !CheckSpellState(Myself,BARBARIAN_RAGE)
@@ -7657,7 +7778,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(MONK_STUNNING_BLOW)  // SPCL811.SPL (Stunning Blow)
   See([EVILCUTOFF])
@@ -7712,7 +7835,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(MONK_QUIVERING_PALM)  // SPCL820.SPL (Quivering Palm)
   See([EVILCUTOFF])
@@ -7757,7 +7882,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("SPDM105")  // Frozen Fist
   See([EVILCUTOFF])
@@ -7809,7 +7936,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("SPCL237")  // Greater Sun
   See([EVILCUTOFF])
@@ -7861,7 +7990,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("SPCL238")  // Flaming Fists
   See([EVILCUTOFF])
@@ -7915,7 +8046,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_UsedDevout","GLOBAL",1)
   HasItemEquiped("OHRHELM1",Myself)  // Headband of the Devout
@@ -7976,7 +8109,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
   !CheckSpellState(Myself,HARDINESS)
@@ -8024,7 +8159,9 @@ END
 // 5e Spellcasting Improved Haste
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
   !CheckStatGT(Myself,0,IMPROVEDHASTE)
@@ -8104,7 +8241,9 @@ END
 // FP Divine Improved Haste
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_UsedCheetah","GLOBAL",1)
   HasItemEquiped("AMUL26",Myself)  // Amulet of Cheetah Speed
@@ -8173,7 +8312,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WARRIOR_GREATER_WHIRLWIND)  // SPCL901.SPL (Greater Whirlwind Attack)
   !CheckStatGT(Myself,0,IMPROVEDHASTE)
@@ -8235,7 +8376,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WARRIOR_CRITICAL_STRIKE)  // SPCL905.SPL (Critical Strike)
   !CheckSpellState(Myself,CRITICAL_STRIKE)
@@ -8296,7 +8439,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(KENSAI_KIA)  // SPCL144.SPL (Kai)
   !CheckSpellState(Myself,GREATER_WHIRLWIND)
@@ -8357,7 +8502,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(ARCHER_CALL_SHOT)  // SPCL121.SPL (Called Shot)
   !CheckSpellState(Myself,GREATER_WHIRLWIND)
@@ -8418,7 +8565,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   Global("MO_TURNUNDEAD","LOCALS",0)
   Global("MO_DETECTILLUSIONS","LOCALS",1)
   !ModalState(DETECTTRAPS)
@@ -8434,7 +8583,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   Global("MO_TURNUNDEAD","LOCALS",1)
   Global("MO_MyDetectEnemyIllusion","LOCALS",0)
   !CheckStat(Myself,1,SANCTUARY)
@@ -8449,7 +8600,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   Global("MO_DETECTILLUSIONS","LOCALS",0)
   Global("MO_MyDetectEnemyIllusion","LOCALS",0)
   Class(Myself,SHAMAN)
@@ -8463,7 +8616,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   Global("MO_TURNUNDEAD","LOCALS",0)
   Global("MO_DETECTILLUSIONS","LOCALS",0)
   Global("MO_MyDetectEnemyIllusion","LOCALS",0)
@@ -8488,7 +8643,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   Global("MO_TURNUNDEAD","LOCALS",0)
   Global("MO_DETECTILLUSIONS","LOCALS",0)
   Global("MO_MyDetectEnemyIllusion","LOCALS",0)
@@ -8513,7 +8670,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   Global("MO_TURNUNDEAD","LOCALS",0)
   Global("MO_DETECTILLUSIONS","LOCALS",0)
   Global("MO_MyDetectEnemyIllusion","LOCALS",0)
@@ -8538,7 +8697,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   Global("MO_TURNUNDEAD","LOCALS",0)
   Global("MO_DETECTILLUSIONS","LOCALS",0)
   Global("MO_MyDetectEnemyIllusion","LOCALS",0)
@@ -8563,7 +8724,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   Global("MO_TURNUNDEAD","LOCALS",0)
   Global("MO_DETECTILLUSIONS","LOCALS",0)
   Global("MO_MyDetectEnemyIllusion","LOCALS",0)
@@ -8588,7 +8751,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   Global("MO_TURNUNDEAD","LOCALS",0)
   Global("MO_DETECTILLUSIONS","LOCALS",0)
   Global("MO_MyDetectEnemyIllusion","LOCALS",0)
@@ -8613,7 +8778,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   Global("MO_TURNUNDEAD","LOCALS",0)
   Global("MO_DETECTILLUSIONS","LOCALS",0)
   Global("MO_MyDetectEnemyIllusion","LOCALS",0)
@@ -8633,7 +8800,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   Global("MO_TURNUNDEAD","LOCALS",0)
   Global("MO_DETECTILLUSIONS","LOCALS",0)
   Global("MO_MyDetectEnemyIllusion","LOCALS",0)
@@ -8653,7 +8822,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   Global("MO_TURNUNDEAD","LOCALS",0)
   Global("MO_DETECTILLUSIONS","LOCALS",0)
   Global("MO_MyDetectEnemyIllusion","LOCALS",0)
@@ -8673,7 +8844,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   Global("MO_TURNUNDEAD","LOCALS",0)
   Global("MO_DETECTILLUSIONS","LOCALS",0)
   Global("MO_MyDetectEnemyIllusion","LOCALS",0)
@@ -8693,7 +8866,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   Global("MO_TURNUNDEAD","LOCALS",0)
   Global("MO_DETECTILLUSIONS","LOCALS",0)
   Global("MO_MyDetectEnemyIllusion","LOCALS",0)
@@ -8713,7 +8888,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   Global("MO_TURNUNDEAD","LOCALS",0)
   Global("MO_DETECTILLUSIONS","LOCALS",0)
   Global("MO_MyDetectEnemyIllusion","LOCALS",0)
@@ -8735,7 +8912,9 @@ END
 // 5e Spellcasting Magic Missile
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   Global("MO_TURNUNDEAD","LOCALS",0)
   Global("MO_DETECTILLUSIONS","LOCALS",0)
   Global("MO_MyDetectEnemyIllusion","LOCALS",0)
@@ -8759,7 +8938,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   Global("MO_TURNUNDEAD","LOCALS",0)
   Global("MO_DETECTILLUSIONS","LOCALS",0)
   Global("MO_MyDetectEnemyIllusion","LOCALS",0)
@@ -8783,7 +8964,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   Global("MO_TURNUNDEAD","LOCALS",0)
   Global("MO_DETECTILLUSIONS","LOCALS",0)
   Global("MO_MyDetectEnemyIllusion","LOCALS",0)
@@ -8807,7 +8990,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   Global("MO_TURNUNDEAD","LOCALS",0)
   Global("MO_DETECTILLUSIONS","LOCALS",0)
   Global("MO_MyDetectEnemyIllusion","LOCALS",0)
@@ -8831,7 +9016,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   Global("MO_TURNUNDEAD","LOCALS",0)
   Global("MO_DETECTILLUSIONS","LOCALS",0)
   Global("MO_MyDetectEnemyIllusion","LOCALS",0)
@@ -8855,7 +9042,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   Global("MO_TURNUNDEAD","LOCALS",0)
   Global("MO_DETECTILLUSIONS","LOCALS",0)
   Global("MO_MyDetectEnemyIllusion","LOCALS",0)
@@ -8879,7 +9068,9 @@ THEN
 END
 
 IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !See([EVILCUTOFF])
   !ModalState(DETECTTRAPS)
   !ModalState(STEALTH)

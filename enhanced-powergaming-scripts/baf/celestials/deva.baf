@@ -24,7 +24,9 @@ THEN
 END
 
 IF
-	ActionListEmpty()
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	OR(6)
 		AttackedBy([GOODCUTOFF.0.0.0.0.SUMMONED],DEFAULT)
 		AttackedBy([PC],DEFAULT)
@@ -598,7 +600,9 @@ THEN
 END
 
 IF
-	ActionListEmpty()
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_GLOBE_OF_BLADES)  // SPPR725.SPL (Globe of Blades)
 	See([EVILCUTOFF])
@@ -646,7 +650,9 @@ THEN
 END
 
 IF
-	ActionListEmpty()
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(WIZARD_CHAOS)  // SPWI508.SPL (Chaos)
 	See([EVILCUTOFF])
@@ -683,7 +689,9 @@ THEN
 END
 
 IF
-	ActionListEmpty()
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	See(NearestEnemyOf(Myself))
 	OR(5)
 		Class(LastSeenBy(Myself),MAGE_ALL)
@@ -699,7 +707,9 @@ THEN
 END
 
 IF
-	ActionListEmpty()
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	See(SecondNearestEnemyOf(Myself))
 	OR(5)
 		Class(LastSeenBy(Myself),MAGE_ALL)
@@ -715,7 +725,9 @@ THEN
 END
 
 IF
-	ActionListEmpty()
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	See(ThirdNearestEnemyOf(Myself))
 	OR(5)
 		Class(LastSeenBy(Myself),MAGE_ALL)
@@ -731,7 +743,9 @@ THEN
 END
 
 IF
-	ActionListEmpty()
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	See(FourthNearestEnemyOf(Myself))
 	OR(5)
 		Class(LastSeenBy(Myself),MAGE_ALL)
@@ -747,7 +761,9 @@ THEN
 END
 
 IF
-	ActionListEmpty()
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	See(FifthNearestEnemyOf(Myself))
 	OR(5)
 		Class(LastSeenBy(Myself),MAGE_ALL)
@@ -763,7 +779,9 @@ THEN
 END
 
 IF
-	ActionListEmpty()
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	See(SixthNearestEnemyOf(Myself))
 	OR(5)
 		Class(LastSeenBy(Myself),MAGE_ALL)
@@ -779,7 +797,9 @@ THEN
 END
 
 IF
-	ActionListEmpty()
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	See(NearestEnemyOf(Myself))
 	WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
 	WeaponCanDamage(NearestEnemyOf(Myself),MAINHAND)
@@ -789,7 +809,9 @@ THEN
 END
 
 IF
-	ActionListEmpty()
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	See(SecondNearestEnemyOf(Myself))
 	WeaponEffectiveVs(SecondNearestEnemyOf(Myself),MAINHAND)
 	WeaponCanDamage(SecondNearestEnemyOf(Myself),MAINHAND)
@@ -799,7 +821,9 @@ THEN
 END
 
 IF
-	ActionListEmpty()
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	See(ThirdNearestEnemyOf(Myself))
 	WeaponEffectiveVs(ThirdNearestEnemyOf(Myself),MAINHAND)
 	WeaponCanDamage(ThirdNearestEnemyOf(Myself),MAINHAND)
@@ -809,7 +833,9 @@ THEN
 END
 
 IF
-	ActionListEmpty()
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	See(FourthNearestEnemyOf(Myself))
 	WeaponEffectiveVs(FourthNearestEnemyOf(Myself),MAINHAND)
 	WeaponCanDamage(FourthNearestEnemyOf(Myself),MAINHAND)
@@ -819,7 +845,9 @@ THEN
 END
 
 IF
-	ActionListEmpty()
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	See(FifthNearestEnemyOf(Myself))
 	WeaponEffectiveVs(FifthNearestEnemyOf(Myself),MAINHAND)
 	WeaponCanDamage(FifthNearestEnemyOf(Myself),MAINHAND)
@@ -829,7 +857,9 @@ THEN
 END
 
 IF
-	ActionListEmpty()
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	See(SixthNearestEnemyOf(Myself))
 	WeaponEffectiveVs(SixthNearestEnemyOf(Myself),MAINHAND)
 	WeaponCanDamage(SixthNearestEnemyOf(Myself),MAINHAND)

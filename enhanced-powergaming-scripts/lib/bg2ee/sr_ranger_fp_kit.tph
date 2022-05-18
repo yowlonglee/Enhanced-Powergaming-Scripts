@@ -259,7 +259,9 @@ END
     STR_VAR
     pattern = ~~~~~// FP Ranger Minor Spell Deflection~~~~~
     string = ~~~~~IF
-  ActionListEmpty()
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   OR(17)
     Range([EVILCUTOFF.0.FAIRY],30)
