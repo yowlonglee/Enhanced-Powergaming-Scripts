@@ -10,8 +10,8 @@ June xx, 2022
   - Updated remove curse to be cast out of combat and reduce overcasting.
   - Corrected bug with Black Blade of Disaster being continually cast.
   - Added healing as an ini option for the BasicAI scripts. Default of 0 is off.
+  - Added Impervious Sanctity of Mind and Mind Blank to prebuffing.
   - To-Do:
-    - Add Impervious Sanctity of Mind and Mind Blank to prebuffing
     - Add Spirit Armor to Prebuffing
     - Target others with IH during prebuffing
 
