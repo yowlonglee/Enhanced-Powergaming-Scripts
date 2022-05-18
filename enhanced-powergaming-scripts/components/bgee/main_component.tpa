@@ -148,6 +148,7 @@ ACTION_IF spell_revisions BEGIN
 					LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_spell_bsk_heal%~ RET spell_res END
 					COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
 						REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_spell_bsk_heal%~ ~RES(%spell_res%~
+				END
 		END
 	END
 
@@ -452,6 +453,7 @@ END ELSE BEGIN
 					LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_spell_bsk_heal%~ RET spell_res END
 					COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
 						REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_spell_bsk_heal%~ ~RES(%spell_res%~
+				END
 		END
 	END
 
