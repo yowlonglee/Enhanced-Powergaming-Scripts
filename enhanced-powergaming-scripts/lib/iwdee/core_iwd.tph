@@ -1456,6 +1456,7 @@ END~~~~~
   HaveSpellRES("SPIN102")  // Cure Affliction
   See(Myself)
   StateCheck(LastSeenBy(Myself),STATE_POISONED)
+  !CheckSpellState(LastSeenBy(Myself),REMOVE_POISON)
   OR(2)
     Range(LastSeenBy(Myself),6)
     !Range(NearestEnemyOf(Myself),30)
@@ -1483,6 +1484,7 @@ IF
   HaveSpellRES("SPIN102")  // Cure Affliction
   See([PC])
   StateCheck(LastSeenBy(Myself),STATE_POISONED)
+  !CheckSpellState(LastSeenBy(Myself),REMOVE_POISON)
   OR(2)
     Range(LastSeenBy(Myself),6)
     !Range(NearestEnemyOf(Myself),30)
@@ -1511,6 +1513,7 @@ IF
   HaveSpellRES("SPIN102")  // Cure Affliction
   See(SecondNearest([PC]))
   StateCheck(LastSeenBy(Myself),STATE_POISONED)
+  !CheckSpellState(LastSeenBy(Myself),REMOVE_POISON)
   OR(2)
     Range(LastSeenBy(Myself),6)
     !Range(NearestEnemyOf(Myself),30)
@@ -1539,6 +1542,7 @@ IF
   HaveSpellRES("SPIN102")  // Cure Affliction
   See(ThirdNearest([PC]))
   StateCheck(LastSeenBy(Myself),STATE_POISONED)
+  !CheckSpellState(LastSeenBy(Myself),REMOVE_POISON)
   OR(2)
     Range(LastSeenBy(Myself),6)
     !Range(NearestEnemyOf(Myself),30)
@@ -1567,6 +1571,7 @@ IF
   HaveSpellRES("SPIN102")  // Cure Affliction
   See(FourthNearest([PC]))
   StateCheck(LastSeenBy(Myself),STATE_POISONED)
+  !CheckSpellState(LastSeenBy(Myself),REMOVE_POISON)
   OR(2)
     Range(LastSeenBy(Myself),6)
     !Range(NearestEnemyOf(Myself),30)
@@ -1595,6 +1600,7 @@ IF
   HaveSpellRES("SPIN102")  // Cure Affliction
   See(FifthNearest([PC]))
   StateCheck(LastSeenBy(Myself),STATE_POISONED)
+  !CheckSpellState(LastSeenBy(Myself),REMOVE_POISON)
   OR(2)
     Range(LastSeenBy(Myself),6)
     !Range(NearestEnemyOf(Myself),30)
@@ -1623,6 +1629,7 @@ IF
   HaveSpellRES("SPIN102")  // Cure Affliction
   See(SixthNearest([PC]))
   StateCheck(LastSeenBy(Myself),STATE_POISONED)
+  !CheckSpellState(LastSeenBy(Myself),REMOVE_POISON)
   OR(2)
     Range(LastSeenBy(Myself),6)
     !Range(NearestEnemyOf(Myself),30)

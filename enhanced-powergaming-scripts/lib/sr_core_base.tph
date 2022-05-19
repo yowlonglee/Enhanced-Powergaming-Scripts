@@ -2950,6 +2950,7 @@ IF
   HaveSpellRES("SPIN102")  // Slow Poison
   See([PC])
   StateCheck(LastSeenBy(Myself),STATE_POISONED)
+  !CheckSpellState(LastSeenBy(Myself),REMOVE_POISON)
   OR(2)
     Range(LastSeenBy(Myself),6)
     !Range(NearestEnemyOf(Myself),30)
@@ -2966,6 +2967,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    ApplySpellRES("MOPOIS",LastSeenBy(Myself))
     DisplayStringHead(Myself,@5011)
     SpellRES("SPIN102",LastSeenBy(Myself))  // Slow Poison
     SetInterrupt(TRUE)
@@ -2979,6 +2981,7 @@ IF
   HaveSpellRES("SPIN102")  // Slow Poison
   See(Nearest([PC]))
   StateCheck(LastSeenBy(Myself),STATE_POISONED)
+  !CheckSpellState(LastSeenBy(Myself),REMOVE_POISON)
   OR(2)
     Range(LastSeenBy(Myself),6)
     !Range(NearestEnemyOf(Myself),30)
@@ -2994,6 +2997,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    ApplySpellRES("MOPOIS",LastSeenBy(Myself))
     DisplayStringHead(Myself,@5011)
     SpellRES("SPIN102",LastSeenBy(Myself))  // Slow Poison
     SetInterrupt(TRUE)
@@ -3007,6 +3011,7 @@ IF
   HaveSpellRES("SPIN102")  // Slow Poison
   See(SecondNearest([PC]))
   StateCheck(LastSeenBy(Myself),STATE_POISONED)
+  !CheckSpellState(LastSeenBy(Myself),REMOVE_POISON)
   OR(2)
     Range(LastSeenBy(Myself),6)
     !Range(NearestEnemyOf(Myself),30)
@@ -3022,6 +3027,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    ApplySpellRES("MOPOIS",LastSeenBy(Myself))
     DisplayStringHead(Myself,@5011)
     SpellRES("SPIN102",LastSeenBy(Myself))  // Slow Poison
     SetInterrupt(TRUE)
@@ -3035,6 +3041,7 @@ IF
   HaveSpellRES("SPIN102")  // Slow Poison
   See(ThirdNearest([PC]))
   StateCheck(LastSeenBy(Myself),STATE_POISONED)
+  !CheckSpellState(LastSeenBy(Myself),REMOVE_POISON)
   OR(2)
     Range(LastSeenBy(Myself),6)
     !Range(NearestEnemyOf(Myself),30)
@@ -3050,6 +3057,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    ApplySpellRES("MOPOIS",LastSeenBy(Myself))
     DisplayStringHead(Myself,@5011)
     SpellRES("SPIN102",LastSeenBy(Myself))  // Slow Poison
     SetInterrupt(TRUE)
@@ -3063,6 +3071,7 @@ IF
   HaveSpellRES("SPIN102")  // Slow Poison
   See(FourthNearest([PC]))
   StateCheck(LastSeenBy(Myself),STATE_POISONED)
+  !CheckSpellState(LastSeenBy(Myself),REMOVE_POISON)
   OR(2)
     Range(LastSeenBy(Myself),6)
     !Range(NearestEnemyOf(Myself),30)
@@ -3078,6 +3087,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    ApplySpellRES("MOPOIS",LastSeenBy(Myself))
     DisplayStringHead(Myself,@5011)
     SpellRES("SPIN102",LastSeenBy(Myself))  // Slow Poison
     SetInterrupt(TRUE)
@@ -3091,6 +3101,7 @@ IF
   HaveSpellRES("SPIN102")  // Slow Poison
   See(FifthNearest([PC]))
   StateCheck(LastSeenBy(Myself),STATE_POISONED)
+  !CheckSpellState(LastSeenBy(Myself),REMOVE_POISON)
   OR(2)
     Range(LastSeenBy(Myself),6)
     !Range(NearestEnemyOf(Myself),30)
@@ -3106,6 +3117,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    ApplySpellRES("MOPOIS",LastSeenBy(Myself))
     DisplayStringHead(Myself,@5011)
     SpellRES("SPIN102",LastSeenBy(Myself))  // Slow Poison
     SetInterrupt(TRUE)
@@ -3119,6 +3131,7 @@ IF
   HaveSpellRES("SPIN102")  // Slow Poison
   See(SixthNearest([PC]))
   StateCheck(LastSeenBy(Myself),STATE_POISONED)
+  !CheckSpellState(LastSeenBy(Myself),REMOVE_POISON)
   OR(2)
     Range(LastSeenBy(Myself),6)
     !Range(NearestEnemyOf(Myself),30)
@@ -3134,6 +3147,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    ApplySpellRES("MOPOIS",LastSeenBy(Myself))
     DisplayStringHead(Myself,@5011)
     SpellRES("SPIN102",LastSeenBy(Myself))  // Slow Poison
     SetInterrupt(TRUE)
