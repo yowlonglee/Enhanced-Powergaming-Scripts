@@ -10,6 +10,9 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting - IWD Impervious Sanctity of Mind~~~~~
     string = ~~~~~IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_IMPERVIOUS_SANCTITY_OF_MIND)
   !CheckSpellState(Myself,CHAOTIC_COMMANDS)

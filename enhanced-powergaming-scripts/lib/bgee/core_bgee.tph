@@ -482,6 +482,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_UsedClkOfStars","GLOBAL",1)
   HasItemEquiped("CLCK25",Myself)  // Cloak of the Stars
@@ -506,6 +509,9 @@ END~~~~~
     verbose = 0
     STR_VAR
     pattern = ~~~~~IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_UsedCowlOfStars","GLOBAL",3)
   HasItemEquiped("OHRCLCK1",Myself)  // Cowl of the Stars
@@ -751,10 +757,8 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     Spell(Myself,WARRIOR_GREATER_WHIRLWIND)  // SPCL901.SPL (Greater Whirlwind Attack)
-END
-
-IF~~~~~
-    string = ~~~~~IF~~~~~ //"
+END~~~~~
+    string = ~~~~~~~~~~ //"
   END
 
   LPF REPLACE_MULTILINE

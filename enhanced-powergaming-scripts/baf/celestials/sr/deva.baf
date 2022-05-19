@@ -41,9 +41,7 @@ THEN
 END
 
 IF
-	OR(2)
-    ActionListEmpty()
-    !CheckSpellState(Myself,CASTING_SPELL)
+  ActionListEmpty()
 	OR(6)
 		AttackedBy([GOODCUTOFF.0.0.0.0.SUMMONED],DEFAULT)
 		AttackedBy([PC],DEFAULT)
@@ -467,6 +465,9 @@ THEN
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_RAISE_DEAD)  // SPPR504.SPL (Raise Dead)
 	StateCheck(Player1,STATE_REALLY_DEAD)
@@ -488,6 +489,9 @@ THEN
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_RAISE_DEAD)  // SPPR504.SPL (Raise Dead)
 	StateCheck(Player2,STATE_REALLY_DEAD)
@@ -509,6 +513,9 @@ THEN
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_RAISE_DEAD)  // SPPR504.SPL (Raise Dead)
 	StateCheck(Player3,STATE_REALLY_DEAD)
@@ -530,6 +537,9 @@ THEN
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_RAISE_DEAD)  // SPPR504.SPL (Raise Dead)
 	StateCheck(Player4,STATE_REALLY_DEAD)
@@ -551,6 +561,9 @@ THEN
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_RAISE_DEAD)  // SPPR504.SPL (Raise Dead)
 	StateCheck(Player5,STATE_REALLY_DEAD)
@@ -572,6 +585,9 @@ THEN
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_RAISE_DEAD)  // SPPR504.SPL (Raise Dead)
 	StateCheck(Player6,STATE_REALLY_DEAD)
@@ -593,6 +609,9 @@ THEN
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_REMOVE_CURSE)  // SPPR307.SPL (Remove Curse)
 	See(Nearest([PC]))
@@ -618,6 +637,9 @@ THEN
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_REMOVE_CURSE)  // SPPR307.SPL (Remove Curse)
 	See(SecondNearest([PC]))
@@ -643,6 +665,9 @@ THEN
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_REMOVE_CURSE)  // SPPR307.SPL (Remove Curse)
 	See(ThirdNearest([PC]))
@@ -667,6 +692,9 @@ THEN
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_REMOVE_CURSE)  // SPPR307.SPL (Remove Curse)
 	See(FourthNearest([PC]))
@@ -691,6 +719,9 @@ THEN
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_REMOVE_CURSE)  // SPPR307.SPL (Remove Curse)
 	See(FifthNearest([PC]))
@@ -715,6 +746,9 @@ THEN
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_REMOVE_CURSE)  // SPPR307.SPL (Remove Curse)
 	See(SixthNearest([PC]))
@@ -739,6 +773,9 @@ THEN
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	See(Myself)
 	OR(8)
@@ -768,6 +805,9 @@ THEN
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	See(Nearest([PC]))
 	OR(8)
@@ -797,6 +837,9 @@ THEN
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	See(SecondNearest([PC]))
 	OR(8)
@@ -826,6 +869,9 @@ THEN
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	See(ThirdNearest([PC]))
 	OR(8)
@@ -855,6 +901,9 @@ THEN
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	See(FourthNearest([PC]))
 	OR(8)
@@ -884,6 +933,9 @@ THEN
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	See(FifthNearest([PC]))
 	OR(8)
@@ -913,6 +965,9 @@ THEN
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	See(SixthNearest([PC]))
 	OR(8)
@@ -942,6 +997,9 @@ THEN
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	StateCheck([PC],STATE_PANIC)
 	See([PC])
@@ -963,6 +1021,9 @@ THEN
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	StateCheck(SecondNearest([PC]),STATE_PANIC)
 	See(SecondNearest([PC]))
@@ -984,6 +1045,9 @@ THEN
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	StateCheck(ThirdNearest([PC]),STATE_PANIC)
 	See(ThirdNearest([PC]))
@@ -1005,6 +1069,9 @@ THEN
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	StateCheck(FourthNearest([PC]),STATE_PANIC)
 	See(FourthNearest([PC]))
@@ -1026,6 +1093,9 @@ THEN
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	StateCheck(FifthNearest([PC]),STATE_PANIC)
 	See(FifthNearest([PC]))
@@ -1047,6 +1117,9 @@ THEN
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	StateCheck(SixthNearest([PC]),STATE_PANIC)
 	See(SixthNearest([PC]))
@@ -1068,6 +1141,9 @@ THEN
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	See(Myself)
 	OR(5)
@@ -1095,6 +1171,9 @@ THEN
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	See([PC])
 	OR(5)
@@ -1122,6 +1201,9 @@ THEN
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	See(SecondNearest([PC]))
 	OR(5)
@@ -1149,6 +1231,9 @@ THEN
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	See(ThirdNearest([PC]))
 	OR(5)
@@ -1176,6 +1261,9 @@ THEN
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	See(FourthNearest([PC]))
 	OR(5)
@@ -1203,6 +1291,9 @@ THEN
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	See(FifthNearest([PC]))
 	OR(5)
@@ -1230,6 +1321,9 @@ THEN
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	See(SixthNearest([PC]))
 	OR(5)
@@ -1257,6 +1351,9 @@ THEN
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	See(Myself)
 	HaveSpell(CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
@@ -1273,11 +1370,15 @@ THEN
 	RESPONSE #100
 		SetGlobalTimer("MO_SpellCast","LOCALS",6)
 		SetInterrupt(FALSE)
+		ApplySpellRES("MOPOIS",LastSeenBy(Myself))
 		Spell(LastSeenBy(Myself),CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
 		SetInterrupt(TRUE)
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	See([PC])
 	HaveSpell(CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
@@ -1294,11 +1395,15 @@ THEN
 	RESPONSE #100
 		SetGlobalTimer("MO_SpellCast","LOCALS",6)
 		SetInterrupt(FALSE)
+		ApplySpellRES("MOPOIS",LastSeenBy(Myself))
 		Spell(LastSeenBy(Myself),CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
 		SetInterrupt(TRUE)
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	See(SecondNearest([PC]))
 	HaveSpell(CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
@@ -1315,11 +1420,15 @@ THEN
 	RESPONSE #100
 		SetGlobalTimer("MO_SpellCast","LOCALS",6)
 		SetInterrupt(FALSE)
+		ApplySpellRES("MOPOIS",LastSeenBy(Myself))
 		Spell(LastSeenBy(Myself),CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
 		SetInterrupt(TRUE)
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	See(ThirdNearest([PC]))
 	HaveSpell(CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
@@ -1336,11 +1445,15 @@ THEN
 	RESPONSE #100
 		SetGlobalTimer("MO_SpellCast","LOCALS",6)
 		SetInterrupt(FALSE)
+		ApplySpellRES("MOPOIS",LastSeenBy(Myself))
 		Spell(LastSeenBy(Myself),CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
 		SetInterrupt(TRUE)
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	See(FourthNearest([PC]))
 	HaveSpell(CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
@@ -1357,11 +1470,15 @@ THEN
 	RESPONSE #100
 		SetGlobalTimer("MO_SpellCast","LOCALS",6)
 		SetInterrupt(FALSE)
+		ApplySpellRES("MOPOIS",LastSeenBy(Myself))
 		Spell(LastSeenBy(Myself),CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
 		SetInterrupt(TRUE)
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	See(FifthNearest([PC]))
 	HaveSpell(CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
@@ -1378,11 +1495,15 @@ THEN
 	RESPONSE #100
 		SetGlobalTimer("MO_SpellCast","LOCALS",6)
 		SetInterrupt(FALSE)
+		ApplySpellRES("MOPOIS",LastSeenBy(Myself))
 		Spell(LastSeenBy(Myself),CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
 		SetInterrupt(TRUE)
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	See(SixthNearest([PC]))
 	HaveSpell(CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
@@ -1399,11 +1520,15 @@ THEN
 	RESPONSE #100
 		SetGlobalTimer("MO_SpellCast","LOCALS",6)
 		SetInterrupt(FALSE)
+		ApplySpellRES("MOPOIS",LastSeenBy(Myself))
 		Spell(LastSeenBy(Myself),CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
 		SetInterrupt(TRUE)
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_TRUE_SIGHT)  // SPPR505.SPL (True Seeing)
 	OR(6)
@@ -1432,6 +1557,9 @@ THEN
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_TRUE_SIGHT)  // SPPR505.SPL (True Seeing)
 	Detect([EVILCUTOFF])
@@ -1459,6 +1587,9 @@ THEN
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_TRUE_SIGHT)  // SPPR505.SPL (True Seeing)
 	See(NearestEnemyOf(Myself))
@@ -1486,6 +1617,9 @@ THEN
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_TRUE_SIGHT)  // SPPR505.SPL (True Seeing)
 	See(SecondNearestEnemyOf(Myself))
@@ -1513,6 +1647,9 @@ THEN
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_TRUE_SIGHT)  // SPPR505.SPL (True Seeing)
 	See(ThirdNearestEnemyOf(Myself))
@@ -1540,6 +1677,9 @@ THEN
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_TRUE_SIGHT)  // SPPR505.SPL (True Seeing)
 	See(FourthNearestEnemyOf(Myself))
@@ -1567,6 +1707,9 @@ THEN
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_TRUE_SIGHT)  // SPPR505.SPL (True Seeing)
 	See(FifthNearestEnemyOf(Myself))
@@ -1594,6 +1737,9 @@ THEN
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_TRUE_SIGHT)  // SPPR505.SPL (True Seeing)
 	See(SixthNearestEnemyOf(Myself))
@@ -1621,6 +1767,9 @@ THEN
 END
 
 IF
+	OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	GlobalLT("MO_CastingHeal","GLOBAL",1)
 	OR(2)
@@ -1715,9 +1864,7 @@ THEN
 END
 
 IF
-	OR(2)
-    ActionListEmpty()
-    !CheckSpellState(Myself,CASTING_SPELL)
+	ActionListEmpty()
 	See(NearestEnemyOf(Myself))
 	OR(5)
 		Class(LastSeenBy(Myself),MAGE_ALL)
@@ -1733,9 +1880,7 @@ THEN
 END
 
 IF
-	OR(2)
-    ActionListEmpty()
-    !CheckSpellState(Myself,CASTING_SPELL)
+	ActionListEmpty()
 	See(SecondNearestEnemyOf(Myself))
 	OR(5)
 		Class(LastSeenBy(Myself),MAGE_ALL)
@@ -1751,9 +1896,7 @@ THEN
 END
 
 IF
-	OR(2)
-    ActionListEmpty()
-    !CheckSpellState(Myself,CASTING_SPELL)
+	ActionListEmpty()
 	See(ThirdNearestEnemyOf(Myself))
 	OR(5)
 		Class(LastSeenBy(Myself),MAGE_ALL)
@@ -1769,9 +1912,7 @@ THEN
 END
 
 IF
-	OR(2)
-    ActionListEmpty()
-    !CheckSpellState(Myself,CASTING_SPELL)
+	ActionListEmpty()
 	See(FourthNearestEnemyOf(Myself))
 	OR(5)
 		Class(LastSeenBy(Myself),MAGE_ALL)
@@ -1787,9 +1928,7 @@ THEN
 END
 
 IF
-	OR(2)
-    ActionListEmpty()
-    !CheckSpellState(Myself,CASTING_SPELL)
+	ActionListEmpty()
 	See(FifthNearestEnemyOf(Myself))
 	OR(5)
 		Class(LastSeenBy(Myself),MAGE_ALL)
@@ -1805,9 +1944,7 @@ THEN
 END
 
 IF
-	OR(2)
-    ActionListEmpty()
-    !CheckSpellState(Myself,CASTING_SPELL)
+	ActionListEmpty()
 	See(SixthNearestEnemyOf(Myself))
 	OR(5)
 		Class(LastSeenBy(Myself),MAGE_ALL)
@@ -1823,9 +1960,7 @@ THEN
 END
 
 IF
-	OR(2)
-    ActionListEmpty()
-    !CheckSpellState(Myself,CASTING_SPELL)
+	ActionListEmpty()
 	See(NearestEnemyOf(Myself))
 	WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
 	WeaponCanDamage(NearestEnemyOf(Myself),MAINHAND)
@@ -1835,9 +1970,7 @@ THEN
 END
 
 IF
-	OR(2)
-    ActionListEmpty()
-    !CheckSpellState(Myself,CASTING_SPELL)
+	ActionListEmpty()
 	See(SecondNearestEnemyOf(Myself))
 	WeaponEffectiveVs(SecondNearestEnemyOf(Myself),MAINHAND)
 	WeaponCanDamage(SecondNearestEnemyOf(Myself),MAINHAND)
@@ -1847,9 +1980,7 @@ THEN
 END
 
 IF
-	OR(2)
-    ActionListEmpty()
-    !CheckSpellState(Myself,CASTING_SPELL)
+	ActionListEmpty()
 	See(ThirdNearestEnemyOf(Myself))
 	WeaponEffectiveVs(ThirdNearestEnemyOf(Myself),MAINHAND)
 	WeaponCanDamage(ThirdNearestEnemyOf(Myself),MAINHAND)
@@ -1859,9 +1990,7 @@ THEN
 END
 
 IF
-	OR(2)
-    ActionListEmpty()
-    !CheckSpellState(Myself,CASTING_SPELL)
+	ActionListEmpty()
 	See(FourthNearestEnemyOf(Myself))
 	WeaponEffectiveVs(FourthNearestEnemyOf(Myself),MAINHAND)
 	WeaponCanDamage(FourthNearestEnemyOf(Myself),MAINHAND)
@@ -1871,9 +2000,7 @@ THEN
 END
 
 IF
-	OR(2)
-    ActionListEmpty()
-    !CheckSpellState(Myself,CASTING_SPELL)
+	ActionListEmpty()
 	See(FifthNearestEnemyOf(Myself))
 	WeaponEffectiveVs(FifthNearestEnemyOf(Myself),MAINHAND)
 	WeaponCanDamage(FifthNearestEnemyOf(Myself),MAINHAND)
@@ -1883,9 +2010,7 @@ THEN
 END
 
 IF
-	OR(2)
-    ActionListEmpty()
-    !CheckSpellState(Myself,CASTING_SPELL)
+	ActionListEmpty()
 	See(SixthNearestEnemyOf(Myself))
 	WeaponEffectiveVs(SixthNearestEnemyOf(Myself),MAINHAND)
 	WeaponCanDamage(SixthNearestEnemyOf(Myself),MAINHAND)

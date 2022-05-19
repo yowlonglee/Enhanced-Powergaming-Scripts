@@ -311,6 +311,9 @@ END
     STR_VAR
     pattern = ~~~~~// MiH Cleric Repel Insects~~~~~
     string = ~~~~~IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(Myself)
   HaveSpell(CLERIC_REPEL_INSECTS)
@@ -331,6 +334,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([PC])
   HaveSpell(CLERIC_REPEL_INSECTS)
@@ -356,6 +362,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SecondNearest([PC]))
   HaveSpell(CLERIC_REPEL_INSECTS)
@@ -381,6 +390,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(ThirdNearest([PC]))
   HaveSpell(CLERIC_REPEL_INSECTS)
@@ -406,6 +418,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FourthNearest([PC]))
   HaveSpell(CLERIC_REPEL_INSECTS)
@@ -431,6 +446,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FifthNearest([PC]))
   HaveSpell(CLERIC_REPEL_INSECTS)
@@ -456,6 +474,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SixthNearest([PC]))
   HaveSpell(CLERIC_REPEL_INSECTS)
@@ -492,6 +513,9 @@ END
     STR_VAR
     pattern = ~~~~~// MiH Cleric Break Enchantment~~~~~
     string = ~~~~~IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(Myself)
   HaveSpell(CLERIC_BREAK_ENCHANTMENT)
@@ -522,6 +546,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([PC])
   HaveSpell(CLERIC_BREAK_ENCHANTMENT)
@@ -556,6 +583,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SecondNearest([PC]))
   HaveSpell(CLERIC_BREAK_ENCHANTMENT)
@@ -590,6 +620,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(ThirdNearest([PC]))
   HaveSpell(CLERIC_BREAK_ENCHANTMENT)
@@ -624,6 +657,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FourthNearest([PC]))
   HaveSpell(CLERIC_BREAK_ENCHANTMENT)
@@ -658,6 +694,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FifthNearest([PC]))
   HaveSpell(CLERIC_BREAK_ENCHANTMENT)
@@ -692,6 +731,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SixthNearest([PC]))
   HaveSpell(CLERIC_BREAK_ENCHANTMENT)

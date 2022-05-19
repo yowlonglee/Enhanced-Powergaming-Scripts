@@ -10,6 +10,9 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Vocalize~~~~~
     string = ~~~~~IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(NearestEnemyOf(Myself))
   StateCheck(Myself,STATE_SILENCED)
@@ -40,6 +43,9 @@ END~~~~~ //"
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Wizard Absolute Immunity~~~~~
     string = ~~~~~IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([EVILCUTOFF])
   HPPercentLT(Myself,51)
@@ -75,6 +81,9 @@ END~~~~~ //"
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Protection from Magical Weapons~~~~~
     string = ~~~~~IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([EVILCUTOFF])
   HPPercentLT(Myself,51)
@@ -110,6 +119,9 @@ END~~~~~ //"
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Moment of Prescience~~~~~
     string = ~~~~~IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([EVILCUTOFF])
   HPPercentLT(Myself,51)
@@ -144,6 +156,9 @@ END~~~~~ //"
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Prismatic Mantle~~~~~
     string = ~~~~~IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([EVILCUTOFF])
   HPPercentLT(Myself,51)
@@ -382,6 +397,9 @@ END~~~~~ //"
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Cleric Sanctuary~~~~~
     string = ~~~~~IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(NearestEnemyOf(Myself))
   HaveSpellRES(CLERIC_SANCTUARY)
@@ -415,6 +433,9 @@ END~~~~~ //"
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Mass Raise Dead~~~~~
     string = ~~~~~IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_MASS_RAISE_DEAD)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -474,6 +495,9 @@ END~~~~~ //"
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Resurrection~~~~~
     string = ~~~~~IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_RESURRECTION)
   StateCheck(Player1,STATE_REALLY_DEAD)
@@ -496,6 +520,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_RESURRECTION)
   StateCheck(Player2,STATE_REALLY_DEAD)
@@ -518,6 +545,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_RESURRECTION)
   StateCheck(Player3,STATE_REALLY_DEAD)
@@ -540,6 +570,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_RESURRECTION)
   StateCheck(Player4,STATE_REALLY_DEAD)
@@ -562,6 +595,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_RESURRECTION)
   StateCheck(Player5,STATE_REALLY_DEAD)
@@ -584,6 +620,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_RESURRECTION)
   StateCheck(Player6,STATE_REALLY_DEAD)
@@ -616,6 +655,9 @@ END~~~~~ //"
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Raise Dead~~~~~
     string = ~~~~~IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_RAISE_DEAD)
   StateCheck(Player1,STATE_REALLY_DEAD)
@@ -638,6 +680,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_RAISE_DEAD)
   StateCheck(Player2,STATE_REALLY_DEAD)
@@ -660,6 +705,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_RAISE_DEAD)
   StateCheck(Player3,STATE_REALLY_DEAD)
@@ -682,6 +730,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_RAISE_DEAD)
   StateCheck(Player4,STATE_REALLY_DEAD)
@@ -704,6 +755,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_RAISE_DEAD)
   StateCheck(Player5,STATE_REALLY_DEAD)
@@ -726,6 +780,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_RAISE_DEAD)
   StateCheck(Player6,STATE_REALLY_DEAD)
@@ -758,6 +815,9 @@ END~~~~~ //"
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Cleric Break Enchantment~~~~~
     string = ~~~~~IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_BREAK_ENCHANTMENT)
   See(Nearest([PC]))
@@ -788,6 +848,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_BREAK_ENCHANTMENT)
   See(SecondNearest([PC]))
@@ -818,6 +881,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_BREAK_ENCHANTMENT)
   See(ThirdNearest([PC]))
@@ -848,6 +914,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_BREAK_ENCHANTMENT)
   See(FourthNearest([PC]))
@@ -878,6 +947,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_BREAK_ENCHANTMENT)
   See(FifthNearest([PC]))
@@ -908,6 +980,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_BREAK_ENCHANTMENT)
   See(SixthNearest([PC]))
@@ -948,6 +1023,9 @@ END~~~~~ //"
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Wizard Break Enchantment~~~~~
     string = ~~~~~IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_BREAK_ENCHANTMENT)
   See(Nearest([PC]))
@@ -980,6 +1058,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_BREAK_ENCHANTMENT)
   See(SecondNearest([PC]))
@@ -1012,6 +1093,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_BREAK_ENCHANTMENT)
   See(ThirdNearest([PC]))
@@ -1044,6 +1128,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_BREAK_ENCHANTMENT)
   See(FourthNearest([PC]))
@@ -1076,6 +1163,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_BREAK_ENCHANTMENT)
   See(FifthNearest([PC]))
@@ -1108,6 +1198,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_BREAK_ENCHANTMENT)
   See(SixthNearest([PC]))
@@ -1150,6 +1243,9 @@ END~~~~~ //"
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Greater Restoration~~~~~
     string = ~~~~~IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(Myself)
   OR(8)
@@ -1179,6 +1275,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(Nearest([PC]))
   OR(8)
@@ -1210,6 +1309,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SecondNearest([PC]))
   OR(8)
@@ -1241,6 +1343,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(ThirdNearest([PC]))
   OR(8)
@@ -1272,6 +1377,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FourthNearest([PC]))
   OR(8)
@@ -1303,6 +1411,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FifthNearest([PC]))
   OR(8)
@@ -1334,6 +1445,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SixthNearest([PC]))
   OR(8)
@@ -1375,6 +1489,9 @@ END~~~~~ //"
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Lesser Restoration~~~~~
     string = ~~~~~IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(Myself)
   CheckStatGT(LastSeenBy(Myself),0,LEVELDRAIN)
@@ -1397,6 +1514,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(Nearest([PC]))
   CheckStatGT(LastSeenBy(Myself),0,LEVELDRAIN)
@@ -1421,6 +1541,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SecondNearest([PC]))
   CheckStatGT(LastSeenBy(Myself),0,LEVELDRAIN)
@@ -1445,6 +1568,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(ThirdNearest([PC]))
   CheckStatGT(LastSeenBy(Myself),0,LEVELDRAIN)
@@ -1469,6 +1595,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FourthNearest([PC]))
   CheckStatGT(LastSeenBy(Myself),0,LEVELDRAIN)
@@ -1493,6 +1622,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FifthNearest([PC]))
   CheckStatGT(LastSeenBy(Myself),0,LEVELDRAIN)
@@ -1517,6 +1649,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SixthNearest([PC]))
   CheckStatGT(LastSeenBy(Myself),0,LEVELDRAIN)
@@ -1551,6 +1686,9 @@ END~~~~~ //"
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Cleric Remove Paralysis~~~~~
     string = ~~~~~IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([PC])
   OR(2)
@@ -1582,6 +1720,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SecondNearest([PC]))
   OR(2)
@@ -1613,6 +1754,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(ThirdNearest([PC]))
   OR(2)
@@ -1644,6 +1788,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FourthNearest([PC]))
   OR(2)
@@ -1675,6 +1822,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_REMOVE_PARALYSIS)
   OR(2)
@@ -1706,6 +1856,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_REMOVE_PARALYSIS)
   OR(2)
@@ -1747,6 +1900,9 @@ END~~~~~ //"
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Chaotic Commands~~~~~
     string = ~~~~~IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([PC])
   OR(6)
@@ -1783,6 +1939,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SecondNearest([PC]))
   OR(6)
@@ -1819,6 +1978,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(ThirdNearest([PC]))
   OR(6)
@@ -1855,6 +2017,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FourthNearest([PC]))
   OR(6)
@@ -1891,6 +2056,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FifthNearest([PC]))
   OR(6)
@@ -1927,6 +2095,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SixthNearest([PC]))
   OR(6)
@@ -1973,6 +2144,9 @@ END~~~~~ //"
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Cure Disease~~~~~
     string = ~~~~~IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(Myself)
   HaveSpellRES(CLERIC_CURE_DISEASE)
@@ -2002,6 +2176,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([PC])
   HaveSpellRES(CLERIC_CURE_DISEASE)
@@ -2034,6 +2211,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SecondNearest([PC]))
   HaveSpellRES(CLERIC_CURE_DISEASE)
@@ -2066,6 +2246,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(ThirdNearest([PC]))
   HaveSpellRES(CLERIC_CURE_DISEASE)
@@ -2098,6 +2281,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FourthNearest([PC]))
   HaveSpellRES(CLERIC_CURE_DISEASE)
@@ -2130,6 +2316,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FifthNearest([PC]))
   HaveSpellRES(CLERIC_CURE_DISEASE)
@@ -2162,6 +2351,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SixthNearest([PC]))
   HaveSpellRES(CLERIC_CURE_DISEASE)
@@ -2204,6 +2396,9 @@ END~~~~~ //"
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Neutralize Poison~~~~~
     string = ~~~~~IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(Myself)
   HaveSpellRES(CLERIC_NEUTRALIZE_POISON)
@@ -2226,6 +2421,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([PC])
   HaveSpellRES(CLERIC_NEUTRALIZE_POISON)
@@ -2251,6 +2449,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SecondNearest([PC]))
   HaveSpellRES(CLERIC_NEUTRALIZE_POISON)
@@ -2276,6 +2477,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(ThirdNearest([PC]))
   HaveSpellRES(CLERIC_NEUTRALIZE_POISON)
@@ -2301,6 +2505,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FourthNearest([PC]))
   HaveSpellRES(CLERIC_NEUTRALIZE_POISON)
@@ -2326,6 +2533,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FifthNearest([PC]))
   HaveSpellRES(CLERIC_NEUTRALIZE_POISON)
@@ -2351,6 +2561,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SixthNearest([PC]))
   HaveSpellRES(CLERIC_NEUTRALIZE_POISON)
@@ -2386,6 +2599,9 @@ END~~~~~ //"
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Slow Poison~~~~~
     string = ~~~~~IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_SLOW_POISON)
   See(Myself)
@@ -2408,6 +2624,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_SLOW_POISON)
   See([PC])
@@ -2435,6 +2654,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_SLOW_POISON)
   See(SecondNearest([PC]))
@@ -2462,6 +2684,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_SLOW_POISON)
   See(ThirdNearest([PC]))
@@ -2489,6 +2714,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_SLOW_POISON)
   See(FourthNearest([PC]))
@@ -2516,6 +2744,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_SLOW_POISON)
   See(FifthNearest([PC]))
@@ -2543,6 +2774,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_SLOW_POISON)
   See(SixthNearest([PC]))
@@ -2580,6 +2814,9 @@ END~~~~~ //"
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Cleric Remove Fear~~~~~
     string = ~~~~~IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([PC])
   StateCheck(LastSeenBy(Myself),STATE_PANIC)
@@ -2606,6 +2843,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SecondNearest([PC]))
   StateCheck(LastSeenBy(Myself),STATE_PANIC)
@@ -2632,6 +2872,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(ThirdNearest([PC]))
   StateCheck(LastSeenBy(Myself),STATE_PANIC)
@@ -2658,6 +2901,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FourthNearest([PC]))
   StateCheck(LastSeenBy(Myself),STATE_PANIC)
@@ -2684,6 +2930,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FifthNearest([PC]))
   StateCheck(LastSeenBy(Myself),STATE_PANIC)
@@ -2710,6 +2959,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SixthNearest([PC]))
   StateCheck(LastSeenBy(Myself),STATE_PANIC)
@@ -2746,6 +2998,9 @@ END~~~~~ //"
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Zone of Swee Air~~~~~
     string = ~~~~~IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_GUST_OF_WIND)
   OR(13)
@@ -2788,6 +3043,9 @@ END~~~~~ //"
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Wizard True Sight~~~~~
     string = ~~~~~IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_TRUE_SIGHT)
   OR(6)
@@ -2816,6 +3074,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_TRUE_SIGHT)
   Detect([EVILCUTOFF])
@@ -2843,6 +3104,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_TRUE_SIGHT)
   See(NearestEnemyOf(Myself))
@@ -2875,6 +3139,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_TRUE_SIGHT)
   See(SecondNearestEnemyOf(Myself))
@@ -2907,6 +3174,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_TRUE_SIGHT)
   See(ThirdNearestEnemyOf(Myself))
@@ -2939,6 +3209,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_TRUE_SIGHT)
   See(FourthNearestEnemyOf(Myself))
@@ -2971,6 +3244,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_TRUE_SIGHT)
   See(FifthNearestEnemyOf(Myself))
@@ -3003,6 +3279,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_TRUE_SIGHT)
   See(SixthNearestEnemyOf(Myself))
@@ -3045,6 +3324,9 @@ END~~~~~ //"
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Cleric True Sight~~~~~
     string = ~~~~~IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_TRUE_SIGHT)
   OR(6)
@@ -3072,6 +3354,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_TRUE_SIGHT)
   Detect([EVILCUTOFF])
@@ -3103,6 +3388,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_TRUE_SIGHT)
   See(NearestEnemyOf(Myself))
@@ -3134,6 +3422,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_TRUE_SIGHT)
   See(SecondNearestEnemyOf(Myself))
@@ -3165,6 +3456,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_TRUE_SIGHT)
   See(ThirdNearestEnemyOf(Myself))
@@ -3196,6 +3490,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_TRUE_SIGHT)
   See(FourthNearestEnemyOf(Myself))
@@ -3227,6 +3524,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_TRUE_SIGHT)
   See(FifthNearestEnemyOf(Myself))
@@ -3258,6 +3558,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_TRUE_SIGHT)
   See(SixthNearestEnemyOf(Myself))
@@ -3299,6 +3602,9 @@ END~~~~~ //"
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Wizard Detect Invisibility~~~~~
     string = ~~~~~IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   !GlobalTimerNotExpired("MO_FindInvisible","GLOBAL")
   HaveSpellRES(WIZARD_DETECT_INVISIBILITY)
@@ -3328,6 +3634,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   !GlobalTimerNotExpired("MO_FindInvisible","GLOBAL")
   HaveSpellRES(WIZARD_DETECT_INVISIBILITY)
@@ -3362,6 +3671,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   !GlobalTimerNotExpired("MO_FindInvisible","GLOBAL")
   HaveSpellRES(WIZARD_DETECT_INVISIBILITY)
@@ -3396,6 +3708,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   !GlobalTimerNotExpired("MO_FindInvisible","GLOBAL")
   HaveSpellRES(WIZARD_DETECT_INVISIBILITY)
@@ -3430,6 +3745,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   !GlobalTimerNotExpired("MO_FindInvisible","GLOBAL")
   HaveSpellRES(WIZARD_DETECT_INVISIBILITY)
@@ -3464,6 +3782,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   !GlobalTimerNotExpired("MO_FindInvisible","GLOBAL")
   HaveSpellRES(WIZARD_DETECT_INVISIBILITY)
@@ -3498,6 +3819,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   !GlobalTimerNotExpired("MO_FindInvisible","GLOBAL")
   HaveSpellRES(WIZARD_DETECT_INVISIBILITY)
@@ -3542,6 +3866,9 @@ END~~~~~ //"
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Cleric Invisibility Purge~~~~~
     string = ~~~~~IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   !GlobalTimerNotExpired("MO_FindInvisible","GLOBAL")
   HaveSpellRES(CLERIC_INVISIBILITY_PURGE)
@@ -3575,6 +3902,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   !GlobalTimerNotExpired("MO_FindInvisible","GLOBAL")
   HaveSpellRES(CLERIC_INVISIBILITY_PURGE)
@@ -3608,6 +3938,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   !GlobalTimerNotExpired("MO_FindInvisible","GLOBAL")
   HaveSpellRES(CLERIC_INVISIBILITY_PURGE)
@@ -3641,6 +3974,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   !GlobalTimerNotExpired("MO_FindInvisible","GLOBAL")
   HaveSpellRES(CLERIC_INVISIBILITY_PURGE)
@@ -3674,6 +4010,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   !GlobalTimerNotExpired("MO_FindInvisible","GLOBAL")
   HaveSpellRES(CLERIC_INVISIBILITY_PURGE)
@@ -3707,6 +4046,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   !GlobalTimerNotExpired("MO_FindInvisible","GLOBAL")
   HaveSpellRES(CLERIC_INVISIBILITY_PURGE)
@@ -3740,6 +4082,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   !GlobalTimerNotExpired("MO_FindInvisible","GLOBAL")
   HaveSpellRES(CLERIC_INVISIBILITY_PURGE)
@@ -3783,6 +4128,9 @@ END~~~~~ //"
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Breach~~~~~
     string = ~~~~~IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_BREACH)
   See([EVILCUTOFF])
@@ -3817,6 +4165,9 @@ THEN // Breach
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_BREACH)
   See(SecondNearest([EVILCUTOFF]))
@@ -3851,6 +4202,9 @@ THEN // Breach
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_BREACH)
   See(ThirdNearest([EVILCUTOFF]))
@@ -3885,6 +4239,9 @@ THEN // Breach
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_BREACH)
   See(FourthNearest([EVILCUTOFF]))
@@ -3919,6 +4276,9 @@ THEN // Breach
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_BREACH)
   See(FifthNearest([EVILCUTOFF]))
@@ -3953,6 +4313,9 @@ THEN // Breach
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_BREACH)
   See(SixthNearest([EVILCUTOFF]))
@@ -3997,6 +4360,9 @@ END~~~~~ //"
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Pierce Shield 1~~~~~
     string = ~~~~~IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_PIERCE_SHIELD)
   See([EVILCUTOFF])
@@ -4029,6 +4395,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_PIERCE_SHIELD)
   See(SecondNearest([EVILCUTOFF]))
@@ -4061,6 +4430,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_PIERCE_SHIELD)
   See(ThirdNearest([EVILCUTOFF]))
@@ -4093,6 +4465,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_PIERCE_SHIELD)
   See(FourthNearest([EVILCUTOFF]))
@@ -4125,6 +4500,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_PIERCE_SHIELD)
   See(FifthNearest([EVILCUTOFF]))
@@ -4157,6 +4535,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_PIERCE_SHIELD)
   See(SixthNearest([EVILCUTOFF]))
@@ -4199,6 +4580,9 @@ END~~~~~ //"
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Spell Thrust~~~~~
     string = ~~~~~IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_SPELL_THRUST)
   See([EVILCUTOFF])
@@ -4237,6 +4621,9 @@ THEN // Spell Thrust
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_SPELL_THRUST)
   See(SecondNearest([EVILCUTOFF]))
@@ -4275,6 +4662,9 @@ THEN // Spell Thrust
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_SPELL_THRUST)
   See(ThirdNearest([EVILCUTOFF]))
@@ -4313,6 +4703,9 @@ THEN // Spell Thrust
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_SPELL_THRUST)
   See(FourthNearest([EVILCUTOFF]))
@@ -4351,6 +4744,9 @@ THEN // Spell Thrust
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_SPELL_THRUST)
   See(FifthNearest([EVILCUTOFF]))
@@ -4389,6 +4785,9 @@ THEN // Spell Thrust
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_SPELL_THRUST)
   See(SixthNearest([EVILCUTOFF]))
@@ -4437,6 +4836,9 @@ END~~~~~ //"
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Secret Word~~~~~
     string = ~~~~~IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_SECRET_WORD)
   See([EVILCUTOFF])
@@ -4475,6 +4877,9 @@ THEN // Secret Word
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_SECRET_WORD)
   See(SecondNearest([EVILCUTOFF]))
@@ -4513,6 +4918,9 @@ THEN // Secret Word
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_SECRET_WORD)
   See(ThirdNearest([EVILCUTOFF]))
@@ -4551,6 +4959,9 @@ THEN // Secret Word
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_SECRET_WORD)
   See(FourthNearest([EVILCUTOFF]))
@@ -4589,6 +5000,9 @@ THEN // Secret Word
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_SECRET_WORD)
   See(FifthNearest([EVILCUTOFF]))
@@ -4627,6 +5041,9 @@ THEN // Secret Word
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_SECRET_WORD)
   See(SixthNearest([EVILCUTOFF]))
@@ -4675,6 +5092,9 @@ END~~~~~ //"
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Pierce Magic~~~~~
     string = ~~~~~IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_PIERCE_MAGIC)
   See([EVILCUTOFF])
@@ -4713,6 +5133,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_PIERCE_MAGIC)
   See(SecondNearest([EVILCUTOFF]))
@@ -4751,6 +5174,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_PIERCE_MAGIC)
   See(ThirdNearest([EVILCUTOFF]))
@@ -4789,6 +5215,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_PIERCE_MAGIC)
   See(FourthNearest([EVILCUTOFF]))
@@ -4827,6 +5256,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_PIERCE_MAGIC)
   See(FifthNearest([EVILCUTOFF]))
@@ -4865,6 +5297,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_PIERCE_MAGIC)
   See(SixthNearest([EVILCUTOFF]))
@@ -4913,6 +5348,9 @@ END~~~~~ //"
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Khelben's Warding Whip~~~~~
     string = ~~~~~IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_WARDING_WHIP)
   See([EVILCUTOFF])
@@ -4952,6 +5390,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_WARDING_WHIP)
   See(SecondNearest([EVILCUTOFF]))
@@ -4991,6 +5432,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_WARDING_WHIP)
   See(ThirdNearest([EVILCUTOFF]))
@@ -5030,6 +5474,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_WARDING_WHIP)
   See(FourthNearest([EVILCUTOFF]))
@@ -5069,6 +5516,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_WARDING_WHIP)
   See(FifthNearest([EVILCUTOFF]))
@@ -5108,6 +5558,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_WARDING_WHIP)
   See(SixthNearest([EVILCUTOFF]))
@@ -5157,6 +5610,9 @@ END~~~~~ //"
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Ruby Ray of Reversal~~~~~
     string = ~~~~~IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_RUBY_RAY_OF_REVERSAL)
   See([EVILCUTOFF])
@@ -5195,6 +5651,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_RUBY_RAY_OF_REVERSAL)
   See(SecondNearest([EVILCUTOFF]))
@@ -5233,6 +5692,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_RUBY_RAY_OF_REVERSAL)
   See(ThirdNearest([EVILCUTOFF]))
@@ -5271,6 +5733,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_RUBY_RAY_OF_REVERSAL)
   See(FourthNearest([EVILCUTOFF]))
@@ -5309,6 +5774,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_RUBY_RAY_OF_REVERSAL)
   See(FifthNearest([EVILCUTOFF]))
@@ -5347,6 +5815,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_RUBY_RAY_OF_REVERSAL)
   See(SixthNearest([EVILCUTOFF]))
@@ -5395,6 +5866,9 @@ END~~~~~ //"
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Spellstrike~~~~~
     string = ~~~~~IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_SPELL_STRIKE)
   See([EVILCUTOFF])
@@ -5433,6 +5907,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_SPELL_STRIKE)
   See(SecondNearest([EVILCUTOFF]))
@@ -5471,6 +5948,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_SPELL_STRIKE)
   See(ThirdNearest([EVILCUTOFF]))
@@ -5509,6 +5989,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_SPELL_STRIKE)
   See(FourthNearest([EVILCUTOFF]))
@@ -5547,6 +6030,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_SPELL_STRIKE)
   See(FifthNearest([EVILCUTOFF]))
@@ -5585,6 +6071,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_SPELL_STRIKE)
   See(SixthNearest([EVILCUTOFF]))
@@ -5633,6 +6122,9 @@ END~~~~~ //"
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Pierce Shield 2~~~~~
     string = ~~~~~IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_PIERCE_SHIELD)
   See([EVILCUTOFF])
@@ -5667,6 +6159,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_PIERCE_SHIELD)
   See(SecondNearest([EVILCUTOFF]))
@@ -5701,6 +6196,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_PIERCE_SHIELD)
   See(ThirdNearest([EVILCUTOFF]))
@@ -5735,6 +6233,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_PIERCE_SHIELD)
   See(FourthNearest([EVILCUTOFF]))
@@ -5769,6 +6270,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_PIERCE_SHIELD)
   See(FifthNearest([EVILCUTOFF]))
@@ -5803,6 +6307,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_PIERCE_SHIELD)
   See(SixthNearest([EVILCUTOFF]))
@@ -5847,6 +6354,9 @@ END~~~~~ //"
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Melf's Minute Meteors~~~~~
     string = ~~~~~IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_MELF_METEOR)
   !HasItem("melfmet",Myself)  // Short Sword

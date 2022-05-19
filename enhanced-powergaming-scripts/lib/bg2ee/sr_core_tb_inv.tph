@@ -58,6 +58,9 @@ END
     STR_VAR
     pattern = ~~~~~// Wizard Invisibility Purge~~~~~
     string = ~~~~~IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_DETECT_ILLUSION)
   Detect([EVILCUTOFF])
@@ -89,6 +92,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_DETECT_ILLUSION)
   See(NearestEnemyOf(Myself))
@@ -120,6 +126,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_DETECT_ILLUSION)
   See(SecondNearestEnemyOf(Myself))
@@ -151,6 +160,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_DETECT_ILLUSION)
   See(ThirdNearestEnemyOf(Myself))
@@ -182,6 +194,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_DETECT_ILLUSION)
   See(FourthNearestEnemyOf(Myself))
@@ -213,6 +228,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_DETECT_ILLUSION)
   See(FifthNearestEnemyOf(Myself))
@@ -244,6 +262,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_DETECT_ILLUSION)
   See(SixthNearestEnemyOf(Myself))

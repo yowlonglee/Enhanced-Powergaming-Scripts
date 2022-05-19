@@ -51,6 +51,9 @@ END
     STR_VAR
     pattern = ~~~~~// MiH Mirror Amulet - Detect Illusion~~~~~
     string = ~~~~~IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_UsedMirrorAmulet1","GLOBAL",1)
   HasItemEquiped("MH#AMUL4",Myself)  // Mirror Amulet
@@ -72,6 +75,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_UsedMirrorAmulet1","GLOBAL",1)
   HasItemEquiped("MH#AMUL4",Myself)  // Mirror Amulet
@@ -93,6 +99,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_UsedMirrorAmulet1","GLOBAL",1)
   HasItemEquiped("MH#AMUL4",Myself)  // Mirror Amulet
@@ -114,6 +123,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_UsedMirrorAmulet1","GLOBAL",1)
   HasItemEquiped("MH#AMUL4",Myself)  // Mirror Amulet
@@ -135,6 +147,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_UsedMirrorAmulet1","GLOBAL",1)
   HasItemEquiped("MH#AMUL4",Myself)  // Mirror Amulet
@@ -156,6 +171,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_UsedMirrorAmulet1","GLOBAL",1)
   HasItemEquiped("MH#AMUL4",Myself)  // Mirror Amulet
@@ -177,6 +195,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_UsedMirrorAmulet1","GLOBAL",1)
   HasItemEquiped("MH#AMUL4",Myself)  // Mirror Amulet

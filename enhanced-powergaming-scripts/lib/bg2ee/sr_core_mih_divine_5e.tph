@@ -311,6 +311,9 @@ END
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting - MiH Cleric Repel Insects~~~~~
     string = ~~~~~IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(Myself)
   CheckStatGT(LastSeenBy(Myself),0,CLERIC_INSECT_PLAGUE)
@@ -331,6 +334,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([PC])
   CheckStatGT(LastSeenBy(Myself),0,CLERIC_INSECT_PLAGUE)
@@ -353,6 +359,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SecondNearest([PC]))
   CheckStatGT(LastSeenBy(Myself),0,CLERIC_INSECT_PLAGUE)
@@ -375,6 +384,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(ThirdNearest([PC]))
   CheckStatGT(LastSeenBy(Myself),0,CLERIC_INSECT_PLAGUE)
@@ -397,6 +409,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FourthNearest([PC]))
   CheckStatGT(LastSeenBy(Myself),0,CLERIC_INSECT_PLAGUE)
@@ -419,6 +434,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FifthNearest([PC]))
   CheckStatGT(LastSeenBy(Myself),0,CLERIC_INSECT_PLAGUE)
@@ -441,6 +459,9 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SixthNearest([PC]))
   CheckStatGT(LastSeenBy(Myself),0,CLERIC_INSECT_PLAGUE)

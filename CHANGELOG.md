@@ -1,6 +1,6 @@
 # Changelog
 
-## Version 7.3.2
+## Version 8.0
 
 June xx, 2022
 
@@ -14,6 +14,10 @@ June xx, 2022
   - To-Do:
     - Add Spirit Armor to Prebuffing
     - Target others with IH during prebuffing
+    - Update Restoration, Cure Disease, and Remove Paralysis for better tracking
+    - Chaotic Commands and Remove Fear Global
+    - Add Disabling Spells (ini optional)
+    - GLOBAL for Raising Dead
 
 ## Version 7.3.1
 
