@@ -18,6 +18,7 @@ June xx, 2022
     - Chaotic Commands and Remove Fear Global
     - Add Disabling Spells (ini optional)
     - GLOBAL for Raising Dead
+    - Review Celestials
 
 ## Version 7.3.1
 
