@@ -40,6 +40,18 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
+  Global("MO_SelfRemoveFear","LOCALS",1)
+  Global("MO_PartyRemoveFear","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_SelfRemoveFear","LOCALS",0)
+    SetGlobal("MO_PartyRemoveFear","GLOBAL",0)
+END
+
+IF
 	Global("MO_BUFF","LOCALS",0)
 	HotKey(hot_key_Buffing)
 THEN

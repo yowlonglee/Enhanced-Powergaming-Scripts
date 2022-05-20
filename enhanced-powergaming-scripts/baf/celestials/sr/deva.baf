@@ -17,12 +17,24 @@ IF
   OR(2)
     ActionListEmpty()
     !CheckSpellState(Myself,CASTING_SPELL)
-  Global("MO_SelfRaiseDead","GLOBAL",1)
-  Global("MO_PartyRaiseDead","LOCALS",1)
+  Global("MO_SelfRaiseDead","LOCALS",1)
+  Global("MO_PartyRaiseDead","GLOBAL",1)
 THEN
   RESPONSE #100
-    SetGlobal("MO_SelfRaiseDead","GLOBAL",0)
-    SetGlobal("MO_PartyRaiseDead","LOCALS",0)
+    SetGlobal("MO_SelfRaiseDead","LOCALS",0)
+    SetGlobal("MO_PartyRaiseDead","GLOBAL",0)
+END
+
+IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
+  Global("MO_SelfRemoveFear","LOCALS",1)
+  Global("MO_PartyRemoveFear","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_SelfRemoveFear","LOCALS",0)
+    SetGlobal("MO_PartyRemoveFear","GLOBAL",0)
 END
 
 IF
@@ -482,7 +494,7 @@ IF
     !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_RAISE_DEAD)  // SPPR504.SPL (Raise Dead)
-	Global("MO_PartyRaiseDead","LOCALS",0)
+	Global("MO_PartyRaiseDead","GLOBAL",0)
 	StateCheck(Player1,STATE_REALLY_DEAD)
 	InPartyAllowDead(Player1)
 	CombatCounter(0)
@@ -509,7 +521,7 @@ IF
     !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_RAISE_DEAD)  // SPPR504.SPL (Raise Dead)
-	Global("MO_PartyRaiseDead","LOCALS",0)
+	Global("MO_PartyRaiseDead","GLOBAL",0)
 	StateCheck(Player2,STATE_REALLY_DEAD)
 	InPartyAllowDead(Player2)
 	CombatCounter(0)
@@ -536,7 +548,7 @@ IF
     !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_RAISE_DEAD)  // SPPR504.SPL (Raise Dead)
-	Global("MO_PartyRaiseDead","LOCALS",0)
+	Global("MO_PartyRaiseDead","GLOBAL",0)
 	StateCheck(Player3,STATE_REALLY_DEAD)
 	InPartyAllowDead(Player3)
 	CombatCounter(0)
@@ -563,7 +575,7 @@ IF
     !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_RAISE_DEAD)  // SPPR504.SPL (Raise Dead)
-	Global("MO_PartyRaiseDead","LOCALS",0)
+	Global("MO_PartyRaiseDead","GLOBAL",0)
 	StateCheck(Player4,STATE_REALLY_DEAD)
 	InPartyAllowDead(Player4)
 	CombatCounter(0)
@@ -590,7 +602,7 @@ IF
     !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_RAISE_DEAD)  // SPPR504.SPL (Raise Dead)
-	Global("MO_PartyRaiseDead","LOCALS",0)
+	Global("MO_PartyRaiseDead","GLOBAL",0)
 	StateCheck(Player5,STATE_REALLY_DEAD)
 	InPartyAllowDead(Player5)
 	CombatCounter(0)
@@ -617,7 +629,7 @@ IF
     !CheckSpellState(Myself,CASTING_SPELL)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_RAISE_DEAD)  // SPPR504.SPL (Raise Dead)
-	Global("MO_PartyRaiseDead","LOCALS",0)
+	Global("MO_PartyRaiseDead","GLOBAL",0)
 	StateCheck(Player6,STATE_REALLY_DEAD)
 	InPartyAllowDead(Player6)
 	CombatCounter(0)
