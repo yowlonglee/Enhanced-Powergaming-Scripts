@@ -62,10 +62,10 @@ THEN
 END
 
 IF
-  OR(2)
+  OR(3)
     ActionListEmpty()
     !CheckSpellState(Myself,CASTING_SPELL)
-  !GlobalTimerNotExpired("MO_FearCastTimer","GLOBAL")
+    !GlobalTimerNotExpired("MO_FearCastTimer","GLOBAL")
   Global("MO_SelfRemoveFear","LOCALS",1)
   Global("MO_PartyRemoveFear","GLOBAL",1)
 THEN
