@@ -812,6 +812,7 @@ IF
     !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(Myself)
+  !CheckSpellState(LastSeenBy(Myself),RESTORATION)
   OR(8)
     StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
     StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
@@ -833,6 +834,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    ApplySpellRES("MOREST",LastSeenBy(Myself))
     Spell(LastSeenBy(Myself),CLERIC_RESTORATION)  // SPPR713.SPL (Greater Restoration)
     SetInterrupt(TRUE)
 END
@@ -843,6 +845,7 @@ IF
     !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(Nearest([PC]))
+  !CheckSpellState(LastSeenBy(Myself),RESTORATION)
   OR(8)
     StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
     StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
@@ -866,6 +869,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    ApplySpellRES("MOREST",LastSeenBy(Myself))
     Spell(LastSeenBy(Myself),CLERIC_RESTORATION)  // SPPR713.SPL (Greater Restoration)
     SetInterrupt(TRUE)
 END
@@ -876,6 +880,7 @@ IF
     !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SecondNearest([PC]))
+  !CheckSpellState(LastSeenBy(Myself),RESTORATION)
   OR(8)
     StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
     StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
@@ -899,6 +904,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    ApplySpellRES("MOREST",LastSeenBy(Myself))
     Spell(LastSeenBy(Myself),CLERIC_RESTORATION)  // SPPR713.SPL (Greater Restoration)
     SetInterrupt(TRUE)
 END
@@ -909,6 +915,7 @@ IF
     !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(ThirdNearest([PC]))
+  !CheckSpellState(LastSeenBy(Myself),RESTORATION)
   OR(8)
     StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
     StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
@@ -932,6 +939,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    ApplySpellRES("MOREST",LastSeenBy(Myself))
     Spell(LastSeenBy(Myself),CLERIC_RESTORATION)  // SPPR713.SPL (Greater Restoration)
     SetInterrupt(TRUE)
 END
@@ -942,6 +950,7 @@ IF
     !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FourthNearest([PC]))
+  !CheckSpellState(LastSeenBy(Myself),RESTORATION)
   OR(8)
     StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
     StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
@@ -965,6 +974,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    ApplySpellRES("MOREST",LastSeenBy(Myself))
     Spell(LastSeenBy(Myself),CLERIC_RESTORATION)  // SPPR713.SPL (Greater Restoration)
     SetInterrupt(TRUE)
 END
@@ -975,6 +985,7 @@ IF
     !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FifthNearest([PC]))
+  !CheckSpellState(LastSeenBy(Myself),RESTORATION)
   OR(8)
     StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
     StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
@@ -998,6 +1009,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    ApplySpellRES("MOREST",LastSeenBy(Myself))
     Spell(LastSeenBy(Myself),CLERIC_RESTORATION)  // SPPR713.SPL (Greater Restoration)
     SetInterrupt(TRUE)
 END
@@ -1008,6 +1020,7 @@ IF
     !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SixthNearest([PC]))
+  !CheckSpellState(LastSeenBy(Myself),RESTORATION)
   OR(8)
     StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
     StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
@@ -1031,6 +1044,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    ApplySpellRES("MOREST",LastSeenBy(Myself))
     Spell(LastSeenBy(Myself),CLERIC_RESTORATION)  // SPPR713.SPL (Greater Restoration)
     SetInterrupt(TRUE)
 END

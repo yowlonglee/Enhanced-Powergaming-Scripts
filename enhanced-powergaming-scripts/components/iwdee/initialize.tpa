@@ -425,6 +425,29 @@ APPEND ~stats.ids~ ~182 WIZARD_TENSERS_TRANSFORMATION~          UNLESS ~182 WIZA
 	END
 
 ///////////////////////////////////////////////////////////////////////////
+// Create Spell State for Restoration Spells                             //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~RESTORATION~)) BEGIN
+	  COPY_EXISTING ~splstate.ids~ ~override~
+		COUNT_2DA_COLS cols
+		READ_2DA_ENTRIES_NOW rows cols
+		FOR (row = 1; row < rows; ++row) BEGIN
+		  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
+		  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
+		  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~RESTORATION~) BEGIN
+			SET rest = %state_ind%
+		  END
+		END
+	  BUT_ONLY
+	END
+
+	ACTION_IF !(VARIABLE_IS_SET %rest%) BEGIN
+		LAF ds_sort_ids STR_VAR ids=splstate END
+		LAF d5_resolve_state STR_VAR new_state_id = ~RESTORATION~ RET new_state_ind END
+		OUTER_SET rest = %new_state_ind%
+	END
+	
+///////////////////////////////////////////////////////////////////////////
 // Create Spell State for Black Blade of Disaster                        //
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~BLACK_BLADE~)) BEGIN
@@ -611,7 +634,24 @@ APPEND ~stats.ids~ ~182 WIZARD_TENSERS_TRANSFORMATION~          UNLESS ~182 WIZA
 					LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 timing = 0 STR_VAR resource = "MOPOIS" END
 			END
 		END
-		
+
+///////////////////////////////////////////////////////////////////////////
+// Add State to track when using Restoration Spells                      //
+///////////////////////////////////////////////////////////////////////////
+	COPY ~enhanced-powergaming-scripts/spl/morest.spl~ ~override~
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 2 special = 1 parameter2 = %rest% timing = 0 duration = 6 END
+
+	ACTION_FOR_EACH restoration_spell IN
+			CLERIC_LESSER_RESTORATION
+			CLERIC_RESTORATION
+		BEGIN
+			LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%restoration_spell%~ RET spell_res END
+			ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
+				COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
+					LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 timing = 0 STR_VAR resource = "MOREST" END
+			END
+		END
+
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Prayer                                             //
 ///////////////////////////////////////////////////////////////////////////
