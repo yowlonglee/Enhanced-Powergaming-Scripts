@@ -50,6 +50,18 @@ THEN
 END
 
 IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
+  Global("MO_SelfRaiseDead","GLOBAL",1)
+  Global("MO_PartyRaiseDead","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_SelfRaiseDead","GLOBAL",0)
+    SetGlobal("MO_PartyRaiseDead","LOCALS",0)
+END
+
+IF
   PartyRested()
 THEN
   RESPONSE #100

@@ -438,6 +438,7 @@ END~~~~~ //"
     !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_MASS_RAISE_DEAD)
+  Global("MO_PartyRaiseDead","LOCALS",0)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_POISONED)
@@ -477,6 +478,8 @@ END~~~~~ //"
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SelfRaiseDead","LOCALS",1)
+    SetGlobal("MO_PartyRaiseDead","GLOBAL",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5008)
     SpellRES(CLERIC_MASS_RAISE_DEAD,Myself)
@@ -500,6 +503,7 @@ END~~~~~ //"
     !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_RESURRECTION)
+  Global("MO_PartyRaiseDead","LOCALS",0)
   StateCheck(Player1,STATE_REALLY_DEAD)
   InPartyAllowDead(Player1)
   CombatCounter(0)
@@ -513,6 +517,8 @@ END~~~~~ //"
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SelfRaiseDead","LOCALS",1)
+    SetGlobal("MO_PartyRaiseDead","GLOBAL",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5008)
     SpellRES(CLERIC_RESURRECTION,Player1)
@@ -525,6 +531,7 @@ IF
     !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_RESURRECTION)
+  Global("MO_PartyRaiseDead","LOCALS",0)
   StateCheck(Player2,STATE_REALLY_DEAD)
   InPartyAllowDead(Player2)
   CombatCounter(0)
@@ -538,6 +545,8 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SelfRaiseDead","LOCALS",1)
+    SetGlobal("MO_PartyRaiseDead","GLOBAL",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5008)
     SpellRES(CLERIC_RESURRECTION,Player2)
@@ -550,6 +559,7 @@ IF
     !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_RESURRECTION)
+  Global("MO_PartyRaiseDead","LOCALS",0)
   StateCheck(Player3,STATE_REALLY_DEAD)
   InPartyAllowDead(Player3)
   CombatCounter(0)
@@ -563,6 +573,8 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SelfRaiseDead","LOCALS",1)
+    SetGlobal("MO_PartyRaiseDead","GLOBAL",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5008)
     SpellRES(CLERIC_RESURRECTION,Player3)
@@ -575,6 +587,7 @@ IF
     !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_RESURRECTION)
+  Global("MO_PartyRaiseDead","LOCALS",0)
   StateCheck(Player4,STATE_REALLY_DEAD)
   InPartyAllowDead(Player4)
   CombatCounter(0)
@@ -588,6 +601,8 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SelfRaiseDead","LOCALS",1)
+    SetGlobal("MO_PartyRaiseDead","GLOBAL",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5008)
     SpellRES(CLERIC_RESURRECTION,Player4)
@@ -600,6 +615,7 @@ IF
     !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_RESURRECTION)
+  Global("MO_PartyRaiseDead","LOCALS",0)
   StateCheck(Player5,STATE_REALLY_DEAD)
   InPartyAllowDead(Player5)
   CombatCounter(0)
@@ -613,6 +629,8 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SelfRaiseDead","LOCALS",1)
+    SetGlobal("MO_PartyRaiseDead","GLOBAL",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5008)
     SpellRES(CLERIC_RESURRECTION,Player5)
@@ -625,6 +643,7 @@ IF
     !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_RESURRECTION)
+  Global("MO_PartyRaiseDead","LOCALS",0)
   StateCheck(Player6,STATE_REALLY_DEAD)
   InPartyAllowDead(Player6)
   CombatCounter(0)
@@ -638,6 +657,8 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SelfRaiseDead","LOCALS",1)
+    SetGlobal("MO_PartyRaiseDead","GLOBAL",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5008)
     SpellRES(CLERIC_RESURRECTION,Player6)
@@ -660,6 +681,7 @@ END~~~~~ //"
     !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_RAISE_DEAD)
+  Global("MO_PartyRaiseDead","LOCALS",0)
   StateCheck(Player1,STATE_REALLY_DEAD)
   InPartyAllowDead(Player1)
   CombatCounter(0)
@@ -673,6 +695,8 @@ END~~~~~ //"
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SelfRaiseDead","LOCALS",1)
+    SetGlobal("MO_PartyRaiseDead","GLOBAL",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5008)
     SpellRES(CLERIC_RAISE_DEAD,Player1)
@@ -685,6 +709,7 @@ IF
     !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_RAISE_DEAD)
+  Global("MO_PartyRaiseDead","LOCALS",0)
   StateCheck(Player2,STATE_REALLY_DEAD)
   InPartyAllowDead(Player2)
   CombatCounter(0)
@@ -698,6 +723,8 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SelfRaiseDead","LOCALS",1)
+    SetGlobal("MO_PartyRaiseDead","GLOBAL",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5008)
     SpellRES(CLERIC_RAISE_DEAD,Player2)
@@ -710,6 +737,7 @@ IF
     !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_RAISE_DEAD)
+  Global("MO_PartyRaiseDead","LOCALS",0)
   StateCheck(Player3,STATE_REALLY_DEAD)
   InPartyAllowDead(Player3)
   CombatCounter(0)
@@ -723,6 +751,8 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SelfRaiseDead","LOCALS",1)
+    SetGlobal("MO_PartyRaiseDead","GLOBAL",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5008)
     SpellRES(CLERIC_RAISE_DEAD,Player3)
@@ -735,6 +765,7 @@ IF
     !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_RAISE_DEAD)
+  Global("MO_PartyRaiseDead","LOCALS",0)
   StateCheck(Player4,STATE_REALLY_DEAD)
   InPartyAllowDead(Player4)
   CombatCounter(0)
@@ -748,6 +779,8 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SelfRaiseDead","LOCALS",1)
+    SetGlobal("MO_PartyRaiseDead","GLOBAL",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5008)
     SpellRES(CLERIC_RAISE_DEAD,Player4)
@@ -760,6 +793,7 @@ IF
     !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_RAISE_DEAD)
+  Global("MO_PartyRaiseDead","LOCALS",0)
   StateCheck(Player5,STATE_REALLY_DEAD)
   InPartyAllowDead(Player5)
   CombatCounter(0)
@@ -773,6 +807,8 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SelfRaiseDead","LOCALS",1)
+    SetGlobal("MO_PartyRaiseDead","GLOBAL",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5008)
     SpellRES(CLERIC_RAISE_DEAD,Player5)
@@ -785,6 +821,7 @@ IF
     !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_RAISE_DEAD)
+  Global("MO_PartyRaiseDead","LOCALS",0)
   StateCheck(Player6,STATE_REALLY_DEAD)
   InPartyAllowDead(Player6)
   CombatCounter(0)
@@ -798,6 +835,8 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SelfRaiseDead","LOCALS",1)
+    SetGlobal("MO_PartyRaiseDead","GLOBAL",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5008)
     SpellRES(CLERIC_RAISE_DEAD,Player6)
