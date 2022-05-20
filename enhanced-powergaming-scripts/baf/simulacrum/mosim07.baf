@@ -22,6 +22,7 @@ IF
   OR(2)
     StateCheck(Myself,STATE_POISONED)
     CheckSpellState(Myself,DISEASED)
+  !CheckSpellState(Myself,REMOVE_POISON)
   HasItemEquiped("POTN17",Myself)  // Elixir of Health
 THEN
   RESPONSE #100
@@ -36,6 +37,7 @@ IF
     !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   StateCheck(Myself,STATE_POISONED)
+  !CheckSpellState(Myself,REMOVE_POISON)
   HasItemEquiped("POTN20",Myself)  // Antidote
 THEN
   RESPONSE #100
