@@ -6,12 +6,35 @@ LOAD_TRA ~enhanced-powergaming-scripts/languages/%LANGUAGE%/script_dialog.tra~
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 
+///////////////////////////////////////////////////////////////////////////
+// Spell Revisions                                                       //
+///////////////////////////////////////////////////////////////////////////
 ACTION_IF spell_revisions BEGIN
 	COPY ~enhanced-powergaming-scripts/baf/celestials/sr/deva.baf~   	~enhanced-powergaming-scripts/baf/upload/devaevil.baf~
 	COPY ~enhanced-powergaming-scripts/baf/celestials/sr/plangood.baf~  ~enhanced-powergaming-scripts/baf/upload/plangood.baf~
+
+///////////////////////////////////////////////////////////////////////////
+// SR - d5 Random Tweaks - Cure Bypass Deflection                        //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF d5_deflected BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/celestial/sr_deva_d5_cure_dispelling.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/celestial/sr_planet_d5_cure_dispelling.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// Non-Spell Revisions                                                   //
+///////////////////////////////////////////////////////////////////////////
 END ELSE BEGIN
 	COPY ~enhanced-powergaming-scripts/baf/celestials/deva.baf~  		~enhanced-powergaming-scripts/baf/upload/devaevil.baf~
 	COPY ~enhanced-powergaming-scripts/baf/celestials/plangood.baf~   	~enhanced-powergaming-scripts/baf/upload/plangood.baf~
+
+///////////////////////////////////////////////////////////////////////////
+// d5 Random Tweaks - Cure Bypass Deflection                             //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF d5_deflected BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/celestial/deva_d5_cure_dispelling.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/celestial/planet_d5_cure_dispelling.tph~
+	END
 END
 
 COPY_EXISTING ~devagood.bcs~ 	~override/mogdd02.bcs~

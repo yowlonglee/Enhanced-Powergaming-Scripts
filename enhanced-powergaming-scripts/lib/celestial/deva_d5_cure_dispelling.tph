@@ -1,0 +1,32 @@
+COPY ~enhanced-powergaming-scripts/baf/upload/devaevil.baf~ ~enhanced-powergaming-scripts/baf/upload/devaevil.baf~
+
+///////////////////////////////////////////////////////////////////////////
+// Cure Disease                                                          //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~!CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  CheckStat(LastSeenBy(Myself),0,MINORGLOBE)
+  HaveSpell(CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)~~~~~
+    string = ~~~~~CheckStat(LastSeenBy(Myself),0,MINORGLOBE)
+  HaveSpell(CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Neutralize Poison                                                     //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~!CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  HaveSpell(CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)~~~~~
+    string = ~~~~~HaveSpell(CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)~~~~~ //"
+  END
+
+
+

@@ -64,11 +64,13 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     STR_VAR
     pattern = ~~~~~StateCheck(LastSeenBy(Myself),STATE_POISONED)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),REMOVE_POISON)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)~~~~~
     string = ~~~~~StateCheck(LastSeenBy(Myself),STATE_POISONED)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),REMOVE_POISON)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)~~~~~ //"
   END
