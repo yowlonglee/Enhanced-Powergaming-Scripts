@@ -7,11 +7,12 @@ June xx, 2022
 ### Changed 
 
 - All Games
+  - Improved tracking for all spells to ensure the scripts don't cancel a player cast spell.
+  - Improved tracking for resurrection, remove fear, and restoration spells to prevent overcasting.
   - Updated remove curse to be cast out of combat and reduce overcasting.
   - Corrected bug with Black Blade of Disaster being continually cast.
   - Added healing as an ini option for the BasicAI scripts. Default of 0 is off.
   - Added Impervious Sanctity of Mind and Mind Blank to prebuffing.
-  - Improved tracking for resurrection, remove fear, and restoration spells to prevent overcasting.
   - To-Do:
     - Improve Mage Armor Spells for Buffing
     - Target others with IH during prebuffing
