@@ -3229,6 +3229,7 @@ IF
   See([PC])
   StateCheck(LastSeenBy(Myself),STATE_PANIC)
   HaveSpell(WIZARD_RESIST_FEAR)  // SPWI210.SPL (Resist Fear)
+  Global("MO_PartyRemoveFear","GLOBAL",0)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -3244,6 +3245,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FearCastTimer","GLOBAL",6)
+    SetGlobal("MO_SelfRemoveFear","LOCALS",1)
+    SetGlobal("MO_PartyRemoveFear","GLOBAL",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5012)
     Spell(LastSeenBy(Myself),WIZARD_RESIST_FEAR)  // SPWI210.SPL (Resist Fear)
@@ -3258,6 +3262,7 @@ IF
   See(SecondNearest([PC]))
   StateCheck(LastSeenBy(Myself),STATE_PANIC)
   HaveSpell(WIZARD_RESIST_FEAR)  // SPWI210.SPL (Resist Fear)
+  Global("MO_PartyRemoveFear","GLOBAL",0)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -3273,6 +3278,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FearCastTimer","GLOBAL",6)
+    SetGlobal("MO_SelfRemoveFear","LOCALS",1)
+    SetGlobal("MO_PartyRemoveFear","GLOBAL",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5012)
     Spell(LastSeenBy(Myself),WIZARD_RESIST_FEAR)  // SPWI210.SPL (Resist Fear)
@@ -3287,6 +3295,7 @@ IF
   See(ThirdNearest([PC]))
   StateCheck(LastSeenBy(Myself),STATE_PANIC)
   HaveSpell(WIZARD_RESIST_FEAR)  // SPWI210.SPL (Resist Fear)
+  Global("MO_PartyRemoveFear","GLOBAL",0)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -3302,6 +3311,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FearCastTimer","GLOBAL",6)
+    SetGlobal("MO_SelfRemoveFear","LOCALS",1)
+    SetGlobal("MO_PartyRemoveFear","GLOBAL",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5012)
     Spell(LastSeenBy(Myself),WIZARD_RESIST_FEAR)  // SPWI210.SPL (Resist Fear)
@@ -3316,6 +3328,7 @@ IF
   See(FourthNearest([PC]))
   StateCheck(LastSeenBy(Myself),STATE_PANIC)
   HaveSpell(WIZARD_RESIST_FEAR)  // SPWI210.SPL (Resist Fear)
+  Global("MO_PartyRemoveFear","GLOBAL",0)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -3331,6 +3344,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FearCastTimer","GLOBAL",6)
+    SetGlobal("MO_SelfRemoveFear","LOCALS",1)
+    SetGlobal("MO_PartyRemoveFear","GLOBAL",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5012)
     Spell(LastSeenBy(Myself),WIZARD_RESIST_FEAR)  // SPWI210.SPL (Resist Fear)
@@ -3345,6 +3361,7 @@ IF
   See(FifthNearest([PC]))
   StateCheck(LastSeenBy(Myself),STATE_PANIC)
   HaveSpell(WIZARD_RESIST_FEAR)  // SPWI210.SPL (Resist Fear)
+  Global("MO_PartyRemoveFear","GLOBAL",0)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -3360,6 +3377,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FearCastTimer","GLOBAL",6)
+    SetGlobal("MO_SelfRemoveFear","LOCALS",1)
+    SetGlobal("MO_PartyRemoveFear","GLOBAL",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5012)
     Spell(LastSeenBy(Myself),WIZARD_RESIST_FEAR)  // SPWI210.SPL (Resist Fear)
@@ -3374,6 +3394,7 @@ IF
   See(SixthNearest([PC]))
   StateCheck(LastSeenBy(Myself),STATE_PANIC)
   HaveSpell(WIZARD_RESIST_FEAR)  // SPWI210.SPL (Resist Fear)
+  Global("MO_PartyRemoveFear","GLOBAL",0)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -3389,6 +3410,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FearCastTimer","GLOBAL",6)
+    SetGlobal("MO_SelfRemoveFear","LOCALS",1)
+    SetGlobal("MO_PartyRemoveFear","GLOBAL",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5012)
     Spell(LastSeenBy(Myself),WIZARD_RESIST_FEAR)  // SPWI210.SPL (Resist Fear)
@@ -3405,6 +3429,7 @@ IF
   See([PC])
   StateCheck(LastSeenBy(Myself),STATE_PANIC)
   HaveSpell(CLERIC_REMOVE_FEAR)
+  Global("MO_PartyRemoveFear","GLOBAL",0)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -3420,6 +3445,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FearCastTimer","GLOBAL",6)
+    SetGlobal("MO_SelfRemoveFear","LOCALS",1)
+    SetGlobal("MO_PartyRemoveFear","GLOBAL",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5012)
     Spell(LastSeenBy(Myself),CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Resist Fear)
@@ -3434,6 +3462,7 @@ IF
   See(SecondNearest([PC]))
   StateCheck(LastSeenBy(Myself),STATE_PANIC)
   HaveSpell(CLERIC_REMOVE_FEAR)
+  Global("MO_PartyRemoveFear","GLOBAL",0)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -3449,6 +3478,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FearCastTimer","GLOBAL",6)
+    SetGlobal("MO_SelfRemoveFear","LOCALS",1)
+    SetGlobal("MO_PartyRemoveFear","GLOBAL",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5012)
     Spell(LastSeenBy(Myself),CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Resist Fear)
@@ -3463,6 +3495,7 @@ IF
   See(ThirdNearest([PC]))
   StateCheck(LastSeenBy(Myself),STATE_PANIC)
   HaveSpell(CLERIC_REMOVE_FEAR)
+  Global("MO_PartyRemoveFear","GLOBAL",0)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -3478,6 +3511,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FearCastTimer","GLOBAL",6)
+    SetGlobal("MO_SelfRemoveFear","LOCALS",1)
+    SetGlobal("MO_PartyRemoveFear","GLOBAL",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5012)
     Spell(LastSeenBy(Myself),CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Resist Fear)
@@ -3492,6 +3528,7 @@ IF
   See(FourthNearest([PC]))
   StateCheck(LastSeenBy(Myself),STATE_PANIC)
   HaveSpell(CLERIC_REMOVE_FEAR)
+  Global("MO_PartyRemoveFear","GLOBAL",0)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -3507,6 +3544,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FearCastTimer","GLOBAL",6)
+    SetGlobal("MO_SelfRemoveFear","LOCALS",1)
+    SetGlobal("MO_PartyRemoveFear","GLOBAL",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5012)
     Spell(LastSeenBy(Myself),CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Resist Fear)
@@ -3521,6 +3561,7 @@ IF
   See(FifthNearest([PC]))
   StateCheck(LastSeenBy(Myself),STATE_PANIC)
   HaveSpell(CLERIC_REMOVE_FEAR)
+  Global("MO_PartyRemoveFear","GLOBAL",0)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -3536,6 +3577,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FearCastTimer","GLOBAL",6)
+    SetGlobal("MO_SelfRemoveFear","LOCALS",1)
+    SetGlobal("MO_PartyRemoveFear","GLOBAL",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5012)
     Spell(LastSeenBy(Myself),CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Resist Fear)
@@ -3550,6 +3594,7 @@ IF
   See(SixthNearest([PC]))
   StateCheck(LastSeenBy(Myself),STATE_PANIC)
   HaveSpell(CLERIC_REMOVE_FEAR)
+  Global("MO_PartyRemoveFear","GLOBAL",0)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -3565,6 +3610,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FearCastTimer","GLOBAL",6)
+    SetGlobal("MO_SelfRemoveFear","LOCALS",1)
+    SetGlobal("MO_PartyRemoveFear","GLOBAL",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5012)
     Spell(LastSeenBy(Myself),CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Resist Fear)
@@ -3579,6 +3627,7 @@ IF
   See([PC])
   StateCheck(LastSeenBy(Myself),STATE_PANIC)
   HaveSpell(CAVALIER_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
+  Global("MO_PartyRemoveFear","GLOBAL",0)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -3594,6 +3643,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FearCastTimer","GLOBAL",6)
+    SetGlobal("MO_SelfRemoveFear","LOCALS",1)
+    SetGlobal("MO_PartyRemoveFear","GLOBAL",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5012)
     Spell(LastSeenBy(Myself),CAVALIER_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
@@ -3608,6 +3660,7 @@ IF
   See(SecondNearest([PC]))
   StateCheck(LastSeenBy(Myself),STATE_PANIC)
   HaveSpell(CAVALIER_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
+  Global("MO_PartyRemoveFear","GLOBAL",0)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -3623,6 +3676,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FearCastTimer","GLOBAL",6)
+    SetGlobal("MO_SelfRemoveFear","LOCALS",1)
+    SetGlobal("MO_PartyRemoveFear","GLOBAL",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5012)
     Spell(LastSeenBy(Myself),CAVALIER_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
@@ -3637,6 +3693,7 @@ IF
   See(ThirdNearest([PC]))
   StateCheck(LastSeenBy(Myself),STATE_PANIC)
   HaveSpell(CAVALIER_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
+  Global("MO_PartyRemoveFear","GLOBAL",0)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -3652,6 +3709,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FearCastTimer","GLOBAL",6)
+    SetGlobal("MO_SelfRemoveFear","LOCALS",1)
+    SetGlobal("MO_PartyRemoveFear","GLOBAL",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5012)
     Spell(LastSeenBy(Myself),CAVALIER_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
@@ -3666,6 +3726,7 @@ IF
   See(FourthNearest([PC]))
   StateCheck(LastSeenBy(Myself),STATE_PANIC)
   HaveSpell(CAVALIER_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
+  Global("MO_PartyRemoveFear","GLOBAL",0)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -3681,6 +3742,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FearCastTimer","GLOBAL",6)
+    SetGlobal("MO_SelfRemoveFear","LOCALS",1)
+    SetGlobal("MO_PartyRemoveFear","GLOBAL",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5012)
     Spell(LastSeenBy(Myself),CAVALIER_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
@@ -3695,6 +3759,7 @@ IF
   See(FifthNearest([PC]))
   StateCheck(LastSeenBy(Myself),STATE_PANIC)
   HaveSpell(CAVALIER_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
+  Global("MO_PartyRemoveFear","GLOBAL",0)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -3710,6 +3775,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FearCastTimer","GLOBAL",6)
+    SetGlobal("MO_SelfRemoveFear","LOCALS",1)
+    SetGlobal("MO_PartyRemoveFear","GLOBAL",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5012)
     Spell(LastSeenBy(Myself),CAVALIER_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
@@ -3724,6 +3792,7 @@ IF
   See(SixthNearest([PC]))
   StateCheck(LastSeenBy(Myself),STATE_PANIC)
   HaveSpell(CAVALIER_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
+  Global("MO_PartyRemoveFear","GLOBAL",0)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -3739,6 +3808,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_FearCastTimer","GLOBAL",6)
+    SetGlobal("MO_SelfRemoveFear","LOCALS",1)
+    SetGlobal("MO_PartyRemoveFear","GLOBAL",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5012)
     Spell(LastSeenBy(Myself),CAVALIER_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
