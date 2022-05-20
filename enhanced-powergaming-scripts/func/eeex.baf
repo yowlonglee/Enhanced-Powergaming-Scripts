@@ -1,0 +1,58 @@
+/*
+
+function B3SwitchToNextWeapon()
+
+    if not EEex_LuaAction_Object:isSprite(true) then
+        return
+    end
+
+    local sprite = EEex_CastUD(EEex_LuaAction_Object, "CGameSprite")
+    local equipment = sprite.m_equipment
+    local items = equipment.m_items
+
+    local getCurrentSlot = function()
+        local selectedSlot = equipment.m_selectedWeapon
+        if selectedSlot >= 11 and selectedSlot <= 14 then
+            return sprite:GetLauncherSlot(selectedSlot, equipment.m_selectedWeaponAbility)
+        end
+        return selectedSlot
+    end
+
+    local currentCheckSlot = getCurrentSlot()
+
+    if currentCheckSlot == 10 then
+        currentCheckSlot = 34
+    end
+
+    local stepSlot = function()
+        if currentCheckSlot == 38 then
+            currentCheckSlot = 35
+        else
+            currentCheckSlot = currentCheckSlot + 1
+        end
+    end
+
+    for checkCount = 1, 4 do
+        stepSlot()
+        if items:get(currentCheckSlot) ~= nil then
+            EEex_Action_ExecuteResponseStringOnAIBaseInstantly(string.format("SelectWeaponAbility(%d,%d)", currentCheckSlot, 0), sprite)
+            if getCurrentSlot() == currentCheckSlot then
+                break
+            end
+        end
+    end
+end
+
+function B3SwitchToNextWeapon()
+
+    if not EEex_LuaAction_Object:isSprite(true) then
+        return
+    end
+
+IF
+    HotKey(E)
+THEN
+    RESPONSE #100
+        EEex_LuaAction("B3SwitchToNextWeapon()")
+END   
+*/
