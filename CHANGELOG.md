@@ -11,12 +11,11 @@ June xx, 2022
   - Corrected bug with Black Blade of Disaster being continually cast.
   - Added healing as an ini option for the BasicAI scripts. Default of 0 is off.
   - Added Impervious Sanctity of Mind and Mind Blank to prebuffing.
-  - Improved tracking for resurrection spells to prevent overcasting.
-  - Improved tracking for spells that remove fear to prevent overcasting.
+  - Improved tracking for resurrection, remove fear, and restoration spells to prevent overcasting.
   - To-Do:
     - Improve Mage Armor Spells for Buffing
     - Target others with IH during prebuffing
-    - Update Restoration, Cure Disease, and Remove Paralysis for better tracking
+    - Update Cure Disease and Remove Paralysis for better tracking
     - Chaotic Commands Global
     - Add Disabling Spells (ini optional)
 
