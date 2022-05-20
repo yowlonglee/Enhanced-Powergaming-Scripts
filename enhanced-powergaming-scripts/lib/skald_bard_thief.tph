@@ -13,9 +13,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/moskd.baf~ ~enhanced-powergaming-s
     pattern = ~~~~~IF
   Class(Myself,BARD_ALL)
   !ModalState(BATTLESONG)
-  OR(2)
-    ActionListEmpty()
-    !CheckSpellState(Myself,CASTING_SPELL)
+  ActionListEmpty()
 THEN
   RESPONSE #100
     BattleSong()

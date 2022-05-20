@@ -9673,9 +9673,7 @@ THEN
 END
 
 IF
-  OR(2)
-    ActionListEmpty()
-    !CheckSpellState(Myself,CASTING_SPELL)
+  ActionListEmpty()
   Global("MO_DETECTILLUSIONS","LOCALS",0)
   Global("MO_MyDetectEnemyIllusion","LOCALS",0)
   Class(Myself,SHAMAN)
