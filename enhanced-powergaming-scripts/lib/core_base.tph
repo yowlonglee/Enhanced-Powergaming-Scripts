@@ -36,6 +36,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     ApplySpellRES("MOPOIS",LastSeenBy(Myself))
+    ApplySpellRES("MORMVDS",LastSeenBy(Myself))
     UseItem("POTN17",Myself)  // Elixir of Health
     DisplayStringHead(Myself,@5005)
 END
@@ -1908,6 +1909,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    ApplySpellRES("MORMVDS",LastSeenBy(Myself))
     DisplayStringHead(Myself,@5010)
     Spell(LastSeenBy(Myself),CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
     SetInterrupt(TRUE)
@@ -1940,6 +1942,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    ApplySpellRES("MORMVDS",LastSeenBy(Myself))
     DisplayStringHead(Myself,@5010)
     Spell(LastSeenBy(Myself),CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
     SetInterrupt(TRUE)
@@ -1972,6 +1975,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    ApplySpellRES("MORMVDS",LastSeenBy(Myself))
     DisplayStringHead(Myself,@5010)
     Spell(LastSeenBy(Myself),CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
     SetInterrupt(TRUE)
@@ -2004,6 +2008,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    ApplySpellRES("MORMVDS",LastSeenBy(Myself))
     DisplayStringHead(Myself,@5010)
     Spell(LastSeenBy(Myself),CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
     SetInterrupt(TRUE)
@@ -2036,6 +2041,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    ApplySpellRES("MORMVDS",LastSeenBy(Myself))
     DisplayStringHead(Myself,@5010)
     Spell(LastSeenBy(Myself),CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
     SetInterrupt(TRUE)
@@ -2068,6 +2074,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    ApplySpellRES("MORMVDS",LastSeenBy(Myself))
     DisplayStringHead(Myself,@5010)
     Spell(LastSeenBy(Myself),CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
     SetInterrupt(TRUE)
@@ -2100,6 +2107,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     SetInterrupt(FALSE)
+    ApplySpellRES("MORMVDS",LastSeenBy(Myself))
     DisplayStringHead(Myself,@5010)
     Spell(LastSeenBy(Myself),CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
     SetInterrupt(TRUE)
