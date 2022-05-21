@@ -57,8 +57,14 @@ ACTION_IF spell_revisions BEGIN
 ///////////////////////////////////////////////////////////////////////////
 // Update ini Presets - BasicAI Healing                                  //
 ///////////////////////////////////////////////////////////////////////////
+	// Add basic healing to MO-BasicAI
 	ACTION_IF bsc_heal BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/ini/sr_healing.tph~
+	END
+
+	// Add disabling spells
+	ACTION_IF ds_spl BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/ini/sr_disabling_spells.tph
 	END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -148,6 +154,18 @@ ACTION_IF spell_revisions BEGIN
 					LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_spell_bsk_heal%~ RET spell_res END
 					COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
 						REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_spell_bsk_heal%~ ~RES(%spell_res%~
+				END
+		END
+
+		ACTION_IF ds_spl BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/bg2ee/sr_core_disabling_spells_5e.tph~
+
+			ACTION_FOR_EACH 5e_disabling_spell IN
+					CLERIC_INSECT_PLAGUE
+				BEGIN
+					LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_disabling_spell%~ RET spell_res END
+					COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+						REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_disabling_spell%~ ~RES(%spell_res%~
 				END
 		END
 	END
@@ -360,10 +378,16 @@ END ELSE BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/lib/bgee/core_bgee.tph~
 
 ///////////////////////////////////////////////////////////////////////////
-// Update ini Presets - BasicAI Healing                                  //
+// Update ini Presets - Part 1                                           //
 ///////////////////////////////////////////////////////////////////////////
+	// Add basic healing to MO-BasicAI
 	ACTION_IF bsc_heal BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/ini/healing.tph~
+	END
+
+	// Add disabling spells
+	ACTION_IF ds_spl BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/ini/disabling_spells.tph
 	END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -453,6 +477,18 @@ END ELSE BEGIN
 					LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_spell_bsk_heal%~ RET spell_res END
 					COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
 						REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_spell_bsk_heal%~ ~RES(%spell_res%~
+				END
+		END
+
+		ACTION_IF ds_spl BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/bg2ee/core_disabling_spells_5e.tph~
+
+			ACTION_FOR_EACH 5e_disabling_spell IN
+					CLERIC_INSECT_PLAGUE
+				BEGIN
+					LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_disabling_spell%~ RET spell_res END
+					COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+						REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_disabling_spell%~ ~RES(%spell_res%~
 				END
 		END
 	END

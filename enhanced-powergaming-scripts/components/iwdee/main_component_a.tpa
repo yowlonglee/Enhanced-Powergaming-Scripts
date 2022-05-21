@@ -59,6 +59,11 @@ INCLUDE ~enhanced-powergaming-scripts/lib/IWDEE/core_iwd.tph~
 		INCLUDE ~enhanced-powergaming-scripts/lib/iwdee/healing_iwd.tph~
 	END
 
+	// Add disabling spells
+	ACTION_IF ds_spl BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/ini/disabling_spells.tph
+	END
+
 ///////////////////////////////////////////////////////////////////////////
 // Make Skald Script after Core                                          //
 ///////////////////////////////////////////////////////////////////////////
