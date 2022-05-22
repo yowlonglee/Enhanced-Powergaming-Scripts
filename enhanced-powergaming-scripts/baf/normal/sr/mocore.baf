@@ -75,6 +75,19 @@ THEN
 END
 
 IF
+  OR(3)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
+    !GlobalTimerNotExpired("MO_ParalysisCastTimer","GLOBAL")
+  Global("MO_SelfRemoveParalysis","LOCALS",1)
+  Global("MO_PartyRemoveParalysis","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_SelfRemoveParalysis","LOCALS",0)
+    SetGlobal("MO_PartyRemoveParalysis","GLOBAL",0)
+END
+
+IF
   PartyRested()
 THEN
   RESPONSE #100

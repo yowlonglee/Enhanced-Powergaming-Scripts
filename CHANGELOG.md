@@ -8,7 +8,7 @@ June xx, 2022
 
 - All Games
   - Improved tracking for all spells to ensure the scripts don't cancel a player cast spell.
-  - Improved tracking for resurrection, removing fear, removing diseases, and restoration spells to prevent overcasting.
+  - Improved tracking for resurrection, removing fear, removing diseases, removing paralysis, and restoration spells to prevent overcasting.
   - Added disabling_spells as an ini option for the MO-CORE and MO-SKALD scripts. Default of 0 is off.
     - This adds the following spells: Insect Plague.
   - Added healing as an ini option for the BasicAI scripts. Default of 0 is off.
@@ -18,7 +18,7 @@ June xx, 2022
   - Updated remove curse to be cast out of combat and reduce overcasting.
   - Corrected bug with Black Blade of Disaster being continually cast.
   - To-Do:
-    - Update Remove Paralysis, Break Enchantment, and Chaotic Commands for better tracking
+    - Update Break Enchantment, and Chaotic Commands for better tracking
     - Add Disabling Spells (ini optional): Doom, Command, False Dawn, Sunray, Blindness, Sleep, Spook, Horror, Hold Person, Slow, Confusion, Emotion: Hopelessness, Greater Malison, Chaos
 
 ## Version 7.3.1

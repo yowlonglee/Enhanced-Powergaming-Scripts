@@ -1943,6 +1943,7 @@ IF
     StateCheck(LastSeenBy(Myself),STATE_STUNNED)
     CheckStatGT(LastSeenBy(Myself),0,HELD)
   HaveSpell(CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
+  Global("MO_PartyRemoveParalysis","GLOBAL",0)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -1961,6 +1962,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_ParalysisCastTimer","GLOBAL",6)
+    SetGlobal("MO_SelfRemoveParalysis","LOCALS",1)
+    SetGlobal("MO_PartyRemoveParalysis","GLOBAL",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5010)
     Spell(LastSeenBy(Myself),CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
@@ -1977,6 +1981,7 @@ IF
     StateCheck(LastSeenBy(Myself),STATE_STUNNED)
     CheckStatGT(LastSeenBy(Myself),0,HELD)
   HaveSpell(CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
+  Global("MO_PartyRemoveParalysis","GLOBAL",0)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -1995,6 +2000,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_ParalysisCastTimer","GLOBAL",6)
+    SetGlobal("MO_SelfRemoveParalysis","LOCALS",1)
+    SetGlobal("MO_PartyRemoveParalysis","GLOBAL",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5010)
     Spell(LastSeenBy(Myself),CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
@@ -2011,6 +2019,7 @@ IF
     StateCheck(LastSeenBy(Myself),STATE_STUNNED)
     CheckStatGT(LastSeenBy(Myself),0,HELD)
   HaveSpell(CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
+  Global("MO_PartyRemoveParalysis","GLOBAL",0)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -2029,6 +2038,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_ParalysisCastTimer","GLOBAL",6)
+    SetGlobal("MO_SelfRemoveParalysis","LOCALS",1)
+    SetGlobal("MO_PartyRemoveParalysis","GLOBAL",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5010)
     Spell(LastSeenBy(Myself),CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
@@ -2045,6 +2057,7 @@ IF
     StateCheck(LastSeenBy(Myself),STATE_STUNNED)
     CheckStatGT(LastSeenBy(Myself),0,HELD)
   HaveSpell(CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
+  Global("MO_PartyRemoveParalysis","GLOBAL",0)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -2063,6 +2076,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_ParalysisCastTimer","GLOBAL",6)
+    SetGlobal("MO_SelfRemoveParalysis","LOCALS",1)
+    SetGlobal("MO_PartyRemoveParalysis","GLOBAL",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5010)
     Spell(LastSeenBy(Myself),CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
@@ -2075,6 +2091,7 @@ IF
     !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
+  Global("MO_PartyRemoveParalysis","GLOBAL",0)
   OR(2)
     StateCheck(LastSeenBy(Myself),STATE_STUNNED)
     CheckStatGT(LastSeenBy(Myself),0,HELD)
@@ -2097,6 +2114,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_ParalysisCastTimer","GLOBAL",6)
+    SetGlobal("MO_SelfRemoveParalysis","LOCALS",1)
+    SetGlobal("MO_PartyRemoveParalysis","GLOBAL",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5010)
     Spell(LastSeenBy(Myself),CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
@@ -2109,6 +2129,7 @@ IF
     !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
+  Global("MO_PartyRemoveParalysis","GLOBAL",0)
   OR(2)
     StateCheck(LastSeenBy(Myself),STATE_STUNNED)
     CheckStatGT(LastSeenBy(Myself),0,HELD)
@@ -2131,6 +2152,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_ParalysisCastTimer","GLOBAL",6)
+    SetGlobal("MO_SelfRemoveParalysis","LOCALS",1)
+    SetGlobal("MO_PartyRemoveParalysis","GLOBAL",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5010)
     Spell(LastSeenBy(Myself),CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)

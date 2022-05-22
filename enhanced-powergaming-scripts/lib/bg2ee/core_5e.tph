@@ -1225,6 +1225,7 @@ END~~~~~ //"
     StateCheck(LastSeenBy(Myself),STATE_STUNNED)
     CheckStatGT(LastSeenBy(Myself),0,HELD)
   HaveSpellRES(CLERIC_REMOVE_PARALYSIS)
+  Global("MO_PartyRemoveParalysis","GLOBAL",0)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -1240,6 +1241,9 @@ END~~~~~ //"
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_ParalysisCastTimer","GLOBAL",6)
+    SetGlobal("MO_SelfRemoveParalysis","LOCALS",1)
+    SetGlobal("MO_PartyRemoveParalysis","GLOBAL",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5010)
     SpellRES(CLERIC_REMOVE_PARALYSIS,LastSeenBy(Myself))
@@ -1256,6 +1260,7 @@ IF
     StateCheck(LastSeenBy(Myself),STATE_STUNNED)
     CheckStatGT(LastSeenBy(Myself),0,HELD)
   HaveSpellRES(CLERIC_REMOVE_PARALYSIS)
+  Global("MO_PartyRemoveParalysis","GLOBAL",0)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -1271,6 +1276,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_ParalysisCastTimer","GLOBAL",6)
+    SetGlobal("MO_SelfRemoveParalysis","LOCALS",1)
+    SetGlobal("MO_PartyRemoveParalysis","GLOBAL",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5010)
     SpellRES(CLERIC_REMOVE_PARALYSIS,LastSeenBy(Myself))
@@ -1287,6 +1295,7 @@ IF
     StateCheck(LastSeenBy(Myself),STATE_STUNNED)
     CheckStatGT(LastSeenBy(Myself),0,HELD)
   HaveSpellRES(CLERIC_REMOVE_PARALYSIS)
+  Global("MO_PartyRemoveParalysis","GLOBAL",0)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   CheckStat(LastSeenBy(Myself),0,WEB)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
@@ -1302,6 +1311,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_ParalysisCastTimer","GLOBAL",6)
+    SetGlobal("MO_SelfRemoveParalysis","LOCALS",1)
+    SetGlobal("MO_PartyRemoveParalysis","GLOBAL",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5010)
     SpellRES(CLERIC_REMOVE_PARALYSIS,LastSeenBy(Myself))
@@ -1318,6 +1330,7 @@ IF
     StateCheck(LastSeenBy(Myself),STATE_STUNNED)
     CheckStatGT(LastSeenBy(Myself),0,HELD)
   HaveSpellRES(CLERIC_REMOVE_PARALYSIS)
+  Global("MO_PartyRemoveParalysis","GLOBAL",0)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
@@ -1333,6 +1346,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_ParalysisCastTimer","GLOBAL",6)
+    SetGlobal("MO_SelfRemoveParalysis","LOCALS",1)
+    SetGlobal("MO_PartyRemoveParalysis","GLOBAL",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5010)
     SpellRES(CLERIC_REMOVE_PARALYSIS,LastSeenBy(Myself))
@@ -1345,6 +1361,7 @@ IF
     !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_REMOVE_PARALYSIS)
+  Global("MO_PartyRemoveParalysis","GLOBAL",0)
   OR(2)
     StateCheck(LastSeenBy(Myself),STATE_STUNNED)
     CheckStatGT(LastSeenBy(Myself),0,HELD)
@@ -1364,6 +1381,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_ParalysisCastTimer","GLOBAL",6)
+    SetGlobal("MO_SelfRemoveParalysis","LOCALS",1)
+    SetGlobal("MO_PartyRemoveParalysis","GLOBAL",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5010)
     SpellRES(CLERIC_REMOVE_PARALYSIS,LastSeenBy(Myself))
@@ -1376,6 +1396,7 @@ IF
     !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_REMOVE_PARALYSIS)
+  Global("MO_PartyRemoveParalysis","GLOBAL",0)
   OR(2)
     StateCheck(LastSeenBy(Myself),STATE_STUNNED)
     CheckStatGT(LastSeenBy(Myself),0,HELD)
@@ -1395,6 +1416,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobalTimer("MO_ParalysisCastTimer","GLOBAL",6)
+    SetGlobal("MO_SelfRemoveParalysis","LOCALS",1)
+    SetGlobal("MO_PartyRemoveParalysis","GLOBAL",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5010)
     SpellRES(CLERIC_REMOVE_PARALYSIS,LastSeenBy(Myself))
