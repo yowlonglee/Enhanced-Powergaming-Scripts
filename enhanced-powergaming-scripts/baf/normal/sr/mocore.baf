@@ -2837,23 +2837,193 @@ END
 // 5e Spellcasting Prebuff Improve Haste
 
 IF
-	Global("MO_BUFF","LOCALS",1)
-	HaveSpell(WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
-	!CheckStatGT(Myself,0,IMPROVEDHASTE)
-	OR(3)
-		Class(Myself,THIEF_ALL)
-		Class(Myself,FIGHTER_ALL)
-		Class(Myself,BARD_ALL)
-	CheckStatLT(Myself,20,SPELLFAILUREMAGE)
-	!CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-	!StateCheck(Myself,STATE_POISONED)
-	!StateCheck(Myself,STATE_SILENCED)
-	Global("MO_CastAthkatla","LOCALS",1)
-	!CheckSpellState(Myself,WILD_MAGIC_AREA)
-	!CheckSpellState(Myself,DEAD_MAGIC_AREA)
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpell(WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
+  See(Myself)
+  !CheckStatGT(Myself,0,IMPROVEDHASTE)
+  OR(3)
+    Class(LastSeenBy(Myself),THIEF_ALL)
+    Class(LastSeenBy(Myself),FIGHTER_ALL)
+    Class(LastSeenBy(Myself),BARD_ALL)
+  !Class(LastSeenBy(Myself),MONK)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
-	RESPONSE #100
-		Spell(Myself,WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpell(WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
+  See([PC])
+  !CheckStatGT(Myself,0,IMPROVEDHASTE)
+  OR(3)
+    Class(LastSeenBy(Myself),THIEF_ALL)
+    Class(LastSeenBy(Myself),FIGHTER_ALL)
+    Class(LastSeenBy(Myself),BARD_ALL)
+  !Class(LastSeenBy(Myself),MONK)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  // Major Globe
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpell(WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
+  See(SecondNearest([PC]))
+  !CheckStatGT(Myself,0,IMPROVEDHASTE)
+  OR(3)
+    Class(LastSeenBy(Myself),THIEF_ALL)
+    Class(LastSeenBy(Myself),FIGHTER_ALL)
+    Class(LastSeenBy(Myself),BARD_ALL)
+  !Class(LastSeenBy(Myself),MONK)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  // Major Globe
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpell(WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
+  See(ThirdNearest([PC]))
+  !CheckStatGT(Myself,0,IMPROVEDHASTE)
+  OR(3)
+    Class(LastSeenBy(Myself),THIEF_ALL)
+    Class(LastSeenBy(Myself),FIGHTER_ALL)
+    Class(LastSeenBy(Myself),BARD_ALL)
+  !Class(LastSeenBy(Myself),MONK)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  // Major Globe
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpell(WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
+  See(FourthNearest([PC]))
+  !CheckStatGT(Myself,0,IMPROVEDHASTE)
+  OR(3)
+    Class(LastSeenBy(Myself),THIEF_ALL)
+    Class(LastSeenBy(Myself),FIGHTER_ALL)
+    Class(LastSeenBy(Myself),BARD_ALL)
+  !Class(LastSeenBy(Myself),MONK)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  // Major Globe
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpell(WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
+  See(FifthNearest([PC]))
+  !CheckStatGT(Myself,0,IMPROVEDHASTE)
+  OR(3)
+    Class(LastSeenBy(Myself),THIEF_ALL)
+    Class(LastSeenBy(Myself),FIGHTER_ALL)
+    Class(LastSeenBy(Myself),BARD_ALL)
+  !Class(LastSeenBy(Myself),MONK)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  // Major Globe
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpell(WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
+  See(SixthNearest([PC]))
+  !CheckStatGT(Myself,0,IMPROVEDHASTE)
+  OR(3)
+    Class(LastSeenBy(Myself),THIEF_ALL)
+    Class(LastSeenBy(Myself),FIGHTER_ALL)
+    Class(LastSeenBy(Myself),BARD_ALL)
+  !Class(LastSeenBy(Myself),MONK)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  // Major Globe
+  !CheckSpellState(LastSeenBy(Myself),SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GREATER_SPELL_DEFLECTION)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
 END
 
 // 5e Spellcasting Prebuff - FP Cleric Divine Improved Haste

@@ -14,10 +14,10 @@ June xx, 2022
   - Added healing as an ini option for the BasicAI scripts. Default of 0 is off.
   - Added Impervious Sanctity of Mind and Mind Blank to prebuffing.
   - Updated Wizard Armor, Ghost Armor, and Spirit Armor tracking.
+  - Updated Improved Haste to target others during prebuffing.
   - Updated remove curse to be cast out of combat and reduce overcasting.
   - Corrected bug with Black Blade of Disaster being continually cast.
   - To-Do:
-    - Target others with IH during prebuffing
     - Update Remove Paralysis, Break Enchantment, and Chaotic Commands for better tracking
     - Add Disabling Spells (ini optional): Doom, Command, False Dawn, Sunray, Blindness, Sleep, Spook, Horror, Hold Person, Slow, Confusion, Emotion: Hopelessness, Greater Malison, Chaos
 
