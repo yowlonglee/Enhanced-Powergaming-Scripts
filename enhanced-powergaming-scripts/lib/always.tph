@@ -59,6 +59,13 @@ ACTION_IF !VARIABLE_IS_SET ~initialise~ BEGIN
       OUTER_SET turn_undead=0
    END
 
+   // Detect Paladin Smiting
+   ACTION_IF MOD_IS_INSTALLED ~skills-and-abilities.tp2~ ~80~ THEN BEGIN
+      OUTER_SET pally_smite=1
+   END ELSE BEGIN
+      OUTER_SET pally_smite=0
+   END
+
    // Detect Song and Silence
    ACTION_IF MOD_IS_INSTALLED ~setup-song_and_silence.tp2~ ~8~ BEGIN
       OUTER_SET song_and_silence=1

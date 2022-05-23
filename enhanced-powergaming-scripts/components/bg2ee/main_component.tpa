@@ -778,10 +778,17 @@ END
 ///////////////////////////////////////////////////////////////////////////
 // Turn Undead Overhaul - END                                            //
 ///////////////////////////////////////////////////////////////////////////
-	ACTION_IF turn_undead BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/bg2ee/basic_turn_undead_end.tph~
-		INCLUDE ~enhanced-powergaming-scripts/lib/bg2ee/core_turn_undead_end.tph~
-	END
+ACTION_IF turn_undead BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/bg2ee/basic_turn_undead_end.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/bg2ee/core_turn_undead_end.tph~
+END
+
+///////////////////////////////////////////////////////////////////////////
+// Skills and Abilities Paladin Overhaul                                 //
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF pally_smite BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_pally_smite.tph~
+END
 
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
