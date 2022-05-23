@@ -72,19 +72,3 @@ THEN
     SpellRES("MOPALC3",Myself)  // SPCL901.SPL (Greater Whirlwind Attack)
 END~~~~~ //"
   END
-
-///////////////////////////////////////////////////////////////////////////
-// Update Checks                                                         //
-///////////////////////////////////////////////////////////////////////////
-  LPF REPLACE_MULTILINE
-    INT_VAR
-    strict = 1
-    verbose = 0
-    warn = 0
-    STR_VAR
-    pattern = ~~~~~!CheckSpellState(Myself,CRITICAL_STRIKE)
-  !CheckSpellState(Myself,GREATER_WHIRLWIND)~~~~~
-    string = ~~~~~!CheckSpellState(Myself,CRITICAL_STRIKE)
-  !CheckSpellState(Myself,GREATER_WHIRLWIND)
-  !CheckSpellState(Myself,PALLY_SMITE)~~~~~ //"
-  END
