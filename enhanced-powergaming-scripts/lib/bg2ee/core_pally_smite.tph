@@ -15,7 +15,6 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     !CheckSpellState(Myself,CASTING_SPELL)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("MOPALC3")
-  !CheckStatGT(Myself,0,IMPROVEDHASTE)
   !CheckSpellState(Myself,CRITICAL_STRIKE)
   !CheckSpellState(Myself,GREATER_WHIRLWIND)
   See([EVILCUTOFF])
@@ -77,21 +76,6 @@ END~~~~~ //"
 ///////////////////////////////////////////////////////////////////////////
 // Update Checks                                                         //
 ///////////////////////////////////////////////////////////////////////////
-  LPF REPLACE_MULTILINE
-    INT_VAR
-    strict = 1
-    verbose = 0
-    warn = 0
-    STR_VAR
-    pattern = ~~~~~!CheckStatGT(Myself,0,IMPROVEDHASTE)
-  !CheckSpellState(Myself,CRITICAL_STRIKE)
-  !CheckSpellState(Myself,GREATER_WHIRLWIND)~~~~~
-    string = ~~~~~!CheckStatGT(Myself,0,IMPROVEDHASTE)
-  !CheckSpellState(Myself,CRITICAL_STRIKE)
-  !CheckSpellState(Myself,GREATER_WHIRLWIND)
-  !CheckSpellState(Myself,PALLY_SMITE)~~~~~ //"
-  END
-
   LPF REPLACE_MULTILINE
     INT_VAR
     strict = 1
