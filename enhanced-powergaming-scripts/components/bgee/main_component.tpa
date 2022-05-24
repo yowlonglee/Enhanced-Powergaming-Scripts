@@ -67,6 +67,10 @@ ACTION_IF spell_revisions BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/ini/sr_disabling_spells.tph~
 	END
 
+	// Add long duration spells to MO-BasicAI
+	ACTION_IF basic_ai_long_duration BEGIN
+	END
+
 ///////////////////////////////////////////////////////////////////////////
 // SR - 5e Spellcasting                                                  //
 ///////////////////////////////////////////////////////////////////////////
@@ -392,6 +396,10 @@ END ELSE BEGIN
 	// Add disabling spells
 	ACTION_IF ds_spl BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/ini/disabling_spells.tph~
+	END
+
+	// Add long duration spells to MO-BasicAI
+	ACTION_IF basic_ai_long_duration BEGIN
 	END
 
 ///////////////////////////////////////////////////////////////////////////

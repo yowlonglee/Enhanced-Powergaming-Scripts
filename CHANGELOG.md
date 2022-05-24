@@ -17,6 +17,7 @@ June xx, 2022
   - Updated Improved Haste to target others during prebuffing.
   - Updated remove curse to be cast out of combat and reduce overcasting.
   - Corrected bug with Black Blade of Disaster being continually cast.
+  - Regeneration will now be cast in combat if a character's health drops below 50%.
   - To-Do:
     - Add Disabling Spells (ini optional): Command, Blindness, Sleep, Spook, Horror, Hold Person, Slow, Confusion, Emotion: Hopelessness, Chaos
     - ini option for mo-basic long duration spells: skins, mental, melf's.

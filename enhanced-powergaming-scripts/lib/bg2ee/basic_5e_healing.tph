@@ -209,14 +209,18 @@ END~~~~~ //"
   OR(2)
     ActionListEmpty()
     !CheckSpellState(Myself,CASTING_SPELL)
-  OR(2)
-    !See([EVILCUTOFF])
-    CheckStat(Myself,1,SANCTUARY)
+  CheckStat(Myself,1,SANCTUARY)
   HaveSpellRES(CLERIC_REGENERATE)
-  See(Myself)
-  HPPercentLT(Myself,99)
-  CheckStatLT(Myself,1,CLERIC_REGENERATION)
+  See(MostDamagedOf([PC]))
+  HPPercentLT(LastSeenBy(Myself),50)
+  CheckStatLT(LastSeenBy(Myself),1,CLERIC_REGENERATION)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_APPROACHABLE)
   !StateCheck(LastSeenBy(Myself),STATE_REALLY_DEAD)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
   !CheckStat(LastSeenBy(Myself),7,WIZARD_SPELL_IMMUNITY)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !StateCheck(Myself,STATE_SILENCED)
@@ -227,7 +231,7 @@ END~~~~~ //"
 THEN
   RESPONSE #100
     SetInterrupt(FALSE)
-    SpellRES(CLERIC_REGENERATE,Myself)
+    SpellRES(CLERIC_REGENERATE,LastSeenBy(Myself))
     SetInterrupt(TRUE)
 END~~~~~ //"
   END
