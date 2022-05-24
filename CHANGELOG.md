@@ -21,7 +21,6 @@ June xx, 2022
     - Add Disabling Spells (ini optional): Command, Blindness, Sleep, Spook, Horror, Hold Person, Slow, Confusion, Emotion: Hopelessness, Chaos
     - ini option for mo-basic long duration spells: skins, mental, melf's.
     - Purge Invisibility, detect illusion, etc. tracking.
-    - Update trap check to only (if no action)
 
 ## Version 7.3.1
 
