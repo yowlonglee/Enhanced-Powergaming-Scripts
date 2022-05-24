@@ -10171,9 +10171,7 @@ THEN
 END
 
 IF
-  OR(2)
-    ActionListEmpty()
-    !CheckSpellState(Myself,CASTING_SPELL)
+  ActionListEmpty()
   !See([EVILCUTOFF])
   !ModalState(DETECTTRAPS)
   !ModalState(STEALTH)
