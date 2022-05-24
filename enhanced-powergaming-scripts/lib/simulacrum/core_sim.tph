@@ -1,0 +1,39 @@
+COPY ~enhanced-powergaming-scripts/baf/upload/mosim02.baf~ ~enhanced-powergaming-scripts/baf/upload/mosim02.baf~
+
+///////////////////////////////////////////////////////////////////////////
+// SI_DIVINATION                                                         //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// Simulacrum SI_DIVINATION~~~~~
+    string = ~~~~~IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  HaveSpell(WIZARD_SPELL_IMMUNITY)  // SPWI510.SPL (Spell Immunity)
+  CheckSpellState(Myself,SI_DIVINATION)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    ForceSpell(Myself,WIZARD_SPELL_IMMUNITY_DIVINATION)  // SPWI592.SPL (Immunity: Divination)
+    RemoveSpell(WIZARD_SPELL_IMMUNITY)  // SPWI510.SPL (Spell Immunity)
+    SetInterrupt(TRUE)
+END~~~~~ //"
+  END
+
+
+
+
+
