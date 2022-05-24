@@ -20,6 +20,8 @@ IF
     Class(Myself,PALADIN_ALL)
     Class(Myself,RANGER_ALL)
   !Kit(Myself,SKALD)
+  !Kit(Myself,JESTER)
+  !CheckSpellState(Myself,ENHANCED_BARD_SONG)
 THEN
   RESPONSE #100
     ChangeAIScript("mosim02",OVERRIDE)
@@ -27,7 +29,10 @@ END
 
 IF
   Allegiance(Myself,GOODCUTOFF)
-  Kit(Myself,SKALD)
+  OR(3)
+    Kit(Myself,SKALD)
+    Kit(Myself,JESTER)
+    CheckSpellState(Myself,ENHANCED_BARD_SONG)
 THEN
   RESPONSE #100
     ChangeAIScript("mosim06",OVERRIDE)
