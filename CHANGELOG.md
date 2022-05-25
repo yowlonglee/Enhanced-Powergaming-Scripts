@@ -13,6 +13,7 @@ June xx, 2022
     - This adds the following spells: Doom, Insect Plague, False Dawn, Sunray, Greater Malison.
     - This adds use of the following items: Daystar
   - Added healing as an ini option for the BasicAI scripts. Default of 1 is on.
+  - Added long duration spells as an ini option for the BasicAI scripts. Default of 1 is on.
   - Added Impervious Sanctity of Mind and Mind Blank to prebuffing.
   - Updated Wizard Armor, Ghost Armor, and Spirit Armor tracking.
   - Updated Improved Haste to target others during prebuffing.
@@ -21,7 +22,6 @@ June xx, 2022
   - Regeneration will now be cast in combat if a character's health drops below 50%.
   - To-Do:
     - Add Disabling Spells (ini optional): Command, Blindness, Sleep, Spook, Horror, Hold Person, Slow, Confusion, Emotion: Hopelessness, Chaos
-    - ini option for mo-basic long duration spells: skins, mental, melf's.
 
 ## Version 7.3.1
 
