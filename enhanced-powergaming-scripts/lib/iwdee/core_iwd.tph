@@ -408,7 +408,6 @@ END~~~~~
   CheckStatLT(Myself,1,STONESKINS)
   GlobalLT("MO_UsedGargoyle","GLOBAL",2)
   HasItemEquiped("Boot12",Myself)  // Gargoyle Boots
-  !CheckSpellState(Myself,GLOBE)
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
@@ -1409,10 +1408,10 @@ END
     Range([EVILCUTOFF.0.DEMILICH],30)
     Range([EVILCUTOFF.0.FAIRY],30)
     Range([EVILCUTOFF.0.0.WRAITH],30)
+    Range([EVILCUTOFF.0.0.WIGHT],30)
     Range([EVILCUTOFF.0.0.SPECTRE],30)
     Range([EVILCUTOFF.0.0.WYVERN],30)
     Range([EVILCUTOFF.0.0.BASILISK],30)
-    Range([EVILCUTOFF.0.LICH],30)
     Range([EVILCUTOFF.0.SOLAR],30)
     Range([EVILCUTOFF.0.PLANATAR],30)
     Range([EVILCUTOFF.0.ANTISOLAR],30)
