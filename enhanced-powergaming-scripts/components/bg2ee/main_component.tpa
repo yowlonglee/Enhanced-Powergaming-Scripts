@@ -59,6 +59,7 @@ ACTION_IF spell_revisions BEGIN
 	// Add disabling spells
 	ACTION_IF ds_spl BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/ini/sr_disabling_spells.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_disabling_items.tph~
 	END
 
 	// Add long duration spells to MO-BasicAI
@@ -390,6 +391,7 @@ END ELSE BEGIN
 	// Add disabling spells
 	ACTION_IF ds_spl BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/ini/disabling_spells.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_disabling_items.tph~
 	END
 
 	// Add long duration spells to MO-BasicAI
