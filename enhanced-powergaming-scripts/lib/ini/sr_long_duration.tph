@@ -106,7 +106,7 @@ THEN
     SetInterrupt(TRUE)
 END
 
-// bg2ee long duration items
+// bg2ee long duration item 1
 
 // 5e Spellcasting - IWD Impervious Sanctity of Mind
 
@@ -186,5 +186,54 @@ THEN
     SetInterrupt(FALSE)
     Spell(Myself,WIZARD_MIND_BLANK)  // SPWI802.SPL (Mind Blank)
     SetInterrupt(TRUE)
-END~~~~~ //"
+END
+
+IF
+  !HasItem("melfmet",Myself)  // Melf's Minute Meteor
+  Global("MO_HasMelfMeteors","LOCALS",1)
+  CanEquipRanged()
+THEN
+  RESPONSE #100
+    SetGlobal("MO_HasMelfMeteors","LOCALS",0)
+    EquipRanged()
+    ActionOverride(Myself,ClearActions(Myself))
+END
+
+IF
+  !HasItem("melfmet",Myself)  // Melf's Minute Meteor
+  Global("MO_HasMelfMeteors","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_HasMelfMeteors","LOCALS",0)
+    EquipMostDamagingMelee()
+    ActionOverride(Myself,ClearActions(Myself))
+END
+
+// 5e Spellcasting Melf's Minute Meteors
+
+IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  HaveSpell(WIZARD_MELF_METEOR)  // SPWI325.SPL (Melf's Minute Meteors)
+  !HasItem("melfmet",Myself)  // Short Sword
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_HasMelfMeteors","LOCALS",1)
+    SetInterrupt(FALSE)
+    Spell(Myself,WIZARD_MELF_METEOR)  // SPWI325.SPL (Melf's Minute Meteors)
+    SetInterrupt(TRUE)
+END
+
+// bg2ee long duration item 2
+~~~~~ //"
   END
