@@ -64,6 +64,23 @@ ACTION_IF spell_revisions BEGIN
 
 	// Add long duration spells to MO-BasicAI
 	ACTION_IF bsc_lng_dur BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/ini/sr_long_duration.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/ini/long_duration_items.tph~
+		
+		ACTION_IF 5e_spellcasting BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_basic_lng_dur_5e.tph~
+
+			ACTION_FOR_EACH 5e_long_spell IN
+					WIZARD_ARMOR
+					WIZARD_MIND_BLANK
+					WIZARD_STONE_SKIN
+					CLERIC_IRONSKIN
+				BEGIN
+					LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_long_spell%~ RET spell_res END
+					COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
+						REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_long_spell%~ ~RES(%spell_res%~
+				END
+		END
 	END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -396,6 +413,21 @@ END ELSE BEGIN
 
 	// Add long duration spells to MO-BasicAI
 	ACTION_IF bsc_lng_dur BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/ini/long_duration.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/ini/long_duration_items.tph~
+
+		ACTION_IF 5e_spellcasting BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/basic_lng_dur_5e.tph~
+
+			ACTION_FOR_EACH 5e_long_spell IN
+					WIZARD_STONE_SKIN
+					CLERIC_IRONSKIN
+				BEGIN
+					LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_long_spell%~ RET spell_res END
+					COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
+						REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_long_spell%~ ~RES(%spell_res%~
+				END
+		END
 	END
 
 ///////////////////////////////////////////////////////////////////////////

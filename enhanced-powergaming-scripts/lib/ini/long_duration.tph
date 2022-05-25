@@ -1,0 +1,115 @@
+COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
+
+///////////////////////////////////////////////////////////////////////////
+// Update Basic AI to Attack                                             //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// ini long duration~~~~~
+      string = ~~~~~// 5e Spellcasting Stoneskin
+
+IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  See([EVILCUTOFF])
+  CheckStatLT(Myself,1,STONESKINS)
+  HaveSpell(WIZARD_STONE_SKIN)  // SPWI408.SPL (Stoneskin)
+  !CheckSpellState(Myself,GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(Myself,WIZARD_STONE_SKIN)  // SPWI408.SPL (Stoneskin)
+    SetInterrupt(TRUE)
+END
+
+IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
+  !See([EVILCUTOFF])
+  Global("MO_WildStoneskin","LOCALS",0)
+  CheckStatLT(Myself,1,STONESKINS)
+  HaveSpell(WIZARD_STONE_SKIN)  // SPWI408.SPL (Stoneskin)
+  !CheckSpellState(Myself,GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_WildStoneskin","LOCALS",1)
+    SetGlobalTimer("MO_SpellCast","LOCALS",2)
+END
+
+IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !See([EVILCUTOFF])
+  Global("MO_WildStoneskin","LOCALS",1)
+  CheckStatLT(Myself,1,STONESKINS)
+  HaveSpell(WIZARD_STONE_SKIN)  // SPWI408.SPL (Stoneskin)
+  !CheckSpellState(Myself,GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_WildStoneskin","LOCALS",0)
+    SetInterrupt(FALSE)
+    Spell(Myself,WIZARD_STONE_SKIN)  // SPWI408.SPL (Stoneskin)
+    SetInterrupt(TRUE)
+END
+
+// 5e Spellcasting Iron Skins
+
+IF
+  OR(2)
+    ActionListEmpty()
+    !CheckSpellState(Myself,CASTING_SPELL)
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  CheckStatLT(Myself,1,STONESKINS)
+  HaveSpell(CLERIC_IRONSKIN)  // SPPR506.SPL (Iron Skins)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(Myself,CLERIC_IRONSKIN)  // SPPR506.SPL (Iron Skins)
+    SetInterrupt(TRUE)
+END
+
+// bg2ee long duration items
+
+// 5e Spellcasting - IWD Mind Blank and Impervious Sanctity of Mind
+
+// IWD Mind Blank and Impervious Sanctity of Mind
+~~~~~ //"
+  END
