@@ -128,7 +128,13 @@ This allows the player to fine-tune aspects of the scripts. 1 turns the feature 
 
 - basic_ai_auto_attack is defaulted to 0. This turns on or off the Basic AI script using auto-attacks.
 
+- basic_ai_auto_healing is defaulted to 0. This turns on or off the Basic AI script using auto-healing.
+
+- basic_ai_long_duration is defaulted to 0. This turns on or off the Basic AI script using auto-long duration buffs.
+
 - script_dialog is defaulted to 1. This turns on or off hover text appearing when certain abilities are used in combat.
+
+- disabling_spells is defaulted to 0. This turns on or off the MOCore and MOSkald scripts using disabling spells.
 
 - target_dancing_sword is defaulted to 1. This targets Dancing Swords with Magic Missiles when no other enemies are present/targetable. 
 

@@ -2,26 +2,24 @@
 
 ## Version 8.0
 
-June xx, 2022
+May 31, 2022
 
 ### Changed 
 
 - All Games
   - Improved tracking for all spells to ensure the scripts don't cancel a player cast spell.
   - Improved tracking for resurrection, removing fear, removing diseases, removing paralysis, and restoration spells to prevent overcasting.
-  - Added disabling_spells as an ini option for the MO-CORE and MO-SKALD scripts. Default of 1 is on.
+  - Added disabling_spells as an ini option for the MO-CORE and MO-SKALD scripts. Default of 0 is off.
     - This adds the following spells: Doom, Insect Plague, False Dawn, Sunray, Greater Malison.
     - This adds use of the following items: Daystar
-  - Added healing as an ini option for the BasicAI scripts. Default of 1 is on.
-  - Added long duration spells as an ini option for the BasicAI scripts. Default of 1 is on.
+  - Added healing as an ini option for the BasicAI scripts. Default of 0 is off.
+  - Added long duration spells as an ini option for the BasicAI scripts. Default of 0 is off.
   - Added Impervious Sanctity of Mind and Mind Blank to prebuffing.
   - Updated Wizard Armor, Ghost Armor, and Spirit Armor tracking.
   - Updated Improved Haste to target others during prebuffing.
   - Updated remove curse to be cast out of combat and reduce overcasting.
   - Corrected bug with Black Blade of Disaster being continually cast.
   - Regeneration will now be cast in combat if a character's health drops below 50%.
-  - To-Do:
-    - Add Disabling Spells (ini optional): Command, Blindness, Sleep, Spook, Horror, Hold Person, Slow, Confusion, Emotion: Hopelessness, Chaos
 
 ## Version 7.3.1
 
