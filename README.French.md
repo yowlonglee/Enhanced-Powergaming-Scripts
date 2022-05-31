@@ -12,7 +12,7 @@
 
 ## Introduction
 
-Ce mod est une collection de scripts d'IA de joueur conçue pour être utilisée dans BG: EE, BGII: EE, EET, et IWD: EE. Grâce à ces scripts, vous pouvez vous concentrer sur le combat pendant qu'ils s'occupent des nuances en arrière-plan. Ces scripts permettent le lancement de sorts de préparation au combat facilement pour tous les personnages avec une simple touche, il permet aussi de se relayer pendant les soins pour éviter les pertes, de neutraliser intelligemment les protections de l'ennemi et d'utiliser judicieusement les sorts défensifs et les capacités. 
+Ce mod est une collection de scripts d'IA de joueur conçue pour être utilisée dans BG: EE, BGII: EE, EET, et IWD: EE. Grâce à ces scripts, vous pouvez vous concentrer sur le combat pendant qu'ils s'occupent des nuances en arrière-plan. Ces scripts permettent le lancement de sorts de préparation au combat facilement pour tous les personnages avec une simple touche, il permet aussi de se relayer pendant les soins pour éviter les pertes, de neutraliser intelligemment les protections de l'ennemi et d'utiliser judicieusement les sorts défensifs et les capacités. Ces scripts augmentent les possibilités de jeu, sans être contraignants.
 
 REMARQUE : Je ne fais aucun effort pour maintenir ce dépôt github dans un état stable, et les rapports de bugs sur les commits non publiés ne me sont pas utiles.
 
@@ -146,7 +146,13 @@ Cela permet au joueur d'affiner certains aspects des scripts. La valeur 1 active
 
 - basic_ai_auto_attack is defaulted to 0. This turns on or off the Basic AI script using auto-attacks.
 
+- basic_ai_auto_healing is defaulted to 0. This turns on or off the Basic AI script using auto-healing.
+
+- basic_ai_long_duration is defaulted to 0. This turns on or off the Basic AI script using auto-long duration buffs.
+
 - script_dialog is defaulted to 1. This turns on or off hover text appearing when certain abilities are used in combat.
+
+- disabling_spells is defaulted to 0. This turns on or off the MOCore and MOSkald scripts using disabling spells.
 
 - target_dancing_sword is defaulted to 1. This targets Dancing Swords with Magic Missiles when no other enemies are present/targetable. 
 
