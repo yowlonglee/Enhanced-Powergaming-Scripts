@@ -1,5 +1,14 @@
 # Changelog
 
+## Version 8.0.1
+
+June 1, 2022
+
+### Changed 
+
+- All Games
+  - Fixed bug with Spell Revisions Shield spell during pre-buffing.
+
 ## Version 8.0
 
 May 31, 2022
