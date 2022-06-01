@@ -361,6 +361,29 @@ ACTION_IF spell_revisions BEGIN
 	END
 
 ///////////////////////////////////////////////////////////////////////////
+// Create Spell State for Wizard Shield                                  //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~WIZARD_SHIELD~)) BEGIN
+	  COPY_EXISTING ~splstate.ids~ ~override~
+		COUNT_2DA_COLS cols
+		READ_2DA_ENTRIES_NOW rows cols
+		FOR (row = 1; row < rows; ++row) BEGIN
+		  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
+		  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
+		  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~WIZARD_SHIELD~) BEGIN
+			SET wzd_shld = %state_ind%
+		  END
+		END
+	  BUT_ONLY
+	END
+
+	ACTION_IF !(VARIABLE_IS_SET %wzd_shld%) BEGIN
+		LAF ds_sort_ids STR_VAR ids=splstate END
+		LAF d5_resolve_state STR_VAR new_state_id = ~WIZARD_SHIELD~ RET new_state_ind END
+		OUTER_SET wzd_shld = %new_state_ind%
+	END
+
+///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 // Assign Spell States or Stats to Spells                                //
 ///////////////////////////////////////////////////////////////////////////
@@ -532,6 +555,13 @@ ACTION_IF spell_revisions BEGIN
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~CLERIC_STRENGTH_OF_ONE~ RET spell_res END
 	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
 	  LPF CLONE_EFFECT INT_VAR match_opcode = 282 opcode = 328 parameter2 = %str_one% special = 1 END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Spell State to Wizard Shield                                      //
+///////////////////////////////////////////////////////////////////////////
+	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_SHIELD~ RET spell_res END
+	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
+   		LPF CLONE_EFFECT INT_VAR match_opcode = 282 opcode = 328 parameter2 = %wzd_shld% special = 1 END
 
 END
 
