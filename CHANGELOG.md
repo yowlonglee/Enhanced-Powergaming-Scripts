@@ -1,5 +1,14 @@
 # Changelog
 
+## Version 8.0.2
+
+June 15, 2022
+
+### Changed 
+
+- All Games
+  - Updated Russian Translation
+
 ## Version 8.0.1
 
 June 1, 2022
