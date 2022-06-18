@@ -2027,4 +2027,70 @@ ACTION_IF pally_smite BEGIN
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %ply_smt% timing = 0 duration = 6 END
 END
 
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+// Create New Spell States for Psi Warrior                               //
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF psi_warrior BEGIN
+
+///////////////////////////////////////////////////////////////////////////
+// Create Spell State for Psionic Strike                                 //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~PSIONIC_STRIKE~)) BEGIN
+	  COPY_EXISTING ~splstate.ids~ ~override~
+		COUNT_2DA_COLS cols
+		READ_2DA_ENTRIES_NOW rows cols
+		FOR (row = 1; row < rows; ++row) BEGIN
+		  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
+		  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
+		  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~PSIONIC_STRIKE~) BEGIN
+			SET psi_strike = %state_ind%
+		  END
+		END
+	  BUT_ONLY
+	END
+
+	ACTION_IF !(VARIABLE_IS_SET %psi_strike%) BEGIN
+		LAF ds_sort_ids STR_VAR ids=splstate END
+		LAF d5_resolve_state STR_VAR new_state_id = ~PSIONIC_STRIKE~ RET new_state_ind END
+		OUTER_SET psi_strike = %new_state_ind%
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// Create Spell State for Protective Field                               //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~PROTECTIVE_FIELD~)) BEGIN
+	  COPY_EXISTING ~splstate.ids~ ~override~
+		COUNT_2DA_COLS cols
+		READ_2DA_ENTRIES_NOW rows cols
+		FOR (row = 1; row < rows; ++row) BEGIN
+		  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
+		  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
+		  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~PROTECTIVE_FIELD~) BEGIN
+			SET prot_fld = %state_ind%
+		  END
+		END
+	  BUT_ONLY
+	END
+
+	ACTION_IF !(VARIABLE_IS_SET %prot_fld%) BEGIN
+		LAF ds_sort_ids STR_VAR ids=splstate END
+		LAF d5_resolve_state STR_VAR new_state_id = ~PROTECTIVE_FIELD~ RET new_state_ind END
+		OUTER_SET prot_fld = %new_state_ind%
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Spell State to Psionic Strike                                     //
+///////////////////////////////////////////////////////////////////////////
+	COPY_EXISTING ~MOPSIC2.SPL~ ~override~ 
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %psi_strike% timing = 0 duration = 6 END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Spell State to Protective Field                                   //
+///////////////////////////////////////////////////////////////////////////
+	COPY_EXISTING ~MOPSIC3.SPL~ ~override~ 
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %prot_fld% timing = 0 duration = 60 END
+END
+
 CLEAR_IDS_MAP

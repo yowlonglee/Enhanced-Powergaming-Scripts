@@ -1,0 +1,20 @@
+COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+
+///////////////////////////////////////////////////////////////////////////
+// Add Protective Field                                                  //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// Skills and Abilities Prebuff Protective Field~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES("MOPSIC3")
+  !CheckSpellState(Myself,PROTECTIVE_FIELD)
+THEN
+  RESPONSE #100
+    SpellRES("MOPSIC3",Myself)
+END~~~~~ //"
+  END

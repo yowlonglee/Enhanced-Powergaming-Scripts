@@ -66,6 +66,13 @@ ACTION_IF !VARIABLE_IS_SET ~initialise~ BEGIN
       OUTER_SET pally_smite=0
    END
 
+   // Detect Psi Warrior
+   ACTION_IF MOD_IS_INSTALLED ~skills-and-abilities.tp2~ ~610~ THEN BEGIN
+      OUTER_SET psi_warrior=1
+   END ELSE BEGIN
+      OUTER_SET psi_warrior=0
+   END
+
    // Detect Song and Silence
    ACTION_IF MOD_IS_INSTALLED ~setup-song_and_silence.tp2~ ~8~ BEGIN
       OUTER_SET song_and_silence=1

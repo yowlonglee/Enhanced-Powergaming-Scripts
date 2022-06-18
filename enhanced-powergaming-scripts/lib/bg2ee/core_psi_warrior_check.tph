@@ -1,0 +1,17 @@
+COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+
+///////////////////////////////////////////////////////////////////////////
+// Update Checks                                                         //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    warn = 0
+    STR_VAR
+    pattern = ~~~~~!CheckSpellState(Myself,CRITICAL_STRIKE)
+  !CheckSpellState(Myself,GREATER_WHIRLWIND)~~~~~
+    string = ~~~~~!CheckSpellState(Myself,CRITICAL_STRIKE)
+  !CheckSpellState(Myself,GREATER_WHIRLWIND)
+  !CheckSpellState(Myself,PSIONIC_STRIKE)~~~~~ //"
+  END

@@ -8863,6 +8863,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// Skills and Abilities Protective Field
+
 IF
   OR(2)
     ActionListEmpty()
@@ -9603,8 +9605,6 @@ THEN
     IncrementGlobal("MO_UsedCheetah","GLOBAL",1)
 END
 
-// Skills and Abilities Pally Smite
-
 IF
   OR(2)
     ActionListEmpty()
@@ -9667,6 +9667,10 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",6)
     Spell(Myself,WARRIOR_GREATER_WHIRLWIND)  // SPCL901.SPL (Greater Whirlwind Attack)
 END
+
+// Skills and Abilities Pally Smite
+
+// Skills and Abilities Psionic Strike
 
 IF
   OR(2)
