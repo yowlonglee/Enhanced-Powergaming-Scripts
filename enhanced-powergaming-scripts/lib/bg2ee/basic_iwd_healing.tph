@@ -12,9 +12,11 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming
     string = ~~~~~IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_CastingHeal","GLOBAL",1)
-  OR(2)
+  OR(4)
     ActionListEmpty()
-    !CheckSpellState(Myself,CASTING_SPELL)
+    CheckCurrentAction(Myself,3)
+    CheckCurrentAction(Myself,105)
+    CheckCurrentAction(Myself,134)
   OR(2)
     !See([EVILCUTOFF])
     CheckStat(Myself,1,SANCTUARY)

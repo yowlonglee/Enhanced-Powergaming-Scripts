@@ -12,9 +12,11 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming
       string = ~~~~~// 5e Spellcasting Stoneskin
 
 IF
-  OR(2)
+  OR(4)
     ActionListEmpty()
-    !CheckSpellState(Myself,CASTING_SPELL)
+    CheckCurrentAction(Myself,3)
+    CheckCurrentAction(Myself,105)
+    CheckCurrentAction(Myself,134)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([EVILCUTOFF])
   CheckStatLT(Myself,1,STONESKINS)
@@ -36,9 +38,11 @@ THEN
 END
 
 IF
-  OR(2)
+  OR(4)
     ActionListEmpty()
-    !CheckSpellState(Myself,CASTING_SPELL)
+    CheckCurrentAction(Myself,3)
+    CheckCurrentAction(Myself,105)
+    CheckCurrentAction(Myself,134)
   !See([EVILCUTOFF])
   Global("MO_WildStoneskin","LOCALS",0)
   CheckStatLT(Myself,1,STONESKINS)
@@ -58,9 +62,11 @@ THEN
 END
 
 IF
-  OR(2)
+  OR(4)
     ActionListEmpty()
-    !CheckSpellState(Myself,CASTING_SPELL)
+    CheckCurrentAction(Myself,3)
+    CheckCurrentAction(Myself,105)
+    CheckCurrentAction(Myself,134)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   !See([EVILCUTOFF])
   Global("MO_WildStoneskin","LOCALS",1)
@@ -86,9 +92,11 @@ END
 // 5e Spellcasting Iron Skins
 
 IF
-  OR(2)
+  OR(4)
     ActionListEmpty()
-    !CheckSpellState(Myself,CASTING_SPELL)
+    CheckCurrentAction(Myself,3)
+    CheckCurrentAction(Myself,105)
+    CheckCurrentAction(Myself,134)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   CheckStatLT(Myself,1,STONESKINS)
   HaveSpell(CLERIC_IRONSKIN)  // SPPR506.SPL (Iron Skins)
@@ -136,9 +144,11 @@ END
 // 5e Spellcasting Melf's Minute Meteors
 
 IF
-  OR(2)
+  OR(4)
     ActionListEmpty()
-    !CheckSpellState(Myself,CASTING_SPELL)
+    CheckCurrentAction(Myself,3)
+    CheckCurrentAction(Myself,105)
+    CheckCurrentAction(Myself,134)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_MELF_METEOR)  // SPWI325.SPL (Melf's Minute Meteors)
   !HasItem("melfmet",Myself)  // Melf's Minute Meteor

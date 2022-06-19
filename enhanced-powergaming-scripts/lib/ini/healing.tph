@@ -14,9 +14,11 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_CastingHeal","GLOBAL",1)
-  OR(2)
+  OR(4)
     ActionListEmpty()
-    !CheckSpellState(Myself,CASTING_SPELL)
+    CheckCurrentAction(Myself,3)
+    CheckCurrentAction(Myself,105)
+    CheckCurrentAction(Myself,134)
   OR(2)
     !See([EVILCUTOFF])
     CheckStat(Myself,1,SANCTUARY)
@@ -53,9 +55,11 @@ END
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_CastingHeal","GLOBAL",1)
-  OR(2)
+  OR(4)
     ActionListEmpty()
-    !CheckSpellState(Myself,CASTING_SPELL)
+    CheckCurrentAction(Myself,3)
+    CheckCurrentAction(Myself,105)
+    CheckCurrentAction(Myself,134)
   OR(2)
     !See([EVILCUTOFF])
     CheckStat(Myself,1,SANCTUARY)
@@ -94,9 +98,11 @@ END
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_CastingHeal","GLOBAL",1)
-  OR(2)
+  OR(4)
     ActionListEmpty()
-    !CheckSpellState(Myself,CASTING_SPELL)
+    CheckCurrentAction(Myself,3)
+    CheckCurrentAction(Myself,105)
+    CheckCurrentAction(Myself,134)
   OR(2)
     !See([EVILCUTOFF])
     CheckStat(Myself,1,SANCTUARY)
@@ -140,9 +146,11 @@ END
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_CastingHeal","GLOBAL",1)
-  OR(2)
+  OR(4)
     ActionListEmpty()
-    !CheckSpellState(Myself,CASTING_SPELL)
+    CheckCurrentAction(Myself,3)
+    CheckCurrentAction(Myself,105)
+    CheckCurrentAction(Myself,134)
   OR(2)
     !See([EVILCUTOFF])
     CheckStat(Myself,1,SANCTUARY)
@@ -180,9 +188,11 @@ END
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_CastingHeal","GLOBAL",1)
-  OR(2)
+  OR(4)
     ActionListEmpty()
-    !CheckSpellState(Myself,CASTING_SPELL)
+    CheckCurrentAction(Myself,3)
+    CheckCurrentAction(Myself,105)
+    CheckCurrentAction(Myself,134)
   HaveSpellRES("SPIN101")  // Healing Touch
   OR(2)
     !See([EVILCUTOFF])
@@ -218,9 +228,11 @@ END
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_CastingHeal","GLOBAL",1)
-  OR(2)
+  OR(4)
     ActionListEmpty()
-    !CheckSpellState(Myself,CASTING_SPELL)
+    CheckCurrentAction(Myself,3)
+    CheckCurrentAction(Myself,105)
+    CheckCurrentAction(Myself,134)
   HPPercentLT(Myself,61)
   HaveSpell(MONK_LAY_ON_HANDS)  // SPCL815.SPL (Lay On Hands)
 THEN
@@ -237,9 +249,11 @@ END
 IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_CastingHeal","GLOBAL",1)
-  OR(2)
+  OR(4)
     ActionListEmpty()
-    !CheckSpellState(Myself,CASTING_SPELL)
+    CheckCurrentAction(Myself,3)
+    CheckCurrentAction(Myself,105)
+    CheckCurrentAction(Myself,134)
   OR(2)
     !See([EVILCUTOFF])
     CheckStat(Myself,1,SANCTUARY)
@@ -277,9 +291,11 @@ END
 // 5e Spellcasting Regeneration
 
 IF
-  OR(2)
+  OR(4)
     ActionListEmpty()
-    !CheckSpellState(Myself,CASTING_SPELL)
+    CheckCurrentAction(Myself,3)
+    CheckCurrentAction(Myself,105)
+    CheckCurrentAction(Myself,134)
   CheckStat(Myself,1,SANCTUARY)
   HaveSpell(CLERIC_REGENERATE)  // SPPR711.SPL (Regeneration)
   See(Myself)
@@ -307,9 +323,11 @@ THEN
 END
 
 IF
-  OR(2)
+  OR(4)
     ActionListEmpty()
-    !CheckSpellState(Myself,CASTING_SPELL)
+    CheckCurrentAction(Myself,3)
+    CheckCurrentAction(Myself,105)
+    CheckCurrentAction(Myself,134)
   CheckStat(Myself,1,SANCTUARY)
   HaveSpell(CLERIC_REGENERATE)  // SPPR711.SPL (Regeneration)
   See([PC])
@@ -337,9 +355,11 @@ THEN
 END
 
 IF
-  OR(2)
+  OR(4)
     ActionListEmpty()
-    !CheckSpellState(Myself,CASTING_SPELL)
+    CheckCurrentAction(Myself,3)
+    CheckCurrentAction(Myself,105)
+    CheckCurrentAction(Myself,134)
   CheckStat(Myself,1,SANCTUARY)
   HaveSpell(CLERIC_REGENERATE)  // SPPR711.SPL (Regeneration)
   See(SecondNearest([PC]))
@@ -367,9 +387,11 @@ THEN
 END
 
 IF
-  OR(2)
+  OR(4)
     ActionListEmpty()
-    !CheckSpellState(Myself,CASTING_SPELL)
+    CheckCurrentAction(Myself,3)
+    CheckCurrentAction(Myself,105)
+    CheckCurrentAction(Myself,134)
   CheckStat(Myself,1,SANCTUARY)
   HaveSpell(CLERIC_REGENERATE)  // SPPR711.SPL (Regeneration)
   See(ThirdNearest([PC]))
@@ -397,9 +419,11 @@ THEN
 END
 
 IF
-  OR(2)
+  OR(4)
     ActionListEmpty()
-    !CheckSpellState(Myself,CASTING_SPELL)
+    CheckCurrentAction(Myself,3)
+    CheckCurrentAction(Myself,105)
+    CheckCurrentAction(Myself,134)
   CheckStat(Myself,1,SANCTUARY)
   HaveSpell(CLERIC_REGENERATE)  // SPPR711.SPL (Regeneration)
   See(FourthNearest([PC]))
@@ -427,9 +451,11 @@ THEN
 END
 
 IF
-  OR(2)
+  OR(4)
     ActionListEmpty()
-    !CheckSpellState(Myself,CASTING_SPELL)
+    CheckCurrentAction(Myself,3)
+    CheckCurrentAction(Myself,105)
+    CheckCurrentAction(Myself,134)
   CheckStat(Myself,1,SANCTUARY)
   HaveSpell(CLERIC_REGENERATE)  // SPPR711.SPL (Regeneration)
   See(FifthNearest([PC]))
@@ -457,9 +483,11 @@ THEN
 END
 
 IF
-  OR(2)
+  OR(4)
     ActionListEmpty()
-    !CheckSpellState(Myself,CASTING_SPELL)
+    CheckCurrentAction(Myself,3)
+    CheckCurrentAction(Myself,105)
+    CheckCurrentAction(Myself,134)
   CheckStat(Myself,1,SANCTUARY)
   HaveSpell(CLERIC_REGENERATE)  // SPPR711.SPL (Regeneration)
   See(SixthNearest([PC]))

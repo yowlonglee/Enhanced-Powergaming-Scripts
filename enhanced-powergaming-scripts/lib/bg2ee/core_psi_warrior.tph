@@ -10,9 +10,11 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     STR_VAR
     pattern = ~~~~~// Skills and Abilities Psionic Strike~~~~~
     string = ~~~~~IF
-  OR(2)
+  OR(4)
     ActionListEmpty()
-    !CheckSpellState(Myself,CASTING_SPELL)
+    CheckCurrentAction(Myself,3)
+    CheckCurrentAction(Myself,105)
+    CheckCurrentAction(Myself,134)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("MOPSIC2")
   !CheckSpellState(Myself,CRITICAL_STRIKE)
@@ -82,9 +84,11 @@ END~~~~~ //"
     STR_VAR
     pattern = ~~~~~// Skills and Abilities Protective Field~~~~~
     string = ~~~~~IF
-  OR(2)
+  OR(4)
     ActionListEmpty()
-    !CheckSpellState(Myself,CASTING_SPELL)
+    CheckCurrentAction(Myself,3)
+    CheckCurrentAction(Myself,105)
+    CheckCurrentAction(Myself,134)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("MOPSIC3")
   !CheckSpellState(Myself,PROTECTIVE_FIELD)

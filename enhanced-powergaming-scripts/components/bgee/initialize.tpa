@@ -104,6 +104,11 @@ APPEND ~stats.ids~ ~182 WIZARD_TENSERS_TRANSFORMATION~          UNLESS ~182 WIZA
 APPEND ~action.ids~ ~34 UseItemAbility(S:Object*,O:Target*,I:Slot*SLOTS,I:Ability*)~ UNLESS ~34 UseItemAbility(S:Object*,O:Target*,I:Slot*SLOTS,I:Ability*)~
 
 ///////////////////////////////////////////////////////////////////////////
+// Adds New Trigger to TRIGGER.IDS                                       //
+///////////////////////////////////////////////////////////////////////////
+APPEND ~trigger.ids~ ~0x410d CheckCurrentAction(O:Object*,I:Action*)~ UNLESS ~0x410d CheckCurrentAction(O:Object*,I:Action*)~
+
+///////////////////////////////////////////////////////////////////////////
 // Adds Race used in AI Scripts                                          //
 ///////////////////////////////////////////////////////////////////////////
 APPEND ~race.ids~ ~163 MUMMY~ UNLESS ~163 MUMMY~
@@ -905,6 +910,7 @@ END
 		OUTER_SET blk_bld = %new_state_ind%
 	END
 
+/*
 ///////////////////////////////////////////////////////////////////////////
 // Create Spell State for Casting a Spell                                //
 ///////////////////////////////////////////////////////////////////////////
@@ -927,6 +933,7 @@ END
 		LAF d5_resolve_state STR_VAR new_state_id = ~CASTING_SPELL~ RET new_state_ind END
 		OUTER_SET cst_spl = %new_state_ind%
 	END
+*/
 
 ///////////////////////////////////////////////////////////////////////////
 // Create Spell State for Wizard Armor                                   //
@@ -1113,13 +1120,15 @@ END
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_BLACK_BLADE_OF_DISASTER~ RET spell_res END
 	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
 	  LPF CLONE_EFFECT INT_VAR match_opcode = 111 opcode = 328 parameter2 = %blk_bld% special = 1 END
-	  
+
+/*  
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to ALL Spells showing Casting Spell                   //
 ///////////////////////////////////////////////////////////////////////////
 	  COPY_EXISTING_REGEXP GLOB ~^.+\.spl$~ ~override~
 	  	LPF ADD_SPELL_CFEFFECT INT_VAR opcode = 328 target = 1 timing = 0 parameter2 = %cst_spl% duration = 6 special = 1 END
 	  	BUT_ONLY
+*/
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Wizard Armors                                      //

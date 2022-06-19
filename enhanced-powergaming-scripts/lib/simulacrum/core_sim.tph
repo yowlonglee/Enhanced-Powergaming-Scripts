@@ -11,9 +11,11 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mosim02.baf~ ~enhanced-powergaming
     STR_VAR
     pattern = ~~~~~// Simulacrum SI_DIVINATION~~~~~
     string = ~~~~~IF
-  OR(2)
+  OR(4)
     ActionListEmpty()
-    !CheckSpellState(Myself,CASTING_SPELL)
+    CheckCurrentAction(Myself,3)
+    CheckCurrentAction(Myself,105)
+    CheckCurrentAction(Myself,134)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_SPELL_IMMUNITY)  // SPWI510.SPL (Spell Immunity)
   !CheckSpellState(Myself,SI_DIVINATION)
