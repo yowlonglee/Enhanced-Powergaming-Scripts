@@ -15,9 +15,12 @@
 --EEex_InstallNewTriggers(IsAttacking)
 
 function IsAttacking(object)
-    local actorID = EEex_EvalObjectAsActor(EEex_ParseObjectString(object), EEex_GetActorIDSelected())
-    local actionID = EEex_GetActorCurrentAction(actorID)
-    if actionID == 3 or actionID == 105 or actionID == 134 then
+    --local actorID = EEex_EvalObjectAsActor(EEex_ParseObjectString(object), EEex_GetActorIDSelected())
+    --local actionID = EEex_GetActorCurrentAction(actorID)
+    --object.m_id
+    --local actionID = EEex_GetActorCurrentAction(object.m_actionID)
+    --if actionID == 3 or actionID == 105 or actionID == 134 then
+    if object.m_actionID == 3 or object.m_actionID == 105 or object.m_actionID == 134 then 
         EEex_LuaTrigger = true
         return
     end
