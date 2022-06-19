@@ -10,11 +10,9 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     verbose = 0
     STR_VAR
     pattern = ~~~~~IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   Global("MO_TURNUNDEAD","LOCALS",1)
   Global("MO_MyDetectEnemyIllusion","LOCALS",0)
   !CheckStat(Myself,1,SANCTUARY)
@@ -315,11 +313,9 @@ END
 // 5e Spellcasting Magic Missile
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   Global("MO_TURNUNDEAD","LOCALS",0)
   Global("MO_DETECTILLUSIONS","LOCALS",0)
   Global("MO_MyDetectEnemyIllusion","LOCALS",0)
@@ -342,11 +338,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   Global("MO_TURNUNDEAD","LOCALS",0)
   Global("MO_DETECTILLUSIONS","LOCALS",0)
   Global("MO_MyDetectEnemyIllusion","LOCALS",0)
@@ -369,11 +363,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   Global("MO_TURNUNDEAD","LOCALS",0)
   Global("MO_DETECTILLUSIONS","LOCALS",0)
   Global("MO_MyDetectEnemyIllusion","LOCALS",0)
@@ -396,11 +388,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   Global("MO_TURNUNDEAD","LOCALS",0)
   Global("MO_DETECTILLUSIONS","LOCALS",0)
   Global("MO_MyDetectEnemyIllusion","LOCALS",0)
@@ -423,11 +413,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   Global("MO_TURNUNDEAD","LOCALS",0)
   Global("MO_DETECTILLUSIONS","LOCALS",0)
   Global("MO_MyDetectEnemyIllusion","LOCALS",0)
@@ -450,11 +438,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   Global("MO_TURNUNDEAD","LOCALS",0)
   Global("MO_DETECTILLUSIONS","LOCALS",0)
   Global("MO_MyDetectEnemyIllusion","LOCALS",0)

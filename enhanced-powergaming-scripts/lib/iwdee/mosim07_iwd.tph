@@ -9,11 +9,9 @@ COPY ~enhanced-powergaming-scripts/baf/simulacrum/mosim07.baf~ ~enhanced-powerga
     verbose = 0
     STR_VAR
     pattern = ~~~~~IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   !StateCheck(LastSeenBy(Myself),STATE_SILENCED)
   !StateCheck(LastSeenBy(Myself),STATE_STUNNED)

@@ -1,0 +1,13 @@
+COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
+
+///////////////////////////////////////////////////////////////////////////
+// Make EEex Check False                                                 //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~CheckCurrentAction(Myself)~~~~~
+    string = ~~~~~False()~~~~~ //"
+  END

@@ -12,11 +12,9 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming
     string = ~~~~~IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_CastingHeal","GLOBAL",1)
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   OR(2)
     !See([EVILCUTOFF])
     CheckStat(Myself,1,SANCTUARY)
@@ -61,11 +59,9 @@ END~~~~~ //"
     string = ~~~~~IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_CastingHeal","GLOBAL",1)
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   OR(2)
     !See([EVILCUTOFF])
     CheckStat(Myself,1,SANCTUARY)
@@ -112,11 +108,9 @@ END~~~~~ //"
     string = ~~~~~IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_CastingHeal","GLOBAL",1)
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   OR(2)
     !See([EVILCUTOFF])
     CheckStat(Myself,1,SANCTUARY)
@@ -164,11 +158,9 @@ END~~~~~ //"
     string = ~~~~~IF
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_CastingHeal","GLOBAL",1)
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   OR(2)
     !See([EVILCUTOFF])
     CheckStat(Myself,1,SANCTUARY)
@@ -214,11 +206,9 @@ END~~~~~ //"
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Regeneration~~~~~
     string = ~~~~~IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   CheckStat(Myself,1,SANCTUARY)
   HaveSpellRES(CLERIC_REGENERATE)
   See(Myself)
@@ -246,11 +236,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   CheckStat(Myself,1,SANCTUARY)
   HaveSpellRES(CLERIC_REGENERATE)
   See([PC])
@@ -278,11 +266,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   CheckStat(Myself,1,SANCTUARY)
   HaveSpellRES(CLERIC_REGENERATE)
   See(SecondNearest([PC]))
@@ -310,11 +296,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   CheckStat(Myself,1,SANCTUARY)
   HaveSpellRES(CLERIC_REGENERATE)
   See(ThirdNearest([PC]))
@@ -342,11 +326,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   CheckStat(Myself,1,SANCTUARY)
   HaveSpellRES(CLERIC_REGENERATE)
   See(FourthNearest([PC]))
@@ -374,11 +356,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   CheckStat(Myself,1,SANCTUARY)
   HaveSpellRES(CLERIC_REGENERATE)
   See(FifthNearest([PC]))
@@ -406,11 +386,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   CheckStat(Myself,1,SANCTUARY)
   HaveSpellRES(CLERIC_REGENERATE)
   See(SixthNearest([PC]))

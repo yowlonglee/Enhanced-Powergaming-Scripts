@@ -10,11 +10,9 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting - MiH Remove Deaf Blind~~~~~
     string = ~~~~~IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_CURE_BLIND_DEAF)
   See(Myself)
@@ -43,11 +41,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_CURE_BLIND_DEAF)
   See([PC])
@@ -76,11 +72,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_CURE_BLIND_DEAF)
   See(SecondNearest([PC]))
@@ -109,11 +103,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_CURE_BLIND_DEAF)
   See(ThirdNearest([PC]))
@@ -142,11 +134,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_CURE_BLIND_DEAF)
   See(FourthNearest([PC]))
@@ -175,11 +165,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_CURE_BLIND_DEAF)
   See(FifthNearest([PC]))
@@ -208,11 +196,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_CURE_BLIND_DEAF)
   See(SixthNearest([PC]))

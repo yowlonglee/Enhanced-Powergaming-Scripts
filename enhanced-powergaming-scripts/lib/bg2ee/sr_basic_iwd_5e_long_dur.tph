@@ -10,11 +10,9 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming
     STR_VAR
     pattern = ~~~~~// IWD Impervious Sanctity of Mind~~~~~
     string = ~~~~~IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_IMPERVIOUS_SANCTITY_OF_MIND)
   !CheckSpellState(Myself,CHAOTIC_COMMANDS)

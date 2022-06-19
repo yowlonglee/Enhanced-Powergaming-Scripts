@@ -10,11 +10,9 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     STR_VAR
     pattern = ~~~~~// Song & Silence Mind Blade~~~~~
     string = ~~~~~IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   Global("MO_BUFF","LOCALS",1)
   HaveSpellRES("A!SOULKN")  // Manifest Mind Blade
   !HasItemEquiped("a#soul0",Myself)  // Mind Blade

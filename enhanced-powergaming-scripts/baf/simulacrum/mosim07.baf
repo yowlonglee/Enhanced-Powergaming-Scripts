@@ -15,11 +15,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   OR(2)
     StateCheck(Myself,STATE_POISONED)
@@ -34,11 +32,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   StateCheck(Myself,STATE_POISONED)
   !CheckSpellState(Myself,REMOVE_POISON)
@@ -51,11 +47,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(NearestEnemyOf(Myself))
   StateCheck(Myself,STATE_SILENCED)
@@ -73,11 +67,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HPPercentLT(Myself,51)
   HaveSpell(WIZARD_PROTECTION_FROM_MAGIC_WEAPONS)  // SPWI611.SPL (Protection From Magical Weapons)
@@ -99,11 +91,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HPPercentLT(Myself,51)
   HaveSpell(WIZARD_ABSOLUTE_IMMUNITY)  // SPWI907.SPL (Absolute Immunity)
@@ -125,11 +115,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HPPercentLT(Myself,51)
   HaveSpell(WIZARD_IMPROVED_MANTLE)  // SPWI808.SPL (Improved Mantle)
@@ -151,11 +139,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HPPercentLT(Myself,51)
   HaveSpell(WIZARD_MANTLE)  // SPWI708.SPL (Mantle)
@@ -177,11 +163,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   CheckStatLT(Myself,1,STONESKINS)
   HaveSpell(WIZARD_STONE_SKIN)  // SPWI408.SPL (Stoneskin)
@@ -199,11 +183,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   CheckStatLT(Myself,1,STONESKINS)
   HaveSpell(CLERIC_IRONSKIN)  // SPPR506.SPL (Iron Skins)
@@ -220,11 +202,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HPPercentLT(Myself,51)
   HasItemEquiped("POTN55",Myself)  // Potion of Superior Healing
@@ -236,11 +216,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HPPercentLT(Myself,51)
   HasItemEquiped("POTN52",Myself)  // Potion of Extra Healing
@@ -252,11 +230,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HPPercentLT(Myself,51)
   HasItemEquiped("POTN08",Myself)  // Potion of Healing
@@ -268,11 +244,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(NearestEnemyOf(Myself))
   HaveSpell(CLERIC_SANCTUARY)  // SPPR109.SPL (Sanctuary)
@@ -297,11 +271,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   Allegiance(Myself,ENEMY)
   Detect([PC])
   !See(LastSeenBy(Myself))
@@ -317,11 +289,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_MIRROR_IMAGE)  // SPWI212.SPL (Mirror Image)
@@ -343,11 +313,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   RandomNum(5,1)
   OR(6)
@@ -372,11 +340,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   RandomNum(5,1)
   OR(6)
@@ -401,11 +367,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   RandomNum(5,1)
   OR(6)
@@ -430,11 +394,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   RandomNum(5,1)
   OR(6)
@@ -460,11 +422,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   RandomNum(5,1)
   OR(6)
@@ -491,11 +451,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   RandomNum(5,1)
   OR(6)
@@ -523,11 +481,9 @@ END
 
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_FIRE_SHIELD_RED)  // SPWI418.SPL (Fire Shield (Red))
   RandomNum(5,1)
@@ -554,11 +510,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_FIRE_SHIELD_BLUE)  // SPWI403.SPL (Fire Shield (Blue))
   RandomNum(5,1)
@@ -585,11 +539,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_PROTECTION_FROM_NORMAL_MISSILES)  // SPWI311.SPL (Protection From Normal Missiles)
   OR(11)
@@ -620,11 +572,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_BLACK_BLADE_OF_DISASTER)
   !CheckSpellState(Myself,BLACK_BLADE)
@@ -643,11 +593,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
   !CheckStatGT(Myself,0,IMPROVEDHASTE)
@@ -800,11 +748,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   !StateCheck(LastSeenBy(Myself),STATE_SILENCED)
   !StateCheck(LastSeenBy(Myself),STATE_STUNNED)
@@ -832,11 +778,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   See(NearestEnemyOf(Myself))
   HaveSpell(WIZARD_TIME_STOP)  // SPWI909.SPL (Time Stop)
 THEN
@@ -847,11 +791,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   See(NearestEnemyOf(Myself))
   HaveSpell(WIZARD_NPC_SYMBOL_STUN)  // SPWI898.SPL (Symbol, Stun)
   RandomNum(3,1)
@@ -863,11 +805,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   See(NearestEnemyOf(Myself))
   HaveSpell(WIZARD_NPC_SYMBOL_FEAR)  // SPWI899.SPL (Symbol, Fear)
   RandomNum(3,1)
@@ -879,11 +819,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   See(NearestEnemyOf(Myself))
   HaveSpell(WIZARD_WAIL_OF_THE_BANSHEE)  // SPWI913.SPL (Wail of the Banshee)
   RandomNum(3,1)
@@ -895,11 +833,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   See(NearestEnemyOf(Myself))
   HaveSpell(WIZARD_SUN_FIRE)  // SPWI523.SPL (Fireburst)
   RandomNum(3,1)
@@ -911,11 +847,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   See(NearestEnemyOf(Myself))
   HaveSpell(WIZARD_ABI_DALZIMS_HORRID_WILTING)  // SPWI812.SPL (Abi-Dalzim's Horrid Wilting)
   RandomNum(3,1)
@@ -927,11 +861,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   See(NearestEnemyOf(Myself))
   HaveSpell(WIZARD_FINGER_OF_DEATH)  // SPWI713.SPL (Finger of Death)
   RandomNum(3,1)
@@ -943,11 +875,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   See(NearestEnemyOf(Myself))
   HaveSpell(WIZARD_PRISMATIC_SPRAY)  // SPWI714.SPL (Prismatic Spray)
   RandomNum(3,1)
@@ -959,11 +889,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   See(NearestEnemyOf(Myself))
   HaveSpell(WIZARD_SUMMON_EFREET)  // SPWI717.SPL (Summon Efreeti)
   RandomNum(3,1)
@@ -975,11 +903,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   See(NearestEnemyOf(Myself))
   HaveSpell(WIZARD_MAZE)  // SPWI813.SPL (Maze)
   RandomNum(2,1)
@@ -991,11 +917,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   See(NearestEnemyOf(Myself))
   HaveSpell(WIZARD_FLESH_TO_STONE)  // SPWI604.SPL (Flesh to Stone)
   RandomNum(3,1)
@@ -1007,11 +931,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   See(NearestEnemyOf(Myself))
   HaveSpell(WIZARD_DISINTEGRATE)  // SPWI616.SPL (Disintegrate)
   RandomNum(3,1)
@@ -1023,11 +945,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   See(NearestEnemyOf(Myself))
   HaveSpell(WIZARD_DOMINATION)  // SPWI506.SPL (Domination)
   RandomNum(3,1)

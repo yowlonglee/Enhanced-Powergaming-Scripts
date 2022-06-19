@@ -227,4 +227,10 @@ ACTION_IF !VARIABLE_IS_SET ~initialise~ BEGIN
       OUTER_SET 5e_spellcasting=0
    END
 
+   ACTION_IF FILE_EXISTS_IN_GAME ~EEex_Actionbar.lua~ BEGIN
+      OUTER_SET eeex_present=1
+   END ELSE BEGIN
+      OUTER_SET eeex_present=0
+   END
+
 END

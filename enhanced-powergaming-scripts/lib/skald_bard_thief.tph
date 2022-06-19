@@ -22,22 +22,18 @@ END~~~~~
   Class(Myself,BARD_ALL)
   !ModalState(BATTLESONG)
   Global("MO_DETECTILLUSIONS","LOCALS",0)
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
 THEN
   RESPONSE #100
     BattleSong()
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   !See([EVILCUTOFF])
   Global("MO_DETECTILLUSIONS","LOCALS",1)
   !ModalState(DETECTTRAPS)

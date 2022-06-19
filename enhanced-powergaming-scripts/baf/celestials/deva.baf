@@ -40,11 +40,9 @@ THEN
 END
 
 IF
-  OR(5)
+  OR(3)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
     !GlobalTimerNotExpired("MO_FearCastTimer","GLOBAL")
   Global("MO_SelfRemoveFear","LOCALS",1)
   Global("MO_PartyRemoveFear","GLOBAL",1)
@@ -116,11 +114,9 @@ THEN
 END
 
 IF
-	OR(4)
+	OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	StateCheck([PC],STATE_PANIC)
 	See([PC])
@@ -142,11 +138,9 @@ THEN
 END
 
 IF
-	OR(4)
+	OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	StateCheck(SecondNearest([PC]),STATE_PANIC)
 	See(SecondNearest([PC]))
@@ -168,11 +162,9 @@ THEN
 END
 
 IF
-	OR(4)
+	OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	StateCheck(ThirdNearest([PC]),STATE_PANIC)
 	See(ThirdNearest([PC]))
@@ -194,11 +186,9 @@ THEN
 END
 
 IF
-	OR(4)
+	OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	StateCheck(FourthNearest([PC]),STATE_PANIC)
 	See(FourthNearest([PC]))
@@ -220,11 +210,9 @@ THEN
 END
 
 IF
-	OR(4)
+	OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	StateCheck(FifthNearest([PC]),STATE_PANIC)
 	See(FifthNearest([PC]))
@@ -246,11 +234,9 @@ THEN
 END
 
 IF
-	OR(4)
+	OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	StateCheck(SixthNearest([PC]),STATE_PANIC)
 	See(SixthNearest([PC]))
@@ -272,11 +258,9 @@ THEN
 END
 
 IF
-	OR(4)
+	OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	See(Myself)
 	OR(5)
@@ -305,11 +289,9 @@ THEN
 END
 
 IF
-	OR(4)
+	OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	See([PC])
 	OR(5)
@@ -338,11 +320,9 @@ THEN
 END
 
 IF
-	OR(4)
+	OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	See(SecondNearest([PC]))
 	OR(5)
@@ -371,11 +351,9 @@ THEN
 END
 
 IF
-	OR(4)
+	OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	See(ThirdNearest([PC]))
 	OR(5)
@@ -404,11 +382,9 @@ THEN
 END
 
 IF
-	OR(4)
+	OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	See(FourthNearest([PC]))
 	OR(5)
@@ -437,11 +413,9 @@ THEN
 END
 
 IF
-	OR(4)
+	OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	See(FifthNearest([PC]))
 	OR(5)
@@ -470,11 +444,9 @@ THEN
 END
 
 IF
-	OR(4)
+	OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	See(SixthNearest([PC]))
 	OR(5)
@@ -503,11 +475,9 @@ THEN
 END
 
 IF
-	OR(4)
+	OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	See(Myself)
 	OR(5)
@@ -536,11 +506,9 @@ THEN
 END
 
 IF
-	OR(4)
+	OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	See([PC])
 	OR(5)
@@ -569,11 +537,9 @@ THEN
 END
 
 IF
-	OR(4)
+	OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	See(SecondNearest([PC]))
 	OR(5)
@@ -602,11 +568,9 @@ THEN
 END
 
 IF
-	OR(4)
+	OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	See(ThirdNearest([PC]))
 	OR(5)
@@ -635,11 +599,9 @@ THEN
 END
 
 IF
-	OR(4)
+	OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	See(FourthNearest([PC]))
 	OR(5)
@@ -668,11 +630,9 @@ THEN
 END
 
 IF
-	OR(4)
+	OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	See(FifthNearest([PC]))
 	OR(5)
@@ -701,11 +661,9 @@ THEN
 END
 
 IF
-	OR(4)
+	OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	See(SixthNearest([PC]))
 	OR(5)
@@ -734,11 +692,9 @@ THEN
 END
 
 IF
-	OR(4)
+	OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_GLOBE_OF_BLADES)  // SPPR725.SPL (Globe of Blades)
 	See([EVILCUTOFF])
@@ -786,11 +742,9 @@ THEN
 END
 
 IF
-	OR(4)
+	OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(WIZARD_CHAOS)  // SPWI508.SPL (Chaos)
 	See([EVILCUTOFF])

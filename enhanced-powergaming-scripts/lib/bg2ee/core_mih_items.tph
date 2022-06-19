@@ -10,11 +10,9 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     STR_VAR
     pattern = ~~~~~// MiH Mirror Amulet - Mirror Image~~~~~
     string = ~~~~~IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   GlobalLT("MO_UsedMirrorAmulet0","GLOBAL",2)
@@ -53,11 +51,9 @@ END
     STR_VAR
     pattern = ~~~~~// MiH Mirror Amulet - Detect Illusion~~~~~
     string = ~~~~~IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_UsedMirrorAmulet1","GLOBAL",1)
   HasItemEquiped("MH#AMUL4",Myself)  // Mirror Amulet
@@ -79,11 +75,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_UsedMirrorAmulet1","GLOBAL",1)
   HasItemEquiped("MH#AMUL4",Myself)  // Mirror Amulet
@@ -105,11 +99,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_UsedMirrorAmulet1","GLOBAL",1)
   HasItemEquiped("MH#AMUL4",Myself)  // Mirror Amulet
@@ -131,11 +123,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_UsedMirrorAmulet1","GLOBAL",1)
   HasItemEquiped("MH#AMUL4",Myself)  // Mirror Amulet
@@ -157,11 +147,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_UsedMirrorAmulet1","GLOBAL",1)
   HasItemEquiped("MH#AMUL4",Myself)  // Mirror Amulet
@@ -183,11 +171,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_UsedMirrorAmulet1","GLOBAL",1)
   HasItemEquiped("MH#AMUL4",Myself)  // Mirror Amulet
@@ -209,11 +195,9 @@ THEN
 END
 
 IF
-  OR(4)
+  OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself,3)
-    CheckCurrentAction(Myself,105)
-    CheckCurrentAction(Myself,134)
+    CheckCurrentAction(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_UsedMirrorAmulet1","GLOBAL",1)
   HasItemEquiped("MH#AMUL4",Myself)  // Mirror Amulet
