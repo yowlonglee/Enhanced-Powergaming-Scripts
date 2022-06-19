@@ -19,7 +19,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     string = ~~~~~IF
   OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    EEex_LuaTrigger("return AmAttacking()")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_UsedDaystar","GLOBAL",1)
   HasItemEquiped("SW1H31",Myself)  // Daystar +2

@@ -74,7 +74,7 @@ APPEND ~action.ids~ ~34 UseItemAbility(S:Object*,O:Target*,I:Slot*SLOTS,I:Abilit
 //APPEND ~trigger.ids~ ~0x410F IsAttacking(O:Object*)~ UNLESS ~0x410F IsAttacking(O:Object*)~
 // EEex_LuaTrigger(S:Function*) - A script trigger that calls a Lua function, and either succeeds or fails based on the return value.
 // EEex_LuaTrigger("return B3MySuperCoolFunction(1, 1)")
-// EEex_LuaTrigger("IsAttacking('Myself')")
+// EEex_LuaTrigger("return AmAttacking()")
 
 ///////////////////////////////////////////////////////////////////////////
 // Adds Stats used in AI Scripts                                        //

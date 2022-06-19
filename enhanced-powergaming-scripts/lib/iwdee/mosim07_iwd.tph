@@ -11,7 +11,7 @@ COPY ~enhanced-powergaming-scripts/baf/simulacrum/mosim07.baf~ ~enhanced-powerga
     pattern = ~~~~~IF
   OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    EEex_LuaTrigger("return AmAttacking()")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   !StateCheck(LastSeenBy(Myself),STATE_SILENCED)
   !StateCheck(LastSeenBy(Myself),STATE_STUNNED)
