@@ -72,6 +72,8 @@ APPEND ~action.ids~ ~34 UseItemAbility(S:Object*,O:Target*,I:Slot*SLOTS,I:Abilit
 // Adds New Trigger to TRIGGER.IDS                                       //
 ///////////////////////////////////////////////////////////////////////////
 APPEND ~trigger.ids~ ~0x410F CheckCurrentAction(O:Object*)~ UNLESS ~0x410F CheckCurrentAction(O:Object*)~
+//EEex_LuaTrigger(S:Function*) - A script trigger that calls a Lua function, and either succeeds or fails based on the return value.
+// EEex_LuaTrigger("return B3MySuperCoolFunction(1, 1)")
 
 ///////////////////////////////////////////////////////////////////////////
 // Adds Stats used in AI Scripts                                        //
