@@ -1,5 +1,14 @@
 # Changelog
 
+## Version 8.1
+
+June xx, 2022
+
+### Changed 
+
+- All Games
+  - Use of EEex for improved checks
+
 ## Version 8.0.2
 
 June 15, 2022
