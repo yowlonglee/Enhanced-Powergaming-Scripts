@@ -183,7 +183,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     string = ~~~~~IF
   OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5P2321")
   See([EVILCUTOFF])
@@ -225,7 +225,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5P2321")
   See(SecondNearest([EVILCUTOFF]))
@@ -267,7 +267,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5P2321")
   See(ThirdNearest([EVILCUTOFF]))
@@ -309,7 +309,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5P2321")
   See(FourthNearest([EVILCUTOFF]))
@@ -351,7 +351,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5P2321")
   See(FifthNearest([EVILCUTOFF]))
@@ -393,7 +393,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5P2321")
   See(SixthNearest([EVILCUTOFF]))
@@ -448,7 +448,7 @@ END
     string = ~~~~~IF
   OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5P2419")
   See([EVILCUTOFF])
@@ -486,7 +486,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5P2419")
   See(SecondNearest([EVILCUTOFF]))
@@ -524,7 +524,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5P2419")
   See(ThirdNearest([EVILCUTOFF]))
@@ -562,7 +562,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5P2419")
   See(FourthNearest([EVILCUTOFF]))
@@ -600,7 +600,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5P2419")
   See(FifthNearest([EVILCUTOFF]))
@@ -638,7 +638,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5P2419")
   See(SixthNearest([EVILCUTOFF]))
@@ -687,7 +687,7 @@ END
     string = ~~~~~IF
   OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([PC])
   HaveSpell(CLERIC_SPIRITUAL_CLARITY)
@@ -716,7 +716,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SecondNearest([PC]))
   HaveSpell(CLERIC_SPIRITUAL_CLARITY)
@@ -745,7 +745,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(ThirdNearest([PC]))
   HaveSpell(CLERIC_SPIRITUAL_CLARITY)
@@ -774,7 +774,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FourthNearest([PC]))
   HaveSpell(CLERIC_SPIRITUAL_CLARITY)
@@ -803,7 +803,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FifthNearest([PC]))
   HaveSpell(CLERIC_SPIRITUAL_CLARITY)
@@ -832,7 +832,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SixthNearest([PC]))
   HaveSpell(CLERIC_SPIRITUAL_CLARITY)
@@ -872,7 +872,7 @@ END
     string = ~~~~~IF
   OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([EVILCUTOFF])
   HPPercentLT(Myself,51)
@@ -910,7 +910,7 @@ END
     string = ~~~~~IF
   OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("B_PH11")
   See([EVILCUTOFF])
@@ -971,7 +971,7 @@ END
     string = ~~~~~IF
   OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5P2613")
   !CheckStatGT(Myself,0,IMPROVEDHASTE)

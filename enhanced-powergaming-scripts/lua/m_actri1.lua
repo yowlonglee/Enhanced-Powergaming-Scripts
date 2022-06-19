@@ -1,22 +1,35 @@
-function EEex_Trigger_Hook_OnCurrentAction(object, trigger)
-    -- EEex_LuaTrigger
-    if trigger.m_triggerID == 0x410F and object:isSprite() then
-        EEex_LuaTrigger_Object = object
-        EEex_LuaTrigger_Trigger = trigger
-        local actionID = EEex_GetActorCurrentAction(object.m_id)
-        if actionID == 3 or actionID == 105 or actionID = 134 then
-            return true
-        else
-            return false
-        end
+function IsAttacking(object)
+    local actorID = EEex_EvalObjectAsActor(EEex_ParseObjectString(object), EEex_GetActorIDSelected())
+    if actionID == 3 or actionID == 105 or actionID = 134 then
+        EEex_LuaTrigger = true
+        return
     end
-    return false
+    EEex_LuaTrigger = false
 end
 
 -- local actionID = EEex_GetActorCurrentAction(actorID)
 -- object.m_id
 -- object:isSprite()
 
+--function ClassMask(object, class)
+--    if type(class) == "string" then
+--        if K4_classMaskTable[class] == nil then
+--            Infinity_DisplayString("WARNING: unrecognized class argument: " .. class)
+--            EEex_LuaTrigger = false
+--            return
+--        else
+--            class = K4_classMaskTable[class] --table storing associated array used to convert IDS style class strings into values
+--        end
+--    end
+--    -- EEex_ActorOfType() would check if the given actor matches the object criteria
+--    if EEex_ActorOfType(EEex_LuaTriggerActorID, EEex_ParseObjectString(object)) then
+--        if EEex_IsMaskSet(EEex_GetActorStat(EEex_LuaTriggerActorID, 217), class) then
+--            EEex_LuaTrigger = true
+--            return
+--        end
+--    end
+--    EEex_LuaTrigger = false
+--end
 
 --(function()
 

@@ -12,7 +12,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming
     string = ~~~~~IF
   OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !See([EVILCUTOFF])
   Global("MO_WildMindBlank","LOCALS",0)
   HaveSpell(WIZARD_MIND_BLANK)  // spwi806.SPL (Mind Blank)
@@ -33,7 +33,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   !See([EVILCUTOFF])
   Global("MO_WildMindBlank","LOCALS",1)
@@ -58,7 +58,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(CLERIC_IMPERVIOUS_SANCTITY_OF_MIND)  // sppr735.SPL (Impervious Sanctity of Mind)
   !CheckSpellState(Myself,CHAOTIC_COMMANDS)

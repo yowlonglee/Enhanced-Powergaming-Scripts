@@ -11,7 +11,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     pattern = ~~~~~IF
   OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   Global("MO_TURNUNDEAD","LOCALS",0)
   Global("MO_DETECTILLUSIONS","LOCALS",0)
   !ModalState(SHAMANDANCE)
@@ -36,7 +36,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   Global("MO_TURNUNDEAD","LOCALS",0)
   Global("MO_DETECTILLUSIONS","LOCALS",0)
   !ModalState(SHAMANDANCE)
@@ -61,7 +61,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   Global("MO_TURNUNDEAD","LOCALS",0)
   Global("MO_DETECTILLUSIONS","LOCALS",0)
   !ModalState(SHAMANDANCE)
@@ -86,7 +86,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   Global("MO_TURNUNDEAD","LOCALS",0)
   Global("MO_DETECTILLUSIONS","LOCALS",0)
   !ModalState(SHAMANDANCE)
@@ -111,7 +111,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   Global("MO_TURNUNDEAD","LOCALS",0)
   Global("MO_DETECTILLUSIONS","LOCALS",0)
   !ModalState(SHAMANDANCE)
@@ -136,7 +136,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   Global("MO_TURNUNDEAD","LOCALS",0)
   Global("MO_DETECTILLUSIONS","LOCALS",0)
   !ModalState(SHAMANDANCE)

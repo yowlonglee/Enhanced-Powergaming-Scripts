@@ -12,7 +12,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     string = ~~~~~IF
   OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_SUPERHEROISM)
   See([EVILCUTOFF])
@@ -65,7 +65,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_HEROISM)
   See([EVILCUTOFF])
@@ -129,7 +129,7 @@ END
     string = ~~~~~IF
   OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(WIZARD_SEEKING)
   See([EVILCUTOFF])

@@ -13,7 +13,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mosim02.baf~ ~enhanced-powergaming
     string = ~~~~~IF
   OR(2)
     ActionListEmpty()
-    CheckCurrentAction(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_SPELL_IMMUNITY)  // SPWI510.SPL (Spell Immunity)
   !CheckSpellState(Myself,SI_DIVINATION)
