@@ -917,6 +917,7 @@ END
 ///////////////////////////////////////////////////////////////////////////
 ACTION_IF eeex_present BEGIN
 	COPY ~enhanced-powergaming-scripts/lua/m_actri1.lua~  ~override~ 
+END ELSE BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/lib/basic_eeex.tph~
 	INCLUDE ~enhanced-powergaming-scripts/lib/core_eeex.tph~
 	INCLUDE ~enhanced-powergaming-scripts/lib/skald_eeex.tph~
