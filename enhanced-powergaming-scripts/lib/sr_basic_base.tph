@@ -29,7 +29,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
   Global("MO_TURNUNDEAD","LOCALS",0)
   Global("MO_DETECTILLUSIONS","LOCALS",1)
   !ModalState(DETECTTRAPS)
@@ -47,7 +47,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
   Global("MO_TURNUNDEAD","LOCALS",1)
   !CheckStat(Myself,1,SANCTUARY)
   OR(2)

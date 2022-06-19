@@ -16,7 +16,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
   Global("MO_SelfRaiseDead","LOCALS",1)
   Global("MO_PartyRaiseDead","GLOBAL",1)
 THEN
@@ -28,7 +28,7 @@ END
 IF
   OR(3)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
     !GlobalTimerNotExpired("MO_FearCastTimer","GLOBAL")
   Global("MO_SelfRemoveFear","LOCALS",1)
   Global("MO_PartyRemoveFear","GLOBAL",1)
@@ -169,7 +169,7 @@ END
 IF
 	OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_RAISE_DEAD)  // SPPR504.SPL (Raise Dead)
 	Global("MO_PartyRaiseDead","GLOBAL",0)
@@ -196,7 +196,7 @@ END
 IF
 	OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_RAISE_DEAD)  // SPPR504.SPL (Raise Dead)
 	Global("MO_PartyRaiseDead","GLOBAL",0)
@@ -223,7 +223,7 @@ END
 IF
 	OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_RAISE_DEAD)  // SPPR504.SPL (Raise Dead)
 	Global("MO_PartyRaiseDead","GLOBAL",0)
@@ -250,7 +250,7 @@ END
 IF
 	OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_RAISE_DEAD)  // SPPR504.SPL (Raise Dead)
 	Global("MO_PartyRaiseDead","GLOBAL",0)
@@ -277,7 +277,7 @@ END
 IF
 	OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_RAISE_DEAD)  // SPPR504.SPL (Raise Dead)
 	Global("MO_PartyRaiseDead","GLOBAL",0)
@@ -304,7 +304,7 @@ END
 IF
 	OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_RAISE_DEAD)  // SPPR504.SPL (Raise Dead)
 	Global("MO_PartyRaiseDead","GLOBAL",0)
@@ -331,7 +331,7 @@ END
 IF
 	OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	StateCheck([PC],STATE_PANIC)
 	See([PC])
@@ -355,7 +355,7 @@ END
 IF
 	OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	StateCheck(SecondNearest([PC]),STATE_PANIC)
 	See(SecondNearest([PC]))
@@ -379,7 +379,7 @@ END
 IF
 	OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	StateCheck(ThirdNearest([PC]),STATE_PANIC)
 	See(ThirdNearest([PC]))
@@ -403,7 +403,7 @@ END
 IF
 	OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	StateCheck(FourthNearest([PC]),STATE_PANIC)
 	See(FourthNearest([PC]))
@@ -427,7 +427,7 @@ END
 IF
 	OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	StateCheck(FifthNearest([PC]),STATE_PANIC)
 	See(FifthNearest([PC]))
@@ -451,7 +451,7 @@ END
 IF
 	OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	StateCheck(SixthNearest([PC]),STATE_PANIC)
 	See(SixthNearest([PC]))
@@ -475,7 +475,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(Myself)
   !CheckSpellState(LastSeenBy(Myself),RESTORATION)
@@ -501,7 +501,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([PC])
   !CheckSpellState(LastSeenBy(Myself),RESTORATION)
@@ -532,7 +532,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SecondNearest([PC]))
   !CheckSpellState(LastSeenBy(Myself),RESTORATION)
@@ -563,7 +563,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(ThirdNearest([PC]))
   !CheckSpellState(LastSeenBy(Myself),RESTORATION)
@@ -594,7 +594,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FourthNearest([PC]))
   !CheckSpellState(LastSeenBy(Myself),RESTORATION)
@@ -625,7 +625,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FifthNearest([PC]))
   !CheckSpellState(LastSeenBy(Myself),RESTORATION)
@@ -656,7 +656,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SixthNearest([PC]))
   !CheckSpellState(LastSeenBy(Myself),RESTORATION)
@@ -687,7 +687,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(Myself)
   OR(5)
@@ -718,7 +718,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([PC])
   OR(5)
@@ -750,7 +750,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SecondNearest([PC]))
   OR(5)
@@ -782,7 +782,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(ThirdNearest([PC]))
   OR(5)
@@ -814,7 +814,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FourthNearest([PC]))
   OR(5)
@@ -846,7 +846,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FifthNearest([PC]))
   OR(5)
@@ -878,7 +878,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SixthNearest([PC]))
   OR(5)
@@ -910,7 +910,7 @@ END
 IF
 	OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	See(Myself)
 	OR(5)
@@ -941,7 +941,7 @@ END
 IF
 	OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	See([PC])
 	OR(5)
@@ -972,7 +972,7 @@ END
 IF
 	OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	See(SecondNearest([PC]))
 	OR(5)
@@ -1003,7 +1003,7 @@ END
 IF
 	OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	See(ThirdNearest([PC]))
 	OR(5)
@@ -1034,7 +1034,7 @@ END
 IF
 	OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	See(FourthNearest([PC]))
 	OR(5)
@@ -1065,7 +1065,7 @@ END
 IF
 	OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	See(FifthNearest([PC]))
 	OR(5)
@@ -1096,7 +1096,7 @@ END
 IF
 	OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	See(SixthNearest([PC]))
 	OR(5)
@@ -1127,7 +1127,7 @@ END
 IF
 	OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_TRUE_SIGHT)  // SPPR505.SPL (True Seeing)
 	OR(6)
@@ -1158,7 +1158,7 @@ END
 IF
 	OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_TRUE_SIGHT)  // SPPR505.SPL (True Seeing)
 	Detect([EVILCUTOFF])
@@ -1188,7 +1188,7 @@ END
 IF
 	OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_TRUE_SIGHT)  // SPPR505.SPL (True Seeing)
 	See(NearestEnemyOf(Myself))
@@ -1218,7 +1218,7 @@ END
 IF
 	OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_TRUE_SIGHT)  // SPPR505.SPL (True Seeing)
 	See(SecondNearestEnemyOf(Myself))
@@ -1248,7 +1248,7 @@ END
 IF
 	OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_TRUE_SIGHT)  // SPPR505.SPL (True Seeing)
 	See(ThirdNearestEnemyOf(Myself))
@@ -1278,7 +1278,7 @@ END
 IF
 	OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_TRUE_SIGHT)  // SPPR505.SPL (True Seeing)
 	See(FourthNearestEnemyOf(Myself))
@@ -1308,7 +1308,7 @@ END
 IF
 	OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_TRUE_SIGHT)  // SPPR505.SPL (True Seeing)
 	See(FifthNearestEnemyOf(Myself))
@@ -1338,7 +1338,7 @@ END
 IF
 	OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_TRUE_SIGHT)  // SPPR505.SPL (True Seeing)
 	See(SixthNearestEnemyOf(Myself))
@@ -1368,7 +1368,7 @@ END
 IF
 	OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(WIZARD_DETECT_INVISIBILITY)  // SPWI203.SPL (Detect Invisibility)
 	Detect([EVILCUTOFF])
@@ -1397,7 +1397,7 @@ END
 IF
 	OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(WIZARD_DETECT_INVISIBILITY)  // SPWI203.SPL (Detect Invisibility)
 	See(NearestEnemyOf(Myself))
@@ -1426,7 +1426,7 @@ END
 IF
 	OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(WIZARD_DETECT_INVISIBILITY)  // SPWI203.SPL (Detect Invisibility)
 	See(SecondNearestEnemyOf(Myself))
@@ -1455,7 +1455,7 @@ END
 IF
 	OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(WIZARD_DETECT_INVISIBILITY)  // SPWI203.SPL (Detect Invisibility)
 	See(ThirdNearestEnemyOf(Myself))
@@ -1484,7 +1484,7 @@ END
 IF
 	OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(WIZARD_DETECT_INVISIBILITY)  // SPWI203.SPL (Detect Invisibility)
 	See(FourthNearestEnemyOf(Myself))
@@ -1513,7 +1513,7 @@ END
 IF
 	OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(WIZARD_DETECT_INVISIBILITY)  // SPWI203.SPL (Detect Invisibility)
 	See(FifthNearestEnemyOf(Myself))
@@ -1542,7 +1542,7 @@ END
 IF
 	OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(WIZARD_DETECT_INVISIBILITY)  // SPWI203.SPL (Detect Invisibility)
 	See(SixthNearestEnemyOf(Myself))
@@ -1573,7 +1573,7 @@ IF
   GlobalLT("MO_CastingHeal","GLOBAL",1)
   OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
   OR(2)
     !See([EVILCUTOFF])
     CheckStat(Myself,1,SANCTUARY)
@@ -1608,7 +1608,7 @@ END
 IF
 	OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_GLOBE_OF_BLADES)  // SPPR725.SPL (Globe of Blades)
 	See([EVILCUTOFF])
@@ -1658,7 +1658,7 @@ END
 IF
 	OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(WIZARD_IMPROVED_INVISIBILITY)  // SPWI405.SPL (Improved Invisibility)
 	See([EVILCUTOFF])
@@ -1701,7 +1701,7 @@ END
 IF
 	OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_INSECT_PLAGUE)  // SPPR517.SPL (Insect Plague)
 	See(NearestEnemyOf(Myself))
@@ -1745,7 +1745,7 @@ END
 If
 	OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_INSECT_PLAGUE)  // SPPR517.SPL (Insect Plague)
 	See(SecondNearestEnemyOf(Myself))
@@ -1789,7 +1789,7 @@ END
 IF
 	OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_INSECT_PLAGUE)  // SPPR517.SPL (Insect Plague)
 	See(ThirdNearestEnemyOf(Myself))
@@ -1833,7 +1833,7 @@ END
 IF
 	OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_INSECT_PLAGUE)  // SPPR517.SPL (Insect Plague)
 	See(FourthNearestEnemyOf(Myself))
@@ -1877,7 +1877,7 @@ END
 IF
 	OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_INSECT_PLAGUE)  // SPPR517.SPL (Insect Plague)
 	See(FifthNearestEnemyOf(Myself))
@@ -1921,7 +1921,7 @@ END
 IF
 	OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(CLERIC_INSECT_PLAGUE)  // SPPR517.SPL (Insect Plague)
 	See(SixthNearestEnemyOf(Myself))
@@ -1965,7 +1965,7 @@ END
 IF
 	OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
 	!GlobalTimerNotExpired("MO_SpellCast","LOCALS")
 	HaveSpell(WIZARD_CHAOS)  // SPWI508.SPL (Chaos)
 	See([EVILCUTOFF])

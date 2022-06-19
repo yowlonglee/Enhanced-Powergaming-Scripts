@@ -13,7 +13,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming
   GlobalLT("MO_CastingHeal","GLOBAL",1)
   OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
   HaveSpellRES("SPIN101")  // Healing Touch
   OR(2)
     !See([EVILCUTOFF])
@@ -62,7 +62,7 @@ END~~~~~
   GlobalLT("MO_CastingHeal","GLOBAL",1)
   OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
   OR(2)
     !See([EVILCUTOFF])
     CheckStat(Myself,1,SANCTUARY)

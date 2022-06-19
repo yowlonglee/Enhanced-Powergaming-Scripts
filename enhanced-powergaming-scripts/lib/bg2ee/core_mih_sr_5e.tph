@@ -12,7 +12,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     string = ~~~~~IF
   OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_CURE_BLIND_DEAF)
   See(Myself)
@@ -40,7 +40,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_CURE_BLIND_DEAF)
   See([PC])
@@ -68,7 +68,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_CURE_BLIND_DEAF)
   See(SecondNearest([PC]))
@@ -96,7 +96,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_CURE_BLIND_DEAF)
   See(ThirdNearest([PC]))
@@ -124,7 +124,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_CURE_BLIND_DEAF)
   See(FourthNearest([PC]))
@@ -152,7 +152,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_CURE_BLIND_DEAF)
   See(FifthNearest([PC]))
@@ -180,7 +180,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES(CLERIC_CURE_BLIND_DEAF)
   See(SixthNearest([PC]))

@@ -12,7 +12,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     string = ~~~~~IF
   OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_BREACH)  // SPWI513.SPL (Breach)
   See(SixthNearest([EVILCUTOFF]))
@@ -49,7 +49,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5_RABRE")
   See([EVILCUTOFF])
@@ -86,7 +86,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5_RABRE")
   See(SecondNearest([EVILCUTOFF]))
@@ -123,7 +123,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5_RABRE")
   See(ThirdNearest([EVILCUTOFF]))
@@ -160,7 +160,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5_RABRE")
   See(FourthNearest([EVILCUTOFF]))
@@ -197,7 +197,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5_RABRE")
   See(FifthNearest([EVILCUTOFF]))
@@ -234,7 +234,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpellRES("D5_RABRE")
   See(SixthNearest([EVILCUTOFF]))
@@ -282,7 +282,7 @@ END
     string = ~~~~~IF
   OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   OR(17)
     Range([EVILCUTOFF.0.FAIRY],30)

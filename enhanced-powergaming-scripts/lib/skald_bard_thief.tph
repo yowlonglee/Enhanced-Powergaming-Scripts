@@ -24,7 +24,7 @@ END~~~~~
   Global("MO_DETECTILLUSIONS","LOCALS",0)
   OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
 THEN
   RESPONSE #100
     BattleSong()
@@ -33,7 +33,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("IsAttacking('Myself')")
+    IsAttacking(Myself)
   !See([EVILCUTOFF])
   Global("MO_DETECTILLUSIONS","LOCALS",1)
   !ModalState(DETECTTRAPS)
