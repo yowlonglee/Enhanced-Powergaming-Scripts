@@ -1,7 +1,7 @@
 function IsAttacking(object)
     local actorID = EEex_EvalObjectAsActor(EEex_ParseObjectString(object), EEex_GetActorIDSelected())
     local actionID = EEex_GetActorCurrentAction(actorID)
-    if actionID == 3 or actionID == 105 or actionID = 134 then
+    if actionID == 3 or actionID == 105 or actionID == 134 then
         EEex_LuaTrigger = true
         return
     end
