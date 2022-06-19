@@ -11,7 +11,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming
     pattern = ~~~~~IF
   OR(2)
     ActionListEmpty()
-    IsAttacking(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   Global("MO_TURNUNDEAD","LOCALS",1)
   !CheckStat(Myself,1,SANCTUARY)
   OR(2)

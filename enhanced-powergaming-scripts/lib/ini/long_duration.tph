@@ -14,7 +14,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming
 IF
   OR(2)
     ActionListEmpty()
-    IsAttacking(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([EVILCUTOFF])
   CheckStatLT(Myself,1,STONESKINS)
@@ -38,7 +38,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    IsAttacking(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !See([EVILCUTOFF])
   Global("MO_WildStoneskin","LOCALS",0)
   CheckStatLT(Myself,1,STONESKINS)
@@ -60,7 +60,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    IsAttacking(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   !See([EVILCUTOFF])
   Global("MO_WildStoneskin","LOCALS",1)
@@ -88,7 +88,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    IsAttacking(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   CheckStatLT(Myself,1,STONESKINS)
   HaveSpell(CLERIC_IRONSKIN)  // SPPR506.SPL (Iron Skins)
@@ -138,7 +138,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    IsAttacking(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(WIZARD_MELF_METEOR)  // SPWI325.SPL (Melf's Minute Meteors)
   !HasItem("melfmet",Myself)  // Melf's Minute Meteor

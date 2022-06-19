@@ -12,7 +12,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     string = ~~~~~IF
   OR(2)
     ActionListEmpty()
-    IsAttacking(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([PC])
   HaveSpellRES(CLERIC_SPIRITUAL_CLARITY)
@@ -41,7 +41,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    IsAttacking(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SecondNearest([PC]))
   HaveSpellRES(CLERIC_SPIRITUAL_CLARITY)
@@ -70,7 +70,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    IsAttacking(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(ThirdNearest([PC]))
   HaveSpellRES(CLERIC_SPIRITUAL_CLARITY)
@@ -99,7 +99,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    IsAttacking(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FourthNearest([PC]))
   HaveSpellRES(CLERIC_SPIRITUAL_CLARITY)
@@ -128,7 +128,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    IsAttacking(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FifthNearest([PC]))
   HaveSpellRES(CLERIC_SPIRITUAL_CLARITY)
@@ -157,7 +157,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    IsAttacking(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SixthNearest([PC]))
   HaveSpellRES(CLERIC_SPIRITUAL_CLARITY)

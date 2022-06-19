@@ -21,7 +21,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     string = ~~~~~IF
   OR(2)
     ActionListEmpty()
-    IsAttacking(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(CLERIC_IMPERVIOUS_SANCTITY_OF_MIND)  // sppr735.SPL (Impervious Sanctity of Mind)
   !CheckSpellState(Myself,CHAOTIC_COMMANDS)
@@ -50,7 +50,7 @@ END~~~~~ //"
     string = ~~~~~IF
   OR(2)
     ActionListEmpty()
-    IsAttacking(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([EVILCUTOFF])
   HPPercentLT(Myself,51)
@@ -71,7 +71,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    IsAttacking(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([EVILCUTOFF])
   HPPercentLT(Myself,51)

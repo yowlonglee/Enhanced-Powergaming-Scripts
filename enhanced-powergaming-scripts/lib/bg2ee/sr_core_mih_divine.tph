@@ -12,7 +12,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     string = ~~~~~IF
   OR(2)
     ActionListEmpty()
-    IsAttacking(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(CLERIC_SUPERHEROISM)
   See([EVILCUTOFF])
@@ -64,7 +64,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    IsAttacking(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(CLERIC_HEROISM)
   See([EVILCUTOFF])
@@ -127,7 +127,7 @@ END
     string = ~~~~~IF
   OR(2)
     ActionListEmpty()
-    IsAttacking(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(CLERIC_SEEKING)
   See([EVILCUTOFF])
@@ -180,7 +180,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    IsAttacking(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(CLERIC_STRIKING)
   See([EVILCUTOFF])
@@ -244,7 +244,7 @@ END
     string = ~~~~~IF
   OR(2)
     ActionListEmpty()
-    IsAttacking(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   HaveSpell(CLERIC_CELESTIAL_PROTECTION)
   See([EVILCUTOFF])
@@ -308,7 +308,7 @@ END
     string = ~~~~~IF
   OR(2)
     ActionListEmpty()
-    IsAttacking(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(Myself)
   CheckStatGT(LastSeenBy(Myself),0,CLERIC_INSECT_PLAGUE)
@@ -331,7 +331,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    IsAttacking(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See([PC])
   CheckStatGT(LastSeenBy(Myself),0,CLERIC_INSECT_PLAGUE)
@@ -356,7 +356,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    IsAttacking(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SecondNearest([PC]))
   CheckStatGT(LastSeenBy(Myself),0,CLERIC_INSECT_PLAGUE)
@@ -381,7 +381,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    IsAttacking(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(ThirdNearest([PC]))
   CheckStatGT(LastSeenBy(Myself),0,CLERIC_INSECT_PLAGUE)
@@ -406,7 +406,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    IsAttacking(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FourthNearest([PC]))
   CheckStatGT(LastSeenBy(Myself),0,CLERIC_INSECT_PLAGUE)
@@ -431,7 +431,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    IsAttacking(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(FifthNearest([PC]))
   CheckStatGT(LastSeenBy(Myself),0,CLERIC_INSECT_PLAGUE)
@@ -456,7 +456,7 @@ END
 IF
   OR(2)
     ActionListEmpty()
-    IsAttacking(Myself)
+    EEex_LuaTrigger("IsAttacking('Myself')")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   See(SixthNearest([PC]))
   CheckStatGT(LastSeenBy(Myself),0,CLERIC_INSECT_PLAGUE)
