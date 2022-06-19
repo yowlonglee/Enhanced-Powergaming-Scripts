@@ -49,6 +49,8 @@ If you are upgrading from an earlier version of this mod, I recommend uninstalli
 
 If you are installing any of the below listed mods, they should be installed before this mod. Typically, I recommend to install my scripts at the very end of the mod install order.
 
+As of version 8.1, these scripts utilize custom triggers from EEex (if installed). If EEex is not installed, the scripts will still function, just without the additional triggers. 
+
 These scripts cannot be installed if Olvyn spells are previously installed.
 
 ### Baldur's Gate: Enhanced Edition, Baldur's Gate II: Enhanced Edition, and Enhanced Edition Trilogy
@@ -141,6 +143,8 @@ This allows the player to fine-tune aspects of the scripts. 1 turns the feature 
 ## Special Thanks
 
 - Sarevok57 whose scripts were my inspiration to write these and what mine were originally based on.
+- Bubb for assistance with EEex lua code.
+- CamDawg_G3 for providing insight and feedback into difficult code.
 - FixTesteR for encouraging compatability with Spell Revisions and bug testing.
 - Mike1072 for feedback and assisting in getting these published on Gibberlings3.
 - subtledoctor for troubleshooting AI script issues with Spell Revisions and using sections of his coding to create and assign new spell states for SR.
@@ -149,7 +153,6 @@ This allows the player to fine-tune aspects of the scripts. 1 turns the feature 
 - marcnivar for identifying a couple bugs with pre-buffing.
 - K4thos for using a function within the EET mod to cut and paste snippets of scripts into a BAF file. Without this function, being able to sync multiple mod scripts together would be impossible.
 - Cahir for providing Polish translations, testing, and providing feedback on IWD: EE scripts.
-- CamDawg_G3 for providing insight and feedback into difficult code.
 - Ulpian and yota13 for providing Russian translation.
 - Jastey for testing and providing feedback on improving healing with multiple healers.
 - Morywen for providing German translation.
