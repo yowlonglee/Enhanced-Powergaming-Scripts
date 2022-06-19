@@ -12,7 +12,7 @@ function IsAttacking(object, trigger)
         return false
     end
 end
-EEex_InstallNewTriggers(IsAttacking)
+--EEex_InstallNewTriggers(IsAttacking)
 
 -- local actionID = EEex_GetActorCurrentAction(actorID)
 -- object.m_id
