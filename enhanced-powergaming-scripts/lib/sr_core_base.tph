@@ -7813,6 +7813,9 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
+  OR(2)
+    !See([EVILCUTOFF])
+    CheckStat(Myself,1,SANCTUARY)
   HPPercentLT(Myself,61)
   HaveSpell(MONK_LAY_ON_HANDS)  // SPCL815.SPL (Lay On Hands)
 THEN
