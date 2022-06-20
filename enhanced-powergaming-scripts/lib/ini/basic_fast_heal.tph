@@ -1,0 +1,113 @@
+COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
+
+///////////////////////////////////////////////////////////////////////////
+// Accelerate Heal                                                       //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    warn = 0
+    STR_VAR
+    pattern = ~~~~~Spell(LastSeenBy(Myself),CLERIC_HEAL)  // SPPR607.SPL (Heal)~~~~~
+    string = ~~~~~ReallyForceSpell(LastSeenBy(Myself),CLERIC_HEAL)
+    RemoveSpell(CLERIC_HEAL)~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Accelerate Cure Serious Wounds                                        //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    warn = 0
+    STR_VAR
+    pattern = ~~~~~Spell(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS)  // SPPR401.SPL (Cure Serious Wounds)~~~~~
+    string = ~~~~~ReallyForceSpell(LastSeenBy(Myself),CLERIC_CURE_SERIOUS_WOUNDS)
+    RemoveSpell(CLERIC_CURE_SERIOUS_WOUNDS)~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Accelerate Cure Medium Wounds                                         //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    warn = 0
+    STR_VAR
+    pattern = ~~~~~Spell(LastSeenBy(Myself),CLERIC_CURE_MEDIUM_WOUNDS)  // SPPR315.SPL (Cure Medium Wounds)~~~~~
+    string = ~~~~~ReallyForceSpell(LastSeenBy(Myself),CLERIC_CURE_MEDIUM_WOUNDS)
+    RemoveSpell(CLERIC_CURE_MEDIUM_WOUNDS)~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Accelerate Cure Moderate Wounds                                       //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    warn = 0
+    STR_VAR
+    pattern = ~~~~~Spell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)  // sppr215.SPL (Cure Moderate Wounds)~~~~~
+    string = ~~~~~ReallyForceSpell(LastSeenBy(Myself),CLERIC_CURE_MODERATE_WOUNDS)
+    RemoveSpell(CLERIC_CURE_MODERATE_WOUNDS)~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Accelerate Cure Light Wounds                                          //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    warn = 0
+    STR_VAR
+    pattern = ~~~~~Spell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)  // SPPR103.SPL (Cure Light Wounds)~~~~~
+    string = ~~~~~ReallyForceSpell(LastSeenBy(Myself),CLERIC_CURE_LIGHT_WOUNDS)
+    RemoveSpell(CLERIC_CURE_LIGHT_WOUNDS)~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Accelerate Healing Touch                                              //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    warn = 0
+    STR_VAR
+    pattern = ~~~~~SpellRES("SPIN101",LastSeenBy(Myself))  // Healing Touch~~~~~
+    string = ~~~~~ReallyForceSpellRES("SPIN101",LastSeenBy(Myself))
+    RemoveSpellRES("SPIN101")~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Accelerate Monk Lay on Hands                                          //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    warn = 0
+    STR_VAR
+    pattern = ~~~~~Spell(Myself,MONK_LAY_ON_HANDS)  // SPCL815.SPL (Lay On Hands)~~~~~
+    string = ~~~~~ReallyForceSpell(Myself,MONK_LAY_ON_HANDS)
+    RemoveSpell(MONK_LAY_ON_HANDS)~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Accelerate Paladin Lay on Hands                                       //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    warn = 0
+    STR_VAR
+    pattern = ~~~~~Spell(LastSeenBy(Myself),PALADIN_LAY_ON_HANDS)  // SPPR103.SPL (Cure Light Wounds)~~~~~
+    string = ~~~~~ReallyForceSpell(LastSeenBy(Myself),PALADIN_LAY_ON_HANDS)
+    RemoveSpell(PALADIN_LAY_ON_HANDS)~~~~~ //"
+  END
