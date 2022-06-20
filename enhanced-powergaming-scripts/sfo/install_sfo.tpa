@@ -111,6 +111,13 @@ ACTION_IF debug_variable=0 BEGIN SILENT END
     END ELSE BEGIN
       OUTER_SET bsc_lng_dur=0
     END
+
+    LAF check_ini STR_VAR ini="fast_healing" RET value END
+    ACTION_IF value BEGIN
+      OUTER_SET fst_heal=1
+    END ELSE BEGIN
+      OUTER_SET fst_heal=0
+    END
 END
 VERBOSE
 

@@ -69,11 +69,6 @@ APPEND ~STATE.IDS~ ~0x80002006 STATE_NOT_APPROACHABLE~		UNLESS ~0x80002006 STATE
 APPEND ~action.ids~ ~34 UseItemAbility(S:Object*,O:Target*,I:Slot*SLOTS,I:Ability*)~ UNLESS ~34 UseItemAbility(S:Object*,O:Target*,I:Slot*SLOTS,I:Ability*)~
 
 ///////////////////////////////////////////////////////////////////////////
-// Adds New Trigger to TRIGGER.IDS                                       //
-///////////////////////////////////////////////////////////////////////////
-APPEND ~trigger.ids~ ~0x410F CheckCurrentAction(O:Object*)~ UNLESS ~0x410F CheckCurrentAction(O:Object*)~
-
-///////////////////////////////////////////////////////////////////////////
 // Adds Stats used in AI Scripts                                         //
 ///////////////////////////////////////////////////////////////////////////
 APPEND ~stats.ids~ ~110 CLERIC_ARMOR_OF_FAITH~                  UNLESS ~110 CLERIC_ARMOR_OF_FAITH~

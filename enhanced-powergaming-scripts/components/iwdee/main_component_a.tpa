@@ -57,6 +57,15 @@ INCLUDE ~enhanced-powergaming-scripts/lib/IWDEE/core_iwd.tph~
 	ACTION_IF bsc_heal BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/ini/healing.tph~
 		INCLUDE ~enhanced-powergaming-scripts/lib/iwdee/healing_iwd.tph~
+
+		ACTION_IF fst_heal BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/ini/basic_fast_healing.tph~
+		END
+	END
+
+	// Fast Healing
+	ACTION_IF fst_heal BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/ini/core_fast_healing.tph~
 	END
 
 	// Add disabling spells

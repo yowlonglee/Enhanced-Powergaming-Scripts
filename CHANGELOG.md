@@ -8,6 +8,7 @@ June xx, 2022
 
 - All Games
   - Use of EEex for improved checks
+  - Updating healing spell casting and created ini option to auto-cast when out of combat.
 
 ## Version 8.0.2
 

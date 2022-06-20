@@ -67,6 +67,10 @@ ACTION_IF spell_revisions BEGIN
 	// Add basic healing to MO-BasicAI
 	ACTION_IF bsc_heal BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/ini/sr_healing.tph~
+
+		ACTION_IF fst_heal BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/ini/basic_fast_healing.tph~
+		END
 	END
 
 	// Add disabling spells
@@ -427,6 +431,10 @@ END ELSE BEGIN
 	// Add basic healing to MO-BasicAI
 	ACTION_IF bsc_heal BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/ini/healing.tph~
+
+		ACTION_IF fst_heal BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/ini/basic_fast_healing.tph~
+		END
 	END
 
 	// Add disabling spells
@@ -805,6 +813,11 @@ END
 // Basic AI will Auto-Attack Enemies
 ACTION_IF bsc_atk BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/lib/ini/basic_atk.tph~
+END
+
+// Fast Healing
+ACTION_IF fst_heal BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/ini/core_fast_healing.tph~
 END
 
 // Removes Dialog Hovertext from Scripts
