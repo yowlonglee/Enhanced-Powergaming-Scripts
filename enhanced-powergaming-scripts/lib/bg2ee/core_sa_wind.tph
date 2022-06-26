@@ -1,0 +1,28 @@
+COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+
+///////////////////////////////////////////////////////////////////////////
+// Add Second Wind                                                       //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// Skills and Abilities Second Wind~~~~~
+    string = ~~~~~IF
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  See([EVILCUTOFF])
+  HPPercentLT(Myself,51)
+  HaveSpellRES("MO2WIND")
+  ActuallyInCombat()
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    SpellRES("MO2WIND",Myself)
+    SetInterrupt(TRUE)
+END~~~~~ //"
+  END
