@@ -427,6 +427,7 @@ END~~~~~
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
+  !EEex_LuaTrigger("return AmMoving()")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   CheckStatLT(Myself,1,STONESKINS)
   GlobalLT("MO_UsedGargoyle","GLOBAL",2)
@@ -509,6 +510,7 @@ END~~~~~
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
+  !EEex_LuaTrigger("return AmMoving()")
   !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
   GlobalLT("MO_UsedCowlOfStars","GLOBAL",3)
   HasItemEquiped("OHRCLCK1",Myself)  // Cowl of the Stars
