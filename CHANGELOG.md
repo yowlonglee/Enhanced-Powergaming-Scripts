@@ -8,7 +8,7 @@ June 27, 2022
 
 - All Games
   - Use of EEex (optional) for improved checks
-  - Updating healing spell casting and created ini option to auto-cast when out of combat.
+  - Out of combat healing has a new ini option to make heal casting instant. Default of 0 is off.
 
 ## Version 8.0.2
 
