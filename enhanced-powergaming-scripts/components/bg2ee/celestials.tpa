@@ -46,6 +46,14 @@ COPY ~enhanced-powergaming-scripts/baf/celestials/moevd01.baf~ ~enhanced-powerga
 COPY ~enhanced-powergaming-scripts/baf/celestials/mogdd01.baf~ ~enhanced-powergaming-scripts/baf/upload/mogdd01.baf~
 
 ///////////////////////////////////////////////////////////////////////////
+// EEex Check                                                            //
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF NOT eeex_present BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/celestial/deva_eeex.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/celestial/plan_eeex.tph~
+END
+
+///////////////////////////////////////////////////////////////////////////
 // Update Hot Keys                                                       //
 ///////////////////////////////////////////////////////////////////////////
 INCLUDE ~enhanced-powergaming-scripts/lib/deva_hotkey.tph~
