@@ -2,12 +2,12 @@
 
 ## Version 9.0
 
-June xx, 2022
+June 27, 2022
 
 ### Changed 
 
 - All Games
-  - Use of EEex for improved checks
+  - Use of EEex (optional) for improved checks
   - Updating healing spell casting and created ini option to auto-cast when out of combat.
 
 ## Version 8.0.2
