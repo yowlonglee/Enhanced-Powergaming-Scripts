@@ -84,7 +84,7 @@ If an enemy has PfMW, Mantle, Improved Mantle, Absolute Immunity, or Shield of L
 These are the most advanced scripts at detecting and countering invisible enemies. As soon as an enemy is detected that is invisible or stealthed, nomatter the means, characters will get to work using the appropriate spell to detect them. Many times, your characters will cast the appropriate detection spell before you even realize an invisible enemy is present. These are that advanced.
 
 #### Item Usage (BGII: EE and EET Required)
-These scripts will utilize items such as Amulet of the Cheetah, Ilbratha+1, Ring of Duplication, Gargoyle Boots, Headband of the Devout, Girdle of Fortitude, Ring of Spell Turning, Cloak of the Stars, Cowl of the Stars, Belt of Minor Invulnerability, Cloak of the Dark Moon, and the Shield of Fyrus Khal. Additionally, these scripts will also assist in automatically swapping items in order to cast an items effect and then swapping back to the original item. This will be done seamlessly. For example, if you have either Gargoyle Boots or Boots of Speed equipped with the other item in your inventory, then the script will automatically swap items to equip the Gargoyle Boots, cast Stoneskin (if there is a charge), then swap back to the Boots of Speed. The player will not notice any item swapping from the game screen, but they will have a seamless casting of Stoneskin. This saves a lot of micromanagement to swap boots and cast Stoneskin. Similarly, Monks will a similar swap with Ilbratha+1 and the Scarlet Ninja-To (in the off-hand) in order to cast Mirror Images.
+These scripts will utilize items such as Amulet of the Cheetah, Ilbratha+1, Ring of Duplication, Gargoyle Boots, Headband of the Devout, Girdle of Fortitude, Ring of Spell Turning, Cloak of the Stars, Cowl of the Stars, Belt of Minor Invulnerability, Cloak of the Dark Moon, and the Shield of Fyrus Khal. Additionally, these scripts will also assist in automatically swapping items in order to cast an items effect and then swapping back to the original item. This will be done seamlessly. For example, if you have either Gargoyle Boots or Boots of Speed equipped with the other item in your inventory, then the script will automatically swap items to equip the Gargoyle Boots, cast Stoneskin (if there is a charge), then swap back to the Boots of Speed. The player will not notice any item swapping from the game screen, but they will have a seamless casting of Stoneskin. This saves a lot of micromanagement to swap boots and cast Stoneskin. Similarly, Monks will similarly swap with Ilbratha+1 and the Scarlet Ninja-To (in the off-hand) in order to cast Mirror Images.
 
 #### The Scripts
 Below are a listing of the different scripts included in the Main Component.
@@ -93,18 +93,22 @@ Below are a listing of the different scripts included in the Main Component.
 
 This script will constantly Turn Undead when the "V" key is pressed and will cast pre-buffing spells when the "B" key is pressed. If playing a thief or monk class, this script will detect traps while not in combat or constantly when the "D" key is pressed. If playing a Bard class, the script will constantly be singing the applicable Bard song. This script will NOT auto-attack by default, but this can be changed in the ini file.  
 
+Please Note: These are ai scripts for players who do not like ai scripts. These can be tailored to a players taste by adjusting the ini field prior to install.
+
 ##### MO-CORE
 
-This script is designed for all core classes: Fighter, Mage, Thief, Cleric, Druid, Shaman, Monk, Ranger, Paladin, and any combination of multiclass/dualclass to include kits. This script will constantly Turn Undead when the "V" key is pressed and will cast pre-buffing spells when the "B" key is pressed. If the character is able, this script will constantly be detecting traps while idle or when the "D" key is pressed.
+This script is designed for all core classes: Fighter, Mage, Sorcerer, Thief, Cleric, Druid, Shaman, Monk, Ranger, Paladin, and any combination of multiclass/dualclass to include kits. This script will constantly Turn Undead when the "V" key is pressed and will cast pre-buffing spells when the "B" key is pressed. If the character is able, this script will constantly be detecting traps while idle or when the "D" key is pressed.
 
 ##### MO-SKALD
 
 This is a script specifically designed for the Skald Kit. This script will cast pre-buff spells when the "B" key is pressed. In addition to pre-buffing, the script will intelligently use abilities both in and out of combat. When not casting spells, the Skald will constantly be singing the Skald song. Additionally, between casting spells, the Skald will start singing again to attempt to keep the Skald song up constantly in combat. This script is written to use up to Level 9 Spells.
 
+Please Note: Despite the name, this script can be used by any bard that you want to sing.
+
 
 ### Enhanced Scripts for Summoned Celestials (BGII: EE and EET Required)
 
-This provides enhanced ai scripts for simulacrums. Overall, the scripts allows the player to be more hands off with summoned celestials, and they will act intelligently in targeting enemies. Like the other scripts listed above, this script will cast pre-buff spells when the "B" key is pressed. Spell Revisions also rewrote their spellbooks, and the scripts will accomodate these changes.
+This provides enhanced ai scripts for celestials. Overall, the scripts allows the player to be more hands off with summoned celestials, and they will act intelligently in targeting enemies. Like the other scripts listed above, this script will cast pre-buff spells when the "B" key is pressed. Spell Revisions also rewrote their spellbooks, and the scripts will accomodate these changes.
 
 ### Enhanced Scripts for Simulacrums (BGII: EE, EET, or IWD: EE Required)
 
