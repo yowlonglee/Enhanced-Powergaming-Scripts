@@ -49,7 +49,7 @@ If you are upgrading from an earlier version of this mod, I recommend uninstalli
 
 If you are installing any of the below listed mods, they should be installed before this mod. Typically, I recommend to install my scripts at the very end of the mod install order.
 
-As of version 8.1, these scripts utilize custom triggers from EEex (if installed). If EEex is not installed, the scripts will still function, just without the additional triggers. 
+As of version 9.0, these scripts utilize custom triggers from EEex (if installed). If EEex is not installed, the scripts will still function, just without the additional triggers. 
 
 These scripts cannot be installed if Olvyn spells are previously installed.
 
@@ -59,7 +59,7 @@ The mod has support for aTweaks, IWD spells (from either Sword Coast Stratagems 
 Before modding SoD games, it requires use of either DLCMerger or ModMerge (DLCMerger Preferred).
 
 ### Icewind Dale: Enhanced Edition
-Currently, this mod supports only the base game for Icewind Dale: Enhanced Edition.
+This mod has support for Skills and Abilities. 
 
 ## Components
 
