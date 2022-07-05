@@ -1790,23 +1790,6 @@ THEN
     Spell(LastSeenBy(Myself),WIZARD_PROTECTION_FROM_ACID)  // SPWI517.SPL (Protection From Acid)
 END
 
-// 5e Spellcasting Prebuff Shield of the Archons
-
-IF
-  Global("MO_BUFF","LOCALS",1)
-  HaveSpell(CLERIC_SHIELD_OF_THE_ARCHONS)  // SPPR701.SPL (Shield of the Archons)
-  CheckStatLT(Myself,1,CLERIC_SHIELD_OF_THE_ARCHONS)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_POISONED)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    Spell(Myself,CLERIC_SHIELD_OF_THE_ARCHONS)  // SPPR701.SPL (Shield of the Archons)
-END
-
 // 5e Spellcasting Prebuff Prot from Evil
 
 IF
@@ -2527,130 +2510,6 @@ END
 
 // FP Cleric Divine Haste
 
-// 5e Spellcasting Prebuff Spell Shield
-
-IF
-  Global("MO_BUFF","LOCALS",1)
-  HaveSpell(WIZARD_SPELL_SHIELD)  // SPWI519.SPL (Spell Shield)
-  !CheckSpellState(Myself,SPELL_SHIELD)
-  // (Myself) Major Globe
-  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_POISONED)
-  !StateCheck(Myself,STATE_SILENCED)
-  Global("MO_CastAthkatla","LOCALS",1)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    Spell(Myself,WIZARD_SPELL_SHIELD)  // SPWI519.SPL (Spell Shield)
-END
-
-// 5e Spellcasting Prebuff Spell Turning
-
-IF
-  Global("MO_BUFF","LOCALS",1)
-  HaveSpell(WIZARD_SPELL_TURNING)  // SPWI701.SPL (Spell Turning)
-  !CheckSpellState(Myself,SPELL_TURNING)
-  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_POISONED)
-  !StateCheck(Myself,STATE_SILENCED)
-  Global("MO_CastAthkatla","LOCALS",1)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    Spell(Myself,WIZARD_SPELL_TURNING)  // SPWI701.SPL (Spell Turning)
-END
-
-IF
-  Global("MO_BUFF","LOCALS",1)
-  HasItemEquiped("OHNSHLD1",Myself)  // Shield of Fyrus Khal +2
-  GlobalLT("MO_UsedShldFyrus","GLOBAL",1)
-  !CheckSpellState(Myself,SPELL_TURNING)
-  Global("MO_CastAthkatla","LOCALS",1)
-THEN
-  RESPONSE #100
-    UseItem("OHNSHLD1",Myself)  // Shield of Fyrus Khal +2
-    IncrementGlobal("MO_UsedShldFyrus","GLOBAL",1)
-END
-
-IF
-  Global("MO_BUFF","LOCALS",1)
-  HasItemEquiped("RING34",Myself)  // Ring of Spell Turning
-  GlobalLT("MO_UsedSpellTurning","GLOBAL",1)
-  !CheckSpellState(Myself,SPELL_TURNING)
-THEN
-  RESPONSE #100
-    UseItem("RING34",Myself)  // Ring of Spell Turning
-    IncrementGlobal("MO_UsedSpellTurning","GLOBAL",1)
-END
-
-// 5e Spellcasting Prebuff Minor Spell Turning
-
-IF
-  Global("MO_BUFF","LOCALS",1)
-  HaveSpell(WIZARD_MINOR_SPELL_TURNING)  // SPWI522.SPL (Minor Spell Turning)
-  !CheckSpellState(Myself,MINOR_SPELL_TURNING)
-  // (Myself) Major Globe
-  !CheckSpellState(Myself,SPELL_TURNING)
-  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_POISONED)
-  !StateCheck(Myself,STATE_SILENCED)
-  Global("MO_CastAthkatla","LOCALS",1)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    Spell(Myself,WIZARD_MINOR_SPELL_TURNING)  // SPWI522.SPL (Minor Spell Turning)
-END
-
-// 5e Spellcasting Prebuff Spell Deflection
-
-IF
-  Global("MO_BUFF","LOCALS",1)
-  HaveSpell(WIZARD_SPELL_DEFLECTION)  // SPWI618.SPL (Spell Deflection)
-  CheckStatLT(Myself,1,WIZARD_SPELL_DEFLECTION)
-  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_POISONED)
-  !StateCheck(Myself,STATE_SILENCED)
-  Global("MO_CastAthkatla","LOCALS",1)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    Spell(Myself,WIZARD_SPELL_DEFLECTION)  // SPWI618.SPL (Spell Deflection)
-END
-
-// 5e Spellcasting Prebuff Minor Spell Deflection
-
-IF
-  Global("MO_BUFF","LOCALS",1)
-  HaveSpell(WIZARD_MINOR_SPELL_DEFLECTION)  // SPWI318.SPL (Minor Spell Deflection)
-  CheckStatLT(Myself,1,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(Myself,MINOR_GLOBE)
-  !CheckSpellState(Myself,GLOBE)
-  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_POISONED)
-  !StateCheck(Myself,STATE_SILENCED)
-  Global("MO_CastAthkatla","LOCALS",1)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    Spell(Myself,WIZARD_MINOR_SPELL_DEFLECTION)  // SPWI318.SPL (Minor Spell Deflection)
-END
-
-// 5e Spellcasting Prebuff - FP Ranger Minor Spell Deflection
-
-// FP Ranger Minor Spell Deflection
-
-// FP Cleric Minor Spell Deflection
-
 // 5e Spellcasting Prebuff - MiH Wizard Superheroism
 
 // MiH Wizard Superheroism
@@ -3318,82 +3177,6 @@ END
 
 // MiH Cleric Heroism
 
-// 5e Spellcasting Prebuff - MiH Major Globe Prebuff
-
-// MiH Major Globe Prebuff
-
-// 5e Spellcasting Prebuff Globe of Invulnerability
-
-IF
-  Global("MO_BUFF","LOCALS",1)
-  HaveSpell(WIZARD_GLOBE_OF_INVULNERABILITY)  // SPWI602.SPL (Globe of Invulnerability)
-  !CheckSpellState(Myself,MINOR_GLOBE)
-  !CheckSpellState(Myself,GLOBE)
-  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_POISONED)
-  !StateCheck(Myself,STATE_SILENCED)
-  Global("MO_CastAthkatla","LOCALS",1)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    Spell(Myself,WIZARD_GLOBE_OF_INVULNERABILITY)  // SPWI602.SPL (Globe of Invulnerability)
-END
-
-// 5e Spellcasting Prebuff Minor Globe of Invulnerability
-
-IF
-  Global("MO_BUFF","LOCALS",1)
-  HaveSpell(WIZARD_MINOR_GLOBE_OF_INVULNERABILITY)  // SPWI406.SPL (Minor Globe of Invulnerability)
-  !CheckSpellState(Myself,MINOR_GLOBE)
-  !CheckSpellState(Myself,GLOBE)
-  !HasImmunityEffects(Myself)
-  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_POISONED)
-  !StateCheck(Myself,STATE_SILENCED)
-  Global("MO_CastAthkatla","LOCALS",1)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    Spell(Myself,WIZARD_MINOR_GLOBE_OF_INVULNERABILITY)  // SPWI406.SPL (Minor Globe of Invulnerability)
-END
-
-IF
-  Global("MO_BUFF","LOCALS",1)
-  GlobalLT("MO_UsedBltMnrInv","GLOBAL",1)
-  HasItemEquiped("OHRBELT2",Myself)  // Belt of Minor Invulnerability
-  !CheckSpellState(Myself,MINOR_GLOBE)
-  !CheckSpellState(Myself,GLOBE)
-  Global("MO_CastAthkatla","LOCALS",1)
-THEN
-  RESPONSE #100
-    UseItem("OHRBELT2",Myself)  // Belt of Minor Invulnerability
-    IncrementGlobal("MO_UsedBltMnrInv","GLOBAL",1)
-END
-
-// 5e Spellcasting Prebuff Spell Immunity
-
-IF
-  Global("MO_BUFF","LOCALS",1)
-  HaveSpell(WIZARD_SPELL_IMMUNITY)  // SPWI510.SPL (Spell Immunity)
-  !CheckStat(Myself,1,WIZARD_SPELL_IMMUNITY)
-  // (Myself) Major Globe
-  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_POISONED)
-  !StateCheck(Myself,STATE_SILENCED)
-  Global("MO_CastAthkatla","LOCALS",1)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    ForceSpell(Myself,WIZARD_SPELL_IMMUNITY_ABJURATION)  // SPWI590.SPL (Immunity: Abjuration)
-    RemoveSpell(WIZARD_SPELL_IMMUNITY)  // SPWI510.SPL (Spell Immunity)
-END
-
 // 5e Spellcasting Prebuff - MiH Cleric Aura of Vitality
 
 // MiH Cleric Aura of Vitality
@@ -3507,24 +3290,6 @@ IF
 THEN
   RESPONSE #100
     SpellRES("SPCL237",Myself)  // Greater Sun
-END
-
-// 5e Spellcasting Prebuff Spell Trap
-
-IF
-  Global("MO_BUFF","LOCALS",1)
-  HaveSpell(WIZARD_SPELL_TRAP)  // SPWI902.SPL (Spell Trap)
-  CheckStatLT(Myself,1,WIZARD_SPELL_TRAP)
-  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_POISONED)
-  !StateCheck(Myself,STATE_SILENCED)
-  Global("MO_CastAthkatla","LOCALS",1)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    Spell(Myself,WIZARD_SPELL_TRAP)  // SPWI902.SPL (Spell Trap)
 END
 
 // 5e Spellcasting Prebuff Black Blade of Disaster
@@ -3902,6 +3667,241 @@ THEN
 END
 
 // Skills and Abilities Prebuff Protective Field
+
+// 5e Spellcasting Prebuff Shield of the Archons
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpell(CLERIC_SHIELD_OF_THE_ARCHONS)  // SPPR701.SPL (Shield of the Archons)
+  CheckStatLT(Myself,1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_SHIELD_OF_THE_ARCHONS)  // SPPR701.SPL (Shield of the Archons)
+END
+
+// 5e Spellcasting Prebuff Spell Shield
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpell(WIZARD_SPELL_SHIELD)  // SPWI519.SPL (Spell Shield)
+  !CheckSpellState(Myself,SPELL_SHIELD)
+  // (Myself) Major Globe
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_SPELL_SHIELD)  // SPWI519.SPL (Spell Shield)
+END
+
+// 5e Spellcasting Prebuff Spell Turning
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpell(WIZARD_SPELL_TURNING)  // SPWI701.SPL (Spell Turning)
+  !CheckSpellState(Myself,SPELL_TURNING)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_SPELL_TURNING)  // SPWI701.SPL (Spell Turning)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HasItemEquiped("OHNSHLD1",Myself)  // Shield of Fyrus Khal +2
+  GlobalLT("MO_UsedShldFyrus","GLOBAL",1)
+  !CheckSpellState(Myself,SPELL_TURNING)
+  Global("MO_CastAthkatla","LOCALS",1)
+THEN
+  RESPONSE #100
+    UseItem("OHNSHLD1",Myself)  // Shield of Fyrus Khal +2
+    IncrementGlobal("MO_UsedShldFyrus","GLOBAL",1)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HasItemEquiped("RING34",Myself)  // Ring of Spell Turning
+  GlobalLT("MO_UsedSpellTurning","GLOBAL",1)
+  !CheckSpellState(Myself,SPELL_TURNING)
+THEN
+  RESPONSE #100
+    UseItem("RING34",Myself)  // Ring of Spell Turning
+    IncrementGlobal("MO_UsedSpellTurning","GLOBAL",1)
+END
+
+// 5e Spellcasting Prebuff Minor Spell Turning
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpell(WIZARD_MINOR_SPELL_TURNING)  // SPWI522.SPL (Minor Spell Turning)
+  !CheckSpellState(Myself,MINOR_SPELL_TURNING)
+  // (Myself) Major Globe
+  !CheckSpellState(Myself,SPELL_TURNING)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_MINOR_SPELL_TURNING)  // SPWI522.SPL (Minor Spell Turning)
+END
+
+// 5e Spellcasting Prebuff Spell Deflection
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpell(WIZARD_SPELL_DEFLECTION)  // SPWI618.SPL (Spell Deflection)
+  CheckStatLT(Myself,1,WIZARD_SPELL_DEFLECTION)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_SPELL_DEFLECTION)  // SPWI618.SPL (Spell Deflection)
+END
+
+// 5e Spellcasting Prebuff Minor Spell Deflection
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpell(WIZARD_MINOR_SPELL_DEFLECTION)  // SPWI318.SPL (Minor Spell Deflection)
+  CheckStatLT(Myself,1,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_MINOR_SPELL_DEFLECTION)  // SPWI318.SPL (Minor Spell Deflection)
+END
+
+// 5e Spellcasting Prebuff - FP Ranger Minor Spell Deflection
+
+// FP Ranger Minor Spell Deflection
+
+// FP Cleric Minor Spell Deflection
+
+// 5e Spellcasting Prebuff - MiH Major Globe Prebuff
+
+// MiH Major Globe Prebuff
+
+// 5e Spellcasting Prebuff Globe of Invulnerability
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpell(WIZARD_GLOBE_OF_INVULNERABILITY)  // SPWI602.SPL (Globe of Invulnerability)
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_GLOBE_OF_INVULNERABILITY)  // SPWI602.SPL (Globe of Invulnerability)
+END
+
+// 5e Spellcasting Prebuff Minor Globe of Invulnerability
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpell(WIZARD_MINOR_GLOBE_OF_INVULNERABILITY)  // SPWI406.SPL (Minor Globe of Invulnerability)
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
+  !HasImmunityEffects(Myself)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_MINOR_GLOBE_OF_INVULNERABILITY)  // SPWI406.SPL (Minor Globe of Invulnerability)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  GlobalLT("MO_UsedBltMnrInv","GLOBAL",1)
+  HasItemEquiped("OHRBELT2",Myself)  // Belt of Minor Invulnerability
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
+  Global("MO_CastAthkatla","LOCALS",1)
+THEN
+  RESPONSE #100
+    UseItem("OHRBELT2",Myself)  // Belt of Minor Invulnerability
+    IncrementGlobal("MO_UsedBltMnrInv","GLOBAL",1)
+END
+
+// 5e Spellcasting Prebuff Spell Immunity
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpell(WIZARD_SPELL_IMMUNITY)  // SPWI510.SPL (Spell Immunity)
+  !CheckStat(Myself,1,WIZARD_SPELL_IMMUNITY)
+  // (Myself) Major Globe
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ForceSpell(Myself,WIZARD_SPELL_IMMUNITY_ABJURATION)  // SPWI590.SPL (Immunity: Abjuration)
+    RemoveSpell(WIZARD_SPELL_IMMUNITY)  // SPWI510.SPL (Spell Immunity)
+END
+
+// 5e Spellcasting Prebuff Spell Trap
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpell(WIZARD_SPELL_TRAP)  // SPWI902.SPL (Spell Trap)
+  CheckStatLT(Myself,1,WIZARD_SPELL_TRAP)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_SPELL_TRAP)  // SPWI902.SPL (Spell Trap)
+END
 
 IF
   Global("MO_BUFF","LOCALS",1)
