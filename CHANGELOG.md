@@ -10,7 +10,9 @@ July 6, 2022
   - Moved anti-spell magic (spell turning, spell deflection, spell trap, spell shield, spell immunity, etc.) to the end of prebuffing to prevent blocking beneficial spells.
   - Added range checks for PfMW, Mantle, Absolute Immunity, and similar spells added by mods.
   - Fixed bug with Negative Plane Protection check on Amulet of Power.
-
+- IWDEE
+  - Fixed bug where it would fail to install. 
+  
 ## Version 9.0
 
 June 27, 2022
