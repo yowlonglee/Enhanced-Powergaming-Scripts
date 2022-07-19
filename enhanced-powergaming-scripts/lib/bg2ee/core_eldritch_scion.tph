@@ -1,0 +1,45 @@
+COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+
+///////////////////////////////////////////////////////////////////////////
+// Attack Check                                                          //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    warn = 0
+    STR_VAR
+    pattern = ~~~~~OR(8)
+    Class(Myself,FIGHTER_ALL)
+    Class(Myself,CLERIC_ALL)
+    Class(Myself,THIEF_ALL)
+    Class(Myself,BARD_ALL)
+    Class(Myself,PALADIN_ALL)
+    Class(Myself,DRUID_ALL)
+    Class(Myself,RANGER_ALL)
+    Class(Myself,SHAMAN)~~~~~
+    string = ~~~~~OR(9)
+    Class(Myself,FIGHTER_ALL)
+    Class(Myself,CLERIC_ALL)
+    Class(Myself,THIEF_ALL)
+    Class(Myself,BARD_ALL)
+    Class(Myself,PALADIN_ALL)
+    Class(Myself,DRUID_ALL)
+    Class(Myself,RANGER_ALL)
+    Class(Myself,SHAMAN)
+    Kit(Myself,MO_ELDRITCH)~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Mage Attack Check                                                     //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    warn = 0
+    STR_VAR
+    pattern = ~~~~~Class(Myself,MAGE_ALL)~~~~~
+    string = ~~~~~Class(Myself,MAGE_ALL)
+  !Kit(Myself,MO_ELDRITCH)~~~~~ //"
+  END

@@ -900,6 +900,17 @@ ACTION_IF psi_warrior BEGIN
 END
 
 ///////////////////////////////////////////////////////////////////////////
+// Skills and Abilities Eldritch Scion                                   //
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF eldritch_scion BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_eldritch_scion.tph~
+
+	ACTION_IF bsc_atk BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/basic_eldritch_scion.tph~
+	END
+END
+
+///////////////////////////////////////////////////////////////////////////
 // Skills and Abilities Fighter Updates                                  //
 ///////////////////////////////////////////////////////////////////////////
 ACTION_IF fighter_overhaul BEGIN
