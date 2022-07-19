@@ -1,5 +1,14 @@
 # Changelog
 
+## Version 9.2
+
+July 18, 2022
+
+### Changed 
+
+- All Games
+  - Updated attack scripts for Eldritch Scion.
+
 ## Version 9.1
 
 July 6, 2022
