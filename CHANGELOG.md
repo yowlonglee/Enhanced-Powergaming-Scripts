@@ -1,5 +1,14 @@
 # Changelog
 
+## Version 9.3
+
+July xx, 2022
+
+### Changed 
+
+- All Games
+  - Characters can switch between solo and party buffing using Hotkey 'K'. This allows you to have some characters buff everyone in the party, while other characters (such as sorcerers) will not burn through their spells on the party if they are set to solo buff.
+
 ## Version 9.2
 
 July 18, 2022
