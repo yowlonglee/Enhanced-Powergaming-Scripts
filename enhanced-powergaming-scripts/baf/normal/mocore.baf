@@ -32,6 +32,24 @@ THEN
 END
 
 IF
+  HotKey(hot_key_SoloBuff)
+  Global("MO_SOLOBUFFING","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_SOLOBUFFING","LOCALS",1)
+    DisplayStringHead(Myself,@5027)
+END
+
+IF
+  HotKey(hot_key_SoloBuff)
+  Global("MO_SOLOBUFFING","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_SOLOBUFFING","LOCALS",0)
+    DisplayStringHead(Myself,@5026)
+END
+
+IF
   !GlobalTimerNotExpired("MO_HealCast","GLOBAL")
   Global("MO_CastingHeal","GLOBAL",1)
 THEN
