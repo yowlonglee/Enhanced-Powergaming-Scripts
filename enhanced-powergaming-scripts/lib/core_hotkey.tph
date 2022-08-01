@@ -78,3 +78,18 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     pattern = ~~~~~HotKey(hot_key_WeaponSwap)~~~~~
     string = ~~~~~HotKey(%value_wswap%)~~~~~ //"
   END
+
+///////////////////////////////////////////////////////////////////////////
+// Update Hotkey Solo Buff                                               //
+///////////////////////////////////////////////////////////////////////////
+  SPRINT value_solobuff EVAL "%hot_key_SoloBuff%"
+
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    warn = 0
+    STR_VAR
+    pattern = ~~~~~HotKey(hot_key_SoloBuff)~~~~~
+    string = ~~~~~HotKey(%value_solobuff%)~~~~~ //"
+  END
