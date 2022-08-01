@@ -57,7 +57,14 @@ ACTION_IF debug_variable=0 BEGIN SILENT END
         OUTER_SPRINT "hot_key_WeaponSwap" "E"
     END ELSE BEGIN
         OUTER_SPRINT "hot_key_WeaponSwap" "%value%"
-    END  
+    END
+
+    LAF check_ini INT_VAR silent=1  STR_VAR ini="hot_key_SoloBuff" RET value END
+    ACTION_IF "%value%" STRING_EQUAL_CASE "0" BEGIN
+        OUTER_SPRINT "hot_key_SoloBuff" "K"
+    END ELSE BEGIN
+        OUTER_SPRINT "hot_key_SoloBuff" "%value%"
+    END
  
 
 ///////////////////////////////////////////////////////////////////////////
