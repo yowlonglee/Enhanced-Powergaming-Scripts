@@ -51,10 +51,12 @@ Si vous effectuez une mise à jour depuis une version antérieure de ce mod, je 
 
 Si vous installez l'un des mods ci-dessous, ils doivent être installés avant ce Enhanced-Powergaming-Scripts. En général, je recommande d'installer mes scripts à la toute fin de l'ordre d'installation des mods.
 
+Depuis la version 8.1, les scripts utilisent les triggers personnalisés d'EEex (s'il est installé). Si EEex n'est pas installé, les scripts fonctionneront toujours, mais sans les déclencheurs supplémentaires. 
+
 Ces scripts ne peuvent pas être installés si les sorts d'Olvyn ( OlvynSpells mod ) sont déjà installés.
 
 ### Baldur's Gate: Enhanced Edition
-Le mod a un support pour les sorts de IWD ( Sword Coast Stratagems ou IWDification ), Thieving Skills for Bards, and Sword Coast Stratagems.
+Le mod prend en compte les sorts de IWD ( Sword Coast Stratagems ou IWDification ), Thieving Skills for Bards, and Sword Coast Stratagems et Skills and Abilities.
 
 Avant de modder les jeux SoD, il faut utiliser soit DLCMerger soit ModMerge ( DLCMerger de préférence ).
 
@@ -62,7 +64,7 @@ Avant de modder les jeux SoD, il faut utiliser soit DLCMerger soit ModMerge ( DL
 Ce mod prend en charge aTweaks, IWD spells ( Sword Coast Stratagems or IWDification ), Thieving Skills for Bards, Sword Coast Stratagems, D5 Random Tweaks, Dark Side of the Sword Coast, Made in Heaven Spellpack, Song & Silence, Tome & Blood, Faith & Powers, et les changements de Spell Revisions ( Version Revisée ) et Item Revisions ( Version Revisée ).
 
 ### Icewind Dale: Enhanced Edition
-Actuellement, ce mod ne prend en charge que le jeu de base pour Icewind Dale : Enhanced Edition.
+Le mod s'adapte à Skills and Abilities.
 
 ## Composants
 
@@ -103,11 +105,11 @@ Vous trouverez ci-dessous une liste des différents scripts inclus dans le compo
 
 Ce script commencera à repousser les morts-vivants en utilisant la touche "V" et lancera des sorts de préparation au combat en utilisant la touche "B". Si vous jouez une classe de voleur ou de moine, ce script détectera les pièges quand le personnage est hors combat ou en permanence lorsque vous appuyez sur la touche "D". Si vous jouez une classe de barde, ce script maintiendra constamment le chant du barde concerné. Ce script n'attaque PAS automatiquement par défaut, mais cela peut être modifié dans le fichier ini. 
 
-
+Remarque : Ces scripts ai sont pour les joueurs qui n'aiment pas les scripts ai. Ils peuvent donc être adaptés aux préférences des joueurs en ajustant le fichier ini avant d'installer le mod.
 
 ##### MO-CŒUR 
 
-Ce script est conçu pour toutes les classes principales : Guerrier, Mage, Voleur, Prêtre, Druide, Shaman, Moine, Rôdeur, Paladin, et toute combinaison de classes quelle soient doubles ou multiples afin d'inclure les kits. Ce script repoussera les morts-vivants constamment en utilisant la touche "V"  et lancera des sorts de préparation au combat en utilisant la touche "B". Si le personnage en est capable, ce script détectera constamment les pièges quand le personnage est hors combat ou en permanence lorsque vous appuyez sur la touche "D".
+Ce script est conçu pour toutes les classes principales : Guerrier, Mage, Ensorceleur, Voleur, Prêtre, Druide, Shaman, Moine, Rôdeur, Paladin, et toute combinaison de classes quelle soient doubles ou multiples afin d'inclure les kits. Ce script repoussera les morts-vivants constamment en utilisant la touche "V"  et lancera des sorts de préparation au combat en utilisant la touche "B". Si le personnage en est capable, ce script détectera constamment les pièges quand le personnage est hors combat ou en permanence lorsque vous appuyez sur la touche "D".
 
 ##### MO-SCALDE 
 
@@ -119,7 +121,7 @@ Cela fournit des scripts améliorés pour les Devas invoques. Dans l'ensemble, l
 
 ### Scripts ameliores pour les Simulacres (BGII: EE, EET, or IWD: EE Requis)
 
-Cela fournit des scripts améliorés pour les Simulaces invoqués, permettant au joueur d'avoir les mains libres pendant que les Simulacres seront plus autonomes en ciblant les ennemis, en lançant des sorts de protection, en détectant les ennemis invisibles/cachés, en réduisant les protections des ennemis, et en étant capable de pré-buffing ! Le Simulacre fonctionnera avec tous les raccourcis clavier proposés dans mes scripts.
+Cela fournit des scripts améliorés pour les Simulacres invoqués, permettant au joueur d'avoir les mains libres pendant que les Simulacres seront plus autonomes en ciblant les ennemis, en lançant des sorts de protection, en détectant les ennemis invisibles/cachés, en réduisant les protections des ennemis, et en étant capable de pré-buffing ! Le Simulacre fonctionnera avec tous les raccourcis clavier proposés dans mes scripts.
 
 ## ini File
 Le fichier ini permet aux joueurs de personnaliser certains paramètres selon leurs préférences.
@@ -152,13 +154,17 @@ Cela permet au joueur d'affiner certains aspects des scripts. La valeur 1 active
 
 - script_dialog is defaulted to 1. This turns on or off hover text appearing when certain abilities are used in combat.
 
+- target_dancing_sword is defaulted to 1. This targets Dancing Swords with Magic Missiles when no other enemies are present/targetable. 
+
 - disabling_spells is defaulted to 0. This turns on or off the MOCore and MOSkald scripts using disabling spells.
 
-- target_dancing_sword is defaulted to 1. This targets Dancing Swords with Magic Missiles when no other enemies are present/targetable. 
+- fast_healing is defaulted to 0. This turns on or off instant casting of healing spells to speed up the healing process when out of combat.
 
 ## Remerciements
 
 - Sarevok57 whose scripts were my inspiration to write these and what mine were originally based on.
+- Bubb for assistance with EEex lua code.
+- CamDawg_G3 for providing insight and feedback into difficult code.
 - FixTesteR for encouraging compatability with Spell Revisions and bug testing.
 - Mike1072 for feedback and assisting in getting these published on Gibberlings3.
 - subtledoctor for troubleshooting AI script issues with Spell Revisions and using sections of his coding to create and assign new spell states for SR.
@@ -167,7 +173,6 @@ Cela permet au joueur d'affiner certains aspects des scripts. La valeur 1 active
 - marcnivar for identifying a couple bugs with pre-buffing.
 - K4thos for using a function within the EET mod to cut and paste snippets of scripts into a BAF file. Without this function, being able to sync multiple mod scripts together would be impossible.
 - Cahir for providing Polish translations, testing, and providing feedback on IWD: EE scripts.
-- CamDawg_G3 for providing insight and feedback into difficult code.
 - Ulpian and yota13 for providing Russian translation.
 - Jastey for testing and providing feedback on improving healing with multiple healers.
 - Morywen for providing German translation.
