@@ -45,6 +45,34 @@ END~~~~~
   END
 
 ///////////////////////////////////////////////////////////////////////////
+// Remove Staff of the Magi                                              //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~IF
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
+  !EEex_LuaTrigger("return AmMoving()")
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  GlobalLT("MO_UsedMagiStaff","GLOBAL",1)
+  HasItemEquiped("STAF11",Myself)
+  CheckStatLT(Myself,1,WIZARD_SPELL_TRAP)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    UseItemAbility("STAF11",Myself,SLOT_AMMO3,2)
+    SetInterrupt(TRUE)
+    IncrementGlobal("MO_UsedMagiStaff","GLOBAL",1)
+END~~~~~
+    string = ~~~~~~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
 // Remove Ring of Spell Turning                                          //
 ///////////////////////////////////////////////////////////////////////////
   LPF REPLACE_MULTILINE

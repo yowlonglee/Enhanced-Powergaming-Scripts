@@ -125,6 +125,8 @@ THEN
     SetGlobal("MO_UsedMirrorAmulet0","GLOBAL",0)
     SetGlobal("MO_UsedMirrorAmulet1","GLOBAL",0)
     SetGlobal("MO_UsedDaystar","GLOBAL",0)
+    SetGlobal("MO_UsedMagiStaff","GLOBAL",0)
+    SetGlobal("MO_UsedRingGaxx","GLOBAL",0)
 END
 
 IF
@@ -329,6 +331,17 @@ THEN
   RESPONSE #100
     ReallyForceSpell(Myself,CLERIC_IRONSKIN)  // SPPR506.SPL (Iron Skins)
     RemoveSpell(CLERIC_IRONSKIN)  // SPPR506.SPL (Iron Skins)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  GlobalLT("MO_UsedMagiStaff","GLOBAL",1)
+  HasItemEquiped("STAF11",Myself)
+  CheckStatLT(Myself,1,WIZARD_SPELL_TRAP)
+THEN
+  RESPONSE #100
+    UseItemAbility("STAF11",Myself,SLOT_AMMO3,2)
+    IncrementGlobal("MO_UsedMagiStaff","GLOBAL",1)
 END
 
 // 5e Spellcasting Prebuff IWD Mind Blank and Impervious Sanctity of Mind

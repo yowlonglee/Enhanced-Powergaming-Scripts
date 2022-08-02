@@ -248,6 +248,24 @@ THEN
     SetInterrupt(TRUE)
 END
 
+IF
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
+  !EEex_LuaTrigger("return AmMoving()")
+  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  GlobalLT("MO_UsedMagiStaff","GLOBAL",1)
+  HasItemEquiped("STAF11",Myself)
+  CheckStatLT(Myself,1,WIZARD_SPELL_TRAP)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetInterrupt(FALSE)
+    UseItemAbility("STAF11",Myself,SLOT_AMMO3,2)
+    SetInterrupt(TRUE)
+    IncrementGlobal("MO_UsedMagiStaff","GLOBAL",1)
+END
+
 // 5e Spellcasting Stoneskin
 
 IF
