@@ -125,6 +125,7 @@ Type in the hotkey you wish to map to the corresponding action.
 - hot_key_DetectIllusion - Default "D" - toggles on and off constantly detecting illusions.
 - hot_key_CowledCheck - Default "T" - toggles on and off to cast spells in Athkatla if they have not paid the bounty or finished fighting the Cowled Wizards.
 - hot_key_WeaponSwap - Default "E" - swaps the between melee and ranged weapons so long as either can be equipped.
+- hot_key_SoloBuff - Default "K" - swaps between solo and party buffing. This allows you to have some characters buff everyone in the party, while other characters (such as sorcerers) will not burn through their spells on the party if they are set to solo buff.
 
 ### Script Tweaks
 
