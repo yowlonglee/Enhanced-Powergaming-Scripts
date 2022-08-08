@@ -8,6 +8,8 @@ August xx, 2022
 
 - All Games
   - Characters can switch between solo and party buffing using Hotkey 'K'. This allows you to have some characters buff everyone in the party, while other characters (such as sorcerers) will not burn through their spells on the party if they are set to solo buff.
+  - Updated French Translations, courtesy of JohnBob.
+  - Updated Polish Translations, courtesy of Cahir. 
 - BG2EE and EET
   - Characters will now automaticall use spell trap from Staff of the Magi.
 
