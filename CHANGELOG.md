@@ -11,7 +11,9 @@ August xx, 2022
   - Updated French Translations, courtesy of JohnBob.
   - Updated Polish Translations, courtesy of Cahir. 
 - BG2EE and EET
-  - Characters will now automaticall use spell trap from Staff of the Magi.
+  - Added use for the following items:
+    - Bracers of Blinding Strike
+    - Staff of the Magi
 
 ## Version 9.2
 
