@@ -140,6 +140,8 @@ Saisissez le raccourci clavier que vous souhaitez associer à l'action correspon
 
 - hot_key_WeaponSwap - Default "E" - swaps the between melee and ranged weapons so long as either can be equipped.
 
+- hot_key_SoloBuff - Default "K" - swaps between solo and party buffing. This allows you to have some characters buff everyone in the party, while other characters (such as sorcerers) will not burn through their spells on the party if they are set to solo buff.
+
 ### Script Tweaks
 
 Cela permet au joueur d'affiner certains aspects des scripts. La valeur 1 active la fonction et la valeur 0 la désactive.
