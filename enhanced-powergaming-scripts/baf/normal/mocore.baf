@@ -2631,6 +2631,17 @@ THEN
     IncrementGlobal("MO_UsedCheetah","GLOBAL",1)
 END
 
+IF
+  Global("MO_BUFF","LOCALS",1)
+  !CheckStatGT(Myself,0,IMPROVEDHASTE)
+  GlobalLT("MO_UsedBlindingSpeed","GLOBAL",1)
+  HasItemEquiped("BRAC16",Myself)  // Bracers of Blinding Strike
+THEN
+  RESPONSE #100
+    UseItem("BRAC16",Myself)  // Bracers of Blinding Strike
+    IncrementGlobal("MO_UsedBlindingSpeed","GLOBAL",1)
+END
+
 // 5e Spellcasting Prebuff - IWD Seven Eyes
 
 // IWD Seven Eyes
