@@ -143,7 +143,7 @@ This allows the player to fine-tune aspects of the scripts. 1 turns the feature 
 
 - target_dancing_sword is defaulted to 1. This targets Dancing Swords with Magic Missiles when no other enemies are present/targetable. 
 
-- disabling_spells is defaulted to 0. This turns on or off the MOCore and MOSkald scripts using disabling spells.
+- disabling_spells is defaulted to 1. This turns on or off the MOCore and MOSkald scripts using disabling spells.
 
 - fast_healing is defaulted to 0. This turns on or off instant casting of healing spells to speed up the healing process when out of combat.
 
