@@ -10,7 +10,7 @@ August xx, 2022
   - Characters can switch between solo and party buffing using Hotkey 'K'. This allows you to have some characters buff everyone in the party, while other characters (such as sorcerers) will not burn through their spells on the party if they are set to solo buff.
   - Updated French Translations, courtesy of JohnBob.
   - Updated Polish Translations, courtesy of Cahir. 
-  - Added use of the following disabling spells: Slow.
+  - Added use of the following disabling spells: Slow, Sleep.
 - BG2EE and EET
   - Added use for the following items: Bracers of Blinding Strike, Staff of the Magi.
 
