@@ -200,6 +200,7 @@ ACTION_IF spell_revisions BEGIN
 					WIZARD_GREATER_MALISON
 					WIZARD_SLOW
 					WIZARD_SLEEP
+					WIZARD_HOLD_PERSON
 				BEGIN
 					LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_disabling_spell%~ RET spell_res END
 					COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
@@ -564,6 +565,7 @@ END ELSE BEGIN
 					WIZARD_GREATER_MALISON
 					WIZARD_SLOW
 					WIZARD_SLEEP
+					WIZARD_HOLD_PERSON
 				BEGIN
 					LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_disabling_spell%~ RET spell_res END
 					COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
