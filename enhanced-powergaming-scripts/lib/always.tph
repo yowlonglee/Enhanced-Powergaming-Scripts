@@ -247,4 +247,25 @@ ACTION_IF !VARIABLE_IS_SET ~initialise~ BEGIN
       OUTER_SET eeex_present=0
    END
 
+   // Rogue Rebalancing - Additional Equipment
+   ACTION_IF MOD_IS_INSTALLED ~setup-rr.tp2~ ~7~ BEGIN
+      OUTER_SET rr_add_equipment=1
+   END ELSE BEGIN
+      OUTER_SET rr_add_equipment=0
+   END
+
+   // Rogue Rebalancing - Upgradeable Equipment
+   ACTION_IF MOD_IS_INSTALLED ~setup-rr.tp2~ ~8~ BEGIN
+      OUTER_SET rr_upgradeable_equipment=1
+   END ELSE BEGIN
+      OUTER_SET rr_upgradeable_equipment=0
+   END
+
+   // Rogue Rebalancing - Chosen of Cyric
+   ACTION_IF MOD_IS_INSTALLED ~setup-rr.tp2~ ~11~ BEGIN
+      OUTER_SET rr_chosen_cryic=1
+   END ELSE BEGIN
+      OUTER_SET rr_chosen_cryic=0
+   END
+
 END
