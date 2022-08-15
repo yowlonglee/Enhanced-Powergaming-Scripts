@@ -42,6 +42,13 @@ ACTION_IF psi_warrior BEGIN
 END
 
 ///////////////////////////////////////////////////////////////////////////
+// Remove Athkatla Check from Pre-Buffing (BGEE ONLY)                    //
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF GAME_IS ~bgee~ BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/bgee_remove_athkatla.tph~
+END
+
+///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 // SR - Split up and Modify Individual Scripts                           //
 ///////////////////////////////////////////////////////////////////////////
@@ -49,9 +56,13 @@ END
 ACTION_IF spell_revisions BEGIN
 
 ///////////////////////////////////////////////////////////////////////////
-// SR - Build out MO-Core and MO-BasicAi                                 //
+// SR - Build out MO-Core                                                //
 ///////////////////////////////////////////////////////////////////////////	
 	INCLUDE ~enhanced-powergaming-scripts/lib/sr_core_base.tph~
+	
+	ACTION_IF GAME_IS ~bgee~ BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/bgee/sr_core_bgee.tph~
+	END
 
 ///////////////////////////////////////////////////////////////////////////
 // Update ini Presets - Part 1                                           //
@@ -59,6 +70,10 @@ ACTION_IF spell_revisions BEGIN
 	// Add disabling spells
 	ACTION_IF ds_spl BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/ini/sr_disabling_spells.tph~
+
+		ACTION_IF GAME_IS ~bgee~ BEGIN
+			INCLUDE ~enhanced-powergaming-scripts/lib/ini/remove_wight.tph~
+		END
 	END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -375,11 +390,13 @@ ACTION_IF spell_revisions BEGIN
 
 END ELSE BEGIN
 ///////////////////////////////////////////////////////////////////////////
-// Build out MO-Core and MO-BasicAi                                      //
+// Build out MO-Core                                                     //
 ///////////////////////////////////////////////////////////////////////////		
-	COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
-	INCLUDE ~enhanced-powergaming-scripts/lib/basic_base.tph~
 	INCLUDE ~enhanced-powergaming-scripts/lib/core_base.tph~
+
+	ACTION_IF GAME_IS ~bgee~ BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/bgee/core_bgee.tph~
+	END
 
 ///////////////////////////////////////////////////////////////////////////
 // Update ini Presets - Part 1                                           //
@@ -387,6 +404,10 @@ END ELSE BEGIN
 	// Add disabling spells
 	ACTION_IF ds_spl BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/ini/disabling_spells.tph~
+
+			ACTION_IF GAME_IS ~bgee~ BEGIN
+				INCLUDE ~enhanced-powergaming-scripts/lib/ini/remove_wight.tph~
+			END
 	END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -753,6 +774,13 @@ ACTION_IF bard_thief BEGIN
 END
 
 ///////////////////////////////////////////////////////////////////////////
+// Remove Athkatla Check from Main (BGEE ONLY)                           //
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF GAME_IS ~bgee~ BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/bgee_remove_athkatla.tph~
+END
+
+///////////////////////////////////////////////////////////////////////////
 // Turn Undead Overhaul - END                                            //
 ///////////////////////////////////////////////////////////////////////////
 ACTION_IF turn_undead BEGIN
@@ -764,7 +792,12 @@ END
 ///////////////////////////////////////////////////////////////////////////
 ACTION_IF pally_smite BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_pally_smite.tph~
-	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_pally_smite_check.tph~
+
+	ACTION_IF GAME_IS ~bg2ee eet~ BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_pally_smite_check.tph~
+	END ELSE ACTION_IF GAME_IS ~bgee~ BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/core_pally_smite_check.tph~
+	END
 END
 
 ///////////////////////////////////////////////////////////////////////////

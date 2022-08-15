@@ -64,11 +64,6 @@ APPEND ~STATE.IDS~ ~0x8010202D STATE_DISABLED~	       		  UNLESS ~0x8010202D STA
 APPEND ~STATE.IDS~ ~0x80002006 STATE_NOT_APPROACHABLE~		  UNLESS ~0x80002006 STATE_NOT_APPROACHABLE~
 
 ///////////////////////////////////////////////////////////////////////////
-// Adds Action to Swap Items in AI Scripts                               //
-///////////////////////////////////////////////////////////////////////////
-APPEND ~action.ids~ ~34 UseItemAbility(S:Object*,O:Target*,I:Slot*SLOTS,I:Ability*)~ UNLESS ~34 UseItemAbility(S:Object*,O:Target*,I:Slot*SLOTS,I:Ability*)~
-
-///////////////////////////////////////////////////////////////////////////
 // Adds Stats used in AI Scripts                                        //
 ///////////////////////////////////////////////////////////////////////////
 APPEND ~stats.ids~ ~110 CLERIC_ARMOR_OF_FAITH~                  UNLESS ~110 CLERIC_ARMOR_OF_FAITH~
@@ -820,47 +815,51 @@ END
 ///////////////////////////////////////////////////////////////////////////
 // Create Spell State for Greater Whirlwind                              //
 ///////////////////////////////////////////////////////////////////////////
-	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~GREATER_WHIRLWIND~)) BEGIN
-	  COPY_EXISTING ~splstate.ids~ ~override~
-		COUNT_2DA_COLS cols
-		READ_2DA_ENTRIES_NOW rows cols
-		FOR (row = 1; row < rows; ++row) BEGIN
-		  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
-		  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
-		  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~GREATER_WHIRLWIND~) BEGIN
-			SET gtr_whirl = %state_ind%
-		  END
+	ACTION_IF GAME_IS ~bg2ee eet~ BEGIN
+		ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~GREATER_WHIRLWIND~)) BEGIN
+		  COPY_EXISTING ~splstate.ids~ ~override~
+			COUNT_2DA_COLS cols
+			READ_2DA_ENTRIES_NOW rows cols
+			FOR (row = 1; row < rows; ++row) BEGIN
+			  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
+			  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
+			  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~GREATER_WHIRLWIND~) BEGIN
+				SET gtr_whirl = %state_ind%
+			  END
+			END
+		  BUT_ONLY
 		END
-	  BUT_ONLY
-	END
 
-	ACTION_IF !(VARIABLE_IS_SET %gtr_whirl%) BEGIN
-		LAF ds_sort_ids STR_VAR ids=splstate END
-		LAF d5_resolve_state STR_VAR new_state_id = ~GREATER_WHIRLWIND~ RET new_state_ind END
-		OUTER_SET gtr_whirl = %new_state_ind%
+		ACTION_IF !(VARIABLE_IS_SET %gtr_whirl%) BEGIN
+			LAF ds_sort_ids STR_VAR ids=splstate END
+			LAF d5_resolve_state STR_VAR new_state_id = ~GREATER_WHIRLWIND~ RET new_state_ind END
+			OUTER_SET gtr_whirl = %new_state_ind%
+		END
 	END
 
 ///////////////////////////////////////////////////////////////////////////
 // Create Spell State for Critical Strike                                //
 ///////////////////////////////////////////////////////////////////////////
-	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~CRITICAL_STRIKE~)) BEGIN
-	  COPY_EXISTING ~splstate.ids~ ~override~
-		COUNT_2DA_COLS cols
-		READ_2DA_ENTRIES_NOW rows cols
-		FOR (row = 1; row < rows; ++row) BEGIN
-		  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
-		  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
-		  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~CRITICAL_STRIKE~) BEGIN
-			SET ctr_strk = %state_ind%
-		  END
+	ACTION_IF GAME_IS ~bg2ee eet~ BEGIN
+		ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~CRITICAL_STRIKE~)) BEGIN
+		  COPY_EXISTING ~splstate.ids~ ~override~
+			COUNT_2DA_COLS cols
+			READ_2DA_ENTRIES_NOW rows cols
+			FOR (row = 1; row < rows; ++row) BEGIN
+			  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
+			  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
+			  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~CRITICAL_STRIKE~) BEGIN
+				SET ctr_strk = %state_ind%
+			  END
+			END
+		  BUT_ONLY
 		END
-	  BUT_ONLY
-	END
 
-	ACTION_IF !(VARIABLE_IS_SET %ctr_strk%) BEGIN
-		LAF ds_sort_ids STR_VAR ids=splstate END
-		LAF d5_resolve_state STR_VAR new_state_id = ~CRITICAL_STRIKE~ RET new_state_ind END
-		OUTER_SET ctr_strk = %new_state_ind%
+		ACTION_IF !(VARIABLE_IS_SET %ctr_strk%) BEGIN
+			LAF ds_sort_ids STR_VAR ids=splstate END
+			LAF d5_resolve_state STR_VAR new_state_id = ~CRITICAL_STRIKE~ RET new_state_ind END
+			OUTER_SET ctr_strk = %new_state_ind%
+		END
 	END
 
 /*
@@ -1123,24 +1122,26 @@ END
 ///////////////////////////////////////////////////////////////////////////
 // Create Spell State for Enhanced Bard Song                             //
 ///////////////////////////////////////////////////////////////////////////
-	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~ENHANCED_BARD_SONG~)) BEGIN
-	  COPY_EXISTING ~splstate.ids~ ~override~
-		COUNT_2DA_COLS cols
-		READ_2DA_ENTRIES_NOW rows cols
-		FOR (row = 1; row < rows; ++row) BEGIN
-		  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
-		  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
-		  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~ENHANCED_BARD_SONG~) BEGIN
-			SET enh_brd_sng = %state_ind%
-		  END
+	ACTION_IF GAME_IS ~bg2ee eet~ BEGIN
+		ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~ENHANCED_BARD_SONG~)) BEGIN
+		  COPY_EXISTING ~splstate.ids~ ~override~
+			COUNT_2DA_COLS cols
+			READ_2DA_ENTRIES_NOW rows cols
+			FOR (row = 1; row < rows; ++row) BEGIN
+			  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
+			  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
+			  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~ENHANCED_BARD_SONG~) BEGIN
+				SET enh_brd_sng = %state_ind%
+			  END
+			END
+		  BUT_ONLY
 		END
-	  BUT_ONLY
-	END
 
-	ACTION_IF !(VARIABLE_IS_SET %enh_brd_sng%) BEGIN
-		LAF ds_sort_ids STR_VAR ids=splstate END
-		LAF d5_resolve_state STR_VAR new_state_id = ~ENHANCED_BARD_SONG~ RET new_state_ind END
-		OUTER_SET enh_brd_sng = %new_state_ind%
+		ACTION_IF !(VARIABLE_IS_SET %enh_brd_sng%) BEGIN
+			LAF ds_sort_ids STR_VAR ids=splstate END
+			LAF d5_resolve_state STR_VAR new_state_id = ~ENHANCED_BARD_SONG~ RET new_state_ind END
+			OUTER_SET enh_brd_sng = %new_state_ind%
+		END
 	END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -1180,16 +1181,20 @@ END
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Greater Whirlwind                                  //
 ///////////////////////////////////////////////////////////////////////////
-	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WARRIOR_GREATER_WHIRLWIND~ RET spell_res END
-	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
-	  LPF CLONE_EFFECT INT_VAR match_opcode = 282 opcode = 328 parameter2 = %gtr_whirl% special = 1 END
+	ACTION_IF GAME_IS ~bg2ee eet~ BEGIN
+		LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WARRIOR_GREATER_WHIRLWIND~ RET spell_res END
+		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
+		  LPF CLONE_EFFECT INT_VAR match_opcode = 282 opcode = 328 parameter2 = %gtr_whirl% special = 1 END
+	END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Critical Strike                                    //
 ///////////////////////////////////////////////////////////////////////////
-	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WARRIOR_CRITICAL_STRIKE~ RET spell_res END
-	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
-	  LPF CLONE_EFFECT INT_VAR match_opcode = 282 opcode = 328 parameter2 = %ctr_strk% special = 1 END
+	ACTION_IF GAME_IS ~bg2ee eet~ BEGIN
+		LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WARRIOR_CRITICAL_STRIKE~ RET spell_res END
+		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
+		  LPF CLONE_EFFECT INT_VAR match_opcode = 282 opcode = 328 parameter2 = %ctr_strk% special = 1 END
+	END
 
 /*
 ///////////////////////////////////////////////////////////////////////////
@@ -1378,15 +1383,17 @@ END
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to for Enhanced Bard Song                             //
 ///////////////////////////////////////////////////////////////////////////
-ACTION_FOR_EACH bard_song IN
-			SPCL920 	// Vanilla Enhanced Bard Song
-			RR#BDF03  // Rogue Rebalancing Enhanced Bard Song
-		BEGIN
-			ACTION_IF FILE_EXISTS_IN_GAME ~%bard_song%.SPL~ BEGIN
-				COPY_EXISTING ~%bard_song%.SPL~ ~override~ 
-					LPF CLONE_EFFECT INT_VAR match_opcode = 251 opcode = 328 parameter2 = %enh_brd_sng% special = 1 END
+ACTION_IF GAME_IS ~bg2ee eet~ BEGIN
+	ACTION_FOR_EACH bard_song IN
+				SPCL920 	// Vanilla Enhanced Bard Song
+				RR#BDF03  // Rogue Rebalancing Enhanced Bard Song
+			BEGIN
+				ACTION_IF FILE_EXISTS_IN_GAME ~%bard_song%.SPL~ BEGIN
+					COPY_EXISTING ~%bard_song%.SPL~ ~override~ 
+						LPF CLONE_EFFECT INT_VAR match_opcode = 251 opcode = 328 parameter2 = %enh_brd_sng% special = 1 END
+				END
 			END
-		END
+END
 
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////

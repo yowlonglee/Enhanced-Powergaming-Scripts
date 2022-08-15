@@ -71,14 +71,10 @@ REQUIRE_PREDICATE GAME_IS ~bgee bg2ee eet iwdee~ @3000
 
 LOAD_TRA ~enhanced-powergaming-scripts/languages/%LANGUAGE%/script_descriptions.tra~
 
-ACTION_IF GAME_IS ~bg2ee eet~ BEGIN
+ACTION_IF GAME_IS ~bgee bg2ee eet~ BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/initialize.tpa~
 	INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/prebuff.tpa~
 	INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/main_component.tpa~
-END ELSE ACTION_IF GAME_IS ~bgee~ BEGIN
-	INCLUDE ~enhanced-powergaming-scripts/components/BGEE/initialize.tpa~
-	INCLUDE ~enhanced-powergaming-scripts/components/BGEE/prebuff.tpa~
-	INCLUDE ~enhanced-powergaming-scripts/components/BGEE/main_component.tpa~
 END ELSE ACTION_IF GAME_IS ~iwdee~ BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/components/IWDEE/initialize.tpa~
 	INCLUDE ~enhanced-powergaming-scripts/components/IWDEE/main_component.tpa~
@@ -93,14 +89,10 @@ END
 
 BEGIN @8 DESIGNATED 15 SUBCOMPONENT @2 LABEL EnhancedPowergamingScripts-MainAccelerated
 
-ACTION_IF GAME_IS ~bg2ee eet~ BEGIN
+ACTION_IF GAME_IS ~bgee bg2ee eet~ BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/initialize.tpa~
 	INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/prebuff_a.tpa~
 	INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/main_component.tpa~
-END ELSE ACTION_IF GAME_IS ~bgee~ BEGIN
-	INCLUDE ~enhanced-powergaming-scripts/components/BGEE/initialize.tpa~
-	INCLUDE ~enhanced-powergaming-scripts/components/BGEE/prebuff_a.tpa~
-	INCLUDE ~enhanced-powergaming-scripts/components/BGEE/main_component.tpa~
 END ELSE ACTION_IF GAME_IS ~iwdee~ BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/components/IWDEE/initialize.tpa~
 	INCLUDE ~enhanced-powergaming-scripts/components/IWDEE/main_component_a.tpa~
