@@ -51,11 +51,6 @@ END
 ///////////////////////////////////////////////////////////////////////////
 // Update ini Presets                                                    //
 ///////////////////////////////////////////////////////////////////////////
-	// Basic AI will Auto-Attack Enemies
-	ACTION_IF bsc_atk BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/ini/basic_atk.tph~
-	END
-
 	// Removes Dialog Hovertext from Scripts
 	ACTION_IF scp_dlg BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/ini/core_dialog.tph~
@@ -138,10 +133,6 @@ END
 ///////////////////////////////////////////////////////////////////////////
 ACTION_IF eldritch_scion BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_eldritch_scion.tph~
-
-	ACTION_IF bsc_atk BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/basic_eldritch_scion.tph~
-	END
 END
 
 ///////////////////////////////////////////////////////////////////////////

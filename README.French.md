@@ -142,8 +142,6 @@ Saisissez le raccourci clavier que vous souhaitez associer à l'action correspon
 
 Cela permet au joueur d'affiner certains aspects des scripts. La valeur 1 active la fonction et la valeur 0 la désactive.
 
-- basic_ai_auto_attack is defaulted to 0. This turns on or off the Basic AI script using auto-attacks.
-
 - basic_ai_long_duration is defaulted to 0. This turns on or off the Basic AI script using auto-long duration buffs.
 
 - script_dialog is defaulted to 1. This turns on or off hover text appearing when certain abilities are used in combat.
