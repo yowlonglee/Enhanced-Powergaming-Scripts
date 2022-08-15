@@ -867,7 +867,6 @@ END
 ///////////////////////////////////////////////////////////////////////////
 ACTION_IF bard_thief BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/lib/bard_thief.tph~
-	INCLUDE ~enhanced-powergaming-scripts/lib/skald_bard_thief.tph~
 END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -946,17 +945,7 @@ ACTION_IF 5e_spellcasting BEGIN
   	END
 	BUT_ONLY
 
-	COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
-	  PHP_EACH 5e_spells_array AS new_spl => old_spl BEGIN
-	    REPLACE_TEXTUALLY CASE_INSENSITIVE ~%old_spl%~ ~"%new_spl%"~
-	  END
-
 	COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
-	  PHP_EACH 5e_spells_array AS new_spl => old_spl BEGIN
-	    REPLACE_TEXTUALLY CASE_INSENSITIVE ~%old_spl%~ ~"%new_spl%"~
-	  END
-
-	COPY ~enhanced-powergaming-scripts/baf/upload/moskd.baf~ ~enhanced-powergaming-scripts/baf/upload/moskd.baf~
 	  PHP_EACH 5e_spells_array AS new_spl => old_spl BEGIN
 	    REPLACE_TEXTUALLY CASE_INSENSITIVE ~%old_spl%~ ~"%new_spl%"~
 	  END
@@ -969,40 +958,17 @@ ACTION_IF eeex_present BEGIN
 	COPY ~enhanced-powergaming-scripts/lua/m_actri1.lua~  ~override~ 
 	COPY ~enhanced-powergaming-scripts/lua/m_actri2.lua~  ~override~
 END ELSE BEGIN
-	INCLUDE ~enhanced-powergaming-scripts/lib/basic_eeex.tph~
 	INCLUDE ~enhanced-powergaming-scripts/lib/core_eeex.tph~
-	INCLUDE ~enhanced-powergaming-scripts/lib/skald_eeex.tph~
 END
 
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
-// Import AI Scripts into the Game                                       //
+// Import AI Script into the Game                                        //
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////////////////////
-// Copy .BS files to scripts folder                                      //
+// Copy .BCS file to override folder                                     //
 ///////////////////////////////////////////////////////////////////////////
-COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~  ~scripts/mobasic.bs~
-	 ~enhanced-powergaming-scripts/baf/upload/mocore.baf~   ~scripts/mocore.bs~
-	 ~enhanced-powergaming-scripts/baf/upload/moskd.baf~    ~scripts/moskd.bs~
+COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~   ~override/bddefai.bcs~
   COMPILE_BAF_TO_BCS
-
-///////////////////////////////////////////////////////////////////////////
-// Add descriptions of the scripts to scrpdesc.2da                       //
-///////////////////////////////////////////////////////////////////////////
-APPEND ~scrpdesc.2DA~
-~mobasic	mbasic1		 mbasic2
-mocore      mcore1       mcore2
-moskd		mskd1		 mskd2~
-
-///////////////////////////////////////////////////////////////////////////
-// Copy the appended scrpdesc.2da to the override folder                 //
-///////////////////////////////////////////////////////////////////////////
-COPY_EXISTING ~scrpdesc.2da~ ~override~
-REPLACE ~mbasic1~ @1090
-REPLACE ~mbasic2~ @1091
-REPLACE ~mcore1~  @1100
-REPLACE ~mcore2~  @1101
-REPLACE ~mskd1~   @1070
-REPLACE ~mskd2~   @1071
