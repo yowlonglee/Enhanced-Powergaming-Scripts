@@ -63,13 +63,6 @@ ACTION_IF debug_variable=0 BEGIN SILENT END
       OUTER_SET scp_dlg=0
     END
 
-    LAF check_ini STR_VAR ini="disabling_spells" RET value END
-    ACTION_IF value BEGIN
-      OUTER_SET ds_spl=1
-    END ELSE BEGIN
-      OUTER_SET ds_spl=0
-    END
-
     LAF check_ini STR_VAR ini="fast_healing" RET value END
     ACTION_IF value BEGIN
       OUTER_SET fst_heal=1

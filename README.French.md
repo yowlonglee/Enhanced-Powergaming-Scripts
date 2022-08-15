@@ -144,8 +144,6 @@ Cela permet au joueur d'affiner certains aspects des scripts. La valeur 1 active
 
 - script_dialog is defaulted to 1. This turns on or off hover text appearing when certain abilities are used in combat.
 
-- disabling_spells is defaulted to 1. This turns on or off the MOCore and MOSkald scripts using disabling spells.
-
 - fast_healing is defaulted to 0. This turns on or off instant casting of healing spells to speed up the healing process when out of combat.
 
 ## Remerciements

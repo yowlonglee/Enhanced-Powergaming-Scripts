@@ -65,15 +65,10 @@ ACTION_IF spell_revisions BEGIN
 	END
 
 ///////////////////////////////////////////////////////////////////////////
-// Update ini Presets - Part 1                                           //
+// BGEE Wight Check                                                      //
 ///////////////////////////////////////////////////////////////////////////
-	// Add disabling spells
-	ACTION_IF ds_spl BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/ini/sr_disabling_spells.tph~
-
-		ACTION_IF GAME_IS ~bgee~ BEGIN
-			INCLUDE ~enhanced-powergaming-scripts/lib/ini/remove_wight.tph~
-		END
+	ACTION_IF GAME_IS ~bgee~ BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/ini/remove_wight.tph~
 	END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -145,6 +140,17 @@ ACTION_IF spell_revisions BEGIN
 				WIZARD_IMPROVED_HASTE
 				WIZARD_TRUE_STRIKE
 				WIZARD_MAGIC_MISSILE
+				CLERIC_DOOM
+				CLERIC_INSECT_PLAGUE
+				CLERIC_SUNRAY
+				CLERIC_FALSE_DAWN
+				CLERIC_HOLD_PERSON
+				WIZARD_GREATER_MALISON
+				WIZARD_SLOW
+				WIZARD_SLEEP
+				WIZARD_HOLD_PERSON
+				WIZARD_CONFUSION
+				WIZARD_EMOTION_HOPELESSNESS
 			BEGIN
 				LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_spell%~ RET spell_res END
 				COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
@@ -164,28 +170,6 @@ ACTION_IF spell_revisions BEGIN
 					LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_spell_bsk_heal%~ RET spell_res END
 					COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
 						REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_spell_bsk_heal%~ ~RES(%spell_res%~
-				END
-		END
-
-		ACTION_IF ds_spl BEGIN
-			INCLUDE ~enhanced-powergaming-scripts/lib/bg2ee/sr_core_disabling_spells_5e.tph~
-
-			ACTION_FOR_EACH 5e_disabling_spell IN
-					CLERIC_DOOM
-					CLERIC_INSECT_PLAGUE
-					CLERIC_SUNRAY
-					CLERIC_FALSE_DAWN
-					CLERIC_HOLD_PERSON
-					WIZARD_GREATER_MALISON
-					WIZARD_SLOW
-					WIZARD_SLEEP
-					WIZARD_HOLD_PERSON
-					WIZARD_CONFUSION
-					WIZARD_EMOTION_HOPELESSNESS
-				BEGIN
-					LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_disabling_spell%~ RET spell_res END
-					COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
-						REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_disabling_spell%~ ~RES(%spell_res%~
 				END
 		END
 	END
@@ -399,15 +383,10 @@ END ELSE BEGIN
 	END
 
 ///////////////////////////////////////////////////////////////////////////
-// Update ini Presets - Part 1                                           //
+// BGEE Remove Wights                                                    //
 ///////////////////////////////////////////////////////////////////////////
-	// Add disabling spells
-	ACTION_IF ds_spl BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/ini/disabling_spells.tph~
-
-			ACTION_IF GAME_IS ~bgee~ BEGIN
-				INCLUDE ~enhanced-powergaming-scripts/lib/ini/remove_wight.tph~
-			END
+	ACTION_IF GAME_IS ~bgee~ BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/ini/remove_wight.tph~
 	END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -479,6 +458,17 @@ END ELSE BEGIN
 				WIZARD_BLACK_BLADE_OF_DISASTER
 				WIZARD_IMPROVED_HASTE
 				WIZARD_MAGIC_MISSILE
+				CLERIC_DOOM
+				CLERIC_INSECT_PLAGUE
+				CLERIC_SUNRAY
+				CLERIC_FALSE_DAWN
+				CLERIC_HOLD_PERSON
+				WIZARD_GREATER_MALISON
+				WIZARD_SLOW
+				WIZARD_SLEEP
+				WIZARD_HOLD_PERSON
+				WIZARD_CONFUSION
+				WIZARD_EMOTION_HOPELESSNESS
 			BEGIN
 				LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_spell%~ RET spell_res END
 				COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
@@ -498,28 +488,6 @@ END ELSE BEGIN
 					LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_spell_bsk_heal%~ RET spell_res END
 					COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
 						REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_spell_bsk_heal%~ ~RES(%spell_res%~
-				END
-		END
-
-		ACTION_IF ds_spl BEGIN
-			INCLUDE ~enhanced-powergaming-scripts/lib/bg2ee/core_disabling_spells_5e.tph~
-
-			ACTION_FOR_EACH 5e_disabling_spell IN
-					CLERIC_DOOM
-					CLERIC_INSECT_PLAGUE
-					CLERIC_SUNRAY
-					CLERIC_FALSE_DAWN
-					CLERIC_HOLD_PERSON
-					WIZARD_GREATER_MALISON
-					WIZARD_SLOW
-					WIZARD_SLEEP
-					WIZARD_HOLD_PERSON
-					WIZARD_CONFUSION
-					WIZARD_EMOTION_HOPELESSNESS
-				BEGIN
-					LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_disabling_spell%~ RET spell_res END
-					COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
-						REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_disabling_spell%~ ~RES(%spell_res%~
 				END
 		END
 	END

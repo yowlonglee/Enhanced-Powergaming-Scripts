@@ -34,9 +34,6 @@ INCLUDE ~enhanced-powergaming-scripts/lib/core_hotkey.tph~
 ///////////////////////////////////////////////////////////////////////////
 // Build out MO-Core and MO-BasicAi                                      //
 ///////////////////////////////////////////////////////////////////////////
-COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
-
-INCLUDE ~enhanced-powergaming-scripts/lib/basic_base.tph~
 INCLUDE ~enhanced-powergaming-scripts/lib/core_base.tph~
 INCLUDE ~enhanced-powergaming-scripts/lib/IWDEE/core_iwd.tph~
 
@@ -48,6 +45,8 @@ ACTION_IF turn_undead BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/lib/iwdee/core_turn_undead_iwd.tph~
 END
 
+INCLUDE ~enhanced-powergaming-scripts/lib/ini/remove_wight.tph~
+
 ///////////////////////////////////////////////////////////////////////////
 // Update ini Presets                                                    //
 ///////////////////////////////////////////////////////////////////////////
@@ -56,31 +55,10 @@ END
 		INCLUDE ~enhanced-powergaming-scripts/lib/ini/core_dialog.tph~
 	END
 
-	// Basic AI will Auto-Heal
-	ACTION_IF bsc_heal BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/ini/healing.tph~
-		INCLUDE ~enhanced-powergaming-scripts/lib/iwdee/healing_iwd.tph~
-
-		ACTION_IF fst_heal BEGIN
-			INCLUDE ~enhanced-powergaming-scripts/lib/ini/basic_fast_healing.tph~
-		END
-	END
-
 	// Fast Healing
 	ACTION_IF fst_heal BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/ini/core_fast_healing.tph~
 	END
-
-	// Add disabling spells
-	ACTION_IF ds_spl BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/ini/disabling_spells.tph~
-		INCLUDE ~enhanced-powergaming-scripts/lib/ini/remove_wight.tph~
-	END
-
-///////////////////////////////////////////////////////////////////////////
-// Make Skald Script after Core                                          //
-///////////////////////////////////////////////////////////////////////////
-INCLUDE ~enhanced-powergaming-scripts/lib/iwdee/skald_base.tph~
 
 ///////////////////////////////////////////////////////////////////////////
 // Thieving Skills for Bards                                             //
@@ -93,7 +71,6 @@ END
 // Turn Undead Overhaul - END                                            //
 ///////////////////////////////////////////////////////////////////////////
 ACTION_IF turn_undead BEGIN
-	INCLUDE ~enhanced-powergaming-scripts/lib/bg2ee/basic_turn_undead_end.tph~
 	INCLUDE ~enhanced-powergaming-scripts/lib/bg2ee/core_turn_undead_end.tph~
 END
 
@@ -136,9 +113,7 @@ ACTION_IF eeex_present BEGIN
 	COPY ~enhanced-powergaming-scripts/lua/m_actri1.lua~  ~override~ 
 	COPY ~enhanced-powergaming-scripts/lua/m_actri2.lua~  ~override~
 END ELSE BEGIN
-	INCLUDE ~enhanced-powergaming-scripts/lib/basic_eeex.tph~
 	INCLUDE ~enhanced-powergaming-scripts/lib/core_eeex.tph~
-	INCLUDE ~enhanced-powergaming-scripts/lib/skald_eeex.tph~
 END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -150,26 +125,18 @@ END
 ///////////////////////////////////////////////////////////////////////////
 // Copy .BS files to scripts folder                                      //
 ///////////////////////////////////////////////////////////////////////////
-COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~  ~scripts/mobasic.bs~
-	 ~enhanced-powergaming-scripts/baf/upload/mocore.baf~   ~scripts/mocore.bs~
-	 ~enhanced-powergaming-scripts/baf/upload/moskd.baf~    ~scripts/moskd.bs~
+COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~   ~scripts/mocore.bs~
   COMPILE_BAF_TO_BCS
 
 ///////////////////////////////////////////////////////////////////////////
 // Add descriptions of the scripts to scrpdesc.2da                       //
 ///////////////////////////////////////////////////////////////////////////
 APPEND ~scrpdesc.2DA~
-~mobasic	mbasic1		 mbasic2
-mocore      mcore1       mcore2
-moskd		mskd1		 mskd2~
+~mocore      mcore1       mcore2~
 
 ///////////////////////////////////////////////////////////////////////////
 // Copy the appended scrpdesc.2da to the override folder                 //
 ///////////////////////////////////////////////////////////////////////////
 COPY_EXISTING ~scrpdesc.2da~ ~override~
-REPLACE ~mbasic1~ @1090
-REPLACE ~mbasic2~ @1091
 REPLACE ~mcore1~  @1100
 REPLACE ~mcore2~  @1101
-REPLACE ~mskd1~   @1070
-REPLACE ~mskd2~   @1071
