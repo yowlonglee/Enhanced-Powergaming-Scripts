@@ -20,7 +20,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetGlobalTimer("MO_FindInvisible","GLOBAL",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5014)
@@ -38,7 +38,7 @@ END~~~~~
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetGlobalTimer("MO_FindInvisible","GLOBAL",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5014)
@@ -61,7 +61,7 @@ END
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WIZARD_DETECT_ILLUSION)
   Detect([EVILCUTOFF])
   OR(3)
@@ -84,7 +84,7 @@ END
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5017)
     Spell(Myself,WIZARD_DETECT_ILLUSION)
@@ -95,7 +95,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WIZARD_DETECT_ILLUSION)
   See(NearestEnemyOf(Myself))
   OR(3)
@@ -118,7 +118,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5017)
     Spell(Myself,WIZARD_DETECT_ILLUSION)
@@ -129,7 +129,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WIZARD_DETECT_ILLUSION)
   See(SecondNearestEnemyOf(Myself))
   OR(3)
@@ -152,7 +152,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5017)
     Spell(Myself,WIZARD_DETECT_ILLUSION)
@@ -163,7 +163,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WIZARD_DETECT_ILLUSION)
   See(ThirdNearestEnemyOf(Myself))
   OR(3)
@@ -186,7 +186,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5017)
     Spell(Myself,WIZARD_DETECT_ILLUSION)
@@ -197,7 +197,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WIZARD_DETECT_ILLUSION)
   See(FourthNearestEnemyOf(Myself))
   OR(3)
@@ -220,7 +220,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5017)
     Spell(Myself,WIZARD_DETECT_ILLUSION)
@@ -231,7 +231,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WIZARD_DETECT_ILLUSION)
   See(FifthNearestEnemyOf(Myself))
   OR(3)
@@ -254,7 +254,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5017)
     Spell(Myself,WIZARD_DETECT_ILLUSION)
@@ -265,7 +265,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WIZARD_DETECT_ILLUSION)
   See(SixthNearestEnemyOf(Myself))
   OR(3)
@@ -288,7 +288,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5017)
     Spell(Myself,WIZARD_DETECT_ILLUSION)

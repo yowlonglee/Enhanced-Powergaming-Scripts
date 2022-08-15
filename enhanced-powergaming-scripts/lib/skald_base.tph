@@ -36,7 +36,7 @@ IF
   Range([EVILCUTOFF],30)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     BattleSong()
 END
 
@@ -332,7 +332,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_MAGIC_MISSILE)  // SPWI112.SPL (Magic Missile)
     SetInterrupt(TRUE)
@@ -358,7 +358,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_MAGIC_MISSILE)  // SPWI112.SPL (Magic Missile)
     SetInterrupt(TRUE)
@@ -384,7 +384,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_MAGIC_MISSILE)  // SPWI112.SPL (Magic Missile)
     SetInterrupt(TRUE)
@@ -410,7 +410,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_MAGIC_MISSILE)  // SPWI112.SPL (Magic Missile)
     SetInterrupt(TRUE)
@@ -436,7 +436,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_MAGIC_MISSILE)  // SPWI112.SPL (Magic Missile)
     SetInterrupt(TRUE)
@@ -462,7 +462,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_MAGIC_MISSILE)  // SPWI112.SPL (Magic Missile)
     SetInterrupt(TRUE)
@@ -500,6 +500,6 @@ END~~~~~ //"
     strict = 1
     verbose = 0
     STR_VAR
-    pattern = ~~~~~SetGlobalTimer("MO_SpellCast","LOCALS",6)~~~~~
+    pattern = ~~~~~SetGlobal("MO_SpellCast","LOCALS",1)~~~~~
     string = ~~~~~SetGlobalTimer("MO_SpellCast","LOCALS",12)~~~~~ //"
   END

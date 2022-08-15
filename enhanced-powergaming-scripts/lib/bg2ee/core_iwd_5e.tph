@@ -28,14 +28,14 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
 THEN
   RESPONSE #100
     SetGlobal("MO_WildMindBlank","LOCALS",1)
-    SetGlobalTimer("MO_SpellCast","LOCALS",2)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",2)
 END
 
 IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   !See([EVILCUTOFF])
   !EEex_LuaTrigger("return AmMoving()")
   Global("MO_WildMindBlank","LOCALS",1)
@@ -50,7 +50,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetGlobal("MO_WildMindBlank","LOCALS",0)
     SetInterrupt(FALSE)
     SpellRES(WIZARD_MIND_BLANK,Myself)
@@ -62,7 +62,7 @@ IF
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
   !EEex_LuaTrigger("return AmMoving()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpellRES(CLERIC_IMPERVIOUS_SANCTITY_OF_MIND)
   !CheckSpellState(Myself,CHAOTIC_COMMANDS)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -73,7 +73,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SpellRES(CLERIC_IMPERVIOUS_SANCTITY_OF_MIND,Myself)
 END~~~~~ //"
   END
@@ -91,7 +91,7 @@ END~~~~~ //"
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   See([EVILCUTOFF])
   OR(9)
     Range([EVILCUTOFF.0.SOLAR],10)
@@ -113,7 +113,7 @@ END~~~~~ //"
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SpellRES(CLERIC_GREATER_SHIELD_OF_LATHANDER,Myself)
 END
 
@@ -121,7 +121,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   See([EVILCUTOFF])
   OR(9)
     Range([EVILCUTOFF.0.SOLAR],10)
@@ -143,7 +143,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SpellRES(CLERIC_SHIELD_OF_LATHANDER,Myself)
 END
 ~~~~~ //"
@@ -159,7 +159,7 @@ END
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting - IWD Cure Moderate Wounds~~~~~
     string = ~~~~~IF
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   GlobalLT("MO_CastingHeal","GLOBAL",1)
   OR(2)
     ActionListEmpty()
@@ -188,7 +188,7 @@ END
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetGlobalTimer("MO_HealCast","GLOBAL",12)
     SetGlobal("MO_CastingHeal","GLOBAL",1)
     SetInterrupt(FALSE)

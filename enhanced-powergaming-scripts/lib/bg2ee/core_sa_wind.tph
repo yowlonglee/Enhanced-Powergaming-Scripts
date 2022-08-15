@@ -13,14 +13,14 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   See([EVILCUTOFF])
   HPPercentLT(Myself,51)
   HaveSpellRES("MO2WIND")
   ActuallyInCombat()
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     SpellRES("MO2WIND",Myself)
     SetInterrupt(TRUE)

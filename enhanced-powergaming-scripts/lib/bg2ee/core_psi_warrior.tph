@@ -13,7 +13,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpellRES("MOPSIC2")
   !CheckSpellState(Myself,CRITICAL_STRIKE)
   !CheckSpellState(Myself,GREATER_WHIRLWIND)
@@ -67,7 +67,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     See([ENEMY.0.0.CLERIC_MAGE])
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SpellRES("MOPSIC2",Myself)  
 END~~~~~ //"
   END
@@ -85,7 +85,7 @@ END~~~~~ //"
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpellRES("MOPSIC3")
   !CheckSpellState(Myself,PROTECTIVE_FIELD)
   See([EVILCUTOFF])
@@ -122,7 +122,7 @@ END~~~~~ //"
   !StateCheck(Myself,STATE_SILENCED)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     SpellRES("MOPSIC3",Myself)  
     SetInterrupt(TRUE)

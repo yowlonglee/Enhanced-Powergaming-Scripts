@@ -163,7 +163,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpellRES("D5P2321")
   See([EVILCUTOFF])
   OR(2)
@@ -192,7 +192,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN // Spell Thrust
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     ApplySpellRES("MOSPRT",LastSeenBy(Myself))  // Spell Thrust
     DisplayStringHead(Myself,@5016)
@@ -204,7 +204,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpellRES("D5P2321")
   See(SecondNearest([EVILCUTOFF]))
   OR(2)
@@ -233,7 +233,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN // Spell Thrust
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     ApplySpellRES("MOSPRT",LastSeenBy(Myself))  // Spell Thrust
     DisplayStringHead(Myself,@5016)
@@ -245,7 +245,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpellRES("D5P2321")
   See(ThirdNearest([EVILCUTOFF]))
   OR(2)
@@ -274,7 +274,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN // Spell Thrust
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     ApplySpellRES("MOSPRT",LastSeenBy(Myself))  // Spell Thrust
     DisplayStringHead(Myself,@5016)
@@ -286,7 +286,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpellRES("D5P2321")
   See(FourthNearest([EVILCUTOFF]))
   OR(2)
@@ -315,7 +315,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN // Spell Thrust
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     ApplySpellRES("MOSPRT",LastSeenBy(Myself))  // Spell Thrust
     DisplayStringHead(Myself,@5016)
@@ -327,7 +327,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpellRES("D5P2321")
   See(FifthNearest([EVILCUTOFF]))
   OR(2)
@@ -356,7 +356,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN // Spell Thrust
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     ApplySpellRES("MOSPRT",LastSeenBy(Myself))  // Spell Thrust
     DisplayStringHead(Myself,@5016)
@@ -368,7 +368,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpellRES("D5P2321")
   See(SixthNearest([EVILCUTOFF]))
   OR(2)
@@ -397,7 +397,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN // Spell Thrust
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     ApplySpellRES("MOSPRT",LastSeenBy(Myself))  // Spell Thrust
     DisplayStringHead(Myself,@5016)
@@ -421,7 +421,7 @@ END
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpellRES("D5P2419")
   See([EVILCUTOFF])
   OR(2)
@@ -450,7 +450,7 @@ END
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN // Secret Word
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     ApplySpellRES("MOSPRT",LastSeenBy(Myself))  // Spell Thrust
     DisplayStringHead(Myself,@5016)
@@ -462,7 +462,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpellRES("D5P2419")
   See(SecondNearest([EVILCUTOFF]))
   OR(2)
@@ -491,7 +491,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN // Secret Word
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     ApplySpellRES("MOSPRT",LastSeenBy(Myself))  // Spell Thrust
     DisplayStringHead(Myself,@5016)
@@ -503,7 +503,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpellRES("D5P2419")
   See(ThirdNearest([EVILCUTOFF]))
   OR(2)
@@ -532,7 +532,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN // Secret Word
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     ApplySpellRES("MOSPRT",LastSeenBy(Myself))  // Spell Thrust
     DisplayStringHead(Myself,@5016)
@@ -544,7 +544,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpellRES("D5P2419")
   See(FourthNearest([EVILCUTOFF]))
   OR(2)
@@ -573,7 +573,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN // Secret Word
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     ApplySpellRES("MOSPRT",LastSeenBy(Myself))  // Spell Thrust
     DisplayStringHead(Myself,@5016)
@@ -585,7 +585,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpellRES("D5P2419")
   See(FifthNearest([EVILCUTOFF]))
   OR(2)
@@ -614,7 +614,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN // Secret Word
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     ApplySpellRES("MOSPRT",LastSeenBy(Myself))  // Spell Thrust
     DisplayStringHead(Myself,@5016)
@@ -626,7 +626,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpellRES("D5P2419")
   See(SixthNearest([EVILCUTOFF]))
   OR(2)
@@ -655,7 +655,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN // Secret Word
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     ApplySpellRES("MOSPRT",LastSeenBy(Myself))  // Spell Thrust
     DisplayStringHead(Myself,@5016)
@@ -678,7 +678,7 @@ END
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   See([PC])
   HaveSpell(CLERIC_SPIRITUAL_CLARITY)
   OR(4)
@@ -697,7 +697,7 @@ END
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_SPIRITUAL_CLARITY)
     SetInterrupt(TRUE)
@@ -707,7 +707,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   See(SecondNearest([PC]))
   HaveSpell(CLERIC_SPIRITUAL_CLARITY)
   OR(4)
@@ -726,7 +726,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_SPIRITUAL_CLARITY)
     SetInterrupt(TRUE)
@@ -736,7 +736,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   See(ThirdNearest([PC]))
   HaveSpell(CLERIC_SPIRITUAL_CLARITY)
   OR(4)
@@ -755,7 +755,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_SPIRITUAL_CLARITY)
     SetInterrupt(TRUE)
@@ -765,7 +765,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   See(FourthNearest([PC]))
   HaveSpell(CLERIC_SPIRITUAL_CLARITY)
   OR(4)
@@ -784,7 +784,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_SPIRITUAL_CLARITY)
     SetInterrupt(TRUE)
@@ -794,7 +794,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   See(FifthNearest([PC]))
   HaveSpell(CLERIC_SPIRITUAL_CLARITY)
   OR(4)
@@ -813,7 +813,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_SPIRITUAL_CLARITY)
     SetInterrupt(TRUE)
@@ -823,7 +823,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   See(SixthNearest([PC]))
   HaveSpell(CLERIC_SPIRITUAL_CLARITY)
   OR(4)
@@ -842,7 +842,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_SPIRITUAL_CLARITY)
     SetInterrupt(TRUE)
@@ -863,7 +863,7 @@ END
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   See([EVILCUTOFF])
   OR(9)
     Range([EVILCUTOFF.0.SOLAR],10)
@@ -889,7 +889,7 @@ END
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     SpellRES("D5HPRO1",Myself)
     SetInterrupt(TRUE)
@@ -910,7 +910,7 @@ END
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpellRES("B_PH11")
   See([EVILCUTOFF])
   CheckStatLT(Myself,24,STR)
@@ -950,7 +950,7 @@ END
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     SpellRES("B_PH11",Myself)
     SetInterrupt(TRUE)
@@ -971,7 +971,7 @@ END
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpellRES("D5P2613")
   !CheckStatGT(Myself,0,IMPROVEDHASTE)
   !CheckSpellState(Myself,GREATER_WHIRLWIND)
@@ -1032,7 +1032,7 @@ END
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     SpellRES("D5P2613",Myself)
     SetInterrupt(TRUE)

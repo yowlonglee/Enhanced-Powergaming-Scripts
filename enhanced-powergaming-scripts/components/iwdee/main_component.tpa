@@ -203,3 +203,21 @@ REPLACE ~mcore1~  @1100
 REPLACE ~mcore2~  @1101
 REPLACE ~mskd1~   @1070
 REPLACE ~mskd2~   @1071
+
+
+/*
+Replace: ~currentPanelID = const.SCRIPT_ID
+
+		showingSmartOptions = false~
+
+With: ~currentPanelID = const.SCRIPT_ID
+
+		showingSmartOptions = (scriptList_idx == 2)
+		scriptDescription = t(scriptOptions[scriptList_idx][2])~
+
+Replace: ~showingSmartOptions = false
+			if scriptList[scriptList_idx] ~= '' then~
+
+With: ~showingSmartOptions = (scriptList_idx == 2)
+			if scriptList[scriptList_idx] ~= '' then~
+*/

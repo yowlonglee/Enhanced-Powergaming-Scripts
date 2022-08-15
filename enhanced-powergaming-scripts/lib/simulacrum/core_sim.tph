@@ -14,7 +14,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mosim02.baf~ ~enhanced-powergaming
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WIZARD_SPELL_IMMUNITY)  // SPWI510.SPL (Spell Immunity)
   !CheckSpellState(Myself,SI_DIVINATION)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
@@ -26,7 +26,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mosim02.baf~ ~enhanced-powergaming
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     ForceSpell(Myself,WIZARD_SPELL_IMMUNITY_DIVINATION)  // SPWI592.SPL (Immunity: Divination)
     RemoveSpell(WIZARD_SPELL_IMMUNITY)  // SPWI510.SPL (Spell Immunity)

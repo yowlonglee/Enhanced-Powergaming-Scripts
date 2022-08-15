@@ -13,7 +13,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mosim06.baf~ ~enhanced-powergaming
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WIZARD_SPELL_IMMUNITY)  // SPWI510.SPL (Spell Immunity)
   !CheckSpellState(Myself,SI_DIVINATION)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)

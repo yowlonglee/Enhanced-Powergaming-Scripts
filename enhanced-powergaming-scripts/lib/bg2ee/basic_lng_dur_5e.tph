@@ -13,7 +13,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   See([EVILCUTOFF])
   CheckStatLT(Myself,1,STONESKINS)
   HaveSpellRES(WIZARD_STONE_SKIN)
@@ -27,7 +27,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     SpellRES(WIZARD_STONE_SKIN,Myself)
     SetInterrupt(TRUE)
@@ -53,14 +53,14 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_WildStoneskin","LOCALS",1)
-    SetGlobalTimer("MO_SpellCast","LOCALS",2)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",2)
 END
 
 IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   !See([EVILCUTOFF])
   !EEex_LuaTrigger("return AmMoving()")
   Global("MO_WildStoneskin","LOCALS",1)
@@ -76,7 +76,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetGlobal("MO_WildStoneskin","LOCALS",0)
     SetInterrupt(FALSE)
     SpellRES(WIZARD_STONE_SKIN,Myself)
@@ -98,7 +98,7 @@ END~~~~~ //"
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
   !EEex_LuaTrigger("return AmMoving()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   CheckStatLT(Myself,1,STONESKINS)
   HaveSpellRES(CLERIC_IRONSKIN)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -109,7 +109,7 @@ END~~~~~ //"
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     SpellRES(CLERIC_IRONSKIN,Myself)
     SetInterrupt(TRUE)
@@ -130,7 +130,7 @@ END~~~~~ //"
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
   !EEex_LuaTrigger("return AmMoving()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpellRES(WIZARD_MELF_METEOR)
   !HasItem("melfmet",Myself)  // Melf's Minute Meteor
   !CheckSpellState(Myself,MINOR_GLOBE)
@@ -144,7 +144,7 @@ END~~~~~ //"
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetGlobal("MO_HasMelfMeteors","LOCALS",1)
     SetInterrupt(FALSE)
     SpellRES(WIZARD_MELF_METEOR,Myself)

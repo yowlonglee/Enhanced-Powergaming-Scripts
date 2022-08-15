@@ -20,7 +20,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(CLERIC_INSECT_PLAGUE)  // SPPR517.SPL (Insect Plague)
   See(NearestEnemyOf(Myself))
   !Race(LastSeenBy(Myself),DEMILICH)
@@ -51,7 +51,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetGlobal("Mo_CastInsect","LOCALS",0)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_INSECT_PLAGUE)  // SPPR517.SPL (Insect Plague)
@@ -62,7 +62,7 @@ If
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(CLERIC_INSECT_PLAGUE)  // SPPR517.SPL (Insect Plague)
   See(SecondNearestEnemyOf(Myself))
   !Race(LastSeenBy(Myself),DEMILICH)
@@ -93,7 +93,7 @@ If
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetGlobal("Mo_CastInsect","LOCALS",0)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_INSECT_PLAGUE)  // SPPR517.SPL (Insect Plague)
@@ -104,7 +104,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(CLERIC_INSECT_PLAGUE)  // SPPR517.SPL (Insect Plague)
   See(ThirdNearestEnemyOf(Myself))
   !Race(LastSeenBy(Myself),DEMILICH)
@@ -135,7 +135,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetGlobal("Mo_CastInsect","LOCALS",0)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_INSECT_PLAGUE)  // SPPR517.SPL (Insect Plague)
@@ -146,7 +146,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(CLERIC_INSECT_PLAGUE)  // SPPR517.SPL (Insect Plague)
   See(FourthNearestEnemyOf(Myself))
   !Race(LastSeenBy(Myself),DEMILICH)
@@ -177,7 +177,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetGlobal("Mo_CastInsect","LOCALS",0)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_INSECT_PLAGUE)  // SPPR517.SPL (Insect Plague)
@@ -188,7 +188,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(CLERIC_INSECT_PLAGUE)  // SPPR517.SPL (Insect Plague)
   See(FifthNearestEnemyOf(Myself))
   !Race(LastSeenBy(Myself),DEMILICH)
@@ -219,7 +219,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetGlobal("Mo_CastInsect","LOCALS",0)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_INSECT_PLAGUE)  // SPPR517.SPL (Insect Plague)
@@ -230,7 +230,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(CLERIC_INSECT_PLAGUE)  // SPPR517.SPL (Insect Plague)
   See(SixthNearestEnemyOf(Myself))
   !Race(LastSeenBy(Myself),DEMILICH)
@@ -261,7 +261,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetGlobal("Mo_CastInsect","LOCALS",0)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_INSECT_PLAGUE)  // SPPR517.SPL (Insect Plague)
@@ -283,7 +283,7 @@ END~~~~~ //"
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(CLERIC_SUNRAY)  // SPPR707.SPL (Sunray)
   See([EVILCUTOFF])
   OR(3)
@@ -307,7 +307,7 @@ END~~~~~ //"
   !StateCheck(Myself,STATE_SILENCED)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(Myself,CLERIC_SUNRAY)  // SPPR707.SPL (Sunray)
     SetInterrupt(TRUE)
@@ -328,7 +328,7 @@ END~~~~~ //"
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(CLERIC_FALSE_DAWN)  // SPPR609.SPL (False Dawn)
   See([EVILCUTOFF])
   OR(3)
@@ -352,7 +352,7 @@ END~~~~~ //"
   !StateCheck(Myself,STATE_SILENCED)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(Myself,CLERIC_FALSE_DAWN)  // SPPR609.SPL (False Dawn)
     SetInterrupt(TRUE)
@@ -373,7 +373,7 @@ END~~~~~ //"
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WIZARD_GREATER_MALISON)  // SPWI412.SPL (Greater Malison)
   See(NearestEnemyOf(Myself))
   OR(14)
@@ -409,7 +409,7 @@ END~~~~~ //"
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_GREATER_MALISON)  // SPWI412.SPL (Greater Malison)
     SetInterrupt(TRUE)
@@ -419,7 +419,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WIZARD_GREATER_MALISON)  // SPWI412.SPL (Greater Malison)
   See(SecondNearestEnemyOf(Myself))
   OR(14)
@@ -455,7 +455,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_GREATER_MALISON)  // SPWI412.SPL (Greater Malison)
     SetInterrupt(TRUE)
@@ -465,7 +465,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WIZARD_GREATER_MALISON)  // SPWI412.SPL (Greater Malison)
   See(ThirdNearestEnemyOf(Myself))
   OR(14)
@@ -501,7 +501,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_GREATER_MALISON)  // SPWI412.SPL (Greater Malison)
     SetInterrupt(TRUE)
@@ -511,7 +511,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WIZARD_GREATER_MALISON)  // SPWI412.SPL (Greater Malison)
   See(FourthNearestEnemyOf(Myself))
   OR(14)
@@ -547,7 +547,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_GREATER_MALISON)  // SPWI412.SPL (Greater Malison)
     SetInterrupt(TRUE)
@@ -557,7 +557,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WIZARD_GREATER_MALISON)  // SPWI412.SPL (Greater Malison)
   See(FifthNearestEnemyOf(Myself))
   OR(14)
@@ -593,7 +593,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_GREATER_MALISON)  // SPWI412.SPL (Greater Malison)
     SetInterrupt(TRUE)
@@ -603,7 +603,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WIZARD_GREATER_MALISON)  // SPWI412.SPL (Greater Malison)
   See(SixthNearestEnemyOf(Myself))
   OR(14)
@@ -639,7 +639,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_GREATER_MALISON)  // SPWI412.SPL (Greater Malison)
     SetInterrupt(TRUE)
@@ -661,7 +661,7 @@ END
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(CLERIC_DOOM)  // SPPR113.SPL (Doom)
   See(NearestEnemyOf(Myself))
   OR(14)
@@ -699,7 +699,7 @@ END
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_DOOM)  // SPPR113.SPL (Doom)
     SetInterrupt(TRUE)
@@ -709,7 +709,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(CLERIC_DOOM)  // SPPR113.SPL (Doom)
   See(SecondNearestEnemyOf(Myself))
   OR(14)
@@ -747,7 +747,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_DOOM)  // SPPR113.SPL (Doom)
     SetInterrupt(TRUE)
@@ -757,7 +757,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(CLERIC_DOOM)  // SPPR113.SPL (Doom)
   See(ThirdNearestEnemyOf(Myself))
   OR(14)
@@ -795,7 +795,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_DOOM)  // SPPR113.SPL (Doom)
     SetInterrupt(TRUE)
@@ -805,7 +805,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(CLERIC_DOOM)  // SPPR113.SPL (Doom)
   See(FourthNearestEnemyOf(Myself))
   OR(14)
@@ -843,7 +843,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_DOOM)  // SPPR113.SPL (Doom)
     SetInterrupt(TRUE)
@@ -853,7 +853,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(CLERIC_DOOM)  // SPPR113.SPL (Doom)
   See(FifthNearestEnemyOf(Myself))
   OR(14)
@@ -891,7 +891,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_DOOM)  // SPPR113.SPL (Doom)
     SetInterrupt(TRUE)
@@ -901,7 +901,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(CLERIC_DOOM)  // SPPR113.SPL (Doom)
   See(SixthNearestEnemyOf(Myself))
   OR(14)
@@ -939,7 +939,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_DOOM)  // SPPR113.SPL (Doom)
     SetInterrupt(TRUE)
@@ -961,7 +961,7 @@ END
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WIZARD_SLOW)  // SPWI312.SPL (Slow)
   NumCreatureGT([EVILCUTOFF],4)
   See(NearestEnemyOf(Myself))
@@ -993,7 +993,7 @@ END
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_SLOW)  // SPWI312.SPL (Slow)
     SetInterrupt(TRUE)
@@ -1003,7 +1003,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WIZARD_SLOW)  // SPWI312.SPL (Slow)
   NumCreatureGT([EVILCUTOFF],4)
   See(SecondNearestEnemyOf(Myself))
@@ -1035,7 +1035,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_SLOW)  // SPWI312.SPL (Slow)
     SetInterrupt(TRUE)
@@ -1045,7 +1045,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WIZARD_SLOW)  // SPWI312.SPL (Slow)
   NumCreatureGT([EVILCUTOFF],4)
   See(ThirdNearestEnemyOf(Myself))
@@ -1077,7 +1077,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_SLOW)  // SPWI312.SPL (Slow)
     SetInterrupt(TRUE)
@@ -1087,7 +1087,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WIZARD_SLOW)  // SPWI312.SPL (Slow)
   NumCreatureGT([EVILCUTOFF],4)
   See(FourthNearestEnemyOf(Myself))
@@ -1119,7 +1119,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_SLOW)  // SPWI312.SPL (Slow)
     SetInterrupt(TRUE)
@@ -1129,7 +1129,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WIZARD_SLOW)  // SPWI312.SPL (Slow)
   NumCreatureGT([EVILCUTOFF],4)
   See(FifthNearestEnemyOf(Myself))
@@ -1161,7 +1161,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_SLOW)  // SPWI312.SPL (Slow)
     SetInterrupt(TRUE)
@@ -1171,7 +1171,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WIZARD_SLOW)  // SPWI312.SPL (Slow)
   NumCreatureGT([EVILCUTOFF],4)
   See(SixthNearestEnemyOf(Myself))
@@ -1203,7 +1203,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_SLOW)  // SPWI312.SPL (Slow)
     SetInterrupt(TRUE)
@@ -1225,7 +1225,7 @@ END
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WIZARD_SLEEP)  // SPWI116.SPL (Sleep)
   NumCreatureGT([EVILCUTOFF],4)
   See(NearestEnemyOf(Myself))
@@ -1259,7 +1259,7 @@ END
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_SLEEP)  // SPWI116.SPL (Sleep)
     SetInterrupt(TRUE)
@@ -1269,7 +1269,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WIZARD_SLEEP)  // SPWI116.SPL (Sleep)
   NumCreatureGT([EVILCUTOFF],4)
   See(SecondNearestEnemyOf(Myself))
@@ -1303,7 +1303,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_SLEEP)  // SPWI116.SPL (Sleep)
     SetInterrupt(TRUE)
@@ -1313,7 +1313,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WIZARD_SLEEP)  // SPWI116.SPL (Sleep)
   NumCreatureGT([EVILCUTOFF],4)
   See(ThirdNearestEnemyOf(Myself))
@@ -1347,7 +1347,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_SLEEP)  // SPWI116.SPL (Sleep)
     SetInterrupt(TRUE)
@@ -1357,7 +1357,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WIZARD_SLEEP)  // SPWI116.SPL (Sleep)
   NumCreatureGT([EVILCUTOFF],4)
   See(FourthNearestEnemyOf(Myself))
@@ -1391,7 +1391,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_SLEEP)  // SPWI116.SPL (Sleep)
     SetInterrupt(TRUE)
@@ -1401,7 +1401,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WIZARD_SLEEP)  // SPWI116.SPL (Sleep)
   NumCreatureGT([EVILCUTOFF],4)
   See(FifthNearestEnemyOf(Myself))
@@ -1435,7 +1435,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_SLEEP)  // SPWI116.SPL (Sleep)
     SetInterrupt(TRUE)
@@ -1445,7 +1445,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WIZARD_SLEEP)  // SPWI116.SPL (Sleep)
   NumCreatureGT([EVILCUTOFF],4)
   See(SixthNearestEnemyOf(Myself))
@@ -1479,7 +1479,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_SLEEP)  // SPWI116.SPL (Sleep)
     SetInterrupt(TRUE)
@@ -1501,7 +1501,7 @@ END
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WIZARD_HOLD_PERSON)  // SPWI306.SPL (Hold Person)
   NumCreatureGT([EVILCUTOFF],4)
   See([EVILCUTOFF.HUMANOID])
@@ -1533,7 +1533,7 @@ END
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_HOLD_PERSON)  // SPWI306.SPL (Hold Person)
     SetInterrupt(TRUE)
@@ -1543,7 +1543,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WIZARD_HOLD_PERSON)  // SPWI306.SPL (Hold Person)
   NumCreatureGT([EVILCUTOFF],4)
   See(SecondNearest([EVILCUTOFF.HUMANOID]))
@@ -1575,7 +1575,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_HOLD_PERSON)  // SPWI306.SPL (Hold Person)
     SetInterrupt(TRUE)
@@ -1585,7 +1585,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WIZARD_HOLD_PERSON)  // SPWI306.SPL (Hold Person)
   NumCreatureGT([EVILCUTOFF],4)
   See(ThirdNearest([EVILCUTOFF.HUMANOID]))
@@ -1617,7 +1617,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_HOLD_PERSON)  // SPWI306.SPL (Hold Person)
     SetInterrupt(TRUE)
@@ -1627,7 +1627,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WIZARD_HOLD_PERSON)  // SPWI306.SPL (Hold Person)
   NumCreatureGT([EVILCUTOFF],4)
   See(FourthNearest([EVILCUTOFF.HUMANOID]))
@@ -1659,7 +1659,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_HOLD_PERSON)  // SPWI306.SPL (Hold Person)
     SetInterrupt(TRUE)
@@ -1669,7 +1669,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WIZARD_HOLD_PERSON)  // SPWI306.SPL (Hold Person)
   NumCreatureGT([EVILCUTOFF],4)
   See(FifthNearest([EVILCUTOFF.HUMANOID]))
@@ -1701,7 +1701,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_HOLD_PERSON)  // SPWI306.SPL (Hold Person)
     SetInterrupt(TRUE)
@@ -1711,7 +1711,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WIZARD_HOLD_PERSON)  // SPWI306.SPL (Hold Person)
   NumCreatureGT([EVILCUTOFF],4)
   See(SixthNearest([EVILCUTOFF.HUMANOID]))
@@ -1743,7 +1743,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_HOLD_PERSON)  // SPWI306.SPL (Hold Person)
     SetInterrupt(TRUE)
@@ -1765,7 +1765,7 @@ END
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WIZARD_CONFUSION)  // SPWI401.SPL (Confusion)
   NumCreatureGT([EVILCUTOFF],4)
   See(NearestEnemyOf(Myself))
@@ -1799,7 +1799,7 @@ END
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_CONFUSION)  // SPWI401.SPL (Confusion)
     SetInterrupt(TRUE)
@@ -1809,7 +1809,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WIZARD_CONFUSION)  // SPWI401.SPL (Confusion)
   NumCreatureGT([EVILCUTOFF],4)
   See(SecondNearestEnemyOf(Myself))
@@ -1843,7 +1843,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_CONFUSION)  // SPWI401.SPL (Confusion)
     SetInterrupt(TRUE)
@@ -1853,7 +1853,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WIZARD_CONFUSION)  // SPWI401.SPL (Confusion)
   NumCreatureGT([EVILCUTOFF],4)
   See(ThirdNearestEnemyOf(Myself))
@@ -1887,7 +1887,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_CONFUSION)  // SPWI401.SPL (Confusion)
     SetInterrupt(TRUE)
@@ -1897,7 +1897,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WIZARD_CONFUSION)  // SPWI401.SPL (Confusion)
   NumCreatureGT([EVILCUTOFF],4)
   See(FourthNearestEnemyOf(Myself))
@@ -1931,7 +1931,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_CONFUSION)  // SPWI401.SPL (Confusion)
     SetInterrupt(TRUE)
@@ -1941,7 +1941,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WIZARD_CONFUSION)  // SPWI401.SPL (Confusion)
   NumCreatureGT([EVILCUTOFF],4)
   See(FifthNearestEnemyOf(Myself))
@@ -1975,7 +1975,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_CONFUSION)  // SPWI401.SPL (Confusion)
     SetInterrupt(TRUE)
@@ -1985,7 +1985,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WIZARD_CONFUSION)  // SPWI401.SPL (Confusion)
   NumCreatureGT([EVILCUTOFF],4)
   See(SixthNearestEnemyOf(Myself))
@@ -2019,7 +2019,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_CONFUSION)  // SPWI401.SPL (Confusion)
     SetInterrupt(TRUE)
@@ -2041,7 +2041,7 @@ END
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WIZARD_EMOTION_HOPELESSNESS)  // SPWI411.SPL (Emotion, Hopelessness)
   NumCreatureGT([EVILCUTOFF],4)
   See(NearestEnemyOf(Myself))
@@ -2071,7 +2071,7 @@ END
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_EMOTION_HOPELESSNESS)  // SPWI411.SPL (Emotion, Hopelessness)
     SetInterrupt(TRUE)
@@ -2081,7 +2081,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WIZARD_EMOTION_HOPELESSNESS)  // SPWI411.SPL (Emotion, Hopelessness)
   NumCreatureGT([EVILCUTOFF],4)
   See(SecondNearestEnemyOf(Myself))
@@ -2111,7 +2111,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_EMOTION_HOPELESSNESS)  // SPWI411.SPL (Emotion, Hopelessness)
     SetInterrupt(TRUE)
@@ -2121,7 +2121,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WIZARD_EMOTION_HOPELESSNESS)  // SPWI411.SPL (Emotion, Hopelessness)
   NumCreatureGT([EVILCUTOFF],4)
   See(ThirdNearestEnemyOf(Myself))
@@ -2151,7 +2151,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_EMOTION_HOPELESSNESS)  // SPWI411.SPL (Emotion, Hopelessness)
     SetInterrupt(TRUE)
@@ -2161,7 +2161,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WIZARD_EMOTION_HOPELESSNESS)  // SPWI411.SPL (Emotion, Hopelessness)
   NumCreatureGT([EVILCUTOFF],4)
   See(FourthNearestEnemyOf(Myself))
@@ -2191,7 +2191,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_EMOTION_HOPELESSNESS)  // SPWI411.SPL (Emotion, Hopelessness)
     SetInterrupt(TRUE)
@@ -2201,7 +2201,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WIZARD_EMOTION_HOPELESSNESS)  // SPWI411.SPL (Emotion, Hopelessness)
   NumCreatureGT([EVILCUTOFF],4)
   See(FifthNearestEnemyOf(Myself))
@@ -2231,7 +2231,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_EMOTION_HOPELESSNESS)  // SPWI411.SPL (Emotion, Hopelessness)
     SetInterrupt(TRUE)
@@ -2241,7 +2241,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WIZARD_EMOTION_HOPELESSNESS)  // SPWI411.SPL (Emotion, Hopelessness)
   NumCreatureGT([EVILCUTOFF],4)
   See(SixthNearestEnemyOf(Myself))
@@ -2271,7 +2271,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_EMOTION_HOPELESSNESS)  // SPWI411.SPL (Emotion, Hopelessness)
     SetInterrupt(TRUE)
@@ -2293,7 +2293,7 @@ END
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(CLERIC_HOLD_PERSON)  // SPPR208.SPL (Hold Person)
   NumCreatureGT([EVILCUTOFF],4)
   See([EVILCUTOFF.HUMANOID])
@@ -2324,7 +2324,7 @@ END
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_HOLD_PERSON)  // SPPR208.SPL (Hold Person)
     SetInterrupt(TRUE)
@@ -2334,7 +2334,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(CLERIC_HOLD_PERSON)  // SPPR208.SPL (Hold Person)
   NumCreatureGT([EVILCUTOFF],4)
   See(SecondNearest([EVILCUTOFF.HUMANOID]))
@@ -2365,7 +2365,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_HOLD_PERSON)  // SPPR208.SPL (Hold Person)
     SetInterrupt(TRUE)
@@ -2375,7 +2375,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(CLERIC_HOLD_PERSON)  // SPPR208.SPL (Hold Person)
   NumCreatureGT([EVILCUTOFF],4)
   See(ThirdNearest([EVILCUTOFF.HUMANOID]))
@@ -2406,7 +2406,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_HOLD_PERSON)  // SPPR208.SPL (Hold Person)
     SetInterrupt(TRUE)
@@ -2416,7 +2416,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(CLERIC_HOLD_PERSON)  // SPPR208.SPL (Hold Person)
   NumCreatureGT([EVILCUTOFF],4)
   See(FourthNearest([EVILCUTOFF.HUMANOID]))
@@ -2447,7 +2447,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_HOLD_PERSON)  // SPPR208.SPL (Hold Person)
     SetInterrupt(TRUE)
@@ -2457,7 +2457,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(CLERIC_HOLD_PERSON)  // SPPR208.SPL (Hold Person)
   NumCreatureGT([EVILCUTOFF],4)
   See(FifthNearest([EVILCUTOFF.HUMANOID]))
@@ -2488,7 +2488,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_HOLD_PERSON)  // SPPR208.SPL (Hold Person)
     SetInterrupt(TRUE)
@@ -2498,7 +2498,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(CLERIC_HOLD_PERSON)  // SPPR208.SPL (Hold Person)
   NumCreatureGT([EVILCUTOFF],4)
   See(SixthNearest([EVILCUTOFF.HUMANOID]))
@@ -2529,7 +2529,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),CLERIC_HOLD_PERSON)  // SPPR208.SPL (Hold Person)
     SetInterrupt(TRUE)

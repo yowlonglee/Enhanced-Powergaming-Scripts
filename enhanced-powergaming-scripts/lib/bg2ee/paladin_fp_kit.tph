@@ -13,7 +13,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpellRES("b_frz02")
   !CheckSpellState(Myself,STATE_ENRAGED)
   !CheckSpellState(Myself,BARBARIAN_RAGE)
@@ -53,7 +53,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     See([ENEMY.0.0.CLERIC_MAGE])
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SpellRES("b_frz02",Myself)  // SPCL321.SPL (Enrage)
 END
 
@@ -61,7 +61,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpellRES("b_frz03")
   !CheckSpellState(Myself,STATE_ENRAGED)
   !CheckSpellState(Myself,BARBARIAN_RAGE)
@@ -101,7 +101,7 @@ IF
     See([ENEMY.0.0.CLERIC_MAGE])
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SpellRES("b_frz03",Myself)  // SPCL321.SPL (Enrage)
 END
 
@@ -109,7 +109,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpellRES("b_frz04")
   !CheckSpellState(Myself,STATE_ENRAGED)
   !CheckSpellState(Myself,BARBARIAN_RAGE)
@@ -149,7 +149,7 @@ IF
     See([ENEMY.0.0.CLERIC_MAGE])
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SpellRES("b_frz04",Myself)  // SPCL321.SPL (Enrage)
 END
 
@@ -157,7 +157,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpellRES("b_frz05")
   !CheckSpellState(Myself,STATE_ENRAGED)
   !CheckSpellState(Myself,BARBARIAN_RAGE)
@@ -197,7 +197,7 @@ IF
     See([ENEMY.0.0.CLERIC_MAGE])
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SpellRES("b_frz05",Myself)  // SPCL321.SPL (Enrage)
 END
 
@@ -205,7 +205,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpellRES("b_frz06")
   !CheckSpellState(Myself,STATE_ENRAGED)
   !CheckSpellState(Myself,BARBARIAN_RAGE)
@@ -245,7 +245,7 @@ IF
     See([ENEMY.0.0.CLERIC_MAGE])
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SpellRES("b_frz06",Myself)  // SPCL321.SPL (Enrage)
 END
 
@@ -253,7 +253,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpellRES("b_frz07")
   !CheckSpellState(Myself,STATE_ENRAGED)
   !CheckSpellState(Myself,BARBARIAN_RAGE)
@@ -293,7 +293,7 @@ IF
     See([ENEMY.0.0.CLERIC_MAGE])
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SpellRES("b_frz07",Myself)  // SPCL321.SPL (Enrage)
 END
 
@@ -301,7 +301,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpellRES("b_frz08")
   !CheckSpellState(Myself,STATE_ENRAGED)
   !CheckSpellState(Myself,BARBARIAN_RAGE)
@@ -341,7 +341,7 @@ IF
     See([ENEMY.0.0.CLERIC_MAGE])
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SpellRES("b_frz08",Myself)  // SPCL321.SPL (Enrage)
 END
 
@@ -349,7 +349,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpellRES("b_frz09")
   !CheckSpellState(Myself,STATE_ENRAGED)
   !CheckSpellState(Myself,BARBARIAN_RAGE)
@@ -389,7 +389,7 @@ IF
     See([ENEMY.0.0.CLERIC_MAGE])
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SpellRES("b_frz09",Myself)  // SPCL321.SPL (Enrage)
 END
 
@@ -397,7 +397,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpellRES("b_frz10")
   !CheckSpellState(Myself,STATE_ENRAGED)
   !CheckSpellState(Myself,BARBARIAN_RAGE)
@@ -437,7 +437,7 @@ IF
     See([ENEMY.0.0.CLERIC_MAGE])
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SpellRES("b_frz10",Myself)  // SPCL321.SPL (Enrage)
 END
 ~~~~~ //"

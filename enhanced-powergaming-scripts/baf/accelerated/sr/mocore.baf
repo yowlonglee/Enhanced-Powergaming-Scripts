@@ -9,6 +9,36 @@
 // * is pressed. If the character is able, the script will constantly be detecting traps.
 
 IF
+  !ActionListEmpty()
+  !EEex_LuaTrigger("return AmAttacking()")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobal("MO_SpellCast","LOCALS",1)
+    Continue()
+END
+
+IF
+  Global("MO_SpellCast","LOCALS",1)
+  !Global("BDAI_SKILL_MODE","LOCALS",3)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",0)
+    Continue()
+END
+
+IF
+  Global("MO_SpellCast","LOCALS",1)
+  Global("BDAI_SKILL_MODE","LOCALS",3)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",12)
+    SetGlobal("MO_SpellCast","LOCALS",0)
+    Continue()
+END
+
+IF
   HotKey(hot_key_WeaponSwap)
   !HasItem("melfmet",Myself)  // Melf's Minute Meteor
   !CheckSpellState(Myself,BLACK_BLADE)  // Black Blade of Disaster
@@ -109,7 +139,7 @@ IF
   PartyRested()
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",2)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",2)
     SetGlobal("MO_UsedIlbratha","GLOBAL",0)
     SetGlobal("MO_UsedDuplication","GLOBAL",0)
     SetGlobal("MO_UsedGargoyle","GLOBAL",0)

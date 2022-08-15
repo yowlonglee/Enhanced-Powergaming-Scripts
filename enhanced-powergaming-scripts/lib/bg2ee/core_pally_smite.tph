@@ -13,7 +13,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpellRES("MOPALC3")
   !CheckSpellState(Myself,CRITICAL_STRIKE)
   !CheckSpellState(Myself,GREATER_WHIRLWIND)
@@ -67,7 +67,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     See([ENEMY.0.0.CLERIC_MAGE])
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SpellRES("MOPALC3",Myself)  // SPCL901.SPL (Greater Whirlwind Attack)
 END~~~~~ //"
   END

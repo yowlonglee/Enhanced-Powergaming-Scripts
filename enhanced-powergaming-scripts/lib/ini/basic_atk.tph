@@ -34,7 +34,7 @@ IF
   Range([EVILCUTOFF],30)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     BattleSong()
 END
 

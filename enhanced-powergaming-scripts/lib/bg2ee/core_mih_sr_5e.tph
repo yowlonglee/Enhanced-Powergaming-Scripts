@@ -13,7 +13,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpellRES(CLERIC_CURE_BLIND_DEAF)
   See(Myself)
   OR(2)
@@ -30,7 +30,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5010)
     SpellRES(CLERIC_CURE_BLIND_DEAF,LastSeenBy(Myself))
@@ -41,7 +41,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpellRES(CLERIC_CURE_BLIND_DEAF)
   See([PC])
   OR(2)
@@ -58,7 +58,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5010)
     SpellRES(CLERIC_CURE_BLIND_DEAF,LastSeenBy(Myself))
@@ -69,7 +69,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpellRES(CLERIC_CURE_BLIND_DEAF)
   See(SecondNearest([PC]))
   OR(2)
@@ -86,7 +86,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5010)
     SpellRES(CLERIC_CURE_BLIND_DEAF,LastSeenBy(Myself))
@@ -97,7 +97,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpellRES(CLERIC_CURE_BLIND_DEAF)
   See(ThirdNearest([PC]))
   OR(2)
@@ -114,7 +114,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5010)
     SpellRES(CLERIC_CURE_BLIND_DEAF,LastSeenBy(Myself))
@@ -125,7 +125,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpellRES(CLERIC_CURE_BLIND_DEAF)
   See(FourthNearest([PC]))
   OR(2)
@@ -142,7 +142,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5010)
     SpellRES(CLERIC_CURE_BLIND_DEAF,LastSeenBy(Myself))
@@ -153,7 +153,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpellRES(CLERIC_CURE_BLIND_DEAF)
   See(FifthNearest([PC]))
   OR(2)
@@ -170,7 +170,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5010)
     SpellRES(CLERIC_CURE_BLIND_DEAF,LastSeenBy(Myself))
@@ -181,7 +181,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCast","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpellRES(CLERIC_CURE_BLIND_DEAF)
   See(SixthNearest([PC]))
   OR(2)
@@ -198,7 +198,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCast","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5010)
     SpellRES(CLERIC_CURE_BLIND_DEAF,LastSeenBy(Myself))
