@@ -150,7 +150,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See([PC])
   HaveSpellRES(CLERIC_AID)
   !StateCheck(LastSeenBy(Myself),STATE_AID)
@@ -171,7 +171,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SecondNearest([PC]))
   HaveSpellRES(CLERIC_AID)
   !StateCheck(LastSeenBy(Myself),STATE_AID)
@@ -192,7 +192,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(ThirdNearest([PC]))
   HaveSpellRES(CLERIC_AID)
   !StateCheck(LastSeenBy(Myself),STATE_AID)
@@ -213,7 +213,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FourthNearest([PC]))
   HaveSpellRES(CLERIC_AID)
   !StateCheck(LastSeenBy(Myself),STATE_AID)
@@ -234,7 +234,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FifthNearest([PC]))
   HaveSpellRES(CLERIC_AID)
   !StateCheck(LastSeenBy(Myself),STATE_AID)
@@ -255,7 +255,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SixthNearest([PC]))
   HaveSpellRES(CLERIC_AID)
   !StateCheck(LastSeenBy(Myself),STATE_AID)
@@ -305,7 +305,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See([PC])
   HaveSpellRES(WIZARD_PROTECTION_FROM_MAGIC_ENERGY)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_PROTECTION_FROM_MAGIC_ENERGY)
@@ -328,7 +328,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SecondNearest([PC]))
   HaveSpellRES(WIZARD_PROTECTION_FROM_MAGIC_ENERGY)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_PROTECTION_FROM_MAGIC_ENERGY)
@@ -351,7 +351,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(ThirdNearest([PC]))
   HaveSpellRES(WIZARD_PROTECTION_FROM_MAGIC_ENERGY)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_PROTECTION_FROM_MAGIC_ENERGY)
@@ -374,7 +374,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FourthNearest([PC]))
   HaveSpellRES(WIZARD_PROTECTION_FROM_MAGIC_ENERGY)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_PROTECTION_FROM_MAGIC_ENERGY)
@@ -397,7 +397,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FifthNearest([PC]))
   HaveSpellRES(WIZARD_PROTECTION_FROM_MAGIC_ENERGY)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_PROTECTION_FROM_MAGIC_ENERGY)
@@ -420,7 +420,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SixthNearest([PC]))
   HaveSpellRES(WIZARD_PROTECTION_FROM_MAGIC_ENERGY)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_PROTECTION_FROM_MAGIC_ENERGY)
@@ -472,7 +472,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See([PC])
   HaveSpellRES(CLERIC_FREE_ACTION)
   !CheckStatGT(LastSeenBy(Myself),0,CLERIC_FREE_ACTION)
@@ -496,7 +496,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SecondNearest([PC]))
   HaveSpellRES(CLERIC_FREE_ACTION)
   !CheckStatGT(LastSeenBy(Myself),0,CLERIC_FREE_ACTION)
@@ -520,7 +520,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(ThirdNearest([PC]))
   HaveSpellRES(CLERIC_FREE_ACTION)
   !CheckStatGT(LastSeenBy(Myself),0,CLERIC_FREE_ACTION)
@@ -544,7 +544,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FourthNearest([PC]))
   HaveSpellRES(CLERIC_FREE_ACTION)
   !CheckStatGT(LastSeenBy(Myself),0,CLERIC_FREE_ACTION)
@@ -568,7 +568,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FifthNearest([PC]))
   HaveSpellRES(CLERIC_FREE_ACTION)
   !CheckStatGT(LastSeenBy(Myself),0,CLERIC_FREE_ACTION)
@@ -592,7 +592,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SixthNearest([PC]))
   HaveSpellRES(CLERIC_FREE_ACTION)
   !CheckStatGT(LastSeenBy(Myself),0,CLERIC_FREE_ACTION)
@@ -646,7 +646,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See([PC])
   HaveSpellRES(CLERIC_NEUTRALIZE_POISON)
   !CheckSpellState(LastSeenBy(Myself),REMOVE_POISON)
@@ -671,7 +671,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SecondNearest([PC]))
   HaveSpellRES(CLERIC_NEUTRALIZE_POISON)
   !CheckSpellState(LastSeenBy(Myself),REMOVE_POISON)
@@ -696,7 +696,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(ThirdNearest([PC]))
   HaveSpellRES(CLERIC_NEUTRALIZE_POISON)
   !CheckSpellState(LastSeenBy(Myself),REMOVE_POISON)
@@ -721,7 +721,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FourthNearest([PC]))
   HaveSpellRES(CLERIC_NEUTRALIZE_POISON)
   !CheckSpellState(LastSeenBy(Myself),REMOVE_POISON)
@@ -746,7 +746,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FifthNearest([PC]))
   HaveSpellRES(CLERIC_NEUTRALIZE_POISON)
   !CheckSpellState(LastSeenBy(Myself),REMOVE_POISON)
@@ -771,7 +771,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SixthNearest([PC]))
   HaveSpellRES(CLERIC_NEUTRALIZE_POISON)
   !CheckSpellState(LastSeenBy(Myself),REMOVE_POISON)
@@ -860,7 +860,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   HaveSpellRES(CLERIC_DEATH_WARD)
   See([PC])
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
@@ -881,7 +881,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   HaveSpellRES(CLERIC_DEATH_WARD)
   See(SecondNearest([PC]))
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
@@ -907,7 +907,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   HaveSpellRES(CLERIC_DEATH_WARD)
   See(ThirdNearest([PC]))
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
@@ -933,7 +933,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   HaveSpellRES(CLERIC_DEATH_WARD)
   See(FourthNearest([PC]))
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
@@ -959,7 +959,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   HaveSpellRES(CLERIC_DEATH_WARD)
   See(FifthNearest([PC]))
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
@@ -985,7 +985,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   HaveSpellRES(CLERIC_DEATH_WARD)
   See(SixthNearest([PC]))
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
@@ -1044,7 +1044,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See([PC])
   !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
   !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
@@ -1071,7 +1071,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SecondNearest([PC]))
   !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
   !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
@@ -1098,7 +1098,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(ThirdNearest([PC]))
   !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
   !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
@@ -1125,7 +1125,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FourthNearest([PC]))
   !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
   !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
@@ -1152,7 +1152,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FifthNearest([PC]))
   !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
   !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
@@ -1179,7 +1179,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SixthNearest([PC]))
   !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
   !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
@@ -1240,7 +1240,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   HaveSpellRES(CLERIC_NEGATIVE_PLANE_PROTECTION)
   See([PC])
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
@@ -1269,7 +1269,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   HaveSpellRES(CLERIC_NEGATIVE_PLANE_PROTECTION)
   See(SecondNearest([PC]))
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
@@ -1298,7 +1298,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   HaveSpellRES(CLERIC_NEGATIVE_PLANE_PROTECTION)
   See(ThirdNearest([PC]))
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
@@ -1327,7 +1327,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   HaveSpellRES(CLERIC_NEGATIVE_PLANE_PROTECTION)
   See(FourthNearest([PC]))
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
@@ -1356,7 +1356,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   HaveSpellRES(CLERIC_NEGATIVE_PLANE_PROTECTION)
   See(FifthNearest([PC]))
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
@@ -1385,7 +1385,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   HaveSpellRES(CLERIC_NEGATIVE_PLANE_PROTECTION)
   See(SixthNearest([PC]))
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
@@ -1615,7 +1615,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   Global("MO_TeamProtEvil","GLOBAL",0)
   HaveSpellRES(CLERIC_PROTECT_FROM_EVIL)
   See([PC])
@@ -1641,7 +1641,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   Global("MO_TeamProtEvil","GLOBAL",0)
   HaveSpellRES(CLERIC_PROTECT_FROM_EVIL)
   See(SecondNearest([PC]))
@@ -1667,7 +1667,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   Global("MO_TeamProtEvil","GLOBAL",0)
   HaveSpellRES(CLERIC_PROTECT_FROM_EVIL)
   See(ThirdNearest([PC]))
@@ -1693,7 +1693,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   Global("MO_TeamProtEvil","GLOBAL",0)
   HaveSpellRES(CLERIC_PROTECT_FROM_EVIL)
   See(FourthNearest([PC]))
@@ -1719,7 +1719,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   Global("MO_TeamProtEvil","GLOBAL",0)
   HaveSpellRES(CLERIC_PROTECT_FROM_EVIL)
   See(FifthNearest([PC]))
@@ -1745,7 +1745,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   Global("MO_TeamProtEvil","GLOBAL",0)
   HaveSpellRES(CLERIC_PROTECT_FROM_EVIL)
   See(SixthNearest([PC]))
@@ -1857,7 +1857,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See([PC])
   HaveSpellRES(WIZARD_LUCK)
   !StateCheck(LastSeenBy(Myself),STATE_LUCK)
@@ -1882,7 +1882,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SecondNearest([PC]))
   HaveSpellRES(WIZARD_LUCK)
   !StateCheck(LastSeenBy(Myself),STATE_LUCK)
@@ -1907,7 +1907,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(ThirdNearest([PC]))
   HaveSpellRES(WIZARD_LUCK)
   !StateCheck(LastSeenBy(Myself),STATE_LUCK)
@@ -1932,7 +1932,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FourthNearest([PC]))
   HaveSpellRES(WIZARD_LUCK)
   !StateCheck(LastSeenBy(Myself),STATE_LUCK)
@@ -1957,7 +1957,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FifthNearest([PC]))
   HaveSpellRES(WIZARD_LUCK)
   !StateCheck(LastSeenBy(Myself),STATE_LUCK)
@@ -1982,7 +1982,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SixthNearest([PC]))
   HaveSpellRES(WIZARD_LUCK)
   !StateCheck(LastSeenBy(Myself),STATE_LUCK)
@@ -2683,7 +2683,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   HaveSpellRES(WIZARD_IMPROVED_HASTE)
   See([PC])
   !CheckStatGT(Myself,0,IMPROVEDHASTE)
@@ -2713,7 +2713,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   HaveSpellRES(WIZARD_IMPROVED_HASTE)
   See(SecondNearest([PC]))
   !CheckStatGT(Myself,0,IMPROVEDHASTE)
@@ -2743,7 +2743,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   HaveSpellRES(WIZARD_IMPROVED_HASTE)
   See(ThirdNearest([PC]))
   !CheckStatGT(Myself,0,IMPROVEDHASTE)
@@ -2773,7 +2773,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   HaveSpellRES(WIZARD_IMPROVED_HASTE)
   See(FourthNearest([PC]))
   !CheckStatGT(Myself,0,IMPROVEDHASTE)
@@ -2803,7 +2803,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   HaveSpellRES(WIZARD_IMPROVED_HASTE)
   See(FifthNearest([PC]))
   !CheckStatGT(Myself,0,IMPROVEDHASTE)
@@ -2833,7 +2833,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   HaveSpellRES(WIZARD_IMPROVED_HASTE)
   See(SixthNearest([PC]))
   !CheckStatGT(Myself,0,IMPROVEDHASTE)

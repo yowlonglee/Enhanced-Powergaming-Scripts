@@ -34,7 +34,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See([PC])
   HaveSpellRES(WIZARD_HEROISM)
   !CheckSpellState(LastSeenBy(Myself),HEROISM)
@@ -61,7 +61,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SecondNearest([PC]))
   HaveSpellRES(WIZARD_HEROISM)
   !CheckSpellState(LastSeenBy(Myself),HEROISM)
@@ -88,7 +88,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(ThirdNearest([PC]))
   HaveSpellRES(WIZARD_HEROISM)
   !CheckSpellState(LastSeenBy(Myself),HEROISM)
@@ -115,7 +115,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FourthNearest([PC]))
   HaveSpellRES(WIZARD_HEROISM)
   !CheckSpellState(LastSeenBy(Myself),HEROISM)
@@ -142,7 +142,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FifthNearest([PC]))
   HaveSpellRES(WIZARD_HEROISM)
   !CheckSpellState(LastSeenBy(Myself),HEROISM)
@@ -169,7 +169,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SixthNearest([PC]))
   HaveSpellRES(WIZARD_HEROISM)
   !CheckSpellState(LastSeenBy(Myself),HEROISM)
@@ -226,7 +226,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See([PC])
   HaveSpellRES(WIZARD_SUPERHEROISM)
   !CheckSpellState(LastSeenBy(Myself),HEROISM)
@@ -251,7 +251,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SecondNearest([PC]))
   HaveSpellRES(WIZARD_SUPERHEROISM)
   !CheckSpellState(LastSeenBy(Myself),HEROISM)
@@ -276,7 +276,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(ThirdNearest([PC]))
   HaveSpellRES(WIZARD_SUPERHEROISM)
   !CheckSpellState(LastSeenBy(Myself),HEROISM)
@@ -301,7 +301,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FourthNearest([PC]))
   HaveSpellRES(WIZARD_SUPERHEROISM)
   !CheckSpellState(LastSeenBy(Myself),HEROISM)
@@ -326,7 +326,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FifthNearest([PC]))
   HaveSpellRES(WIZARD_SUPERHEROISM)
   !CheckSpellState(LastSeenBy(Myself),HEROISM)
@@ -351,7 +351,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SixthNearest([PC]))
   HaveSpellRES(WIZARD_SUPERHEROISM)
   !CheckSpellState(LastSeenBy(Myself),HEROISM)
@@ -464,7 +464,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See([PC])
   HaveSpellRES(WIZARD_SEEKING)
   IsWeaponRanged(LastSeenBy(Myself))
@@ -492,7 +492,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SecondNearest([PC]))
   HaveSpellRES(WIZARD_SEEKING)
   IsWeaponRanged(LastSeenBy(Myself))
@@ -520,7 +520,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(ThirdNearest([PC]))
   HaveSpellRES(WIZARD_SEEKING)
   IsWeaponRanged(LastSeenBy(Myself))
@@ -548,7 +548,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FourthNearest([PC]))
   HaveSpellRES(WIZARD_SEEKING)
   IsWeaponRanged(LastSeenBy(Myself))
@@ -576,7 +576,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FifthNearest([PC]))
   HaveSpellRES(WIZARD_SEEKING)
   IsWeaponRanged(LastSeenBy(Myself))
@@ -604,7 +604,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SixthNearest([PC]))
   HaveSpellRES(WIZARD_SEEKING)
   IsWeaponRanged(LastSeenBy(Myself))

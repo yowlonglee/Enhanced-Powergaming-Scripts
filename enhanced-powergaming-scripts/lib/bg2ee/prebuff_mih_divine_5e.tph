@@ -31,7 +31,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See([PC])
   HaveSpellRES(CLERIC_HEROISM)
   !CheckSpellState(LastSeenBy(Myself),HEROISM)
@@ -57,7 +57,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SecondNearest([PC]))
   HaveSpellRES(CLERIC_HEROISM)
   !CheckSpellState(LastSeenBy(Myself),HEROISM)
@@ -83,7 +83,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(ThirdNearest([PC]))
   HaveSpellRES(CLERIC_HEROISM)
   !CheckSpellState(LastSeenBy(Myself),HEROISM)
@@ -109,7 +109,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FourthNearest([PC]))
   HaveSpellRES(CLERIC_HEROISM)
   !CheckSpellState(LastSeenBy(Myself),HEROISM)
@@ -135,7 +135,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FifthNearest([PC]))
   HaveSpellRES(CLERIC_HEROISM)
   !CheckSpellState(LastSeenBy(Myself),HEROISM)
@@ -161,7 +161,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SixthNearest([PC]))
   HaveSpellRES(CLERIC_HEROISM)
   !CheckSpellState(LastSeenBy(Myself),HEROISM)
@@ -217,7 +217,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See([PC])
   HaveSpellRES(CLERIC_SUPERHEROISM)
   !CheckSpellState(LastSeenBy(Myself),HEROISM)
@@ -241,7 +241,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SecondNearest([PC]))
   HaveSpellRES(CLERIC_SUPERHEROISM)
   !CheckSpellState(LastSeenBy(Myself),HEROISM)
@@ -265,7 +265,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(ThirdNearest([PC]))
   HaveSpellRES(CLERIC_SUPERHEROISM)
   !CheckSpellState(LastSeenBy(Myself),HEROISM)
@@ -289,7 +289,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FourthNearest([PC]))
   HaveSpellRES(CLERIC_SUPERHEROISM)
   !CheckSpellState(LastSeenBy(Myself),HEROISM)
@@ -313,7 +313,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FifthNearest([PC]))
   HaveSpellRES(CLERIC_SUPERHEROISM)
   !CheckSpellState(LastSeenBy(Myself),HEROISM)
@@ -337,7 +337,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SixthNearest([PC]))
   HaveSpellRES(CLERIC_SUPERHEROISM)
   !CheckSpellState(LastSeenBy(Myself),HEROISM)
@@ -393,7 +393,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See([PC])
   HaveSpellRES(CLERIC_SEEKING)
   IsWeaponRanged(LastSeenBy(Myself))
@@ -420,7 +420,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SecondNearest([PC]))
   HaveSpellRES(CLERIC_SEEKING)
   IsWeaponRanged(LastSeenBy(Myself))
@@ -447,7 +447,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(ThirdNearest([PC]))
   HaveSpellRES(CLERIC_SEEKING)
   IsWeaponRanged(LastSeenBy(Myself))
@@ -474,7 +474,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FourthNearest([PC]))
   HaveSpellRES(CLERIC_SEEKING)
   IsWeaponRanged(LastSeenBy(Myself))
@@ -501,7 +501,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FifthNearest([PC]))
   HaveSpellRES(CLERIC_SEEKING)
   IsWeaponRanged(LastSeenBy(Myself))
@@ -528,7 +528,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SixthNearest([PC]))
   HaveSpellRES(CLERIC_SEEKING)
   IsWeaponRanged(LastSeenBy(Myself))
@@ -566,7 +566,7 @@ END
     pattern = ~~~~~// 5e Spellcasting Prebuff - MiH Cleric Striking~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(Myself)
   HaveSpellRES(CLERIC_STRIKING)
   !IsWeaponRanged(LastSeenBy(Myself))
@@ -588,7 +588,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See([PC])
   HaveSpellRES(CLERIC_STRIKING)
   !IsWeaponRanged(LastSeenBy(Myself))
@@ -615,7 +615,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SecondNearest([PC]))
   HaveSpellRES(CLERIC_STRIKING)
   !IsWeaponRanged(LastSeenBy(Myself))
@@ -642,7 +642,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(ThirdNearest([PC]))
   HaveSpellRES(CLERIC_STRIKING)
   !IsWeaponRanged(LastSeenBy(Myself))
@@ -669,7 +669,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FourthNearest([PC]))
   HaveSpellRES(CLERIC_STRIKING)
   !IsWeaponRanged(LastSeenBy(Myself))
@@ -696,7 +696,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FifthNearest([PC]))
   HaveSpellRES(CLERIC_STRIKING)
   !IsWeaponRanged(LastSeenBy(Myself))
@@ -723,7 +723,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SixthNearest([PC]))
   HaveSpellRES(CLERIC_STRIKING)
   !IsWeaponRanged(LastSeenBy(Myself))
@@ -783,7 +783,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See([PC])
   HaveSpellRES(CLERIC_RESIST_ACID_CORROSION)
   OR(2)
@@ -810,7 +810,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SecondNearest([PC]))
   HaveSpellRES(CLERIC_RESIST_ACID_CORROSION)
   OR(2)
@@ -837,7 +837,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(ThirdNearest([PC]))
   HaveSpellRES(CLERIC_RESIST_ACID_CORROSION)
   OR(2)
@@ -864,7 +864,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FourthNearest([PC]))
   HaveSpellRES(CLERIC_RESIST_ACID_CORROSION)
   OR(2)
@@ -891,7 +891,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FifthNearest([PC]))
   HaveSpellRES(CLERIC_RESIST_ACID_CORROSION)
   OR(2)
@@ -918,7 +918,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SixthNearest([PC]))
   HaveSpellRES(CLERIC_RESIST_ACID_CORROSION)
   OR(2)
@@ -976,7 +976,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See([PC])
   HaveSpellRES(CLERIC_PROTECTION_FROM_COLD)
   CheckStatLT(LastSeenBy(Myself),80,RESISTCOLD)
@@ -1001,7 +1001,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SecondNearest([PC]))
   HaveSpellRES(CLERIC_PROTECTION_FROM_COLD)
   CheckStatLT(LastSeenBy(Myself),80,RESISTCOLD)
@@ -1026,7 +1026,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(ThirdNearest([PC]))
   HaveSpellRES(CLERIC_PROTECTION_FROM_COLD)
   CheckStatLT(LastSeenBy(Myself),80,RESISTCOLD)
@@ -1051,7 +1051,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FourthNearest([PC]))
   HaveSpellRES(CLERIC_PROTECTION_FROM_COLD)
   CheckStatLT(LastSeenBy(Myself),80,RESISTCOLD)
@@ -1076,7 +1076,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FifthNearest([PC]))
   HaveSpellRES(CLERIC_PROTECTION_FROM_COLD)
   CheckStatLT(LastSeenBy(Myself),80,RESISTCOLD)
@@ -1101,7 +1101,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SixthNearest([PC]))
   HaveSpellRES(CLERIC_PROTECTION_FROM_COLD)
   CheckStatLT(LastSeenBy(Myself),80,RESISTCOLD)
@@ -1185,7 +1185,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See([PC])
   HaveSpellRES(CLERIC_CELESTIAL_PROTECTION)
   !CheckSpellState(LastSeenBy(Myself),CELESTIAL_PROTECTION)
@@ -1210,7 +1210,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SecondNearest([PC]))
   HaveSpellRES(CLERIC_CELESTIAL_PROTECTION)
   !CheckSpellState(LastSeenBy(Myself),CELESTIAL_PROTECTION)
@@ -1235,7 +1235,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(ThirdNearest([PC]))
   HaveSpellRES(CLERIC_CELESTIAL_PROTECTION)
   !CheckSpellState(LastSeenBy(Myself),CELESTIAL_PROTECTION)
@@ -1260,7 +1260,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FourthNearest([PC]))
   HaveSpellRES(CLERIC_CELESTIAL_PROTECTION)
   !CheckSpellState(LastSeenBy(Myself),CELESTIAL_PROTECTION)
@@ -1285,7 +1285,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FifthNearest([PC]))
   HaveSpellRES(CLERIC_CELESTIAL_PROTECTION)
   !CheckSpellState(LastSeenBy(Myself),CELESTIAL_PROTECTION)
@@ -1310,7 +1310,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
-  Global("MO_SOLOBUFFING","LOCALS",0)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SixthNearest([PC]))
   HaveSpellRES(CLERIC_CELESTIAL_PROTECTION)
   !CheckSpellState(LastSeenBy(Myself),CELESTIAL_PROTECTION)
