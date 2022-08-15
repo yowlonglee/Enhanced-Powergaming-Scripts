@@ -132,10 +132,6 @@ Saisissez le raccourci clavier que vous souhaitez associer à l'action correspon
 
 - hot_key_Buffing - Default "B" - toggles the key to begin and cancel pre-buffing.
 
-- hot_key_TurnUndead  - Default "V" - toggles on and off constantly turn undead.
-
-- hot_key_DetectIllusion - Default "D" - toggles on and off constantly detecting illusions.
-
 - hot_key_CowledCheck - Default "T" - toggles on and off to cast spells in Athkatla if they have not paid the bounty or finished fighting the Cowled Wizards.
 
 - hot_key_WeaponSwap - Default "E" - swaps the between melee and ranged weapons so long as either can be equipped.

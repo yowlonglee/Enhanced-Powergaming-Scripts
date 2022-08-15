@@ -31,20 +31,6 @@ ACTION_IF debug_variable=0 BEGIN SILENT END
         OUTER_SPRINT "hot_key_Buffing" "%value%"
     END
 
-    LAF check_ini INT_VAR silent=1  STR_VAR ini="hot_key_TurnUndead" RET value END
-    ACTION_IF "%value%" STRING_EQUAL_CASE "0" BEGIN
-        OUTER_SPRINT "hot_key_TurnUndead" "V"
-    END ELSE BEGIN
-        OUTER_SPRINT "hot_key_TurnUndead" "%value%"
-    END
-
-    LAF check_ini INT_VAR silent=1  STR_VAR ini="hot_key_DetectIllusion" RET value END
-    ACTION_IF "%value%" STRING_EQUAL_CASE "0" BEGIN
-        OUTER_SPRINT "hot_key_DetectIllusion" "D"
-    END ELSE BEGIN
-        OUTER_SPRINT "hot_key_DetectIllusion" "%value%"
-    END
-
     LAF check_ini INT_VAR silent=1  STR_VAR ini="hot_key_CowledCheck" RET value END
     ACTION_IF "%value%" STRING_EQUAL_CASE "0" BEGIN
         OUTER_SPRINT "hot_key_CowledCheck" "T"
