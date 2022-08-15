@@ -61,28 +61,6 @@ ACTION_IF spell_revisions BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/ini/sr_disabling_spells.tph~
 	END
 
-	// Add long duration spells to MO-BasicAI
-	ACTION_IF bsc_lng_dur BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/ini/sr_long_duration.tph~
-		INCLUDE ~enhanced-powergaming-scripts/lib/ini/long_duration_items.tph~
-		
-		ACTION_IF 5e_spellcasting BEGIN
-			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/sr_basic_lng_dur_5e.tph~
-
-			ACTION_FOR_EACH 5e_long_spell IN
-					WIZARD_ARMOR
-					WIZARD_MELF_METEOR
-					WIZARD_MIND_BLANK
-					WIZARD_STONE_SKIN
-					CLERIC_IRONSKIN
-				BEGIN
-					LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_long_spell%~ RET spell_res END
-					COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
-						REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_long_spell%~ ~RES(%spell_res%~
-				END
-		END
-	END
-
 ///////////////////////////////////////////////////////////////////////////
 // SR - 5e Spellcasting                                                  //
 ///////////////////////////////////////////////////////////////////////////
@@ -323,18 +301,6 @@ ACTION_IF spell_revisions BEGIN
 					REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_iwd%~ ~RES(%spell_res%~
 			END
 		END
-
-		ACTION_IF bsc_lng_dur BEGIN
-			INCLUDE ~enhanced-powergaming-scripts/lib/bg2ee/sr_basic_iwd_long_dur.tph~
-
-			ACTION_IF 5e_spellcasting BEGIN
-				INCLUDE ~enhanced-powergaming-scripts/lib/bg2ee/sr_basic_iwd_5e_long_dur.tph~
-
-				LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~CLERIC_IMPERVIOUS_SANCTITY_OF_MIND~ RET spell_res END
-				COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
-					REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(CLERIC_IMPERVIOUS_SANCTITY_OF_MIND~ ~RES(%spell_res%~
-			END
-		END
 	END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -421,26 +387,6 @@ END ELSE BEGIN
 	// Add disabling spells
 	ACTION_IF ds_spl BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/ini/disabling_spells.tph~
-	END
-
-	// Add long duration spells to MO-BasicAI
-	ACTION_IF bsc_lng_dur BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/ini/long_duration.tph~
-		INCLUDE ~enhanced-powergaming-scripts/lib/ini/long_duration_items.tph~
-
-		ACTION_IF 5e_spellcasting BEGIN
-			INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/basic_lng_dur_5e.tph~
-
-			ACTION_FOR_EACH 5e_long_spell IN
-					WIZARD_MELF_METEOR
-					WIZARD_STONE_SKIN
-					CLERIC_IRONSKIN
-				BEGIN
-					LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_long_spell%~ RET spell_res END
-					COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
-						REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_long_spell%~ ~RES(%spell_res%~
-				END
-		END
 	END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -696,23 +642,6 @@ END ELSE BEGIN
 				LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~CLERIC_CURE_MODERATE_WOUNDS~ RET spell_res END
 				COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
 					REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(CLERIC_CURE_MODERATE_WOUNDS~ ~RES(%spell_res%~
-			END
-		END
-
-		ACTION_IF bsc_lng_dur BEGIN
-			INCLUDE ~enhanced-powergaming-scripts/lib/bg2ee/basic_iwd_long_dur.tph~
-
-			ACTION_IF 5e_spellcasting BEGIN
-				INCLUDE ~enhanced-powergaming-scripts/lib/bg2ee/basic_iwd_5e_long_dur.tph~
-
-				ACTION_FOR_EACH 5e_iwd_lng_dur IN
-					WIZARD_MIND_BLANK
-					CLERIC_IMPERVIOUS_SANCTITY_OF_MIND
-				BEGIN
-					LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_iwd_lng_dur%~ RET spell_res END
-					COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~
-						REPLACE_TEXTUALLY CASE_INSENSITIVE ~RES(%5e_iwd_lng_dur%~ ~RES(%spell_res%~
-				END
 			END
 		END
 	END
