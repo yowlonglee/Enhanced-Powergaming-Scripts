@@ -142,11 +142,7 @@ Saisissez le raccourci clavier que vous souhaitez associer à l'action correspon
 
 Cela permet au joueur d'affiner certains aspects des scripts. La valeur 1 active la fonction et la valeur 0 la désactive.
 
-- buffing_potion_use is defaulted to 1. This turns on or off using potions during pre-buffing.
-
 - basic_ai_auto_attack is defaulted to 0. This turns on or off the Basic AI script using auto-attacks.
-
-- basic_ai_auto_healing is defaulted to 0. This turns on or off the Basic AI script using auto-healing.
 
 - basic_ai_long_duration is defaulted to 0. This turns on or off the Basic AI script using auto-long duration buffs.
 

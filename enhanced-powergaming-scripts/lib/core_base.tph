@@ -26,6 +26,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   OR(2)
     StateCheck(Myself,STATE_POISONED)
@@ -45,6 +46,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   StateCheck(Myself,STATE_POISONED)
   !CheckSpellState(Myself,REMOVE_POISON)
@@ -253,6 +255,7 @@ IF
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
   !EEex_LuaTrigger("return AmMoving()")
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   GlobalLT("MO_UsedMagiStaff","GLOBAL",1)
   HasItemEquiped("STAF11",Myself)
@@ -371,6 +374,7 @@ IF
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
   !EEex_LuaTrigger("return AmMoving()")
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   CheckStatLT(Myself,1,STONESKINS)
   GlobalLT("MO_UsedGargoyle","GLOBAL",2)
@@ -383,6 +387,7 @@ THEN
 END
 
 IF
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   CheckStatLT(Myself,1,STONESKINS)
   GlobalLT("MO_UsedGargoyle","GLOBAL",2)
   HasItem("Boot12",Myself)  // Gargoyle Boots
@@ -393,6 +398,7 @@ THEN
 END
 
 IF
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   OR(2)
     CheckStatGT(Myself,0,STONESKINS)
     GlobalGT("MO_UsedGargoyle","GLOBAL",1)
@@ -411,6 +417,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   GlobalLT("MO_UsedFortitude","GLOBAL",1)
   HasItem("BELT09",Myself)  // Girdle of Fortitude
@@ -426,6 +433,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   GlobalLT("MO_UsedClkOfStars","GLOBAL",1)
   HasItemEquiped("CLCK25",Myself)  // Cloak of the Stars
@@ -442,6 +450,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   See([EVILCUTOFF])
   HPPercentLT(Myself,51)
@@ -458,6 +467,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   See([EVILCUTOFF])
   HPPercentLT(Myself,51)
@@ -474,6 +484,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   See([EVILCUTOFF])
   HPPercentLT(Myself,51)
@@ -6938,6 +6949,7 @@ IF
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
   !EEex_LuaTrigger("return AmMoving()")
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   GlobalLT("MO_UsedCowlOfStars","GLOBAL",3)
   HasItemEquiped("OHRCLCK1",Myself)  // Cowl of the Stars
@@ -6963,7 +6975,42 @@ END
 
 // ini disabling spells Sunray
 
-// ini disabling items Daystar
+IF
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
+  Global("BDAI_DISABLE_OFFENSIVE","LOCALS",0)
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+  GlobalLT("MO_UsedDaystar","GLOBAL",1)
+  HasItemEquiped("SW1H31",Myself)  // Daystar +2
+  See([EVILCUTOFF])
+  OR(3)
+    NumCreatureGT([EVILCUTOFF.UNDEAD],3)
+    Range([EVILCUTOFF.0.LICH],10)
+    Range([EVILCUTOFF.0.DEMILICH],10)
+  OR(10)
+    Range([EVILCUTOFF.0.VAMPYRE],10)
+    Range([EVILCUTOFF.0.VAMPIRE],10)
+    Range([EVILCUTOFF.0.LICH],10)
+    Range([EVILCUTOFF.0.DEMILICH],10)
+    Range([EVILCUTOFF.0.0.WIGHT],10)
+    Range([EVILCUTOFF.0.SKELETON],10)
+    Range([EVILCUTOFF.0.SPECTRAL_UNDEAD],10)
+    Range([EVILCUTOFF.0.ZOMBIE],10)
+    Range([EVILCUTOFF.0.GHOUL],10)
+    Range([EVILCUTOFF.0.MUMMY],10)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_SpellCast","LOCALS",1)
+    SetInterrupt(FALSE)
+    UseItemAbility("SW1H31",Myself,SLOT_AMMO3,1)  // Daystar +2
+    IncrementGlobal("MO_UsedDaystar","GLOBAL",1)
+    SetInterrupt(TRUE)
+END
 
 // 5e Spellcasting - ini disabling spells False Dawn
 
@@ -7543,6 +7590,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   GlobalLT("MO_UsedIlbratha","GLOBAL",1)
@@ -7570,6 +7618,7 @@ THEN
 END
 
 IF
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   Class(Myself,MONK)
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   !Global("MO_UsedIlbratha","GLOBAL",1)
@@ -7594,6 +7643,7 @@ THEN
 END
 
 IF
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   Class(Myself,MONK)
   OR(2)
     StateCheck(Myself,STATE_MIRRORIMAGE)
@@ -7611,6 +7661,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   GlobalLT("MO_UsedDuplication","GLOBAL",3)
@@ -7809,6 +7860,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   OR(17)
     Range([EVILCUTOFF.0.FAIRY],30)
@@ -7843,6 +7895,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   OR(17)
     Range([EVILCUTOFF.0.FAIRY],30)
@@ -8054,6 +8107,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   GlobalLT("MO_UsedBltMnrInv","GLOBAL",1)
   OR(17)
@@ -9199,6 +9253,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   GlobalLT("MO_UsedDevout","GLOBAL",1)
   HasItemEquiped("OHRHELM1",Myself)  // Headband of the Devout
@@ -9391,6 +9446,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   GlobalLT("MO_UsedCheetah","GLOBAL",1)
   HasItemEquiped("AMUL26",Myself)  // Amulet of Cheetah Speed
@@ -9461,6 +9517,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   GlobalLT("MO_UsedBlindingSpeed","GLOBAL",1)
   HasItemEquiped("BRAC16",Myself)  // Bracers of Blinding Strike

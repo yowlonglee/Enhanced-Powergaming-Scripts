@@ -13,6 +13,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   GlobalLT("MO_UsedMirrorAmulet0","GLOBAL",2)

@@ -330,6 +330,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   GlobalLT("MO_UsedMagiStaff","GLOBAL",1)
   HasItemEquiped("STAF11",Myself)
   CheckStatLT(Myself,1,WIZARD_SPELL_TRAP)
@@ -345,6 +346,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   HasItemEquiped("potn09",Myself)  // Potion of Heroism
   !CheckSpellState(Myself,BUFF_ENHANCEMENT)
 THEN
@@ -355,6 +357,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   HasItemEquiped("potn02",Myself)  // Potion of Fire Resistance
 THEN
   RESPONSE #100
@@ -364,6 +367,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   HasItemEquiped("potn22",Myself)  // Potion of Cold Resistance
 THEN
   RESPONSE #100
@@ -373,6 +377,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   HasItemEquiped("potn18",Myself)  // Potion of Absorption
   CheckStatLT(Myself,100,RESISTELECTRICITY)
 THEN
@@ -383,6 +388,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   HasItemEquiped("potn34",Myself)  // Potion of Magic Protection
 THEN
   RESPONSE #100
@@ -392,6 +398,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   HasItemEquiped("potn07",Myself)  // Potion of Storm Giant Strength
   CheckStatLT(Myself,24,STR)
 THEN
@@ -402,6 +409,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   HasItemEquiped("potn06",Myself)  // Potion of Cloud Giant Strength
   CheckStatLT(Myself,23,STR)
 THEN
@@ -412,6 +420,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   HasItemEquiped("potn05",Myself)  // Potion of Fire Giant Strength
   CheckStatLT(Myself,22,STR)
 THEN
@@ -422,6 +431,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   HasItemEquiped("potn04",Myself)  // Potion of Frost Giant Strength
   CheckStatLT(Myself,21,STR)
 THEN
@@ -432,6 +442,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   HasItemEquiped("potn12",Myself)  // Potion of Stone Giant Strength
   CheckStatLT(Myself,20,STR)
 THEN
@@ -442,6 +453,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   HasItemEquiped("potn03",Myself)  // Potion of Hill Giant Strength
   CheckStatLT(Myself,19,STR)
 THEN
@@ -452,6 +464,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   HasItemEquiped("potn11",Myself)  // Potion of Invulnerability
   CheckStatGT(Myself,0,ARMORCLASS)
 THEN
@@ -462,6 +475,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   HasItemEquiped("OHRCLCK4",Myself)  // Cloak of the Dark Moon
   GlobalLT("MO_UsedClkDrkMN","GLOBAL",3)
   !CheckStatGT(Myself,0,WIZARD_PROTECTION_FROM_MAGIC_ENERGY)
@@ -2708,6 +2722,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   !CheckStatGT(Myself,0,IMPROVEDHASTE)
   GlobalLT("MO_UsedCheetah","GLOBAL",1)
   HasItemEquiped("AMUL26",Myself)  // Amulet of Cheetah Speed
@@ -2719,6 +2734,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   !CheckStatGT(Myself,0,IMPROVEDHASTE)
   GlobalLT("MO_UsedBlindingSpeed","GLOBAL",1)
   HasItemEquiped("BRAC16",Myself)  // Bracers of Blinding Strike
@@ -3035,6 +3051,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   GlobalLT("MO_UsedIlbratha","GLOBAL",1)
   HasItemEquiped("SW1H26",Myself)  // Ilbratha +1
@@ -3048,6 +3065,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   Class(Myself,MONK)
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   !Global("MO_UsedIlbratha","GLOBAL",1)
@@ -3060,6 +3078,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   Class(Myself,MONK)
   OR(2)
     StateCheck(Myself,STATE_MIRRORIMAGE)
@@ -3073,6 +3092,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   GlobalLT("MO_UsedDevout","GLOBAL",1)
   HasItemEquiped("OHRHELM1",Myself)  // Headband of the Devout
   !CheckSpellState(Myself,RIGHTEOUS_MAGIC)
@@ -3084,6 +3104,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   GlobalLT("MO_UsedDuplication","GLOBAL",3)
   HasItemEquiped("OHRRING1",Myself)  // Ring of Duplication
@@ -3986,6 +4007,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   HasItemEquiped("OHNSHLD1",Myself)  // Shield of Fyrus Khal +2
   GlobalLT("MO_UsedShldFyrus","GLOBAL",1)
   !CheckSpellState(Myself,SPELL_TURNING)
@@ -3998,6 +4020,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   HasItemEquiped("RING34",Myself)  // Ring of Spell Turning
   GlobalLT("MO_UsedSpellTurning","GLOBAL",1)
   !CheckSpellState(Myself,SPELL_TURNING)
@@ -4121,6 +4144,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   GlobalLT("MO_UsedBltMnrInv","GLOBAL",1)
   HasItemEquiped("OHRBELT2",Myself)  // Belt of Minor Invulnerability
   !CheckSpellState(Myself,MINOR_GLOBE)

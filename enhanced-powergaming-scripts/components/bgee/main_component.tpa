@@ -62,15 +62,6 @@ ACTION_IF spell_revisions BEGIN
 ///////////////////////////////////////////////////////////////////////////
 // Update ini Presets - BasicAI Healing                                  //
 ///////////////////////////////////////////////////////////////////////////
-	// Add basic healing to MO-BasicAI
-	ACTION_IF bsc_heal BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/ini/sr_healing.tph~
-
-		ACTION_IF fst_heal BEGIN
-			INCLUDE ~enhanced-powergaming-scripts/lib/ini/basic_fast_healing.tph~
-		END
-	END
-
 	// Add disabling spells
 	ACTION_IF ds_spl BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/ini/sr_disabling_spells.tph~
@@ -432,15 +423,6 @@ END ELSE BEGIN
 ///////////////////////////////////////////////////////////////////////////
 // Update ini Presets - Part 1                                           //
 ///////////////////////////////////////////////////////////////////////////
-	// Add basic healing to MO-BasicAI
-	ACTION_IF bsc_heal BEGIN
-		INCLUDE ~enhanced-powergaming-scripts/lib/ini/healing.tph~
-
-		ACTION_IF fst_heal BEGIN
-			INCLUDE ~enhanced-powergaming-scripts/lib/ini/basic_fast_healing.tph~
-		END
-	END
-
 	// Add disabling spells
 	ACTION_IF ds_spl BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/ini/disabling_spells.tph~

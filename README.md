@@ -129,11 +129,7 @@ Type in the hotkey you wish to map to the corresponding action.
 
 This allows the player to fine-tune aspects of the scripts. 1 turns the feature on while 0 turns it off.
 
-- buffing_potion_use is defaulted to 1. This turns on or off using potions during pre-buffing.
-
 - basic_ai_auto_attack is defaulted to 0. This turns on or off the Basic AI script using auto-attacks.
-
-- basic_ai_auto_healing is defaulted to 0. This turns on or off the Basic AI script using auto-healing.
 
 - basic_ai_long_duration is defaulted to 0. This turns on or off the Basic AI script using auto-long duration buffs.
 

@@ -11,6 +11,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     pattern = ~~~~~// MiH Prebuff Mirror Amulet~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   GlobalLT("MO_UsedMirrorAmulet0","GLOBAL",2)
   HasItemEquiped("MH#AMUL4",Myself)  // Mirror Amulet

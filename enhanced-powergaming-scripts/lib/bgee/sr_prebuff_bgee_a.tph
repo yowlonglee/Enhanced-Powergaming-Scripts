@@ -124,6 +124,7 @@ END~~~~~
     STR_VAR
     pattern = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   HasItemEquiped("OHRCLCK4",Myself)  // Cloak of the Dark Moon
   GlobalLT("MO_UsedClkDrkMN","GLOBAL",3)
   !CheckStatGT(Myself,0,WIZARD_PROTECTION_FROM_MAGIC_ENERGY)
@@ -146,6 +147,7 @@ END~~~~~
     STR_VAR
     pattern = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   !CheckStatGT(Myself,0,IMPROVEDHASTE)
   GlobalLT("MO_UsedCheetah","GLOBAL",1)
   HasItemEquiped("AMUL26",Myself)  // Amulet of Cheetah Speed
@@ -167,6 +169,7 @@ END~~~~~
     STR_VAR
     pattern = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   !CheckStatGT(Myself,0,IMPROVEDHASTE)
   GlobalLT("MO_UsedBlindingSpeed","GLOBAL",1)
   HasItemEquiped("BRAC16",Myself)  // Bracers of Blinding Strike
@@ -188,6 +191,7 @@ END~~~~~
     STR_VAR
     pattern = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   GlobalLT("MO_UsedIlbratha","GLOBAL",1)
   HasItemEquiped("SW1H26",Myself)  // Ilbratha +1
@@ -199,6 +203,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   Class(Myself,MONK)
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   !Global("MO_UsedIlbratha","GLOBAL",1)
@@ -211,6 +216,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   Class(Myself,MONK)
   OR(2)
     StateCheck(Myself,STATE_MIRRORIMAGE)
@@ -224,6 +230,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   GlobalLT("MO_UsedDevout","GLOBAL",1)
   HasItemEquiped("OHRHELM1",Myself)  // Headband of the Devout
   !CheckSpellState(Myself,RIGHTEOUS_MAGIC)
@@ -235,6 +242,7 @@ END
 
 IF
   Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   GlobalLT("MO_UsedDuplication","GLOBAL",3)
   HasItemEquiped("OHRRING1",Myself)  // Ring of Duplication
@@ -256,6 +264,7 @@ END~~~~~
     STR_VAR
     pattern = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   GlobalLT("MO_UsedBltMnrInv","GLOBAL",1)
   HasItemEquiped("OHRBELT2",Myself)  // Belt of Minor Invulnerability
   !CheckSpellState(Myself,MINOR_GLOBE)

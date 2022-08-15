@@ -56,26 +56,12 @@ ACTION_IF debug_variable=0 BEGIN SILENT END
 ///////////////////////////////////////////////////////////////////////////
 // Detect ini Presets                                                    //
 ///////////////////////////////////////////////////////////////////////////
-    LAF check_ini STR_VAR ini="buffing_potion_use" RET value END
-    ACTION_IF !value BEGIN
-      OUTER_SET pot_use=1
-    END ELSE BEGIN
-      OUTER_SET pot_use=0
-    END
-
     LAF check_ini STR_VAR ini="basic_ai_auto_attack" RET value END
     ACTION_IF value BEGIN
       OUTER_SET bsc_atk=1
     END ELSE BEGIN
       OUTER_SET bsc_atk=0
     END
-
-    LAF check_ini STR_VAR ini="basic_ai_auto_healing" RET value END
-    ACTION_IF value BEGIN
-      OUTER_SET bsc_heal=1
-    END ELSE BEGIN
-      OUTER_SET bsc_heal=0
-    END    
 
     LAF check_ini STR_VAR ini="script_dialog" RET value END
     ACTION_IF !value BEGIN
