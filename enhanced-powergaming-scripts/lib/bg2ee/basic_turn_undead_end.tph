@@ -12,7 +12,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mobasic.baf~ ~enhanced-powergaming
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  Global("MO_TURNUNDEAD","LOCALS",1)
+  Global("BDAI_SKILL_MODE","LOCALS",4)
   !CheckStat(Myself,1,SANCTUARY)
   OR(2)
     Class(Myself,CLERIC_ALL)
