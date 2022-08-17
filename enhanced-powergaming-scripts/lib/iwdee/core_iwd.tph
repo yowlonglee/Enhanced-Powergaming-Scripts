@@ -384,6 +384,7 @@ END~~~~~
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_DEFENSIVE","LOCALS",0)
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
   !CheckSpellState(Myself,HARDINESS)
@@ -563,6 +564,7 @@ END~~~~~
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_DEFENSIVE","LOCALS",0)
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WARRIOR_GREATER_WHIRLWIND)  // SPCL901.SPL (Greater Whirlwind Attack)
   !CheckStatGT(Myself,0,IMPROVEDHASTE)
@@ -666,6 +668,7 @@ END~~~~~
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_DEFENSIVE","LOCALS",0)
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpell(WARRIOR_CRITICAL_STRIKE)  // SPCL905.SPL (Critical Strike)
   !CheckSpellState(Myself,CRITICAL_STRIKE)
@@ -1119,6 +1122,7 @@ END~~~~~ //"
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_DEFENSIVE","LOCALS",0)
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   See([EVILCUTOFF])
   HPPercentLT(Myself,51)
@@ -1140,6 +1144,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_DEFENSIVE","LOCALS",0)
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   See([EVILCUTOFF])
   HPPercentLT(Myself,51)
@@ -1443,6 +1448,7 @@ THEN // Ruby Ray of Reversal~~~~~ //"
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_SPECIAL","LOCALS",0)
   !See([EVILCUTOFF])
   !EEex_LuaTrigger("return AmMoving()")
   HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)  // sppr215.SPL (Cure Moderate Wounds)
@@ -1508,6 +1514,7 @@ END
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_DEFENSIVE","LOCALS",0)
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpellRES("SPIN103")  // Divine Might
   !CheckSpellState(Myself,MINOR_GLOBE)
@@ -1568,6 +1575,7 @@ END~~~~~
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_SPECIAL","LOCALS",0)
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpellRES("SPIN102")  // Cure Affliction
   See(Myself)
@@ -1596,6 +1604,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_SPECIAL","LOCALS",0)
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpellRES("SPIN102")  // Cure Affliction
   See([PC])
@@ -1625,6 +1634,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_SPECIAL","LOCALS",0)
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpellRES("SPIN102")  // Cure Affliction
   See(SecondNearest([PC]))
@@ -1654,6 +1664,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_SPECIAL","LOCALS",0)
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpellRES("SPIN102")  // Cure Affliction
   See(ThirdNearest([PC]))
@@ -1683,6 +1694,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_SPECIAL","LOCALS",0)
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpellRES("SPIN102")  // Cure Affliction
   See(FourthNearest([PC]))
@@ -1712,6 +1724,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_SPECIAL","LOCALS",0)
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpellRES("SPIN102")  // Cure Affliction
   See(FifthNearest([PC]))
@@ -1741,6 +1754,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_SPECIAL","LOCALS",0)
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   HaveSpellRES("SPIN102")  // Cure Affliction
   See(SixthNearest([PC]))
@@ -1782,6 +1796,7 @@ END~~~~~
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_SPECIAL","LOCALS",0)
   HaveSpellRES("SPIN101")  // Healing Touch
   !See([EVILCUTOFF])
   !EEex_LuaTrigger("return AmMoving()")

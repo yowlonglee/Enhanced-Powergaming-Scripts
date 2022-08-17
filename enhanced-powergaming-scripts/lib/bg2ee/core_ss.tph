@@ -10,9 +10,6 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     STR_VAR
     pattern = ~~~~~// Song & Silence Mind Blade~~~~~
     string = ~~~~~IF
-  OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
   Global("MO_BUFF","LOCALS",1)
   HaveSpellRES("A!SOULKN")  // Manifest Mind Blade
   !HasItemEquiped("a#soul0",Myself)  // Mind Blade
