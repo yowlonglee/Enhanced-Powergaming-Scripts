@@ -59,7 +59,7 @@
 
 @1280 = ~Personal defensive spells~
 @1281 = ~Use Offensive Spells~
-@1290 = ~Out of combat, the character will cast long-duration personal defensive spells if they have them. The spells used are Stoneskin, Iron Skins, Armor, Mind Blank, and Impervious Sanctity of Mind.~
+@1290 = ~Out of combat, the character will cast long-duration Use Offensive Spells if they have them. The spells used are Stoneskin, Iron Skins, Armor, Mind Blank, and Impervious Sanctity of Mind.~
 @1291 = ~The character will use offensive spells such as Fireball or Magic Missile.~
 
 @1300 = ~Prefer Ranged Weapons~
@@ -80,11 +80,18 @@
 		showingSmartOptions = false~
 @2001 = ~currentPanelID = const.SCRIPT_ID
 
-		showingSmartOptions = (scriptList_idx == 5)
+		B3SmartScriptIdx = -1
+    		if name == 'CUSTOM (B3SMART)' then
+        		B3SmartScriptIdx = i
+        		break
+    		end
+		end
+
+		showingSmartOptions = scriptList_idx == B3SmartScriptIdx
 		scriptDescription = t(scriptOptions[scriptList_idx][2])~
 @2002 = ~showingSmartOptions = false
 			if scriptList[scriptList_idx]~
-@2003 = ~showingSmartOptions = (scriptList_idx == 5)
+@2003 = ~showingSmartOptions = scriptList_idx == B3SmartScriptIdx
 			if scriptList[scriptList_idx]~
 
 /*
