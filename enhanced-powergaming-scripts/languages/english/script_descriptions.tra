@@ -72,7 +72,7 @@
 @1321 = ~Minute meteors~
 @1322 = ~Enemy Debuffing/Curative/Healing~
 @1330 = ~The character will use special abilities such as Barbarian Rage or Called Shot.~
-@1331 = ~Out of combat, the character will cast 'Melf's Minute Meteors' if they have it, and if they have no meteors.~
+@1331 = ~Out of combat, the character will cast 'Melf's Enemy Debuffing/Curative/Healing' if they have it, and if they have no meteors.~
 @1332 = ~The character will use debuffing spells against enemies, curative spells to remove enemy debuffs on themself and allies, and healing spells. The spells used include Breach, Ruby Ray of Reversal, True Sight, Remove Paralysis, Raise Dead, and Heal.~
 
 @2000 = ~currentPanelID = const.SCRIPT_ID
@@ -80,11 +80,11 @@
 		showingSmartOptions = false~
 @2001 = ~currentPanelID = const.SCRIPT_ID
 
-		showingSmartOptions = (scriptList_idx == 24)
+		showingSmartOptions = (scriptList_idx == 20)
 		scriptDescription = t(scriptOptions[scriptList_idx][2])~
 @2002 = ~showingSmartOptions = false
 			if scriptList[scriptList_idx]~
-@2003 = ~showingSmartOptions = (scriptList_idx == 24)
+@2003 = ~showingSmartOptions = (scriptList_idx == 20)
 			if scriptList[scriptList_idx]~
 
 /*
