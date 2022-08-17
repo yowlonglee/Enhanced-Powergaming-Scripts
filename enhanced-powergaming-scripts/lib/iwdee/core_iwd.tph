@@ -872,7 +872,6 @@ END~~~~~
   GlobalLT("MO_UsedBlindingSpeed","GLOBAL",1)
   HasItemEquiped("BRAC16",Myself)  // Bracers of Blinding Strike
   !CheckStatGT(Myself,0,IMPROVEDHASTE)
-  !CheckSpellState(Myself,GREATER_WHIRLWIND)
   See([EVILCUTOFF])
   OR(6)
     WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
