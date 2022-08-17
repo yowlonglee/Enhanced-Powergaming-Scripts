@@ -140,3 +140,129 @@ APPEND ~scrpdesc.2DA~
 COPY_EXISTING ~scrpdesc.2da~ ~override~
 REPLACE ~mcore1~  @1112
 REPLACE ~mcore2~  @1122
+
+///////////////////////////////////////////////////////////////////////////
+// Update UI Menu                                                        //
+///////////////////////////////////////////////////////////////////////////
+OUTER_SPRINT uiold1 @2000
+OUTER_SPRINT uinew1 @2001
+OUTER_SPRINT uiold2 @2002
+OUTER_SPRINT uinew2 @2003
+
+COPY_EXISTING "UI.MENU" ~override~
+	REPLACE_TEXTUALLY ~%uiold1 %~ ~%uinew1%~
+	REPLACE_TEXTUALLY ~%uiold2 %~ ~%uinew2%~
+
+///////////////////////////////////////////////////////////////////////////
+// Update Lua Files                                                      //
+// Please Note: This accounts for vanilla and changes made by SCS        //
+///////////////////////////////////////////////////////////////////////////
+OUTER_SPRINT smartscript1a     @1110
+OUTER_SPRINT smartscript1b     @1111
+OUTER_SPRINT smartscript2      @1112
+OUTER_SPRINT smartscriptdesc1a @1120
+OUTER_SPRINT smartscriptdesc1b @1121
+OUTER_SPRINT smartscriptdesc2  @1122
+OUTER_SPRINT scriptatk1        @1130
+OUTER_SPRINT scriptatk2        @1131
+OUTER_SPRINT findtrap1         @1140
+OUTER_SPRINT findtrap2         @1141
+OUTER_SPRINT findtrapdesc1a    @1150
+OUTER_SPRINT findtrapdesc1b    @1151
+OUTER_SPRINT findtrapdesc2     @1152
+OUTER_SPRINT hideshdws1        @1160
+OUTER_SPRINT hideshdws2        @1161
+OUTER_SPRINT hideshdwsdesc1    @1170
+OUTER_SPRINT hideshdwsdesc2    @1171
+OUTER_SPRINT bardsong1         @1180
+OUTER_SPRINT bardsong2         @1181
+OUTER_SPRINT bardsongdesc1a    @1190
+OUTER_SPRINT bardsongdesc1b    @1191
+OUTER_SPRINT bardsongdesc2     @1192
+OUTER_SPRINT trnund1           @1200
+OUTER_SPRINT trnund2           @1201
+OUTER_SPRINT trnunddesc1a      @1210
+OUTER_SPRINT trnunddesc1b      @1211
+OUTER_SPRINT trnunddesc2       @1212
+OUTER_SPRINT defense1          @1220
+OUTER_SPRINT defense2          @1221
+OUTER_SPRINT defensedesc1      @1230
+OUTER_SPRINT defensedesc2      @1231
+OUTER_SPRINT useitem1          @1240
+OUTER_SPRINT useitem2          @1241
+OUTER_SPRINT useitemdesc1      @1250
+OUTER_SPRINT useitemdesc2      @1251
+OUTER_SPRINT solobuff1         @1260
+OUTER_SPRINT solobuff2         @1261
+OUTER_SPRINT solobuffdesc1a    @1270
+OUTER_SPRINT solobuffdesc1b    @1271
+OUTER_SPRINT solobuffdesc2     @1272
+OUTER_SPRINT offense1          @1280
+OUTER_SPRINT offense2          @1281
+OUTER_SPRINT offensedesc1      @1290
+OUTER_SPRINT offensedesc2      @1291
+OUTER_SPRINT groupbuff1        @1300
+OUTER_SPRINT groupbuff2        @1301
+OUTER_SPRINT groupbuffdesc1a   @1310
+OUTER_SPRINT groupbuffdesc1b   @1311
+OUTER_SPRINT groupbuffdesc2    @1312
+OUTER_SPRINT specbuff1a        @1320
+OUTER_SPRINT specbuff1b        @1321
+OUTER_SPRINT specbuff2         @1322
+OUTER_SPRINT specbuffdesc1a    @1330
+OUTER_SPRINT specbuffdesc1b    @1331
+OUTER_SPRINT specbuffdesc2     @1332
+
+ACTION_FOR_EACH luafile IN
+		CS_CZ
+		DE_DE
+		EN_US
+		ES_ES
+		FR_FR
+		IT_IT
+		KO_KR
+		PL_PL
+		PT_BR
+		RU_RU
+		ZN_CN
+	BEGIN
+		ACTION_IF FILE_EXISTS_IN_GAME ~L_%luafile%.LUA~ BEGIN
+			COPY_EXISTING "L_%luafile%.LUA" ~override~
+				REPLACE_TEXTUALLY ~%smartscript1a%~     ~%smartscript2%~
+	    		REPLACE_TEXTUALLY ~%smartscript1b%~     ~%smartscript2%~
+	    		REPLACE_TEXTUALLY ~%smartscriptdesc1a%~ ~%smartscriptdesc2%~
+	   			REPLACE_TEXTUALLY ~%smartscriptdesc1b%~ ~%smartscriptdesc2%~
+	   			REPLACE_TEXTUALLY ~%scriptatk1%~        ~%scriptatk2%~
+	   			REPLACE_TEXTUALLY ~%findtrap1%~         ~%findtrap2%~
+	   			REPLACE_TEXTUALLY ~%findtrapdesc1a%~    ~%findtrapdesc2%~
+	   			REPLACE_TEXTUALLY ~%findtrapdesc1b%~    ~%findtrapdesc2%~
+	   			REPLACE_TEXTUALLY ~%hideshdws1%~        ~%hideshdws2%~
+	   			REPLACE_TEXTUALLY ~%hideshdwsdesc1%~    ~%hideshdwsdesc2%~
+	   			REPLACE_TEXTUALLY ~%bardsong1%~         ~%bardsong2%~
+	   			REPLACE_TEXTUALLY ~%bardsongdesc1a%~    ~%bardsongdesc2%~
+	   			REPLACE_TEXTUALLY ~%bardsongdesc1b%~    ~%bardsongdesc2%~
+	   			REPLACE_TEXTUALLY ~%trnund1%~           ~%trnund2%~
+	   			REPLACE_TEXTUALLY ~%trnunddesc1a%~      ~%trnunddesc2%~
+	   			REPLACE_TEXTUALLY ~%trnunddesc1b%~      ~%trnunddesc2%~
+	   			REPLACE_TEXTUALLY ~%defense1%~          ~%defense2%~
+	   			REPLACE_TEXTUALLY ~%defensedesc1%~      ~%defensedesc2%~
+	   			REPLACE_TEXTUALLY ~%useitem1%~          ~%useitem2%~
+	   			REPLACE_TEXTUALLY ~%useitemdesc1%~      ~%useitemdesc2%~
+	   			REPLACE_TEXTUALLY ~%solobuff1%~         ~%solobuff2%~
+	   			REPLACE_TEXTUALLY ~%solobuffdesc1a%~    ~%solobuffdesc2%~
+	   			REPLACE_TEXTUALLY ~%solobuffdesc1b%~    ~%solobuffdesc2%~
+	   			REPLACE_TEXTUALLY ~%offense1%~          ~%offense2%~
+	   			REPLACE_TEXTUALLY ~%offensedesc1%~      ~%offensedesc2%~
+	   			REPLACE_TEXTUALLY ~%groupbuff1%~        ~%groupbuff2%~
+	   			REPLACE_TEXTUALLY ~%groupbuffdesc1a%~   ~%groupbuffdesc2%~
+	   			REPLACE_TEXTUALLY ~%groupbuffdesc1b%~   ~%groupbuffdesc2%~
+	   			REPLACE_TEXTUALLY ~%specbuff1a%~        ~%specbuff2%~
+	   			REPLACE_TEXTUALLY ~%specbuff1b%~        ~%specbuff2%~
+	   			REPLACE_TEXTUALLY ~%specbuff1a%~        ~%specbuff2%~
+	   			REPLACE_TEXTUALLY ~%specbuff1b%~        ~%specbuff2%~
+	   			REPLACE_TEXTUALLY ~%specbuff1b%~        ~%specbuff2%~
+	   			REPLACE_TEXTUALLY ~%specbuffdesc1a%~    ~%specbuffdesc2%~
+	   			REPLACE_TEXTUALLY ~%specbuffdesc1b%~    ~%specbuffdesc2%~
+	   		BUT_ONLY
+		END
+	END
