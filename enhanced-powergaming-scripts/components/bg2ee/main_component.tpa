@@ -790,3 +790,49 @@ END
 ///////////////////////////////////////////////////////////////////////////
 COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~   ~override/bddefai.bcs~
   COMPILE_BAF_TO_BCS
+
+///////////////////////////////////////////////////////////////////////////
+// Copied from Stratagems to update partyai.2da                          //
+///////////////////////////////////////////////////////////////////////////
+COPY_EXISTING "PARTYAI.2da" override
+    COUNT_2DA_ROWS 2 rowcount
+    FOR (i=1;i<rowcount;i+=1) BEGIN
+       SET_2DA_ENTRY i 1 2 "BDDEFAI"
+    END
+ BUT_ONLY
+
+///////////////////////////////////////////////////////////////////////////
+// Update Lua Files                                                      //
+///////////////////////////////////////////////////////////////////////////
+OUTER_SPRINT smartscript1a     @1110
+OUTER_SPRINT smartscript1b     @1111
+OUTER_SPRINT smartscript2      @1112
+OUTER_SPRINT smartscriptdesc1a @1120
+OUTER_SPRINT smartscriptdesc1b @1121
+OUTER_SPRINT smartscriptdesc2  @1122
+OUTER_SPRINT scriptatk1        @1130
+OUTER_SPRINT scriptatk2        @1131
+
+ACTION_FOR_EACH luafile IN
+		CS_CZ
+		DE_DE
+		EN_US
+		ES_ES
+		FR_FR
+		IT_IT
+		KO_KR
+		PL_PL
+		PT_BR
+		RU_RU
+		ZN_CN
+	BEGIN
+		ACTION_IF FILE_EXISTS_IN_GAME ~L_%luafile%.LUA~ BEGIN
+			COPY_EXISTING "L_%luafile%.LUA" ~override~
+				REPLACE_TEXTUALLY ~%smartscript1a%~     ~%smartscript2%~
+	    		REPLACE_TEXTUALLY ~%smartscript1b%~     ~%smartscript2%~
+	    		REPLACE_TEXTUALLY ~%smartscriptdesc1a%~ ~%smartscriptdesc2%~
+	   			REPLACE_TEXTUALLY ~%smartscriptdesc1b%~ ~%smartscriptdesc2%~
+	   			REPLACE_TEXTUALLY ~%scriptatk1%~        ~%scriptatk2%~
+		END
+		BUT_ONLY
+	END
