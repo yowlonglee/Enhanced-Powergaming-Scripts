@@ -38,7 +38,7 @@
 @1200 = ~Use potions of extra-healing~
 @1201 = ~Turn Undead~
 @1210 = ~The character will turn undead when idle.~
-@1211 = ~Out of combat, the character will cast long-duration defensive spells on the party if they have them. The spells used are Chaotic Commands, Death Ward, Protection from Fire/Lightning/Magic Energy, and the paladin's Protection from Evil ability. This setting will automatically deactivate again once the spells have been cast. You can also activate these defensive spells by hotkey: C for Chaotic Commands, V for Death Ward, B for protection-from-elements spells, Z for Protection from Evil.~
+@1211 = ~Out of combat, the character will cast healing spells on injured party members (though not their highest-level spells), and will consume Goodberries and potions of healing or extra-healing if injured.~
 @1212 = ~The character will constantly turn undead.~
 
 @1220 = ~Group defensive spells~
@@ -80,11 +80,11 @@
 		showingSmartOptions = false~
 @2001 = ~currentPanelID = const.SCRIPT_ID
 
-		showingSmartOptions = (scriptList_idx == 20)
+		showingSmartOptions = (scriptList_idx == 5)
 		scriptDescription = t(scriptOptions[scriptList_idx][2])~
 @2002 = ~showingSmartOptions = false
 			if scriptList[scriptList_idx]~
-@2003 = ~showingSmartOptions = (scriptList_idx == 20)
+@2003 = ~showingSmartOptions = (scriptList_idx == 5)
 			if scriptList[scriptList_idx]~
 
 /*
