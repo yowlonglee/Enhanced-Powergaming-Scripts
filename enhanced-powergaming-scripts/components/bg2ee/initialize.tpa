@@ -99,6 +99,11 @@ APPEND ~stats.ids~ ~181 WIZARD_PROTECTION_FROM_NORMAL_WEAPONS~  UNLESS ~181 WIZA
 APPEND ~stats.ids~ ~182 WIZARD_TENSERS_TRANSFORMATION~          UNLESS ~182 WIZARD_TENSERS_TRANSFORMATION~
 
 ///////////////////////////////////////////////////////////////////////////
+// Adds Action to Swap Items in AI Scripts                               //
+///////////////////////////////////////////////////////////////////////////
+APPEND ~action.ids~ ~34 UseItemAbility(S:Object*,O:Target*,I:Slot*SLOTS,I:Ability*)~ UNLESS ~34 UseItemAbility(S:Object*,O:Target*,I:Slot*SLOTS,I:Ability*)~
+
+///////////////////////////////////////////////////////////////////////////
 // Adds Race used in AI Scripts                                          //
 ///////////////////////////////////////////////////////////////////////////
 APPEND ~race.ids~ ~163 MUMMY~ UNLESS ~163 MUMMY~
