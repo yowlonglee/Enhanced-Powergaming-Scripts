@@ -18,7 +18,7 @@ PLEASE NOTE: I make no attempt to keep this repository in a stable state, and bu
 
 ### Who Am I?
 
-I am a powergamer at heart constantly searching for the most efficient way to get through EET. Writing these scripts were a natural progression for me to improve my playstyle. According to Steam, I have over 1,800 hours of recorded playtime between BGEE and BG2EE, and I dread to know how much it really is since Steam doesn't register the decade plus I've played the original versions of these games before the EE was released. Needless to say, I really enjoy these games.
+I am a powergamer at heart constantly searching for the most efficient way to get through EET. Writing these scripts were a natural progression for me to improve my playstyle. According to Steam, I have over 1,900 hours of recorded playtime between BGEE and BG2EE, and I dread to know how much it really is since Steam doesn't register the decade plus I've played the original versions of these games before the EE was released. Needless to say, I really enjoy these games.
 
 ### Why Did I Write These?
 
@@ -136,7 +136,7 @@ This allows the player to fine-tune aspects of the scripts. 1 turns the feature 
 ## Special Thanks
 
 - Sarevok57 whose scripts were my inspiration to write these and what mine were originally based on.
-- Bubb for assistance with EEex lua code.
+- Bubb for assistance with EEex lua and UI.MENU code.
 - CamDawg_G3 for providing insight and feedback into difficult code.
 - FixTesteR for encouraging compatability with Spell Revisions and bug testing.
 - Mike1072 for feedback and assisting in getting these published on Gibberlings3.
