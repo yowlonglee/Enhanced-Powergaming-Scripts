@@ -66,9 +66,7 @@ APPEND ~STATE.IDS~ ~0x80002006 STATE_NOT_APPROACHABLE~		UNLESS ~0x80002006 STATE
 ///////////////////////////////////////////////////////////////////////////
 // Adds Action to Swap Items in AI Scripts                               //
 ///////////////////////////////////////////////////////////////////////////
-APPEND ~action.ids~ ~34 SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
-    UseItemAbility(S:Object*,O:Target*,I:Slot*SLOTS,I:Ability*)~ UNLESS ~34 SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
-    UseItemAbility(S:Object*,O:Target*,I:Slot*SLOTS,I:Ability*)~
+APPEND ~action.ids~ ~34 UseItemAbility(S:Object*,O:Target*,I:Slot*SLOTS,I:Ability*)~ UNLESS ~34 UseItemAbility(S:Object*,O:Target*,I:Slot*SLOTS,I:Ability*)~
 
 ///////////////////////////////////////////////////////////////////////////
 // Adds Stats used in AI Scripts                                         //

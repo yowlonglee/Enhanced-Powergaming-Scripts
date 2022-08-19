@@ -19,7 +19,6 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
   !CheckSpellState(Myself,GLOBE)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
     UseItem("MH#AMUL4",Myself)  // Mirror Amulet
     IncrementGlobal("MO_UsedMirrorAmulet0","GLOBAL",1)
 END

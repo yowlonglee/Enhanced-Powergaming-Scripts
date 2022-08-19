@@ -14,10 +14,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
-  OR(2)
-    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
-    CheckStatGT(Myself,0,AURACLEANSING)
-  !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   GlobalLT("MO_UsedMirrorAmulet0","GLOBAL",2)
   HasItemEquiped("MH#AMUL4",Myself)  // Mirror Amulet
@@ -39,7 +36,6 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
-    SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
     UseItem("MH#AMUL4",Myself)  // Mirror Amulet
     IncrementGlobal("MO_UsedMirrorAmulet0","GLOBAL",1)
 END
@@ -60,10 +56,7 @@ END
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
-  OR(2)
-    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
-    CheckStatGT(Myself,0,AURACLEANSING)
-  !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   GlobalLT("MO_UsedMirrorAmulet1","GLOBAL",1)
   HasItemEquiped("MH#AMUL4",Myself)  // Mirror Amulet
   Detect([EVILCUTOFF])
@@ -78,7 +71,6 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5017)
-    SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
     UseItemAbility("MH#AMUL4",Myself,SLOT_AMMO3,1)  // Mirror Amulet
     IncrementGlobal("MO_UsedMirrorAmulet1","GLOBAL",1)
     SetInterrupt(TRUE)
@@ -89,10 +81,7 @@ IF
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
-  OR(2)
-    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
-    CheckStatGT(Myself,0,AURACLEANSING)
-  !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   GlobalLT("MO_UsedMirrorAmulet1","GLOBAL",1)
   HasItemEquiped("MH#AMUL4",Myself)  // Mirror Amulet
   See(NearestEnemyOf(Myself))
@@ -107,7 +96,6 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5017)
-    SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
     UseItemAbility("MH#AMUL4",Myself,SLOT_AMMO3,1)  // Mirror Amulet
     IncrementGlobal("MO_UsedMirrorAmulet1","GLOBAL",1)
     SetInterrupt(TRUE)
@@ -118,10 +106,7 @@ IF
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
-  OR(2)
-    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
-    CheckStatGT(Myself,0,AURACLEANSING)
-  !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   GlobalLT("MO_UsedMirrorAmulet1","GLOBAL",1)
   HasItemEquiped("MH#AMUL4",Myself)  // Mirror Amulet
   See(SecondNearestEnemyOf(Myself))
@@ -136,7 +121,6 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5017)
-    SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
     UseItemAbility("MH#AMUL4",Myself,SLOT_AMMO3,1)  // Mirror Amulet
     IncrementGlobal("MO_UsedMirrorAmulet1","GLOBAL",1)
     SetInterrupt(TRUE)
@@ -147,10 +131,7 @@ IF
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
-  OR(2)
-    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
-    CheckStatGT(Myself,0,AURACLEANSING)
-  !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   GlobalLT("MO_UsedMirrorAmulet1","GLOBAL",1)
   HasItemEquiped("MH#AMUL4",Myself)  // Mirror Amulet
   See(ThirdNearestEnemyOf(Myself))
@@ -165,7 +146,6 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5017)
-    SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
     UseItemAbility("MH#AMUL4",Myself,SLOT_AMMO3,1)  // Mirror Amulet
     IncrementGlobal("MO_UsedMirrorAmulet1","GLOBAL",1)
     SetInterrupt(TRUE)
@@ -176,10 +156,7 @@ IF
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
-  OR(2)
-    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
-    CheckStatGT(Myself,0,AURACLEANSING)
-  !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   GlobalLT("MO_UsedMirrorAmulet1","GLOBAL",1)
   HasItemEquiped("MH#AMUL4",Myself)  // Mirror Amulet
   See(FourthNearestEnemyOf(Myself))
@@ -194,7 +171,6 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5017)
-    SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
     UseItemAbility("MH#AMUL4",Myself,SLOT_AMMO3,1)  // Mirror Amulet
     IncrementGlobal("MO_UsedMirrorAmulet1","GLOBAL",1)
     SetInterrupt(TRUE)
@@ -205,10 +181,7 @@ IF
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
-  OR(2)
-    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
-    CheckStatGT(Myself,0,AURACLEANSING)
-  !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   GlobalLT("MO_UsedMirrorAmulet1","GLOBAL",1)
   HasItemEquiped("MH#AMUL4",Myself)  // Mirror Amulet
   See(FifthNearestEnemyOf(Myself))
@@ -223,7 +196,6 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5017)
-    SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
     UseItemAbility("MH#AMUL4",Myself,SLOT_AMMO3,1)  // Mirror Amulet
     IncrementGlobal("MO_UsedMirrorAmulet1","GLOBAL",1)
     SetInterrupt(TRUE)
@@ -234,10 +206,7 @@ IF
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
-  OR(2)
-    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
-    CheckStatGT(Myself,0,AURACLEANSING)
-  !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   GlobalLT("MO_UsedMirrorAmulet1","GLOBAL",1)
   HasItemEquiped("MH#AMUL4",Myself)  // Mirror Amulet
   See(SixthNearestEnemyOf(Myself))
@@ -252,7 +221,6 @@ THEN
     SetGlobalTimer("MO_SpellCast","LOCALS",ONE_ROUND)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5017)
-    SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
     UseItemAbility("MH#AMUL4",Myself,SLOT_AMMO3,1)  // Mirror Amulet
     IncrementGlobal("MO_UsedMirrorAmulet1","GLOBAL",1)
     SetInterrupt(TRUE)
