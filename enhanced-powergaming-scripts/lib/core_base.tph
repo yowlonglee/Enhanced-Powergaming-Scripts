@@ -36,6 +36,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
     ApplySpellRES("MOPOIS",LastSeenBy(Myself))
     ApplySpellRES("MORMVDS",LastSeenBy(Myself))
     UseItem("POTN17",Myself)  // Elixir of Health
@@ -54,6 +55,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
     ApplySpellRES("MOPOIS",LastSeenBy(Myself))
     UseItem("POTN20",Myself)  // Antidote
     DisplayStringHead(Myself,@5005)
@@ -268,6 +270,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
     SetInterrupt(FALSE)
     UseItemAbility("STAF11",Myself,SLOT_AMMO3,2)
     SetInterrupt(TRUE)
@@ -391,6 +394,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
     UseItem("Boot12",Myself)  // Gargoyle Boots
     IncrementGlobal("MO_UsedGargoyle","GLOBAL",1)
 END
@@ -434,6 +438,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
     UseItem("BELT09",Myself)  // Girdle of Fortitude
     IncrementGlobal("MO_UsedFortitude","GLOBAL",1)
 END
@@ -449,6 +454,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
     UseItem("CLCK25",Myself)  // Cloak of the Stars
     IncrementGlobal("MO_UsedClkOfStars","GLOBAL",1)
 END
@@ -468,6 +474,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
     UseItem("POTN55",Myself)  // Potion of Superior Healing
     DisplayStringHead(Myself,@5005)
 END
@@ -485,6 +492,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
     UseItem("POTN52",Myself)  // Potion of Extra Healing
     DisplayStringHead(Myself,@5005)
 END
@@ -502,6 +510,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
     UseItem("POTN08",Myself)  // Potion of Healing
     DisplayStringHead(Myself,@5005)
 END
@@ -7171,6 +7180,7 @@ THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
     SetGlobal("MO_HasMelfMeteors","LOCALS",1)
+    SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
     UseItem("OHRCLCK1",Myself)  // Cowl of the Stars
     IncrementGlobal("MO_UsedCowlOfStars","GLOBAL",1)
 END
@@ -7245,6 +7255,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
     SetInterrupt(FALSE)
     UseItemAbility("SW1H31",Myself,SLOT_AMMO3,1)  // Daystar +2
     IncrementGlobal("MO_UsedDaystar","GLOBAL",1)
@@ -7902,6 +7913,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
     UseItemAbility("SW1H26",Myself,SLOT_AMMO3,1)  // Ilbratha +1
     IncrementGlobal("MO_UsedIlbratha","GLOBAL",1)
 END
@@ -7973,6 +7985,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
     UseItem("OHRRING1",Myself)  // Ring of Duplication
     IncrementGlobal("MO_UsedDuplication","GLOBAL",1)
 END
@@ -8180,6 +8193,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
     UseItem("OHNSHLD1",Myself)  // Shield of Fyrus Khal +2
     IncrementGlobal("MO_UsedShldFyrus","GLOBAL",1)
 END
@@ -8214,6 +8228,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
     UseItem("RING34",Myself)  // Ring of Spell Turning
     IncrementGlobal("MO_UsedSpellTurning","GLOBAL",1)
 END
@@ -8438,6 +8453,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
     UseItem("OHRBELT2",Myself)  // Belt of Minor Invulnerability
     IncrementGlobal("MO_UsedBltMnrInv","GLOBAL",1)
 END
@@ -12305,6 +12321,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
     UseItem("OHRHELM1",Myself)  // Headband of the Devout
     IncrementGlobal("MO_UsedDevout","GLOBAL",1)
 END
@@ -12508,6 +12525,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
     UseItem("AMUL26",Myself)  // Amulet of Cheetah Speed
     IncrementGlobal("MO_UsedCheetah","GLOBAL",1)
 END
@@ -12579,6 +12597,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
     UseItem("BRAC16",Myself)  // Bracers of Blinding Strike
     IncrementGlobal("MO_UsedBlindingSpeed","GLOBAL",1)
 END
