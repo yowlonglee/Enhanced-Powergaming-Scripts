@@ -19,7 +19,10 @@ END
 IF
   !ActionListEmpty()
   !EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
@@ -522,7 +525,7 @@ IF
 	HasItemEquiped("SW1H26",Myself)  // Ilbratha +1
 THEN
 	RESPONSE #100
-		UseItemAbility("SW1H26",Myself,SLOT_AMMO3,1)  // Ilbratha +1
+    UseItemAbility("SW1H26",Myself,SLOT_AMMO3,1)  // Ilbratha +1
 		IncrementGlobal("MO_UsedIlbratha","GLOBAL",1)
 END
 
@@ -573,7 +576,7 @@ IF
 	HasItemEquiped("OHRRING1",Myself)  // Ring of Duplication
 THEN
 	RESPONSE #100
-		UseItem("OHRRING1",Myself)  // Ring of Duplication
+    UseItem("OHRRING1",Myself)  // Ring of Duplication
 		IncrementGlobal("MO_UsedDuplication","GLOBAL",1)
 END
 
