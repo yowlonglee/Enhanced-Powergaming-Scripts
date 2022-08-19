@@ -13,7 +13,7 @@ August xx, 2022
   - Added trigger check if the player manually used an item, spell, or ability.
   - Updated French Translations, courtesy of JohnBob.
   - Updated Polish Translations, courtesy of Cahir. 
-  - Added use of the following disabling spells: Slow, Sleep, Hold Person (Cleric & Wizard), Confusion (Wizard), Emotion: Hopelessness, Cleric Silence, Miscast Magic.
+  - Added use of the following disabling spells: Slow, Sleep, Hold Person (Cleric & Wizard), Confusion (Wizard), Emotion: Hopelessness, Cleric Silence, Miscast Magic, Greater Command.
 - BG2EE and EET
   - Added use for the following items: Bracers of Blinding Strike, Staff of the Magi.
 
