@@ -12578,6 +12578,27 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_SKILL_MODE","LOCALS",2)
+  !GlobalTimerNotExpired("MO_HIDE","LOCALS")
+  !StateCheck(Myself,STATE_INVISIBLE)
+  !StateCheck(Myself,STATE_BLIND)
+  !ModalState(STEALTH)
+  !Range(NearestEnemyOf(Myself),30)
+  !ButtonDisabled(BUTTON_STEALTH)
+  OR(3)
+    Class(Myself,THIEF_ALL)
+    Class(Myself,RANGER_ALL)
+    Class(Myself,MONK)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_HIDE","LOCALS",6)
+    Hide()
+END
+
+IF
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
   Global("BDAI_SKILL_MODE","LOCALS",1)
   !ModalState(DETECTTRAPS)
   !ModalState(STEALTH)
