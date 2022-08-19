@@ -13,7 +13,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("BDAI_ATTACK_MODE","LOCALS",2)
-    Continue()
+    //Continue()
 END
 
 IF
@@ -23,7 +23,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
-    Continue()
+    //Continue()
 END
 
 IF
@@ -33,7 +33,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetGlobal("MO_SpellCast","LOCALS",0)
-    Continue()
+    //Continue()
 END
 
 IF
@@ -43,7 +43,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCastTimer","LOCALS",12)
     SetGlobal("MO_SpellCast","LOCALS",0)
-    Continue()
+    //Continue()
 END
 
 IF
