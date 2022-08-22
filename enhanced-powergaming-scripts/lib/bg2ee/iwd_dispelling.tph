@@ -57,6 +57,7 @@ THEN // Breach~~~~~ //"
     verbose = 0
     STR_VAR
     pattern = ~~~~~CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
   !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_DEFLECTION)
@@ -71,6 +72,7 @@ THEN // Breach~~~~~ //"
 THEN // Spell Thrust~~~~~
     string = ~~~~~!CheckSpellState(LastSeenBy(Myself),ENTROPY_SHIELD)
   CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
   !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_DEFLECTION)
@@ -94,6 +96,7 @@ THEN // Spell Thrust~~~~~ //"
     pattern = ~~~~~CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
   !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
   CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_POISONED)
@@ -108,6 +111,7 @@ THEN // Secret Word~~~~~
     CheckSpellState(LastSeenBy(Myself),ENTROPY_SHIELD)
   !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
   CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_POISONED)
