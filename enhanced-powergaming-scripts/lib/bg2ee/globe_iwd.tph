@@ -42,6 +42,7 @@ THEN // Breach~~~~~ //"
     CheckSpellState(LastSeenBy(Myself),ENTROPY_SHIELD)
   !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
   CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
   CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_POISONED)
