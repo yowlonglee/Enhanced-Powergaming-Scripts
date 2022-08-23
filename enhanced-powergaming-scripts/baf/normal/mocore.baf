@@ -16,15 +16,6 @@ THEN
 END
 
 IF
-  !ActionListEmpty()
-  !EEex_LuaTrigger("return AmAttacking()")
-  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
-THEN
-  RESPONSE #100
-    SetGlobal("MO_SpellCast","LOCALS",1)
-END
-
-IF
   Global("MO_SpellCast","LOCALS",1)
   !Global("BDAI_SKILL_MODE","LOCALS",3)
 THEN
