@@ -241,10 +241,18 @@ ACTION_IF !VARIABLE_IS_SET ~initialise~ BEGIN
       OUTER_SET 5e_spellcasting=0
    END
 
+   // Detect EEex
    ACTION_IF FILE_EXISTS_IN_GAME ~EEex_Actionbar.lua~ BEGIN
       OUTER_SET eeex_present=1
    END ELSE BEGIN
       OUTER_SET eeex_present=0
+   END
+
+   // Detect EEex v0.9.8
+   ACTION_IF FILE_EXISTS_IN_GAME ~X-MATOBJ.IDS~ THEN BEGIN
+      OUTER_SET eeex_verion=1
+   END ELSE BEGIN
+      OUTER_SET eeex_verion=0
    END
 
    // Rogue Rebalancing - Additional Equipment
