@@ -52,7 +52,7 @@ function ChallengeRating()
             challengeRating = challengeRating + 1
         elseif enemyLevel >= partyLevelAverage - 2 and enemyLevel < partyLevelAverage then
             challengeRating = challengeRating + 2
-        elseif enemyLevel = partyLevelAverage then
+        elseif enemyLevel == partyLevelAverage then
             challengeRating = challengeRating + 4
         elseif enemyLevel > partyLevelAverage and enemyLevel < partyLevelAverage +2 then
             challengeRating = challengeRating + 6
