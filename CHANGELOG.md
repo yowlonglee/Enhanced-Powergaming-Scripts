@@ -14,7 +14,8 @@ August xx, 2022
   - Updated Polish Translations, courtesy of Cahir. 
   - Added use of the following disabling spells: Slow, Sleep, Hold Person (Cleric & Wizard), Confusion (Wizard), Emotion: Hopelessness, Cleric Silence, Miscast Magic, add Greater Command.
 - BG2EE and EET
-  - Added use for the following items: Bracers of Blinding Strike, Staff of the Magi.
+  - Added use for the following items: Bracers of Blinding Strike and Staff of the Magi.
+  - Fixed Mind_Blank spellstate for IWDIfication when SCS is NOT installed.
 
 ## Version 9.2
 
