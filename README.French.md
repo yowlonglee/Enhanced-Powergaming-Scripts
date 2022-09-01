@@ -18,7 +18,7 @@ REMARQUE : Je ne fais aucun effort pour maintenir ce dépôt github dans un éta
 
 ### Qui suis-je ?
 
-Je suis un powergamer dans l'âme, constamment à la recherche de la manière la plus efficace de traverser EET. L'écriture de ces scripts était une progression naturelle pour moi afin d'améliorer mon style de jeu. Selon Steam, j'ai plus de 1 500 heures de jeu enregistrées entre BGEE et BG2EE, et j'ai peur de me demander combien cela représente réellement puisque Steam n'a pas enregistré les dix années et plus, pendant lesquelles j'ai joué aux versions originales avant la sortie des EE. Inutile de dire que j'apprécie beaucoup ces jeux.
+Je suis un powergamer dans l'âme, constamment à la recherche de la manière la plus efficace de traverser EET. L'écriture de ces scripts était une progression naturelle pour moi afin d'améliorer mon style de jeu. Selon Steam, j'ai plus de 1 900 heures de jeu enregistrées entre BGEE et BG2EE, et j'ai peur de me demander combien cela représente réellement puisque Steam n'a pas enregistré les dix années et plus, pendant lesquelles j'ai joué aux versions originales avant la sortie des EE. Inutile de dire que j'apprécie beaucoup ces jeux.
 
 ### Pourquoi ai-je écrit ceci ?
 
@@ -149,7 +149,7 @@ Cela permet au joueur d'affiner certains aspects des scripts. La valeur 1 active
 ## Remerciements
 
 - Sarevok57 whose scripts were my inspiration to write these and what mine were originally based on.
-- Bubb for assistance with EEex lua code.
+- Bubb for assistance with EEex lua and UI.MENU code.
 - CamDawg_G3 for providing insight and feedback into difficult code.
 - FixTesteR for encouraging compatability with Spell Revisions and bug testing.
 - Mike1072 for feedback and assisting in getting these published on Gibberlings3.
