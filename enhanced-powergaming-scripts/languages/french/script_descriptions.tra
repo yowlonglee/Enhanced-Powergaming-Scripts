@@ -9,86 +9,111 @@
 @1101 = ~Ce script est conçu pour toutes les classes principales : Guerrier, Mage, Voleur, Prêtre, Druide, Shaman, Moine, Rôdeur, Paladin, et toute combinaison de classes quelle soient doubles ou multiples afin d'inclure les kits. Ce script repoussera les morts-vivants constamment en utilisant la touche "V"  et lancera des sorts de préparation au combat en utilisant la touche "B". Si le personnage en est capable, ce script détectera constamment les pièges quand le personnage est hors combat ou en permanence lorsque vous appuyez sur la touche "D".~
 
 // Script name and description
-@1110 = ~~
-@1111 = ~~
-@1112 = ~~
-@1120 = ~~
-@1121 = ~~
-@1122 = ~~
+@1110 = ~IA AVANCÉE~
+@1111 = ~IA DU GROUPE PLUS SIMPLE DE STRATAGEMS~
+@1112 = ~ENHANCED POWERGAMING SCRIPTS~
+@1120 = ~Ce script vous permet de personnaliser le comportement de votre personnage grâce à un certain nombre d'options paramétrables.~
+@1121 = ~Ce script a des fonctions de combat assez réduites : le personnage attaquera au corps à corps ou à distance, en donnant la priorité aux adversaires qui ne sont pas déjà hors d'état de nuire et ne combattra pas si repousser les morts-vivants est activé, il ne gaspillera pas ses Minuscules météores de Melf, Lames d'énergie ou son invisibilité. En dehors du combat, le personnage utilisera ses sortilèges de soins de bas niveau si nécessaire, activera les objets à longue durée une fois par jour, et peut recevoir l'ordre de lancer des sorts défensifs de longue durée sur le groupe, en utilisant les touches de raccourci : C pour Ordres chaotiques, V pour Protection contre la mort, B pour Protection contre le feu et Protection contre l'énergie magique, Z pour utiliser Protection contre le mal avec les paladins. (Ces sorts sont jetés à un rythme fortement accéléré, et ne seront pas lancés sur des personnages déjà protégés.)\n Vous pouvez personnaliser les actions du personnage en ajustant les paramètres dans le menu ci-dessus.~
+@1122 = ~Ce script est conçu pour toutes les classes avec la possibilité de personnaliser les actions du personnage en ajustant les paramètres dans le menu ci-dessus. Avec ce script, le personnage peut utiliser les touches de raccourci suivantes :\n – Lancer les sorts de préparation au combat en appuyant sur la touche 'B'.\n – Active ou désactive la possibilité de lancer des sorts à Athkatla en appuyant sur la touche 'T, si le personnage n'a pas encore payé la taxe ou n'a pas fini de combattre les mages cagoulés.\n – Permet de basculer entre armes de mêlée et à distance en enfonçant la touche 'E', si l'une ou l'autre peuvent être équipées.\n – La touche 'K', permute entre les sorts de préparation au combat lancés sur le groupe et la préparation au combat personnelle du personnage.~
 
 // Attack
-@1130 = ~~
-@1131 = ~~
+@1130 = ~Si cette option est activée, le personnage attaquera les ennemis à vue. Si elle est désactivée, il n'attaquera que les ennemis à portée de son arme de mêlée. Cette fonctionnalité est utilisable pour le(s) personnage(s) sélectionné(s), en utilisant la touche de raccourci clavier 'K'.~
+@1131 = ~Le personnage attaquera les ennemis à vue.~
 
 // Find Traps
-@1140 = ~~
-@1141 = ~~
-@1150 = ~~
-@1151 = ~~
-@1152 = ~~
+@1140 = ~Pas de soins spontanés~
+@1141 = ~Détection des pièges~
+@1150 = ~Le personnage recherchera les pièges et les illusions lorsqu'il est inactif.~
+@1151 = ~Le personnage n'utilisera pas spontanément ses sorts ou potions de soins.~
+@1152 = ~Le personnage sera constamment à la recherche des pièges et des illusions.~
 
 // Hide in Shadows
-@1160 = ~~
-@1161 = ~~
-@1170 = ~~
-@1171 = ~~
+@1160 = ~Utiliser des sorts de guérison / baies magiques~
+@1161 = ~Se cacher dans l'ombre~
+@1170 = ~En dehors des combats, le personnage lancera des sorts de soins sur les membres du groupe blessés (mais pas ceux de haut niveau), et consommera ses baies magiques s'il est lui même blessé.~
+@1171 = ~Le personnage se cachera dans l'ombre lorsqu'il est inactif.~
 
 // Sing Bard Song
-@1180 = ~~
-@1181 = ~~
-@1190 = ~~
-@1191 = ~~
-@1192 = ~~
+@1180 = ~Utiliser des potions de soins~
+@1181 = ~Chanter le Chant du barde~
+@1190 = ~Le personnage chantera un Chant du barde ou dansera une Danse shamanique lorsqu'il est inactif.~
+@1191 = ~En dehors des combats, le personnage lancera des sorts de soins sur les membres du groupe blessés (mais pas ceux de haut niveau), et consommera ses baies magiques et potions de soins s'il est lui même blessé.~
+@1192 = ~Le personnage chantera un Chant du barde~
 
 // Turn Undead
-@1200 = ~~
-@1201 = ~~
-@1210 = ~~
-@1211 = ~~
-@1212 = ~~
+@1200 = ~Utiliser des potions de grands soins~
+@1201 = ~Repousser les morts-vivants~
+@1210 = ~Le personnage Repoussera les morts-vivants lorsqu'il est inactif.~
+@1211 = ~En dehors des combats, le personnage lancera des sorts de soins sur les membres du groupe blessés (mais pas ceux de haut niveau), et consommera ses baies magiques et potions de soins ou de grands soins s'il est lui même blessé.~
+@1212 = ~Le personnage Repoussera les morts-vivants en permanence.~
 
 // Defensive Spell Use
-@1220 = ~~
-@1221 = ~~
-@1230 = ~~
-@1231 = ~~
+@1220 = ~Sorts de protection de groupe~
+@1221 = ~Utiliser des sorts de protection~
+@1230 = ~En dehors des combats, le personnage lancera les sorts de protection longue durée qu'il possède sur le groupe. Les sorts utilisés sont Ordres chaotiques, Protection contre la mort, Protection contre le feu / la foudre / l'énergie magique, et utilisera Protection contre le mal pour les paladins. Cette option se désactive automatiquement une fois que les sorts ont été lancés. Vous pouvez également activer ces sorts de protection en utilisant les touches de raccourci : C pour Ordres chaotiques, V pour Protection contre la mort, B pour Protection contre le feu et Protection contre l'énergie magique, Z pour utiliser Protection contre le mal.~
+@1231 = ~Le personnage utilisera des sorts de protection tels que Image miroir ou Peau de pierre.~
 
 // Use Items
-@1240 = ~~
-@1241 = ~~
-@1250 = ~~
-@1251 = ~~
+@1240 = ~Création d'objet~
+@1241 = ~Utilisation d'objets~
+@1250 = ~En dehors des combats, le personnage activera automatiquement (certains) objets magiques qui ont des effets à long terme, qui créent des munitions magiques ou équivalent.~
+@1251 = ~Le personnage utilisera automatiquement certains objets comme les potions et les baguettes.~
 
 // Solo Buffing
-@1260 = ~~
-@1261 = ~~
-@1270 = ~~
-@1271 = ~~
-@1272 = ~~
+@1260 = ~Préférer les armes de mêlée~
+@1261 = ~Préparation au combat centrée sur le personnage~
+@1270 = ~Le personnage privilégiera l'utilisation d'armes de mêlée comme les épées ou les masses.~
+@1271 = ~Le personnage privilégiera l'utilisation d'armes de mêlée telles que les épées ou les masses. Vous pouvez activer cette fonction pour le(s) personnage(s) sélectionné(s) à l'aide du raccourci clavier D, si ceux-ci sont configurés pour attaquer les ennemis.~
+@1272 = ~Le personnage se concentrera uniquement sur sa propre préparation préparation au combat.~
 
 // Offensive Spell Use
-@1280 = ~~
-@1281 = ~~
-@1290 = ~~
-@1291 = ~~
+@1280 = ~Sorts de protection individuels~
+@1281 = ~Utiliser des sorts offensifs~
+@1290 = ~En dehors des combats, le personnage lancera les sorts de protection de combat de longue durée qu'il possède. Les sorts utilisés sont Peau de pierre, Peau de fer, Armure, Mind Blank, and Impervious Sanctity of Mind.~
+@1291 = ~Le personnage utilisera des sorts offensifs tels que Boule de feu ou Projectile magique.~
 
 // Group Buffing
-@1300 = ~~
-@1301 = ~~
-@1310 = ~~
-@1311 = ~~
-@1312 = ~~
+@1300 = ~Préférer les armes à distance~
+@1301 = ~Préparation au combat de groupe~
+@1310 = ~Le personnage privilégiera l'utilisation d'armes à distance telles que les arcs ou les frondes.~
+@1311 = ~Le personnage privilégiera l'utilisation d'armes à distance telles que les arcs ou les frondes. Vous pouvez activer cette option pour le(s) personnage(s) sélectionné(s) à l'aide du raccourci clavier F, si ceux-ci sont configurés pour attaquer les ennemis.~
+@1312 = ~Le personnage se concentrera sur la préparation au combat du groupe.~
 
 // Enemy Debuff/Curative/Healing spells and ability use
-@1320 = ~~
-@1321 = ~~
-@1322 = ~~
-@1330 = ~~
-@1331 = ~~
-@1332 = ~~
+@1320 = ~Utiliser les capacités spéciales~
+@1321 = ~Minuscules météores de Melf~
+@1322 = ~Suppression des protections de combat de l'ennemi / Guérison / Soins~
+@1330 = ~Le personnage utilisera des capacités spéciales comme Rage du barbare ou le Tir ajusté.~
+@1331 = ~En dehors du combat, le personnage lancera Minuscules météores de Melf ou Suppression des protections de combat de l'ennemi / Guérison / Soins.~
+@1332 = ~Le personnage utilisera des sorts permettant de supprimer les protections de combat des ennemis, des sorts de guérison pour supprimer les effets de sorts indésirables sur lui-même et ses alliés, ainsi que des sorts de soins. Les sorts utilisés sont Brèche, Rayon rubis d'inversion, Vision véritable, Délivrance de la paralysie, Rappel à la vie et Guérison.~
 
 // I really want to highlight, call out, and emphasize the below code was provided by Bubb.
-@2000 = ~~
-@2001 = ~~
-@2002 = ~~
-@2003 = ~~
+@2000 = ~currentPanelID = const.SCRIPT_ID
+
+		showingSmartOptions = false~
+@2001 = ~currentPanelID = const.SCRIPT_ID
+
+		B3SmartScriptIdx = -1
+		for i, name in ipairs(scriptList) do
+    		if name == 'ENHANCED POWERGAMING SCRIPTS' then
+        		B3SmartScriptIdx = i
+        		break
+    		end
+		end
+
+		showingSmartOptions = scriptList_idx == B3SmartScriptIdx
+		scriptDescription = t(scriptOptions[scriptList_idx][2])~
+@2002 = ~showingSmartOptions = false
+			if scriptList[scriptList_idx]~
+@2003 = ~showingSmartOptions = scriptList_idx == B3SmartScriptIdx
+			if scriptList[scriptList_idx]~
+
+/*
+BDAI_DISABLE_ATTACK => 0 = Attacks a Go
+BDAI_ATTACK_MODE => 1 = Solo Buffing; 2 = Group Buffing
+BDAI_SKILL_MODE => 1 = Traps; 2 = Stealth; 3 = Song; 4 = Turn Undead
+BDAI_DISABLE_ITEMS => 1 = No item use
+BDAI_DISABLE_SPECIAL => 0 = Enemy Debuffing/Curative/Healing 
+BDAI_DISABLE_DEFENSIVE => 0 = Self Buffing Spells and Abilities
+BDAI_DISABLE_OFFENSIVE => 0 = Disabling/Offensive Spells and Abilities
+*/
