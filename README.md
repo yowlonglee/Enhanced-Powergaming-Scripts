@@ -137,7 +137,7 @@ The character will constantly turn undead.
 
 ### Enhanced Scripts for Summoned Celestials (BGII: EE and EET Required)
 
-This provides enhanced ai scripts for celestials. Overall, the scripts allows the player to be more hands off with summoned celestials, and they will act intelligently in targeting enemies. Like the other scripts listed above, this script will cast pre-buff spells when the "B" key is pressed. Spell Revisions also rewrote their spellbooks, and the scripts will accomodate these changes.
+This provides enhanced ai scripts for celestials. Overall, the scripts allows the player to be more hands off with summoned celestials, and they will act intelligently in targeting enemies. Like the other scripts listed above, this script will cast pre-buff spells when the "B" key is pressed. Spell Revisions also rewrote their spellbooks, and the scripts will accommodate these changes.
 
 ### Enhanced Scripts for Simulacrums (BGII: EE, EET, or IWD: EE Required)
 
