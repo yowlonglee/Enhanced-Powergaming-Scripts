@@ -2,7 +2,7 @@
 
 ## Version 10.0
 
-August xx, 2022
+September 1, 2022
 
 ### Changed 
 
@@ -16,6 +16,7 @@ August xx, 2022
 - BG2EE and EET
   - Added use for the following items: Bracers of Blinding Strike and Staff of the Magi.
   - Fixed Mind_Blank spellstate for IWDIfication when SCS is NOT installed.
+  - Fixed issue with SR Celestials.
 
 ## Version 9.2
 

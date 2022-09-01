@@ -44,17 +44,19 @@ These scripts are focused on heavy physical damage parties in both melee and ran
 
 - Only attack enemies that they have the capability to hit and damage. I toyed with the idea of making a more improved targeting system, but decided against it. I really dislike in other scripts if I am focusing on a target and the script reassigns my enemy to someone else.
 
+- Enemy threat rating calculations are done using enhanced functions offered by EEex. All visible enemies will be assessed and a threat rating determined which will assist the ai in determining if the encounter is difficult enough to warrant certain spell use. Enemy threat ratings are continually adjusted in combat and reset after a fight is completed. This means a fight may start off as a challenge, but later determined as no longer a challenge as enemies are removed. If EEex is not present, or only an older version is installed, then this feature is skipped. 
+
 ## Compatibility
 If you are upgrading from an earlier version of this mod, I recommend uninstalling all mod components and replacing all files with the new ones before doing a fresh install.
 
 If you are installing any of the below listed mods, they should be installed before this mod. Typically, I recommend to install my scripts at the very end of the mod install order.
 
-As of version 9.0, these scripts utilize custom triggers from EEex (if installed). If EEex is not installed, the scripts will still function, just without the additional triggers. 
+As of version 0.9.0, these scripts utilize custom triggers from EEex (if installed). If EEex is not installed, the scripts will still function, just without the additional triggers. Please note: version 0.9.8 of EEex introduces additional functions that allow for enemy threat rating to be determined. If an older version of EEex is installed, this part will be skipped.
 
 These scripts cannot be installed if Olvyn spells are previously installed.
 
 ### Baldur's Gate: Enhanced Edition, Baldur's Gate II: Enhanced Edition, and Enhanced Edition Trilogy
-The mod has support for aTweaks, IWD spells (from either Sword Coast Stratagems or IWDification), Skills and Abilities, Sword Coast Stratagems, D5 Random Tweaks, Dark Side of the Sword Coast, Made in Heaven Spellpack, Song & Silence, Tome & Blood, Faith & Powers, 5e Spellcasting, and for changes from Spell Revisions (Revised) and Item Revisions (Revised).
+The mod has support for aTweaks, IWD spells (from either Sword Coast Stratagems or IWDification), Skills and Abilities, Sword Coast Stratagems, D5 Random Tweaks, Dark Side of the Sword Coast, Made in Heaven Spellpack and Itempack, Song & Silence, Tome & Blood, Faith & Powers, 5e Spellcasting, and for changes from Spell Revisions (Revised) and Item Revisions (Revised).
 
 Before modding SoD games, it requires use of either DLCMerger or ModMerge (DLCMerger Preferred).
 
@@ -87,24 +89,51 @@ These are the most advanced scripts at detecting and countering invisible enemie
 These scripts will utilize items such as Amulet of the Cheetah, Ilbratha+1, Ring of Duplication, Gargoyle Boots, Headband of the Devout, Girdle of Fortitude, Ring of Spell Turning, Cloak of the Stars, Cowl of the Stars, Belt of Minor Invulnerability, Cloak of the Dark Moon, and the Shield of Fyrus Khal. Additionally, these scripts will also assist in automatically swapping items in order to cast an items effect and then swapping back to the original item. This will be done seamlessly. For example, if you have either Gargoyle Boots or Boots of Speed equipped with the other item in your inventory, then the script will automatically swap items to equip the Gargoyle Boots, cast Stoneskin (if there is a charge), then swap back to the Boots of Speed. The player will not notice any item swapping from the game screen, but they will have a seamless casting of Stoneskin. This saves a lot of micromanagement to swap boots and cast Stoneskin. Similarly, Monks will similarly swap with Ilbratha+1 and the Scarlet Ninja-To (in the off-hand) in order to cast Mirror Images.
 
 #### The Scripts
-Below are a listing of the different scripts included in the Main Component.
+The scripts are now listed as Enhanced Powergaming Scripts listed under the previous Advanced AI option. Here, the player has the option to select multiple radial buttons to custom tweak the interaction the AI scripts have.
 
-##### MO-BasicAI
+##### Attack Enemies
 
-This script will constantly Turn Undead when the "V" key is pressed and will cast pre-buffing spells when the "B" key is pressed. If playing a thief or monk class, this script will detect traps while not in combat or constantly when the "D" key is pressed. If playing a Bard class, the script will constantly be singing the applicable Bard song. This script will NOT auto-attack by default, but this can be changed in the ini file.  
+The character will attack enemies on sight.
 
-Please Note: These are ai scripts for players who do not like ai scripts. These can be tailored to a players taste by adjusting the ini field prior to install.
+##### Solo Buffing
 
-##### MO-CORE
+The character will only focus on buffing themself during pre-buffing. For example: The character will only use Improved Haste on themself instead of other members in the party.
 
-This script is designed for all core classes: Fighter, Mage, Sorcerer, Thief, Cleric, Druid, Shaman, Monk, Ranger, Paladin, and any combination of multiclass/dualclass to include kits. This script will constantly Turn Undead when the "V" key is pressed and will cast pre-buffing spells when the "B" key is pressed. If the character is able, this script will constantly be detecting traps while idle or when the "D" key is pressed.
+##### Group Buffing
 
-##### MO-SKALD
+The character will buff fellow party members in addition to themself during pre-buffing. For example: The character will use Improved Haste on themself AND other members in the party.
 
-This is a script specifically designed for the Skald Kit. This script will cast pre-buff spells when the "B" key is pressed. In addition to pre-buffing, the script will intelligently use abilities both in and out of combat. When not casting spells, the Skald will constantly be singing the Skald song. Additionally, between casting spells, the Skald will start singing again to attempt to keep the Skald song up constantly in combat. This script is written to use up to Level 9 Spells.
+##### Use Items
 
-Please Note: Despite the name, this script can be used by any bard that you want to sing.
+The character will use items such as potions.
 
+##### Enemy Debuffing/Curative/Healing
+
+The character will use debuffing spells against enemies, curative spells to remove enemy debuffs on themself and allies, and healing spells. The spells used include Breach, Ruby Ray of Reversal, True Sight, Remove Paralysis, Raise Dead, and Heal.
+
+##### Use Offensive Spells
+
+The character will use offensive spells such as Sunray, False, Dawn, Insect Plague, and Greater Malison.
+
+##### Use Defensive Spells
+
+The character will use defensive spells such as Mirror Image or Stoneskin.
+
+##### Find Traps
+
+The character will constantly search for traps and illusions.
+
+##### Hide in Shadows
+
+The character will hide in shadows when idle.
+
+##### Sing Bard Song
+
+The character will sing a bard song.
+
+##### Turn Undead
+
+The character will constantly turn undead.
 
 ### Enhanced Scripts for Summoned Celestials (BGII: EE and EET Required)
 
