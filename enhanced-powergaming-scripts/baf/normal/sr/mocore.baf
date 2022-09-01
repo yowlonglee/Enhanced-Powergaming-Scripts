@@ -65,7 +65,6 @@ END
 IF
   HotKey(hot_key_WeaponSwap)
   !HasItem("melfmet",Myself)  // Melf's Minute Meteor
-  !CheckSpellState(Myself,BLACK_BLADE)  // Black Blade of Disaster
   !IsWeaponRanged(Myself)
   CanEquipRanged()
 THEN
@@ -77,7 +76,6 @@ END
 IF
   HotKey(hot_key_WeaponSwap)
   !HasItem("melfmet",Myself)  // Melf's Minute Meteor
-  !CheckSpellState(Myself,BLACK_BLADE)  // Black Blade of Disaster
   IsWeaponRanged(Myself)
 THEN
   RESPONSE #100
