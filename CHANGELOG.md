@@ -9,7 +9,6 @@ September 1, 2022
 - All Games
   - Moved the scripts into the Advanced AI slot. They are now listed as "Enhanced Powergaming Scripts" and allow the user to select the level of involvement the scripts will have on gameplay.
   - Characters can switch between solo and party buffing using Hotkey 'K'. This allows you to have some characters buff everyone in the party, while other characters (such as sorcerers) will not burn through their spells on the party if they are set to solo buff.
-  - Added trigger check if the player manually used an item, spell, or ability.
   - Updated French Translations, courtesy of JohnBob.
   - Updated Polish Translations, courtesy of Cahir. 
   - Added use of the following disabling spells: Slow, Sleep, Hold Person (Cleric & Wizard), Confusion (Wizard), Emotion: Hopelessness, Cleric Silence, Miscast Magic, add Greater Command.
