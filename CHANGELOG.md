@@ -1,5 +1,14 @@
 # Changelog
 
+## Version 10.1
+
+September xx, 2022
+
+### Changed 
+
+- BGEE, BG2EE, and EET
+  - Added spell tracking to Haste and Improved Haste if Spell Revisions is installed.
+
 ## Version 10.0
 
 September 1, 2022

@@ -148,7 +148,7 @@ END~~~~~
     pattern = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
-  !CheckStatGT(Myself,0,IMPROVEDHASTE)
+  !CheckSpellState(Myself,IMPROVED_HASTE)
   GlobalLT("MO_UsedCheetah","GLOBAL",1)
   HasItemEquiped("AMUL26",Myself)  // Amulet of Cheetah Speed
 THEN
@@ -170,7 +170,7 @@ END~~~~~
     pattern = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
-  !CheckStatGT(Myself,0,IMPROVEDHASTE)
+  !CheckSpellState(Myself,IMPROVED_HASTE)
   GlobalLT("MO_UsedBlindingSpeed","GLOBAL",1)
   HasItemEquiped("BRAC16",Myself)  // Bracers of Blinding Strike
 THEN

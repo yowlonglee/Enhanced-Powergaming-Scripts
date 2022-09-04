@@ -8458,7 +8458,7 @@ END~~~~~ //"
     CheckStatGT(Myself,0,AURACLEANSING)
   !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
   HaveSpellRES(WIZARD_IMPROVED_HASTE)
-  !CheckStatGT(Myself,0,IMPROVEDHASTE)
+  !CheckSpellState(Myself,IMPROVED_HASTE)
   OR(5)
     Class(Myself,THIEF_ALL)
     Class(Myself,FIGHTER_ALL)

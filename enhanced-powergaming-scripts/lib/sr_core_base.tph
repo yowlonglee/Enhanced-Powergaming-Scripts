@@ -13874,7 +13874,7 @@ IF
     CheckStatGT(Myself,0,AURACLEANSING)
   !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
   HaveSpell(WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
-  !CheckStatGT(Myself,0,IMPROVEDHASTE)
+  !CheckSpellState(Myself,IMPROVED_HASTE)
   OR(5)
 		Class(Myself,THIEF_ALL)
 		Class(Myself,FIGHTER_ALL)
@@ -13960,7 +13960,7 @@ IF
   !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
   GlobalLT("MO_UsedCheetah","GLOBAL",1)
   HasItemEquiped("AMUL26",Myself)  // Amulet of Cheetah Speed
-  !CheckStatGT(Myself,0,IMPROVEDHASTE)
+  !CheckSpellState(Myself,IMPROVED_HASTE)
   !CheckSpellState(Myself,GREATER_WHIRLWIND)
   See([EVILCUTOFF])
   OR(6)
@@ -14035,7 +14035,7 @@ IF
   !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
   GlobalLT("MO_UsedBlindingSpeed","GLOBAL",1)
   HasItemEquiped("BRAC16",Myself)  // Bracers of Blinding Strike
-  !CheckStatGT(Myself,0,IMPROVEDHASTE)
+  !CheckSpellState(Myself,IMPROVED_HASTE)
   !CheckSpellState(Myself,GREATER_WHIRLWIND)
   See([EVILCUTOFF])
   OR(6)
