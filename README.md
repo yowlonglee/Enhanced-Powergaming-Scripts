@@ -119,9 +119,9 @@ The character will use offensive spells such as Sunray, False, Dawn, Insect Plag
 
 The character will use defensive spells such as Mirror Image or Stoneskin.
 
-##### Find Traps
+##### Find Traps in Combat
 
-The character will constantly search for traps and illusions.
+The character will constantly search for traps and illusions, even when in combat. Please Note: if a character is capable of finding traps, these ai scripts will already have the character use this ability when outside of combat. This option is to constantly force the character to find traps, even when in combat.
 
 ##### Hide in Shadows
 

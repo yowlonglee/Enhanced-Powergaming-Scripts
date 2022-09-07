@@ -820,6 +820,7 @@ OUTER_SPRINT scriptatk1        @1130
 OUTER_SPRINT scriptatk2        @1131
 OUTER_SPRINT findtrap1         @1140
 OUTER_SPRINT findtrap2         @1141
+OUTER_SPRINT findtrap3         @1142
 OUTER_SPRINT findtrapdesc1a    @1150
 OUTER_SPRINT findtrapdesc1b    @1151
 OUTER_SPRINT findtrapdesc2     @1152
@@ -886,7 +887,8 @@ ACTION_FOR_EACH luafile IN
 	    		REPLACE_TEXTUALLY ~%smartscriptdesc1a%~ ~%smartscriptdesc2%~
 	   			REPLACE_TEXTUALLY ~%smartscriptdesc1b%~ ~%smartscriptdesc2%~
 	   			REPLACE_TEXTUALLY ~%scriptatk1%~        ~%scriptatk2%~
-	   			REPLACE_TEXTUALLY ~%findtrap1%~         ~%findtrap2%~
+	   			REPLACE_TEXTUALLY ~%findtrap1%~         ~%findtrap3%~
+	   			REPLACE_TEXTUALLY ~%findtrap2%~         ~%findtrap3%~
 	   			REPLACE_TEXTUALLY ~%findtrapdesc1a%~    ~%findtrapdesc2%~
 	   			REPLACE_TEXTUALLY ~%findtrapdesc1b%~    ~%findtrapdesc2%~
 	   			REPLACE_TEXTUALLY ~%hideshdws1%~        ~%hideshdws2%~
