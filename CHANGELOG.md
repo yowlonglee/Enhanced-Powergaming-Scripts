@@ -2,12 +2,12 @@
 
 ## Version 10.1
 
-September xx, 2022
+September 6, 2022
 
 ### Changed 
 
 - All Games
-  - 
+  - Players can now have individuals swap between skill modes using hotkey "V". This will cycle through no special skill use, find traps, hide in shadows, singing, and turn undead. This accounts for my other mods that let bards find traps and removes the standard turn undead for a special use ability.
 - BGEE, BG2EE, and EET
   - Added spell tracking to Haste and Improved Haste if Spell Revisions is installed.
   - Updated Wild Magic and Dead Magic zones to not install on BGEE.
