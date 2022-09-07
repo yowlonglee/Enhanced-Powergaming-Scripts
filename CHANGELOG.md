@@ -6,6 +6,8 @@ September xx, 2022
 
 ### Changed 
 
+- All Games
+  - 
 - BGEE, BG2EE, and EET
   - Added spell tracking to Haste and Improved Haste if Spell Revisions is installed.
   - Updated Wild Magic and Dead Magic zones to not install on BGEE.
