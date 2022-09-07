@@ -1,5 +1,13 @@
 # Changelog
 
+## Version 10.1.1
+
+September 7, 2022
+
+### Changed 
+
+- Bug fix to resolve an issue where swapping skill modes was not working as desired.
+
 ## Version 10.1
 
 September 6, 2022
