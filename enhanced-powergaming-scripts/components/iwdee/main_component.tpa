@@ -13,6 +13,13 @@ COPY ~enhanced-powergaming-scripts/baf/normal/mocore.baf~  ~enhanced-powergaming
 INCLUDE ~enhanced-powergaming-scripts/lib/IWDEE/prebuff_iwd.tph~
 
 ///////////////////////////////////////////////////////////////////////////
+// Turn Undead Overhaul                                                  //
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF turn_undead BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/bg2ee/prebuff_turn_undead.tph~
+END
+
+///////////////////////////////////////////////////////////////////////////
 // Remove Dialog Hovertext from Scripts                                  //
 ///////////////////////////////////////////////////////////////////////////
 ACTION_IF scp_dlg BEGIN
