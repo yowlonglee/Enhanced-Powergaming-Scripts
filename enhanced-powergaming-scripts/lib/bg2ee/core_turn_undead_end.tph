@@ -32,6 +32,26 @@ END~~~~~
     strict = 1
     verbose = 0
     STR_VAR
+    pattern = ~~~~~IF
+  !Global("BDAI_SKILL_MODE","LOCALS",4)
+  OR(2)
+    Class(Myself,CLERIC_ALL)
+    Class(Myself,PALADIN_ALL)
+  !Kit(Myself,INQUISITOR)
+  HotKey(hot_key_SwapSkills)
+THEN
+  RESPONSE #100
+    SetGlobal("BDAI_SKILL_MODE","LOCALS",4)
+    DisplayStringHead(Myself,@5000)
+END~~~~~
+    string = ~~~~~~~~~~ //"
+  END
+
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
     pattern = ~~~~~!Global("BDAI_SKILL_MODE","LOCALS",4)~~~~~
     string = ~~~~~~~~~~ //"
   END
