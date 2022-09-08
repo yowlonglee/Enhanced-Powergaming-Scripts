@@ -882,6 +882,8 @@ ACTION_FOR_EACH luafile IN
 	BEGIN
 		ACTION_IF FILE_EXISTS_IN_GAME ~L_%luafile%.LUA~ BEGIN
 			COPY_EXISTING "L_%luafile%.LUA" ~override~
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~CHARACTER_SCRIPT_SMART_SCRIPT = \".*\"~ ~CHARACTER_SCRIPT_SMART_SCRIPT = "%smartscript2%"~
+				/*
 				REPLACE_TEXTUALLY ~%smartscript1a%~     ~%smartscript2%~
 	    		REPLACE_TEXTUALLY ~%smartscript1b%~     ~%smartscript2%~
 	    		REPLACE_TEXTUALLY ~%smartscriptdesc1a%~ ~%smartscriptdesc2%~
@@ -918,6 +920,7 @@ ACTION_FOR_EACH luafile IN
 	   			REPLACE_TEXTUALLY ~%specbuff1b%~        ~%specbuff2%~
 	   			REPLACE_TEXTUALLY ~%specbuffdesc1a%~    ~%specbuffdesc2%~
 	   			REPLACE_TEXTUALLY ~%specbuffdesc1b%~    ~%specbuffdesc2%~
+	   			*/
 	   		BUT_ONLY
 		END
 	END
