@@ -46,12 +46,14 @@ Ces scripts sont axés sur les dégâts physiques en mêlée et à distance. Pou
 
 - Attaquer les ennemis quand il est possible de les toucher et de les blesser. J'ai caressé l'idée de faire un système de ciblage plus amélioré,  j'ai décidé de ne pas le faire. Je n'aime vraiment pas ça dans d'autres scripts, si je suis concentré sur une cible et le script réassigne mon ennemi à quelqu'un d'autre.
 
+- Enemy threat rating calculations are done using enhanced functions offered by EEex. All visible enemies will be assessed and a threat rating determined which will assist the ai in determining if the encounter is difficult enough to warrant certain spell use. Enemy threat ratings are continually adjusted in combat and reset after a fight is completed. This means a fight may start off as a challenge, but later determined as no longer a challenge as enemies are removed. If EEex is not present, or only an older version is installed, then this feature is skipped.
+
 ## Compatibilité
 Si vous effectuez une mise à jour depuis une version antérieure de ce mod, je vous recommande de désinstaller tous les composants du mod et de remplacer tous les fichiers par les nouveaux avant de procéder à une nouvelle installation.
 
 Si vous installez l'un des mods ci-dessous, ils doivent être installés avant ce Enhanced-Powergaming-Scripts. En général, je recommande d'installer mes scripts à la toute fin de l'ordre d'installation des mods.
 
-Depuis la version 8.1, les scripts utilisent les triggers personnalisés d'EEex (s'il est installé). Si EEex n'est pas installé, les scripts fonctionneront toujours, mais sans les déclencheurs supplémentaires. 
+Depuis la version 0.9.0, les scripts utilisent les triggers personnalisés d'EEex (s'il est installé). Si EEex n'est pas installé, les scripts fonctionneront toujours, mais sans les déclencheurs supplémentaires. Please note: version 0.9.8 of EEex introduces additional functions that allow for enemy threat rating to be determined. If an older version of EEex is installed, this part will be skipped.
 
 Ces scripts ne peuvent pas être installés si les sorts d'Olvyn ( OlvynSpells mod ) sont déjà installés.
 
@@ -61,7 +63,7 @@ Le mod prend en compte les sorts de IWD ( Sword Coast Stratagems ou IWDification
 Avant de modder les jeux SoD, il faut utiliser soit DLCMerger soit ModMerge ( DLCMerger de préférence ).
 
 ### Baldur's Gate II: Enhanced Edition and Enhanced Edition Trilogy
-Ce mod prend en charge aTweaks, IWD spells ( Sword Coast Stratagems or IWDification ), Thieving Skills for Bards, Sword Coast Stratagems, D5 Random Tweaks, Dark Side of the Sword Coast, Made in Heaven Spellpack, Song & Silence, Tome & Blood, Faith & Powers, et les changements de Spell Revisions ( Version Revisée ) et Item Revisions ( Version Revisée ).
+Ce mod prend en charge aTweaks, IWD spells ( Sword Coast Stratagems or IWDification ), Thieving Skills for Bards, Sword Coast Stratagems, D5 Random Tweaks, Dark Side of the Sword Coast, Made in Heaven Spellpack / Itempack, Song & Silence, Tome & Blood, Faith & Powers, et les changements de Spell Revisions ( Version Revisée ) et Item Revisions ( Version Revisée ).
 
 ### Icewind Dale: Enhanced Edition
 Le mod s'adapte à Skills and Abilities.
@@ -99,21 +101,51 @@ Ces scripts utiliseront les objets tels que l'Amulette du guépard, Ilbratha+1, 
 
 #### Les scripts
 
-Vous trouverez ci-dessous une liste des différents scripts inclus dans le composant principal.
+Les scripts sont maintenant affichés en tant que Enhanced Powergaming Scripts, sous l'ancienne l'option d'IA avancée. Le joueur aura désormais la possibilité de personnaliser la sélection des scripts d'IA.
 
-##### MO-BASE AI
+##### Attack Enemies
 
-Ce script commencera à repousser les morts-vivants en utilisant la touche "V" et lancera des sorts de préparation au combat en utilisant la touche "B". Si vous jouez une classe de voleur ou de moine, ce script détectera les pièges quand le personnage est hors combat ou en permanence lorsque vous appuyez sur la touche "D". Si vous jouez une classe de barde, ce script maintiendra constamment le chant du barde concerné. Ce script n'attaque PAS automatiquement par défaut, mais cela peut être modifié dans le fichier ini. 
+Le personnage attaquera les ennemis à vue.
 
-Remarque : Ces scripts ai sont pour les joueurs qui n'aiment pas les scripts ai. Ils peuvent donc être adaptés aux préférences des joueurs en ajustant le fichier ini avant d'installer le mod.
+##### Solo Buffing
 
-##### MO-CŒUR 
+Le personnage se concentrera uniquement sur sa propre préparation préparation au combat. Par exemple : Le personnage n'utilisera Hâte améliorée que sur lui-même et non sur les membres du groupe.
 
-Ce script est conçu pour toutes les classes principales : Guerrier, Mage, Ensorceleur, Voleur, Prêtre, Druide, Shaman, Moine, Rôdeur, Paladin, et toute combinaison de classes quelle soient doubles ou multiples afin d'inclure les kits. Ce script repoussera les morts-vivants constamment en utilisant la touche "V"  et lancera des sorts de préparation au combat en utilisant la touche "B". Si le personnage en est capable, ce script détectera constamment les pièges quand le personnage est hors combat ou en permanence lorsque vous appuyez sur la touche "D".
+##### Group Buffing
 
-##### MO-SCALDE 
+Le personnage se concentrera sur la préparation au combat du groupe. Par exemple : Le personnage utilisera Hâte améliorée sur lui-même ET sur les membres du groupe.
 
-Ce script est spécialement conçu pour le Kit de Scalde. Ce script lancera des sorts de préparation au combat lorsque la touche "B" sera pressée. En plus de la préparation au combat, ce script utilisera intelligemment les capacités du Scalde, qu'il soit en train de combattre ou non. Lorsqu'il ne lance pas de sorts, le Scalde chante continuellement. De plus, entre deux sorts, le Scalde recommencera à chanter pour essayer de maintenir son chant tout au long du combat. Ce script est prévu pour utiliser des sorts allant jusqu'au niveau 9.
+##### Use Items
+
+Le personnage utilisera automatiquement certains objets comme les potions.
+
+##### Enemy Debuffing/Curative/Healing
+
+Le personnage utilisera des sorts permettant de supprimer les protections de combat des ennemis, des sorts de guérison pour supprimer les effets de sorts indésirables sur lui-même et ses alliés, ainsi que des sorts de soins. Les sorts utilisés sont Brèche, Rayon rubis d'inversion, Vision véritable, Délivrance de la paralysie, Rappel à la vie et Guérison.
+
+##### Use Offensive Spells
+
+Le personnage utilisera des sorts offensifs tels que Rayon de soleil, Aube illusoire, Fléau d'insectes et Grande malédiction.
+
+##### Use Defensive Spells
+
+Le personnage utilisera des sorts de protection tels que Image miroir ou Peau de pierre.
+
+##### Find Traps
+
+Le personnage sera constamment à la recherche des pièges et des illusions.
+
+##### Hide in Shadows
+
+Le personnage se cachera dans l'ombre lorsqu'il est inactif.
+
+##### Sing Bard Song
+
+Le personnage chantera un Chant du barde
+
+##### Turn Undead
+
+Le personnage Repoussera les morts-vivants en permanence.
 
 ### Scripts ameliores pour les Devas invoques (BGII: EE and EET Requis)
 
@@ -124,6 +156,7 @@ Cela fournit des scripts améliorés pour les Devas invoques. Dans l'ensemble, l
 Cela fournit des scripts améliorés pour les Simulacres invoqués, permettant au joueur d'avoir les mains libres pendant que les Simulacres seront plus autonomes en ciblant les ennemis, en lançant des sorts de protection, en détectant les ennemis invisibles/cachés, en réduisant les protections des ennemis, et en étant capable de pré-buffing ! Le Simulacre fonctionnera avec tous les raccourcis clavier proposés dans mes scripts.
 
 ## ini File
+
 Le fichier ini permet aux joueurs de personnaliser certains paramètres selon leurs préférences.
 
 ### Hotkeys
@@ -137,6 +170,8 @@ Saisissez le raccourci clavier que vous souhaitez associer à l'action correspon
 - hot_key_WeaponSwap - Default "E" - swaps the between melee and ranged weapons so long as either can be equipped.
 
 - hot_key_SoloBuff - Default "K" - swaps between solo and party buffing. This allows you to have some characters buff everyone in the party, while other characters (such as sorcerers) will not burn through their spells on the party if they are set to solo buff.
+
+- hot_key_SwapSkills - Default "V" - swaps between the various skill modes: no special skill use, find traps, hide in shadows, singing, and turn undead.
 
 ### Script Tweaks
 
