@@ -46,14 +46,14 @@ Ces scripts sont axés sur les dégâts physiques en mêlée et à distance. Pou
 
 - Attaquer les ennemis quand il est possible de les toucher et de les blesser. J'ai caressé l'idée de faire un système de ciblage plus amélioré,  j'ai décidé de ne pas le faire. Je n'aime vraiment pas ça dans d'autres scripts, si je suis concentré sur une cible et le script réassigne mon ennemi à quelqu'un d'autre.
 
-- Enemy threat rating calculations are done using enhanced functions offered by EEex. All visible enemies will be assessed and a threat rating determined which will assist the ai in determining if the encounter is difficult enough to warrant certain spell use. Enemy threat ratings are continually adjusted in combat and reset after a fight is completed. This means a fight may start off as a challenge, but later determined as no longer a challenge as enemies are removed. If EEex is not present, or only an older version is installed, then this feature is skipped.
+- Les calculs du niveau de menace des ennemis sont effectués à l'aide de fonctions améliorées proposées par EEex. Tous les ennemis visibles seront évalués et leurs degrés de menace déterminés, ce qui permettra à l'IA de déterminer si la rencontre est suffisamment difficile pour justifier l'utilisation de certains sorts. Le niveau de dangerosité des ennemis est continuellement ajusté en cours de combat et réinitialisé à la fin. Un combat peut donc débuter comme un défi et devenir de moins en moins difficile au fur et à mesure que les ennemis sont éliminés. Si EEex n'est pas présent, ou si seule une ancienne version est installée, cette fonctionnalité est simplement ignorée.
 
 ## Compatibilité
 Si vous effectuez une mise à jour depuis une version antérieure de ce mod, je vous recommande de désinstaller tous les composants du mod et de remplacer tous les fichiers par les nouveaux avant de procéder à une nouvelle installation.
 
 Si vous installez l'un des mods ci-dessous, ils doivent être installés avant ce Enhanced-Powergaming-Scripts. En général, je recommande d'installer mes scripts à la toute fin de l'ordre d'installation des mods.
 
-Depuis la version 0.9.0, les scripts utilisent les triggers personnalisés d'EEex (s'il est installé). Si EEex n'est pas installé, les scripts fonctionneront toujours, mais sans les déclencheurs supplémentaires. Please note: version 0.9.8 of EEex introduces additional functions that allow for enemy threat rating to be determined. If an older version of EEex is installed, this part will be skipped.
+Depuis la version 0.9.0, les scripts utilisent les triggers personnalisés d'EEex (s'il est installé). Si EEex n'est pas installé, les scripts fonctionneront toujours, mais sans les déclencheurs supplémentaires. Veuillez noter que depuis la version 0.9.8 d'EEex, des fonctions supplémentaires ont été introduites permettant de déterminer le niveau de menace de l'ennemi et de s'y adapter. Si une version plus ancienne d'EEex est installée, cette fonctionnalité sera ignorée.
 
 Ces scripts ne peuvent pas être installés si les sorts d'Olvyn ( OlvynSpells mod ) sont déjà installés.
 
