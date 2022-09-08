@@ -9,84 +9,51 @@
 @1101 = ~This script is designed for all core classes: Fighter, Mage, Thief, Cleric, Druid, Shaman, Monk, Ranger, Paladin, and any combination of multiclass/dualclass to include kits. This script will constantly Turn Undead when the "V" key is pressed and will cast pre-buffing spells when the "B" key is pressed. If the character is able, this script will constantly be detecting traps while idle or when the "D" key is pressed.~
 
 // Script name and description
-@1110 = ~ADVANCED AI~
-@1111 = ~STRATAGEMS EASE-OF-USE AI~
-@1112 = ~ENHANCED POWERGAMING SCRIPTS~
-@1120 = ~This script allows you to customize the behavior of your character using a number of adjustable settings.~
-@1121 = ~This script has fairly minimal combat functions: it will attack  in melee or at range, prioritising non-helpless opponents, not fighting if the character is turning undead, and not wasting Minute Meteors, Energy Blades or Invisibility. Out of combat, the character will use low-level healing resources if needed, will activate long-duration once-per-day items, and can be instructed to cast long-duration defensive spells on the party, by hotkey: C for Chaotic Commands, V for Death Ward, B for Protection from Fire and Protection from Magic Energy, Z for a paladin's Protection from Evil. (These spells are cast at a highly accelerated rate, and will not be cast on characters who are already protected.)\n You can customise the character's action by adjusting the settings in the menu above.~
-@1122 = ~This script is designed for all classes with the ability to customize the character's action by adjusting the settings in the menu above. The character can use the following hotkeys with this script:\n – Cast pre-buffing spells when the 'B' key is pressed\n – Toggles on and off to cast spells in Athkatla if the character has not paid the bounty or finished fighting the Cowled Wizards when the 'T' key is pressed\n – Swaps the between melee and ranged weapons so long as either can be equipped when the 'E' key is pressed\n – Swaps between solo and party buffing when the 'K' key is pressed~
+@1110 = ~ENHANCED POWERGAMING SCRIPTS~
+@1120 = ~This script is designed for all classes with the ability to customize the character's action by adjusting the settings in the menu above. The character can use the following hotkeys with this script:\n – Cast pre-buffing spells when the 'B' key is pressed\n – Toggles on and off to cast spells in Athkatla if the character has not paid the bounty or finished fighting the Cowled Wizards when the 'T' key is pressed\n – Swaps the between melee and ranged weapons so long as either can be equipped when the 'E' key is pressed\n – Swaps between solo and party buffing when the 'K' key is pressed~
 
 // Attack
-@1130 = ~If enabled, the character will attack enemies on sight. If disabled, the character will only attack when enemies are within melee range. You can toggle this on and off for the selected character(s) using hot-key K.~
-@1131 = ~The character will attack enemies on sight.~
+@1130 = ~The character will attack enemies on sight.~
 
 // Find Traps in Combat
-@1140 = ~No automatic healing~
-@1141 = ~Find Traps~
-@1142 = ~Find Traps in Combat~
-@1150 = ~The character will search for traps and illusions when idle.~
-@1151 = ~The character will not automatically cast healing spells or use healing potions.~
-@1152 = ~The character will constantly search for traps and illusions, even when in combat. Please Note: if a character is capable of finding traps, these ai scripts will already have the character use this ability when outside of combat. This option is to constantly force the character to find traps, even when in combat.~
+@1140 = ~Find Traps in Combat~
+@1150 = ~The character will constantly search for traps and illusions, even when in combat. Please Note: if a character is capable of finding traps, these ai scripts will already have the character use this ability when outside of combat. This option is to constantly force the character to find traps, even when in combat.~
 
 // Hide in Shadows
-@1160 = ~Use healing spells / goodberries~
-@1161 = ~Hide in Shadows~
-@1170 = ~Out of combat, the character will cast healing spells on injured party members (though not their highest-level spells), and will consume Goodberries if injured.~
-@1171 = ~The character will hide in shadows when idle.~
+@1160 = ~Hide in Shadows~
+@1170 = ~The character will hide in shadows when idle.~
 
 // Sing Bard Song
-@1180 = ~Use potions of healing~
-@1181 = ~Sing Bard Song~
-@1190 = ~The character will sing a bard song or perform a shamanic dance when idle.~
-@1191 = ~Out of combat, the character will cast healing spells on injured party members (though not their highest-level spells), and will consume Goodberries and potions of healing if injured.~
-@1192 = ~The character will sing a bard song.~
+@1180 = ~Sing Bard Song~
+@1190 = ~The character will sing a bard song.~
 
 // Turn Undead
-@1200 = ~Use potions of extra-healing~
-@1201 = ~Turn Undead~
-@1210 = ~The character will turn undead when idle.~
-@1211 = ~Out of combat, the character will cast healing spells on injured party members (though not their highest-level spells), and will consume Goodberries and potions of healing or extra-healing if injured.~
-@1212 = ~The character will constantly turn undead.~
+@1200 = ~Turn Undead~
+@1210 = ~The character will constantly turn undead.~
 
 // Defensive Spell Use
-@1220 = ~Group defensive spells~
-@1221 = ~Use Defensive Spells~
-@1230 = ~Out of combat, the character will cast long-duration defensive spells on the party if they have them. The spells used are Chaotic Commands, Death Ward, Protection from Fire/Lightning/Magic Energy, and the paladin's Protection from Evil ability. This setting will automatically deactivate again once the spells have been cast. You can also activate these defensive spells by hotkey: C for Chaotic Commands, V for Death Ward, B for protection-from-elements spells, Z for Protection from Evil.~
-@1231 = ~The character will use defensive spells such as Mirror Image or Stoneskin.~
+@1220 = ~Use Defensive Spells~
+@1230 = ~The character will use defensive spells such as Mirror Image or Stoneskin.~
 
 // Use Items
-@1240 = ~Create items~
-@1241 = ~Use Items~
-@1250 = ~Out of combat, the character will automatically activate (some) magic items that have a long-term effect or that create magic ammunition or similar.~
-@1251 = ~The character will use items such as potions.~
+@1240 = ~Use Items~
+@1250 = ~The character will use items such as potions.~
 
 // Solo Buffing
-@1260 = ~Prefer Melee Weapons~
-@1261 = ~Solo Buffing~
-@1270 = ~The character will favor using melee weapons such as swords or maces.~
-@1271 = ~The character will prefer using melee weapons such as swords or maces. You can turn this on for the selected character(s) using hot-key D, if they are set to attack enemies.~
-@1272 = ~The character will only focus on buffing themself during pre-buffing.~
+@1260 = ~Solo Buffing~
+@1270 = ~The character will only focus on buffing themself during pre-buffing.~
 
 // Offensive Spell Use
-@1280 = ~Personal defensive spells~
-@1281 = ~Use Offensive Spells~
-@1290 = ~Out of combat, the character will cast long-duration Use Offensive Spells if they have them. The spells used are Stoneskin, Iron Skins, Armor, Mind Blank, and Impervious Sanctity of Mind.~
-@1291 = ~The character will use offensive spells such as Sunray, False, Dawn, Insect Plague, and Greater Malison.~
+@1280 = ~Use Offensive Spells~
+@1290 = ~The character will use offensive spells such as Sunray, False, Dawn, Insect Plague, and Greater Malison.~
 
 // Group Buffing
-@1300 = ~Prefer Ranged Weapons~
-@1301 = ~Group Buffing~
-@1310 = ~The character will favor using ranged weapons such as bows or slings.~
-@1311 = ~The character will prefer using ranged weapons such as bows or slings. You can turn this on for the selected character(s) using hot-key F, if they are set to attack enemies.~
-@1312 = ~The character will buff fellow party members in addition to themself during pre-buffing.~
+@1300 = ~Group Buffing~
+@1310 = ~The character will buff fellow party members in addition to themself during pre-buffing.~
 
 // Enemy Debuff/Curative/Healing spells and ability use
-@1320 = ~Use Special Abilities~
-@1321 = ~Minute meteors~
-@1322 = ~Enemy Debuffing/Curative/Healing~
-@1330 = ~The character will use special abilities such as Barbarian Rage or Called Shot.~
-@1331 = ~Out of combat, the character will cast 'Melf's Enemy Debuffing/Curative/Healing' if they have it, and if they have no meteors.~
-@1332 = ~The character will use debuffing spells against enemies, curative spells to remove enemy debuffs on themself and allies, and healing spells. The spells used include Breach, Ruby Ray of Reversal, True Sight, Remove Paralysis, Raise Dead, and Heal.~
+@1320 = ~Enemy Debuffing/Curative/Healing~
+@1330 = ~The character will use debuffing spells against enemies, curative spells to remove enemy debuffs on themself and allies, and healing spells. The spells used include Breach, Ruby Ray of Reversal, True Sight, Remove Paralysis, Raise Dead, and Heal.~
 
 // I really want to highlight, call out, and emphasize the below code was provided by Bubb.
 @2000 = ~currentPanelID = const.SCRIPT_ID

@@ -810,62 +810,29 @@ COPY_EXISTING "PARTYAI.2da" override
 // Update Lua Files                                                      //
 // Please Note: This accounts for vanilla and changes made by SCS        //
 ///////////////////////////////////////////////////////////////////////////
-OUTER_SPRINT smartscript1a     @1110
-OUTER_SPRINT smartscript1b     @1111
-OUTER_SPRINT smartscript2      @1112
-OUTER_SPRINT smartscriptdesc1a @1120
-OUTER_SPRINT smartscriptdesc1b @1121
-OUTER_SPRINT smartscriptdesc2  @1122
-OUTER_SPRINT scriptatk1        @1130
-OUTER_SPRINT scriptatk2        @1131
-OUTER_SPRINT findtrap1         @1140
-OUTER_SPRINT findtrap2         @1141
-OUTER_SPRINT findtrap3         @1142
-OUTER_SPRINT findtrapdesc1a    @1150
-OUTER_SPRINT findtrapdesc1b    @1151
-OUTER_SPRINT findtrapdesc2     @1152
-OUTER_SPRINT hideshdws1        @1160
-OUTER_SPRINT hideshdws2        @1161
-OUTER_SPRINT hideshdwsdesc1    @1170
-OUTER_SPRINT hideshdwsdesc2    @1171
-OUTER_SPRINT bardsong1         @1180
-OUTER_SPRINT bardsong2         @1181
-OUTER_SPRINT bardsongdesc1a    @1190
-OUTER_SPRINT bardsongdesc1b    @1191
-OUTER_SPRINT bardsongdesc2     @1192
-OUTER_SPRINT trnund1           @1200
-OUTER_SPRINT trnund2           @1201
-OUTER_SPRINT trnunddesc1a      @1210
-OUTER_SPRINT trnunddesc1b      @1211
-OUTER_SPRINT trnunddesc2       @1212
-OUTER_SPRINT defense1          @1220
-OUTER_SPRINT defense2          @1221
-OUTER_SPRINT defensedesc1      @1230
-OUTER_SPRINT defensedesc2      @1231
-OUTER_SPRINT useitem1          @1240
-OUTER_SPRINT useitem2          @1241
-OUTER_SPRINT useitemdesc1      @1250
-OUTER_SPRINT useitemdesc2      @1251
-OUTER_SPRINT solobuff1         @1260
-OUTER_SPRINT solobuff2         @1261
-OUTER_SPRINT solobuffdesc1a    @1270
-OUTER_SPRINT solobuffdesc1b    @1271
-OUTER_SPRINT solobuffdesc2     @1272
-OUTER_SPRINT offense1          @1280
-OUTER_SPRINT offense2          @1281
-OUTER_SPRINT offensedesc1      @1290
-OUTER_SPRINT offensedesc2      @1291
-OUTER_SPRINT groupbuff1        @1300
-OUTER_SPRINT groupbuff2        @1301
-OUTER_SPRINT groupbuffdesc1a   @1310
-OUTER_SPRINT groupbuffdesc1b   @1311
-OUTER_SPRINT groupbuffdesc2    @1312
-OUTER_SPRINT specbuff1a        @1320
-OUTER_SPRINT specbuff1b        @1321
-OUTER_SPRINT specbuff2         @1322
-OUTER_SPRINT specbuffdesc1a    @1330
-OUTER_SPRINT specbuffdesc1b    @1331
-OUTER_SPRINT specbuffdesc2     @1332
+OUTER_SPRINT smartscript      @1110
+OUTER_SPRINT smartscriptdesc  @1120
+OUTER_SPRINT scriptatk        @1130
+OUTER_SPRINT findtrap         @1140
+OUTER_SPRINT findtrapdesc     @1150
+OUTER_SPRINT hideshdws        @1160
+OUTER_SPRINT hideshdwsdesc    @1170
+OUTER_SPRINT bardsong         @1180
+OUTER_SPRINT bardsongdesc     @1190
+OUTER_SPRINT trnund           @1200
+OUTER_SPRINT trnunddesc       @1210
+OUTER_SPRINT defense          @1220
+OUTER_SPRINT defensedesc      @1230
+OUTER_SPRINT useitem          @1240
+OUTER_SPRINT useitemdesc      @1250
+OUTER_SPRINT solobuff         @1260
+OUTER_SPRINT solobuffdesc     @1270
+OUTER_SPRINT offense          @1280
+OUTER_SPRINT offensedesc      @1290
+OUTER_SPRINT groupbuff        @1300
+OUTER_SPRINT groupbuffdesc    @1310
+OUTER_SPRINT specbuff         @1320
+OUTER_SPRINT specbuffdesc     @1330
 
 ACTION_FOR_EACH luafile IN
 		CS_CZ
@@ -882,45 +849,29 @@ ACTION_FOR_EACH luafile IN
 	BEGIN
 		ACTION_IF FILE_EXISTS_IN_GAME ~L_%luafile%.LUA~ BEGIN
 			COPY_EXISTING "L_%luafile%.LUA" ~override~
-				REPLACE_TEXTUALLY EVALUATE_REGEXP ~CHARACTER_SCRIPT_SMART_SCRIPT = \".*\"~ ~CHARACTER_SCRIPT_SMART_SCRIPT = "%smartscript2%"~
-				/*
-				REPLACE_TEXTUALLY ~%smartscript1a%~     ~%smartscript2%~
-	    		REPLACE_TEXTUALLY ~%smartscript1b%~     ~%smartscript2%~
-	    		REPLACE_TEXTUALLY ~%smartscriptdesc1a%~ ~%smartscriptdesc2%~
-	   			REPLACE_TEXTUALLY ~%smartscriptdesc1b%~ ~%smartscriptdesc2%~
-	   			REPLACE_TEXTUALLY ~%scriptatk1%~        ~%scriptatk2%~
-	   			REPLACE_TEXTUALLY ~%findtrap1%~         ~%findtrap3%~
-	   			REPLACE_TEXTUALLY ~%findtrap2%~         ~%findtrap3%~
-	   			REPLACE_TEXTUALLY ~%findtrapdesc1a%~    ~%findtrapdesc2%~
-	   			REPLACE_TEXTUALLY ~%findtrapdesc1b%~    ~%findtrapdesc2%~
-	   			REPLACE_TEXTUALLY ~%hideshdws1%~        ~%hideshdws2%~
-	   			REPLACE_TEXTUALLY ~%hideshdwsdesc1%~    ~%hideshdwsdesc2%~
-	   			REPLACE_TEXTUALLY ~%bardsong1%~         ~%bardsong2%~
-	   			REPLACE_TEXTUALLY ~%bardsongdesc1a%~    ~%bardsongdesc2%~
-	   			REPLACE_TEXTUALLY ~%bardsongdesc1b%~    ~%bardsongdesc2%~
-	   			REPLACE_TEXTUALLY ~%trnund1%~           ~%trnund2%~
-	   			REPLACE_TEXTUALLY ~%trnunddesc1a%~      ~%trnunddesc2%~
-	   			REPLACE_TEXTUALLY ~%trnunddesc1b%~      ~%trnunddesc2%~
-	   			REPLACE_TEXTUALLY ~%defense1%~          ~%defense2%~
-	   			REPLACE_TEXTUALLY ~%defensedesc1%~      ~%defensedesc2%~
-	   			REPLACE_TEXTUALLY ~%useitem1%~          ~%useitem2%~
-	   			REPLACE_TEXTUALLY ~%useitemdesc1%~      ~%useitemdesc2%~
-	   			REPLACE_TEXTUALLY ~%solobuff1%~         ~%solobuff2%~
-	   			REPLACE_TEXTUALLY ~%solobuffdesc1a%~    ~%solobuffdesc2%~
-	   			REPLACE_TEXTUALLY ~%solobuffdesc1b%~    ~%solobuffdesc2%~
-	   			REPLACE_TEXTUALLY ~%offense1%~          ~%offense2%~
-	   			REPLACE_TEXTUALLY ~%offensedesc1%~      ~%offensedesc2%~
-	   			REPLACE_TEXTUALLY ~%groupbuff1%~        ~%groupbuff2%~
-	   			REPLACE_TEXTUALLY ~%groupbuffdesc1a%~   ~%groupbuffdesc2%~
-	   			REPLACE_TEXTUALLY ~%groupbuffdesc1b%~   ~%groupbuffdesc2%~
-	   			REPLACE_TEXTUALLY ~%specbuff1a%~        ~%specbuff2%~
-	   			REPLACE_TEXTUALLY ~%specbuff1b%~        ~%specbuff2%~
-	   			REPLACE_TEXTUALLY ~%specbuff1a%~        ~%specbuff2%~
-	   			REPLACE_TEXTUALLY ~%specbuff1b%~        ~%specbuff2%~
-	   			REPLACE_TEXTUALLY ~%specbuff1b%~        ~%specbuff2%~
-	   			REPLACE_TEXTUALLY ~%specbuffdesc1a%~    ~%specbuffdesc2%~
-	   			REPLACE_TEXTUALLY ~%specbuffdesc1b%~    ~%specbuffdesc2%~
-	   			*/
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~CHARACTER_SCRIPT_SMART_SCRIPT = \".*\"~ ~CHARACTER_SCRIPT_SMART_SCRIPT = "%smartscript%"~
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~CHARACTER_SCRIPT_SMART_SCRIPT_DESCRIPTION = \".*\"~ ~CHARACTER_SCRIPT_SMART_SCRIPT_DESCRIPTION = "%smartscriptdesc%"~
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~SCRIPT_ATTACK_ENEMIES_DESCRIPTION = \".*\"~ ~SCRIPT_ATTACK_ENEMIES_DESCRIPTION = "%scriptatk%"~
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~SCRIPT_FIND_TRAPS_LABEL = \".*\"~ ~SCRIPT_FIND_TRAPS_LABEL = "%findtrap%"~
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~SCRIPT_FIND_TRAPS_DESCRIPTION = \".*\"~ ~SCRIPT_FIND_TRAPS_DESCRIPTION = "%findtrapdesc%"~
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~SCRIPT_HIDE_IN_SHADOWS_LABEL = \".*\"~ ~SCRIPT_HIDE_IN_SHADOWS_LABEL = "%hideshdws%"~
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~SCRIPT_HIDE_IN_SHADOWS_DESCRIPTION = \".*\"~ ~SCRIPT_HIDE_IN_SHADOWS_DESCRIPTION = "%hideshdwsdesc%"~
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~SCRIPT_SING_BATTLESONG_LABEL = \".*\"~ ~SCRIPT_SING_BATTLESONG_LABEL = "%bardsong%"~
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~SCRIPT_SING_BATTLESONG_DESCRIPTION = \".*\"~ ~SCRIPT_SING_BATTLESONG_DESCRIPTION = "%bardsongdesc%"~
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~SCRIPT_TURN_UNDEAD_LABEL = \".*\"~ ~SCRIPT_TURN_UNDEAD_LABEL = "%trnund%"~
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~SCRIPT_TURN_UNDEAD_DESCRIPTION = \".*\"~ ~SCRIPT_TURN_UNDEAD_DESCRIPTION = "%trnunddesc%"~
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~SCRIPT_USE_DEFENSIVE_SPELLS_LABEL = \".*\"~ ~SCRIPT_USE_DEFENSIVE_SPELLS_LABEL = "%defense%"~
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~SCRIPT_USE_DEFENSIVE_SPELLS_DESCRIPTION = \".*\"~ ~SCRIPT_USE_DEFENSIVE_SPELLS_DESCRIPTION = "%defensedesc%"~
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~SCRIPT_USE_ITEMS_LABEL = \".*\"~ ~SCRIPT_USE_ITEMS_LABEL = "%useitem%"~
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~SCRIPT_USE_ITEMS_DESCRIPTION = \".*\"~ ~SCRIPT_USE_ITEMS_DESCRIPTION = "%useitemdesc%"~
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~SCRIPT_USE_MELEE_WEAPONS_LABEL = \".*\"~ ~SCRIPT_USE_MELEE_WEAPONS_LABEL = "%solobuff%"~
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~SCRIPT_USE_MELEE_WEAPONS_DESCRIPTION = \".*\"~ ~SCRIPT_USE_MELEE_WEAPONS_DESCRIPTION = "%solobuffdesc%"~
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~SCRIPT_USE_OFFENSIVE_SPELLS_LABEL = \".*\"~ ~SCRIPT_USE_OFFENSIVE_SPELLS_LABEL = "%offense%"~
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~SCRIPT_USE_OFFENSIVE_SPELLS_DESCRIPTION = \".*\"~ ~SCRIPT_USE_OFFENSIVE_SPELLS_DESCRIPTION = "%offensedesc%"~
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~SCRIPT_USE_RANGED_WEAPONS_LABEL = \".*\"~ ~SCRIPT_USE_RANGED_WEAPONS_LABEL = "%groupbuff%"~
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~SCRIPT_USE_RANGED_WEAPONS_DESCRIPTION = \".*\"~ ~SCRIPT_USE_RANGED_WEAPONS_DESCRIPTION = "%groupbuffdesc%"~
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~SCRIPT_USE_SPECIAL_ABILITIES_LABEL = \".*\"~ ~SCRIPT_USE_SPECIAL_ABILITIES_LABEL = "%specbuff%"~
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~SCRIPT_USE_SPECIAL_ABILITIES_DESCRIPTION = \".*\"~ ~SCRIPT_USE_SPECIAL_ABILITIES_DESCRIPTION = "%specbuffdesc%"~
 	   		BUT_ONLY
 		END
 	END

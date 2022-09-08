@@ -10,86 +10,68 @@
 
 // Script name and description
 @1110 = ~~
-@1111 = ~~
-@1112 = ~~
 @1120 = ~~
-@1121 = ~~
-@1122 = ~~
 
 // Attack
 @1130 = ~~
-@1131 = ~~
 
 // Find Traps
 @1140 = ~~
-@1141 = ~~
-@1142 = ~~
 @1150 = ~~
-@1151 = ~~
-@1152 = ~~
 
 // Hide in Shadows
 @1160 = ~~
-@1161 = ~~
 @1170 = ~~
-@1171 = ~~
 
 // Sing Bard Song
 @1180 = ~~
-@1181 = ~~
 @1190 = ~~
-@1191 = ~~
-@1192 = ~~
 
 // Turn Undead
 @1200 = ~~
-@1201 = ~~
 @1210 = ~~
-@1211 = ~~
-@1212 = ~~
 
 // Defensive Spell Use
 @1220 = ~~
-@1221 = ~~
 @1230 = ~~
-@1231 = ~~
 
 // Use Items
 @1240 = ~~
-@1241 = ~~
 @1250 = ~~
-@1251 = ~~
 
 // Solo Buffing
 @1260 = ~~
-@1261 = ~~
 @1270 = ~~
-@1271 = ~~
-@1272 = ~~
 
 // Offensive Spell Use
 @1280 = ~~
-@1281 = ~~
 @1290 = ~~
-@1291 = ~~
 
 // Group Buffing
 @1300 = ~~
-@1301 = ~~
 @1310 = ~~
-@1311 = ~~
-@1312 = ~~
 
 // Enemy Debuff/Curative/Healing spells and ability use
 @1320 = ~~
-@1321 = ~~
-@1322 = ~~
 @1330 = ~~
-@1331 = ~~
-@1332 = ~~
 
 // I really want to highlight, call out, and emphasize the below code was provided by Bubb.
-@2000 = ~~
-@2001 = ~~
-@2002 = ~~
-@2003 = ~~
+@2000 = ~currentPanelID = const.SCRIPT_ID
+
+		showingSmartOptions = false~
+@2001 = ~currentPanelID = const.SCRIPT_ID
+
+		B3SmartScriptIdx = -1
+		for i, name in ipairs(scriptList) do
+    		if name == 'ENHANCED POWERGAMING SCRIPTS' then
+        		B3SmartScriptIdx = i
+        		break
+    		end
+		end
+
+		showingSmartOptions = scriptList_idx == B3SmartScriptIdx
+		scriptDescription = t(scriptOptions[scriptList_idx][2])~
+@2002 = ~showingSmartOptions = false
+			if scriptList[scriptList_idx]~
+@2003 = ~showingSmartOptions = scriptList_idx == B3SmartScriptIdx
+			if scriptList[scriptList_idx]~
