@@ -102,6 +102,7 @@ IF
   EEex_LuaTrigger("return ChallengeRating()")  
 THEN
   RESPONSE #100
+    SetGlobalTimer("MO_ChallengeTimer","LOCALS",6)
     SetGlobal("MO_InCombat","LOCALS",1)
     SetGlobal("MO_IsChallenge","LOCALS",1)
     Continue()
@@ -114,6 +115,7 @@ IF
   Global("MO_IsChallenge","LOCALS",1)
 THEN
   RESPONSE #100
+    SetGlobalTimer("MO_ChallengeTimer","LOCALS",6)
     SetGlobal("MO_InCombat","LOCALS",1)
     SetGlobal("MO_IsChallenge","LOCALS",0)
     Continue()
