@@ -98,7 +98,7 @@ END~~~~~ //"
   !CheckSpellState(Myself,PROTECTIVE_FIELD)
   See([EVILCUTOFF])
   OR(27)
-    Global("MO_IsChallenge","LOCALS",1)
+    EEex_LuaTrigger("return ChallengeRating()")
     Range([EVILCUTOFF.0.GOLEM],30)
     Range([EVILCUTOFF.0.MIST],30)
     Range([EVILCUTOFF.0.KUO-TOA],30)

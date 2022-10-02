@@ -215,7 +215,7 @@ END~~~~~
     Range([EVILCUTOFF.0.PLANATAR],30)
     Range([EVILCUTOFF.0.ANTISOLAR],30)
     Range([EVILCUTOFF.0.DARKPLANATAR],30)
-    Global("MO_IsChallenge","LOCALS",1)
+    EEex_LuaTrigger("return ChallengeRating()")
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
@@ -243,7 +243,7 @@ IF
     Range([EVILCUTOFF.0.PLANATAR],30)
     Range([EVILCUTOFF.0.ANTISOLAR],30)
     Range([EVILCUTOFF.0.DARKPLANATAR],30)
-    Global("MO_IsChallenge","LOCALS",1)
+    EEex_LuaTrigger("return ChallengeRating()")
 THEN
   RESPONSE #100
     XEquipItem("SW1H26",Myself,SLOT_SHIELD,EQUIP)  // Ilbratha +1
@@ -290,7 +290,7 @@ IF
     Range([EVILCUTOFF.0.PLANATAR],30)
     Range([EVILCUTOFF.0.ANTISOLAR],30)
     Range([EVILCUTOFF.0.DARKPLANATAR],30)
-    Global("MO_IsChallenge","LOCALS",1)
+    EEex_LuaTrigger("return ChallengeRating()")
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
@@ -1030,7 +1030,7 @@ END~~~~~
   HaveSpell(CLERIC_AURA_OF_FLAMING_DEATH)  // SPPR730.SPL (Aura of Flaming Death)
   See([EVILCUTOFF])
   OR(27)
-    Global("MO_IsChallenge","LOCALS",1)
+    EEex_LuaTrigger("return ChallengeRating()")
     Range([EVILCUTOFF.0.GOLEM],30)
     Range([EVILCUTOFF.0.MIST],30)
     Range([EVILCUTOFF.0.KUO-TOA],30)
