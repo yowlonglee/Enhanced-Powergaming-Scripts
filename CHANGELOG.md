@@ -2,13 +2,14 @@
 
 ## Version 10.2
 
-September xx, 2022
+October xx, 2022
 
 ### Changed 
 
 - Updated French Translations.
 - Updated pure Wizards to go in melee if they are under the effects of Tenser's Transformation.
 - Generic code cleanup for un-used variables.
+- Added timers to challenge rating checks.
 
 ## Version 10.1.1
 
