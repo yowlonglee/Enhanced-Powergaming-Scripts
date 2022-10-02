@@ -97,6 +97,7 @@ THEN
 END
 
 IF
+  !GlobalTimerNotExpired("MO_ChallengeTimer","LOCALS")
   See([EVILCUTOFF])
   EEex_LuaTrigger("return ChallengeRating()")  
 THEN
@@ -107,12 +108,24 @@ THEN
 END
 
 IF
+  !GlobalTimerNotExpired("MO_ChallengeTimer","LOCALS")
   See([EVILCUTOFF])
   !EEex_LuaTrigger("return ChallengeRating()")
   Global("MO_IsChallenge","LOCALS",1)
 THEN
   RESPONSE #100
+    SetGlobal("MO_InCombat","LOCALS",1)
     SetGlobal("MO_IsChallenge","LOCALS",0)
+    Continue()
+END
+
+IF
+  !GlobalTimerNotExpired("MO_ChallengeTimer","LOCALS")
+  See([EVILCUTOFF])
+  Global("MO_InCombat","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_ChallengeTimer","LOCALS",6)
     Continue()
 END
 
