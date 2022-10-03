@@ -14499,10 +14499,11 @@ IF
   Class(Myself,SHAMAN)
   !ModalState(SHAMANDANCE)
   !CheckSpellState(Myself,SHAMANIC_DANCE)
-  Range([EVILCUTOFF],30)
+  OR(2)
+    Range([EVILCUTOFF],30)
+    ActuallyInCombat()
 THEN
   RESPONSE #100
-    SetGlobal("MO_SpellCast","LOCALS",1)
     BattleSong()
 END
 
