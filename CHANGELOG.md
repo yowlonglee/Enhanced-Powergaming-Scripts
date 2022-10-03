@@ -2,14 +2,15 @@
 
 ## Version 10.2
 
-October xx, 2022
+October 3, 2022
 
 ### Changed 
 
 - Updated French Translations.
 - Updated pure Wizards to go in melee if they are under the effects of Tenser's Transformation.
 - Generic code cleanup for un-used variables.
-- Added timers to challenge rating checks.
+- Updated how challenge rating checks are conducted to reduce quirkiness.
+- Shaman safety dance will not stop.  
 
 ## Version 10.1.1
 
