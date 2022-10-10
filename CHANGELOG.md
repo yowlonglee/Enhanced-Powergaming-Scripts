@@ -1,5 +1,13 @@
 # Changelog
 
+## Version 10.2.2
+
+October 9, 2022
+
+### Changed 
+
+- Corrected a different bug that prevented IWDEE installation when specific mods were present.
+
 ## Version 10.2.1
 
 October 3, 2022
