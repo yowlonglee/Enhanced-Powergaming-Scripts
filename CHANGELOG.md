@@ -1,5 +1,14 @@
 # Changelog
 
+## Version 10.3
+
+October xx, 2022
+
+### Changed 
+
+- Corrected bug with Celestial AI when EEex is not present.
+- Updated spell tracking for compatibility with Subtledoctor's updated proficiencies.
+
 ## Version 10.2.2
 
 October 9, 2022

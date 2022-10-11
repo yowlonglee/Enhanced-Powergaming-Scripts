@@ -14,9 +14,7 @@ THEN
 END
 
 IF
-  OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+  ActionListEmpty()
   Global("MO_SelfRaiseDead","LOCALS",1)
   Global("MO_PartyRaiseDead","GLOBAL",1)
 THEN
@@ -26,9 +24,8 @@ THEN
 END
 
 IF
-  OR(3)
+  OR(2)
     ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
     !GlobalTimerNotExpired("MO_FearCastTimer","GLOBAL")
   Global("MO_SelfRemoveFear","LOCALS",1)
   Global("MO_PartyRemoveFear","GLOBAL",1)
@@ -481,9 +478,7 @@ THEN
 END
 
 IF
-	OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+	ActionListEmpty()
 	!GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
 	HaveSpell(CLERIC_RAISE_DEAD)  // SPPR504.SPL (Raise Dead)
 	Global("MO_PartyRaiseDead","GLOBAL",0)
@@ -508,9 +503,7 @@ THEN
 END
 
 IF
-	OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+	ActionListEmpty()
 	!GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
 	HaveSpell(CLERIC_RAISE_DEAD)  // SPPR504.SPL (Raise Dead)
 	Global("MO_PartyRaiseDead","GLOBAL",0)
@@ -535,9 +528,7 @@ THEN
 END
 
 IF
-	OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+	ActionListEmpty()
 	!GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
 	HaveSpell(CLERIC_RAISE_DEAD)  // SPPR504.SPL (Raise Dead)
 	Global("MO_PartyRaiseDead","GLOBAL",0)
@@ -562,9 +553,7 @@ THEN
 END
 
 IF
-	OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+	ActionListEmpty()
 	!GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
 	HaveSpell(CLERIC_RAISE_DEAD)  // SPPR504.SPL (Raise Dead)
 	Global("MO_PartyRaiseDead","GLOBAL",0)
@@ -589,9 +578,7 @@ THEN
 END
 
 IF
-	OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+	ActionListEmpty()
 	!GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
 	HaveSpell(CLERIC_RAISE_DEAD)  // SPPR504.SPL (Raise Dead)
 	Global("MO_PartyRaiseDead","GLOBAL",0)
@@ -616,9 +603,7 @@ THEN
 END
 
 IF
-	OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+	ActionListEmpty()
 	!GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
 	HaveSpell(CLERIC_RAISE_DEAD)  // SPPR504.SPL (Raise Dead)
 	Global("MO_PartyRaiseDead","GLOBAL",0)
@@ -643,9 +628,7 @@ THEN
 END
 
 IF
-	OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+	ActionListEmpty()
 	!GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
 	HaveSpell(CLERIC_REMOVE_CURSE)  // SPPR307.SPL (Remove Curse)
 	See(Nearest([PC]))
@@ -671,9 +654,7 @@ THEN
 END
 
 IF
-	OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+	ActionListEmpty()
 	!GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
 	HaveSpell(CLERIC_REMOVE_CURSE)  // SPPR307.SPL (Remove Curse)
 	See(SecondNearest([PC]))
@@ -699,9 +680,7 @@ THEN
 END
 
 IF
-	OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+	ActionListEmpty()
 	!GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
 	HaveSpell(CLERIC_REMOVE_CURSE)  // SPPR307.SPL (Remove Curse)
 	See(ThirdNearest([PC]))
@@ -726,9 +705,7 @@ THEN
 END
 
 IF
-	OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+	ActionListEmpty()
 	!GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
 	HaveSpell(CLERIC_REMOVE_CURSE)  // SPPR307.SPL (Remove Curse)
 	See(FourthNearest([PC]))
@@ -753,9 +730,7 @@ THEN
 END
 
 IF
-	OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+	ActionListEmpty()
 	!GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
 	HaveSpell(CLERIC_REMOVE_CURSE)  // SPPR307.SPL (Remove Curse)
 	See(FifthNearest([PC]))
@@ -780,9 +755,7 @@ THEN
 END
 
 IF
-	OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+	ActionListEmpty()
 	!GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
 	HaveSpell(CLERIC_REMOVE_CURSE)  // SPPR307.SPL (Remove Curse)
 	See(SixthNearest([PC]))
@@ -807,9 +780,7 @@ THEN
 END
 
 IF
-  OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+  ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   See(Myself)
   !CheckSpellState(LastSeenBy(Myself),RESTORATION)
@@ -840,9 +811,7 @@ THEN
 END
 
 IF
-  OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+  ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   See(Nearest([PC]))
   !CheckSpellState(LastSeenBy(Myself),RESTORATION)
@@ -875,9 +844,7 @@ THEN
 END
 
 IF
-  OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+  ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   See(SecondNearest([PC]))
   !CheckSpellState(LastSeenBy(Myself),RESTORATION)
@@ -910,9 +877,7 @@ THEN
 END
 
 IF
-  OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+  ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   See(ThirdNearest([PC]))
   !CheckSpellState(LastSeenBy(Myself),RESTORATION)
@@ -945,9 +910,7 @@ THEN
 END
 
 IF
-  OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+  ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   See(FourthNearest([PC]))
   !CheckSpellState(LastSeenBy(Myself),RESTORATION)
@@ -980,9 +943,7 @@ THEN
 END
 
 IF
-  OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+  ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   See(FifthNearest([PC]))
   !CheckSpellState(LastSeenBy(Myself),RESTORATION)
@@ -1015,9 +976,7 @@ THEN
 END
 
 IF
-  OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+  ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   See(SixthNearest([PC]))
   !CheckSpellState(LastSeenBy(Myself),RESTORATION)
@@ -1050,9 +1009,7 @@ THEN
 END
 
 IF
-	OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+	ActionListEmpty()
 	!GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
 	StateCheck([PC],STATE_PANIC)
 	See([PC])
@@ -1074,9 +1031,7 @@ THEN
 END
 
 IF
-	OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+	ActionListEmpty()
 	!GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
 	StateCheck(SecondNearest([PC]),STATE_PANIC)
 	See(SecondNearest([PC]))
@@ -1098,9 +1053,7 @@ THEN
 END
 
 IF
-	OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+	ActionListEmpty()
 	!GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
 	StateCheck(ThirdNearest([PC]),STATE_PANIC)
 	See(ThirdNearest([PC]))
@@ -1122,9 +1075,7 @@ THEN
 END
 
 IF
-	OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+	ActionListEmpty()
 	!GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
 	StateCheck(FourthNearest([PC]),STATE_PANIC)
 	See(FourthNearest([PC]))
@@ -1146,9 +1097,7 @@ THEN
 END
 
 IF
-	OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+	ActionListEmpty()
 	!GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
 	StateCheck(FifthNearest([PC]),STATE_PANIC)
 	See(FifthNearest([PC]))
@@ -1170,9 +1119,7 @@ THEN
 END
 
 IF
-	OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+	ActionListEmpty()
 	!GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
 	StateCheck(SixthNearest([PC]),STATE_PANIC)
 	See(SixthNearest([PC]))
@@ -1194,9 +1141,7 @@ THEN
 END
 
 IF
-  OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+  ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   See(Myself)
   HaveSpell(CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
@@ -1226,9 +1171,7 @@ THEN
 END
 
 IF
-  OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+  ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   See([PC])
   HaveSpell(CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
@@ -1261,9 +1204,7 @@ THEN
 END
 
 IF
-  OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+  ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   See(SecondNearest([PC]))
   HaveSpell(CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
@@ -1296,9 +1237,7 @@ THEN
 END
 
 IF
-  OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+  ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   See(ThirdNearest([PC]))
   HaveSpell(CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
@@ -1331,9 +1270,7 @@ THEN
 END
 
 IF
-  OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+  ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   See(FourthNearest([PC]))
   HaveSpell(CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
@@ -1366,9 +1303,7 @@ THEN
 END
 
 IF
-  OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+  ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   See(FifthNearest([PC]))
   HaveSpell(CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
@@ -1401,9 +1336,7 @@ THEN
 END
 
 IF
-  OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+  ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   See(SixthNearest([PC]))
   HaveSpell(CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
@@ -1436,9 +1369,7 @@ THEN
 END
 
 IF
-  OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+  ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   See(Myself)
   HaveSpell(CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
@@ -1461,9 +1392,7 @@ THEN
 END
 
 IF
-  OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+  ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   See([PC])
   HaveSpell(CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
@@ -1489,9 +1418,7 @@ THEN
 END
 
 IF
-  OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+  ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   See(SecondNearest([PC]))
   HaveSpell(CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
@@ -1517,9 +1444,7 @@ THEN
 END
 
 IF
-  OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+  ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   See(ThirdNearest([PC]))
   HaveSpell(CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
@@ -1545,9 +1470,7 @@ THEN
 END
 
 IF
-  OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+  ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   See(FourthNearest([PC]))
   HaveSpell(CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
@@ -1573,9 +1496,7 @@ THEN
 END
 
 IF
-  OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+  ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   See(FifthNearest([PC]))
   HaveSpell(CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
@@ -1601,9 +1522,7 @@ THEN
 END
 
 IF
-  OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+  ActionListEmpty()
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   See(SixthNearest([PC]))
   HaveSpell(CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
@@ -1629,9 +1548,7 @@ THEN
 END
 
 IF
-	OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+	ActionListEmpty()
 	!GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
 	HaveSpell(CLERIC_TRUE_SIGHT)  // SPPR505.SPL (True Seeing)
 	OR(6)
@@ -1660,9 +1577,7 @@ THEN
 END
 
 IF
-	OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+	ActionListEmpty()
 	!GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
 	HaveSpell(CLERIC_TRUE_SIGHT)  // SPPR505.SPL (True Seeing)
 	Detect([EVILCUTOFF])
@@ -1690,9 +1605,7 @@ THEN
 END
 
 IF
-	OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+	ActionListEmpty()
 	!GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
 	HaveSpell(CLERIC_TRUE_SIGHT)  // SPPR505.SPL (True Seeing)
 	See(NearestEnemyOf(Myself))
@@ -1720,9 +1633,7 @@ THEN
 END
 
 IF
-	OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+	ActionListEmpty()
 	!GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
 	HaveSpell(CLERIC_TRUE_SIGHT)  // SPPR505.SPL (True Seeing)
 	See(SecondNearestEnemyOf(Myself))
@@ -1750,9 +1661,7 @@ THEN
 END
 
 IF
-	OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+	ActionListEmpty()
 	!GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
 	HaveSpell(CLERIC_TRUE_SIGHT)  // SPPR505.SPL (True Seeing)
 	See(ThirdNearestEnemyOf(Myself))
@@ -1780,9 +1689,7 @@ THEN
 END
 
 IF
-	OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+	ActionListEmpty()
 	!GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
 	HaveSpell(CLERIC_TRUE_SIGHT)  // SPPR505.SPL (True Seeing)
 	See(FourthNearestEnemyOf(Myself))
@@ -1810,9 +1717,7 @@ THEN
 END
 
 IF
-	OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+	ActionListEmpty()
 	!GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
 	HaveSpell(CLERIC_TRUE_SIGHT)  // SPPR505.SPL (True Seeing)
 	See(FifthNearestEnemyOf(Myself))
@@ -1840,9 +1745,7 @@ THEN
 END
 
 IF
-	OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+	ActionListEmpty()
 	!GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
 	HaveSpell(CLERIC_TRUE_SIGHT)  // SPPR505.SPL (True Seeing)
 	See(SixthNearestEnemyOf(Myself))
@@ -1872,11 +1775,8 @@ END
 IF
   !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
   GlobalLT("MO_CastingHeal","GLOBAL",1)
-  OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+  ActionListEmpty()
   !See([EVILCUTOFF])
-  !EEex_LuaTrigger("return AmMoving()")
   HaveSpell(CLERIC_HEAL)  // SPPR607.SPL (Heal)
   See(MostDamagedOf([PC]))
   HPPercentLT(LastSeenBy(Myself),40)
@@ -1906,14 +1806,12 @@ THEN
 END
 
 IF
-	OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
+	ActionListEmpty()
 	!GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
 	HaveSpell(CLERIC_BLADE_BARRIER)  // SPPR603.SPL (Blade Barrier)
 	See([EVILCUTOFF])
 	OR(27)
-		EEex_LuaTrigger("return ChallengeRating()")
+		NumCreatureGT([EVILCUTOFF],3)
 		Range([EVILCUTOFF.0.GOLEM],30)
 		Range([EVILCUTOFF.0.MIST],30)
 		Range([EVILCUTOFF.0.KUO-TOA],30)
