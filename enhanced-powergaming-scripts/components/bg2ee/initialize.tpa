@@ -249,6 +249,7 @@ ACTION_IF NOT sd_combat_skills BEGIN
 		END
 	BUT_ONLY
 
+	/* NOT REALLY NEEDED NOR CHECKED IN AI. Saving in case I want to do something with it.
 	COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 		GET_OFFSET_ARRAY ab_array ITM_V10_HEADERS
 	  	PHP_EACH ab_array AS int => ab_off BEGIN
@@ -265,6 +266,7 @@ ACTION_IF NOT sd_combat_skills BEGIN
 			LPF ALTER_EFFECT INT_VAR match_opcode = 233 match_parameter2 = 124 opcode = 328 parameter2 = %regen% special = 1 END
 		END
 	BUT_ONLY
+	*/
 END
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
