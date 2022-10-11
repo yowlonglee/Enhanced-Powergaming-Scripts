@@ -276,4 +276,11 @@ ACTION_IF !VARIABLE_IS_SET ~initialise~ BEGIN
       OUTER_SET rr_chosen_cryic=0
    END
 
+   // Subtledoctor's Combat Skills Prof updates
+   ACTION_IF FILE_EXISTS_IN_GAME ~d5__combat_skills.d5~ BEGIN
+      OUTER_SET sd_combat_skills=1
+   END ELSE BEGIN
+      OUTER_SET sd_combat_skills=0
+   END
+
 END
