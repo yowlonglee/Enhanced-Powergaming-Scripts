@@ -1,8 +1,8 @@
 # Changelog
 
-## Version 10.3
+## Version 10.2.3
 
-October xx, 2022
+October 11, 2022
 
 ### Changed 
 
