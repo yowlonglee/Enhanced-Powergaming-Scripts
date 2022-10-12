@@ -1,5 +1,13 @@
 # Changelog
 
+## Version 10.2.4
+
+October 11, 2022
+
+### Changed 
+
+- Quick fix to allow compatibility with Subtledoctor's updated proficiencies for IWDEE.
+
 ## Version 10.2.3
 
 October 11, 2022

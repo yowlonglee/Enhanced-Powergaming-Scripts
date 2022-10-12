@@ -245,7 +245,7 @@ ACTION_IF NOT sd_combat_skills BEGIN
 			END
 		END
 		PATCH_IF (remove_this = 1) BEGIN
-			LPF ALTER_EFFECT INT_VAR match_opcode = 233 match_parameter2 = 124 opcode = 328 parameter2 = %regen% special = 1 END
+			LPF CLONE_EFFECT INT_VAR match_opcode = 233 match_parameter2 = 124 opcode = 328 parameter2 = %regen% special = 1 END
 		END
 	BUT_ONLY
 

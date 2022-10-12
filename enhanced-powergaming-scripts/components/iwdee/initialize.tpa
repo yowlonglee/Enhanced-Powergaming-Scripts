@@ -147,7 +147,49 @@ APPEND ~stats.ids~ ~182 WIZARD_TENSERS_TRANSFORMATION~          UNLESS ~182 WIZA
 				END
 	END
 	*/
-	
+///////////////////////////////////////////////////////////////////////////
+// Update Regeneration Skills                                            //
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF NOT sd_combat_skills BEGIN
+	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~CLERIC_REGENERATION~)) BEGIN
+	  COPY_EXISTING ~splstate.ids~ ~override~
+		COUNT_2DA_COLS cols
+		READ_2DA_ENTRIES_NOW rows cols
+		FOR (row = 1; row < rows; ++row) BEGIN
+		  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
+		  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
+		  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~CLERIC_REGENERATION~) BEGIN
+			SET regen = %state_ind%
+		  END
+		END
+	  BUT_ONLY
+	END
+
+	ACTION_IF !(VARIABLE_IS_SET %regen%) BEGIN
+		LAF ds_sort_ids STR_VAR ids=splstate END
+		LAF d5_resolve_state STR_VAR new_state_id = ~CLERIC_REGENERATION~ RET new_state_ind END
+		OUTER_SET regen = %new_state_ind%
+	END
+
+	COPY_EXISTING_REGEXP GLOB ~^.+\.spl$~ ~override~
+		GET_OFFSET_ARRAY ab_array SPL_V10_HEADERS
+		SET remove_this = 0
+		PHP_EACH ab_array AS int => ab_off BEGIN
+			GET_OFFSET_ARRAY2 fx_array ab_off SPL_V10_HEAD_EFFECTS
+			PHP_EACH fx_array AS int => fx_off BEGIN
+				READ_SHORT fx_off fx_type
+			  	READ_SHORT (fx_off + 0x08) fx_prof
+			  	PATCH_IF (fx_type = 233) AND (fx_prof = 124) BEGIN
+			    	SET remove_this = 1
+			  	END
+			END
+		END
+		PATCH_IF (remove_this = 1) BEGIN
+			LPF CLONE_EFFECT INT_VAR match_opcode = 233 match_parameter2 = 124 opcode = 328 parameter2 = %regen% special = 1 END
+		END
+	BUT_ONLY
+END
+
 ///////////////////////////////////////////////////////////////////////////
 // Create Spell State for Minor Globe of Invulnerability                 //
 ///////////////////////////////////////////////////////////////////////////
