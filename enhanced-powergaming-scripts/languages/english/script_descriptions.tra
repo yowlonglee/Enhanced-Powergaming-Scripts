@@ -56,7 +56,7 @@
 @1330 = ~The character will use debuffing spells against enemies, curative spells to remove enemy debuffs on themself and allies, and healing spells. The spells used include Breach, Ruby Ray of Reversal, True Sight, Remove Paralysis, Raise Dead, and Heal.~
 
 // I really want to highlight, call out, and emphasize the below code was provided by Bubb who is an incredibly helpful individual.
-@2000 = ~currentPanelID = const\.SCRIPT_ID
+@2000 = ~currentPanelID = const.SCRIPT_ID
 
 		showingSmartOptions = false~
 @2001 = ~currentPanelID = const.SCRIPT_ID
@@ -72,7 +72,7 @@
 		showingSmartOptions = scriptList_idx == B3SmartScriptIdx
 		scriptDescription = t(scriptOptions[scriptList_idx][2])~
 @2002 = ~showingSmartOptions = false
-			if scriptList\[scriptList\_idx\]~
+			if scriptList[scriptList_idx]~
 @2003 = ~showingSmartOptions = scriptList_idx == B3SmartScriptIdx
 			if scriptList[scriptList_idx]~
 

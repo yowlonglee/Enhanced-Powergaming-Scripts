@@ -151,6 +151,7 @@ REPLACE ~mcore2~  @1120
 ///////////////////////////////////////////////////////////////////////////
 // Update UI Menu                                                        //
 ///////////////////////////////////////////////////////////////////////////
+/*
 OUTER_SPRINT uiold1 @2000
 OUTER_SPRINT uinew1 @2001
 OUTER_SPRINT uiold2 @2002
@@ -160,23 +161,9 @@ COPY_EXISTING "UI.MENU" ~override~
 	REPLACE_TEXTUALLY ~%uiold1%~ ~%uinew1%~
 	REPLACE_TEXTUALLY ~%uiold2%~ ~%uinew2%~
 BUT_ONLY
-
-/*
-Replace: ~currentPanelID = const.SCRIPT_ID
-
-		showingSmartOptions = false~
-
-With: ~currentPanelID = const.SCRIPT_ID
-
-		showingSmartOptions = (scriptList_idx == 22)
-		scriptDescription = t(scriptOptions[scriptList_idx][2])~
-
-Replace: ~showingSmartOptions = false
-			if scriptList[scriptList_idx] ~= '' then~
-
-With: ~showingSmartOptions = (scriptList_idx == 22)
-			if scriptList[scriptList_idx] ~= '' then~
 */
+
+INCLUDE ~enhanced-powergaming-scripts/lib/iwdee/ui_menu.tph~
 
 ///////////////////////////////////////////////////////////////////////////
 // Update Lua Files                                                      //
