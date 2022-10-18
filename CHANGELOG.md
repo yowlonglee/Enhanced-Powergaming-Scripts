@@ -2,7 +2,7 @@
 
 ## Version 10.2.5
 
-October xx, 2022
+October 17, 2022
 
 ### Changed 
 
