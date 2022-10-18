@@ -7,6 +7,7 @@ October xx, 2022
 ### Changed 
 
 - Fixed radial options not showing for IWDEE.
+- Updated spell tracking for IWDEE spells.
 
 ## Version 10.2.4
 
