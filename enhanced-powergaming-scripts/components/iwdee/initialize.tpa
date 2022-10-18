@@ -623,7 +623,7 @@ END
 ///////////////////////////////////////////////////////////////////////////
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_MIND_BLANK~ RET spell_res END
 	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
-	  LPF CLONE_EFFECT INT_VAR match_opcode = 161 opcode = 328 parameter2 = %mnd_blnk% special = 1 END
+	  LPF CLONE_EFFECT INT_VAR match_opcode = 106 opcode = 328 parameter2 = %mnd_blnk% special = 1 END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Shield of Lathander                                //
@@ -641,7 +641,7 @@ END
 ///////////////////////////////////////////////////////////////////////////
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_EMOTION_COURAGE~ RET spell_res END
 	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
-	  LPF CLONE_EFFECT INT_VAR match_opcode = 161 opcode = 328 parameter2 = %emt_crg% special = 1 END
+	  LPF CLONE_EFFECT INT_VAR match_opcode = 54 opcode = 328 parameter2 = %emt_crg% special = 1 END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Emotion, Hope                                      //
