@@ -1,5 +1,13 @@
 # Changelog
 
+## Version 10.3
+
+November xx, 2022
+
+### Changed 
+
+- Updated IWDEE scripts page to handle multiple translations.
+
 ## Version 10.2.5
 
 October 17, 2022
