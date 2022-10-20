@@ -147,13 +147,15 @@ COPY_EXISTING ~scrpdesc.2da~ ~override~
 REPLACE ~mcore1~  @1110
 REPLACE ~mcore2~  @1120
 
+/*
 ///////////////////////////////////////////////////////////////////////////
 // Update UI Menu                                                        //
 ///////////////////////////////////////////////////////////////////////////
 INCLUDE ~enhanced-powergaming-scripts/lib/iwdee/ui_menu.tph~
 
 COPY_EXISTING ~UI.MENU~ ~override~
-REPLACE_EVALUATE ~mo_core~ @1110
+REPLACE ~mo_core~ @1110
+*/
 
 ///////////////////////////////////////////////////////////////////////////
 // Update Lua Files                                                      //
@@ -182,6 +184,10 @@ OUTER_SPRINT groupbuff        @1300
 OUTER_SPRINT groupbuffdesc    @1310
 OUTER_SPRINT specbuff         @1320
 OUTER_SPRINT specbuffdesc     @1330
+
+INCLUDE ~enhanced-powergaming-scripts/lib/iwdee/ui_menu.tph~
+COPY_EXISTING ~UI.MENU~ ~override~
+REPLACE_TEXTUALLY ~mo_core~ ~%smartscript%~
 
 ACTION_FOR_EACH luafile IN
 		CS_CZ
