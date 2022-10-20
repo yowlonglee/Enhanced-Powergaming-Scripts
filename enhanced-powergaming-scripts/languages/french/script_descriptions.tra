@@ -55,27 +55,6 @@
 @1320 = ~Suppression des protections de combat de l'ennemi / Guérison / Soins~
 @1330 = ~Le personnage utilisera des sorts permettant de supprimer les protections de combat des ennemis, des sorts de guérison pour supprimer les effets indésirables sur lui-même et ses alliés, ainsi que des sorts de soins. Il utilisera Brèche, Rayon rubis d'inversion, Vision véritable, Délivrance de la paralysie, Rappel à la vie et Guérison.~
 
-// I really want to highlight, call out, and emphasize the below code was provided by Bubb.
-@2000 = ~currentPanelID = const.SCRIPT_ID
-
-		showingSmartOptions = false~
-@2001 = ~currentPanelID = const.SCRIPT_ID
-
-		B3SmartScriptIdx = -1
-		for i, name in ipairs(scriptList) do
-    		if name == 'ENHANCED POWERGAMING SCRIPTS' then
-        		B3SmartScriptIdx = i
-        		break
-    		end
-		end
-
-		showingSmartOptions = scriptList_idx == B3SmartScriptIdx
-		scriptDescription = t(scriptOptions[scriptList_idx][2])~
-@2002 = ~showingSmartOptions = false
-			if scriptList[scriptList_idx]~
-@2003 = ~showingSmartOptions = scriptList_idx == B3SmartScriptIdx
-			if scriptList[scriptList_idx]~
-
 /*
 BDAI_DISABLE_ATTACK => 0 = Attacks a Go
 BDAI_ATTACK_MODE => 1 = Solo Buffing; 2 = Group Buffing
