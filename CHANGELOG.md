@@ -6,7 +6,9 @@ November xx, 2022
 
 ### Changed 
 
-- Updated IWDEE scripts page to handle multiple translations.
+- IWDEE
+  - Updated scripts page to handle multiple translations.
+  - Added spell tracking to Boon of Lathander.
 
 ## Version 10.2.5
 
