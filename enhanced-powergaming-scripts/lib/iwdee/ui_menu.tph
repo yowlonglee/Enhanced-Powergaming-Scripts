@@ -65,11 +65,144 @@ COPY_EXISTING "UI.MENU" ~override~
     INT_VAR
     strict = 1
     verbose = 0
-    warn = 0
+    //warn = 0
     STR_VAR
     pattern = ~~~~~if scriptList[scriptList_idx] == ' ' or scriptList_idx == -1 then~~~~~
     string = ~~~~~showingSmartOptions = scriptList_idx == B3SmartScriptIdx
       if scriptList[scriptList_idx] == ' ' or scriptList_idx == -1 then~~~~~ //"
+  END
+
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    //warn = 0
+    STR_VAR
+    pattern = ~~~~~Infinity_OnScriptItemSelect(scriptList_idx - 1)
+      showingSmartOptions = (scriptList_idx == 2)~~~~~
+    string = ~~~~~Infinity_OnScriptItemSelect(scriptList_idx - 1)~~~~~ //"
+  END
+
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    //warn = 0
+    STR_VAR
+    pattern = ~~~~~label
+  {
+    area 84 12 700 44
+    text  "SCRIPT_TITLE"
+    text style  'title'
+  }~~~~~
+    string = ~~~~~label
+  {
+    area 84 12 700 44
+    text  "SCRIPT_TITLE"
+    text style  'title'
+  }
+  label
+  {
+    area 418 454 424 164
+    rectangle 3
+    enabled "showingSmartOptions == true"
+  }~~~~~ //"
+  END
+
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    //warn = 0
+    STR_VAR
+    pattern = ~~~~~text
+  {
+    area 450 190 370 420
+    text lua "scriptDescription"
+    scrollbar 'GUISCRC'
+    text style normal
+    text color D
+  }~~~~~
+    string = ~~~~~text
+  {
+    area 460 480 348 120
+    text lua "scriptDescription"
+    scrollbar 'GUISCRC'
+    text style normal
+    text color D
+    enabled "showingSmartOptions == true"
+  }
+
+  text
+  {
+    area 446 190 376 422
+    text lua "scriptDescription"
+    scrollbar 'GUISCRC'
+    text style  normal
+    text color 'D'
+    enabled "showingSmartOptions == false"
+  }~~~~~ //"
+  END
+
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    //warn = 0
+    STR_VAR
+    pattern = ~~~~~doneEnabled = characterScreen:IsDoneButtonClickable(currentID)
+    "
+  }~~~~~
+    string = ~~~~~doneEnabled = characterScreen:IsDoneButtonClickable(currentID)
+    "
+  }
+
+  list
+  {
+    
+    column 
+    { 
+      width 80
+      label
+      {
+        area 10 0 -1 -1
+        text lua "t( scriptOptions[rowNumber][1])"
+        text style  "normal"
+        text align right center
+      }
+    }
+    column 
+    { 
+      width 20
+      label
+      {
+        area    8 8 32 32
+        bam     ROUNDBUT
+        scaleToClip
+        frame   lua "scriptOptions[rowNumber][4]"
+      }
+    }
+
+    area 444 194 376 266
+    
+    rowheight 50
+    table   "scriptOptions"
+    var     selScriptOpt
+    scrollbar 'GUISCRC'
+    enabled   "showingSmartOptions == true"
+
+    action    
+    "
+      scriptDescription = t(scriptOptions[selScriptOpt][2])
+      selectedSL = 0
+      selFeedOpt = 0
+
+      if(cellNumber == 2) then
+        Infinity_PlaySound('GAM_09')
+        handleScriptOptionChange(selScriptOpt)
+      end
+    "
+  }~~~~~ //"
   END
 
 BUT_ONLY
