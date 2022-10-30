@@ -6,6 +6,8 @@ November xx, 2022
 
 ### Changed 
 
+- All Games
+  - Updated how translations are handled.
 - IWDEE
   - Updated scripts page to handle multiple translations.
   - Added spell tracking to Boon of Lathander.
