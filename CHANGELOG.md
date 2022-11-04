@@ -2,7 +2,7 @@
 
 ## Version 10.3
 
-November xx, 2022
+November 3, 2022
 
 ### Changed 
 
