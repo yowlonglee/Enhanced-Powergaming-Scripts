@@ -1,5 +1,14 @@
 # Changelog
 
+## Version 10.4
+
+November xx, 2022
+
+### Changed 
+
+- BG2EE and EET
+  - Added Ring of Gaxx Improved Haste
+
 ## Version 10.3
 
 November 3, 2022
