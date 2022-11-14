@@ -451,6 +451,7 @@ END~~~~~
     string = ~~~~~~~~~~ //"
   END
 
+/*
 ///////////////////////////////////////////////////////////////////////////
 // Remove Hardiness                                                      //
 ///////////////////////////////////////////////////////////////////////////
@@ -511,6 +512,7 @@ THEN
 END~~~~~
     string = ~~~~~~~~~~ //"
   END
+*/
 
 ///////////////////////////////////////////////////////////////////////////
 // Remove Gargoyle Boots, Girdle of Fortitude, and Cloak of Stars        //
@@ -650,6 +652,7 @@ END~~~~~
     string = ~~~~~~~~~~ //"
   END
 
+/*
 ///////////////////////////////////////////////////////////////////////////
 // Remove Greater Whirlwind                                              //
 ///////////////////////////////////////////////////////////////////////////
@@ -756,7 +759,9 @@ END~~~~~
   !CheckSpellState(Myself,KENSAI_KIA)~~~~~
     string = ~~~~~!CheckSpellState(Myself,KENSAI_KIA)~~~~~ //"
   END
+*/
 
+/*
 ///////////////////////////////////////////////////////////////////////////
 // Remove Critical Strike                                                //
 ///////////////////////////////////////////////////////////////////////////
@@ -831,6 +836,7 @@ THEN
 END~~~~~
     string = ~~~~~~~~~~ //"
   END
+*/
 
 ///////////////////////////////////////////////////////////////////////////
 // Remove Amulet of Cheetah Speed                                        //
@@ -852,6 +858,7 @@ END~~~~~
   GlobalLT("MO_UsedCheetah","GLOBAL",1)
   HasItemEquiped("AMUL26",Myself)  // Amulet of Cheetah Speed
   !CheckStatGT(Myself,0,IMPROVEDHASTE)
+  !CheckSpellState(Myself,GREATER_WHIRLWIND)
   See([EVILCUTOFF])
   OR(6)
     WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
@@ -936,6 +943,7 @@ END~~~~~
   GlobalLT("MO_UsedBlindingSpeed","GLOBAL",1)
   HasItemEquiped("BRAC16",Myself)  // Bracers of Blinding Strike
   !CheckStatGT(Myself,0,IMPROVEDHASTE)
+  !CheckSpellState(Myself,GREATER_WHIRLWIND)
   See([EVILCUTOFF])
   OR(6)
     WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
@@ -1020,6 +1028,7 @@ END~~~~~
   GlobalLT("MO_UsedRingGaxx","GLOBAL",3)
   HasItemEquiped("RING39",Myself)  // Ring of Gaxx
   !CheckStatGT(Myself,0,IMPROVEDHASTE)
+  !CheckSpellState(Myself,GREATER_WHIRLWIND)
   See([EVILCUTOFF])
   OR(6)
     WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
