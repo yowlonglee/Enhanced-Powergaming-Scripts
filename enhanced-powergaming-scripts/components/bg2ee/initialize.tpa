@@ -940,7 +940,7 @@ END
 ///////////////////////////////////////////////////////////////////////////
 // Create Spell State for Greater Whirlwind                              //
 ///////////////////////////////////////////////////////////////////////////
-	ACTION_IF GAME_IS ~bg2ee eet~ BEGIN
+	ACTION_IF GAME_IS ~bg2ee eet~ OR battle_master BEGIN
 		ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~GREATER_WHIRLWIND~)) BEGIN
 		  COPY_EXISTING ~splstate.ids~ ~override~
 			COUNT_2DA_COLS cols
@@ -1391,6 +1391,14 @@ ACTION_IF saa_hla BEGIN
 		  LPF CLONE_EFFECT INT_VAR match_opcode = 206 opcode = 328 parameter2 = %war_cry% special = 1 END
 	END
 END 
+
+///////////////////////////////////////////////////////////////////////////
+// Add Spell State to Relentless Assault                                 //
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF battle_master BEGIN
+	COPY_EXISTING ~mobtm01.SPL~ ~override~ 
+	  LPF CLONE_EFFECT INT_VAR match_opcode = 317 opcode = 328 parameter2 = %gtr_whirl% special = 1 END
+END
 
 /*
 ///////////////////////////////////////////////////////////////////////////
