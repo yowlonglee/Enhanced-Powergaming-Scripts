@@ -1065,14 +1065,18 @@ ACTION_IF pally_smite OR champion_wild BEGIN
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Paladin Smite                                      //
 ///////////////////////////////////////////////////////////////////////////
-	COPY_EXISTING ~MOPALC3.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %ply_smt% timing = 0 duration = 6 END
+	ACTION_IF FILE_EXISTS_IN_GAME ~MOPALC3.SPL~ BEGIN
+		COPY_EXISTING ~MOPALC3.SPL~ ~override~ 
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %ply_smt% timing = 0 duration = 6 END
+	END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Wrath of the Wild                                  //
 ///////////////////////////////////////////////////////////////////////////
-	COPY_EXISTING ~MOCHW03.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %ply_smt% timing = 0 duration = 10 END
+	ACTION_IF FILE_EXISTS_IN_GAME ~MOCHW03.SPL~ BEGIN
+		COPY_EXISTING ~MOCHW03.SPL~ ~override~ 
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %ply_smt% timing = 0 duration = 10 END
+	END
 	  
 END
 
