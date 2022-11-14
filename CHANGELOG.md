@@ -8,6 +8,8 @@ November xx, 2022
 
 - BG2EE and EET
   - Added Ring of Gaxx Improved Haste
+- IWDEE
+  - Updated AI to track HLAs
 
 ## Version 10.3
 
