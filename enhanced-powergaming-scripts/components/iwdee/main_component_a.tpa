@@ -38,6 +38,14 @@ INCLUDE ~enhanced-powergaming-scripts/lib/core_base.tph~
 INCLUDE ~enhanced-powergaming-scripts/lib/IWDEE/core_iwd.tph~
 
 ///////////////////////////////////////////////////////////////////////////
+// Skills and Abilities Update HLAs                                      //
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF saa_hla BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_core_sa_hla_a.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_sa_hla.tph~
+END
+
+///////////////////////////////////////////////////////////////////////////
 // Turn Undead Overhaul                                                  //
 ///////////////////////////////////////////////////////////////////////////
 ACTION_IF turn_undead BEGIN
