@@ -6,10 +6,12 @@ November xx, 2022
 
 ### Changed 
 
+- All Games
+  - Added Resist Magic and War Cry from Skills and Abilities Updated HLA component.
 - BG2EE and EET
-  - Added Ring of Gaxx Improved Haste
+  - Added Ring of Gaxx Improved Haste.
 - IWDEE
-  - Updated AI to track HLAs
+  - Updated AI to track HLAs.
 
 ## Version 10.3
 
