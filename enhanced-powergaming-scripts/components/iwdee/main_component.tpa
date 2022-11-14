@@ -95,7 +95,10 @@ END
 ACTION_IF pally_smite BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_pally_smite.tph~
 	INCLUDE ~enhanced-powergaming-scripts/lib/IWDEE/core_pally_smite_iwd.tph~
-	INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/core_pally_smite_check.tph~
+
+	ACTION_IF NOT saa_hla BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/core_pally_smite_check.tph~
+	END
 END
 
 ///////////////////////////////////////////////////////////////////////////

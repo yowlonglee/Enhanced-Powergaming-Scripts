@@ -718,6 +718,20 @@ ACTION_IF battle_master BEGIN
 END
 
 ///////////////////////////////////////////////////////////////////////////
+// Morpheus562's Kitpack Champion of the Wild                            //
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF champion_wild BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_mo_champwild.tph~
+
+	ACTION_IF !FILE_EXISTS_IN_GAME ~mochk01.itm~ AND GAME_IS ~bg2ee eet~ BEGIN
+		COPY ~enhanced-powergaming-scripts/itm/mochk01.itm~ ~override~ // Check Item
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_pally_smite_check.tph~
+	END ELSE ACTION_IF GAME_IS ~bgee~ BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/core_pally_smite_check.tph~
+	END
+END
+
+///////////////////////////////////////////////////////////////////////////
 // Skills and Abilities Update HLAs                                      //
 ///////////////////////////////////////////////////////////////////////////
 ACTION_IF saa_hla BEGIN
@@ -730,7 +744,8 @@ END
 ACTION_IF pally_smite BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_pally_smite.tph~
 
-	ACTION_IF GAME_IS ~bg2ee eet~ BEGIN
+	ACTION_IF !FILE_EXISTS_IN_GAME ~mochk01.itm~ AND GAME_IS ~bg2ee eet~ BEGIN
+		COPY ~enhanced-powergaming-scripts/itm/mochk01.itm~ ~override~ // Check Item
 		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_pally_smite_check.tph~
 	END ELSE ACTION_IF GAME_IS ~bgee~ BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/core_pally_smite_check.tph~

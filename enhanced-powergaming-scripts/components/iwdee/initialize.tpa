@@ -1037,10 +1037,10 @@ END
 // Create New Spell States for Smite                                     //
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
-ACTION_IF pally_smite BEGIN
+ACTION_IF pally_smite OR champion_wild BEGIN
 
 ///////////////////////////////////////////////////////////////////////////
-// Create Spell State for Dispel Screen                                  //
+// Create Spell State for Smite                                          //
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~PALLY_SMITE~)) BEGIN
 	  COPY_EXISTING ~splstate.ids~ ~override~
@@ -1067,6 +1067,13 @@ ACTION_IF pally_smite BEGIN
 ///////////////////////////////////////////////////////////////////////////
 	COPY_EXISTING ~MOPALC3.SPL~ ~override~ 
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %ply_smt% timing = 0 duration = 6 END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Spell State to Wrath of the Wild                                  //
+///////////////////////////////////////////////////////////////////////////
+	COPY_EXISTING ~MOCHW03.SPL~ ~override~ 
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %ply_smt% timing = 0 duration = 10 END
+	  
 END
 
 ///////////////////////////////////////////////////////////////////////////
