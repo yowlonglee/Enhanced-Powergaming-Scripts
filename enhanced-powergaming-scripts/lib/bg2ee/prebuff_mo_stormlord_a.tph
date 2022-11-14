@@ -1,0 +1,21 @@
+COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+
+///////////////////////////////////////////////////////////////////////////
+// Add Shock Weapon                                                      //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// Morpheus562's Kitpack Prebuff Shock Weapon~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES("MOSTL02")
+  !CheckSpellState(Myself,SHOCK_WEAPON)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES("MOSTL02",Myself)
+    RemoveSpellRES("MOSTL02")
+END~~~~~ //"
+  END

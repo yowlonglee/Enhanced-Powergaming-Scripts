@@ -8,6 +8,7 @@ November xx, 2022
 
 - All Games
   - Added Resist Magic and War Cry from Skills and Abilities Updated HLA component.
+  - Added kit abilities from Morpheus562's Kitpack.
 - BG2EE and EET
   - Added Ring of Gaxx Improved Haste.
 - IWDEE

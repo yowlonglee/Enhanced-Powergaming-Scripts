@@ -57,6 +57,18 @@ ACTION_IF champion_wild BEGIN
 END
 
 ///////////////////////////////////////////////////////////////////////////
+// Morpheus562's Kitpack Stormlord                                       //
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF stormlord BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_mo_stormlord_a.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/bg2ee/core_mo_stormlord.tph~
+
+	ACTION_IF NOT saa_hla BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/core_stormlord_check.tph~
+	END
+END
+
+///////////////////////////////////////////////////////////////////////////
 // Skills and Abilities Update HLAs                                      //
 ///////////////////////////////////////////////////////////////////////////
 ACTION_IF saa_hla BEGIN
