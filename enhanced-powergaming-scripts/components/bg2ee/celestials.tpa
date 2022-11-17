@@ -37,6 +37,11 @@ END ELSE BEGIN
 	END
 END
 
+ACTION_IF GAME_IS ~iwdee~ BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/iwdee/remove_wight_deva.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/iwdee/remove_wight_plan.tph~
+END
+
 COPY_EXISTING ~devagood.bcs~ 	~override/mogdd02.bcs~
 COPY_EXISTING ~devaevil.bcs~ 	~override/moevd02.bcs~
 COPY_EXISTING ~plangood.bcs~ 	~override/mopln02.bcs~ 
