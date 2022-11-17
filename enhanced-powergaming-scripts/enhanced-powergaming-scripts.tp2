@@ -78,9 +78,7 @@ LANGUAGE ~Spanish~
 ///////////////////////////////////////////////////////////////////////////
 // Main Component Base Game                                              //
 ///////////////////////////////////////////////////////////////////////////
-
 BEGIN @7 DESIGNATED 14 SUBCOMPONENT @2 LABEL EnhancedPowergamingScripts-MainNormal
-
 REQUIRE_PREDICATE GAME_IS ~bgee bg2ee eet iwdee~ @3000
 // REQUIRE_PREDICATE GAME_IS ~bgee bg2ee eet iwdee tob bgt~ @3000
 
@@ -121,19 +119,15 @@ END
 ///////////////////////////////////////////////////////////////////////////
 // Enhanced Scripts for Summoned Celestials - BGII: EE and EET           //
 ///////////////////////////////////////////////////////////////////////////
-
 BEGIN @9 DESIGNATED 9 LABEL EnhancedPowergamingScripts-Celestials
-
-REQUIRE_PREDICATE GAME_IS ~bg2ee eet~ @3004
+REQUIRE_PREDICATE GAME_IS ~bg2ee eet~ OR ((GAME_IS ~iwdee~) AND FILE_EXISTS_IN_GAME ~mohla01.itm~) @3004
 
 INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/celestials.tpa~
 
 ///////////////////////////////////////////////////////////////////////////
 // Enhanced Scripts for Simulacrum - BGII: EE and EET                    //
 ///////////////////////////////////////////////////////////////////////////
-
 BEGIN @10 DESIGNATED 10 LABEL EnhancedPowergamingScripts-Simulacrum
-
 REQUIRE_PREDICATE GAME_IS ~bg2ee eet iwdee~ @3004
 
 INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/simulacrum.tpa~
