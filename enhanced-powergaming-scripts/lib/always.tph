@@ -151,7 +151,7 @@ ACTION_IF !VARIABLE_IS_SET ~initialise~ BEGIN
    END
 
    // Detect Faith and Powers - Spheres
-   ACTION_IF MOD_IS_INSTALLED ~setup-faiths_and_powers.tp2~ ~21~ BEGIN
+   ACTION_IF MOD_IS_INSTALLED ~setup-faiths_and_powers.tp2~ ~80~ BEGIN
       OUTER_SET fp_spheres=1
    END ELSE BEGIN
       OUTER_SET fp_spheres=0
