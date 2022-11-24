@@ -9,7 +9,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     verbose = 0
     STR_VAR
     pattern = ~~~~~Spell(CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)~~~~~
-    string = ~~~~~SpellRES("D5P1404")~~~~~ //"
+    string = ~~~~~SpellRES("D5F1404")~~~~~ //"
   END
 
   LPF REPLACE_MULTILINE
@@ -18,7 +18,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     verbose = 0
     STR_VAR
     pattern = ~~~~~Spell(LastSeenBy(Myself),CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)~~~~~
-    string = ~~~~~SpellRES("D5P1404",LastSeenBy(Myself))~~~~~ //"
+    string = ~~~~~SpellRES("D5F1404",LastSeenBy(Myself))~~~~~ //"
   END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -30,7 +30,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     verbose = 0
     STR_VAR
     pattern = ~~~~~Spell(CLERIC_DRAW_UPON_HOLY_MIGHT)~~~~~
-    string = ~~~~~SpellRES("D5P1214")~~~~~ //"
+    string = ~~~~~SpellRES("D5F1214")~~~~~ //"
   END
 
   LPF REPLACE_MULTILINE
@@ -39,7 +39,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     verbose = 0
     STR_VAR
     pattern = ~~~~~Spell(Myself,CLERIC_DRAW_UPON_HOLY_MIGHT)~~~~~
-    string = ~~~~~SpellRES("D5P1214",Myself)~~~~~ //"
+    string = ~~~~~SpellRES("D5F1214",Myself)~~~~~ //"
   END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -51,7 +51,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     verbose = 0
     STR_VAR
     pattern = ~~~~~Spell(CLERIC_DEATH_WARD)  // SPPR409.SPL (Death Ward)~~~~~
-    string = ~~~~~SpellRES("D5P1409")~~~~~ //"
+    string = ~~~~~SpellRES("D5F1409")~~~~~ //"
   END
 
   LPF REPLACE_MULTILINE
@@ -60,7 +60,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     verbose = 0
     STR_VAR
     pattern = ~~~~~Spell(LastSeenBy(Myself),CLERIC_DEATH_WARD)  // SPPR409.SPL (Death Ward)~~~~~
-    string = ~~~~~SpellRES("D5P1409",LastSeenBy(Myself))~~~~~ //"
+    string = ~~~~~SpellRES("D5F1409",LastSeenBy(Myself))~~~~~ //"
   END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -72,7 +72,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     verbose = 0
     STR_VAR
     pattern = ~~~~~Spell(CLERIC_NEGATIVE_PLANE_PROTECTION)  // SPPR413.SPL (Negative Plane Protection)~~~~~
-    string = ~~~~~SpellRES("D5P1413")~~~~~ //"
+    string = ~~~~~SpellRES("D5F1413")~~~~~ //"
   END
 
   LPF REPLACE_MULTILINE
@@ -81,7 +81,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     verbose = 0
     STR_VAR
     pattern = ~~~~~Spell(LastSeenBy(Myself),CLERIC_NEGATIVE_PLANE_PROTECTION)  // SPPR413.SPL (Negative Plane Protection)~~~~~
-    string = ~~~~~SpellRES("D5P1413",LastSeenBy(Myself))~~~~~ //"
+    string = ~~~~~SpellRES("D5F1413",LastSeenBy(Myself))~~~~~ //"
   END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -93,7 +93,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     verbose = 0
     STR_VAR
     pattern = ~~~~~Spell(CLERIC_REMOVE_FEAR)~~~~~
-    string = ~~~~~SpellRES("D5P1108")~~~~~ //"
+    string = ~~~~~SpellRES("D5F1108")~~~~~ //"
   END
 
   LPF REPLACE_MULTILINE
@@ -102,7 +102,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     verbose = 0
     STR_VAR
     pattern = ~~~~~Spell(Myself,CLERIC_REMOVE_FEAR)~~~~~
-    string = ~~~~~SpellRES("D5P1108",Myself)~~~~~ //"
+    string = ~~~~~SpellRES("D5F1108",Myself)~~~~~ //"
   END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -116,7 +116,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     pattern = ~~~~~// FP Cleric Minor Spell Deflection~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
-  HaveSpellRES("D5P2318")
+  HaveSpellRES("D5F2318")
   CheckStatLT(Myself,1,WIZARD_SPELL_DEFLECTION)
   !CheckSpellState(Myself,MINOR_GLOBE)
   !CheckSpellState(Myself,GLOBE)
@@ -129,7 +129,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SpellRES("D5P2318",Myself)
+    SpellRES("D5F2318",Myself)
 END
 ~~~~~ //"
   END
@@ -195,7 +195,7 @@ END
     pattern = ~~~~~// FP Cleric Divine Haste~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
-  HaveSpellRES("D5P2305")
+  HaveSpellRES("D5F2305")
   !StateCheck(Myself,STATE_HASTED)
   CheckStat(Myself,0,IMPROVEDHASTE)
   !CheckSpellState(Myself,HASTE)
@@ -213,7 +213,7 @@ END
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SpellRES("D5P2305",Myself)
+    SpellRES("D5F2305",Myself)
 END
 ~~~~~ //"
   END
@@ -229,7 +229,7 @@ END
     pattern = ~~~~~// FP Cleric Divine Improved Haste~~~~~
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
-  HaveSpellRES("D5P2613")
+  HaveSpellRES("D5F2613")
   !CheckStatGT(Myself,0,IMPROVEDHASTE)
   !CheckSpellState(Myself,IMPROVED_HASTE)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -241,7 +241,7 @@ END
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    SpellRES("D5P2613",Myself)
+    SpellRES("D5F2613",Myself)
 END
 ~~~~~ //"
   END

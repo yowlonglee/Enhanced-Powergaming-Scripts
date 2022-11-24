@@ -14,15 +14,15 @@ COPY_EXISTING "UI.MENU" ~override~
     showingSmartOptions = false~~~~~
     string = ~~~~~currentPanelID = const.SCRIPT_ID
 
-    B3SmartScriptIdx = -1
+    moSmartScriptIdx = -1
     for i, name in ipairs(scriptList) do
         if name == 'mo_core' then
-            B3SmartScriptIdx = i
+            moSmartScriptIdx = i
             break
         end
     end
 
-    showingSmartOptions = scriptList_idx == B3SmartScriptIdx
+    showingSmartOptions = scriptList_idx == moSmartScriptIdx
     scriptDescription = t(scriptOptions[scriptList_idx][2])~~~~~ //"
   END
 
@@ -37,15 +37,15 @@ COPY_EXISTING "UI.MENU" ~override~
     string = ~~~~~Infinity_OnScriptItemSelect(scriptList_idx - 1)
     scriptList_savedIdx = scriptList_idx
 
-    B3SmartScriptIdx = -1
+    moSmartScriptIdx = -1
     for i, name in ipairs(scriptList) do
         if name == 'mo_core' then
-            B3SmartScriptIdx = i
+            moSmartScriptIdx = i
             break
         end
     end
 
-    showingSmartOptions = scriptList_idx == B3SmartScriptIdx
+    showingSmartOptions = scriptList_idx == moSmartScriptIdx
     scriptDescription = t(scriptOptions[scriptList_idx][2])~~~~~ //"
   END
 
@@ -57,7 +57,7 @@ COPY_EXISTING "UI.MENU" ~override~
     STR_VAR
     pattern = ~~~~~showingSmartOptions = false
       if scriptList[scriptList_idx]~~~~~
-    string = ~~~~~showingSmartOptions = scriptList_idx == B3SmartScriptIdx
+    string = ~~~~~showingSmartOptions = scriptList_idx == moSmartScriptIdx
       if scriptList[scriptList_idx]~~~~~ //"
   END
 
@@ -68,7 +68,7 @@ COPY_EXISTING "UI.MENU" ~override~
     warn = 0
     STR_VAR
     pattern = ~~~~~if scriptList[scriptList_idx] == ' ' or scriptList_idx == -1 then~~~~~
-    string = ~~~~~showingSmartOptions = scriptList_idx == B3SmartScriptIdx
+    string = ~~~~~showingSmartOptions = scriptList_idx == moSmartScriptIdx
       if scriptList[scriptList_idx] == ' ' or scriptList_idx == -1 then~~~~~ //"
   END
 

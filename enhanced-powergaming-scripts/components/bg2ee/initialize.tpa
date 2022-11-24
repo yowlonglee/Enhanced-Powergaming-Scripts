@@ -1475,7 +1475,9 @@ END
 	// FP Spheres 
 	ACTION_IF fp_spheres BEGIN
 		ACTION_FOR_EACH spell IN
+				D5F2321
 				D5P2321
+				D5F2419
 				D5P2419
 			BEGIN
 				COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
@@ -1518,7 +1520,9 @@ END
 			SPIN201 // Innate - Neutralize Poison
 			SPPR212 // Slow Poison
 			SPPR404 // Neutralize Poison
+			D5F1212 // FP - Slow Poison
 			D5P1212 // FP - Slow Poison
+			D5F1404 // FP - Neutralize Poison
 			D5P1404 // FP - Neutralize Poison
 		BEGIN
 			ACTION_IF FILE_EXISTS_IN_GAME ~%poison_spell%.SPL~ BEGIN
