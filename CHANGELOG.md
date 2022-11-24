@@ -1,5 +1,14 @@
 # Changelog
 
+## Version 11.0
+
+December xx, 2022
+
+### Changed 
+
+- Increased enemy simulacrum targeting.
+- Allow ai scripts to check current target thanks to EEex.
+
 ## Version 10.4
 
 November 23, 2022
