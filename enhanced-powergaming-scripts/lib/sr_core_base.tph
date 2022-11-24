@@ -14644,6 +14644,17 @@ THEN
 END
 
 IF
+  EEex_LuaTrigger("return MoFillCurrentTarget()")
+  See(EEex_Target("MoCurrentTarget"))
+  OR(2)
+    !WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
+    !WeaponCanDamage(NearestEnemyOf(Myself),MAINHAND)
+THEN
+  RESPONSE #100
+    ActionOverride(Myself,ClearActions(Myself))
+END
+
+IF
   ActionListEmpty()
   Global("BDAI_DISABLE_ATTACK","LOCALS",0)
   !Global("BDAI_SKILL_MODE","LOCALS",4)

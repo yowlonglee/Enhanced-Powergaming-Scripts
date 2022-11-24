@@ -39,3 +39,25 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     pattern = ~~~~~!EEex_LuaTrigger("return AmMoving()")~~~~~
     string = ~~~~~True()~~~~~ //"
   END
+
+///////////////////////////////////////////////////////////////////////////
+// Check Current Target                                                  //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    warn = 0
+    STR_VAR
+    pattern = ~~~~~IF
+  EEex_LuaTrigger("return MoFillCurrentTarget()")
+  See(EEex_Target("MoCurrentTarget"))
+  OR(2)
+    !WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
+    !WeaponCanDamage(NearestEnemyOf(Myself),MAINHAND)
+THEN
+  RESPONSE #100
+    ActionOverride(Myself,ClearActions(Myself))
+END~~~~~
+    string = ~~~~~~~~~~ //"
+  END
