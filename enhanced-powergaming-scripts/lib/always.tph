@@ -157,6 +157,13 @@ ACTION_IF !VARIABLE_IS_SET ~initialise~ BEGIN
       OUTER_SET fp_spheres=0
    END
 
+   // Detect Faith and Powers - Spheres
+   ACTION_IF MOD_IS_INSTALLED ~setup-faiths_and_powers.tp2~ ~21~ BEGIN
+      OUTER_SET fp_old=1
+   END ELSE BEGIN
+      OUTER_SET fp_old=0
+   END
+
    // Detect IWD Spells - SCS
    ACTION_IF MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1500~ && MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~1510~ BEGIN
       OUTER_SET iwd_scs=1
