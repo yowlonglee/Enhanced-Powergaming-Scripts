@@ -14480,6 +14480,7 @@ THEN
     BattleSong()
 END
 
+/*
 IF
   EEex_LuaTrigger("return MoFillCurrentTarget()")
   See(EEex_Target("MoCurrentTarget"))
@@ -14490,6 +14491,7 @@ THEN
   RESPONSE #100
     ActionOverride(Myself,ClearActions(Myself))
 END
+*/
 
 IF
   ActionListEmpty()
