@@ -1,0 +1,43 @@
+COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+
+///////////////////////////////////////////////////////////////////////////
+// Add Templar Mass Cure                                                 //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// Morpheus562 Kitpack Templar Mass Cure~~~~~
+    string = ~~~~~IF
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_SPECIAL","LOCALS",0)
+  HaveSpellRES("motmp03")
+  OR(2)
+    HPPercentLT(Myself,51)
+    HPPercentLT([PC],51)
+  OR(2)
+    HPPercentLT(SecondNearest([PC]),51)
+    HPPercentLT(ThirdNearest([PC]),51)
+  OR(2)
+    Range([PC],12)
+    Range(SecondNearest([PC]),12)
+  OR(2)
+    Range(ThirdNearest([PC]),12)
+    HPPercentLT(Myself,51)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_SpellCast","LOCALS",1)
+    SpellRES("motmp03",Myself)
+END~~~~~ //"
+  END

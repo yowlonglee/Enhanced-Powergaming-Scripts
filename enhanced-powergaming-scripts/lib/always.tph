@@ -94,6 +94,13 @@ ACTION_IF !VARIABLE_IS_SET ~initialise~ BEGIN
       OUTER_SET champion_wild=0
    END
 
+   // Detect Templar
+   ACTION_IF MOD_IS_INSTALLED ~morpheus562-s-kitpack.tp2~ ~310~ THEN BEGIN
+      OUTER_SET templar=1
+   END ELSE BEGIN
+      OUTER_SET templar=0
+   END
+
    // Detect Eldritch Scion
    ACTION_IF MOD_IS_INSTALLED ~skills-and-abilities.tp2~ ~620~ OR MOD_IS_INSTALLED ~morpheus562-s-kitpack.tp2~ ~900~ THEN BEGIN
       OUTER_SET eldritch_scion=1
