@@ -8,6 +8,8 @@ December xx, 2022
 
 - Increased enemy simulacrum targeting.
 - Allow ai scripts to check current target thanks to EEex.
+- Organized my scripts to be easier to navigate.
+- Added Templar Mass Cure ability.
 
 ## Version 10.4
 
