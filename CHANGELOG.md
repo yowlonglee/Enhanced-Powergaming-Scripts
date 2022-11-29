@@ -10,6 +10,8 @@ December xx, 2022
 - Allow ai scripts to check current target thanks to EEex.
 - Organized my scripts to be easier to navigate.
 - Added Templar Mass Cure ability.
+- IWDEE
+  - Updated scritps for Paladin Protection from Evil since it is self-cast only in IWDEE.
 
 ## Version 10.4
 
