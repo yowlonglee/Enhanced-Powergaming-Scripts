@@ -1,0 +1,21 @@
+COPY ~enhanced-powergaming-scripts/baf/upload/plangood.baf~ ~enhanced-powergaming-scripts/baf/upload/plangood.baf~
+
+///////////////////////////////////////////////////////////////////////////
+// Planetar Innate Casting                                               //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    warn = 0
+    STR_VAR
+    pattern = ~~~~~// Planetar Innate Casting~~~~~
+    string = ~~~~~IF
+  Global("innate_casting","LOCALS",0)
+THEN
+  RESPONSE #100
+    ApplySpellRES("dw#innat",Myself)  // No such index
+    SetGlobal("innate_casting","LOCALS",1)
+    Continue()
+END~~~~~ //"
+  END

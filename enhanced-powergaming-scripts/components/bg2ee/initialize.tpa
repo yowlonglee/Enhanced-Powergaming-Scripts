@@ -1784,13 +1784,24 @@ ACTION_IF !spell_revisions BEGIN
 	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
 	  LPF CLONE_EFFECT INT_VAR match_opcode = 233 opcode = 328 parameter2 = %spl_trn% special = 1 END
 
+	ACTION_FOR_EACH spl_turn IN
+			DWSW701  // SCS
+			CA#STURN // PNP Celestials
+		BEGIN
+			ACTION_IF FILE_EXISTS_IN_GAME ~%spl_turn%.SPL~ BEGIN
+				COPY_EXISTING ~%spl_turn%.SPL~ ~override~ 
+					LPF CLONE_EFFECT INT_VAR match_opcode = 233 opcode = 328 parameter2 = %spl_trn% special = 1 END
+			END
+		END
+	
+	/*
 	ACTION_IF scs_breach BEGIN
 		ACTION_IF FILE_EXISTS_IN_GAME ~DWSW701.SPL~ BEGIN
 			COPY_EXISTING ~DWSW701.SPL~ ~override~ 
 			  LPF CLONE_EFFECT INT_VAR match_opcode = 233 opcode = 328 parameter2 = %spl_trn% special = 1 END
 		END
 	END
-
+	*/
 END
 
 ///////////////////////////////////////////////////////////////////////////
