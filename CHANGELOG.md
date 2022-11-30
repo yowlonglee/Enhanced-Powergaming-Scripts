@@ -6,10 +6,11 @@ December xx, 2022
 
 ### Changed 
 
-- Increased enemy simulacrum targeting.
+- Improved enemy simulacrum attack targeting.
 - Allow ai scripts to check current target thanks to EEex.
 - Organized my scripts to be easier to navigate.
 - Added Templar Mass Cure ability.
+- Updated dialog string for weapon swap to correctly relay it is swapping to melee weapons.
 - IWDEE
   - Updated scritps for Paladin Protection from Evil since it is self-cast only in IWDEE.
 
