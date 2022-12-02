@@ -41,10 +41,12 @@ ACTION_IF FILE_EXISTS_IN_GAME ~DW#INNAT.SPL~ BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/lib/celestial/innate_cast.tph~
 END
 
+/*
 ACTION_IF GAME_IS ~iwdee~ BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/lib/iwdee/remove_wight_deva.tph~
 	INCLUDE ~enhanced-powergaming-scripts/lib/iwdee/remove_wight_plan.tph~
 END
+*/
 
 COPY_EXISTING ~devagood.bcs~ 	~override/mogdd02.bcs~
 COPY_EXISTING ~devaevil.bcs~ 	~override/moevd02.bcs~

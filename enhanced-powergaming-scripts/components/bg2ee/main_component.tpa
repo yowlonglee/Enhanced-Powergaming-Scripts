@@ -57,12 +57,14 @@ ACTION_IF spell_revisions BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/bgee/sr_core_bgee.tph~
 	END
 
+/*
 ///////////////////////////////////////////////////////////////////////////
 // BGEE Wight Check                                                      //
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF GAME_IS ~bgee~ BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/ini/remove_wight.tph~
 	END
+*/
 
 ///////////////////////////////////////////////////////////////////////////
 // SR - 5e Spellcasting                                                  //
@@ -362,12 +364,14 @@ END ELSE BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/bgee/core_bgee.tph~
 	END
 
+/*
 ///////////////////////////////////////////////////////////////////////////
 // BGEE Remove Wights                                                    //
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF GAME_IS ~bgee~ BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/ini/remove_wight.tph~
 	END
+*/
 
 ///////////////////////////////////////////////////////////////////////////
 // 5e Spellcasting                                                       //
