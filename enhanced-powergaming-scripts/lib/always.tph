@@ -332,4 +332,11 @@ ACTION_IF !VARIABLE_IS_SET ~initialise~ BEGIN
       OUTER_SET pnp_celestial=0
    END
 
+   // Tome and Blood - Magus
+   ACTION_IF MOD_IS_INSTALLED ~TomeAndBlood.TP2~ ~25~ BEGIN
+      OUTER_SET magus=1
+   END ELSE BEGIN
+      OUTER_SET magus=0
+   END
+
 END

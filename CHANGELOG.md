@@ -6,11 +6,14 @@ December xx, 2022
 
 ### Changed 
 
+- Added enhanced AI scripts for PnP Celestials.
 - Improved enemy simulacrum attack targeting.
 - Allow ai scripts to check current target thanks to EEex.
 - Organized my scripts to be easier to navigate.
 - Added Templar Mass Cure ability.
+- Added the following spells: Command, etc.
 - Updated dialog string for weapon swap to correctly relay it is swapping to melee weapons.
+- Allowed scripts to have the Tome and Blood Magus kit attack in melee.
 - IWDEE
   - Updated scritps for Paladin Protection from Evil since it is self-cast only in IWDEE.
 
