@@ -122,7 +122,11 @@ END
 BEGIN @9 DESIGNATED 9 LABEL EnhancedPowergamingScripts-Celestials
 REQUIRE_PREDICATE GAME_IS ~bg2ee eet~ OR ((GAME_IS ~iwdee~) AND FILE_EXISTS_IN_GAME ~mohla01.itm~) @3004
 
-INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/celestials.tpa~
+ACTION_IF pnp_celestial BEGIN
+    INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/pnp_celestials.tpa~
+END ELSE BEGIN
+    INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/celestials.tpa~
+END
 
 ///////////////////////////////////////////////////////////////////////////
 // Enhanced Scripts for Simulacrum - BGII: EE and EET                    //

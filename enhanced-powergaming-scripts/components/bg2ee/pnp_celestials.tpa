@@ -1,0 +1,63 @@
+LOAD_TRA ~enhanced-powergaming-scripts/languages/%LANGUAGE%/script_dialog.tra~
+
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+// Enhanced Scripts for Summoned PnP Celestials                          //
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////
+// Spell Revisions                                                       //
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF spell_revisions BEGIN
+	COPY ~enhanced-powergaming-scripts/baf/celestials/pnp/ca#dastr.baf~   ~enhanced-powergaming-scripts/baf/upload/ca#dastr.baf~
+	COPY ~enhanced-powergaming-scripts/baf/celestials/pnp/sr/mocel01.baf~ ~enhanced-powergaming-scripts/baf/upload/mocel01.baf~
+	COPY ~enhanced-powergaming-scripts/baf/celestials/pnp/sr/mocel02.baf~ ~enhanced-powergaming-scripts/baf/upload/mocel02.baf~
+
+// Check This
+///////////////////////////////////////////////////////////////////////////
+// SR - d5 Random Tweaks - Cure Bypass Deflection                        //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF d5_deflected BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/celestial/sr_deva_d5_cure_dispelling.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/celestial/sr_planet_d5_cure_dispelling.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// Non-Spell Revisions                                                   //
+///////////////////////////////////////////////////////////////////////////
+END ELSE BEGIN
+	COPY ~enhanced-powergaming-scripts/baf/celestials/pnp/ca#dastr.baf~ ~enhanced-powergaming-scripts/baf/upload/ca#dastr.baf~
+	COPY ~enhanced-powergaming-scripts/baf/celestials/pnp/mocel01.baf~  ~enhanced-powergaming-scripts/baf/upload/mocel01.baf~
+	COPY ~enhanced-powergaming-scripts/baf/celestials/pnp/mocel02.baf~  ~enhanced-powergaming-scripts/baf/upload/mocel02.baf~
+
+// Check This
+///////////////////////////////////////////////////////////////////////////
+// d5 Random Tweaks - Cure Bypass Deflection                             //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF d5_deflected BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/celestial/deva_d5_cure_dispelling.tph~
+		INCLUDE ~enhanced-powergaming-scripts/lib/celestial/planet_d5_cure_dispelling.tph~
+	END
+END
+
+///////////////////////////////////////////////////////////////////////////
+// EEex Check                                                            //
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF NOT eeex_present BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/celestial/pnp01_eeex.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/celestial/pnp02_eeex.tph~
+END
+
+///////////////////////////////////////////////////////////////////////////
+// Update Hot Keys                                                       //
+///////////////////////////////////////////////////////////////////////////
+INCLUDE ~enhanced-powergaming-scripts/lib/pnp_hotkey.tph~
+
+///////////////////////////////////////////////////////////////////////////
+// Copy .BCS files to override folder                                    //
+///////////////////////////////////////////////////////////////////////////
+COPY ~enhanced-powergaming-scripts/baf/upload/ca#dastr.baf~   	   ~override/ca#dastr.bcs~
+	 ~enhanced-powergaming-scripts/baf/upload/mocel01.baf~   	   ~override/mocel01.bcs~
+	 ~enhanced-powergaming-scripts/baf/upload/mocel02.baf~   	   ~override/mocel02.bcs~
+  COMPILE_BAF_TO_BCS

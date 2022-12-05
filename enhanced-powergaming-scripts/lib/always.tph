@@ -325,4 +325,11 @@ ACTION_IF !VARIABLE_IS_SET ~initialise~ BEGIN
       OUTER_SET sd_combat_skills=0
    END
 
+   // PnP Celestials
+   ACTION_IF MOD_IS_INSTALLED ~SETUP-CELESTIALS.TP2~ ~0~ BEGIN
+      OUTER_SET pnp_celestial=1
+   END ELSE BEGIN
+      OUTER_SET pnp_celestial=0
+   END
+
 END

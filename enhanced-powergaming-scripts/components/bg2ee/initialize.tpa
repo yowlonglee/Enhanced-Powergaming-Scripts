@@ -278,6 +278,41 @@ ACTION_IF NOT sd_combat_skills BEGIN
 	BUT_ONLY
 	*/
 END
+
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+// Create New Spell States for PnP Celestials                            //
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF pnp_celestial BEGIN
+
+///////////////////////////////////////////////////////////////////////////
+// Create Spell State for Resist Cold                                    //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~RESIST_COLD~)) BEGIN
+	  COPY_EXISTING ~splstate.ids~ ~override~
+		COUNT_2DA_COLS cols
+		READ_2DA_ENTRIES_NOW rows cols
+		FOR (row = 1; row < rows; ++row) BEGIN
+		  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
+		  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
+		  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~RESIST_COLD~) BEGIN
+			SET rst_cold = %state_ind%
+		  END
+		END
+	  BUT_ONLY
+	END
+
+	ACTION_IF !(VARIABLE_IS_SET %rst_cold%) BEGIN
+		LAF ds_sort_ids STR_VAR ids=splstate END
+		LAF d5_resolve_state STR_VAR new_state_id = ~RESIST_COLD~ RET new_state_ind END
+		OUTER_SET rst_cold = %new_state_ind%
+	END
+
+	COPY_EXISTING ~CA#RCOLD.SPL~ ~override~ 
+   		LPF CLONE_EFFECT INT_VAR match_opcode = 28 opcode = 328 parameter2 = %rst_cold% special = 1 END
+END
+
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 // Create New Spell States for Spell Revisions                           //
@@ -559,6 +594,34 @@ ACTION_IF spell_revisions BEGIN
 		LAF ds_sort_ids STR_VAR ids=splstate END
 		LAF d5_resolve_state STR_VAR new_state_id = ~IMPROVED_HASTE~ RET new_state_ind END
 		OUTER_SET imp_haste = %new_state_ind%
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// Create Spell State for Spell Turning                                  //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF pnp_celestial BEGIN
+		ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~SPELL_TURNING~)) BEGIN
+		  COPY_EXISTING ~splstate.ids~ ~override~
+			COUNT_2DA_COLS cols
+			READ_2DA_ENTRIES_NOW rows cols
+			FOR (row = 1; row < rows; ++row) BEGIN
+			  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
+			  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
+			  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~SPELL_TURNING~) BEGIN
+				SET spl_trn = %state_ind%
+			  END
+			END
+		  BUT_ONLY
+		END
+
+		ACTION_IF !(VARIABLE_IS_SET %spl_trn%) BEGIN
+			LAF ds_sort_ids STR_VAR ids=splstate END
+			LAF d5_resolve_state STR_VAR new_state_id = ~SPELL_TURNING~ RET new_state_ind END
+			OUTER_SET spl_trn = %new_state_ind%
+		END
+
+		COPY_EXISTING ~CA#STURN.SPL~ ~override~ 
+			LPF CLONE_EFFECT INT_VAR match_opcode = 233 opcode = 328 parameter2 = %spl_trn% special = 1 END
 	END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -1560,6 +1623,7 @@ END
 	ACTION_FOR_EACH restoration_spell IN
 			CLERIC_LESSER_RESTORATION
 			CLERIC_RESTORATION
+			CA#RESTO
 		BEGIN
 			LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%restoration_spell%~ RET spell_res END
 			ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
@@ -1576,6 +1640,8 @@ END
 
 	ACTION_FOR_EACH disease_spell IN
 			CLERIC_CURE_DISEASE
+			CA#CDISE
+			CA#CUDIS
 		BEGIN
 			ACTION_IF FILE_EXISTS_IN_GAME ~%disease_spell%.SPL~ BEGIN
 				COPY_EXISTING ~%disease_spell%.SPL~ ~override~ 

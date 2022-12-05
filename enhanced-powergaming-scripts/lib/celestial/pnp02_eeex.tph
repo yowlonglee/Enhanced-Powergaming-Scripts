@@ -1,0 +1,41 @@
+COPY ~enhanced-powergaming-scripts/baf/upload/mocel02.baf~ ~enhanced-powergaming-scripts/baf/upload/mocel02.baf~
+
+///////////////////////////////////////////////////////////////////////////
+// Make EEex Check go away                                               //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    warn = 0
+    STR_VAR
+    pattern = ~~~~~!ActionListEmpty()
+  !EEex_LuaTrigger("return AmAttacking()")~~~~~
+    string = ~~~~~!ActionListEmpty()~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Make EEex Check False                                                 //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    warn = 0
+    STR_VAR
+    pattern = ~~~~~EEex_LuaTrigger("return AmAttacking()")~~~~~
+    string = ~~~~~False()~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Make EEex Check True                                                  //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    warn = 0
+    STR_VAR
+    pattern = ~~~~~!EEex_LuaTrigger("return AmMoving()")~~~~~
+    string = ~~~~~True()~~~~~ //"
+  END

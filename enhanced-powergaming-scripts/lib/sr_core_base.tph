@@ -14768,8 +14768,8 @@ IF
   EEex_LuaTrigger("return MoFillCurrentTarget()")
   See(EEex_Target("MoCurrentTarget"))
   OR(2)
-    !WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
-    !WeaponCanDamage(NearestEnemyOf(Myself),MAINHAND)
+    !WeaponEffectiveVs(LastSeenBy(Myself),MAINHAND)
+    !WeaponCanDamage(LastSeenBy(Myself),MAINHAND)
 THEN
   RESPONSE #100
     ActionOverride(Myself,ClearActions(Myself))
