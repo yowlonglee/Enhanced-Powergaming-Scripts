@@ -144,12 +144,14 @@ ACTION_IF spell_revisions BEGIN
 				CLERIC_MISCAST_MAGIC
 				CLERIC_GREATER_COMMAND
 				CLERIC_COMMAND
+				CLERIC_RIGHTEOUS_MAGIC
 				WIZARD_GREATER_MALISON
 				WIZARD_SLOW
 				WIZARD_SLEEP
 				WIZARD_HOLD_PERSON
 				WIZARD_CONFUSION
 				WIZARD_EMOTION_HOPELESSNESS
+				WIZARD_CHAOS
 			BEGIN
 				LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_spell%~ RET spell_res END
 				COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
@@ -452,12 +454,14 @@ END ELSE BEGIN
 				CLERIC_MISCAST_MAGIC
 				CLERIC_GREATER_COMMAND
 				CLERIC_COMMAND
+				CLERIC_RIGHTEOUS_MAGIC
 				WIZARD_GREATER_MALISON
 				WIZARD_SLOW
 				WIZARD_SLEEP
 				WIZARD_HOLD_PERSON
 				WIZARD_CONFUSION
 				WIZARD_EMOTION_HOPELESSNESS
+				WIZARD_CHAOS
 			BEGIN
 				LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_spell%~ RET spell_res END
 				COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
