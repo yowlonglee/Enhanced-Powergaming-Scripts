@@ -74,7 +74,6 @@ END
 IF
 	Global("MO_BUFF","LOCALS",1)
 	!StateCheck(Myself,STATE_IMPROVEDINVISIBILITY)
-	CheckStat(Myself,0,MINORGLOBE)
 	!CheckSpellState(Myself,RESIST_FEAR)
 	HaveSpell(CLERIC_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
 	CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -256,7 +255,6 @@ IF
 		CheckSpellState(LastSeenBy(Myself),DEAFENED)
 	!StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
 	!CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-	CheckStat(LastSeenBy(Myself),0,MINORGLOBE)
 	HaveSpell(CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
 	CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
 	!StateCheck(Myself,STATE_SILENCED)

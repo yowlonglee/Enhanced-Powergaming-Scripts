@@ -201,8 +201,6 @@ END~~~~~
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   GlobalLT("MO_UsedIlbratha","GLOBAL",1)
   HasItemEquiped("SW1H26",Myself)  // Ilbratha +1
-  !CheckSpellState(Myself,MINOR_GLOBE)
-  !CheckSpellState(Myself,GLOBE)
   See(NearestEnemyOf(Myself))
   OR(11)
     Range([EVILCUTOFF.0.FAIRY],30)
@@ -276,8 +274,6 @@ IF
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   GlobalLT("MO_UsedDuplication","GLOBAL",3)
   HasItemEquiped("OHRRING1",Myself)  // Ring of Duplication
-  !CheckSpellState(Myself,MINOR_GLOBE)
-  !CheckSpellState(Myself,GLOBE)
   See(NearestEnemyOf(Myself))
   OR(11)
     Range([EVILCUTOFF.0.FAIRY],30)
@@ -660,8 +656,6 @@ END~~~~~
   GlobalLT("MO_UsedCowlOfStars","GLOBAL",3)
   HasItemEquiped("OHRCLCK1",Myself)  // Cowl of the Stars
   !HasItem("melfmet",Myself)  // Melf's Minute Meteor
-  !CheckSpellState(Myself,MINOR_GLOBE)
-  !CheckSpellState(Myself,GLOBE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_POISONED)
   Global("MO_CastAthkatla","LOCALS",1)

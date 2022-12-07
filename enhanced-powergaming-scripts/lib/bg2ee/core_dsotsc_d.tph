@@ -22,8 +22,6 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
   See([EVILCUTOFF])
   !CheckSpellState(Myself,ARMY_OF_ONE)
   CheckStatLT(Myself,25,STR)
-  !CheckSpellState(Myself,MINOR_GLOBE)
-  !CheckSpellState(Myself,GLOBE)
   OR(27)
     EEex_LuaTrigger("return ChallengeRating()")
     Range([EVILCUTOFF.0.GOLEM],30)

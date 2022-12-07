@@ -15,8 +15,6 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   GlobalLT("MO_UsedMirrorAmulet0","GLOBAL",2)
   HasItemEquiped("MH#AMUL4",Myself)  // Mirror Amulet
-  !CheckSpellState(Myself,MINOR_GLOBE)
-  !CheckSpellState(Myself,GLOBE)
 THEN
   RESPONSE #100
     UseItem("MH#AMUL4",Myself)  // Mirror Amulet

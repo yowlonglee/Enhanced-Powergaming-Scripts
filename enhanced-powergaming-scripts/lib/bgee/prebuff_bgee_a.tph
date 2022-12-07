@@ -278,8 +278,6 @@ END~~~~~
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   GlobalLT("MO_UsedIlbratha","GLOBAL",1)
   HasItemEquiped("SW1H26",Myself)  // Ilbratha +1
-  !CheckSpellState(Myself,MINOR_GLOBE)
-  !CheckSpellState(Myself,GLOBE)
 THEN
   RESPONSE #100
     UseItemAbility("SW1H26",Myself,SLOT_AMMO3,1)  // Ilbratha +1
@@ -331,8 +329,6 @@ IF
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   GlobalLT("MO_UsedDuplication","GLOBAL",3)
   HasItemEquiped("OHRRING1",Myself)  // Ring of Duplication
-  !CheckSpellState(Myself,MINOR_GLOBE)
-  !CheckSpellState(Myself,GLOBE)
 THEN
   RESPONSE #100
     UseItem("OHRRING1",Myself)  // Ring of Duplication
@@ -397,7 +393,6 @@ END~~~~~
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(CLERIC_PHYSICAL_MIRROR)  // sppr525.spl (Physical Mirror)
   CheckStatLT(Myself,1,CLERIC_PHYSICAL_MIRROR)
-  // (Myself) Major Globe
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_POISONED)
