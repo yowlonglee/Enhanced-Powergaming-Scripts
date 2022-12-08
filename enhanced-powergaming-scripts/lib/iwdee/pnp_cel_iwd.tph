@@ -1,0 +1,33 @@
+COPY ~enhanced-powergaming-scripts/baf/upload/mocel02.baf~ ~enhanced-powergaming-scripts/baf/upload/mocel02.baf~
+
+///////////////////////////////////////////////////////////////////////////
+// Remove Items from Checks                                              //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    warn = 0
+    STR_VAR
+    pattern = ~~~~~!HasItemEquiped("FREERING",LastSeenBy(Myself)) // Ring of Free Action
+  !HasItemEquiped("ROSSRING",LastSeenBy(Myself)) // Ring of Free Action
+  !HasItemEquiped("RING09",LastSeenBy(Myself)) // Ring of Free Action
+  !HasItemEquiped("NPSW01",LastSeenBy(Myself)) // Sword of Avoreen~~~~~
+    string = ~~~~~!HasItemEquiped("RING09",LastSeenBy(Myself)) // Ring of Free Action~~~~~ //"
+  END
+
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    warn = 0
+    STR_VAR
+    pattern = ~~~~~!HasItem("MORSWORD",LastSeenBy(Myself))  // Mordenkainen's Sword
+  !HasItemEquiped("AMUL17",LastSeenBy(Myself)) // Greenstone Amulet
+  !HasItemEquiped("LEAT20",LastSeenBy(Myself)) // Aeger's Hide +3
+  !HasItemEquiped("SHLD25",LastSeenBy(Myself)) // Shield of Harmony +2
+  !HasItemEquipedReal("SW1H54",LastSeenBy(Myself)) // The Equalizer
+  !HasItemEquipedReal("SW2H14",LastSeenBy(Myself)) // Lilarcor
+  !HasItemEquipedReal("SW2H21",LastSeenBy(Myself)) // Psion's Blade +5~~~~~
+    string = ~~~~~!HasItem("MORSWORD",LastSeenBy(Myself))  // Mordenkainen's Sword~~~~~ //"
+  END
