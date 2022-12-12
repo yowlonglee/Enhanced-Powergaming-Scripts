@@ -783,7 +783,7 @@ END
 // Add Spell State to Minor Globe of Invulnerability                     //
 ///////////////////////////////////////////////////////////////////////////
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_MINOR_GLOBE_OF_INVULNERABILITY~ RET spell_res END
-	PATCH_PRINT ~Updating the following spell: %spell_res%~
+	PRINT ~Updating the following spell: %spell_res%~
 	ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
 		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
 		  LPF CLONE_EFFECT INT_VAR match_opcode = 155 opcode = 328 parameter2 = %mnr_glb% special = 1 END
@@ -793,7 +793,7 @@ END
 // Add Spell State to Globe of Invulnerability                           //
 ///////////////////////////////////////////////////////////////////////////
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_GLOBE_OF_INVULNERABILITY~ RET spell_res END
-	PATCH_PRINT ~Updating the following spell: %spell_res%~
+	PRINT ~Updating the following spell: %spell_res%~
 	ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
 		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
 		  LPF CLONE_EFFECT INT_VAR match_opcode = 328 opcode = 328 parameter2 = %glb% special = 1 END
@@ -803,7 +803,7 @@ END
 // Add Spell State to Minor Spell Turning                                //
 ///////////////////////////////////////////////////////////////////////////
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_MINOR_SPELL_TURNING~ RET spell_res END
-	PATCH_PRINT ~Updating the following spell: %spell_res%~
+	PRINT ~Updating the following spell: %spell_res%~
 	ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
 		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
 		  LPF CLONE_EFFECT INT_VAR match_opcode = 233 opcode = 328 parameter2 = %mnr_spl_trn% special = 1 END
@@ -813,7 +813,7 @@ END
 // Add Spell State to Spell Turning                                      //
 ///////////////////////////////////////////////////////////////////////////
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_SPELL_TURNING~ RET spell_res END
-	PATCH_PRINT ~Updating the following spell: %spell_res%~
+	PRINT ~Updating the following spell: %spell_res%~
 	ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
 		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
 		  LPF CLONE_EFFECT INT_VAR match_opcode = 233 opcode = 328 parameter2 = %spl_trn% special = 1 END
@@ -823,7 +823,7 @@ END
 // Add Spell State to Mind Blank                                         //
 ///////////////////////////////////////////////////////////////////////////
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_MIND_BLANK~ RET spell_res END
-	PATCH_PRINT ~Updating the following spell: %spell_res%~
+	PRINT ~Updating the following spell: %spell_res%~
 	ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
 		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
 		  LPF CLONE_EFFECT INT_VAR match_opcode = 106 opcode = 328 parameter2 = %mnd_blnk% special = 1 END
@@ -833,14 +833,14 @@ END
 // Add Spell State to Shield of Lathander                                //
 ///////////////////////////////////////////////////////////////////////////
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~CLERIC_GREATER_SHIELD_OF_LATHANDER~ RET spell_res END
-	PATCH_PRINT ~Updating the following spell: %spell_res%~
+	PRINT ~Updating the following spell: %spell_res%~
 	ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
 		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
 		  LPF CLONE_EFFECT INT_VAR match_opcode = 101 opcode = 328 parameter2 = %shld_lath% special = 1 END
 	END
 
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~CLERIC_SHIELD_OF_LATHANDER~ RET spell_res END
-	PATCH_PRINT ~Updating the following spell: %spell_res%~
+	PRINT ~Updating the following spell: %spell_res%~
 	ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
 		COPY_EXISTING ~%spell_res%.SPL~ ~override~
 		  LPF CLONE_EFFECT INT_VAR match_opcode = 101 opcode = 328 parameter2 = %shld_lath% special = 1 END
@@ -850,7 +850,7 @@ END
 // Add Spell State to Boon of Lathander                                  //
 ///////////////////////////////////////////////////////////////////////////
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~LATHANDER_BOON~ RET spell_res END
-	PATCH_PRINT ~Updating the following spell: %spell_res%~
+	PRINT ~Updating the following spell: %spell_res%~
 	ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
 		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
 		  LPF CLONE_EFFECT INT_VAR match_opcode = 54 opcode = 328 parameter2 = 74 special = 1 END
@@ -860,7 +860,7 @@ END
 // Add Spell State to Emotion, Courage                                   //
 ///////////////////////////////////////////////////////////////////////////
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_EMOTION_COURAGE~ RET spell_res END
-	PATCH_PRINT ~Updating the following spell: %spell_res%~
+	PRINT ~Updating the following spell: %spell_res%~
 	ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
 		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
 		  LPF CLONE_EFFECT INT_VAR match_opcode = 54 opcode = 328 parameter2 = %emt_crg% special = 1 END
@@ -870,7 +870,7 @@ END
 // Add Spell State to Emotion, Hope                                      //
 ///////////////////////////////////////////////////////////////////////////
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_EMOTION_HOPE~ RET spell_res END
-	PATCH_PRINT ~Updating the following spell: %spell_res%~
+	PRINT ~Updating the following spell: %spell_res%~
 	ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
 		COPY_EXISTING ~%spell_res%.SPL~ ~override~
 		  LPF CLONE_EFFECT INT_VAR match_opcode = 54 opcode = 328 parameter2 = %emt_hpe% special = 1 END
@@ -880,7 +880,7 @@ END
 // Add Spell State to Righteous Magic                                    //
 ///////////////////////////////////////////////////////////////////////////
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~CLERIC_RIGHTEOUS_MAGIC~ RET spell_res END
-	PATCH_PRINT ~Updating the following spell: %spell_res%~
+	PRINT ~Updating the following spell: %spell_res%~
 	ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
 		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
 		  LPF CLONE_EFFECT INT_VAR match_opcode = 282 opcode = 328 parameter2 = %rght_mgc% special = 1 END
@@ -890,7 +890,7 @@ END
 // Add State to Draw Upon Holy Might                                     //
 ///////////////////////////////////////////////////////////////////////////
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~CLERIC_DRAW_UPON_HOLY_MIGHT~ RET spell_res END
-	PATCH_PRINT ~Updating the following spell: %spell_res%~
+	PRINT ~Updating the following spell: %spell_res%~
 	ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
 		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
 		  LPF CLONE_EFFECT INT_VAR match_opcode = 44 opcode = 132 special = 1 END
@@ -912,7 +912,7 @@ END
 			SPELL_STRIKE
 		BEGIN
 			LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_%spell%~ RET spell_res END
-			PATCH_PRINT ~Updating the following spell: %spell_res%~
+			PRINT ~Updating the following spell: %spell_res%~
 			ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
 				COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
 					LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 timing = 0 STR_VAR resource = "MOSPRT" END
@@ -927,7 +927,7 @@ END
 
 	// Breach
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_BREACH~ RET spell_res END
-	PATCH_PRINT ~Updating the following spell: %spell_res%~
+	PRINT ~Updating the following spell: %spell_res%~
 	ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
 		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
 		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 timing = 0 insert_point = 0 STR_VAR resource = "MOCPRT" END
@@ -976,7 +976,7 @@ END
 			CLERIC_RESTORATION
 		BEGIN
 			LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%restoration_spell%~ RET spell_res END
-			PATCH_PRINT ~Updating the following spell: %spell_res%~
+			PRINT ~Updating the following spell: %spell_res%~
 			ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
 				COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
 					LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 timing = 0 STR_VAR resource = "MOREST" END
@@ -1005,7 +1005,7 @@ END
 		END
 
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~CLERIC_CURE_DISEASE~ RET spell_res END
-	PATCH_PRINT ~Updating the following spell: %spell_res%~
+	PRINT ~Updating the following spell: %spell_res%~
 	ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
 		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
 			LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 timing = 0 STR_VAR resource = "MORMVDS" END
@@ -1038,7 +1038,7 @@ END
 	END
 
 	ACTION_IF FILE_EXISTS_IN_GAME ~#PRAYERG.SPL~ BEGIN
-		PATCH_PRINT ~Updating the following spell: #PRAYERG~
+		PRINT ~Updating the following spell: #PRAYERG~
 		COPY_EXISTING ~#PRAYERG.SPL~ ~override~ 
 		  LPF CLONE_EFFECT INT_VAR match_opcode = 54 opcode = 328 parameter2 = %bn_pryr% special = 1 END
 	END
@@ -1061,7 +1061,7 @@ END
 	END
 
 	ACTION_IF FILE_EXISTS_IN_GAME ~#RECITEG.SPL~ BEGIN
-		PATCH_PRINT ~Updating the following spell: #RECITEG~
+		PRINT ~Updating the following spell: #RECITEG~
 		COPY_EXISTING ~#RECITEG.SPL~ ~override~ 
 		  LPF CLONE_EFFECT INT_VAR match_opcode = 54 opcode = 328 parameter2 = %bn_rctn% special = 1 END
 	END
@@ -1085,7 +1085,7 @@ END
 
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~CLERIC_ENTROPY_SHIELD~ RET spell_res END
 	ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
-		PATCH_PRINT ~Updating the following spell: %spell_res%~
+		PRINT ~Updating the following spell: %spell_res%~
 		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
 		  LPF CLONE_EFFECT INT_VAR match_opcode = 0 opcode = 328 parameter2 = %ent_shd% special = 1 END
 	END
@@ -1095,7 +1095,7 @@ END
 ///////////////////////////////////////////////////////////////////////////
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~CLERIC_NEGATIVE_PLANE_PROTECTION~ RET spell_res END
 	ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
-		PATCH_PRINT ~Updating the following spell: %spell_res%~
+		PRINT ~Updating the following spell: %spell_res%~
 		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
 		  LPF CLONE_EFFECT INT_VAR match_opcode = 282 opcode = 233 parameter2 = 158 special = 1 END
 	END
@@ -1105,7 +1105,7 @@ END
 ///////////////////////////////////////////////////////////////////////////
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_BLACK_BLADE_OF_DISASTER~ RET spell_res END
 	ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
-		PATCH_PRINT ~Updating the following spell: %spell_res%~
+		PRINT ~Updating the following spell: %spell_res%~
 		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
 		  LPF CLONE_EFFECT INT_VAR match_opcode = 111 opcode = 328 parameter2 = %blk_bld% special = 1 END
 	END
@@ -1129,7 +1129,7 @@ END
 		BEGIN
 			LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_%armor%~ RET spell_res END
 			ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
-				PATCH_PRINT ~Updating the following spell: %spell_res%~
+				PRINT ~Updating the following spell: %spell_res%~
 				COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
 					LPF CLONE_EFFECT INT_VAR match_opcode = 282 opcode = 328 parameter2 = %mag_armor% special = 1 END
 			END
@@ -1149,7 +1149,7 @@ END
 ///////////////////////////////////////////////////////////////////////////
 LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WARRIOR_CRITICAL_STRIKE~ RET spell_res END
 ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
-	PATCH_PRINT ~Updating the following spell: %spell_res%~
+	PRINT ~Updating the following spell: %spell_res%~
 	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
 	  LPF CLONE_EFFECT INT_VAR match_opcode = 282 opcode = 328 parameter2 = %ctr_strk% special = 1 END
 END
@@ -1159,7 +1159,7 @@ END
 ///////////////////////////////////////////////////////////////////////////
 LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WARRIOR_HARDINESS~ RET spell_res END
 ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
-	PATCH_PRINT ~Updating the following spell: %spell_res%~
+	PRINT ~Updating the following spell: %spell_res%~
 	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
 	  LPF CLONE_EFFECT INT_VAR match_opcode = 87 opcode = 328 parameter2 = %hrdness% special = 1 END
 END
@@ -1170,7 +1170,7 @@ ACTION_IF saa_hla BEGIN
 ///////////////////////////////////////////////////////////////////////////
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WARRIOR_RESIST_MAGIC~ RET spell_res END
 	ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
-		PATCH_PRINT ~Updating the following spell: %spell_res%~
+		PRINT ~Updating the following spell: %spell_res%~
 		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
 		  LPF CLONE_EFFECT INT_VAR match_opcode = 166 opcode = 328 parameter2 = %rst_mgc% special = 1 END
 	END
@@ -1180,7 +1180,7 @@ ACTION_IF saa_hla BEGIN
 ///////////////////////////////////////////////////////////////////////////
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WARRIOR_WAR_CRY~ RET spell_res END
 	ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
-		PATCH_PRINT ~Updating the following spell: %spell_res%~
+		PRINT ~Updating the following spell: %spell_res%~
 		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
 		  LPF CLONE_EFFECT INT_VAR match_opcode = 206 opcode = 328 parameter2 = %war_cry% special = 1 END
 	END
@@ -1190,7 +1190,7 @@ END
 // Add Spell State to Relentless Assault                                 //
 ///////////////////////////////////////////////////////////////////////////
 ACTION_IF battle_master BEGIN
-	PATCH_PRINT ~Updating the following spell: Relentless Assualt~
+	PRINT ~Updating the following spell: Relentless Assualt~
 	COPY_EXISTING ~mobtm01.SPL~ ~override~ 
 	  LPF CLONE_EFFECT INT_VAR match_opcode = 317 opcode = 328 parameter2 = %gtr_whirl% special = 1 END
 END
@@ -1229,7 +1229,7 @@ ACTION_IF pally_smite OR champion_wild BEGIN
 // Add Spell State to Paladin Smite                                      //
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF FILE_EXISTS_IN_GAME ~MOPALC3.SPL~ BEGIN
-		PATCH_PRINT ~Updating the following spell: Pally Smite~
+		PRINT ~Updating the following spell: Pally Smite~
 		COPY_EXISTING ~MOPALC3.SPL~ ~override~ 
 		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %ply_smt% timing = 0 duration = 6 END
 	END
@@ -1238,7 +1238,7 @@ ACTION_IF pally_smite OR champion_wild BEGIN
 // Add Spell State to Wrath of the Wild                                  //
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF FILE_EXISTS_IN_GAME ~MOCHW03.SPL~ BEGIN
-		PATCH_PRINT ~Updating the following spell: Wrath of the Wild~
+		PRINT ~Updating the following spell: Wrath of the Wild~
 		COPY_EXISTING ~MOCHW03.SPL~ ~override~ 
 		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %ply_smt% timing = 0 duration = 10 END
 	END
