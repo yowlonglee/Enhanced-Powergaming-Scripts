@@ -1623,7 +1623,6 @@ END
 	ACTION_FOR_EACH restoration_spell IN
 			CLERIC_LESSER_RESTORATION
 			CLERIC_RESTORATION
-			CA#RESTO
 		BEGIN
 			LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%restoration_spell%~ RET spell_res END
 			ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
@@ -1632,6 +1631,11 @@ END
 			END
 		END
 
+	ACTION_IF FILE_EXISTS_IN_GAME ~CA#RESTO.SPL~ BEGIN
+		COPY_EXISTING ~CA#RESTO.SPL~ ~override~ 
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 timing = 0 STR_VAR resource = "MOREST" END
+	END
+
 ///////////////////////////////////////////////////////////////////////////
 // Add State to track when Removing Diseases                             //
 ///////////////////////////////////////////////////////////////////////////
@@ -1639,7 +1643,6 @@ END
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 2 special = 1 parameter2 = %rmv_ds% timing = 0 duration = 6 END
 
 	ACTION_FOR_EACH disease_spell IN
-			CLERIC_CURE_DISEASE
 			CA#CDISE
 			CA#CUDIS
 		BEGIN
@@ -1648,6 +1651,13 @@ END
 					LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 timing = 0 STR_VAR resource = "MORMVDS" END
 			END
 		END
+
+	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~CLERIC_CURE_DISEASE~ RET spell_res END
+	//PATCH_PRINT ~Adding Spell Penetration to: %spell_res%~
+	ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
+		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 timing = 0 STR_VAR resource = "MORMVDS" END
+	END
 
 	ACTION_FOR_EACH disease_item IN
 			POTN17 // Elixir of Health
