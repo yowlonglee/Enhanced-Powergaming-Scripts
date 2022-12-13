@@ -296,7 +296,7 @@ END
 IF
   Global("MO_BUFF","LOCALS",1)
   !StateCheck(Myself,STATE_MIRRORIMAGE)
-  HaveSpellRES(WIZARD_MIRROR_IMAGE)  // SPWI212.SPL (Mirror Image)
+  HaveSpell(WIZARD_MIRROR_IMAGE)  // SPWI212.SPL (Mirror Image)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_POISONED)
