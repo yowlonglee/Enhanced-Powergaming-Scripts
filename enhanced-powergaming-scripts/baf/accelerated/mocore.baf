@@ -340,6 +340,8 @@ THEN
     DisplayStringHead(Myself,@5003)
 END
 
+////////////////////////////////////////////////////
+// 12 hours
 // 5e Spellcasting Prebuff Stoneskin
 
 IF
@@ -377,6 +379,8 @@ THEN
     RemoveSpell(CLERIC_IRONSKIN)  // SPPR506.SPL (Iron Skins)
 END
 
+////////////////////////////////////////////////////
+// 8 hours
 IF
   Global("MO_BUFF","LOCALS",1)
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
@@ -389,6 +393,8 @@ THEN
     IncrementGlobal("MO_UsedMagiStaff","GLOBAL",1)
 END
 
+////////////////////////////////////////////////////
+// 1 Turn/Level
 // 5e Spellcasting Prebuff IWD Mind Blank and Impervious Sanctity of Mind
 
 // Prebuff IWD Mind Blank and Impervious Sanctity of Mind
@@ -522,6 +528,8 @@ THEN
     DisplayStringHead(Myself,@5005)
 END
 
+////////////////////////////////////////////////////
+// 4 Hours
 IF
   Global("MO_BUFF","LOCALS",1)
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
@@ -535,23 +543,8 @@ THEN
     IncrementGlobal("MO_UsedClkDrkMN","GLOBAL",1)
 END
 
-IF
-  Global("MO_BUFF","LOCALS",1)
-  HaveSpellRES("SPRA303")
-  !CheckSpellState(Myself,PROTECTION_FROM_NORMAL_MISSILES)
-  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_POISONED)
-  !StateCheck(Myself,STATE_SILENCED)
-  Global("MO_CastAthkatla","LOCALS",1)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    ReallyForceSpellRES("SPRA303",Myself)
-    RemoveSpellRES("SPRA303")
-END
-
+////////////////////////////////////////////////////
+// 2 Hours
 // 5e Spellcasting Prebuff Spirit Armor
 
 IF
@@ -571,6 +564,8 @@ THEN
     RemoveSpell(WIZARD_SPIRIT_ARMOR)  // SPWI414.SPL (Spirit Armor)
 END
 
+////////////////////////////////////////////////////
+// 1 Hour
 // 5e Spellcasting Prebuff Ghost Armor
 
 IF
@@ -590,6 +585,8 @@ THEN
     RemoveSpell(WIZARD_GHOST_ARMOR)  // SPWI317.SPL (Ghost Armor)
 END
 
+////////////////////////////////////////////////////
+// 9 Hours
 // 5e Spellcasting Prebuff Mage Armor
 
 IF
@@ -609,6 +606,8 @@ THEN
     RemoveSpell(WIZARD_ARMOR)  // SPWI102.SPL (Armor)
 END
 
+////////////////////////////////////////////////////
+// 1 Hour
 // 5e Spellcasting Prebuff Mage Shield
 
 IF
@@ -686,6 +685,23 @@ END
 
 // IWD Emotion Courage and Hope
 
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES("SPRA303")
+  !CheckSpellState(Myself,PROTECTION_FROM_NORMAL_MISSILES)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES("SPRA303",Myself)
+    RemoveSpellRES("SPRA303")
+END
+
 // 5e Spellcasting Prebuff Prot Normal Missiles
 
 IF
@@ -705,6 +721,8 @@ THEN
     RemoveSpell(WIZARD_PROTECTION_FROM_NORMAL_MISSILES)  // SPWI311.SPL (Protection From Normal Missiles)
 END
 
+////////////////////////////////////////////////////
+// 1 Turn/Level
 // 5e Spellcasting Prebuff Death Ward
 
 IF
@@ -1956,6 +1974,8 @@ THEN
     RemoveSpell(WIZARD_PROTECTION_FROM_ACID)  // SPWI517.SPL (Protection From Acid)
 END
 
+////////////////////////////////////////////////////
+// 3 Rounds/Level
 // 5e Spellcasting Prebuff Prot from Evil
 
 IF
@@ -2158,168 +2178,8 @@ THEN
     RemoveSpell(PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
 END
 
-IF
-  Global("MO_BUFF","LOCALS",1)
-  Global("BDAI_ATTACK_MODE","LOCALS",2)
-  Global("MO_TeamProtEvil","GLOBAL",0)
-  HaveSpell(PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
-  See([PC])
-  CheckStat(LastSeenBy(Myself),0,PROTECTION_FROM_EVIL)
-  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
-  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
-  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_POISONED)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    ReallyForceSpell(LastSeenBy(Myself),PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
-    RemoveSpell(PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
-END
-
-IF
-  Global("MO_BUFF","LOCALS",1)
-  Global("BDAI_ATTACK_MODE","LOCALS",2)
-  Global("MO_TeamProtEvil","GLOBAL",0)
-  HaveSpell(PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
-  See(SecondNearest([PC]))
-  CheckStat(LastSeenBy(Myself),0,PROTECTION_FROM_EVIL)
-  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
-  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
-  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_POISONED)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    ReallyForceSpell(LastSeenBy(Myself),PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
-    RemoveSpell(PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
-END
-
-IF
-  Global("MO_BUFF","LOCALS",1)
-  Global("BDAI_ATTACK_MODE","LOCALS",2)
-  Global("MO_TeamProtEvil","GLOBAL",0)
-  HaveSpell(PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
-  See(ThirdNearest([PC]))
-  CheckStat(LastSeenBy(Myself),0,PROTECTION_FROM_EVIL)
-  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
-  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
-  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_POISONED)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    ReallyForceSpell(LastSeenBy(Myself),PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
-    RemoveSpell(PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
-END
-
-IF
-  Global("MO_BUFF","LOCALS",1)
-  Global("BDAI_ATTACK_MODE","LOCALS",2)
-  Global("MO_TeamProtEvil","GLOBAL",0)
-  HaveSpell(PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
-  See(FourthNearest([PC]))
-  CheckStat(LastSeenBy(Myself),0,PROTECTION_FROM_EVIL)
-  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
-  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
-  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_POISONED)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    ReallyForceSpell(LastSeenBy(Myself),PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
-    RemoveSpell(PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
-END
-
-IF
-  Global("MO_BUFF","LOCALS",1)
-  Global("BDAI_ATTACK_MODE","LOCALS",2)
-  Global("MO_TeamProtEvil","GLOBAL",0)
-  HaveSpell(PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
-  See(FifthNearest([PC]))
-  CheckStat(LastSeenBy(Myself),0,PROTECTION_FROM_EVIL)
-  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
-  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
-  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_POISONED)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    ReallyForceSpell(LastSeenBy(Myself),PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
-    RemoveSpell(PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
-END
-
-IF
-  Global("MO_BUFF","LOCALS",1)
-  Global("BDAI_ATTACK_MODE","LOCALS",2)
-  Global("MO_TeamProtEvil","GLOBAL",0)
-  HaveSpell(PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
-  See(SixthNearest([PC]))
-  CheckStat(LastSeenBy(Myself),0,PROTECTION_FROM_EVIL)
-  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
-  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
-  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_POISONED)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    ReallyForceSpell(LastSeenBy(Myself),PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
-    RemoveSpell(PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
-END
-
+////////////////////////////////////////////////////
+// 5 Rounds/Level
 // 5e Spellcasting Prebuff Prot from Lightning
 
 IF
@@ -2484,6 +2344,8 @@ THEN
     RemoveSpell(CLERIC_PROTECTION_FROM_LIGHTNING)  // SPPR407.SPL (Protection From Lightning)
 END
 
+////////////////////////////////////////////////////
+// 3 Rounds/Level
 // 5e Spellcasting Prebuff Spirit Ward
 
 IF
@@ -2660,6 +2522,25 @@ THEN
     RemoveSpell(CLERIC_SPIRIT_WARD)  // SPPR150.SPL (Spirit Ward)
 END
 
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES("SPRA302")
+  CheckStatLT(Myself,1,WIZARD_SPELL_DEFLECTION)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES("SPRA302",Myself)
+    RemoveSpellRES("SPRA302")
+END
+
+////////////////////////////////////////////////////
+// 4 Rounds + 2 Rounds/Level
 // 5e Spellcasting Prebuff Blur
 
 IF
@@ -2696,6 +2577,8 @@ THEN
     RemoveSpellRES("SPDM102")  // Blur
 END
 
+////////////////////////////////////////////////////
+// 3 Rounds + 1 Round/Level
 // 5e Spellcasting Prebuff Haste
 
 IF
@@ -2718,48 +2601,6 @@ THEN
     RemoveSpell(WIZARD_HASTE)  // SPWI305.SPL (Haste)
 END
 
-// FP Cleric Divine Haste
-
-// 5e Spellcasting Prebuff - MiH Wizard Superheroism
-
-// MiH Wizard Superheroism
-
-// 5e Spellcasting Prebuff - MiH Cleric Superheroism
-
-// MiH Cleric Superheroism
-
-// 5e Spellcasting Prebuff - MiH Spell Invulnerability
-
-// MiH Spell Invulnerability
-
-IF
-  Global("MO_BUFF","LOCALS",1)
-  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
-  !CheckStatGT(Myself,0,IMPROVEDHASTE)
-  GlobalLT("MO_UsedCheetah","GLOBAL",1)
-  HasItemEquiped("AMUL26",Myself)  // Amulet of Cheetah Speed
-THEN
-  RESPONSE #100
-    UseItem("AMUL26",Myself)  // Amulet of Cheetah Speed
-    IncrementGlobal("MO_UsedCheetah","GLOBAL",1)
-END
-
-IF
-  Global("MO_BUFF","LOCALS",1)
-  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
-  !CheckStatGT(Myself,0,IMPROVEDHASTE)
-  GlobalLT("MO_UsedBlindingSpeed","GLOBAL",1)
-  HasItemEquiped("BRAC16",Myself)  // Bracers of Blinding Strike
-THEN
-  RESPONSE #100
-    UseItem("BRAC16",Myself)  // Bracers of Blinding Strike
-    IncrementGlobal("MO_UsedBlindingSpeed","GLOBAL",1)
-END
-
-// 5e Spellcasting Prebuff - IWD Seven Eyes
-
-// IWD Seven Eyes
-
 // 5e Spellcasting Prebuff Armor of Faith
 
 IF
@@ -2776,23 +2617,6 @@ THEN
   RESPONSE #100
     ReallyForceSpell(Myself,CLERIC_ARMOR_OF_FAITH)  // SPPR111.SPL (Armor of Faith)
     RemoveSpell(CLERIC_ARMOR_OF_FAITH)  // SPPR111.SPL (Armor of Faith)
-END
-
-IF
-  Global("MO_BUFF","LOCALS",1)
-  HaveSpellRES("SPRA302")
-  CheckStatLT(Myself,1,WIZARD_SPELL_DEFLECTION)
-  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_POISONED)
-  !StateCheck(Myself,STATE_SILENCED)
-  Global("MO_CastAthkatla","LOCALS",1)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    ReallyForceSpellRES("SPRA302",Myself)
-    RemoveSpellRES("SPRA302")
 END
 
 // 5e Spellcasting Prebuff Mirror Image
@@ -2830,8 +2654,6 @@ THEN
     ReallyForceSpellRES("SPDM106",Myself)  // Mirror Image
     RemoveSpellRES("SPDM106")  // Mirror Image
 END
-
-// MiH Prebuff Mirror Amulet
 
 // 5e Spellcasting Prebuff Fire Shield Red
 
@@ -3051,69 +2873,6 @@ END
 
 // MiH Protect Cold
 
-IF
-  Global("MO_BUFF","LOCALS",1)
-  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
-  !StateCheck(Myself,STATE_MIRRORIMAGE)
-  GlobalLT("MO_UsedIlbratha","GLOBAL",1)
-  HasItemEquiped("SW1H26",Myself)  // Ilbratha +1
-THEN
-  RESPONSE #100
-    UseItemAbility("SW1H26",Myself,SLOT_AMMO3,1)  // Ilbratha +1
-    IncrementGlobal("MO_UsedIlbratha","GLOBAL",1)
-END
-
-IF
-  Global("MO_BUFF","LOCALS",1)
-  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
-  Class(Myself,MONK)
-  !StateCheck(Myself,STATE_MIRRORIMAGE)
-  !Global("MO_UsedIlbratha","GLOBAL",1)
-  HasItem("SW1H26",Myself)  // Ilbratha +1
-  HasItemEquiped("WANINJA",Myself)  // Ninjatō of the Scarlet Brotherhood +3
-THEN
-  RESPONSE #100
-    XEquipItem("SW1H26",Myself,SLOT_SHIELD,EQUIP)  // Ilbratha +1
-END
-
-IF
-  Global("MO_BUFF","LOCALS",1)
-  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
-  Class(Myself,MONK)
-  OR(2)
-    StateCheck(Myself,STATE_MIRRORIMAGE)
-    Global("MO_UsedIlbratha","GLOBAL",1)
-  HasItem("WANINJA",Myself)  // Ninjatō of the Scarlet Brotherhood +3
-  HasItemEquiped("SW1H26",Myself)  // Ilbratha +1
-THEN
-  RESPONSE #100
-    XEquipItem("WANINJA",Myself,SLOT_SHIELD,EQUIP)  // Ninjatō of the Scarlet Brotherhood +3
-END
-
-IF
-  Global("MO_BUFF","LOCALS",1)
-  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
-  GlobalLT("MO_UsedDevout","GLOBAL",1)
-  HasItemEquiped("OHRHELM1",Myself)  // Headband of the Devout
-  !CheckSpellState(Myself,RIGHTEOUS_MAGIC)
-THEN
-  RESPONSE #100
-    UseItem("OHRHELM1",Myself)  // Headband of the Devout
-    IncrementGlobal("MO_UsedDevout","GLOBAL",1)
-END
-
-IF
-  Global("MO_BUFF","LOCALS",1)
-  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
-  !StateCheck(Myself,STATE_MIRRORIMAGE)
-  GlobalLT("MO_UsedDuplication","GLOBAL",3)
-  HasItemEquiped("OHRRING1",Myself)  // Ring of Duplication
-THEN
-  RESPONSE #100
-    UseItem("OHRRING1",Myself)  // Ring of Duplication
-    IncrementGlobal("MO_UsedDuplication","GLOBAL",1)
-END
-
 // 5e Spellcasting Prebuff Improved Haste
 
 IF
@@ -3122,11 +2881,11 @@ IF
   See(Myself)
   !CheckStatGT(LastSeenBy(Myself),0,IMPROVEDHASTE)
   OR(5)
-		Class(LastSeenBy(Myself),THIEF_ALL)
-		Class(LastSeenBy(Myself),FIGHTER_ALL)
-		Class(LastSeenBy(Myself),BARD_ALL)
-		Class(LastSeenBy(Myself),DRUID_ALL)
-		Class(LastSeenBy(Myself),CLERIC_ALL)
+    Class(LastSeenBy(Myself),THIEF_ALL)
+    Class(LastSeenBy(Myself),FIGHTER_ALL)
+    Class(LastSeenBy(Myself),BARD_ALL)
+    Class(LastSeenBy(Myself),DRUID_ALL)
+    Class(LastSeenBy(Myself),CLERIC_ALL)
   !Class(LastSeenBy(Myself),MONK)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -3339,6 +3098,62 @@ END
 
 // MiH Cleric Striking
 
+// 5e Spellcasting Prebuff Magic Resistance
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpell(CLERIC_MAGIC_RESISTANCE)  // SPPR509.SPL (Magic Resistance)
+  CheckStatLT(Myself,20,RESISTMAGIC)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,CLERIC_MAGIC_RESISTANCE)  // SPPR509.SPL (Magic Resistance)
+    RemoveSpell(CLERIC_MAGIC_RESISTANCE)  // SPPR509.SPL (Magic Resistance)
+END
+
+// FP Cleric Divine Haste
+
+// 5e Spellcasting Prebuff - MiH Wizard Superheroism
+
+// MiH Wizard Superheroism
+
+// 5e Spellcasting Prebuff - MiH Cleric Superheroism
+
+// MiH Cleric Superheroism
+
+// 5e Spellcasting Prebuff - MiH Spell Invulnerability
+
+// MiH Spell Invulnerability
+
+////////////////////////////////////////////////////
+// 23 Rounds 
+IF
+  Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
+  !CheckStatGT(Myself,0,IMPROVEDHASTE)
+  GlobalLT("MO_UsedCheetah","GLOBAL",1)
+  HasItemEquiped("AMUL26",Myself)  // Amulet of Cheetah Speed
+THEN
+  RESPONSE #100
+    UseItem("AMUL26",Myself)  // Amulet of Cheetah Speed
+    IncrementGlobal("MO_UsedCheetah","GLOBAL",1)
+END
+
+////////////////////////////////////////////////////
+// 2 Turns
+// 5e Spellcasting Prebuff - IWD Seven Eyes
+
+// IWD Seven Eyes
+
+// MiH Prebuff Mirror Amulet
+
+////////////////////////////////////////////////////
+// 1 Round + 1 Round/Level
 // 5e Spellcasting Prebuff Aid
 
 IF
@@ -3358,24 +3173,8 @@ THEN
     RemoveSpell(CLERIC_AID)  // SPPR201.SPL (Aid)
 END
 
-// 5e Spellcasting Prebuff Magic Resistance
-
-IF
-  Global("MO_BUFF","LOCALS",1)
-  HaveSpell(CLERIC_MAGIC_RESISTANCE)  // SPPR509.SPL (Magic Resistance)
-  CheckStatLT(Myself,20,RESISTMAGIC)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_POISONED)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    ReallyForceSpell(Myself,CLERIC_MAGIC_RESISTANCE)  // SPPR509.SPL (Magic Resistance)
-    RemoveSpell(CLERIC_MAGIC_RESISTANCE)  // SPPR509.SPL (Magic Resistance)
-END
-
+////////////////////////////////////////////////////
+// 1 Round/Level
 // 5e Spellcasting Prebuff Prot from Energy
 
 IF
@@ -3492,6 +3291,41 @@ THEN
     RemoveSpell(TALOS_STORMSHIELD)
 END
 
+////////////////////////////////////////////////////
+// 18 Rounds
+IF
+  Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
+  !StateCheck(Myself,STATE_MIRRORIMAGE)
+  GlobalLT("MO_UsedDuplication","GLOBAL",3)
+  HasItemEquiped("OHRRING1",Myself)  // Ring of Duplication
+THEN
+  RESPONSE #100
+    UseItem("OHRRING1",Myself)  // Ring of Duplication
+    IncrementGlobal("MO_UsedDuplication","GLOBAL",1)
+END
+
+// 5e Spellcasting Prebuff Black Blade of Disaster
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpell(WIZARD_BLACK_BLADE_OF_DISASTER)  // SPWI915.SPL (Black Blade of Disaster)
+  !CheckSpellState(Myself,BLACK_BLADE)  // Black Blade of Disaster
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,WIZARD_BLACK_BLADE_OF_DISASTER)  // SPWI915.SPL (Black Blade of Disaster)
+    RemoveSpell(WIZARD_BLACK_BLADE_OF_DISASTER)  // SPWI915.SPL (Black Blade of Disaster)
+END
+
+////////////////////////////////////////////////////
+// 1 Round/2 Levels
 // 5e Spellcasting Prebuff Aura of Flaming Death
 
 IF
@@ -3540,23 +3374,219 @@ THEN
     RemoveSpellRES("SPCL237")  // Greater Sun
 END
 
-// 5e Spellcasting Prebuff Black Blade of Disaster
-
+////////////////////////////////////////////////////
+// 1 Turn
 IF
   Global("MO_BUFF","LOCALS",1)
-  HaveSpell(WIZARD_BLACK_BLADE_OF_DISASTER)  // SPWI915.SPL (Black Blade of Disaster)
-  !CheckSpellState(Myself,BLACK_BLADE)  // Black Blade of Disaster
-  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
+  Global("MO_TeamProtEvil","GLOBAL",0)
+  HaveSpell(PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
+  See([PC])
+  CheckStat(LastSeenBy(Myself),0,PROTECTION_FROM_EVIL)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_POISONED)
   !StateCheck(Myself,STATE_SILENCED)
-  Global("MO_CastAthkatla","LOCALS",1)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpell(Myself,WIZARD_BLACK_BLADE_OF_DISASTER)  // SPWI915.SPL (Black Blade of Disaster)
-    RemoveSpell(WIZARD_BLACK_BLADE_OF_DISASTER)  // SPWI915.SPL (Black Blade of Disaster)
+    ReallyForceSpell(LastSeenBy(Myself),PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
+    RemoveSpell(PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
+  Global("MO_TeamProtEvil","GLOBAL",0)
+  HaveSpell(PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
+  See(SecondNearest([PC]))
+  CheckStat(LastSeenBy(Myself),0,PROTECTION_FROM_EVIL)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
+    RemoveSpell(PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
+  Global("MO_TeamProtEvil","GLOBAL",0)
+  HaveSpell(PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
+  See(ThirdNearest([PC]))
+  CheckStat(LastSeenBy(Myself),0,PROTECTION_FROM_EVIL)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
+    RemoveSpell(PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
+  Global("MO_TeamProtEvil","GLOBAL",0)
+  HaveSpell(PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
+  See(FourthNearest([PC]))
+  CheckStat(LastSeenBy(Myself),0,PROTECTION_FROM_EVIL)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
+    RemoveSpell(PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
+  Global("MO_TeamProtEvil","GLOBAL",0)
+  HaveSpell(PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
+  See(FifthNearest([PC]))
+  CheckStat(LastSeenBy(Myself),0,PROTECTION_FROM_EVIL)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
+    RemoveSpell(PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
+  Global("MO_TeamProtEvil","GLOBAL",0)
+  HaveSpell(PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
+  See(SixthNearest([PC]))
+  CheckStat(LastSeenBy(Myself),0,PROTECTION_FROM_EVIL)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
+    RemoveSpell(PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
+  !StateCheck(Myself,STATE_MIRRORIMAGE)
+  GlobalLT("MO_UsedIlbratha","GLOBAL",1)
+  HasItemEquiped("SW1H26",Myself)  // Ilbratha +1
+THEN
+  RESPONSE #100
+    UseItemAbility("SW1H26",Myself,SLOT_AMMO3,1)  // Ilbratha +1
+    IncrementGlobal("MO_UsedIlbratha","GLOBAL",1)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
+  Class(Myself,MONK)
+  !StateCheck(Myself,STATE_MIRRORIMAGE)
+  !Global("MO_UsedIlbratha","GLOBAL",1)
+  HasItem("SW1H26",Myself)  // Ilbratha +1
+  HasItemEquiped("WANINJA",Myself)  // Ninjatō of the Scarlet Brotherhood +3
+THEN
+  RESPONSE #100
+    XEquipItem("SW1H26",Myself,SLOT_SHIELD,EQUIP)  // Ilbratha +1
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
+  Class(Myself,MONK)
+  OR(2)
+    StateCheck(Myself,STATE_MIRRORIMAGE)
+    Global("MO_UsedIlbratha","GLOBAL",1)
+  HasItem("WANINJA",Myself)  // Ninjatō of the Scarlet Brotherhood +3
+  HasItemEquiped("SW1H26",Myself)  // Ilbratha +1
+THEN
+  RESPONSE #100
+    XEquipItem("WANINJA",Myself,SLOT_SHIELD,EQUIP)  // Ninjatō of the Scarlet Brotherhood +3
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
+  GlobalLT("MO_UsedDevout","GLOBAL",1)
+  HasItemEquiped("OHRHELM1",Myself)  // Headband of the Devout
+  !CheckSpellState(Myself,RIGHTEOUS_MAGIC)
+THEN
+  RESPONSE #100
+    UseItem("OHRHELM1",Myself)  // Headband of the Devout
+    IncrementGlobal("MO_UsedDevout","GLOBAL",1)
 END
 
 // 5e Spellcasting Prebuff Globe of Blades
@@ -3661,6 +3691,8 @@ END
 
 // MiH Cleric Mass Negative Plane Protection
 
+////////////////////////////////////////////////////
+// 9 Rounds
 // 5e Spellcasting Prebuff Physical Mirror
 
 IF
@@ -3679,6 +3711,8 @@ THEN
     RemoveSpell(CLERIC_PHYSICAL_MIRROR)  // sppr525.spl (Physical Mirror)
 END
 
+////////////////////////////////////////////////////
+// 6 Rounds
 // 5e Spellcasting Prebuff Bless
 
 IF
@@ -3715,6 +3749,8 @@ THEN
     RemoveSpell(CLERIC_DEFENSIVE_HARMONY)  // SPPR406.SPL (Defensive Harmony)
 END
 
+////////////////////////////////////////////////////
+// 5 Rounds
 // 5e Spellcasting Prebuff Negative Plane Protection
 
 IF
@@ -3929,6 +3965,8 @@ END
 
 // Skills and Abilities Prebuff Protective Field
 
+////////////////////////////////////////////////////
+// 3 Rounds/Level
 // 5e Spellcasting Prebuff Shield of the Archons
 
 IF
@@ -3985,6 +4023,8 @@ THEN
     RemoveSpell(WIZARD_SPELL_TURNING)  // SPWI701.SPL (Spell Turning)
 END
 
+////////////////////////////////////////////////////
+// 45 Rounds
 IF
   Global("MO_BUFF","LOCALS",1)
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
@@ -3998,6 +4038,8 @@ THEN
     IncrementGlobal("MO_UsedShldFyrus","GLOBAL",1)
 END
 
+////////////////////////////////////////////////////
+// 15 Rounds
 IF
   Global("MO_BUFF","LOCALS",1)
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
@@ -4010,6 +4052,8 @@ THEN
     IncrementGlobal("MO_UsedSpellTurning","GLOBAL",1)
 END
 
+////////////////////////////////////////////////////
+// 3 Rounds/Level
 // 5e Spellcasting Prebuff Minor Spell Turning
 
 IF
@@ -4074,6 +4118,8 @@ END
 
 // FP Cleric Minor Spell Deflection
 
+////////////////////////////////////////////////////
+// 1 Round/Level
 // 5e Spellcasting Prebuff - MiH Major Globe Prebuff
 
 // MiH Major Globe Prebuff
@@ -4119,6 +4165,8 @@ THEN
     RemoveSpell(WIZARD_MINOR_GLOBE_OF_INVULNERABILITY)  // SPWI406.SPL (Minor Globe of Invulnerability)
 END
 
+////////////////////////////////////////////////////
+// 2 Turns
 IF
   Global("MO_BUFF","LOCALS",1)
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
@@ -4135,6 +4183,8 @@ END
 
 // Morpheus562's Kitpack Prebuff Shock Weapon
 
+////////////////////////////////////////////////////
+// 1 Round/Level
 // 5e Spellcasting Prebuff Spell Immunity
 
 IF
@@ -4154,6 +4204,8 @@ THEN
     RemoveSpell(WIZARD_SPELL_IMMUNITY)  // SPWI510.SPL (Spell Immunity)
 END
 
+////////////////////////////////////////////////////
+// 18 Rounds
 // 5e Spellcasting Prebuff Spell Trap
 
 IF
@@ -4173,6 +4225,8 @@ THEN
     RemoveSpell(WIZARD_SPELL_TRAP)  // SPWI902.SPL (Spell Trap)
 END
 
+////////////////////////////////////////////////////
+// 1 Turn
 IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(BERSERKER_RAGE)  // SPCL321.SPL (Enrage)
@@ -4183,6 +4237,10 @@ THEN
     Spell(Myself,BERSERKER_RAGE)  // SPCL321.SPL (Enrage)
 END
 
+// Skills and Abilities Prebuff War Cry
+
+////////////////////////////////////////////////////
+// 5 Rounds
 IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(BARBARIAN_RAGE)  // SPCL152.SPL (Barbarian Rage)
@@ -4192,11 +4250,23 @@ THEN
     Spell(Myself,BARBARIAN_RAGE)  // SPCL152.SPL (Barbarian Rage)
 END
 
-// Skills and Abilities Prebuff War Cry
-
 // FP Kit Rage
 
 // FP Kit Paladin Rage/Frenzy
+
+////////////////////////////////////////////////////
+// 20 Seconds (3.3 Rounds) 
+IF
+  Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
+  !CheckStatGT(Myself,0,IMPROVEDHASTE)
+  GlobalLT("MO_UsedBlindingSpeed","GLOBAL",1)
+  HasItemEquiped("BRAC16",Myself)  // Bracers of Blinding Strike
+THEN
+  RESPONSE #100
+    UseItem("BRAC16",Myself)  // Bracers of Blinding Strike
+    IncrementGlobal("MO_UsedBlindingSpeed","GLOBAL",1)
+END
 
 // 5e Spellcasting Prebuff Ending
 
