@@ -6,15 +6,16 @@ January xx, 2023
 
 ### Changed 
 
-- Added enhanced AI scripts for PnP Celestials.
-- Improved enemy simulacrum attack targeting.
-- Allow ai scripts to check current target thanks to EEex.
-- Organized my scripts to be easier to navigate.
-- Added the following spells: Command, Chaos, Righteous Magic, Templar Mass Cure, 
-- Updated dialog string for weapon swap to correctly relay it is swapping to melee weapons.
-- Allowed scripts to have the Tome and Blood Magus kit attack in melee.
+- All Games
+  - Added enhanced AI scripts for PnP Celestials.
+  - Improved enemy simulacrum attack targeting.
+  - Allow ai scripts to check current target thanks to EEex.
+  - Organized my scripts to be easier to navigate.
+  - Added the following spells: Command, Chaos, Righteous Magic, Templar Mass Cure, 
+  - Updated dialog string for weapon swap to correctly relay it is swapping to melee weapons.
+  - Allowed scripts to have the Tome and Blood Magus kit attack in melee.
 - IWDEE
-  - Updated scritps for Paladin Protection from Evil since it is self-cast only in IWDEE.
+  - Updated scripts for Paladin Protection from Evil since it is self-cast only in IWDEE.
 
 ## Version 10.4
 
