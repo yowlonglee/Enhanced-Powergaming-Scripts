@@ -14,6 +14,7 @@ January xx, 2023
   - Added the following spells: Command, Chaos, Righteous Magic, Templar Mass Cure, Luck, Lower Resistance
   - Updated dialog string for weapon swap to correctly relay it is swapping to melee weapons.
   - Allowed scripts to have the Tome and Blood Magus kit attack in melee.
+  - Added Psi Warrior Bulwark of Force ability.
 - IWDEE
   - Updated scripts for Paladin Protection from Evil since it is self-cast only in IWDEE.
 
