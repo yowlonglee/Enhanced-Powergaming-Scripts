@@ -17,6 +17,11 @@ January xx, 2023
   - Added Psi Warrior Bulwark of Force ability.
 - IWDEE
   - Updated scripts for Paladin Protection from Evil since it is self-cast only in IWDEE.
+- TO-DO
+  - Add Reaver Kit abilities
+  - Update dialog responses for Stone to Flesh
+  - Add Arcane Archer abilities
+  - More spells
 
 ## Version 10.4
 
