@@ -22,6 +22,7 @@ January xx, 2023
   - Update dialog responses for Stone to Flesh
   - Add Arcane Archer abilities
   - More spells
+  - MiH mod tracking
 
 ## Version 10.4
 
