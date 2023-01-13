@@ -23,6 +23,7 @@ January xx, 2023
   - Add Arcane Archer abilities
   - More spells
   - MiH mod tracking
+  - Add Bardic Wonders Offensive and Defensive Spins
 
 ## Version 10.4
 
