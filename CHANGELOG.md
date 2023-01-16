@@ -15,6 +15,7 @@ January xx, 2023
   - Updated dialog string for weapon swap to correctly relay it is swapping to melee weapons.
   - Allowed scripts to have the Tome and Blood Magus kit attack in melee.
   - Added Psi Warrior Bulwark of Force ability.
+  - Updated Made in Heaven Mod tracking.
 - IWDEE
   - Updated scripts for Paladin Protection from Evil since it is self-cast only in IWDEE.
 - TO-DO
@@ -22,7 +23,6 @@ January xx, 2023
   - Update dialog responses for Stone to Flesh
   - Add Arcane Archer abilities
   - More spells
-  - MiH mod tracking
   - Add Bardic Wonders Offensive and Defensive Spins
 
 ## Version 10.4
