@@ -552,7 +552,7 @@ THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
     SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
-    UseItem("BELT09",Myself)  // Girdle of Fortitude
+    UseItemAbility("BELT09",Myself,SLOT_AMMO3,1)  // Girdle of Fortitude
     IncrementGlobal("MO_UsedFortitude","GLOBAL",1)
 END
 
