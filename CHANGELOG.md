@@ -25,7 +25,6 @@ January xx, 2023
   - Update dialog responses for Stone to Flesh
   - Add Arcane Archer abilities
   - More spells
-  - Add Bardic Wonders Offensive and Defensive Spins
 
 ## Version 10.4
 
