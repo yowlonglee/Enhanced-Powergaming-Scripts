@@ -73,42 +73,49 @@ ACTION_IF !VARIABLE_IS_SET ~initialise~ BEGIN
       OUTER_SET saa_hla=0
    END
 
-   // Detect Battle Master
+   // Detect Battle Master Kit
    ACTION_IF MOD_IS_INSTALLED ~morpheus562-s-kitpack.tp2~ ~100~ THEN BEGIN
       OUTER_SET battle_master=1
    END ELSE BEGIN
       OUTER_SET battle_master=0
    END
 
-   // Detect Psi Warrior
+   // Detect Psi Warrior Kit
    ACTION_IF MOD_IS_INSTALLED ~skills-and-abilities.tp2~ ~610~ OR MOD_IS_INSTALLED ~morpheus562-s-kitpack.tp2~ ~110~ THEN BEGIN
       OUTER_SET psi_warrior=1
    END ELSE BEGIN
       OUTER_SET psi_warrior=0
    END
 
-   // Detect Champion of the Wild
+   // Detect Champion of the Wild Kit
    ACTION_IF MOD_IS_INSTALLED ~morpheus562-s-kitpack.tp2~ ~210~ THEN BEGIN
       OUTER_SET champion_wild=1
    END ELSE BEGIN
       OUTER_SET champion_wild=0
    END
 
-   // Detect Templar
+   // Detect Templar Kit
    ACTION_IF MOD_IS_INSTALLED ~morpheus562-s-kitpack.tp2~ ~310~ THEN BEGIN
       OUTER_SET templar=1
    END ELSE BEGIN
       OUTER_SET templar=0
    END
 
-   // Detect Eldritch Scion
+   // Detect Reaver Kit
+   ACTION_IF MOD_IS_INSTALLED ~morpheus562-s-kitpack.tp2~ ~320~ THEN BEGIN
+      OUTER_SET reaver=1
+   END ELSE BEGIN
+      OUTER_SET reaver=0
+   END
+
+   // Detect Eldritch Scion Kit
    ACTION_IF MOD_IS_INSTALLED ~skills-and-abilities.tp2~ ~620~ OR MOD_IS_INSTALLED ~morpheus562-s-kitpack.tp2~ ~900~ THEN BEGIN
       OUTER_SET eldritch_scion=1
    END ELSE BEGIN
       OUTER_SET eldritch_scion=0
    END
 
-   // Detect Stormlord
+   // Detect Stormlord Kit
    ACTION_IF MOD_IS_INSTALLED ~morpheus562-s-kitpack.tp2~ ~1100~ OR MOD_IS_INSTALLED ~morpheus562-s-kitpack.tp2~ ~1101~ OR MOD_IS_INSTALLED ~morpheus562-s-kitpack.tp2~ ~1102~ THEN BEGIN
       OUTER_SET stormlord=1
    END ELSE BEGIN

@@ -22,7 +22,6 @@ January xx, 2023
   - Update to Haste so it would not be continually cast.
 - TO-DO
   - Add Reaver Kit abilities
-  - Update dialog responses for Stone to Flesh
   - Add Arcane Archer abilities
   - More spells
 
