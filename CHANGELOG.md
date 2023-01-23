@@ -12,17 +12,17 @@ January xx, 2023
   - Allow ai scripts to check current target thanks to EEex.
   - Organized my scripts to be easier to navigate.
   - Fixed prebuffing to check for Spell Immunity.
-  - Added the following spells: Command, Chaos, Righteous Magic, Templar Mass Cure, Luck, Lower Resistance, Stone to Flesh, Summon Hakeashar, Summon Nishruu, Cleric Confusion, 
+  - Added the following spells: Command, Chaos, Righteous Magic, Luck, Lower Resistance, Stone to Flesh, Summon Hakeashar, Summon Nishruu, and Cleric Confusion. 
   - Updated dialog string for weapon swap to correctly relay it is swapping to melee weapons.
   - Allowed scripts to have the Tome and Blood Magus kit attack in melee.
   - Added Psi Warrior Bulwark of Force ability.
+  - Added Templar's Mass Cure ability.
   - Updated Made in Heaven Mod tracking.
 - IWDEE
   - Updated scripts for Paladin Protection from Evil since it is self-cast only in IWDEE.
   - Update to Haste so it would not be continually cast.
 - TO-DO
   - Add Reaver Kit abilities
-  - Add Arcane Archer abilities
   - More spells
 
 ## Version 10.4
