@@ -3199,6 +3199,35 @@ END
   END
 
 ///////////////////////////////////////////////////////////////////////////
+// Holy Power                                                            //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Prebuff Holy Power~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES(CLERIC_HOLY_POWER)
+  !CheckSpellState(Myself,HOLY_POWER)
+  CheckStatLT(Myself,19,STR)
+  CheckStatLT(Myself,100,STREXTRA)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SpellRES(CLERIC_HOLY_POWER,Myself)
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
 // Righteous Magic                                                       //
 ///////////////////////////////////////////////////////////////////////////
   LPF REPLACE_MULTILINE

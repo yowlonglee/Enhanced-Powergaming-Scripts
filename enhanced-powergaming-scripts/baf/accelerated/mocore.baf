@@ -3319,6 +3319,26 @@ END
 
 // IWD Prayer, Restoration, and Entropy Shield
 
+// 5e Spellcasting Prebuff Holy Power
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpell(CLERIC_HOLY_POWER)  // SPPR412.SPL (Holy Power)
+  !CheckSpellState(Myself,HOLY_POWER)
+  CheckStatLT(Myself,19,STR)
+  CheckStatLT(Myself,100,STREXTRA)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,CLERIC_HOLY_POWER)  // SPPR412.SPL (Holy Power)
+    RemoveSpell(CLERIC_HOLY_POWER)  // SPPR412.SPL (Holy Power)
+END
+
 // 5e Spellcasting Prebuff Righteous Magic
 
 IF
