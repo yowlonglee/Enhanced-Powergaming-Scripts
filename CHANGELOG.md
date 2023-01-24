@@ -17,13 +17,11 @@ January xx, 2023
   - Allowed scripts to have the Tome and Blood Magus kit attack in melee.
   - Added Psi Warrior Bulwark of Force ability.
   - Added Templar's Mass Cure ability.
+  - Add Reaver Kit abilities.
   - Updated Made in Heaven Mod tracking.
 - IWDEE
   - Updated scripts for Paladin Protection from Evil since it is self-cast only in IWDEE.
   - Update to Haste so it would not be continually cast.
-- TO-DO
-  - Add Reaver Kit abilities
-  - More spells
 
 ## Version 10.4
 
