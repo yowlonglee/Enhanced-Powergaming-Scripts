@@ -1,5 +1,16 @@
 # Changelog
 
+## Version 11.1
+
+January xx, 2023
+
+### Changed 
+
+- BG:EE, BG2:EE, and EET
+  - Corrected syntax error when Spell Revisions is installed.
+
+# Changelog
+
 ## Version 11.0
 
 January 23, 2023

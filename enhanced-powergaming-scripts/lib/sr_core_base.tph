@@ -9050,7 +9050,7 @@ THEN
     SetInterrupt(TRUE)
 END
 
-If
+IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
@@ -14071,7 +14071,7 @@ IF
     CheckStatGT(Myself,0,AURACLEANSING)
   !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
   HaveSpell(CLERIC_COMMAND)  // SPPR102.SPL (Command)
-  See(SecondNearestEnemyOf[EVILCUTOFF.HUMANOID]))
+  See(SecondNearestEnemyOf([EVILCUTOFF.HUMANOID]))
   !Race(LastSeenBy(Myself),ELF)
   !General(LastSeenBy(Myself),UNDEAD)
   !Race(LastSeenBy(Myself),LICH)
@@ -14118,7 +14118,7 @@ IF
     CheckStatGT(Myself,0,AURACLEANSING)
   !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
   HaveSpell(CLERIC_COMMAND)  // SPPR102.SPL (Command)
-  See(ThirdNearestEnemyOf[EVILCUTOFF.HUMANOID]))
+  See(ThirdNearestEnemyOf([EVILCUTOFF.HUMANOID]))
   !Race(LastSeenBy(Myself),ELF)
   !General(LastSeenBy(Myself),UNDEAD)
   !Race(LastSeenBy(Myself),LICH)
@@ -14165,7 +14165,7 @@ IF
     CheckStatGT(Myself,0,AURACLEANSING)
   !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
   HaveSpell(CLERIC_COMMAND)  // SPPR102.SPL (Command)
-  See(FourthNearestEnemyOf[EVILCUTOFF.HUMANOID]))
+  See(FourthNearestEnemyOf([EVILCUTOFF.HUMANOID]))
   !Race(LastSeenBy(Myself),ELF)
   !General(LastSeenBy(Myself),UNDEAD)
   !Race(LastSeenBy(Myself),LICH)
@@ -14212,7 +14212,7 @@ IF
     CheckStatGT(Myself,0,AURACLEANSING)
   !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
   HaveSpell(CLERIC_COMMAND)  // SPPR102.SPL (Command)
-  See(FifthNearestEnemyOf[EVILCUTOFF.HUMANOID]))
+  See(FifthNearestEnemyOf([EVILCUTOFF.HUMANOID]))
   !Race(LastSeenBy(Myself),ELF)
   !General(LastSeenBy(Myself),UNDEAD)
   !Race(LastSeenBy(Myself),LICH)
@@ -14259,7 +14259,7 @@ IF
     CheckStatGT(Myself,0,AURACLEANSING)
   !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
   HaveSpell(CLERIC_COMMAND)  // SPPR102.SPL (Command)
-  See(SixthNearestEnemyOf[EVILCUTOFF.HUMANOID]))
+  See(SixthNearestEnemyOf([EVILCUTOFF.HUMANOID]))
   !Race(LastSeenBy(Myself),ELF)
   !General(LastSeenBy(Myself),UNDEAD)
   !Race(LastSeenBy(Myself),LICH)
