@@ -66,6 +66,13 @@ ACTION_IF !VARIABLE_IS_SET ~initialise~ BEGIN
       OUTER_SET pally_smite=0
    END
 
+   // Wizard Slayer Enhancements
+   ACTION_IF MOD_IS_INSTALLED ~skills-and-abilities.tp2~ ~50~ THEN BEGIN
+      OUTER_SET wizard_slayer=1
+   END ELSE BEGIN
+      OUTER_SET wizard_slayer=0
+   END
+
    // Detect Update HLAs
    ACTION_IF MOD_IS_INSTALLED ~skills-and-abilities.tp2~ ~720~ THEN BEGIN
       OUTER_SET saa_hla=1

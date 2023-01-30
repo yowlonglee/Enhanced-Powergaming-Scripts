@@ -1,0 +1,100 @@
+COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+
+///////////////////////////////////////////////////////////////////////////
+// Attack Check                                                          //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    warn = 0
+    STR_VAR
+    pattern = ~~~~~WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
+  WeaponCanDamage(NearestEnemyOf(Myself),MAINHAND)~~~~~
+    string = ~~~~~OR(2)
+    WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
+    Kit(Myself,WIZARDSLAYER)
+  OR(2)
+    WeaponCanDamage(NearestEnemyOf(Myself),MAINHAND)
+    Kit(Myself,WIZARDSLAYER)~~~~~ //"
+  END
+
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    warn = 0
+    STR_VAR
+    pattern = ~~~~~WeaponEffectiveVs(SecondNearestEnemyOf(Myself),MAINHAND)
+  WeaponCanDamage(SecondNearestEnemyOf(Myself),MAINHAND)~~~~~
+    string = ~~~~~OR(2)
+    WeaponEffectiveVs(SecondNearestEnemyOf(Myself),MAINHAND)
+    Kit(Myself,WIZARDSLAYER)
+  OR(2)
+    WeaponCanDamage(SecondNearestEnemyOf(Myself),MAINHAND)
+    Kit(Myself,WIZARDSLAYER)~~~~~ //"
+  END
+
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    warn = 0
+    STR_VAR
+    pattern = ~~~~~WeaponEffectiveVs(ThirdNearestEnemyOf(Myself),MAINHAND)
+  WeaponCanDamage(ThirdNearestEnemyOf(Myself),MAINHAND)~~~~~
+    string = ~~~~~OR(2)
+    WeaponEffectiveVs(ThirdNearestEnemyOf(Myself),MAINHAND)
+    Kit(Myself,WIZARDSLAYER)
+  OR(2)
+    WeaponCanDamage(ThirdNearestEnemyOf(Myself),MAINHAND)
+    Kit(Myself,WIZARDSLAYER)~~~~~ //"
+  END
+
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    warn = 0
+    STR_VAR
+    pattern = ~~~~~WeaponEffectiveVs(FourthNearestEnemyOf(Myself),MAINHAND)
+  WeaponCanDamage(FourthNearestEnemyOf(Myself),MAINHAND)~~~~~
+    string = ~~~~~OR(2)
+    WeaponEffectiveVs(FourthNearestEnemyOf(Myself),MAINHAND)
+    Kit(Myself,WIZARDSLAYER)
+  OR(2)
+    WeaponCanDamage(FourthNearestEnemyOf(Myself),MAINHAND)
+    Kit(Myself,WIZARDSLAYER)~~~~~ //"
+  END
+
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    warn = 0
+    STR_VAR
+    pattern = ~~~~~WeaponEffectiveVs(FifthNearestEnemyOf(Myself),MAINHAND)
+  WeaponCanDamage(FifthNearestEnemyOf(Myself),MAINHAND)~~~~~
+    string = ~~~~~OR(2)
+    WeaponEffectiveVs(FifthNearestEnemyOf(Myself),MAINHAND)
+    Kit(Myself,WIZARDSLAYER)
+  OR(2)
+    WeaponCanDamage(FifthNearestEnemyOf(Myself),MAINHAND)
+    Kit(Myself,WIZARDSLAYER)~~~~~ //"
+  END
+
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    warn = 0
+    STR_VAR
+    pattern = ~~~~~WeaponEffectiveVs(SixthNearestEnemyOf(Myself),MAINHAND)
+  WeaponCanDamage(SixthNearestEnemyOf(Myself),MAINHAND)~~~~~
+    string = ~~~~~OR(2)
+    WeaponEffectiveVs(SixthNearestEnemyOf(Myself),MAINHAND)
+    Kit(Myself,WIZARDSLAYER)
+  OR(2)
+    WeaponCanDamage(SixthNearestEnemyOf(Myself),MAINHAND)
+    Kit(Myself,WIZARDSLAYER)~~~~~ //"
+  END
