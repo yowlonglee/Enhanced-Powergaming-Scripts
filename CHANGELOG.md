@@ -1,5 +1,14 @@
 # Changelog
 
+## Version 11.2
+
+February 4, 2023
+
+### Changed 
+
+- All Games
+  - Corrected issue with the Russian Translation.
+
 ## Version 11.1
 
 January 29, 2023
@@ -10,8 +19,6 @@ January 29, 2023
   - Updated Wizard Slayer targeting if Skills and Abilities component is present.
 - BG:EE, BG2:EE, and EET
   - Corrected syntax error when Spell Revisions is installed.
-
-# Changelog
 
 ## Version 11.0
 
