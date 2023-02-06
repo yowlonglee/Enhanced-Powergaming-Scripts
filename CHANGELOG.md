@@ -8,6 +8,7 @@ February 4, 2023
 
 - All Games
   - Corrected issue with the Russian Translation.
+  - Updated Stealth to be more stealth friendly for those who like to sneak.
 
 ## Version 11.1
 
