@@ -18,6 +18,9 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
+  OR(2)
+    !StateCheck(Myself,STATE_INVISIBLE)
+    !Global("BDAI_SKILL_MODE","LOCALS",2)
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   GlobalLT("MO_UsedMirrorAmulet0","GLOBAL",2)
   HasItemEquiped("MH#AMUL4",Myself)  // Mirror Amulet
@@ -73,6 +76,9 @@ END
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
+  OR(2)
+    !StateCheck(Myself,STATE_INVISIBLE)
+    !Global("BDAI_SKILL_MODE","LOCALS",2)
   GlobalLT("MO_UsedMirrorAmulet1","GLOBAL",1)
   HasItemEquiped("MH#AMUL4",Myself)  // Mirror Amulet
   Detect([EVILCUTOFF])
@@ -102,6 +108,9 @@ IF
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
+  OR(2)
+    !StateCheck(Myself,STATE_INVISIBLE)
+    !Global("BDAI_SKILL_MODE","LOCALS",2)
   GlobalLT("MO_UsedMirrorAmulet1","GLOBAL",1)
   HasItemEquiped("MH#AMUL4",Myself)  // Mirror Amulet
   See(NearestEnemyOf(Myself))
@@ -131,6 +140,9 @@ IF
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
+  OR(2)
+    !StateCheck(Myself,STATE_INVISIBLE)
+    !Global("BDAI_SKILL_MODE","LOCALS",2)
   GlobalLT("MO_UsedMirrorAmulet1","GLOBAL",1)
   HasItemEquiped("MH#AMUL4",Myself)  // Mirror Amulet
   See(SecondNearestEnemyOf(Myself))
@@ -160,6 +172,9 @@ IF
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
+  OR(2)
+    !StateCheck(Myself,STATE_INVISIBLE)
+    !Global("BDAI_SKILL_MODE","LOCALS",2)
   GlobalLT("MO_UsedMirrorAmulet1","GLOBAL",1)
   HasItemEquiped("MH#AMUL4",Myself)  // Mirror Amulet
   See(ThirdNearestEnemyOf(Myself))
@@ -189,6 +204,9 @@ IF
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
+  OR(2)
+    !StateCheck(Myself,STATE_INVISIBLE)
+    !Global("BDAI_SKILL_MODE","LOCALS",2)
   GlobalLT("MO_UsedMirrorAmulet1","GLOBAL",1)
   HasItemEquiped("MH#AMUL4",Myself)  // Mirror Amulet
   See(FourthNearestEnemyOf(Myself))
@@ -218,6 +236,9 @@ IF
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
+  OR(2)
+    !StateCheck(Myself,STATE_INVISIBLE)
+    !Global("BDAI_SKILL_MODE","LOCALS",2)
   GlobalLT("MO_UsedMirrorAmulet1","GLOBAL",1)
   HasItemEquiped("MH#AMUL4",Myself)  // Mirror Amulet
   See(FifthNearestEnemyOf(Myself))
@@ -247,6 +268,9 @@ IF
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
+  OR(2)
+    !StateCheck(Myself,STATE_INVISIBLE)
+    !Global("BDAI_SKILL_MODE","LOCALS",2)
   GlobalLT("MO_UsedMirrorAmulet1","GLOBAL",1)
   HasItemEquiped("MH#AMUL4",Myself)  // Mirror Amulet
   See(SixthNearestEnemyOf(Myself))
