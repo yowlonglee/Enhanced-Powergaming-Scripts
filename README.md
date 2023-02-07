@@ -91,6 +91,20 @@ These scripts will utilize items such as Amulet of the Cheetah, Ilbratha+1, Ring
 #### The Scripts
 The scripts are now listed as Enhanced Powergaming Scripts listed under the previous Advanced AI option. Here, the player has the option to select multiple radial buttons to custom tweak the interaction the AI scripts have.
 
+##### Initial Setup
+
+For lack of a better term, there can be some inherent wonkiness when initially setting up advanced ai on a character. If the scripts are not working for a character and you have ensured the AI lantern is on, then follow these steps:
+
+- Set the character's AI scripts to "None", save the setting, and go back to the game screen.
+
+- Go back into the script page and set the AI to "Enhanced Powergaming Scripts".
+
+- Save the setting and go back to the game screen.
+
+- Go into the character records page and verify the assigned script is "bddefai".
+
+- You should now be all set. Follow the above steps for each character, one character at a time.
+
 ##### Attack Enemies
 
 The character will attack enemies on sight.
