@@ -6,9 +6,9 @@
 
 [Un mod Gibberlings Three](https://www.gibberlings3.net/)
 
-**Auteur**: [morpheus562](https://www.gibberlings3.net/profile/11591-morpheus562/)
+**Auteur** : [morpheus562](https://www.gibberlings3.net/profile/11591-morpheus562/)
 
-**Forum**: [Home Page](https://www.gibberlings3.net/mods/other/enhanced-powergaming-scripts/) and [Discussion Topic](https://www.gibberlings3.net/forums/topic/32618-enhanced-powergaming-scripts/)
+**Forum** : [Home Page](https://www.gibberlings3.net/mods/other/enhanced-powergaming-scripts/) and [Discussion Topic](https://www.gibberlings3.net/forums/topic/32618-enhanced-powergaming-scripts/)
 
 ## Introduction
 
@@ -102,6 +102,22 @@ Ces scripts utiliseront les objets tels que l'Amulette du guépard, Ilbratha+1, 
 #### Les scripts
 
 Les scripts sont maintenant affichés en tant que Enhanced Powergaming Scripts, sous l'ancienne l'option d'IA avancée. Le joueur aura désormais la possibilité de personnaliser la sélection des scripts d'IA.
+
+##### Configuration initiale
+
+Il est possible que la configuration initiale de l'IA avancée présente des problèmes ou étrangetés. Si les scripts ne fonctionnent pas correctement pour un personnage et que vous vous êtes sûr que l'IA est activée (la lanterne en bas à droite), suivez les indications suivantes :
+
+- Réglez le script d'IA du personnage sur "Aucun", validez et retournez à l'écran de jeu.
+
+- Retournez sur la page des scripts et réglez l'IA sur "ENHANCED POWERGAMING SCRIPTS".
+
+- Validez et retournez à l'écran de jeu.
+
+- Allez dans la page d'Archives du personnage et vérifiez que le script assigné est "bddefai".
+
+- Vous devriez maintenant être paré. 
+
+Répétez les étapes ci-dessus pour chaque personnage.
 
 ##### Attack Enemies
 
