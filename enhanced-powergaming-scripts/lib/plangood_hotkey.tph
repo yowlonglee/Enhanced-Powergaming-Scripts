@@ -13,3 +13,17 @@ COPY ~enhanced-powergaming-scripts/baf/upload/plangood.baf~ ~enhanced-powergamin
     pattern = ~~~~~HotKey(hot_key_Buffing)~~~~~
     string = ~~~~~HotKey(%value_buff%)~~~~~ //"
   END
+
+///////////////////////////////////////////////////////////////////////////
+// Update Hotkey Long Buffing                                            //
+///////////////////////////////////////////////////////////////////////////
+  SPRINT value_longbuff EVAL "%hot_key_LongBuffing%"
+
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~HotKey(hot_key_LongBuffing)~~~~~
+    string = ~~~~~HotKey(%value_longbuff%)~~~~~ //"
+  END

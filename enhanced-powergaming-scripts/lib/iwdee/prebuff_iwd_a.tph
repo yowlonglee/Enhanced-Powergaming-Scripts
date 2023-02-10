@@ -220,7 +220,9 @@ END~~~~~
     verbose = 0
     STR_VAR
     pattern = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   GlobalLT("MO_UsedMagiStaff","GLOBAL",1)
   HasItemEquiped("STAF11",Myself)
@@ -242,7 +244,9 @@ END~~~~~
     verbose = 0
     STR_VAR
     pattern = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   HasItemEquiped("OHRCLCK4",Myself)  // Cloak of the Dark Moon
   GlobalLT("MO_UsedClkDrkMN","GLOBAL",3)

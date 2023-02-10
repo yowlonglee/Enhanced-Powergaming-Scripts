@@ -72,23 +72,45 @@ THEN
 END
 
 IF
-	Global("MO_BUFF","LOCALS",0)
-	HotKey(hot_key_Buffing)
+  Global("MO_BUFF","LOCALS",0)
+  HotKey(hot_key_Buffing)
 THEN
-	RESPONSE #100
-		SetGlobal("MO_BUFF","LOCALS",1)
-		DisplayStringHead(Myself,@5002)
+  RESPONSE #100
+    SetGlobal("MO_BUFF","LOCALS",1)
+    SetGlobal("MO_LONG_BUFF","LOCALS",0)
+    DisplayStringHead(Myself,@5002)
 END
 
 IF
-	Global("MO_BUFF","LOCALS",1)
-	OR(2)
-		HotKey(hot_key_Buffing)
-		See([EVILCUTOFF])
+  Global("MO_BUFF","LOCALS",0)
+  Global("MO_LONG_BUFF","LOCALS",0)
+  HotKey(hot_key_LongBuffing)
 THEN
-	RESPONSE #100
-		SetGlobal("MO_BUFF","LOCALS",0)
-		DisplayStringHead(Myself,@5003)
+  RESPONSE #100
+    SetGlobal("MO_LONG_BUFF","LOCALS",1)
+    DisplayStringHead(Myself,@5031)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    HotKey(hot_key_Buffing)
+    See([EVILCUTOFF])
+THEN
+  RESPONSE #100
+    SetGlobal("MO_BUFF","LOCALS",0)
+    DisplayStringHead(Myself,@5003)
+END
+
+IF
+  Global("MO_LONG_BUFF","LOCALS",1)
+  OR(2)
+    HotKey(hot_key_LongBuffing)
+    See([EVILCUTOFF])
+THEN
+  RESPONSE #100
+    SetGlobal("MO_LONG_BUFF","LOCALS",0)
+    DisplayStringHead(Myself,@5003)
 END
 
 IF

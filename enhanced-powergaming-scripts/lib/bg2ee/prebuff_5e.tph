@@ -73,7 +73,9 @@ END~~~~~ //"
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Prebuff Stoneskin~~~~~
     string = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   CheckStatLT(Myself,1,STONESKINS)
   HaveSpellRES(WIZARD_STONE_SKIN)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
@@ -101,7 +103,9 @@ END
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Prebuff Iron Skins~~~~~
     string = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   CheckStatLT(Myself,1,STONESKINS)
   HaveSpellRES(CLERIC_IRONSKIN)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -128,7 +132,9 @@ END
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Prebuff Spirit Armor~~~~~
     string = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   HaveSpellRES(WIZARD_SPIRIT_ARMOR)
   !CheckSpellState(Myself,MAGE_ARMOR)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
@@ -156,7 +162,9 @@ END
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Prebuff Ghost Armor~~~~~
     string = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   HaveSpellRES(WIZARD_GHOST_ARMOR)
   !CheckSpellState(Myself,MAGE_ARMOR)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
@@ -184,7 +192,9 @@ END
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Prebuff Mage Armor~~~~~
     string = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   HaveSpellRES(WIZARD_ARMOR)
   !CheckSpellState(Myself,MAGE_ARMOR)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
@@ -212,7 +222,9 @@ END
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Prebuff Mage Shield~~~~~
     string = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   HaveSpellRES(WIZARD_SHIELD)
   !CheckSpellState(Myself,WIZARD_SHIELD)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
@@ -240,7 +252,9 @@ END
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Prebuff Resist Fear~~~~~
     string = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   HaveSpellRES(WIZARD_RESIST_FEAR)
   !CheckSpellState(Myself,RESIST_FEAR)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
@@ -268,7 +282,9 @@ END
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Prebuff Cleric Remove Fear~~~~~
     string = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   HaveSpellRES(CLERIC_REMOVE_FEAR)
   !CheckSpellState(Myself,RESIST_FEAR)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -295,7 +311,9 @@ END
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Prebuff Prot Normal Missiles~~~~~
     string = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   HaveSpellRES(WIZARD_PROTECTION_FROM_NORMAL_MISSILES)
   !CheckSpellState(Myself,PROTECTION_FROM_NORMAL_MISSILES)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
@@ -323,7 +341,9 @@ END
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Prebuff Death Ward~~~~~
     string = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   HaveSpellRES(CLERIC_DEATH_WARD)
   See(Myself)
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
@@ -342,7 +362,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   HaveSpellRES(CLERIC_DEATH_WARD)
   See([PC])
@@ -369,7 +391,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   HaveSpellRES(CLERIC_DEATH_WARD)
   See(SecondNearest([PC]))
@@ -396,7 +420,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   HaveSpellRES(CLERIC_DEATH_WARD)
   See(ThirdNearest([PC]))
@@ -423,7 +449,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   HaveSpellRES(CLERIC_DEATH_WARD)
   See(FourthNearest([PC]))
@@ -450,7 +478,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   HaveSpellRES(CLERIC_DEATH_WARD)
   See(FifthNearest([PC]))
@@ -477,7 +507,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   HaveSpellRES(CLERIC_DEATH_WARD)
   See(SixthNearest([PC]))
@@ -515,7 +547,9 @@ END
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Prebuff Prot Evil 10'~~~~~
     string = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   HaveSpellRES(CLERIC_PROTECTION_FROM_EVIL_10_FOOT)
   CheckStat(Myself,0,PROTECTION_FROM_EVIL)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -542,7 +576,9 @@ END
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Prebuff Chaotic Commands~~~~~
     string = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   See(Myself)
   !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
   !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
@@ -563,7 +599,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See([PC])
   !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
@@ -591,7 +629,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SecondNearest([PC]))
   !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
@@ -619,7 +659,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(ThirdNearest([PC]))
   !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
@@ -647,7 +689,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FourthNearest([PC]))
   !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
@@ -675,7 +719,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FifthNearest([PC]))
   !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
@@ -703,7 +749,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SixthNearest([PC]))
   !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
@@ -742,7 +790,9 @@ END
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Prebuff Prot Magic Energy~~~~~
     string = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   See(Myself)
   HaveSpellRES(WIZARD_PROTECTION_FROM_MAGIC_ENERGY)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_PROTECTION_FROM_MAGIC_ENERGY)
@@ -760,7 +810,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See([PC])
   HaveSpellRES(WIZARD_PROTECTION_FROM_MAGIC_ENERGY)
@@ -784,7 +836,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SecondNearest([PC]))
   HaveSpellRES(WIZARD_PROTECTION_FROM_MAGIC_ENERGY)
@@ -808,7 +862,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(ThirdNearest([PC]))
   HaveSpellRES(WIZARD_PROTECTION_FROM_MAGIC_ENERGY)
@@ -832,7 +888,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FourthNearest([PC]))
   HaveSpellRES(WIZARD_PROTECTION_FROM_MAGIC_ENERGY)
@@ -856,7 +914,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FifthNearest([PC]))
   HaveSpellRES(WIZARD_PROTECTION_FROM_MAGIC_ENERGY)
@@ -880,7 +940,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SixthNearest([PC]))
   HaveSpellRES(WIZARD_PROTECTION_FROM_MAGIC_ENERGY)
@@ -915,7 +977,9 @@ END
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Prebuff Prot from Electricity~~~~~
     string = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   See(Myself)
   HaveSpellRES(WIZARD_PROTECTION_FROM_ELECTRICITY)
   CheckStatLT(LastSeenBy(Myself),100,RESISTELECTRICITY)
@@ -933,7 +997,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See([PC])
   HaveSpellRES(WIZARD_PROTECTION_FROM_ELECTRICITY)
@@ -958,7 +1024,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SecondNearest([PC]))
   HaveSpellRES(WIZARD_PROTECTION_FROM_ELECTRICITY)
@@ -983,7 +1051,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(ThirdNearest([PC]))
   HaveSpellRES(WIZARD_PROTECTION_FROM_ELECTRICITY)
@@ -1008,7 +1078,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FourthNearest([PC]))
   HaveSpellRES(WIZARD_PROTECTION_FROM_ELECTRICITY)
@@ -1033,7 +1105,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FifthNearest([PC]))
   HaveSpellRES(WIZARD_PROTECTION_FROM_ELECTRICITY)
@@ -1058,7 +1132,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SixthNearest([PC]))
   HaveSpellRES(WIZARD_PROTECTION_FROM_ELECTRICITY)
@@ -1094,7 +1170,9 @@ END
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Prebuff Prot from Fire~~~~~
     string = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   See(Myself)
   HaveSpellRES(WIZARD_PROTECTION_FROM_FIRE)
   CheckStatLT(LastSeenBy(Myself),100,RESISTFIRE)
@@ -1113,7 +1191,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See([PC])
   HaveSpellRES(WIZARD_PROTECTION_FROM_FIRE)
@@ -1141,7 +1221,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SecondNearest([PC]))
   HaveSpellRES(WIZARD_PROTECTION_FROM_FIRE)
@@ -1169,7 +1251,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(ThirdNearest([PC]))
   HaveSpellRES(WIZARD_PROTECTION_FROM_FIRE)
@@ -1197,7 +1281,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FourthNearest([PC]))
   HaveSpellRES(WIZARD_PROTECTION_FROM_FIRE)
@@ -1225,7 +1311,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FifthNearest([PC]))
   HaveSpellRES(WIZARD_PROTECTION_FROM_FIRE)
@@ -1253,7 +1341,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SixthNearest([PC]))
   HaveSpellRES(WIZARD_PROTECTION_FROM_FIRE)
@@ -1292,7 +1382,9 @@ END
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Prebuff Prot from Cold~~~~~
     string = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   See(Myself)
   HaveSpellRES(WIZARD_PROTECTION_FROM_COLD)
   CheckStatLT(LastSeenBy(Myself),100,RESISTCOLD)
@@ -1311,7 +1403,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See([PC])
   HaveSpellRES(WIZARD_PROTECTION_FROM_COLD)
@@ -1339,7 +1433,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SecondNearest([PC]))
   HaveSpellRES(WIZARD_PROTECTION_FROM_COLD)
@@ -1367,7 +1463,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(ThirdNearest([PC]))
   HaveSpellRES(WIZARD_PROTECTION_FROM_COLD)
@@ -1395,7 +1493,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FourthNearest([PC]))
   HaveSpellRES(WIZARD_PROTECTION_FROM_COLD)
@@ -1423,7 +1523,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FifthNearest([PC]))
   HaveSpellRES(WIZARD_PROTECTION_FROM_COLD)
@@ -1451,7 +1553,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SixthNearest([PC]))
   HaveSpellRES(WIZARD_PROTECTION_FROM_COLD)
@@ -1490,7 +1594,9 @@ END
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Prebuff Prot from Acid~~~~~
     string = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   See(Myself)
   HaveSpellRES(WIZARD_PROTECTION_FROM_ACID)
   CheckStatLT(LastSeenBy(Myself),100,RESISTACID)
@@ -1509,7 +1615,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See([PC])
   HaveSpellRES(WIZARD_PROTECTION_FROM_ACID)
@@ -1535,7 +1643,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SecondNearest([PC]))
   HaveSpellRES(WIZARD_PROTECTION_FROM_ACID)
@@ -1561,7 +1671,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(ThirdNearest([PC]))
   HaveSpellRES(WIZARD_PROTECTION_FROM_ACID)
@@ -1587,7 +1699,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FourthNearest([PC]))
   HaveSpellRES(WIZARD_PROTECTION_FROM_ACID)
@@ -1613,7 +1727,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FifthNearest([PC]))
   HaveSpellRES(WIZARD_PROTECTION_FROM_ACID)
@@ -1639,7 +1755,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SixthNearest([PC]))
   HaveSpellRES(WIZARD_PROTECTION_FROM_ACID)
