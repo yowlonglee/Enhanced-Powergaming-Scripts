@@ -1,5 +1,16 @@
 # Changelog
 
+## Version 12.0
+
+March xx, 2023
+
+### Changed 
+
+- All Games
+  - Added option, default hotkey 'N', to pre-buff only long-duration buffs.
+- BG:EE, BG2:EE, and EET
+  - Added Gem of Seeing.
+
 ## Version 11.2
 
 February 7, 2023
