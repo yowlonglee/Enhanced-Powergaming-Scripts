@@ -60,28 +60,6 @@ END~~~~~ //"
     strict = 1
     verbose = 0
     STR_VAR
-    pattern = ~~~~~!CheckSpellState(Myself,BERSERKER_RAGE_FATIGUE)
-  !CheckSpellState(Myself,BERSERKER_RAGE)~~~~~
-    string = ~~~~~!CheckSpellState(Myself,BERSERKER_RAGE_FATIGUE)
-  !CheckSpellState(Myself,BERSERKER_RAGE)
-  !CheckSpellState(Myself,WAR_CRY)~~~~~ //"
-  END
-
-  LPF REPLACE_MULTILINE
-    INT_VAR
-    strict = 1
-    verbose = 0
-    STR_VAR
-    pattern = ~~~~~!CheckSpellState(Myself,BARBARIAN_RAGE)~~~~~
-    string = ~~~~~!CheckSpellState(Myself,BARBARIAN_RAGE)
-  !CheckSpellState(Myself,WAR_CRY)~~~~~ //"
-  END
-
-  LPF REPLACE_MULTILINE
-    INT_VAR
-    strict = 1
-    verbose = 0
-    STR_VAR
     pattern = ~~~~~// Skills and Abilities War Cry~~~~~
     string = ~~~~~IF
   OR(2)
@@ -96,9 +74,6 @@ END~~~~~ //"
     !StateCheck(Myself,STATE_INVISIBLE)
     !Global("BDAI_SKILL_MODE","LOCALS",2)
   HaveSpell(WARRIOR_WAR_CRY)
-  !CheckSpellState(Myself,BERSERKER_RAGE_FATIGUE)
-  !CheckSpellState(Myself,BERSERKER_RAGE)
-  !CheckSpellState(Myself,BARBARIAN_RAGE)
   !CheckSpellState(Myself,WAR_CRY)
   See([EVILCUTOFF])
   OR(32)

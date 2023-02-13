@@ -1182,7 +1182,7 @@ ACTION_IF saa_hla BEGIN
 	ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
 		//PRINT ~Updating the following spell: %spell_res%~
 		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
-		  LPF CLONE_EFFECT INT_VAR match_opcode = 206 opcode = 328 parameter2 = %war_cry% special = 1 END
+		  LPF CLONE_EFFECT INT_VAR match_opcode = 282 opcode = 328 parameter2 = %war_cry% special = 1 END
 	END
 END
 

@@ -1490,7 +1490,7 @@ ACTION_IF saa_hla BEGIN
 	ACTION_IF GAME_IS ~bg2ee eet~ BEGIN
 		LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WARRIOR_WAR_CRY~ RET spell_res END
 		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
-		  LPF CLONE_EFFECT INT_VAR match_opcode = 206 opcode = 328 parameter2 = %war_cry% special = 1 END
+		  LPF CLONE_EFFECT INT_VAR match_opcode = 282 opcode = 328 parameter2 = %war_cry% special = 1 END
 	END
 END 
 
