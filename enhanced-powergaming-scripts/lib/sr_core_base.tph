@@ -10042,6 +10042,27 @@ THEN
     SetInterrupt(TRUE)
 END
 
+IF
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
+  OR(2)
+    !StateCheck(Myself,STATE_INVISIBLE)
+    !Global("BDAI_SKILL_MODE","LOCALS",2)
+  !See([EVILCUTOFF])
+  !EEex_LuaTrigger("return AmMoving()")
+  HPPercentLT(Myself,100)
+  HasItemEquiped("GBERRY",Myself)  // Good Berry
+  !ActuallyInCombat()
+THEN
+  RESPONSE #100
+    SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
+    UseItem("GBERRY",Myself)  // Good Berry
+END
+
 ///////////////////////////////////////////////////////////////////////////
 // 12 - Disabling and CC                                                 //
 ///////////////////////////////////////////////////////////////////////////

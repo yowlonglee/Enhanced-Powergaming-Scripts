@@ -8,6 +8,7 @@ March xx, 2023
 
 - All Games
   - Added option, default hotkey 'N', to pre-buff only long-duration buffs.
+  - Added Good Berry use when out of combat.
 - BG:EE, BG2:EE, and EET
   - Added Gem of Seeing.
 
