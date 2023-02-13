@@ -346,7 +346,9 @@ END
 // 5e Spellcasting Prebuff Stoneskin
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   CheckStatLT(Myself,1,STONESKINS)
   HaveSpell(WIZARD_STONE_SKIN)  // SPWI408.SPL (Stoneskin)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
@@ -365,7 +367,9 @@ END
 // 5e Spellcasting Prebuff Ironskin
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   CheckStatLT(Myself,1,STONESKINS)
   HaveSpell(CLERIC_IRONSKIN)  // SPPR506.SPL (Stoneskin)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -385,7 +389,9 @@ END
 // Prebuff IWD Impervious Sanctity of Mind
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   HasItemEquiped("potn09",Myself)  // Potion of Heroism
   !CheckSpellState(Myself,BUFF_ENHANCEMENT)
@@ -396,7 +402,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   HasItemEquiped("potn02",Myself)  // Potion of Fire Resistance
 THEN
@@ -406,7 +414,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   HasItemEquiped("potn22",Myself)  // Potion of Cold Resistance
 THEN
@@ -416,7 +426,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   HasItemEquiped("potn18",Myself)  // Potion of Absorption
   CheckStatLT(Myself,100,RESISTELECTRICITY)
@@ -427,7 +439,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   HasItemEquiped("potn34",Myself)  // Potion of Magic Protection
 THEN
@@ -437,7 +451,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   HasItemEquiped("potn07",Myself)  // Potion of Storm Giant Strength
   CheckStatLT(Myself,24,STR)
@@ -448,7 +464,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   HasItemEquiped("potn06",Myself)  // Potion of Cloud Giant Strength
   CheckStatLT(Myself,23,STR)
@@ -459,7 +477,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   HasItemEquiped("potn05",Myself)  // Potion of Fire Giant Strength
   CheckStatLT(Myself,22,STR)
@@ -470,7 +490,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   HasItemEquiped("potn04",Myself)  // Potion of Frost Giant Strength
   CheckStatLT(Myself,21,STR)
@@ -481,7 +503,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   HasItemEquiped("potn12",Myself)  // Potion of Stone Giant Strength
   CheckStatLT(Myself,20,STR)
@@ -492,7 +516,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   HasItemEquiped("potn03",Myself)  // Potion of Hill Giant Strength
   CheckStatLT(Myself,19,STR)
@@ -503,7 +529,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   HasItemEquiped("potn11",Myself)  // Potion of Invulnerability
   CheckStatGT(Myself,0,ARMORCLASS)
@@ -514,7 +542,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   HasItemEquiped("OHRCLCK4",Myself)  // Cloak of the Dark Moon
   GlobalLT("MO_UsedClkDrkMN","GLOBAL",3)
@@ -527,7 +557,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   !CheckSpellState(Myself,IMPROVED_HASTE)
   GlobalLT("MO_UsedCheetah","GLOBAL",1)
@@ -539,7 +571,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   !CheckSpellState(Myself,IMPROVED_HASTE)
   GlobalLT("MO_UsedBlindingSpeed","GLOBAL",1)
@@ -650,7 +684,9 @@ END
 // 5e Spellcasting Prebuff Cleric Aid
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   See(Myself)
   HaveSpell(CLERIC_AID)  // SPPR201.SPL (Aid)
   !StateCheck(LastSeenBy(Myself),STATE_AID)
@@ -668,7 +704,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See([PC])
   HaveSpell(CLERIC_AID)  // SPPR201.SPL (Aid)
@@ -689,7 +727,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SecondNearest([PC]))
   HaveSpell(CLERIC_AID)  // SPPR201.SPL (Aid)
@@ -710,7 +750,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(ThirdNearest([PC]))
   HaveSpell(CLERIC_AID)  // SPPR201.SPL (Aid)
@@ -731,7 +773,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FourthNearest([PC]))
   HaveSpell(CLERIC_AID)  // SPPR201.SPL (Aid)
@@ -752,7 +796,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FifthNearest([PC]))
   HaveSpell(CLERIC_AID)  // SPPR201.SPL (Aid)
@@ -773,7 +819,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SixthNearest([PC]))
   HaveSpell(CLERIC_AID)  // SPPR201.SPL (Aid)
@@ -800,7 +848,9 @@ END
 // 5e Spellcasting Prebuff Protection from Magic Energy
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   See(Myself)
   HaveSpell(WIZARD_PROTECTION_FROM_MAGIC_ENERGY)  // SPWI606.SPL (Protection From Magic Energy)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_PROTECTION_FROM_MAGIC_ENERGY)
@@ -818,7 +868,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See([PC])
   HaveSpell(WIZARD_PROTECTION_FROM_MAGIC_ENERGY)  // SPWI606.SPL (Protection From Magic Energy)
@@ -841,7 +893,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SecondNearest([PC]))
   HaveSpell(WIZARD_PROTECTION_FROM_MAGIC_ENERGY)  // SPWI606.SPL (Protection From Magic Energy)
@@ -864,7 +918,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(ThirdNearest([PC]))
   HaveSpell(WIZARD_PROTECTION_FROM_MAGIC_ENERGY)  // SPWI606.SPL (Protection From Magic Energy)
@@ -887,7 +943,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FourthNearest([PC]))
   HaveSpell(WIZARD_PROTECTION_FROM_MAGIC_ENERGY)  // SPWI606.SPL (Protection From Magic Energy)
@@ -910,7 +968,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FifthNearest([PC]))
   HaveSpell(WIZARD_PROTECTION_FROM_MAGIC_ENERGY)  // SPWI606.SPL (Protection From Magic Energy)
@@ -933,7 +993,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SixthNearest([PC]))
   HaveSpell(WIZARD_PROTECTION_FROM_MAGIC_ENERGY)  // SPWI606.SPL (Protection From Magic Energy)
@@ -966,7 +1028,9 @@ END
 // 5e Spellcasting Prebuff Free Action
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   See(Myself)
   HaveSpell(CLERIC_FREE_ACTION)  // SPPR403.SPL (Free Action)
   !CheckStatGT(LastSeenBy(Myself),0,CLERIC_FREE_ACTION)
@@ -983,7 +1047,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See([PC])
   HaveSpell(CLERIC_FREE_ACTION)  // SPPR403.SPL (Free Action)
@@ -1007,7 +1073,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SecondNearest([PC]))
   HaveSpell(CLERIC_FREE_ACTION)  // SPPR403.SPL (Free Action)
@@ -1031,7 +1099,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(ThirdNearest([PC]))
   HaveSpell(CLERIC_FREE_ACTION)  // SPPR403.SPL (Free Action)
@@ -1055,7 +1125,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FourthNearest([PC]))
   HaveSpell(CLERIC_FREE_ACTION)  // SPPR403.SPL (Free Action)
@@ -1079,7 +1151,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FifthNearest([PC]))
   HaveSpell(CLERIC_FREE_ACTION)  // SPPR403.SPL (Free Action)
@@ -1103,7 +1177,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SixthNearest([PC]))
   HaveSpell(CLERIC_FREE_ACTION)  // SPPR403.SPL (Free Action)
@@ -1129,7 +1205,9 @@ END
 // 5e Spellcasting Prebuff Neutralize Poison
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   See(Myself)
   HaveSpell(CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
   !CheckSpellState(LastSeenBy(Myself),REMOVE_POISON)
@@ -1146,7 +1224,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See([PC])
   HaveSpell(CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
@@ -1169,7 +1249,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SecondNearest([PC]))
   HaveSpell(CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
@@ -1192,7 +1274,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(ThirdNearest([PC]))
   HaveSpell(CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
@@ -1215,7 +1299,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FourthNearest([PC]))
   HaveSpell(CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
@@ -1238,7 +1324,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FifthNearest([PC]))
   HaveSpell(CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
@@ -1261,7 +1349,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SixthNearest([PC]))
   HaveSpell(CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
@@ -1286,7 +1376,9 @@ END
 // 5e Spellcasting Prebuff Cleric Protection from Fire
 
 IF
-	Global("MO_BUFF","LOCALS",1)
+	OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
 	HaveSpell(CLERIC_PROTECTION_FROM_FIRE)  // sppr521.spl (Protection from Fire)
 	CheckStatLT(Myself,80,RESISTFIRE)
 	CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -1304,7 +1396,9 @@ END
 // 5e Spellcasting Prebuff Death Ward
 
 IF
-	Global("MO_BUFF","LOCALS",1)
+	OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
 	HaveSpell(CLERIC_DEATH_WARD)  // SPPR409.SPL (Death Ward)
 	See(Myself)
 	!Kit(LastSeenBy(Myself),UNDEADHUNTER)
@@ -1323,7 +1417,9 @@ THEN
 END
 
 IF
-	Global("MO_BUFF","LOCALS",1)
+	OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
 	HaveSpell(CLERIC_DEATH_WARD)  // SPPR409.SPL (Death Ward)
 	See([PC])
@@ -1349,7 +1445,9 @@ THEN
 END
 
 IF
-	Global("MO_BUFF","LOCALS",1)
+	OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
 	HaveSpell(CLERIC_DEATH_WARD)  // SPPR409.SPL (Death Ward)
 	See(SecondNearest([PC]))
@@ -1375,7 +1473,9 @@ THEN
 END
 
 IF
-	Global("MO_BUFF","LOCALS",1)
+	OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
 	HaveSpell(CLERIC_DEATH_WARD)  // SPPR409.SPL (Death Ward)
 	See(ThirdNearest([PC]))
@@ -1401,7 +1501,9 @@ THEN
 END
 
 IF
-	Global("MO_BUFF","LOCALS",1)
+	OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
 	HaveSpell(CLERIC_DEATH_WARD)  // SPPR409.SPL (Death Ward)
 	See(FourthNearest([PC]))
@@ -1427,7 +1529,9 @@ THEN
 END
 
 IF
-	Global("MO_BUFF","LOCALS",1)
+	OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
 	HaveSpell(CLERIC_DEATH_WARD)  // SPPR409.SPL (Death Ward)
 	See(FifthNearest([PC]))
@@ -1453,7 +1557,9 @@ THEN
 END
 
 IF
-	Global("MO_BUFF","LOCALS",1)
+	OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
 	HaveSpell(CLERIC_DEATH_WARD)  // SPPR409.SPL (Death Ward)
 	See(SixthNearest([PC]))
@@ -1481,7 +1587,9 @@ END
 // 5e Spellcasting Prebuff Chaotic Commands
 
 IF
-	Global("MO_BUFF","LOCALS",1)
+	OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
 	See(Myself)
 	!CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
 	!CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
@@ -1502,7 +1610,9 @@ THEN
 END
 
 IF
-	Global("MO_BUFF","LOCALS",1)
+	OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
 	See([PC])
 	!CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
@@ -1529,7 +1639,9 @@ THEN
 END
 
 IF
-	Global("MO_BUFF","LOCALS",1)
+	OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
 	See(SecondNearest([PC]))
 	!CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
@@ -1556,7 +1668,9 @@ THEN
 END
 
 IF
-	Global("MO_BUFF","LOCALS",1)
+	OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
 	See(ThirdNearest([PC]))
 	!CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
@@ -1583,7 +1697,9 @@ THEN
 END
 
 IF
-	Global("MO_BUFF","LOCALS",1)
+	OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
 	See(FourthNearest([PC]))
 	!CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
@@ -1610,7 +1726,9 @@ THEN
 END
 
 IF
-	Global("MO_BUFF","LOCALS",1)
+	OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
 	See(FifthNearest([PC]))
 	!CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
@@ -1637,7 +1755,9 @@ THEN
 END
 
 IF
-	Global("MO_BUFF","LOCALS",1)
+	OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
 	See(SixthNearest([PC]))
 	!CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)

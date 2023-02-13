@@ -1076,7 +1076,9 @@ END
     STR_VAR
     pattern = ~~~~~// MiH Cleric Celestial Protection~~~~~
     string = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   See(Myself)
   HaveSpell(CLERIC_CELESTIAL_PROTECTION)
   !CheckSpellState(LastSeenBy(Myself),CELESTIAL_PROTECTION)
@@ -1096,7 +1098,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See([PC])
   HaveSpell(CLERIC_CELESTIAL_PROTECTION)
@@ -1121,7 +1125,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SecondNearest([PC]))
   HaveSpell(CLERIC_CELESTIAL_PROTECTION)
@@ -1146,7 +1152,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(ThirdNearest([PC]))
   HaveSpell(CLERIC_CELESTIAL_PROTECTION)
@@ -1171,7 +1179,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FourthNearest([PC]))
   HaveSpell(CLERIC_CELESTIAL_PROTECTION)
@@ -1196,7 +1206,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FifthNearest([PC]))
   HaveSpell(CLERIC_CELESTIAL_PROTECTION)
@@ -1221,7 +1233,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SixthNearest([PC]))
   HaveSpell(CLERIC_CELESTIAL_PROTECTION)

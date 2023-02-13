@@ -10,7 +10,9 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Prebuff - IWD Emotion Courage and Hope~~~~~
     string = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   HaveSpellRES(WIZARD_EMOTION_COURAGE)
   !CheckSpellState(Myself,EMOTION_COURAGE)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -26,7 +28,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   HaveSpellRES(WIZARD_EMOTION_HOPE)
   !CheckSpellState(Myself,EMOTION_HOPE)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -146,7 +150,9 @@ END
     STR_VAR
     pattern = ~~~~~// 5e Spellcasting Prebuff IWD Impervious Sanctity of Mind~~~~~
     string = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   HaveSpellRES(CLERIC_IMPERVIOUS_SANCTITY_OF_MIND)
   !CheckSpellState(Myself,CHAOTIC_COMMANDS)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)

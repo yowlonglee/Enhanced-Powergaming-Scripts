@@ -10,7 +10,9 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     STR_VAR
     pattern = ~~~~~// MiH Circle of Protection~~~~~
     string = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   See(Myself)
   HaveSpell(WIZARD_PROTECTION_CIRCLE)
   !CheckSpellState(LastSeenBy(Myself),PROTECTION_CIRCLE)
@@ -28,7 +30,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See([PC])
   HaveSpell(WIZARD_PROTECTION_CIRCLE)
@@ -54,7 +58,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SecondNearest([PC]))
   HaveSpell(WIZARD_PROTECTION_CIRCLE)
@@ -79,7 +85,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(ThirdNearest([PC]))
   HaveSpell(WIZARD_PROTECTION_CIRCLE)
@@ -104,7 +112,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FourthNearest([PC]))
   HaveSpell(WIZARD_PROTECTION_CIRCLE)
@@ -129,7 +139,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FifthNearest([PC]))
   HaveSpell(WIZARD_PROTECTION_CIRCLE)
@@ -154,7 +166,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SixthNearest([PC]))
   HaveSpell(WIZARD_PROTECTION_CIRCLE)
@@ -179,7 +193,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   See(Myself)
   HaveSpell(CLERIC_CIRCLE_OF_PROTECTION)
   !CheckSpellState(LastSeenBy(Myself),PROTECTION_CIRCLE)
@@ -197,7 +213,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See([PC])
   HaveSpell(CLERIC_CIRCLE_OF_PROTECTION)
@@ -222,7 +240,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SecondNearest([PC]))
   HaveSpell(CLERIC_CIRCLE_OF_PROTECTION)
@@ -247,7 +267,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(ThirdNearest([PC]))
   HaveSpell(CLERIC_CIRCLE_OF_PROTECTION)
@@ -272,7 +294,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FourthNearest([PC]))
   HaveSpell(CLERIC_CIRCLE_OF_PROTECTION)
@@ -297,7 +321,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(FifthNearest([PC]))
   HaveSpell(CLERIC_CIRCLE_OF_PROTECTION)
@@ -322,7 +348,9 @@ THEN
 END
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
   See(SixthNearest([PC]))
   HaveSpell(CLERIC_CIRCLE_OF_PROTECTION)
