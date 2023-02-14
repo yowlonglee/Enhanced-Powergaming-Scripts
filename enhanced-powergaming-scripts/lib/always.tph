@@ -59,6 +59,13 @@ ACTION_IF !VARIABLE_IS_SET ~initialise~ BEGIN
       OUTER_SET turn_undead=0
    END
 
+   // Detect Bard Song Duration Increase
+   ACTION_IF MOD_IS_INSTALLED ~skills-and-abilities.tp2~ ~180~ THEN BEGIN
+      OUTER_SET bard_song=1
+   END ELSE BEGIN
+      OUTER_SET bard_song=0
+   END
+
    // Detect Paladin Smiting
    ACTION_IF MOD_IS_INSTALLED ~skills-and-abilities.tp2~ ~80~ THEN BEGIN
       OUTER_SET pally_smite=1
