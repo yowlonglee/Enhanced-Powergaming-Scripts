@@ -20,7 +20,7 @@
 // * 16 - Special Abilities
 // * 17 - Physical Attack Selection
 // * 18 - Magic Missile Mordenkainen's Sword
-// * 19 - Song/Trap
+// * 19 - Trap
 
 COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
 
@@ -17071,7 +17071,6 @@ END
 ///////////////////////////////////////////////////////////////////////////
 // 16 - Special Abilities                                                //
 ///////////////////////////////////////////////////////////////////////////
-
 IF
   OR(2)
     ActionListEmpty()
@@ -17139,6 +17138,16 @@ IF
   OR(2)
     Range([EVILCUTOFF],30)
     ActuallyInCombat()
+THEN
+  RESPONSE #100
+    BattleSong()
+END
+
+IF
+  Global("BDAI_SKILL_MODE","LOCALS",3)
+  Class(Myself,BARD_ALL)
+  !ModalState(BATTLESONG)
+  ActionListEmpty()
 THEN
   RESPONSE #100
     BattleSong()
@@ -17628,19 +17637,8 @@ THEN
 END
 
 ///////////////////////////////////////////////////////////////////////////
-// 19 - Song/Trap                                                        //
+// 19 - Trap                                                             //
 ///////////////////////////////////////////////////////////////////////////
-
-IF
-  Global("BDAI_SKILL_MODE","LOCALS",3)
-  Class(Myself,BARD_ALL)
-  !ModalState(BATTLESONG)
-  ActionListEmpty()
-THEN
-  RESPONSE #100
-    BattleSong()
-END
-
 IF
   ActionListEmpty()
   !See([EVILCUTOFF])
