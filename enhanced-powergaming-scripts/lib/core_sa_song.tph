@@ -1,0 +1,61 @@
+COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+
+///////////////////////////////////////////////////////////////////////////
+// Update Singing Check                                                  //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~IF
+  Global("BDAI_SKILL_MODE","LOCALS",3)
+  Class(Myself,BARD_ALL)
+  !ModalState(BATTLESONG)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    BattleSong()
+END~~~~~
+    string = ~~~~~IF
+  Global("BDAI_SKILL_MODE","LOCALS",3)
+  !GlobalTimerNotExpired("MO_SongClock","LOCALS")
+  Class(Myself,BARD_ALL)
+  !ModalState(BATTLESONG)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    BattleSong()
+    SetGlobalTimer("MO_StartSinging","LOCALS",6)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetGlobalTimer("MO_SongClock","LOCALS",54)
+END~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Update Spellcasting Timer                                             //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~SetGlobalTimer("MO_SpellCastTimer","LOCALS",12)~~~~~
+    string = ~~~~~SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Update Singing Check in Attacks Script                                //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~!Global("BDAI_SKILL_MODE","LOCALS",4)
+  !Global("BDAI_SKILL_MODE","LOCALS",3)
+  !Global("BDAI_SKILL_MODE","LOCALS",1)~~~~~
+    string = ~~~~~!Global("BDAI_SKILL_MODE","LOCALS",4)
+  !Global("BDAI_SKILL_MODE","LOCALS",1)
+  !GlobalTimerNotExpired("MO_StartSinging","LOCALS")~~~~~ //"
+  END
