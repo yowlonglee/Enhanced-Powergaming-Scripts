@@ -61,9 +61,9 @@ ACTION_IF !VARIABLE_IS_SET ~initialise~ BEGIN
 
    // Detect Bard Song Duration Increase
    ACTION_IF MOD_IS_INSTALLED ~skills-and-abilities.tp2~ ~180~ THEN BEGIN
-      OUTER_SET bard_song=1
+      OUTER_SET extended_bard_song=1
    END ELSE BEGIN
-      OUTER_SET bard_song=0
+      OUTER_SET extended_bard_song=0
    END
 
    // Detect Paladin Smiting
