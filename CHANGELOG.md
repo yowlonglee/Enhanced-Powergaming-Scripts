@@ -12,6 +12,7 @@ March xx, 2023
   - If my extended bard song component from Skills and Abilities is installed, my scripts will time the singing with other actions.
 - BG:EE, BG2:EE, and EET
   - Added Gem of Seeing.
+  - Resolved warnings when 5e Spellcasting is installed.
 
 ## Version 11.2
 
