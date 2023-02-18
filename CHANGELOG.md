@@ -10,6 +10,7 @@ March xx, 2023
   - Added option, default hotkey 'N', to pre-buff only long-duration buffs.
   - Added Good Berry use when out of combat.
   - If my extended bard song component from Skills and Abilities is installed, my scripts will time the singing with other actions.
+  - Corrected bug with Cleric Hold where it was accidentally targeting party members.
 - BG:EE, BG2:EE, and EET
   - Added Gem of Seeing.
   - Resolved warnings when 5e Spellcasting is installed.
