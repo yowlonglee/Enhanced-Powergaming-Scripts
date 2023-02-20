@@ -8,6 +8,7 @@ March xx, 2023
 
 - All Games
   - Added option, default hotkey 'N', to pre-buff only long-duration buffs.
+  - Added the following spells: Magic Missile
   - Added Good Berry use when out of combat.
   - If my extended bard song component from Skills and Abilities is installed, my scripts will time the singing with other actions.
   - Corrected bug with Cleric Hold where it was accidentally targeting party members.
