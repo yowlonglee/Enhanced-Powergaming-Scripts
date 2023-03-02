@@ -27,7 +27,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
     UseItem("POTN17",Myself)  // Elixir of Health
+    SetInterrupt(TRUE)
     DisplayStringHead(Myself,@5005)
 END
 
@@ -42,7 +44,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
     UseItem("POTN20",Myself)  // Antidote
+    SetInterrupt(TRUE)
     DisplayStringHead(Myself,@5005)
 END
 
@@ -208,7 +212,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
     UseItem("POTN55",Myself)  // Potion of Superior Healing
+    SetInterrupt(TRUE)
     DisplayStringHead(Myself,@5005)
 END
 
@@ -222,7 +228,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
     UseItem("POTN52",Myself)  // Potion of Extra Healing
+    SetInterrupt(TRUE)
     DisplayStringHead(Myself,@5005)
 END
 
@@ -236,7 +244,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
     UseItem("POTN08",Myself)  // Potion of Healing
+    SetInterrupt(TRUE)
     DisplayStringHead(Myself,@5005)
 END
 

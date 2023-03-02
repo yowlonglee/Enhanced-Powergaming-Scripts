@@ -72,7 +72,9 @@ THEN
     SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
     ApplySpellRES("MOPOIS",LastSeenBy(Myself))
     ApplySpellRES("MORMVDS",LastSeenBy(Myself))
+    SetInterrupt(FALSE)
     UseItem("POTN17",Myself)  // Elixir of Health
+    SetInterrupt(TRUE)
     DisplayStringHead(Myself,@5005)
 END
 
@@ -501,7 +503,9 @@ THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
     SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
+    SetInterrupt(FALSE)
     UseItem("Boot12",Myself)  // Gargoyle Boots
+    SetInterrupt(TRUE)
     IncrementGlobal("MO_UsedGargoyle","GLOBAL",1)
 END
 
@@ -695,7 +699,9 @@ THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
     SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
+    SetInterrupt(FALSE)
     UseItem("POTN55",Myself)  // Potion of Superior Healing
+    SetInterrupt(TRUE)
     DisplayStringHead(Myself,@5005)
 END
 
@@ -719,7 +725,9 @@ THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
     SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
+    SetInterrupt(FALSE)
     UseItem("POTN52",Myself)  // Potion of Extra Healing
+    SetInterrupt(TRUE)
     DisplayStringHead(Myself,@5005)
 END
 
@@ -743,7 +751,9 @@ THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
     SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
+    SetInterrupt(FALSE)
     UseItem("POTN08",Myself)  // Potion of Healing
+    SetInterrupt(TRUE)
     DisplayStringHead(Myself,@5005)
 END
 
@@ -10059,7 +10069,9 @@ THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
     SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
+    SetInterrupt(FALSE)
     UseItem("GBERRY",Myself)  // Good Berry
+    SetInterrupt(TRUE)
 END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -14546,7 +14558,9 @@ THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
     SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
+    SetInterrupt(FALSE)
     UseItem("OHRBELT2",Myself)  // Belt of Minor Invulnerability
+    SetInterrupt(TRUE)
     IncrementGlobal("MO_UsedBltMnrInv","GLOBAL",1)
 END
 
@@ -15257,7 +15271,9 @@ THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
     SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
+    SetInterrupt(FALSE)
     UseItemAbility("SW1H26",Myself,SLOT_AMMO3,1)  // Ilbratha +1
+    SetInterrupt(TRUE)
     IncrementGlobal("MO_UsedIlbratha","GLOBAL",1)
 END
 
@@ -15386,7 +15402,9 @@ THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
     SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
+    SetInterrupt(FALSE)
     UseItem("OHRRING1",Myself)  // Ring of Duplication
+    SetInterrupt(TRUE)
     IncrementGlobal("MO_UsedDuplication","GLOBAL",1)
 END
 
@@ -17023,7 +17041,9 @@ THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
     SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
+    SetInterrupt(FALSE)
     UseItem("OHRHELM1",Myself)  // Headband of the Devout
+    SetInterrupt(TRUE)
     IncrementGlobal("MO_UsedDevout","GLOBAL",1)
 END
 
@@ -17306,7 +17326,9 @@ THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
     SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
+    SetInterrupt(FALSE)
     UseItem("AMUL26",Myself)  // Amulet of Cheetah Speed
+    SetInterrupt(TRUE)
     IncrementGlobal("MO_UsedCheetah","GLOBAL",1)
 END
 
@@ -17384,7 +17406,9 @@ THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
     SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
+    SetInterrupt(FALSE)
     UseItem("BRAC16",Myself)  // Bracers of Blinding Strike
+    SetInterrupt(TRUE)
     IncrementGlobal("MO_UsedBlindingSpeed","GLOBAL",1)
 END
 
@@ -17462,7 +17486,9 @@ THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
     SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
+    SetInterrupt(FALSE)
     UseItem("RING39",Myself)  // Ring of Gaxx
+    SetInterrupt(TRUE)
     IncrementGlobal("MO_UsedRingGaxx","GLOBAL",1)
 END
 

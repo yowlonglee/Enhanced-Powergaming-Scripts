@@ -566,7 +566,9 @@ IF
   HasItemEquiped("AMUL26",Myself)  // Amulet of Cheetah Speed
 THEN
   RESPONSE #100
+    SetInterrupt(FALSE)
     UseItem("AMUL26",Myself)  // Amulet of Cheetah Speed
+    SetInterrupt(TRUE)
     IncrementGlobal("MO_UsedCheetah","GLOBAL",1)
 END
 
@@ -580,7 +582,9 @@ IF
   HasItemEquiped("BRAC16",Myself)  // Bracers of Blinding Strike
 THEN
   RESPONSE #100
+    SetInterrupt(FALSE)
     UseItem("BRAC16",Myself)  // Bracers of Blinding Strike
+    SetInterrupt(TRUE)
     IncrementGlobal("MO_UsedBlindingSpeed","GLOBAL",1)
 END
 
@@ -624,7 +628,9 @@ IF
 	HasItemEquiped("SW1H26",Myself)  // Ilbratha +1
 THEN
 	RESPONSE #100
-		UseItemAbility("SW1H26",Myself,SLOT_AMMO3,1)  // Ilbratha +1
+		SetInterrupt(FALSE)
+    UseItemAbility("SW1H26",Myself,SLOT_AMMO3,1)  // Ilbratha +1
+    SetInterrupt(TRUE)
 		IncrementGlobal("MO_UsedIlbratha","GLOBAL",1)
 END
 
@@ -663,7 +669,9 @@ IF
   !CheckSpellState(Myself,RIGHTEOUS_MAGIC)
 THEN
   RESPONSE #100
+    SetInterrupt(FALSE)
     UseItem("OHRHELM1",Myself)  // Headband of the Devout
+    SetInterrupt(TRUE)
     IncrementGlobal("MO_UsedDevout","GLOBAL",1)
 END
 
@@ -675,7 +683,9 @@ IF
 	HasItemEquiped("OHRRING1",Myself)  // Ring of Duplication
 THEN
 	RESPONSE #100
-		UseItem("OHRRING1",Myself)  // Ring of Duplication
+		SetInterrupt(FALSE)
+    UseItem("OHRRING1",Myself)  // Ring of Duplication
+    SetInterrupt(TRUE)
 		IncrementGlobal("MO_UsedDuplication","GLOBAL",1)
 END
 
@@ -3353,7 +3363,9 @@ IF
   Global("MO_CastAthkatla","LOCALS",1)
 THEN
   RESPONSE #100
+    SetInterrupt(FALSE)
     UseItem("OHRBELT2",Myself)  // Belt of Minor Invulnerability
+    SetInterrupt(TRUE)
     IncrementGlobal("MO_UsedBltMnrInv","GLOBAL",1)
 END
 

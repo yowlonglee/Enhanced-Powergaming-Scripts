@@ -197,7 +197,9 @@ END~~~~~
   Global("MO_CastAthkatla","LOCALS",1)
 THEN
   RESPONSE #100
+    SetInterrupt(FALSE)
     UseItem("OHNSHLD1",Myself)  // Shield of Fyrus Khal +2
+    SetInterrupt(TRUE)
     IncrementGlobal("MO_UsedShldFyrus","GLOBAL",1)
 END~~~~~
     string = ~~~~~~~~~~ //"
@@ -219,7 +221,9 @@ END~~~~~
   !CheckSpellState(Myself,SPELL_TURNING)
 THEN
   RESPONSE #100
+    SetInterrupt(FALSE)
     UseItem("RING34",Myself)  // Ring of Spell Turning
+    SetInterrupt(TRUE)
     IncrementGlobal("MO_UsedSpellTurning","GLOBAL",1)
 END~~~~~
     string = ~~~~~~~~~~ //"
@@ -241,7 +245,9 @@ END~~~~~
   HasItemEquiped("AMUL26",Myself)  // Amulet of Cheetah Speed
 THEN
   RESPONSE #100
+    SetInterrupt(FALSE)
     UseItem("AMUL26",Myself)  // Amulet of Cheetah Speed
+    SetInterrupt(TRUE)
     IncrementGlobal("MO_UsedCheetah","GLOBAL",1)
 END~~~~~
     string = ~~~~~~~~~~ //"
@@ -263,7 +269,9 @@ END~~~~~
   HasItemEquiped("BRAC16",Myself)  // Bracers of Blinding Strike
 THEN
   RESPONSE #100
+    SetInterrupt(FALSE)
     UseItem("BRAC16",Myself)  // Bracers of Blinding Strike
+    SetInterrupt(TRUE)
     IncrementGlobal("MO_UsedBlindingSpeed","GLOBAL",1)
 END~~~~~
     string = ~~~~~~~~~~ //"
@@ -285,7 +293,9 @@ END~~~~~
   HasItemEquiped("OHRRING1",Myself)  // Ring of Duplication
 THEN
   RESPONSE #100
+    SetInterrupt(FALSE)
     UseItem("OHRRING1",Myself)  // Ring of Duplication
+    SetInterrupt(TRUE)
     IncrementGlobal("MO_UsedDuplication","GLOBAL",1)
 END~~~~~
     string = ~~~~~~~~~~ //"
@@ -307,7 +317,9 @@ END~~~~~
   HasItemEquiped("SW1H26",Myself)  // Ilbratha +1
 THEN
   RESPONSE #100
+    SetInterrupt(FALSE)
     UseItemAbility("SW1H26",Myself,SLOT_AMMO3,1)  // Ilbratha +1
+    SetInterrupt(TRUE)
     IncrementGlobal("MO_UsedIlbratha","GLOBAL",1)
 END
 
@@ -356,7 +368,9 @@ END~~~~~
   !CheckSpellState(Myself,RIGHTEOUS_MAGIC)
 THEN
   RESPONSE #100
+    SetInterrupt(FALSE)
     UseItem("OHRHELM1",Myself)  // Headband of the Devout
+    SetInterrupt(TRUE)
     IncrementGlobal("MO_UsedDevout","GLOBAL",1)
 END~~~~~
     string = ~~~~~~~~~~ //"
@@ -380,7 +394,9 @@ END~~~~~
   Global("MO_CastAthkatla","LOCALS",1)
 THEN
   RESPONSE #100
+    SetInterrupt(FALSE)
     UseItem("OHRBELT2",Myself)  // Belt of Minor Invulnerability
+    SetInterrupt(TRUE)
     IncrementGlobal("MO_UsedBltMnrInv","GLOBAL",1)
 END~~~~~
     string = ~~~~~~~~~~ //"
