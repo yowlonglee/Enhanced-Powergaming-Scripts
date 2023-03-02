@@ -1,0 +1,124 @@
+COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+
+///////////////////////////////////////////////////////////////////////////
+// Attack Check                                                          //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    warn = 0
+    STR_VAR
+    pattern = ~~~~~WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
+  WeaponCanDamage(NearestEnemyOf(Myself),MAINHAND)~~~~~
+    string = ~~~~~OR(4)
+    WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
+    HasItemEquiped("SW2H10",Myself)  // Carsomyr +5
+    HasItemEquiped("SW2H19",Myself)  // Carsomyr +6
+    HasItemEquiped("OHREAVER",Myself)  // Ir'revrykal +5
+  OR(4)
+    WeaponCanDamage(NearestEnemyOf(Myself),MAINHAND)
+    HasItemEquiped("SW2H10",Myself)  // Carsomyr +5
+    HasItemEquiped("SW2H19",Myself)  // Carsomyr +6
+    HasItemEquiped("OHREAVER",Myself)  // Ir'revrykal +5~~~~~ //"
+  END
+
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    warn = 0
+    STR_VAR
+    pattern = ~~~~~WeaponEffectiveVs(SecondNearestEnemyOf(Myself),MAINHAND)
+  WeaponCanDamage(SecondNearestEnemyOf(Myself),MAINHAND)~~~~~
+    string = ~~~~~OR(4)
+    WeaponEffectiveVs(SecondNearestEnemyOf(Myself),MAINHAND)
+    HasItemEquiped("SW2H10",Myself)  // Carsomyr +5
+    HasItemEquiped("SW2H19",Myself)  // Carsomyr +6
+    HasItemEquiped("OHREAVER",Myself)  // Ir'revrykal +5
+  OR(4)
+    WeaponCanDamage(SecondNearestEnemyOf(Myself),MAINHAND)
+    HasItemEquiped("SW2H10",Myself)  // Carsomyr +5
+    HasItemEquiped("SW2H19",Myself)  // Carsomyr +6
+    HasItemEquiped("OHREAVER",Myself)  // Ir'revrykal +5~~~~~ //"
+  END
+
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    warn = 0
+    STR_VAR
+    pattern = ~~~~~WeaponEffectiveVs(ThirdNearestEnemyOf(Myself),MAINHAND)
+  WeaponCanDamage(ThirdNearestEnemyOf(Myself),MAINHAND)~~~~~
+    string = ~~~~~OR(4)
+    WeaponEffectiveVs(ThirdNearestEnemyOf(Myself),MAINHAND)
+    HasItemEquiped("SW2H10",Myself)  // Carsomyr +5
+    HasItemEquiped("SW2H19",Myself)  // Carsomyr +6
+    HasItemEquiped("OHREAVER",Myself)  // Ir'revrykal +5
+  OR(4)
+    WeaponCanDamage(ThirdNearestEnemyOf(Myself),MAINHAND)
+    HasItemEquiped("SW2H10",Myself)  // Carsomyr +5
+    HasItemEquiped("SW2H19",Myself)  // Carsomyr +6
+    HasItemEquiped("OHREAVER",Myself)  // Ir'revrykal +5~~~~~ //"
+  END
+
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    warn = 0
+    STR_VAR
+    pattern = ~~~~~WeaponEffectiveVs(FourthNearestEnemyOf(Myself),MAINHAND)
+  WeaponCanDamage(FourthNearestEnemyOf(Myself),MAINHAND)~~~~~
+    string = ~~~~~OR(4)
+    WeaponEffectiveVs(FourthNearestEnemyOf(Myself),MAINHAND)
+    HasItemEquiped("SW2H10",Myself)  // Carsomyr +5
+    HasItemEquiped("SW2H19",Myself)  // Carsomyr +6
+    HasItemEquiped("OHREAVER",Myself)  // Ir'revrykal +5
+  OR(4)
+    WeaponCanDamage(FourthNearestEnemyOf(Myself),MAINHAND)
+    HasItemEquiped("SW2H10",Myself)  // Carsomyr +5
+    HasItemEquiped("SW2H19",Myself)  // Carsomyr +6
+    HasItemEquiped("OHREAVER",Myself)  // Ir'revrykal +5~~~~~ //"
+  END
+
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    warn = 0
+    STR_VAR
+    pattern = ~~~~~WeaponEffectiveVs(FifthNearestEnemyOf(Myself),MAINHAND)
+  WeaponCanDamage(FifthNearestEnemyOf(Myself),MAINHAND)~~~~~
+    string = ~~~~~OR(4)
+    WeaponEffectiveVs(FifthNearestEnemyOf(Myself),MAINHAND)
+    HasItemEquiped("SW2H10",Myself)  // Carsomyr +5
+    HasItemEquiped("SW2H19",Myself)  // Carsomyr +6
+    HasItemEquiped("OHREAVER",Myself)  // Ir'revrykal +5
+  OR(4)
+    WeaponCanDamage(FifthNearestEnemyOf(Myself),MAINHAND)
+    HasItemEquiped("SW2H10",Myself)  // Carsomyr +5
+    HasItemEquiped("SW2H19",Myself)  // Carsomyr +6
+    HasItemEquiped("OHREAVER",Myself)  // Ir'revrykal +5~~~~~ //"
+  END
+
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    warn = 0
+    STR_VAR
+    pattern = ~~~~~WeaponEffectiveVs(SixthNearestEnemyOf(Myself),MAINHAND)
+  WeaponCanDamage(SixthNearestEnemyOf(Myself),MAINHAND)~~~~~
+    string = ~~~~~OR(4)
+    WeaponEffectiveVs(SixthNearestEnemyOf(Myself),MAINHAND)
+    HasItemEquiped("SW2H10",Myself)  // Carsomyr +5
+    HasItemEquiped("SW2H19",Myself)  // Carsomyr +6
+    HasItemEquiped("OHREAVER",Myself)  // Ir'revrykal +5
+  OR(4)
+    WeaponCanDamage(SixthNearestEnemyOf(Myself),MAINHAND)
+    HasItemEquiped("SW2H10",Myself)  // Carsomyr +5
+    HasItemEquiped("SW2H19",Myself)  // Carsomyr +6
+    HasItemEquiped("OHREAVER",Myself)  // Ir'revrykal +5~~~~~ //"
+  END

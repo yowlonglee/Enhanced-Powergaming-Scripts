@@ -136,6 +136,13 @@ ACTION_IF !VARIABLE_IS_SET ~initialise~ BEGIN
       OUTER_SET stormlord=0
    END
 
+   // Detect Forgotten Armament Upgrade Items
+   ACTION_IF MOD_IS_INSTALLED ~forgotten-armament.tp2~ ~20~ THEN BEGIN
+      OUTER_SET forgotten_update=1
+   END ELSE BEGIN
+      OUTER_SET forgotten_update=0
+   END
+
    // Detect Fighter Overhaul
    ACTION_IF MOD_IS_INSTALLED ~skills-and-abilities.tp2~ ~150~ THEN BEGIN
       OUTER_SET fighter_overhaul=1
@@ -255,7 +262,6 @@ ACTION_IF !VARIABLE_IS_SET ~initialise~ BEGIN
    END ELSE BEGIN
       OUTER_SET mih_restorations=0
    END
-
 
    // Formerly ~1~ in prior version
    // Detect Made in Heaven Spellpack - Arcane Spells
