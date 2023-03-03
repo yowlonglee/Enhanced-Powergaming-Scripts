@@ -842,9 +842,9 @@ END
 ///////////////////////////////////////////////////////////////////////////
 ACTION_IF forgotten_update AND wizard_slayer AND eeex_present BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_pfmw_bypass.tph~
-ELSE ACTION_IF wizard_slayer AND eeex_present BEGIN
+END ELSE ACTION_IF wizard_slayer AND eeex_present BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_wizard_slayer.tph~
-ELSE ACTION_IF forgotten_update AND eeex_present BEGIN
+END ELSE ACTION_IF forgotten_update AND eeex_present BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_forg_up.tph~
 END
 
