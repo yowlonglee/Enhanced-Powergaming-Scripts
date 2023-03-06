@@ -4814,9 +4814,12 @@ END
 // 5e Spellcasting Prebuff Ending
 
 IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
 THEN
   RESPONSE #100
     SetGlobal("MO_BUFF","LOCALS",0)
+    SetGlobal("MO_LONG_BUFF","LOCALS",0)
     DisplayStringHead(Myself,@5004)
 END
