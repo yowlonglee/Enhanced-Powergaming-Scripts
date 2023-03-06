@@ -367,6 +367,47 @@ THEN
 END
 
 ////////////////////////////////////////////////////
+// Indefinite
+// 5e Spellcasting Prebuff Melf Meteor
+IF
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
+  HaveSpell(WIZARD_MELF_METEOR)  // SPWI325.SPL (Melf's Minute Meteors)
+  !HasItem("melfmet",Myself)  // Melf's Minute Meteor
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_HasMelfMeteors","LOCALS",1)
+    Spell(Myself,WIZARD_MELF_METEOR)  // SPWI325.SPL (Melf's Minute Meteors)
+END
+
+IF
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
+  HasItemEquiped("OHRCLCK1",Myself)  // Cowl of the Stars
+  !HasItem("melfmet",Myself)  // Melf's Minute Meteor
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_HasMelfMeteors","LOCALS",1)
+    UseItem("OHRCLCK1",Myself)  // Cowl of the Stars
+    IncrementGlobal("MO_UsedCowlOfStars","GLOBAL",1)
+END
+
+////////////////////////////////////////////////////
 // 12 hours
 // 5e Spellcasting Prebuff Stoneskin
 
