@@ -64,6 +64,56 @@ END~~~~~ //"
   END
 
 ///////////////////////////////////////////////////////////////////////////
+// Improved Chaos Shield and Chaos Shield                                //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// 5e Spellcasting Prebuff Improved Chaos Shield~~~~~
+    string = ~~~~~IF
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
+  HaveSpellRES(WIZARD_IMPROVED_CHAOS_SHIELD)
+  !CheckSpellState(Myself,IMPROVED_CHAOS_SHIELD)
+  !CheckSpellState(Myself,CHAOS_SHIELD)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SpellRES(WIZARD_IMPROVED_CHAOS_SHIELD,Myself)
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END
+
+IF
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
+  HaveSpellRES(WIZARD_CHAOS_SHIELD)
+  !CheckSpellState(Myself,IMPROVED_CHAOS_SHIELD)
+  !CheckSpellState(Myself,CHAOS_SHIELD)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SpellRES(WIZARD_CHAOS_SHIELD.Myself)
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
+END~~~~~ //"
+  END
+  
+///////////////////////////////////////////////////////////////////////////
 // Melf Meteor                                                           //
 ///////////////////////////////////////////////////////////////////////////
   LPF REPLACE_MULTILINE
@@ -89,6 +139,7 @@ THEN
   RESPONSE #100
     SetGlobal("MO_HasMelfMeteors","LOCALS",1)
     SpellRES(WIZARD_MELF_METEOR,Myself)
+    SetGlobalTimer("MO_SpellCast","LOCALS",3)
 END~~~~~ //"
   END
   

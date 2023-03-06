@@ -98,6 +98,8 @@ ACTION_IF spell_revisions BEGIN
 			WIZARD_SPELL_TRAP
 			WIZARD_LUCK
 			WIZARD_MELF_METEOR
+			WIZARD_IMPROVED_CHAOS_SHIELD
+			WIZARD_CHAOS_SHIELD
 		BEGIN
 			LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_prebuff%~ RET spell_res END
 			COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
@@ -366,6 +368,8 @@ END ELSE BEGIN
 			CLERIC_DEFENSIVE_HARMONY
 			CLERIC_NEGATIVE_PLANE_PROTECTION
 			WIZARD_MELF_METEOR
+			WIZARD_IMPROVED_CHAOS_SHIELD
+			WIZARD_CHAOS_SHIELD
 		BEGIN
 			LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~%5e_prebuff%~ RET spell_res END
 			COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~

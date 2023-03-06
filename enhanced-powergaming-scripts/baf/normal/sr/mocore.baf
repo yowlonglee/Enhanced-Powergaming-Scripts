@@ -347,6 +347,48 @@ THEN
 END
 
 ////////////////////////////////////////////////////
+// Cast First to Reduce Negative Surges
+// 5e Spellcasting Prebuff Improved Chaos Shield
+
+IF
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
+  HaveSpell(WIZARD_IMPROVED_CHAOS_SHIELD)  // SPWI723.SPL (Improved Chaos Shield)
+  !CheckSpellState(Myself,IMPROVED_CHAOS_SHIELD)
+  !CheckSpellState(Myself,CHAOS_SHIELD)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_IMPROVED_CHAOS_SHIELD)  // SPWI723.SPL (Improved Chaos Shield)
+END
+
+IF
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
+  HaveSpell(WIZARD_CHAOS_SHIELD)  // SPWI222.SPL (Chaos Shield)
+  !CheckSpellState(Myself,IMPROVED_CHAOS_SHIELD)
+  !CheckSpellState(Myself,CHAOS_SHIELD)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    Spell(Myself,WIZARD_CHAOS_SHIELD)  // SPWI222.SPL (Chaos Shield)
+END
+
+////////////////////////////////////////////////////
 // Indefinite
 // 5e Spellcasting Prebuff Melf Meteor
 IF
