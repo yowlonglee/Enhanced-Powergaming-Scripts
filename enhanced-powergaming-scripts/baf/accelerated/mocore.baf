@@ -2955,7 +2955,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpellRES(Myself,"SPRA301")  // Stalker Haste
+    ReallyForceSpellRES("SPRA301",Myself)  // Stalker Haste
     RemoveSpellRES("SPRA301")  // Stalker Haste
 END
 
