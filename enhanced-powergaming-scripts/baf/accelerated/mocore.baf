@@ -2931,6 +2931,34 @@ THEN
     RemoveSpell(WIZARD_HASTE)  // SPWI305.SPL (Haste)
 END
 
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpellRES("SPRA301")  // Stalker Haste
+  !StateCheck(Myself,STATE_HASTED)
+  CheckStat(Myself,0,IMPROVEDHASTE)
+  !StateCheck(Myself,STATE_NOT_TARGETABLE)
+  !CheckStat(Myself,8,WIZARD_SPELL_IMMUNITY)
+  !StateCheck(Myself,STATE_IMPROVEDINVISIBILITY)
+  !CheckStatGT(Myself,0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  !CheckSpellState(Myself,GLOBE)
+  !CheckSpellState(Myself,MINOR_SPELL_TURNING)
+  !CheckSpellState(Myself,SPELL_TURNING)
+  !CheckStat(Myself,1,WIZARD_SPELL_TRAP)
+  !CheckStat(Myself,1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES(Myself,"SPRA301")  // Stalker Haste
+    RemoveSpellRES("SPRA301")  // Stalker Haste
+END
+
 // 5e Spellcasting Prebuff Armor of Faith
 
 IF
