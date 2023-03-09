@@ -897,6 +897,8 @@ ACTION_IF eeex_present BEGIN
 	ACTION_IF eeex_verion BEGIN
 		COPY ~enhanced-powergaming-scripts/lua/m_mochal.lua~ ~override~
 		COPY ~enhanced-powergaming-scripts/lua/m_motarg.lua~ ~override~
+		ACTION_IF iwd_scs OR iwdification BEGIN
+		END
 	END ELSE BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/core_eeex_version_check.tph~
 	END
