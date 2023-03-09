@@ -99,7 +99,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetInterrupt(FALSE)
     Spell(Myself,CLERIC_IMPERVIOUS_SANCTITY_OF_MIND)  // sppr735.SPL (Impervious Sanctity of Mind)
+    SetInterrupt(TRUE)
 END~~~~~ //"
   END
 
@@ -134,7 +136,7 @@ END~~~~~ //"
     Range([EVILCUTOFF.0.VAMPIRE],10)
     Range([EVILCUTOFF.0.MIND_FLAYER],10)
     Range([EVILCUTOFF.0.DEMONIC],10)
-    HPPercentLT(Myself,51)
+    HPPercentLT(Myself,61)
   HaveSpell(CLERIC_GREATER_SHIELD_OF_LATHANDER)  // sppr737.SPL (Greater Divine Protection)
   !CheckSpellState(Myself,SHIELD_OF_LATHANDER)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -146,7 +148,9 @@ END~~~~~ //"
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetInterrupt(FALSE)
     Spell(Myself,CLERIC_GREATER_SHIELD_OF_LATHANDER)  // sppr737.SPL (Greater Divine Protection)
+    SetInterrupt(TRUE)
 END
 
 IF
@@ -171,7 +175,7 @@ IF
     Range([EVILCUTOFF.0.VAMPIRE],10)
     Range([EVILCUTOFF.0.MIND_FLAYER],10)
     Range([EVILCUTOFF.0.DEMONIC],10)
-    HPPercentLT(Myself,51)
+    HPPercentLT(Myself,61)
   HaveSpell(CLERIC_SHIELD_OF_LATHANDER)  // sppr520.SPL (Divine Protection)
   !CheckSpellState(Myself,SHIELD_OF_LATHANDER)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -183,7 +187,9 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetInterrupt(FALSE)
     Spell(Myself,CLERIC_SHIELD_OF_LATHANDER)  // sppr520.SPL (Divine Protection)
+    SetInterrupt(TRUE)
 END
 ~~~~~ //"
   END
