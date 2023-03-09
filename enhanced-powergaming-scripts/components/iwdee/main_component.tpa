@@ -196,12 +196,13 @@ ACTION_IF eeex_present BEGIN
 	ACTION_IF eeex_verion BEGIN
 		COPY ~enhanced-powergaming-scripts/lua/m_mochal.lua~ ~override~
 		COPY ~enhanced-powergaming-scripts/lua/m_motarg.lua~ ~override~
+		INCLUDE ~enhanced-powergaming-scripts/lib/core_eeex_iwd.tph~
 	END ELSE BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/core_eeex_version_check.tph~
 	END
 END ELSE BEGIN
-	INCLUDE ~enhanced-powergaming-scripts/lib/core_eeex.tph~
 	INCLUDE ~enhanced-powergaming-scripts/lib/core_eeex_version_check.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/core_eeex.tph~
 END
 
 ///////////////////////////////////////////////////////////////////////////
