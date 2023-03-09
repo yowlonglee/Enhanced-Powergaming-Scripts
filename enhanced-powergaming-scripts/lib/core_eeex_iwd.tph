@@ -22,10 +22,10 @@ END~~~~~
     string = ~~~~~IF
   EEex_LuaTrigger("return MoFillCurrentTarget()")
   See(EEex_Target("MoCurrentTarget"))
-  !CheckSpellState(LastSeenBy(Myself),SHIELD_OF_LATHANDER)
-  OR(2)
+  OR(3)
     !WeaponEffectiveVs(LastSeenBy(Myself),MAINHAND)
     !WeaponCanDamage(LastSeenBy(Myself),MAINHAND)
+    CheckSpellState(LastSeenBy(Myself),SHIELD_OF_LATHANDER)
 THEN
   RESPONSE #100
     ActionOverride(Myself,ClearActions(Myself))
