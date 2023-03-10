@@ -6513,7 +6513,7 @@ END
 // 08 - Dispel Combat/Spell Protections                                  //
 ///////////////////////////////////////////////////////////////////////////
 
-// 5e Spellcasting Breach
+// 5e Spellcasting Breach 1
 
 IF
   OR(2)
@@ -6774,6 +6774,532 @@ THEN // Breach
 END
 
 // FP Ranger Breach
+
+// 5e Spellcasting Breach 2
+
+IF
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_SPECIAL","LOCALS",0)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
+  OR(2)
+    !StateCheck(Myself,STATE_INVISIBLE)
+    !Global("BDAI_SKILL_MODE","LOCALS",2)
+  HaveSpell(WIZARD_BREACH)  // SPWI513.SPL (Breach)
+  See([EVILCUTOFF])
+  !CheckSpellState(LastSeenBy(Myself),REMOVE_COMBAT_PROT)
+  CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT_TWO)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  !ImmuneToSpellLevel(LastSeenBy(Myself),5)
+  OR(4)
+    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
+    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
+    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
+    CheckSpellState(LastSeenBy(Myself),MANTLE)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_SpellCast","LOCALS",1)
+    SetInterrupt(FALSE)
+    ApplySpellRES("MOCPRT",LastSeenBy(Myself))  // Breach
+    DisplayStringHead(Myself,@5015)
+    Spell(LastSeenBy(Myself),WIZARD_BREACH)  // SPWI513.SPL (Breach)
+    SetInterrupt(TRUE)
+END
+
+IF
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_SPECIAL","LOCALS",0)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
+  OR(2)
+    !StateCheck(Myself,STATE_INVISIBLE)
+    !Global("BDAI_SKILL_MODE","LOCALS",2)
+  HaveSpell(WIZARD_BREACH)  // SPWI513.SPL (Breach)
+  See(SecondNearest([EVILCUTOFF]))
+  !CheckSpellState(LastSeenBy(Myself),REMOVE_COMBAT_PROT)
+  CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT_TWO)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  !ImmuneToSpellLevel(LastSeenBy(Myself),5)
+  OR(4)
+    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
+    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
+    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
+    CheckSpellState(LastSeenBy(Myself),MANTLE)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_SpellCast","LOCALS",1)
+    SetInterrupt(FALSE)
+    ApplySpellRES("MOCPRT",LastSeenBy(Myself))  // Breach
+    DisplayStringHead(Myself,@5015)
+    Spell(LastSeenBy(Myself),WIZARD_BREACH)  // SPWI513.SPL (Breach)
+    SetInterrupt(TRUE)
+END
+
+IF
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_SPECIAL","LOCALS",0)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
+  OR(2)
+    !StateCheck(Myself,STATE_INVISIBLE)
+    !Global("BDAI_SKILL_MODE","LOCALS",2)
+  HaveSpell(WIZARD_BREACH)  // SPWI513.SPL (Breach)
+  See(ThirdNearest([EVILCUTOFF]))
+  !CheckSpellState(LastSeenBy(Myself),REMOVE_COMBAT_PROT)
+  CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT_TWO)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  !ImmuneToSpellLevel(LastSeenBy(Myself),5)
+  OR(4)
+    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
+    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
+    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
+    CheckSpellState(LastSeenBy(Myself),MANTLE)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_SpellCast","LOCALS",1)
+    SetInterrupt(FALSE)
+    ApplySpellRES("MOCPRT",LastSeenBy(Myself))  // Breach
+    DisplayStringHead(Myself,@5015)
+    Spell(LastSeenBy(Myself),WIZARD_BREACH)  // SPWI513.SPL (Breach)
+    SetInterrupt(TRUE)
+END
+
+IF
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_SPECIAL","LOCALS",0)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
+  OR(2)
+    !StateCheck(Myself,STATE_INVISIBLE)
+    !Global("BDAI_SKILL_MODE","LOCALS",2)
+  HaveSpell(WIZARD_BREACH)  // SPWI513.SPL (Breach)
+  See(FourthNearest([EVILCUTOFF]))
+  !CheckSpellState(LastSeenBy(Myself),REMOVE_COMBAT_PROT)
+  CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT_TWO)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  !ImmuneToSpellLevel(LastSeenBy(Myself),5)
+  OR(4)
+    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
+    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
+    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
+    CheckSpellState(LastSeenBy(Myself),MANTLE)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_SpellCast","LOCALS",1)
+    SetInterrupt(FALSE)
+    ApplySpellRES("MOCPRT",LastSeenBy(Myself))  // Breach
+    DisplayStringHead(Myself,@5015)
+    Spell(LastSeenBy(Myself),WIZARD_BREACH)  // SPWI513.SPL (Breach)
+    SetInterrupt(TRUE)
+END
+
+IF
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_SPECIAL","LOCALS",0)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
+  OR(2)
+    !StateCheck(Myself,STATE_INVISIBLE)
+    !Global("BDAI_SKILL_MODE","LOCALS",2)
+  HaveSpell(WIZARD_BREACH)  // SPWI513.SPL (Breach)
+  See(FifthNearest([EVILCUTOFF]))
+  !CheckSpellState(LastSeenBy(Myself),REMOVE_COMBAT_PROT)
+  CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT_TWO)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  !ImmuneToSpellLevel(LastSeenBy(Myself),5)
+  OR(4)
+    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
+    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
+    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
+    CheckSpellState(LastSeenBy(Myself),MANTLE)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_SpellCast","LOCALS",1)
+    SetInterrupt(FALSE)
+    ApplySpellRES("MOCPRT",LastSeenBy(Myself))  // Breach
+    DisplayStringHead(Myself,@5015)
+    Spell(LastSeenBy(Myself),WIZARD_BREACH)  // SPWI513.SPL (Breach)
+    SetInterrupt(TRUE)
+END
+
+IF
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_SPECIAL","LOCALS",0)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
+  OR(2)
+    !StateCheck(Myself,STATE_INVISIBLE)
+    !Global("BDAI_SKILL_MODE","LOCALS",2)
+  HaveSpell(WIZARD_BREACH)  // SPWI513.SPL (Breach)
+  See(SixthNearest([EVILCUTOFF]))
+  !CheckSpellState(LastSeenBy(Myself),REMOVE_COMBAT_PROT)
+  CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT_TWO)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  !ImmuneToSpellLevel(LastSeenBy(Myself),5)
+  OR(4)
+    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
+    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
+    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
+    CheckSpellState(LastSeenBy(Myself),MANTLE)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_SpellCast","LOCALS",1)
+    SetInterrupt(FALSE)
+    ApplySpellRES("MOCPRT",LastSeenBy(Myself))  // Breach
+    DisplayStringHead(Myself,@5015)
+    Spell(LastSeenBy(Myself),WIZARD_BREACH)  // SPWI513.SPL (Breach)
+    SetInterrupt(TRUE)
+END
+
+// 5e Spellcasting Breach 3
+
+IF
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_SPECIAL","LOCALS",0)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
+  OR(2)
+    !StateCheck(Myself,STATE_INVISIBLE)
+    !Global("BDAI_SKILL_MODE","LOCALS",2)
+  HaveSpell(WIZARD_BREACH)  // SPWI513.SPL (Breach)
+  See([EVILCUTOFF])
+  !CheckSpellState(LastSeenBy(Myself),REMOVE_COMBAT_PROT)
+  CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+  CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT)
+  CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT_TWO)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  !ImmuneToSpellLevel(LastSeenBy(Myself),5)
+  OR(4)
+    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
+    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
+    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
+    CheckSpellState(LastSeenBy(Myself),MANTLE)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_SpellCast","LOCALS",1)
+    SetInterrupt(FALSE)
+    ApplySpellRES("MOCPRT",LastSeenBy(Myself))  // Breach
+    DisplayStringHead(Myself,@5015)
+    Spell(LastSeenBy(Myself),WIZARD_BREACH)  // SPWI513.SPL (Breach)
+    SetInterrupt(TRUE)
+END
+
+IF
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_SPECIAL","LOCALS",0)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
+  OR(2)
+    !StateCheck(Myself,STATE_INVISIBLE)
+    !Global("BDAI_SKILL_MODE","LOCALS",2)
+  HaveSpell(WIZARD_BREACH)  // SPWI513.SPL (Breach)
+  See(SecondNearest([EVILCUTOFF]))
+  !CheckSpellState(LastSeenBy(Myself),REMOVE_COMBAT_PROT)
+  CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+  CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT)
+  CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT_TWO)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  !ImmuneToSpellLevel(LastSeenBy(Myself),5)
+  OR(4)
+    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
+    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
+    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
+    CheckSpellState(LastSeenBy(Myself),MANTLE)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_SpellCast","LOCALS",1)
+    SetInterrupt(FALSE)
+    ApplySpellRES("MOCPRT",LastSeenBy(Myself))  // Breach
+    DisplayStringHead(Myself,@5015)
+    Spell(LastSeenBy(Myself),WIZARD_BREACH)  // SPWI513.SPL (Breach)
+    SetInterrupt(TRUE)
+END
+
+IF
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_SPECIAL","LOCALS",0)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
+  OR(2)
+    !StateCheck(Myself,STATE_INVISIBLE)
+    !Global("BDAI_SKILL_MODE","LOCALS",2)
+  HaveSpell(WIZARD_BREACH)  // SPWI513.SPL (Breach)
+  See(ThirdNearest([EVILCUTOFF]))
+  !CheckSpellState(LastSeenBy(Myself),REMOVE_COMBAT_PROT)
+  CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+  CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT)
+  CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT_TWO)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  !ImmuneToSpellLevel(LastSeenBy(Myself),5)
+  OR(4)
+    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
+    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
+    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
+    CheckSpellState(LastSeenBy(Myself),MANTLE)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_SpellCast","LOCALS",1)
+    SetInterrupt(FALSE)
+    ApplySpellRES("MOCPRT",LastSeenBy(Myself))  // Breach
+    DisplayStringHead(Myself,@5015)
+    Spell(LastSeenBy(Myself),WIZARD_BREACH)  // SPWI513.SPL (Breach)
+    SetInterrupt(TRUE)
+END
+
+IF
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_SPECIAL","LOCALS",0)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
+  OR(2)
+    !StateCheck(Myself,STATE_INVISIBLE)
+    !Global("BDAI_SKILL_MODE","LOCALS",2)
+  HaveSpell(WIZARD_BREACH)  // SPWI513.SPL (Breach)
+  See(FourthNearest([EVILCUTOFF]))
+  !CheckSpellState(LastSeenBy(Myself),REMOVE_COMBAT_PROT)
+  CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+  CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT)
+  CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT_TWO)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  !ImmuneToSpellLevel(LastSeenBy(Myself),5)
+  OR(4)
+    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
+    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
+    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
+    CheckSpellState(LastSeenBy(Myself),MANTLE)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_SpellCast","LOCALS",1)
+    SetInterrupt(FALSE)
+    ApplySpellRES("MOCPRT",LastSeenBy(Myself))  // Breach
+    DisplayStringHead(Myself,@5015)
+    Spell(LastSeenBy(Myself),WIZARD_BREACH)  // SPWI513.SPL (Breach)
+    SetInterrupt(TRUE)
+END
+
+IF
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_SPECIAL","LOCALS",0)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
+  OR(2)
+    !StateCheck(Myself,STATE_INVISIBLE)
+    !Global("BDAI_SKILL_MODE","LOCALS",2)
+  HaveSpell(WIZARD_BREACH)  // SPWI513.SPL (Breach)
+  See(FifthNearest([EVILCUTOFF]))
+  !CheckSpellState(LastSeenBy(Myself),REMOVE_COMBAT_PROT)
+  CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+  CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT)
+  CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT_TWO)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  !ImmuneToSpellLevel(LastSeenBy(Myself),5)
+  OR(4)
+    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
+    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
+    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
+    CheckSpellState(LastSeenBy(Myself),MANTLE)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_SpellCast","LOCALS",1)
+    SetInterrupt(FALSE)
+    ApplySpellRES("MOCPRT",LastSeenBy(Myself))  // Breach
+    DisplayStringHead(Myself,@5015)
+    Spell(LastSeenBy(Myself),WIZARD_BREACH)  // SPWI513.SPL (Breach)
+    SetInterrupt(TRUE)
+END
+
+IF
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_SPECIAL","LOCALS",0)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
+  OR(2)
+    !StateCheck(Myself,STATE_INVISIBLE)
+    !Global("BDAI_SKILL_MODE","LOCALS",2)
+  HaveSpell(WIZARD_BREACH)  // SPWI513.SPL (Breach)
+  See(SixthNearest([EVILCUTOFF]))
+  !CheckSpellState(LastSeenBy(Myself),REMOVE_COMBAT_PROT)
+  CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+  CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT)
+  CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT_TWO)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  !ImmuneToSpellLevel(LastSeenBy(Myself),5)
+  OR(4)
+    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
+    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
+    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
+    CheckSpellState(LastSeenBy(Myself),MANTLE)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_SpellCast","LOCALS",1)
+    SetInterrupt(FALSE)
+    ApplySpellRES("MOCPRT",LastSeenBy(Myself))  // Breach
+    DisplayStringHead(Myself,@5015)
+    Spell(LastSeenBy(Myself),WIZARD_BREACH)  // SPWI513.SPL (Breach)
+    SetInterrupt(TRUE)
+END
 
 // 5e Spellcasting Spell Thrust
 
@@ -7389,6 +7915,7 @@ IF
   See([EVILCUTOFF])
   !CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD) // This will cause it to be ignored in vanilla game. SCS can trigger.
   !CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT)
+  !CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT_TWO)
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !ImmuneToSpellLevel(LastSeenBy(Myself),7)
   OR(4)
@@ -7410,7 +7937,7 @@ THEN // Ruby Ray of Reversal
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
-    ApplySpellRES("MOSPRT",LastSeenBy(Myself))  // Spell Thrust
+    ApplySpellRES("MOSPRT2",LastSeenBy(Myself))  // Spell Thrust
     DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
     SetInterrupt(TRUE)
@@ -7432,6 +7959,7 @@ IF
   See(SecondNearest([EVILCUTOFF]))
   !CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD) // This will cause it to be ignored in vanilla game. SCS can trigger.
   !CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT)
+  !CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT_TWO)
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !ImmuneToSpellLevel(LastSeenBy(Myself),7)
   OR(4)
@@ -7453,7 +7981,7 @@ THEN // Ruby Ray of Reversal
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
-    ApplySpellRES("MOSPRT",LastSeenBy(Myself))  // Spell Thrust
+    ApplySpellRES("MOSPRT2",LastSeenBy(Myself))  // Spell Thrust
     DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
     SetInterrupt(TRUE)
@@ -7475,6 +8003,7 @@ IF
   See(ThirdNearest([EVILCUTOFF]))
   !CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD) // This will cause it to be ignored in vanilla game. SCS can trigger.
   !CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT)
+  !CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT_TWO)
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !ImmuneToSpellLevel(LastSeenBy(Myself),7)
   OR(4)
@@ -7496,7 +8025,7 @@ THEN // Ruby Ray of Reversal
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
-    ApplySpellRES("MOSPRT",LastSeenBy(Myself))  // Spell Thrust
+    ApplySpellRES("MOSPRT2",LastSeenBy(Myself))  // Spell Thrust
     DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
     SetInterrupt(TRUE)
@@ -7518,6 +8047,7 @@ IF
   See(FourthNearest([EVILCUTOFF]))
   !CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD) // This will cause it to be ignored in vanilla game. SCS can trigger.
   !CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT)
+  !CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT_TWO)
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !ImmuneToSpellLevel(LastSeenBy(Myself),7)
   OR(4)
@@ -7539,7 +8069,7 @@ THEN // Ruby Ray of Reversal
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
-    ApplySpellRES("MOSPRT",LastSeenBy(Myself))  // Spell Thrust
+    ApplySpellRES("MOSPRT2",LastSeenBy(Myself))  // Spell Thrust
     DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
     SetInterrupt(TRUE)
@@ -7561,6 +8091,7 @@ IF
   See(FifthNearest([EVILCUTOFF]))
   !CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD) // This will cause it to be ignored in vanilla game. SCS can trigger.
   !CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT)
+  !CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT_TWO)
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !ImmuneToSpellLevel(LastSeenBy(Myself),7)
   OR(4)
@@ -7582,7 +8113,7 @@ THEN // Ruby Ray of Reversal
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
-    ApplySpellRES("MOSPRT",LastSeenBy(Myself))  // Spell Thrust
+    ApplySpellRES("MOSPRT2",LastSeenBy(Myself))  // Spell Thrust
     DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
     SetInterrupt(TRUE)
@@ -7604,6 +8135,7 @@ IF
   See(SixthNearest([EVILCUTOFF]))
   !CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD) // This will cause it to be ignored in vanilla game. SCS can trigger.
   !CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT)
+  !CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT_TWO)
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !ImmuneToSpellLevel(LastSeenBy(Myself),7)
   OR(4)
@@ -7625,7 +8157,7 @@ THEN // Ruby Ray of Reversal
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
-    ApplySpellRES("MOSPRT",LastSeenBy(Myself))  // Spell Thrust
+    ApplySpellRES("MOSPRT2",LastSeenBy(Myself))  // Spell Thrust
     DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
     SetInterrupt(TRUE)
@@ -7649,6 +8181,7 @@ IF
   See([EVILCUTOFF])
   CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
   CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT)
+  !CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT_TWO)
   !GlobalTimerNotExpired("MO_SecondSpellPen","GLOBAL")
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !ImmuneToSpellLevel(LastSeenBy(Myself),7)
@@ -7672,7 +8205,7 @@ THEN // Ruby Ray of Reversal
     SetGlobal("MO_SpellCast","LOCALS",1)
     SetGlobalTimer("MO_SecondSpellPen","GLOBAL",6)
     SetInterrupt(FALSE)
-    ApplySpellRES("MOSPRT",LastSeenBy(Myself))  // Spell Thrust
+    ApplySpellRES("MOSPRT2",LastSeenBy(Myself))  // Spell Thrust
     DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
     SetInterrupt(TRUE)
@@ -7694,6 +8227,7 @@ IF
   See(SecondNearest([EVILCUTOFF]))
   CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
   CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT)
+  !CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT_TWO)
   !GlobalTimerNotExpired("MO_SecondSpellPen","GLOBAL")
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !ImmuneToSpellLevel(LastSeenBy(Myself),7)
@@ -7717,7 +8251,7 @@ THEN // Ruby Ray of Reversal
     SetGlobal("MO_SpellCast","LOCALS",1)
     SetGlobalTimer("MO_SecondSpellPen","GLOBAL",6)
     SetInterrupt(FALSE)
-    ApplySpellRES("MOSPRT",LastSeenBy(Myself))  // Spell Thrust
+    ApplySpellRES("MOSPRT2",LastSeenBy(Myself))  // Spell Thrust
     DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
     SetInterrupt(TRUE)
@@ -7739,6 +8273,7 @@ IF
   See(ThirdNearest([EVILCUTOFF]))
   CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
   CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT)
+  !CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT_TWO)
   !GlobalTimerNotExpired("MO_SecondSpellPen","GLOBAL")
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !ImmuneToSpellLevel(LastSeenBy(Myself),7)
@@ -7762,7 +8297,7 @@ THEN // Ruby Ray of Reversal
     SetGlobal("MO_SpellCast","LOCALS",1)
     SetGlobalTimer("MO_SecondSpellPen","GLOBAL",6)
     SetInterrupt(FALSE)
-    ApplySpellRES("MOSPRT",LastSeenBy(Myself))  // Spell Thrust
+    ApplySpellRES("MOSPRT2",LastSeenBy(Myself))  // Spell Thrust
     DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
     SetInterrupt(TRUE)
@@ -7784,6 +8319,7 @@ IF
   See(FourthNearest([EVILCUTOFF]))
   CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
   CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT)
+  !CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT_TWO)
   !GlobalTimerNotExpired("MO_SecondSpellPen","GLOBAL")
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !ImmuneToSpellLevel(LastSeenBy(Myself),7)
@@ -7807,7 +8343,7 @@ THEN // Ruby Ray of Reversal
     SetGlobal("MO_SpellCast","LOCALS",1)
     SetGlobalTimer("MO_SecondSpellPen","GLOBAL",6)
     SetInterrupt(FALSE)
-    ApplySpellRES("MOSPRT",LastSeenBy(Myself))  // Spell Thrust
+    ApplySpellRES("MOSPRT2",LastSeenBy(Myself))  // Spell Thrust
     DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
     SetInterrupt(TRUE)
@@ -7829,6 +8365,7 @@ IF
   See(FifthNearest([EVILCUTOFF]))
   CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
   CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT)
+  !CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT_TWO)
   !GlobalTimerNotExpired("MO_SecondSpellPen","GLOBAL")
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !ImmuneToSpellLevel(LastSeenBy(Myself),7)
@@ -7852,7 +8389,7 @@ THEN // Ruby Ray of Reversal
     SetGlobal("MO_SpellCast","LOCALS",1)
     SetGlobalTimer("MO_SecondSpellPen","GLOBAL",6)
     SetInterrupt(FALSE)
-    ApplySpellRES("MOSPRT",LastSeenBy(Myself))  // Spell Thrust
+    ApplySpellRES("MOSPRT2",LastSeenBy(Myself))  // Spell Thrust
     DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
     SetInterrupt(TRUE)
@@ -7874,6 +8411,7 @@ IF
   See(SixthNearest([EVILCUTOFF]))
   CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
   CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT)
+  !CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT_TWO)
   !GlobalTimerNotExpired("MO_SecondSpellPen","GLOBAL")
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !ImmuneToSpellLevel(LastSeenBy(Myself),7)
@@ -7897,7 +8435,7 @@ THEN // Ruby Ray of Reversal
     SetGlobal("MO_SpellCast","LOCALS",1)
     SetGlobalTimer("MO_SecondSpellPen","GLOBAL",6)
     SetInterrupt(FALSE)
-    ApplySpellRES("MOSPRT",LastSeenBy(Myself))  // Spell Thrust
+    ApplySpellRES("MOSPRT2",LastSeenBy(Myself))  // Spell Thrust
     DisplayStringHead(Myself,@5016)
     Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
     SetInterrupt(TRUE)
