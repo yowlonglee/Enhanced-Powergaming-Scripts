@@ -7301,7 +7301,7 @@ THEN
     SetInterrupt(TRUE)
 END
 
-// 5e Spellcasting Ruby Ray of Reversal 1
+// 5e Spellcasting Spellstrike 1
 
 IF
   OR(2)
@@ -7315,14 +7315,14 @@ IF
   OR(2)
     !StateCheck(Myself,STATE_INVISIBLE)
     !Global("BDAI_SKILL_MODE","LOCALS",2)
-  HaveSpell(WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
+  HaveSpell(WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
   See([EVILCUTOFF])
   !CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD) // This will cause it to be ignored in vanilla game. SCS can trigger.
   !CheckSpellState(LastSeenBy(Myself),REMOVE_COMBAT_PROT)
   !CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT)
   !CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT_TWO)
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
-  !ImmuneToSpellLevel(LastSeenBy(Myself),7)
+  !ImmuneToSpellLevel(LastSeenBy(Myself),9)
   OR(4)
     CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
     CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
@@ -7338,13 +7338,13 @@ IF
   Global("MO_CastAthkatla","LOCALS",1)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN // Ruby Ray of Reversal
+THEN // Spellstrike
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     ApplySpellRES("MOSPRT2",LastSeenBy(Myself))  // Spell Thrust
     DisplayStringHead(Myself,@5016)
-    Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
+    Spell(LastSeenBy(Myself),WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
     SetInterrupt(TRUE)
 END
 
@@ -7360,14 +7360,14 @@ IF
   OR(2)
     !StateCheck(Myself,STATE_INVISIBLE)
     !Global("BDAI_SKILL_MODE","LOCALS",2)
-  HaveSpell(WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
+  HaveSpell(WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
   See(SecondNearest([EVILCUTOFF]))
   !CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD) // This will cause it to be ignored in vanilla game. SCS can trigger.
   !CheckSpellState(LastSeenBy(Myself),REMOVE_COMBAT_PROT)
   !CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT)
   !CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT_TWO)
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
-  !ImmuneToSpellLevel(LastSeenBy(Myself),7)
+  !ImmuneToSpellLevel(LastSeenBy(Myself),9)
   OR(4)
     CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
     CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
@@ -7383,13 +7383,13 @@ IF
   Global("MO_CastAthkatla","LOCALS",1)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN // Ruby Ray of Reversal
+THEN // Spellstrike
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     ApplySpellRES("MOSPRT2",LastSeenBy(Myself))  // Spell Thrust
     DisplayStringHead(Myself,@5016)
-    Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
+    Spell(LastSeenBy(Myself),WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
     SetInterrupt(TRUE)
 END
 
@@ -7405,14 +7405,14 @@ IF
   OR(2)
     !StateCheck(Myself,STATE_INVISIBLE)
     !Global("BDAI_SKILL_MODE","LOCALS",2)
-  HaveSpell(WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
+  HaveSpell(WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
   See(ThirdNearest([EVILCUTOFF]))
   !CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD) // This will cause it to be ignored in vanilla game. SCS can trigger.
   !CheckSpellState(LastSeenBy(Myself),REMOVE_COMBAT_PROT)
   !CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT)
   !CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT_TWO)
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
-  !ImmuneToSpellLevel(LastSeenBy(Myself),7)
+  !ImmuneToSpellLevel(LastSeenBy(Myself),9)
   OR(4)
     CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
     CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
@@ -7428,13 +7428,13 @@ IF
   Global("MO_CastAthkatla","LOCALS",1)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN // Ruby Ray of Reversal
+THEN // Spellstrike
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     ApplySpellRES("MOSPRT2",LastSeenBy(Myself))  // Spell Thrust
     DisplayStringHead(Myself,@5016)
-    Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
+    Spell(LastSeenBy(Myself),WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
     SetInterrupt(TRUE)
 END
 
@@ -7450,14 +7450,14 @@ IF
   OR(2)
     !StateCheck(Myself,STATE_INVISIBLE)
     !Global("BDAI_SKILL_MODE","LOCALS",2)
-  HaveSpell(WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
+  HaveSpell(WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
   See(FourthNearest([EVILCUTOFF]))
   !CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD) // This will cause it to be ignored in vanilla game. SCS can trigger.
   !CheckSpellState(LastSeenBy(Myself),REMOVE_COMBAT_PROT)
   !CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT)
   !CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT_TWO)
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
-  !ImmuneToSpellLevel(LastSeenBy(Myself),7)
+  !ImmuneToSpellLevel(LastSeenBy(Myself),9)
   OR(4)
     CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
     CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
@@ -7473,13 +7473,13 @@ IF
   Global("MO_CastAthkatla","LOCALS",1)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN // Ruby Ray of Reversal
+THEN // Spellstrike
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     ApplySpellRES("MOSPRT2",LastSeenBy(Myself))  // Spell Thrust
     DisplayStringHead(Myself,@5016)
-    Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
+    Spell(LastSeenBy(Myself),WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
     SetInterrupt(TRUE)
 END
 
@@ -7495,14 +7495,14 @@ IF
   OR(2)
     !StateCheck(Myself,STATE_INVISIBLE)
     !Global("BDAI_SKILL_MODE","LOCALS",2)
-  HaveSpell(WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
+  HaveSpell(WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
   See(FifthNearest([EVILCUTOFF]))
   !CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD) // This will cause it to be ignored in vanilla game. SCS can trigger.
   !CheckSpellState(LastSeenBy(Myself),REMOVE_COMBAT_PROT)
   !CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT)
   !CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT_TWO)
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
-  !ImmuneToSpellLevel(LastSeenBy(Myself),7)
+  !ImmuneToSpellLevel(LastSeenBy(Myself),9)
   OR(4)
     CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
     CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
@@ -7518,13 +7518,13 @@ IF
   Global("MO_CastAthkatla","LOCALS",1)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN // Ruby Ray of Reversal
+THEN // Spellstrike
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     ApplySpellRES("MOSPRT2",LastSeenBy(Myself))  // Spell Thrust
     DisplayStringHead(Myself,@5016)
-    Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
+    Spell(LastSeenBy(Myself),WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
     SetInterrupt(TRUE)
 END
 
@@ -7540,14 +7540,14 @@ IF
   OR(2)
     !StateCheck(Myself,STATE_INVISIBLE)
     !Global("BDAI_SKILL_MODE","LOCALS",2)
-  HaveSpell(WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
+  HaveSpell(WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
   See(SixthNearest([EVILCUTOFF]))
   !CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD) // This will cause it to be ignored in vanilla game. SCS can trigger.
   !CheckSpellState(LastSeenBy(Myself),REMOVE_COMBAT_PROT)
   !CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT)
   !CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT_TWO)
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
-  !ImmuneToSpellLevel(LastSeenBy(Myself),7)
+  !ImmuneToSpellLevel(LastSeenBy(Myself),9)
   OR(4)
     CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
     CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
@@ -7563,17 +7563,17 @@ IF
   Global("MO_CastAthkatla","LOCALS",1)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN // Ruby Ray of Reversal
+THEN // Spellstrike
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
     SetInterrupt(FALSE)
     ApplySpellRES("MOSPRT2",LastSeenBy(Myself))  // Spell Thrust
     DisplayStringHead(Myself,@5016)
-    Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
+    Spell(LastSeenBy(Myself),WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
     SetInterrupt(TRUE)
 END
 
-// 5e Spellcasting Ruby Ray of Reversal 2
+// 5e Spellcasting Spellstrike 2
 
 IF
   OR(2)
@@ -7587,7 +7587,7 @@ IF
   OR(2)
     !StateCheck(Myself,STATE_INVISIBLE)
     !Global("BDAI_SKILL_MODE","LOCALS",2)
-  HaveSpell(WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
+  HaveSpell(WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
   See([EVILCUTOFF])
   CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
   !CheckSpellState(LastSeenBy(Myself),REMOVE_COMBAT_PROT)
@@ -7595,7 +7595,7 @@ IF
   !CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT_TWO)
   !GlobalTimerNotExpired("MO_SecondSpellPen","GLOBAL")
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
-  !ImmuneToSpellLevel(LastSeenBy(Myself),7)
+  !ImmuneToSpellLevel(LastSeenBy(Myself),9)
   OR(4)
     CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
     CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
@@ -7611,14 +7611,14 @@ IF
   Global("MO_CastAthkatla","LOCALS",1)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN // Ruby Ray of Reversal
+THEN // Spellstrike
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
     SetGlobalTimer("MO_SecondSpellPen","GLOBAL",6)
     SetInterrupt(FALSE)
     ApplySpellRES("MOSPRT2",LastSeenBy(Myself))  // Spell Thrust
     DisplayStringHead(Myself,@5016)
-    Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
+    Spell(LastSeenBy(Myself),WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
     SetInterrupt(TRUE)
 END
 
@@ -7634,7 +7634,7 @@ IF
   OR(2)
     !StateCheck(Myself,STATE_INVISIBLE)
     !Global("BDAI_SKILL_MODE","LOCALS",2)
-  HaveSpell(WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
+  HaveSpell(WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
   See(SecondNearest([EVILCUTOFF]))
   CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
   !CheckSpellState(LastSeenBy(Myself),REMOVE_COMBAT_PROT)
@@ -7642,7 +7642,7 @@ IF
   !CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT_TWO)
   !GlobalTimerNotExpired("MO_SecondSpellPen","GLOBAL")
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
-  !ImmuneToSpellLevel(LastSeenBy(Myself),7)
+  !ImmuneToSpellLevel(LastSeenBy(Myself),9)
   OR(4)
     CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
     CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
@@ -7658,14 +7658,14 @@ IF
   Global("MO_CastAthkatla","LOCALS",1)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN // Ruby Ray of Reversal
+THEN // Spellstrike
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
     SetGlobalTimer("MO_SecondSpellPen","GLOBAL",6)
     SetInterrupt(FALSE)
     ApplySpellRES("MOSPRT2",LastSeenBy(Myself))  // Spell Thrust
     DisplayStringHead(Myself,@5016)
-    Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
+    Spell(LastSeenBy(Myself),WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
     SetInterrupt(TRUE)
 END
 
@@ -7681,7 +7681,7 @@ IF
   OR(2)
     !StateCheck(Myself,STATE_INVISIBLE)
     !Global("BDAI_SKILL_MODE","LOCALS",2)
-  HaveSpell(WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
+  HaveSpell(WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
   See(ThirdNearest([EVILCUTOFF]))
   CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
   !CheckSpellState(LastSeenBy(Myself),REMOVE_COMBAT_PROT)
@@ -7689,7 +7689,7 @@ IF
   !CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT_TWO)
   !GlobalTimerNotExpired("MO_SecondSpellPen","GLOBAL")
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
-  !ImmuneToSpellLevel(LastSeenBy(Myself),7)
+  !ImmuneToSpellLevel(LastSeenBy(Myself),9)
   OR(4)
     CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
     CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
@@ -7705,14 +7705,14 @@ IF
   Global("MO_CastAthkatla","LOCALS",1)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN // Ruby Ray of Reversal
+THEN // Spellstrike
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
     SetGlobalTimer("MO_SecondSpellPen","GLOBAL",6)
     SetInterrupt(FALSE)
     ApplySpellRES("MOSPRT2",LastSeenBy(Myself))  // Spell Thrust
     DisplayStringHead(Myself,@5016)
-    Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
+    Spell(LastSeenBy(Myself),WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
     SetInterrupt(TRUE)
 END
 
@@ -7728,7 +7728,7 @@ IF
   OR(2)
     !StateCheck(Myself,STATE_INVISIBLE)
     !Global("BDAI_SKILL_MODE","LOCALS",2)
-  HaveSpell(WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
+  HaveSpell(WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
   See(FourthNearest([EVILCUTOFF]))
   CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
   !CheckSpellState(LastSeenBy(Myself),REMOVE_COMBAT_PROT)
@@ -7736,7 +7736,7 @@ IF
   !CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT_TWO)
   !GlobalTimerNotExpired("MO_SecondSpellPen","GLOBAL")
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
-  !ImmuneToSpellLevel(LastSeenBy(Myself),7)
+  !ImmuneToSpellLevel(LastSeenBy(Myself),9)
   OR(4)
     CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
     CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
@@ -7752,14 +7752,14 @@ IF
   Global("MO_CastAthkatla","LOCALS",1)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN // Ruby Ray of Reversal
+THEN // Spellstrike
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
     SetGlobalTimer("MO_SecondSpellPen","GLOBAL",6)
     SetInterrupt(FALSE)
     ApplySpellRES("MOSPRT2",LastSeenBy(Myself))  // Spell Thrust
     DisplayStringHead(Myself,@5016)
-    Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
+    Spell(LastSeenBy(Myself),WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
     SetInterrupt(TRUE)
 END
 
@@ -7775,7 +7775,7 @@ IF
   OR(2)
     !StateCheck(Myself,STATE_INVISIBLE)
     !Global("BDAI_SKILL_MODE","LOCALS",2)
-  HaveSpell(WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
+  HaveSpell(WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
   See(FifthNearest([EVILCUTOFF]))
   CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
   !CheckSpellState(LastSeenBy(Myself),REMOVE_COMBAT_PROT)
@@ -7783,7 +7783,7 @@ IF
   !CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT_TWO)
   !GlobalTimerNotExpired("MO_SecondSpellPen","GLOBAL")
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
-  !ImmuneToSpellLevel(LastSeenBy(Myself),7)
+  !ImmuneToSpellLevel(LastSeenBy(Myself),9)
   OR(4)
     CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
     CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
@@ -7799,14 +7799,14 @@ IF
   Global("MO_CastAthkatla","LOCALS",1)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN // Ruby Ray of Reversal
+THEN // Spellstrike
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
     SetGlobalTimer("MO_SecondSpellPen","GLOBAL",6)
     SetInterrupt(FALSE)
     ApplySpellRES("MOSPRT2",LastSeenBy(Myself))  // Spell Thrust
     DisplayStringHead(Myself,@5016)
-    Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
+    Spell(LastSeenBy(Myself),WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
     SetInterrupt(TRUE)
 END
 
@@ -7822,7 +7822,7 @@ IF
   OR(2)
     !StateCheck(Myself,STATE_INVISIBLE)
     !Global("BDAI_SKILL_MODE","LOCALS",2)
-  HaveSpell(WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
+  HaveSpell(WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
   See(SixthNearest([EVILCUTOFF]))
   CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
   !CheckSpellState(LastSeenBy(Myself),REMOVE_COMBAT_PROT)
@@ -7830,7 +7830,7 @@ IF
   !CheckSpellState(LastSeenBy(Myself),REMOVE_SPELL_PROT_TWO)
   !GlobalTimerNotExpired("MO_SecondSpellPen","GLOBAL")
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
-  !ImmuneToSpellLevel(LastSeenBy(Myself),7)
+  !ImmuneToSpellLevel(LastSeenBy(Myself),9)
   OR(4)
     CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
     CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
@@ -7846,14 +7846,14 @@ IF
   Global("MO_CastAthkatla","LOCALS",1)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN // Ruby Ray of Reversal
+THEN // Spellstrike
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
     SetGlobalTimer("MO_SecondSpellPen","GLOBAL",6)
     SetInterrupt(FALSE)
     ApplySpellRES("MOSPRT2",LastSeenBy(Myself))  // Spell Thrust
     DisplayStringHead(Myself,@5016)
-    Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
+    Spell(LastSeenBy(Myself),WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
     SetInterrupt(TRUE)
 END
 
@@ -9003,7 +9003,7 @@ THEN // Khelben's Warding Whip
     SetInterrupt(TRUE)
 END
 
-// 5e Spellcasting Spellstrike
+// 5e Spellcasting Spellstrike 3
 
 IF
   OR(2)
@@ -9553,7 +9553,7 @@ THEN // Pierce Shield
     SetInterrupt(TRUE)
 END
 
-// 5e Spellcasting Ruby Ray of Reversal 3
+// 5e Spellcasting Ruby Ray of Reversal
 
 IF
   OR(2)
