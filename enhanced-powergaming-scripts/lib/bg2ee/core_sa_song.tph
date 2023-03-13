@@ -27,6 +27,42 @@ END~~~~~
     EEex_LuaTrigger("return AmAttacking()")
 THEN
   RESPONSE #100
+    SetGlobalTimer("MO_StartSinging","LOCALS",6)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    BattleSong()
+    Wait(6)
+    SetGlobalTimer("MO_SongClock","LOCALS",48)
+END~~~~~ //"
+  END
+
+/*
+///////////////////////////////////////////////////////////////////////////
+// Update Singing Check 1                                                //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~IF
+  Global("BDAI_SKILL_MODE","LOCALS",3)
+  Class(Myself,BARD_ALL)
+  !ModalState(BATTLESONG)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    BattleSong()
+END~~~~~
+    string = ~~~~~IF
+  Global("BDAI_SKILL_MODE","LOCALS",3)
+  !GlobalTimerNotExpired("MO_SongClock","LOCALS")
+  Class(Myself,BARD_ALL)
+  !ModalState(BATTLESONG)
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
+THEN
+  RESPONSE #100
     SetGlobal("MO_SingingCheck","LOCALS",1)
     SetGlobalTimer("MO_StartSinging","LOCALS",6)
     SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
@@ -34,7 +70,9 @@ THEN
     SetGlobalTimer("MO_SongClock","LOCALS",54)
 END~~~~~ //"
   END
+*/
 
+/*
 ///////////////////////////////////////////////////////////////////////////
 // Update Singing Check 2                                                //
 ///////////////////////////////////////////////////////////////////////////
@@ -56,6 +94,7 @@ THEN
     SetGlobal("MO_SingingCheck","LOCALS",0)
 END~~~~~ //"
   END
+*/
 
 ///////////////////////////////////////////////////////////////////////////
 // Update Spellcasting Timer                                             //
