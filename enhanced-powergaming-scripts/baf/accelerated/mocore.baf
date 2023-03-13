@@ -3583,7 +3583,6 @@ IF
   HaveSpell(CLERIC_HOLY_POWER)  // SPPR412.SPL (Holy Power)
   !CheckSpellState(Myself,HOLY_POWER)
   CheckStatLT(Myself,19,STR)
-  CheckStatLT(Myself,100,STREXTRA)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_POISONED)
