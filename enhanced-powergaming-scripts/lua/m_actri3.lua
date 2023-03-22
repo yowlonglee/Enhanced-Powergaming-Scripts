@@ -1,3 +1,3 @@
-function MO_AmCastingCooldown(sprite)
-    return sprite.getCastTimerPercentage() > 0
+function MO_AmCastingCooldown()
+    return EEex_LuaTrigger_Object:getCastTimerPercentage() > 0
 end
