@@ -14,6 +14,7 @@ March xx, 2023
   - If my extended bard song component from Skills and Abilities is installed, my scripts will time the singing with other actions.
   - Corrected bug with Cleric Hold where it was accidentally targeting party members.
   - Corrected bug where items were sometimes not being used.
+  - Updated Polish translations courtesy of Cahir.
 - BG:EE, BG2:EE, and EET
   - Added Gem of Seeing.
   - Resolved warnings when 5e Spellcasting is installed.
