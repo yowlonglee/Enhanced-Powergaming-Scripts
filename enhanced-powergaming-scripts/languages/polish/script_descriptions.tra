@@ -7,3 +7,60 @@
 @1091 = ~Skrypt ten powoduje ciągłe używanie zdolności Odpędzania nieumarłych po naciśnięciu klawisza „V” oraz rzucenie czarów ochronnych i wzmacniających po naciśnięciu klawisza „B”. W przypadku grania złodziejem lub mnichem skrypt będzie wykrywał pułapki poza walką lub bez przerwy po naciśnięciu klawisza „D”. W przypadku grania bardem będzie nieprzerwanie śpiewał dostępne bardowi pieśni.~
 @1100 = ~MO-PODSTAWOWY: ~
 @1101 = ~Skrypt ten jest przeznaczony dla wszystkich podstawowych klas: Wojownika, Maga, Złodzieja, Kapłana, Druida, Szamana, Mnicha, Łowcy i Paladyna, a także dla ich wielkolasowych i dwuklasowych kombinacji, włączając w to podklasy. Skrypt powoduje ciągłe używanie zdolności Odpędzania nieumarłych po naciśnięciu klawisza „V” oraz rzucenie czarów ochronnych i wzmacniających po naciśnięciu klawisza „B”. Jeżeli zdolność ta jest dla postaci dostępna, będzie ona również ciągle wykrywała pułapki poza walką lub po naciśnięciu klawisza „D”.~
+
+// Nazwa i opis skryptu
+@1110 = ~ULEPSZONE SKRYPTY POWERGAMERA~
+@1120 = ~Skrypt ten jest przeznaczony dla wszystkich klas i pozwala na dostosowanie działań postaci poprzez zmianę ustawień w powyższym menu. Postać może użyć dla tego skryptu następujących klawiszy: \n - Rzucenie czarów wzmacniających po wciśnięciu klawisza „B”\n - Włącza i wyłącza możliwość rzucania czarów w Athkatli, jeśli postać nie zapłaciła Zakapturzonym Magom lub skończyła z nimi walczyć, po wciśnięciu klawisza „T”\n - Zmienia broń do walki wręcz na broń dystansową, jeśli obie są na wyposażeniu, po wciśnięciu klawisza „E”\n - Zmienia rodzaj rzucanych zaklęć wzmacniających z przeznaczonych dla pojedynczej postaci, na czary oddziałujące na całą drużynę, po wciśnięciu klawisza „K”\n - Przełącza pomiędzy różnymi umiejętnościami, po wciśnięciu klawisza „V”.~
+
+// Atak
+@1130 = ~Postać zaatakuje przeciwnika będącego w zasięgu wzroku.~
+
+// Znajdowanie pułapek w walce
+@1140 = ~Znajdowanie pułapek w walce~
+@1150 = ~Postać będzie nieprzerwanie szukać pułapek i iluzji, nawet będąc w trakcie walki. Uwaga: jeśli postać potrafi znajdować pułapki, dzięki tym skryptom SI i tak będzie używać zdolności znajdowania pułapek poza walką. Opcja ta sprawi jednak, że będzie ona stale szukać pułapek, nawet podczas walki.~
+
+// Krycie się w cieniu
+@1160 = ~Krycie się w cieniu~
+@1170 = ~Postać będzie kryła się w cieniu, jeśli tylko potrafi to robić. Dopóki nie wyjdzie z ukrycia, nie będzie używała czarów ani zdolności.~
+
+// Śpiewanie pieśni barda
+@1180 = ~Śpiewanie pieśni barda~
+@1190 = ~Postać będzie śpiewała pieśń barda.
+
+// Odpędzanie nieumarłych
+@1200 = ~Odpędzanie nieumarłych~
+@1210 = ~Postać będzie nieprzerwanie odpędzała nieumarłych.~
+
+// Używanie czarów defensywnych
+@1220 = ~Używanie czarów defensywnych~
+@1230 = ~Postać będzie używała czarów defensywnych, takich jak Lustrzane odbicie czy Kamienna skóra.~
+
+// Używanie przedmiotów
+@1240 = ~Używanie przedmiotów~
+@1250 = ~Postać będzie używała przedmiotów, takich jak mikstury.~
+
+// Czary ochronne dla jednej postaci
+@1260 = ~Czary ochronne dla jednej postaci~
+@1270 = ~Postać będzie rzucała jedynie czary ochronne i wzmacniające przeznaczone dla jednej osoby.~
+
+// Używanie czarów ofensywnych
+@1280 = ~Używanie czarów ofensywnych~
+@1290 = ~Postać będzie używała czarów ofensywnych, takich jak Promień słońca, Fałszywy świt, Plaga owadów, czy Wielkie osłabienie.~
+
+// Czary ochronne dla całej drużyny
+@1300 = ~Czary ochronne dla całej drużynyg~
+@1310 = ~Postać będzie rzucać czary ochronne i wzmacniające przeznaczone dla całej drużyny, oprócz tych rzucanych tylko na siebie.~
+
+// Używanie czarów i zdolności osłabiających wroga/niwelujących negatywne efekty wrogich zaklęć i zdolności/leczniczych
+@1320 = ~Używanie czarów i zdolności osłabiających wroga/niwelujących negatywne efekty wrogich zaklęć i zdolności/leczniczych~
+@1330 = ~Postać będzie używała czarów osłabiających przeciw wrogom, a także rzucała na siebie czary niwelujące negatywne efekty wrogich zaklęć i zdolności, jak również czary uzdrawiające. Do czarów tych zalicza się: Wyłom, Rubinowy promień odwrócenia, Prawdziwe widzenie, Zdjęcie paraliżu, Wskrzeszenie czy Uzdrowienie.~
+
+/*
+BDAI_DISABLE_ATTACK => 0 = Attacks a Go
+BDAI_ATTACK_MODE => 1 = Solo Buffing; 2 = Group Buffing
+BDAI_SKILL_MODE => 1 = Traps; 2 = Stealth; 3 = Song; 4 = Turn Undead
+BDAI_DISABLE_ITEMS => 1 = No item use
+BDAI_DISABLE_SPECIAL => 0 = Enemy Debuffing/Curative/Healing 
+BDAI_DISABLE_DEFENSIVE => 0 = Self Buffing Spells and Abilities
+BDAI_DISABLE_OFFENSIVE => 0 = Disabling/Offensive Spells and Abilities
+*/
