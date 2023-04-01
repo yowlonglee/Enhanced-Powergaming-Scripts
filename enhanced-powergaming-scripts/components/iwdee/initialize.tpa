@@ -465,6 +465,29 @@ END
 	END
 
 ///////////////////////////////////////////////////////////////////////////
+// Create Spell State for Removing Spell Protections                     //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~REMOVE_SPELL_PROT_TWO~)) BEGIN
+	  COPY_EXISTING ~splstate.ids~ ~override~
+		COUNT_2DA_COLS cols
+		READ_2DA_ENTRIES_NOW rows cols
+		FOR (row = 1; row < rows; ++row) BEGIN
+		  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
+		  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
+		  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~REMOVE_SPELL_PROT_TWO~) BEGIN
+			SET rmv_spl_prt2 = %state_ind%
+		  END
+		END
+	  BUT_ONLY
+	END
+
+	ACTION_IF !(VARIABLE_IS_SET %rmv_spl_prt2%) BEGIN
+		LAF ds_sort_ids STR_VAR ids=splstate END
+		LAF d5_resolve_state STR_VAR new_state_id = ~REMOVE_SPELL_PROT_TWO~ RET new_state_ind END
+		OUTER_SET rmv_spl_prt2 = %new_state_ind%
+	END
+
+///////////////////////////////////////////////////////////////////////////
 // Create Spell State for Removing Combat Protections                    //
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~REMOVE_COMBAT_PROT~)) BEGIN
@@ -902,6 +925,9 @@ END
 	COPY ~enhanced-powergaming-scripts/spl/mosprt.spl~ ~override~
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 2 special = 1 parameter2 = %rmv_spl_prt% timing = 0 duration = 6 END
 
+	COPY ~enhanced-powergaming-scripts/spl/mosprt.spl~ ~override/mosprt2.spl~
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 2 special = 1 parameter2 = %rmv_spl_prt2% timing = 0 duration = 6 END
+
 	ACTION_FOR_EACH spell IN
 			SPELL_THRUST
 			SECRET_WORD
@@ -917,6 +943,15 @@ END
 				COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
 					LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 timing = 0 STR_VAR resource = "MOSPRT" END
 			END
+		END
+
+	// mosprt2 removal
+	ACTION_FOR_EACH spell_two IN
+			SPELL_STRIKE
+		BEGIN
+			LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_%spell_two%~ RET spell_res END
+			COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
+				LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 timing = 0 STR_VAR resource = "MOSPRT2" END
 		END
 
 //////////////////////////////////////////////////////////////////////////
