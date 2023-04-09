@@ -9,7 +9,7 @@ April 8, 2023
 - All Games
   - Added option, default hotkey 'N', to pre-buff only long-duration buffs.
   - EEex Required: Scripts will now identify when a player manually uses an item or casts a spell/ability. This will then track the manual player action as part of the cooldown timers so the scripts don't queue up an action when the player is on cooldown.
-  - Added the following spells: Chaos Shield, Improved Chaos Shield, Contagion, Death Spell, Magic Missile, Stalker Haste, Cleric Finger of Death, Wizard Finger of Death.
+  - Added the following spells: Chaos Shield, Improved Chaos Shield, Contagion, Death Spell, Magic Missile, Stalker Haste, Cleric Finger of Death, and Wizard Finger of Death.
   - Added Good Berry use when out of combat.
   - If my extended bard song component from Skills and Abilities is installed, my scripts will time the singing with other actions.
   - Corrected bug with Cleric Hold where it was accidentally targeting party members.
