@@ -1,5 +1,14 @@
 # Changelog
 
+## Version 12.1
+
+April xx, 2023
+
+### Changed 
+
+- All Games
+  - Corrected typo where I had a "." instead of a ",".
+
 ## Version 12.0
 
 April 8, 2023
