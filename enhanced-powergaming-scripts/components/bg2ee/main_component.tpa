@@ -887,6 +887,7 @@ ACTION_IF 5e_spellcasting BEGIN
 	  	PATCH_IF !("%old_spl%" STRING_EQUAL_CASE "BLACK")   AND 
 	  	         !("%old_spl%" STRING_EQUAL_CASE "FLESH")   AND 
 	  	         !("%old_spl%" STRING_EQUAL_CASE "ZOMBIE")  AND
+	  	         !("%old_spl%" STRING_EQUAL_CASE "SPRA301") AND
 	  	         !("%old_spl%" STRING_EQUAL_CASE "SPRA302") AND
 	  	         !("%old_spl%" STRING_EQUAL_CASE "SPRA303") BEGIN 
 	    	REPLACE_TEXTUALLY CASE_INSENSITIVE ~%old_spl%~ ~"%new_spl%"~
