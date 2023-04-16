@@ -8,6 +8,8 @@ April xx, 2023
 
 - All Games
   - Corrected typo where I had a "." instead of a ",".
+  - Added update to script description in English and Russian, courtesy of yota13.
+  - Updated Turn Undead and Detect Trap compatibility for Cleric/Thieves.
 
 ## Version 12.0
 
