@@ -640,6 +640,36 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// 5e Spellcasting Goodberries
+
+IF
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
+  !EEex_LuaTrigger("return AmMoving()")
+  Global("BDAI_DISABLE_SPECIAL","LOCALS",0)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
+  OR(2)
+    !StateCheck(Myself,STATE_INVISIBLE)
+    !Global("BDAI_SKILL_MODE","LOCALS",2)
+  HaveSpell(CLERIC_GOOD_BERRIES)  // SPPR207.SPL (Goodberry)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_SpellCast","LOCALS",1)
+    SetInterrupt(FALSE)
+    Spell(Myself,CLERIC_GOOD_BERRIES)  // SPPR207.SPL (Goodberry)
+    SetInterrupt(TRUE)
+END
+
 ///////////////////////////////////////////////////////////////////////////
 // 04 - In-Combat Heals - Instant Use Abililties and Potions             //
 ///////////////////////////////////////////////////////////////////////////

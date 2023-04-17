@@ -11,6 +11,7 @@ April xx, 2023
   - Added update to script description in English and Russian, courtesy of yota13.
   - Updated Turn Undead and Detect Trap compatibility for Cleric/Thieves.
   - Melf's Minute Meteors are now tied into the enable offensive casting option.
+  - Auto-cast Goodberries.
 
 ## Version 12.0
 
