@@ -1,5 +1,14 @@
 # Changelog
 
+## Version 12.2
+
+May xx, 2023
+
+### Changed 
+
+- All Games
+  - Shamans will not cast goodberries.
+
 ## Version 12.1
 
 April 19, 2023
