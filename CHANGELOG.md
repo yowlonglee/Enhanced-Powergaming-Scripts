@@ -8,6 +8,7 @@ May xx, 2023
 
 - All Games
   - Shamans will not cast goodberries.
+  - Protection from Petrification added to pre-buffing.
 
 ## Version 12.1
 
