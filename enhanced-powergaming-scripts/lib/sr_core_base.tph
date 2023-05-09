@@ -656,6 +656,7 @@ IF
     !StateCheck(Myself,STATE_INVISIBLE)
     !Global("BDAI_SKILL_MODE","LOCALS",2)
   HaveSpell(CLERIC_GOOD_BERRIES)  // SPPR207.SPL (Goodberry)
+  !Class(Myself,SHAMAN)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_POISONED)
