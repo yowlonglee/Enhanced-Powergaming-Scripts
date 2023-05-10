@@ -1,5 +1,5 @@
-function AmAttacking(actorID)
-    return ( { [3] = true, [105] = true, [134] = true } )[IEex_GetActorCurrentAction(actorID)]
+function AmAttacking()
+    return ( { [3] = true, [105] = true, [134] = true } )[IEex_GetActorCurrentAction(IEex_Lua_ActorID)]
 end
 
 --function IsAttacking(object, trigger)
