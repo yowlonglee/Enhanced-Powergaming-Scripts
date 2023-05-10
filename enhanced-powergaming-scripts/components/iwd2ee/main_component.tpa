@@ -1,0 +1,306 @@
+LOAD_TRA ~enhanced-powergaming-scripts/languages/%LANGUAGE%/script_dialog.tra~
+
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+// Add Mod Components to Normal Scripts                                  //
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////
+// MO-Core Initial                                                       //
+///////////////////////////////////////////////////////////////////////////
+COPY ~enhanced-powergaming-scripts/baf/normal/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+INCLUDE ~enhanced-powergaming-scripts/lib/IWDEE/prebuff_iwd.tph~
+
+///////////////////////////////////////////////////////////////////////////
+// Turn Undead Overhaul                                                  //
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF turn_undead BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/bg2ee/prebuff_turn_undead.tph~
+END
+
+///////////////////////////////////////////////////////////////////////////
+// Remove Dialog Hovertext from Scripts                                  //
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF scp_dlg BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/ini/prebuff_dialog.tph~
+END
+
+///////////////////////////////////////////////////////////////////////////
+// Hotkey Setup                                                          //
+///////////////////////////////////////////////////////////////////////////
+INCLUDE ~enhanced-powergaming-scripts/lib/core_hotkey.tph~
+
+///////////////////////////////////////////////////////////////////////////
+// Build out MO-Core                                                     //
+///////////////////////////////////////////////////////////////////////////
+INCLUDE ~enhanced-powergaming-scripts/lib/core_base.tph~
+INCLUDE ~enhanced-powergaming-scripts/lib/iwdee/core_iwd.tph~
+
+///////////////////////////////////////////////////////////////////////////
+// Morpheus562's Kitpack Battle Master                                   //
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF battle_master BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/bg2ee/core_mo_battlemaster.tph~
+END
+
+///////////////////////////////////////////////////////////////////////////
+// Morpheus562's Kitpack Champion of the Wild                            //
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF champion_wild BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_mo_champwild.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/IWDEE/core_pally_smite_iwd.tph~
+
+	ACTION_IF NOT saa_hla BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/core_pally_smite_check.tph~
+	END
+END
+
+///////////////////////////////////////////////////////////////////////////
+// Morpheus562's Kitpack Templar                                         //
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF templar BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/bg2ee/core_mo_templar.tph~
+END
+
+///////////////////////////////////////////////////////////////////////////
+// Morpheus562's Kitpack Reaver                                          //
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF reaver BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/bg2ee/core_mo_reaver.tph~
+END
+
+///////////////////////////////////////////////////////////////////////////
+// Morpheus562's Kitpack Stormlord                                       //
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF stormlord BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_mo_stormlord.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/bg2ee/core_mo_stormlord.tph~
+
+	ACTION_IF NOT saa_hla BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/core_stormlord_check.tph~
+	END
+END
+
+///////////////////////////////////////////////////////////////////////////
+// Skills and Abilities Update HLAs                                      //
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF saa_hla BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/prebuff_core_sa_hla.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_sa_hla.tph~
+END
+
+///////////////////////////////////////////////////////////////////////////
+// Turn Undead Overhaul                                                  //
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF turn_undead BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/bg2ee/core_turn_undead.tph~
+	//INCLUDE ~enhanced-powergaming-scripts/lib/iwdee/core_turn_undead_iwd.tph~
+END
+
+//INCLUDE ~enhanced-powergaming-scripts/lib/ini/remove_wight.tph~
+
+///////////////////////////////////////////////////////////////////////////
+// Update ini Presets                                                    //
+///////////////////////////////////////////////////////////////////////////
+	// Removes Dialog Hovertext from Scripts
+	ACTION_IF scp_dlg BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/ini/core_dialog.tph~
+	END
+
+	// Fast Healing
+	ACTION_IF fst_heal BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/ini/core_fast_healing.tph~
+	END
+
+///////////////////////////////////////////////////////////////////////////
+// Thieving Skills for Bards                                             //
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF bard_thief BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/bard_thief.tph~
+END
+
+///////////////////////////////////////////////////////////////////////////
+// Bard Song Duration                                                    //
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF extended_bard_song BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/bg2ee/core_sa_song.tph~
+END
+
+///////////////////////////////////////////////////////////////////////////
+// Turn Undead Overhaul - END                                            //
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF turn_undead BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/bg2ee/core_turn_undead_end.tph~
+END
+
+///////////////////////////////////////////////////////////////////////////
+// Skills and Abilities Paladin Overhaul                                 //
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF pally_smite BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_pally_smite.tph~
+	//INCLUDE ~enhanced-powergaming-scripts/lib/IWDEE/core_pally_smite_iwd.tph~
+
+	ACTION_IF NOT saa_hla BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BGEE/core_pally_smite_check.tph~
+	END
+END
+
+///////////////////////////////////////////////////////////////////////////
+// Skills and Abilities Psi Warrior                                      //
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF psi_warrior BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_psi_warrior.tph~
+	//INCLUDE ~enhanced-powergaming-scripts/lib/IWDEE/core_psi_warrior_iwd.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_psi_warrior_check.tph~
+END
+
+///////////////////////////////////////////////////////////////////////////
+// Skills and Abilities Eldritch Scion                                   //
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF eldritch_scion BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_eldritch_scion.tph~
+END
+
+///////////////////////////////////////////////////////////////////////////
+// Skills and Abilities Fighter Updates                                  //
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF fighter_overhaul BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_sa_wind.tph~
+END
+
+///////////////////////////////////////////////////////////////////////////
+// Hits Bypassing PfMW                                                   //
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF forgotten_update AND wizard_slayer AND eeex_present BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_pfmw_bypass.tph~
+END ELSE ACTION_IF wizard_slayer AND eeex_present BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_wizard_slayer.tph~
+END ELSE ACTION_IF forgotten_update AND eeex_present BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_forg_up.tph~
+END
+
+///////////////////////////////////////////////////////////////////////////
+// Tome and Blood - Magus                                                //
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF magus BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_magus.tph~
+END
+
+///////////////////////////////////////////////////////////////////////////
+// EEex Check                                                            //
+///////////////////////////////////////////////////////////////////////////
+ACTION_IF eeex_present BEGIN
+	COPY ~enhanced-powergaming-scripts/lua/m_actri1.lua~ ~override~ 
+	COPY ~enhanced-powergaming-scripts/lua/m_actri2.lua~ ~override~
+	COPY ~enhanced-powergaming-scripts/lua/m_actri3.lua~ ~override~
+	ACTION_IF eeex_verion BEGIN
+		COPY ~enhanced-powergaming-scripts/lua/m_mochal.lua~ ~override~
+		COPY ~enhanced-powergaming-scripts/lua/m_motarg.lua~ ~override~
+		INCLUDE ~enhanced-powergaming-scripts/lib/core_eeex_iwd.tph~
+	END ELSE BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/core_eeex_version_check.tph~
+	END
+END ELSE BEGIN
+	INCLUDE ~enhanced-powergaming-scripts/lib/core_eeex_version_check.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/core_eeex.tph~
+END
+
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+// Import AI Scripts into the Game                                       //
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////
+// Copy .BS files to scripts folder                                      //
+///////////////////////////////////////////////////////////////////////////
+COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~   ~scripts/mocore.bs~
+  COMPILE_BAF_TO_BCS
+
+///////////////////////////////////////////////////////////////////////////
+// Add descriptions of the scripts to scrpdesc.2da                       //
+///////////////////////////////////////////////////////////////////////////
+APPEND ~scrpdesc.2DA~
+~mocore      mcore1       mcore2~
+
+///////////////////////////////////////////////////////////////////////////
+// Copy the appended scrpdesc.2da to the override folder                 //
+///////////////////////////////////////////////////////////////////////////
+COPY_EXISTING ~scrpdesc.2da~ ~override~
+REPLACE ~mcore1~  @1110
+REPLACE ~mcore2~  @1120
+
+///////////////////////////////////////////////////////////////////////////
+// Update Lua Files                                                      //
+// Please Note: This accounts for vanilla and changes made by SCS        //
+///////////////////////////////////////////////////////////////////////////
+OUTER_SPRINT smartscript      @1110
+OUTER_SPRINT smartscriptdesc  @1120
+OUTER_SPRINT scriptatk        @1130
+OUTER_SPRINT findtrap         @1140
+OUTER_SPRINT findtrapdesc     @1150
+OUTER_SPRINT hideshdws        @1160
+OUTER_SPRINT hideshdwsdesc    @1170
+OUTER_SPRINT bardsong         @1180
+OUTER_SPRINT bardsongdesc     @1190
+OUTER_SPRINT trnund           @1200
+OUTER_SPRINT trnunddesc       @1210
+OUTER_SPRINT defense          @1220
+OUTER_SPRINT defensedesc      @1230
+OUTER_SPRINT useitem          @1240
+OUTER_SPRINT useitemdesc      @1250
+OUTER_SPRINT solobuff         @1260
+OUTER_SPRINT solobuffdesc     @1270
+OUTER_SPRINT offense          @1280
+OUTER_SPRINT offensedesc      @1290
+OUTER_SPRINT groupbuff        @1300
+OUTER_SPRINT groupbuffdesc    @1310
+OUTER_SPRINT specbuff         @1320
+OUTER_SPRINT specbuffdesc     @1330
+
+INCLUDE ~enhanced-powergaming-scripts/lib/iwdee/ui_menu.tph~
+COPY_EXISTING ~UI.MENU~ ~override~
+REPLACE_TEXTUALLY ~mo_core~ ~%smartscript%~
+
+ACTION_FOR_EACH luafile IN
+		CS_CZ
+		DE_DE
+		EN_US
+		ES_ES
+		FR_FR
+		IT_IT
+		KO_KR
+		PL_PL
+		PT_BR
+		RU_RU
+		ZN_CN
+	BEGIN
+		ACTION_IF FILE_EXISTS_IN_GAME ~L_%luafile%.LUA~ BEGIN
+			COPY_EXISTING "L_%luafile%.LUA" ~override~
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~CHARACTER_SCRIPT_SMART_SCRIPT = \".*\"~ ~CHARACTER_SCRIPT_SMART_SCRIPT = "%smartscript%"~
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~CHARACTER_SCRIPT_SMART_SCRIPT_DESCRIPTION = \".*\"~ ~CHARACTER_SCRIPT_SMART_SCRIPT_DESCRIPTION = "%smartscriptdesc%"~
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~SCRIPT_ATTACK_ENEMIES_DESCRIPTION = \".*\"~ ~SCRIPT_ATTACK_ENEMIES_DESCRIPTION = "%scriptatk%"~
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~SCRIPT_FIND_TRAPS_LABEL = \".*\"~ ~SCRIPT_FIND_TRAPS_LABEL = "%findtrap%"~
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~SCRIPT_FIND_TRAPS_DESCRIPTION = \".*\"~ ~SCRIPT_FIND_TRAPS_DESCRIPTION = "%findtrapdesc%"~
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~SCRIPT_HIDE_IN_SHADOWS_LABEL = \".*\"~ ~SCRIPT_HIDE_IN_SHADOWS_LABEL = "%hideshdws%"~
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~SCRIPT_HIDE_IN_SHADOWS_DESCRIPTION = \".*\"~ ~SCRIPT_HIDE_IN_SHADOWS_DESCRIPTION = "%hideshdwsdesc%"~
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~SCRIPT_SING_BATTLESONG_LABEL = \".*\"~ ~SCRIPT_SING_BATTLESONG_LABEL = "%bardsong%"~
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~SCRIPT_SING_BATTLESONG_DESCRIPTION = \".*\"~ ~SCRIPT_SING_BATTLESONG_DESCRIPTION = "%bardsongdesc%"~
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~SCRIPT_TURN_UNDEAD_LABEL = \".*\"~ ~SCRIPT_TURN_UNDEAD_LABEL = "%trnund%"~
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~SCRIPT_TURN_UNDEAD_DESCRIPTION = \".*\"~ ~SCRIPT_TURN_UNDEAD_DESCRIPTION = "%trnunddesc%"~
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~SCRIPT_USE_DEFENSIVE_SPELLS_LABEL = \".*\"~ ~SCRIPT_USE_DEFENSIVE_SPELLS_LABEL = "%defense%"~
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~SCRIPT_USE_DEFENSIVE_SPELLS_DESCRIPTION = \".*\"~ ~SCRIPT_USE_DEFENSIVE_SPELLS_DESCRIPTION = "%defensedesc%"~
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~SCRIPT_USE_ITEMS_LABEL = \".*\"~ ~SCRIPT_USE_ITEMS_LABEL = "%useitem%"~
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~SCRIPT_USE_ITEMS_DESCRIPTION = \".*\"~ ~SCRIPT_USE_ITEMS_DESCRIPTION = "%useitemdesc%"~
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~SCRIPT_USE_MELEE_WEAPONS_LABEL = \".*\"~ ~SCRIPT_USE_MELEE_WEAPONS_LABEL = "%solobuff%"~
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~SCRIPT_USE_MELEE_WEAPONS_DESCRIPTION = \".*\"~ ~SCRIPT_USE_MELEE_WEAPONS_DESCRIPTION = "%solobuffdesc%"~
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~SCRIPT_USE_OFFENSIVE_SPELLS_LABEL = \".*\"~ ~SCRIPT_USE_OFFENSIVE_SPELLS_LABEL = "%offense%"~
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~SCRIPT_USE_OFFENSIVE_SPELLS_DESCRIPTION = \".*\"~ ~SCRIPT_USE_OFFENSIVE_SPELLS_DESCRIPTION = "%offensedesc%"~
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~SCRIPT_USE_RANGED_WEAPONS_LABEL = \".*\"~ ~SCRIPT_USE_RANGED_WEAPONS_LABEL = "%groupbuff%"~
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~SCRIPT_USE_RANGED_WEAPONS_DESCRIPTION = \".*\"~ ~SCRIPT_USE_RANGED_WEAPONS_DESCRIPTION = "%groupbuffdesc%"~
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~SCRIPT_USE_SPECIAL_ABILITIES_LABEL = \".*\"~ ~SCRIPT_USE_SPECIAL_ABILITIES_LABEL = "%specbuff%"~
+				REPLACE_TEXTUALLY EVALUATE_REGEXP ~SCRIPT_USE_SPECIAL_ABILITIES_DESCRIPTION = \".*\"~ ~SCRIPT_USE_SPECIAL_ABILITIES_DESCRIPTION = "%specbuffdesc%"~
+	   		BUT_ONLY
+		END
+	END

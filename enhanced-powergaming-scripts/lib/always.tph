@@ -328,6 +328,13 @@ ACTION_IF !VARIABLE_IS_SET ~initialise~ BEGIN
       OUTER_SET eeex_verion=0
    END
 
+   // Detect IEex
+   ACTION_IF FILE_EXISTS_IN_GAME ~IEex_IWD2_State.lua~ BEGIN
+      OUTER_SET ieex_present=1
+   END ELSE BEGIN
+      OUTER_SET ieex_present=0
+   END
+
    // Rogue Rebalancing - Additional Equipment
    ACTION_IF MOD_IS_INSTALLED ~setup-rr.tp2~ ~7~ BEGIN
       OUTER_SET rr_add_equipment=1

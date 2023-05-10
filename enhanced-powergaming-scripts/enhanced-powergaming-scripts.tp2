@@ -79,7 +79,8 @@ LANGUAGE ~Spanish~
 // Main Component Base Game                                              //
 ///////////////////////////////////////////////////////////////////////////
 BEGIN @7 DESIGNATED 14 SUBCOMPONENT @2 LABEL EnhancedPowergamingScripts-MainNormal
-REQUIRE_PREDICATE GAME_IS ~bgee bg2ee eet iwdee~ @3000
+//REQUIRE_PREDICATE GAME_IS ~bgee bg2ee eet iwdee~ @3000
+REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee eet iwdee~) OR ((GAME_IS ~iwd2~) AND ieex_present) @3000
 // REQUIRE_PREDICATE GAME_IS ~bgee bg2ee eet iwdee tob bgt~ @3000
 
 LOAD_TRA ~enhanced-powergaming-scripts/languages/%LANGUAGE%/script_descriptions.tra~
@@ -92,6 +93,7 @@ END ELSE ACTION_IF GAME_IS ~iwdee~ BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/components/IWDEE/initialize.tpa~
 	INCLUDE ~enhanced-powergaming-scripts/components/IWDEE/main_component.tpa~
 END ELSE ACTION_IF GAME_IS ~iwd2~ BEGIN
+    INCLUDE ~enhanced-powergaming-scripts/components/IWD2EE/main_component.tpa~
 /* NOT IN USE YET
 END ELSE ACTION_IF GAME_IS ~tob bgt~ BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/components/bgt/initialize.tpa~
@@ -111,6 +113,7 @@ END ELSE ACTION_IF GAME_IS ~iwdee~ BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/components/IWDEE/initialize.tpa~
 	INCLUDE ~enhanced-powergaming-scripts/components/IWDEE/main_component_a.tpa~
 END ELSE ACTION_IF GAME_IS ~iwd2~ BEGIN
+    INCLUDE ~enhanced-powergaming-scripts/components/IWD2EE/main_component_a.tpa~
 /* NOT IN USE YET
 END ELSE ACTION_IF GAME_IS ~tob bgt~ BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/components/bgt/initialize.tpa~
