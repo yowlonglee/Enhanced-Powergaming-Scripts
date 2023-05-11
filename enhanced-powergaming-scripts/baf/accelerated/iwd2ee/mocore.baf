@@ -1,0 +1,282 @@
+// **********************************************************************
+// *           Segment Name: mocore.baf
+// **********************************************************************
+// *
+// * Description:
+// * This script is designed for all classes: Fighter, Mage, Thief, Cleric, Druid, Ranger, Paladin, Shaman, and 
+// * any combination of multiclass/dualclass to include kits. This script will constantly 
+// * Turn Undead when the V key is pressed and will cast pre-buffing spells when the B key 
+// * is pressed. If the character is able, the script will constantly be detecting traps.
+
+IF
+  Global("BDAI_ATTACK_MODE","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("BDAI_ATTACK_MODE","LOCALS",2)
+END
+
+IF
+  Global("MO_SpellCast","LOCALS",1)
+  !Global("BDAI_SKILL_MODE","LOCALS",3)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetGlobal("MO_SpellCast","LOCALS",0)
+END
+
+IF
+  Global("MO_SpellCast","LOCALS",1)
+  Global("BDAI_SKILL_MODE","LOCALS",3)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",12)
+    SetGlobal("MO_SpellCast","LOCALS",0)
+END
+
+IF
+  Global("BDAI_SKILL_MODE","LOCALS",0)
+  OR(3)
+    Class(Myself,THIEF_ALL)
+    Class(Myself,MONK)
+    Class(Myself,SHAMAN)
+  HotKey(hot_key_SwapSkills)
+THEN
+  RESPONSE #100
+    SetGlobal("BDAI_SKILL_MODE","LOCALS",1)
+    DisplayStringHead(Myself,@5018)
+END
+
+IF
+  OR(2)
+    Global("BDAI_SKILL_MODE","LOCALS",0)
+    Global("BDAI_SKILL_MODE","LOCALS",1)
+  OR(3)
+    Class(Myself,THIEF_ALL)
+    Class(Myself,RANGER_ALL)
+    Class(Myself,MONK)
+  HotKey(hot_key_SwapSkills)
+THEN
+  RESPONSE #100
+    SetGlobal("BDAI_SKILL_MODE","LOCALS",2)
+    DisplayStringHead(Myself,@5030)
+END
+
+IF
+  OR(3)
+    Global("BDAI_SKILL_MODE","LOCALS",0)
+    Global("BDAI_SKILL_MODE","LOCALS",1)
+    Global("BDAI_SKILL_MODE","LOCALS",2)
+  Class(Myself,BARD_ALL)
+  HotKey(hot_key_SwapSkills)
+THEN
+  RESPONSE #100
+    SetGlobal("BDAI_SKILL_MODE","LOCALS",3)
+    DisplayStringHead(Myself,@5029)
+END
+
+IF
+  !Global("BDAI_SKILL_MODE","LOCALS",0)
+  HotKey(hot_key_SwapSkills)
+THEN
+  RESPONSE #100
+    SetGlobal("BDAI_SKILL_MODE","LOCALS",0)
+    DisplayStringHead(Myself,@5028)
+END
+
+IF
+  HotKey(hot_key_WeaponSwap)
+  !HasItem("melfmet",Myself)  // Melf's Minute Meteor
+  !HasItem("BBODISA",Myself)  // Black Blade of Disaster
+  !IsWeaponRanged(Myself)
+  CanEquipRanged()
+THEN
+  RESPONSE #100
+    EquipRanged()
+    DisplayStringHead(Myself,@5025)  
+END
+
+IF
+  HotKey(hot_key_WeaponSwap)
+  !HasItem("melfmet",Myself)  // Melf's Minute Meteor
+  !HasItem("BBODISA",Myself)  // Black Blade of Disaster
+  IsWeaponRanged(Myself)
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    DisplayStringHead(Myself,@5024)
+END
+
+IF
+  HotKey(hot_key_SoloBuff)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
+THEN
+  RESPONSE #100
+    SetGlobal("BDAI_ATTACK_MODE","LOCALS",1)
+    DisplayStringHead(Myself,@5027)
+END
+
+IF
+  HotKey(hot_key_SoloBuff)
+  Global("BDAI_ATTACK_MODE","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("BDAI_ATTACK_MODE","LOCALS",2)
+    DisplayStringHead(Myself,@5026)
+END
+
+IF
+  !GlobalTimerNotExpired("MO_HealCast","GLOBAL")
+  Global("MO_CastingHeal","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_CastingHeal","GLOBAL",0)
+END
+
+IF
+  !GlobalTimerNotExpired("MO_DetectEnemyIllusionTimer","LOCALS")
+  Global("MO_DetectEnemyIllusion","GLOBAL",1)
+  Global("MO_MyDetectEnemyIllusion","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_DetectEnemyIllusion","GLOBAL",0)
+    SetGlobal("MO_MyDetectEnemyIllusion","LOCALS",0)
+END
+
+IF
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
+  Global("MO_SelfRaiseDead","LOCALS",1)
+  Global("MO_PartyRaiseDead","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_SelfRaiseDead","LOCALS",0)
+    SetGlobal("MO_PartyRaiseDead","GLOBAL",0)
+END
+
+IF
+  OR(3)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
+    !GlobalTimerNotExpired("MO_FearCastTimer","GLOBAL")
+  Global("MO_SelfRemoveFear","LOCALS",1)
+  Global("MO_PartyRemoveFear","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_SelfRemoveFear","LOCALS",0)
+    SetGlobal("MO_PartyRemoveFear","GLOBAL",0)
+END
+
+IF
+  OR(3)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
+    !GlobalTimerNotExpired("MO_ParalysisCastTimer","GLOBAL")
+  Global("MO_SelfRemoveParalysis","LOCALS",1)
+  Global("MO_PartyRemoveParalysis","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_SelfRemoveParalysis","LOCALS",0)
+    SetGlobal("MO_PartyRemoveParalysis","GLOBAL",0)
+END
+
+IF
+  PartyRested()
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",2)
+END
+
+IF
+  Global("MO_TrueSightActive","LOCALS",1)
+  !CheckSpellState(Myself,TRUE_SIGHT)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_TrueSightActive","LOCALS",0)
+    SetGlobal("MO_PartyTrueSight","GLOBAL",0)
+END
+
+IF
+  Global("MO_TrueSightActive","LOCALS",0)
+  CheckSpellState(Myself,TRUE_SIGHT)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_TrueSightActive","LOCALS",1)
+    SetGlobal("MO_PartyTrueSight","GLOBAL",1)
+END
+
+IF
+  HaveSpell(CLERIC_PROTECTION_FROM_EVIL_10_RADIUS)  // SPPR408.SPL (Magic Circle Against Evil)
+  OR(2)
+    Global("MO_ProtEvil","LOCALS",0)
+    Global("MO_TeamProtEvil","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_ProtEvil","LOCALS",1)
+    SetGlobal("MO_TeamProtEvil","GLOBAL",1)
+END
+
+IF
+  !HaveSpell(CLERIC_PROTECTION_FROM_EVIL_10_RADIUS)  // SPPR408.SPL (Magic Circle Against Evil)
+  Global("MO_ProtEvil","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_ProtEvil","LOCALS",0)
+    SetGlobal("MO_TeamProtEvil","GLOBAL",0)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",0)
+  HotKey(hot_key_Buffing)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_BUFF","LOCALS",1)
+    SetGlobal("MO_LONG_BUFF","LOCALS",0)
+    DisplayStringHead(Myself,@5002)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",0)
+  Global("MO_LONG_BUFF","LOCALS",0)
+  HotKey(hot_key_LongBuffing)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_LONG_BUFF","LOCALS",1)
+    DisplayStringHead(Myself,@5031)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    HotKey(hot_key_Buffing)
+    See([EVILCUTOFF])
+THEN
+  RESPONSE #100
+    SetGlobal("MO_BUFF","LOCALS",0)
+    DisplayStringHead(Myself,@5003)
+END
+
+IF
+  Global("MO_LONG_BUFF","LOCALS",1)
+  OR(2)
+    HotKey(hot_key_LongBuffing)
+    See([EVILCUTOFF])
+THEN
+  RESPONSE #100
+    SetGlobal("MO_LONG_BUFF","LOCALS",0)
+    DisplayStringHead(Myself,@5003)
+END
+
+////////////////////////////////////////////////////
+// Pre-Buffing Goes Here
+
+IF
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_BUFF","LOCALS",0)
+    SetGlobal("MO_LONG_BUFF","LOCALS",0)
+    DisplayStringHead(Myself,@5004)
+END

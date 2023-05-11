@@ -93,6 +93,8 @@ END ELSE ACTION_IF GAME_IS ~iwdee~ BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/components/IWDEE/initialize.tpa~
 	INCLUDE ~enhanced-powergaming-scripts/components/IWDEE/main_component.tpa~
 END ELSE ACTION_IF GAME_IS ~iwd2~ BEGIN
+    OUTER_SET iwd2_accelerated=0 // Non-Accelerated Pre-Buffing
+    INCLUDE ~enhanced-powergaming-scripts/components/IWD2EE/initialize.tpa~
     INCLUDE ~enhanced-powergaming-scripts/components/IWD2EE/main_component.tpa~
 /* NOT IN USE YET
 END ELSE ACTION_IF GAME_IS ~tob bgt~ BEGIN
@@ -113,7 +115,9 @@ END ELSE ACTION_IF GAME_IS ~iwdee~ BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/components/IWDEE/initialize.tpa~
 	INCLUDE ~enhanced-powergaming-scripts/components/IWDEE/main_component_a.tpa~
 END ELSE ACTION_IF GAME_IS ~iwd2~ BEGIN
-    INCLUDE ~enhanced-powergaming-scripts/components/IWD2EE/main_component_a.tpa~
+    OUTER_SET iwd2_accelerated=1 // Accelerated Pre-Buffing
+    INCLUDE ~enhanced-powergaming-scripts/components/IWD2EE/initialize.tpa~
+    INCLUDE ~enhanced-powergaming-scripts/components/IWD2EE/main_component.tpa~
 /* NOT IN USE YET
 END ELSE ACTION_IF GAME_IS ~tob bgt~ BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/components/bgt/initialize.tpa~
