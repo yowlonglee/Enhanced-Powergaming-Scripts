@@ -933,3 +933,32 @@ THEN
 END~~~~~
     string = ~~~~~~~~~~ //"
   END
+
+///////////////////////////////////////////////////////////////////////////
+// Remove Mazzy Haste                                                    //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpell(MAZZY_HASTE)  // SPIN828.SPL (Haste)
+  !StateCheck(Myself,STATE_HASTED)
+  CheckStat(Myself,0,IMPROVEDHASTE)
+  !StateCheck(Myself,STATE_IMPROVEDINVISIBILITY)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,MAZZY_HASTE)  // SPIN828.SPL (Haste)
+    RemoveSpell(MAZZY_HASTE)  // SPIN828.SPL (Haste)
+END~~~~~
+    string = ~~~~~~~~~~ //"
+  END
