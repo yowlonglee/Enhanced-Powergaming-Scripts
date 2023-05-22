@@ -2149,8 +2149,9 @@ END
 ////////////////////////////////////////////////////
 // 5 Turns
 IF
-  Global("MO_BUFF","LOCALS",1)
-  Global("MO_LONG_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   !CheckSpellState(Myself,INVOKE_COURAGE)
   HaveSpell(INVOKE_COURAGE)  // SPIN676.SPL (Invoke Courage)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -2166,8 +2167,9 @@ END
 ////////////////////////////////////////////////////
 // 3 Turns
 IF
-  Global("MO_BUFF","LOCALS",1)
-  Global("MO_LONG_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   HaveSpell(MAZZY_STRENGTH)  // SPIN826.SPL (Strength)
   CheckStatLT(Myself,18,STR)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
