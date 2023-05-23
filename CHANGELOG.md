@@ -1,5 +1,13 @@
 # Changelog
 
+## Version 12.2.1
+
+May 23, 2023
+
+### Changed 
+
+- Actually corrected the bug with Spell Revisions this time.
+
 ## Version 12.2
 
 May 23, 2023
