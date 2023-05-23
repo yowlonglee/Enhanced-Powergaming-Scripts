@@ -2,7 +2,7 @@
 
 ## Version 12.2
 
-May xx, 2023
+May 23, 2023
 
 ### Changed 
 
@@ -10,6 +10,7 @@ May xx, 2023
   - Shamans will not cast goodberries.
   - Protection from Petrification added to pre-buffing.
   - Added Mazzy abilities.
+  - Corrected bug with Spell Revisions.
 
 ## Version 12.1
 
