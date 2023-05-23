@@ -2190,7 +2190,7 @@ ACTION_IF mih_restorations BEGIN
 ///////////////////////////////////////////////////////////////////////////
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_SPELL_INVULNERABILITY~ RET spell_res END
 	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
-		LPF CLONE_EFFECT INT_VAR match_opcode = 27 opcode = 328 parameter2 = %spl_invl% special = 1 END
+		LPF CLONE_EFFECT INT_VAR match_opcode = 166 opcode = 328 parameter2 = %spl_invl% special = 1 END
 END
 
 ///////////////////////////////////////////////////////////////////////////
