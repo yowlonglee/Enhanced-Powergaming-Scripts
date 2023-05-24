@@ -69,7 +69,7 @@ Below are the components for the install allowing you to pick and choose what ch
 
 ### Main Component
 
-This is the main component that will auto-detect your mod installations and provide scripts based on the installs listed above. These can dynamically create over 1.5 MILLION scripts depending on what spell/kit mods you have installed. You will have the option to select having either pre-buffing cast at a normal speed or an accelerated speed. Regardless of either option chosen, characters will stop pre-buffing if either the "B" key is pressed again or an enemy is sighted. 
+This is the main component that will auto-detect your mod installations and provide scripts based on the installs listed above. These can dynamically create over 1.5 MILLION scripts depending on what spell/kit mods you have installed. You will have the option to select having either pre-buffing cast at a normal speed or an accelerated speed. Regardless of either option chosen, characters will stop pre-buffing if either the "B" key or "N" key is pressed again or an enemy is sighted. 
 
 #### Normal Pre-Buffing Speed
 
@@ -90,6 +90,15 @@ These scripts will utilize items such as Amulet of the Cheetah, Ilbratha+1, Ring
 
 #### The Scripts
 The scripts are now listed as Enhanced Powergaming Scripts listed under the previous Advanced AI option. Here, the player has the option to select multiple radial buttons to custom tweak the interaction the AI scripts have.
+
+This script is designed for all classes with the ability to customize the character's action by adjusting the settings in the menu above. The character can use the following hotkeys with this script:
+
+- Cast pre-buffing spells when the 'B' key is pressed
+- Cast long duration buffing spells when the 'N' key is pressed
+- Toggles on and off to cast spells in Athkatla if the character has not paid the bounty or finished fighting the Cowled Wizards when the 'T' key is pressed
+- Swaps the between melee and ranged weapons so long as either can be equipped when the 'E' key is pressed
+- Swaps between solo and party buffing when the 'K' key is pressed
+- Swaps between the various skill modes when the 'V' key is pressed
 
 ##### Initial Setup
 
@@ -175,7 +184,6 @@ Type in the hotkey you wish to map to the corresponding action.
 This allows the player to fine-tune aspects of the scripts. 1 turns the feature on while 0 turns it off.
 
 - script_dialog is defaulted to 1. This turns on or off hover text appearing when certain abilities are used in combat.
-
 - fast_healing is defaulted to 0. This turns on or off instant casting of healing spells to speed up the healing process when out of combat.
 
 ## Special Thanks
