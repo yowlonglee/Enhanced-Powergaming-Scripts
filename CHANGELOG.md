@@ -1,5 +1,14 @@
 # Changelog
 
+## Version 12.3
+
+June xx, 2023
+
+### Changed 
+
+- All Games
+  - Added Blackguard Poison Weapon.
+
 ## Version 12.2.1
 
 May 23, 2023
