@@ -9,6 +9,9 @@ June xx, 2023
 - All Games
   - Added Blackguard Poison Weapon.
 
+
+  - TO DO! Fix SR Celestial Bug
+
 ## Version 12.2.1
 
 May 23, 2023

@@ -18692,6 +18692,7 @@ END
 IF
   EEex_LuaTrigger("return MoFillCurrentTarget()")
   See(EEex_Target("MoCurrentTarget"))
+  False()
   OR(2)
     !WeaponEffectiveVs(LastSeenBy(Myself),MAINHAND)
     !WeaponCanDamage(LastSeenBy(Myself),MAINHAND)
