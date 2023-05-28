@@ -1,7 +1,5 @@
 COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
 
-COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
-
 ///////////////////////////////////////////////////////////////////////////
 // Add Wizard Heroism                                                    //
 ///////////////////////////////////////////////////////////////////////////
@@ -645,4 +643,31 @@ THEN
     RemoveSpell(WIZARD_SEEKING)
 END
 ~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Wizard Barrier                                                    //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~// Prebuff - MiH Wizard Barrier~~~~~
+    string = ~~~~~IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpell(WIZARD_BARRIER)
+  !CheckSpellState(Myself,WIZARD_BARRIER)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,WIZARD_BARRIER)
+    RemoveSpell(WIZARD_BARRIER)
+END~~~~~ //"
   END
