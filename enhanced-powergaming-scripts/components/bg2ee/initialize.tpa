@@ -596,6 +596,7 @@ ACTION_IF spell_revisions BEGIN
 		OUTER_SET imp_haste = %new_state_ind%
 	END
 
+/*
 ///////////////////////////////////////////////////////////////////////////
 // Create Spell State for Spell Turning                                  //
 ///////////////////////////////////////////////////////////////////////////
@@ -623,6 +624,7 @@ ACTION_IF spell_revisions BEGIN
 		COPY_EXISTING ~CA#STURN.SPL~ ~override~ 
 			LPF CLONE_EFFECT INT_VAR match_opcode = 233 opcode = 328 parameter2 = %spl_trn% special = 1 END
 	END
+*/
 
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
@@ -676,6 +678,11 @@ ACTION_IF spell_revisions BEGIN
 			COPY_EXISTING ~DWSW701.SPL~ ~override~ 
 			  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %gtr_spl_def% timing = 0 duration = 300 END
 		END
+	END
+
+	ACTION_IF FILE_EXISTS_IN_GAME ~CA#STURN.SPL~ BEGIN
+		COPY_EXISTING ~CA#STURN.SPL~ ~override~ 
+		  LPF CLONE_EFFECT INT_VAR match_opcode = 233 opcode = 328 parameter2 = %gtr_spl_def% special = 1 END
 	END
 
 ///////////////////////////////////////////////////////////////////////////
