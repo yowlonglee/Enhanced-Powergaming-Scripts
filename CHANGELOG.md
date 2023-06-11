@@ -9,6 +9,7 @@ June xx, 2023
 - All Games
   - Added Blackguard Poison Weapon.
   - Added MiH spell: Wizard Barrier.
+  - Reorder some behind the scenes checks.
 
   - TO DO! Fix SR Celestial Bug.
 

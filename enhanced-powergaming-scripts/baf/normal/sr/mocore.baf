@@ -15,6 +15,17 @@ THEN
     SetGlobal("BDAI_ATTACK_MODE","LOCALS",2)
 END
 
+IF 
+ EEex_LuaTrigger("return MO_AmCastingCooldown()")
+ OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_SpellCast","LOCALS",1)
+    Continue()
+END
+
 IF
   Global("MO_SpellCast","LOCALS",1)
   !Global("BDAI_SKILL_MODE","LOCALS",3)
@@ -22,6 +33,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetGlobal("MO_SpellCast","LOCALS",0)
+    Continue()
 END
 
 IF
@@ -31,16 +43,7 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCastTimer","LOCALS",12)
     SetGlobal("MO_SpellCast","LOCALS",0)
-END
-
-IF 
- EEex_LuaTrigger("return MO_AmCastingCooldown()")
- OR(2)
-    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
-    CheckStatGT(Myself,0,AURACLEANSING)
-THEN
-  RESPONSE #100
-    SetGlobal("MO_SpellCast","LOCALS",1)
+    Continue()
 END
 
 // Singing Check 2
