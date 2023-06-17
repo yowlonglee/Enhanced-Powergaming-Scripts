@@ -2,7 +2,7 @@
 
 ## Version 12.3
 
-June xx, 2023
+June 17, 2023
 
 ### Changed 
 
@@ -10,8 +10,7 @@ June xx, 2023
   - Added Blackguard Poison Weapon.
   - Added MiH spell: Wizard Barrier.
   - Reorder some behind the scenes checks.
-
-  - TO DO! Fix SR Celestial Bug.
+  - Fixed SR Celestial Bug.
 
 ## Version 12.2.1
 
