@@ -11701,7 +11701,6 @@ IF
   !Race(LastSeenBy(Myself),RAKSHASA)
   CheckStatLT(LastSeenBy(Myself),20,RESISTMAGIC)
   !StateCheck(LastSeenBy(Myself),STATE_SILENCED)
-  !CheckSpellState(LastSeenBy(Myself),SI_TRANSMUTATION)
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
@@ -11750,7 +11749,6 @@ IF
   !Race(LastSeenBy(Myself),RAKSHASA)
   CheckStatLT(LastSeenBy(Myself),20,RESISTMAGIC)
   !StateCheck(LastSeenBy(Myself),STATE_SILENCED)
-  !CheckSpellState(LastSeenBy(Myself),SI_TRANSMUTATION)
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
@@ -11799,7 +11797,6 @@ IF
   !Race(LastSeenBy(Myself),RAKSHASA)
   CheckStatLT(LastSeenBy(Myself),20,RESISTMAGIC)
   !StateCheck(LastSeenBy(Myself),STATE_SILENCED)
-  !CheckSpellState(LastSeenBy(Myself),SI_TRANSMUTATION)
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
@@ -11848,7 +11845,6 @@ IF
   !Race(LastSeenBy(Myself),RAKSHASA)
   CheckStatLT(LastSeenBy(Myself),20,RESISTMAGIC)
   !StateCheck(LastSeenBy(Myself),STATE_SILENCED)
-  !CheckSpellState(LastSeenBy(Myself),SI_TRANSMUTATION)
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
@@ -11897,7 +11893,6 @@ IF
   !Race(LastSeenBy(Myself),RAKSHASA)
   CheckStatLT(LastSeenBy(Myself),20,RESISTMAGIC)
   !StateCheck(LastSeenBy(Myself),STATE_SILENCED)
-  !CheckSpellState(LastSeenBy(Myself),SI_TRANSMUTATION)
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
@@ -11946,7 +11941,6 @@ IF
   !Race(LastSeenBy(Myself),RAKSHASA)
   CheckStatLT(LastSeenBy(Myself),20,RESISTMAGIC)
   !StateCheck(LastSeenBy(Myself),STATE_SILENCED)
-  !CheckSpellState(LastSeenBy(Myself),SI_TRANSMUTATION)
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_DEFLECTION)
@@ -19101,11 +19095,9 @@ END
 ///////////////////////////////////////////////////////////////////////////
 // 17 - Physical Attack Selection                                        //
 ///////////////////////////////////////////////////////////////////////////
-
 IF
   EEex_LuaTrigger("return MoFillCurrentTarget()")
   See(EEex_Target("MoCurrentTarget"))
-  False()
   OR(2)
     !WeaponEffectiveVs(LastSeenBy(Myself),MAINHAND)
     !WeaponCanDamage(LastSeenBy(Myself),MAINHAND)

@@ -4438,6 +4438,8 @@ IF
     See([ENEMY.0.0.MAGE_ALL])
   HaveSpellRES("CA#STURN")  // SPWI701.SPL (Greater Spell Deflection)
   !CheckSpellState(Myself,GREATER_SPELL_DEFLECTION)
+  !CheckSpellState(Myself,SPELL_DEFLECTION)
+  !CheckSpellState(Myself,MINOR_SPELL_DEFLECTION)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_POISONED)
@@ -4788,7 +4790,6 @@ END
 IF
   EEex_LuaTrigger("return MoFillCurrentTarget()")
   See(EEex_Target("MoCurrentTarget"))
-  False()
   OR(2)
     !WeaponEffectiveVs(LastSeenBy(Myself),MAINHAND)
     !WeaponCanDamage(LastSeenBy(Myself),MAINHAND)
