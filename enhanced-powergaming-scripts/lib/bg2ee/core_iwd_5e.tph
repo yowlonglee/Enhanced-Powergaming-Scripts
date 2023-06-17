@@ -59,6 +59,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetGlobal("MO_WildMindBlank","LOCALS",0)
     SetInterrupt(FALSE)
     SpellRES(WIZARD_MIND_BLANK,Myself)
@@ -89,6 +90,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
     SpellRES(CLERIC_IMPERVIOUS_SANCTITY_OF_MIND,Myself)
     SetInterrupt(TRUE)
@@ -138,6 +140,7 @@ END~~~~~ //"
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
     SpellRES(CLERIC_GREATER_SHIELD_OF_LATHANDER,Myself)
     SetInterrupt(TRUE)
@@ -177,6 +180,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
     SpellRES(CLERIC_SHIELD_OF_LATHANDER,Myself)
     SetInterrupt(TRUE)
@@ -231,6 +235,7 @@ END
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetGlobalTimer("MO_HealCast","GLOBAL",12)
     SetGlobal("MO_CastingHeal","GLOBAL",1)
     SetInterrupt(FALSE)

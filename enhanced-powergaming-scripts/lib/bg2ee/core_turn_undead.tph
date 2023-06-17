@@ -45,6 +45,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
     SpellRES("MOTURN1",Myself)
     SetInterrupt(TRUE)

@@ -76,6 +76,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SpellRES("MOPALC3",Myself)  // SPCL901.SPL (Greater Whirlwind Attack)
 END~~~~~ //"
   END

@@ -61,6 +61,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
     SpellRES(CLERIC_SUPERHEROISM,Myself)
     SetInterrupt(TRUE)
@@ -118,6 +119,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
     SpellRES(CLERIC_HEROISM,Myself)
     SetInterrupt(TRUE)
@@ -187,6 +189,7 @@ END
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
     SpellRES(CLERIC_SEEKING,Myself)
     SetInterrupt(TRUE)
@@ -245,6 +248,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
     SpellRES(CLERIC_STRIKING,Myself)
     SetInterrupt(TRUE)
@@ -316,6 +320,7 @@ END
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
     SpellRES(CLERIC_CELESTIAL_PROTECTION,Myself)
     SetInterrupt(TRUE)
@@ -355,6 +360,7 @@ END
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5023)
     SpellRES(CLERIC_REPEL_INSECTS,LastSeenBy(Myself))
@@ -387,6 +393,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5023)
     SpellRES(CLERIC_REPEL_INSECTS,LastSeenBy(Myself))
@@ -419,6 +426,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5023)
     SpellRES(CLERIC_REPEL_INSECTS,LastSeenBy(Myself))
@@ -451,6 +459,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5023)
     SpellRES(CLERIC_REPEL_INSECTS,LastSeenBy(Myself))
@@ -483,6 +492,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5023)
     SpellRES(CLERIC_REPEL_INSECTS,LastSeenBy(Myself))
@@ -515,6 +525,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5023)
     SpellRES(CLERIC_REPEL_INSECTS,LastSeenBy(Myself))
@@ -547,6 +558,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5023)
     SpellRES(CLERIC_REPEL_INSECTS,LastSeenBy(Myself))

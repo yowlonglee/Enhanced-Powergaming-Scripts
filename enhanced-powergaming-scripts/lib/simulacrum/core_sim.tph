@@ -27,6 +27,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mosim02.baf~ ~enhanced-powergaming
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
     ForceSpell(Myself,WIZARD_SPELL_IMMUNITY_DIVINATION)  // SPWI592.SPL (Immunity: Divination)
     RemoveSpell(WIZARD_SPELL_IMMUNITY)  // SPWI510.SPL (Spell Immunity)

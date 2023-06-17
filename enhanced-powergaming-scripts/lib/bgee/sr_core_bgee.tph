@@ -39,6 +39,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
     SetInterrupt(FALSE)
     UseItemAbility("SW1H26",Myself,SLOT_AMMO3,1)  // Ilbratha +1
@@ -126,6 +127,7 @@ END~~~~~
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5014)
     UseItem("OHRSCRL1",Myself)
@@ -164,6 +166,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5014)
     UseItem("OHRSCRL1",Myself)
@@ -207,6 +210,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5014)
     UseItem("OHRSCRL1",Myself)
@@ -250,6 +254,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5014)
     UseItem("OHRSCRL1",Myself)
@@ -293,6 +298,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5014)
     UseItem("OHRSCRL1",Myself)
@@ -336,6 +342,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5014)
     UseItem("OHRSCRL1",Myself)
@@ -379,6 +386,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5014)
     UseItem("OHRSCRL1",Myself)
@@ -422,6 +430,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5014)
     UseItem("OHRSCRL1",Myself)
@@ -470,6 +479,7 @@ END~~~~~
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
     SetInterrupt(FALSE)
     UseItem("OHRRING1",Myself)  // Ring of Duplication
@@ -524,6 +534,7 @@ END~~~~~
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
     SetInterrupt(FALSE)
     UseItemAbility("SW1H31",Myself,SLOT_AMMO3,1)  // Daystar +2
@@ -607,6 +618,7 @@ END~~~~~
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
     SetInterrupt(FALSE)
     UseItem("OHRHELM1",Myself)  // Headband of the Devout
@@ -668,6 +680,7 @@ END~~~~~
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
     SetInterrupt(FALSE)
     UseItem("OHRBELT2",Myself)  // Belt of Minor Invulnerability
@@ -722,6 +735,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,CLERIC_PHYSICAL_MIRROR)  // SPPR613.SPL (Physical Mirror)
     SetInterrupt(TRUE)
@@ -756,6 +770,7 @@ END~~~~~
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
     SetInterrupt(FALSE)
     UseItem("Boot12",Myself)  // Gargoyle Boots
@@ -821,6 +836,7 @@ END~~~~~
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetGlobal("MO_HasMelfMeteors","LOCALS",1)
     SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
     UseItem("OHRCLCK1",Myself)  // Cowl of the Stars
@@ -904,6 +920,7 @@ END~~~~~
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     Spell(Myself,WARRIOR_CRITICAL_STRIKE)  // SPCL905.SPL (Critical Strike)
 END~~~~~
     string = ~~~~~~~~~~ //"
@@ -991,6 +1008,7 @@ END~~~~~
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
     SetInterrupt(FALSE)
     UseItem("AMUL26",Myself)  // Amulet of Cheetah Speed
@@ -1082,6 +1100,7 @@ END~~~~~
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
     SetInterrupt(FALSE)
     UseItem("BRAC16",Myself)  // Bracers of Blinding Strike
@@ -1166,6 +1185,7 @@ END~~~~~
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     Spell(Myself,WARRIOR_GREATER_WHIRLWIND)  // SPCL901.SPL (Greater Whirlwind Attack)
 END~~~~~
     string = ~~~~~~~~~~ //"
@@ -1242,6 +1262,7 @@ END~~~~~
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,CLERIC_AURA_OF_FLAMING_DEATH)  // SPPR730.SPL (Aura of Flaming Death)
     SetInterrupt(TRUE)
@@ -1277,6 +1298,7 @@ END~~~~~
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetGlobalTimer("MO_HealCast","GLOBAL",12)
     SetGlobal("MO_CastingHeal","GLOBAL",1)
     SetInterrupt(FALSE)

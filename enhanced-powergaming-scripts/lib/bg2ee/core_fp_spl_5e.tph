@@ -40,6 +40,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
     SpellRES(CLERIC_SPIRITUAL_CLARITY,LastSeenBy(Myself))
     SetInterrupt(TRUE)
@@ -76,6 +77,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
     SpellRES(CLERIC_SPIRITUAL_CLARITY,LastSeenBy(Myself))
     SetInterrupt(TRUE)
@@ -112,6 +114,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
     SpellRES(CLERIC_SPIRITUAL_CLARITY,LastSeenBy(Myself))
     SetInterrupt(TRUE)
@@ -148,6 +151,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
     SpellRES(CLERIC_SPIRITUAL_CLARITY,LastSeenBy(Myself))
     SetInterrupt(TRUE)
@@ -184,6 +188,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
     SpellRES(CLERIC_SPIRITUAL_CLARITY,LastSeenBy(Myself))
     SetInterrupt(TRUE)
@@ -220,6 +225,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
     SpellRES(CLERIC_SPIRITUAL_CLARITY,LastSeenBy(Myself))
     SetInterrupt(TRUE)

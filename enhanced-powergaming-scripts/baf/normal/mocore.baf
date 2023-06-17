@@ -23,6 +23,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     Continue()
 END
 
@@ -31,7 +32,7 @@ IF
   !Global("BDAI_SKILL_MODE","LOCALS",3)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    //SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetGlobal("MO_SpellCast","LOCALS",0)
     Continue()
 END
@@ -41,7 +42,7 @@ IF
   Global("BDAI_SKILL_MODE","LOCALS",3)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SpellCastTimer","LOCALS",12)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetGlobal("MO_SpellCast","LOCALS",0)
     Continue()
 END

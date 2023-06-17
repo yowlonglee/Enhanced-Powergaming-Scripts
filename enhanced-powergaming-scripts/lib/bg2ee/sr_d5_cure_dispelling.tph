@@ -298,6 +298,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5010)
     Spell(LastSeenBy(Myself),WIZARD_BREAK_ENCHANTMENT)  // SPWI410.SPL (Break Enchantment)~~~~~
@@ -310,6 +311,7 @@ THEN
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5010)
     Spell(LastSeenBy(Myself),WIZARD_BREAK_ENCHANTMENT)  // SPWI410.SPL (Break Enchantment)~~~~~ //"
@@ -332,6 +334,7 @@ THEN
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5010)
     Spell(LastSeenBy(Myself),CLERIC_BREAK_ENCHANTMENT)  // SPPR307.SPL (Break Enchantment)~~~~~
@@ -341,6 +344,7 @@ THEN
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
     DisplayStringHead(Myself,@5010)
     Spell(LastSeenBy(Myself),CLERIC_BREAK_ENCHANTMENT)  // SPPR307.SPL (Break Enchantment)~~~~~ //"

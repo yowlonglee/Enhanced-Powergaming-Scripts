@@ -42,6 +42,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SpellRES("morvr01",Myself)
 END~~~~~ //"
   END
@@ -74,6 +75,7 @@ END~~~~~ //"
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SpellRES("morvr03",Myself)
 END~~~~~ //"
   END
