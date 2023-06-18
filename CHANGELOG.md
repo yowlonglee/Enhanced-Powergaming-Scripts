@@ -1,5 +1,14 @@
 # Changelog
 
+## Version 12.3.1
+
+June xx, 2023
+
+### Changed 
+
+- All Games
+  - Corrected bug with Faith and Powers HLAs scripts being added to BGEE.
+
 ## Version 12.3
 
 June 17, 2023
