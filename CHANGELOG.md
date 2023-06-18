@@ -2,7 +2,7 @@
 
 ## Version 12.3.1
 
-June xx, 2023
+June 18, 2023
 
 ### Changed 
 
