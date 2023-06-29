@@ -894,7 +894,7 @@ END~~~~~
   OR(2)
     Global("MO_BUFF","LOCALS",1)
     Global("MO_LONG_BUFF","LOCALS",1)
-  !StateCheck(Myself,INVOKE_COURAGE)
+  !CheckSpellState(Myself,INVOKE_COURAGE)
   HaveSpell(INVOKE_COURAGE)  // SPIN676.SPL (Invoke Courage)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_POISONED)
@@ -954,7 +954,6 @@ END~~~~~
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_POISONED)
   !StateCheck(Myself,STATE_SILENCED)
-  Global("MO_CastAthkatla","LOCALS",1)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
