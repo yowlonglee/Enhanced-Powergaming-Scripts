@@ -3454,6 +3454,7 @@ END
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
+    SetInterrupt(FALSE)
     ReallyForceSpell(Myself,WIZARD_SPELL_IMMUNITY_ABJURATION)  // SPWI590.SPL (Immunity: Abjuration)
     SetGlobalTimer("MO_SpellCast","LOCALS",3)
     ReallyForceSpellRES("d5src-5",Myself)
@@ -3461,6 +3462,7 @@ THEN
     Wait(1)
     ReallyForceSpellRES("d5zspld",Myself)
     ReallyForceSpellRES("d5zspla",Myself)
+    SetInterrupt(TRUE)
 END
 ~~~~~ //"
   END

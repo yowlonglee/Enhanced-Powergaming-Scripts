@@ -2124,8 +2124,10 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
+    SetInterrupt(FALSE)
     Spell(Myself,CAVALIER_REMOVE_FEAR)  // SPPR108.SPL (Remove Fear)
     Wait(1)
+    SetInterrupt(TRUE)
 END
 
 // 5e Spellcasting Prebuff Cleric Remove Fear
