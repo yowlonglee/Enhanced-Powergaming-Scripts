@@ -1711,6 +1711,609 @@ THEN
 END
 
 /////////////////////////////////////////////////////////////////////
+// Breach
+/////////////////////////////////////////////////////////////////////
+IF
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+  !Global("MO_DamagedTarget","LOCALS",1)
+  NumCreatureLT([GOODCUTOFF],3)
+  See(NearestEnemyOfType([GOODCUTOFF]))
+  HaveSpell(WIZARD_BREACH)  // SPWI513.SPL (Breach)
+  OR(4)
+    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
+    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
+    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
+    CheckSpellState(LastSeenBy(Myself),MANTLE)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  !CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_DEFLECTION)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_BREACH)  // SPWI513.SPL (Breach)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+  !Global("MO_DamagedTarget","LOCALS",1)
+  NumCreatureLT([GOODCUTOFF],3)
+  See(SecondNearestEnemyOfType([GOODCUTOFF]))
+  HaveSpell(WIZARD_BREACH)  // SPWI513.SPL (Breach)
+  OR(4)
+    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
+    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
+    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
+    CheckSpellState(LastSeenBy(Myself),MANTLE)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  !CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_DEFLECTION)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_BREACH)  // SPWI513.SPL (Breach)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+  !Global("MO_DamagedTarget","LOCALS",1)
+  NumCreatureLT([GOODCUTOFF],3)
+  See(ThirdNearestEnemyOfType([GOODCUTOFF]))
+  HaveSpell(WIZARD_BREACH)  // SPWI513.SPL (Breach)
+  OR(4)
+    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
+    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
+    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
+    CheckSpellState(LastSeenBy(Myself),MANTLE)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  !CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_DEFLECTION)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_BREACH)  // SPWI513.SPL (Breach)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+  !Global("MO_DamagedTarget","LOCALS",1)
+  NumCreatureLT([GOODCUTOFF],3)
+  See(FourthNearestEnemyOfType([GOODCUTOFF]))
+  HaveSpell(WIZARD_BREACH)  // SPWI513.SPL (Breach)
+  OR(4)
+    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
+    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
+    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
+    CheckSpellState(LastSeenBy(Myself),MANTLE)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  !CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_DEFLECTION)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_BREACH)  // SPWI513.SPL (Breach)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+  !Global("MO_DamagedTarget","LOCALS",1)
+  NumCreatureLT([GOODCUTOFF],3)
+  See(FifthNearestEnemyOfType([GOODCUTOFF]))
+  HaveSpell(WIZARD_BREACH)  // SPWI513.SPL (Breach)
+  OR(4)
+    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
+    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
+    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
+    CheckSpellState(LastSeenBy(Myself),MANTLE)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  !CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_DEFLECTION)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_BREACH)  // SPWI513.SPL (Breach)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+  !Global("MO_DamagedTarget","LOCALS",1)
+  NumCreatureLT([GOODCUTOFF],3)
+  See(SixthNearestEnemyOfType([GOODCUTOFF]))
+  HaveSpell(WIZARD_BREACH)  // SPWI513.SPL (Breach)
+  OR(4)
+    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
+    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
+    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
+    CheckSpellState(LastSeenBy(Myself),MANTLE)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  !CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_DEFLECTION)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_BREACH)  // SPWI513.SPL (Breach)
+    SetInterrupt(TRUE)
+END
+
+/////////////////////////////////////////////////////////////////////
+// Spell Thrust
+/////////////////////////////////////////////////////////////////////
+IF
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+  !GlobalTimerNotExpired("MO_TimeStopTimer","LOCALS")
+  NumCreatureLT([GOODCUTOFF],4)
+  See(NearestEnemyOfType([GOODCUTOFF]))
+  HaveSpell(WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
+  OR(4)
+    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
+    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
+    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
+    CheckSpellState(LastSeenBy(Myself),MANTLE)
+  OR(3)
+    CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+    CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
+    CheckSpellState(LastSeenBy(Myself),SI_DIVINATION)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  CheckStat(LastSeenBy(Myself),0,MINORGLOBE)
+  CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_DEFLECTION)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+  !GlobalTimerNotExpired("MO_TimeStopTimer","LOCALS")
+  NumCreatureLT([GOODCUTOFF],4)
+  See(SecondNearestEnemyOfType([GOODCUTOFF]))
+  HaveSpell(WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
+  OR(4)
+    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
+    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
+    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
+    CheckSpellState(LastSeenBy(Myself),MANTLE)
+  OR(3)
+    CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+    CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
+    CheckSpellState(LastSeenBy(Myself),SI_DIVINATION)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  CheckStat(LastSeenBy(Myself),0,MINORGLOBE)
+  CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_DEFLECTION)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+  !GlobalTimerNotExpired("MO_TimeStopTimer","LOCALS")
+  NumCreatureLT([GOODCUTOFF],4)
+  See(ThirdNearestEnemyOfType([GOODCUTOFF]))
+  HaveSpell(WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
+  OR(4)
+    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
+    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
+    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
+    CheckSpellState(LastSeenBy(Myself),MANTLE)
+  OR(3)
+    CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+    CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
+    CheckSpellState(LastSeenBy(Myself),SI_DIVINATION)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  CheckStat(LastSeenBy(Myself),0,MINORGLOBE)
+  CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_DEFLECTION)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+  !GlobalTimerNotExpired("MO_TimeStopTimer","LOCALS")
+  NumCreatureLT([GOODCUTOFF],4)
+  See(FourthNearestEnemyOfType([GOODCUTOFF]))
+  HaveSpell(WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
+  OR(4)
+    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
+    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
+    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
+    CheckSpellState(LastSeenBy(Myself),MANTLE)
+  OR(3)
+    CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+    CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
+    CheckSpellState(LastSeenBy(Myself),SI_DIVINATION)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  CheckStat(LastSeenBy(Myself),0,MINORGLOBE)
+  CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_DEFLECTION)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+  !GlobalTimerNotExpired("MO_TimeStopTimer","LOCALS")
+  NumCreatureLT([GOODCUTOFF],4)
+  See(FifthNearestEnemyOfType([GOODCUTOFF]))
+  HaveSpell(WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
+  OR(4)
+    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
+    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
+    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
+    CheckSpellState(LastSeenBy(Myself),MANTLE)
+  OR(3)
+    CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+    CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
+    CheckSpellState(LastSeenBy(Myself),SI_DIVINATION)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  CheckStat(LastSeenBy(Myself),0,MINORGLOBE)
+  CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_DEFLECTION)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+  !GlobalTimerNotExpired("MO_TimeStopTimer","LOCALS")
+  NumCreatureLT([GOODCUTOFF],4)
+  See(SixthNearestEnemyOfType([GOODCUTOFF]))
+  HaveSpell(WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
+  OR(4)
+    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
+    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
+    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
+    CheckSpellState(LastSeenBy(Myself),MANTLE)
+  OR(3)
+    CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+    CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
+    CheckSpellState(LastSeenBy(Myself),SI_DIVINATION)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  CheckStat(LastSeenBy(Myself),0,MINORGLOBE)
+  CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_DEFLECTION)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_SPELL_THRUST)  // SPWI321.SPL (Spell Thrust)
+    SetInterrupt(TRUE)
+END
+
+/////////////////////////////////////////////////////////////////////
+// Secret Word
+/////////////////////////////////////////////////////////////////////
+IF
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+  See(NearestEnemyOfType([GOODCUTOFF]))
+  HaveSpell(WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
+  OR(4)
+    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
+    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
+    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
+    CheckSpellState(LastSeenBy(Myself),MANTLE)
+  OR(6)
+    CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+    CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+    CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+    CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
+    CheckSpellState(LastSeenBy(Myself),SI_DIVINATION)
+    CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  CheckStat(LastSeenBy(Myself),0,MINORGLOBE)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+  See(SecondNearestEnemyOfType([GOODCUTOFF]))
+  HaveSpell(WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
+  OR(4)
+    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
+    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
+    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
+    CheckSpellState(LastSeenBy(Myself),MANTLE)
+  OR(6)
+    CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+    CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+    CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+    CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
+    CheckSpellState(LastSeenBy(Myself),SI_DIVINATION)
+    CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  CheckStat(LastSeenBy(Myself),0,MINORGLOBE)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+  See(ThirdNearestEnemyOfType([GOODCUTOFF]))
+  HaveSpell(WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
+  OR(4)
+    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
+    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
+    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
+    CheckSpellState(LastSeenBy(Myself),MANTLE)
+  OR(6)
+    CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+    CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+    CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+    CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
+    CheckSpellState(LastSeenBy(Myself),SI_DIVINATION)
+    CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  CheckStat(LastSeenBy(Myself),0,MINORGLOBE)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+  See(FourthNearestEnemyOfType([GOODCUTOFF]))
+  HaveSpell(WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
+  OR(4)
+    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
+    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
+    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
+    CheckSpellState(LastSeenBy(Myself),MANTLE)
+  OR(6)
+    CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+    CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+    CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+    CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
+    CheckSpellState(LastSeenBy(Myself),SI_DIVINATION)
+    CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  CheckStat(LastSeenBy(Myself),0,MINORGLOBE)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+  See(FifthNearestEnemyOfType([GOODCUTOFF]))
+  HaveSpell(WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
+  OR(4)
+    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
+    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
+    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
+    CheckSpellState(LastSeenBy(Myself),MANTLE)
+  OR(6)
+    CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+    CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+    CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+    CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
+    CheckSpellState(LastSeenBy(Myself),SI_DIVINATION)
+    CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  CheckStat(LastSeenBy(Myself),0,MINORGLOBE)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+  See(SixthNearestEnemyOfType([GOODCUTOFF]))
+  HaveSpell(WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
+  OR(4)
+    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
+    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
+    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
+    CheckSpellState(LastSeenBy(Myself),MANTLE)
+  OR(6)
+    CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+    CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+    CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+    CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
+    CheckSpellState(LastSeenBy(Myself),SI_DIVINATION)
+    CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  CheckStat(LastSeenBy(Myself),0,MINORGLOBE)
+  CheckStatLT(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_SECRET_WORD)  // SPWI419.SPL (Secret Word)
+    SetInterrupt(TRUE)
+END
+
+/////////////////////////////////////////////////////////////////////
 // Pierce Shield
 /////////////////////////////////////////////////////////////////////
 IF
@@ -1902,6 +2505,366 @@ THEN
     SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(LastSeenBy(Myself),WIZARD_PIERCE_SHIELD)  // SPWI805.SPL (Pierce Shield)
+    SetInterrupt(TRUE)
+END
+
+/////////////////////////////////////////////////////////////////////
+// Spellstrike
+/////////////////////////////////////////////////////////////////////
+IF
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+  NumCreatureLT([GOODCUTOFF],3)
+  See(NearestEnemyOfType([GOODCUTOFF]))
+  HaveSpell(WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
+  OR(4)
+    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
+    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
+    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
+    CheckSpellState(LastSeenBy(Myself),MANTLE)
+  CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+  NumCreatureLT([GOODCUTOFF],3)
+  See(SecondNearestEnemyOfType([GOODCUTOFF]))
+  HaveSpell(WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
+  OR(4)
+    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
+    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
+    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
+    CheckSpellState(LastSeenBy(Myself),MANTLE)
+  CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+  NumCreatureLT([GOODCUTOFF],3)
+  See(ThirdNearestEnemyOfType([GOODCUTOFF]))
+  HaveSpell(WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
+  OR(4)
+    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
+    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
+    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
+    CheckSpellState(LastSeenBy(Myself),MANTLE)
+  CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+  NumCreatureLT([GOODCUTOFF],3)
+  See(FourthNearestEnemyOfType([GOODCUTOFF]))
+  HaveSpell(WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
+  OR(4)
+    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
+    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
+    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
+    CheckSpellState(LastSeenBy(Myself),MANTLE)
+  CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+  NumCreatureLT([GOODCUTOFF],3)
+  See(FifthNearestEnemyOfType([GOODCUTOFF]))
+  HaveSpell(WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
+  OR(4)
+    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
+    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
+    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
+    CheckSpellState(LastSeenBy(Myself),MANTLE)
+  CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+  NumCreatureLT([GOODCUTOFF],3)
+  See(SixthNearestEnemyOfType([GOODCUTOFF]))
+  HaveSpell(WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
+  OR(4)
+    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
+    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
+    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
+    CheckSpellState(LastSeenBy(Myself),MANTLE)
+  CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_SPELL_STRIKE)  // SPWI903.SPL (Spellstrike)
+    SetInterrupt(TRUE)
+END
+
+/////////////////////////////////////////////////////////////////////
+// Ruby Ray of Reversal
+/////////////////////////////////////////////////////////////////////
+IF
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+  NumCreatureLT([GOODCUTOFF],3)
+  See(NearestEnemyOfType([GOODCUTOFF]))
+  HaveSpell(WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
+  OR(4)
+    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
+    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
+    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
+    CheckSpellState(LastSeenBy(Myself),MANTLE)
+  OR(7)
+    CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+    CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+    CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+    CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
+    CheckSpellState(LastSeenBy(Myself),SI_DIVINATION)
+    CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+    CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TRAP)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+  NumCreatureLT([GOODCUTOFF],3)
+  See(SecondNearestEnemyOfType([GOODCUTOFF]))
+  HaveSpell(WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
+  OR(4)
+    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
+    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
+    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
+    CheckSpellState(LastSeenBy(Myself),MANTLE)
+  OR(7)
+    CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+    CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+    CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+    CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
+    CheckSpellState(LastSeenBy(Myself),SI_DIVINATION)
+    CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+    CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TRAP)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+  NumCreatureLT([GOODCUTOFF],3)
+  See(ThirdNearestEnemyOfType([GOODCUTOFF]))
+  HaveSpell(WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
+  OR(4)
+    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
+    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
+    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
+    CheckSpellState(LastSeenBy(Myself),MANTLE)
+  OR(7)
+    CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+    CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+    CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+    CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
+    CheckSpellState(LastSeenBy(Myself),SI_DIVINATION)
+    CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+    CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TRAP)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+  NumCreatureLT([GOODCUTOFF],3)
+  See(FourthNearestEnemyOfType([GOODCUTOFF]))
+  HaveSpell(WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
+  OR(4)
+    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
+    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
+    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
+    CheckSpellState(LastSeenBy(Myself),MANTLE)
+  OR(7)
+    CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+    CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+    CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+    CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
+    CheckSpellState(LastSeenBy(Myself),SI_DIVINATION)
+    CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+    CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TRAP)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+  NumCreatureLT([GOODCUTOFF],3)
+  See(FifthNearestEnemyOfType([GOODCUTOFF]))
+  HaveSpell(WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
+  OR(4)
+    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
+    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
+    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
+    CheckSpellState(LastSeenBy(Myself),MANTLE)
+  OR(7)
+    CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+    CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+    CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+    CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
+    CheckSpellState(LastSeenBy(Myself),SI_DIVINATION)
+    CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+    CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TRAP)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
+    SetInterrupt(TRUE)
+END
+
+IF
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+  NumCreatureLT([GOODCUTOFF],3)
+  See(SixthNearestEnemyOfType([GOODCUTOFF]))
+  HaveSpell(WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
+  OR(4)
+    CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_MAGICAL_WEAPONS)
+    CheckSpellState(LastSeenBy(Myself),ABSOLUTE_IMMUNITY)
+    CheckSpellState(LastSeenBy(Myself),IMPROVED_MANTLE)
+    CheckSpellState(LastSeenBy(Myself),MANTLE)
+  OR(7)
+    CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TURNING)
+    CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+    CheckSpellState(LastSeenBy(Myself),SPELL_SHIELD)
+    CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
+    CheckSpellState(LastSeenBy(Myself),SI_DIVINATION)
+    CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+    CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_TRAP)
+  !CheckSpellState(LastSeenBy(Myself),SCROLL_OF_PROTECTION_FROM_MAGIC)
+  CheckStatLT(LastSeenBy(Myself),1,SANCTUARY)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(LastSeenBy(Myself),WIZARD_RUBY_RAY_OF_REVERSAL)  // SPWI704.SPL (Ruby Ray of Reversal)
     SetInterrupt(TRUE)
 END
 
@@ -2360,6 +3323,210 @@ THEN
   RESPONSE #20
     Continue()
 END
+
+/////////////////////////////////////////////////////////////////////
+// Spell: Hardiness
+/////////////////////////////////////////////////////////////////////
+IF
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  Global("MO_Offensive","LOCALS",2)
+  HaveSpell(WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
+  !CheckSpellState(Myself,HARDINESS)
+  See(NearestEnemyOfType([GOODCUTOFF]))
+THEN
+  RESPONSE #70
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(Myself,WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
+    SetInterrupt(TRUE)
+  RESPONSE #30
+    Continue()
+END
+
+/////////////////////////////////////////////////////////////////////
+// Spell: Black Blade of Disaster
+/////////////////////////////////////////////////////////////////////
+IF
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  Global("MO_Offensive","LOCALS",2)
+  HaveSpell(WIZARD_BLACK_BLADE_OF_DISASTER)
+  !CheckSpellState(Myself,BLACK_BLADE)
+  See(NearestEnemyOfType([GOODCUTOFF]))
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+THEN
+  RESPONSE #50
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(Myself,WIZARD_BLACK_BLADE_OF_DISASTER)
+    SetInterrupt(TRUE)
+  RESPONSE #50
+    Continue()
+END
+
+/////////////////////////////////////////////////////////////////////
+// Spell: Enrage
+/////////////////////////////////////////////////////////////////////
+IF
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  Global("MO_Offensive","LOCALS",2)
+  HaveSpell(BERSERKER_RAGE)  // SPCL321.SPL (Enrage)
+  !CheckSpellState(Myself,BERSERKER_RAGE_FATIGUE)
+  !CheckSpellState(Myself,BERSERKER_RAGE)
+  See(NearestEnemyOfType([GOODCUTOFF]))
+THEN
+  RESPONSE #50
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(Myself,BERSERKER_RAGE)  // SPCL321.SPL (Enrage)
+    SetInterrupt(TRUE)
+  RESPONSE #50
+    Continue()
+END
+
+/////////////////////////////////////////////////////////////////////
+// Spell: Barbarian Rage
+/////////////////////////////////////////////////////////////////////
+IF
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  Global("MO_Offensive","LOCALS",2)
+  HaveSpell(BARBARIAN_RAGE)  // SPCL152.SPL (Barbarian Rage)
+  !CheckSpellState(Myself,BARBARIAN_RAGE)
+  See(NearestEnemyOfType([GOODCUTOFF]))
+THEN
+  RESPONSE #50
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(Myself,BARBARIAN_RAGE)  // SPCL152.SPL (Barbarian Rage)
+    SetInterrupt(TRUE)
+  RESPONSE #50
+    Continue()
+END
+
+/////////////////////////////////////////////////////////////////////
+// Spell: Improved Haste
+/////////////////////////////////////////////////////////////////////
+IF
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  Global("MO_Offensive","LOCALS",2)
+  HaveSpell(WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
+  !CheckStatGT(Myself,0,IMPROVEDHASTE)
+  CheckStatGT(Myself,2,NUMBEROFATTACKS)
+  !CheckSpellState(Myself,GREATER_WHIRLWIND)
+  See(NearestEnemyOfType([GOODCUTOFF]))
+  OR(6)
+    WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(SecondNearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(ThirdNearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(FourthNearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(FifthNearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(SixthNearestEnemyOf(Myself),MAINHAND)
+  OR(6)
+    WeaponCanDamage(NearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(SecondNearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(ThirdNearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(FourthNearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(FifthNearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(SixthNearestEnemyOf(Myself),MAINHAND)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+THEN
+  RESPONSE #50
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(Myself,WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
+    SetInterrupt(TRUE)
+  RESPONSE #50
+    Continue()
+END
+
+/////////////////////////////////////////////////////////////////////
+// Spell: Greater Whirlwind Attack
+/////////////////////////////////////////////////////////////////////
+IF
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  Global("MO_Offensive","LOCALS",2)
+  HaveSpell(WARRIOR_GREATER_WHIRLWIND)  // SPCL901.SPL (Greater Whirlwind Attack)
+  !CheckStatGT(Myself,0,IMPROVEDHASTE)
+  !CheckSpellState(Myself,CRITICAL_STRIKE)
+  !CheckSpellState(Myself,GREATER_WHIRLWIND)
+  See(NearestEnemyOfType([GOODCUTOFF]))
+  OR(6)
+    WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(SecondNearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(ThirdNearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(FourthNearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(FifthNearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(SixthNearestEnemyOf(Myself),MAINHAND)
+  OR(6)
+    WeaponCanDamage(NearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(SecondNearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(ThirdNearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(FourthNearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(FifthNearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(SixthNearestEnemyOf(Myself),MAINHAND)
+THEN
+  RESPONSE #50
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(Myself,WARRIOR_GREATER_WHIRLWIND)  // SPCL901.SPL (Greater Whirlwind Attack)
+    SetInterrupt(TRUE)
+  RESPONSE #50
+    Continue()
+END
+
+/////////////////////////////////////////////////////////////////////
+// Spell: Critical Strike
+/////////////////////////////////////////////////////////////////////
+IF
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  Global("MO_Offensive","LOCALS",2)
+  HaveSpell(WARRIOR_CRITICAL_STRIKE)  // SPCL905.SPL (Critical Strike)
+  !CheckSpellState(Myself,CRITICAL_STRIKE)
+  !CheckSpellState(Myself,GREATER_WHIRLWIND)
+  See(NearestEnemyOfType([GOODCUTOFF]))
+  OR(6)
+    WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(SecondNearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(ThirdNearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(FourthNearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(FifthNearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(SixthNearestEnemyOf(Myself),MAINHAND)
+  OR(6)
+    WeaponCanDamage(NearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(SecondNearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(ThirdNearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(FourthNearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(FifthNearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(SixthNearestEnemyOf(Myself),MAINHAND)
+THEN
+  RESPONSE #50
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(Myself,WARRIOR_CRITICAL_STRIKE)  // SPCL905.SPL (Critical Strike)
+    SetInterrupt(TRUE)
+  RESPONSE #50
+    Continue()
+END
+
 /////////////////////////////////////////////////////////////////////
 // Spell: Mirror Image
 /////////////////////////////////////////////////////////////////////
@@ -9159,73 +10326,6 @@ THEN
     Spell(Myself,WIZARD_PROTECTION_FROM_NORMAL_MISSILES)  // SPWI311.SPL (Protection From Normal Missiles)
     SetInterrupt(TRUE)
 END
-
-IF
-  OR(2)
-    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
-    CheckStatGT(Myself,0,AURACLEANSING)
-  HaveSpell(WIZARD_BLACK_BLADE_OF_DISASTER)
-  !CheckSpellState(Myself,BLACK_BLADE)
-  RandomNum(5,1)
-  OR(6)
-    See([PC.0.0.MAGE_ALL])
-    See([PC.0.0.BARD_ALL])
-    See([PC.0.0.CLERIC_ALL])
-    See([PC.0.0.DRUID_ALL])
-    See([PC.0.0.SORCERER])
-    See([PC.0.0.CLERIC_MAGE])
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
-    Spell(Myself,WIZARD_BLACK_BLADE_OF_DISASTER)
-END
-
-IF
-  OR(2)
-    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
-    CheckStatGT(Myself,0,AURACLEANSING)
-  HaveSpell(WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
-  !CheckStatGT(Myself,0,IMPROVEDHASTE)
-  OR(5)
-		Class(Myself,THIEF_ALL)
-		Class(Myself,FIGHTER_ALL)
-		Class(Myself,BARD_ALL)
-		Class(Myself,DRUID_ALL)
-		Class(Myself,CLERIC_ALL)
-  OR(6)
-    WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
-    WeaponEffectiveVs(SecondNearestEnemyOf(Myself),MAINHAND)
-    WeaponEffectiveVs(ThirdNearestEnemyOf(Myself),MAINHAND)
-    WeaponEffectiveVs(FourthNearestEnemyOf(Myself),MAINHAND)
-    WeaponEffectiveVs(FifthNearestEnemyOf(Myself),MAINHAND)
-    WeaponEffectiveVs(SixthNearestEnemyOf(Myself),MAINHAND)
-  OR(6)
-    WeaponCanDamage(NearestEnemyOf(Myself),MAINHAND)
-    WeaponCanDamage(SecondNearestEnemyOf(Myself),MAINHAND)
-    WeaponCanDamage(ThirdNearestEnemyOf(Myself),MAINHAND)
-    WeaponCanDamage(FourthNearestEnemyOf(Myself),MAINHAND)
-    WeaponCanDamage(FifthNearestEnemyOf(Myself),MAINHAND)
-    WeaponCanDamage(SixthNearestEnemyOf(Myself),MAINHAND)
-  RandomNum(5,1)
-  OR(6)
-    See([PC.0.0.MAGE_ALL])
-    See([PC.0.0.BARD_ALL])
-    See([PC.0.0.CLERIC_ALL])
-    See([PC.0.0.DRUID_ALL])
-    See([PC.0.0.SORCERER])
-    See([PC.0.0.CLERIC_MAGE])
-  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_POISONED)
-  !StateCheck(Myself,STATE_SILENCED)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
-    SetInterrupt(FALSE)
-    Spell(Myself,WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
-    SetInterrupt(TRUE)
-END
-
 
 
 IF

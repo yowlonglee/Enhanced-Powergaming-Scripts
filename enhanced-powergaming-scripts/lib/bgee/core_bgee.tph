@@ -913,7 +913,9 @@ THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
     SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
     Spell(Myself,WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
+    SetInterrupt(TRUE)
 END~~~~~
     string = ~~~~~~~~~~ //"
   END

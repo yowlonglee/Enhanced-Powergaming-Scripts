@@ -1,5 +1,14 @@
 # Changelog
 
+## Version 12.4
+
+August xx, 2023
+
+### Changed 
+
+- All Games
+  - Updated enemy simulacrum scripts.
+
 ## Version 12.3.1
 
 June 18, 2023
