@@ -10002,7 +10002,7 @@ IF
     CheckStatGT(Myself,0,AURACLEANSING)
   Global("MO_Offensive","LOCALS",0)
   Global("MO_CastCommand","LOCALS",1)
-  See(NearestEnemyOfType([GOODCUTOFF.HUMANOID])
+  See(NearestEnemyOfType([GOODCUTOFF.HUMANOID]))
   HaveSpell(CLERIC_COMMAND)  // SPPR102.SPL (Command)
   !Race(LastSeenBy(Myself),ELF)
   !General(LastSeenBy(Myself),UNDEAD)
