@@ -1,6 +1,7 @@
 # Enhanced Powergaming Scripts
 
 [![Latest Release](https://img.shields.io/github/v/release/gibberlings3/Enhanced-Powergaming-Scripts?include_prereleases)](https://github.com/Gibberlings3/Enhanced-Powergaming-Scripts/releases/latest)
+[![Github downloads (all releases)](https://img.shields.io/github/downloads/gibberlings3/Enhanced-Powergaming-Scripts/total.svg?color=gold)](https://github.com/gibberlings3/Enhanced-Powergaming-Scripts/releases)
 ![Language](https://img.shields.io/static/v1?label=language&message=english%20%7C%20french%20%7C%20german%20%7C%20polish%20%7C%20russian%20%7C%20spanish&color=informational)
 ![Platform](https://img.shields.io/static/v1?label=platform&message=windows%20%7C%20macos%20%7C%20linux&color=informational)
 
