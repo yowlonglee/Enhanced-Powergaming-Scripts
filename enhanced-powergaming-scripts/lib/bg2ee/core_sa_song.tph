@@ -18,6 +18,49 @@ THEN
     BattleSong()
 END~~~~~
     string = ~~~~~IF
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_SKILL_MODE","LOCALS",3)
+  !GlobalTimerNotExpired("MO_SongUp","LOCALS")
+  Class(Myself,BARD_ALL)
+  !ModalState(BATTLESONG)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_BardSongTimer1","LOCALS",ONE_ROUND)
+    SetGlobalTimer("MO_BardSongTimer2","LOCALS",TWO_ROUNDS)
+    BattleSong()
+END
+
+IF
+  ModalState(BATTLESONG)
+  GlobalTimerNotExpired("MO_SongUp","LOCALS")
+  !GlobalTimerNotExpired("MO_BardSongTimer1","LOCALS")
+THEN
+  RESPONSE #100
+    BattleSong()
+END~~~~~ //"
+  END
+
+/*
+///////////////////////////////////////////////////////////////////////////
+// Update Singing Check 1                                                //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~IF
+  Global("BDAI_SKILL_MODE","LOCALS",3)
+  Class(Myself,BARD_ALL)
+  !ModalState(BATTLESONG)
+  ActionListEmpty()
+THEN
+  RESPONSE #100
+    BattleSong()
+END~~~~~
+    string = ~~~~~IF
   Global("BDAI_SKILL_MODE","LOCALS",3)
   !GlobalTimerNotExpired("MO_SongClock","LOCALS")
   Class(Myself,BARD_ALL)
@@ -34,6 +77,7 @@ THEN
     SetGlobalTimer("MO_SongClock","LOCALS",48)
 END~~~~~ //"
   END
+*/
 
 /*
 ///////////////////////////////////////////////////////////////////////////
@@ -72,7 +116,6 @@ END~~~~~ //"
   END
 */
 
-/*
 ///////////////////////////////////////////////////////////////////////////
 // Update Singing Check 2                                                //
 ///////////////////////////////////////////////////////////////////////////
@@ -83,29 +126,35 @@ END~~~~~ //"
     STR_VAR
     pattern = ~~~~~// Singing Check 2~~~~~
     string = ~~~~~IF
-  Global("BDAI_SKILL_MODE","LOCALS",3)
-  !GlobalTimerNotExpired("MO_StartSinging","LOCALS")
-  !GlobalTimerNotExpired("MO_SongClock","LOCALS")
-  Global("MO_SingingCheck","LOCALS",1)
-  Class(Myself,BARD_ALL)
+  !GlobalTimerNotExpired("MO_SongUp","LOCALS")
+  !GlobalTimerNotExpired("MO_BardSongTimer1","LOCALS")
+  GlobalTimerNotExpired("MO_BardSongTimer2","LOCALS")
+  OR(7)
+    CheckSpellState(Myself,BARD_SONG)
+    CheckSpellState(Myself,BLADE_SONG)
+    CheckSpellState(Myself,SKALD_SONG)
+    CheckSpellState(Myself,JESTER_SONG)
+    CheckSpellState(Myself,ENHANCED_BARD_SONG)
+    CheckSpellState(Myself,ENHANCED_SKALD_SONG)
+    CheckSpellState(Myself,ENHANCED_JESTER_SONG)
 THEN
   RESPONSE #100
-    SetGlobalTimer("MO_SongClock","LOCALS",48)
-    SetGlobal("MO_SingingCheck","LOCALS",0)
-END~~~~~ //"
-  END
-*/
+    SetGlobalTimer("MO_SongUp","LOCALS",EIGHT_ROUNDS)
+END
 
-///////////////////////////////////////////////////////////////////////////
-// Update Spellcasting Timer                                             //
-///////////////////////////////////////////////////////////////////////////
-  LPF REPLACE_MULTILINE
-    INT_VAR
-    strict = 1
-    verbose = 0
-    STR_VAR
-    pattern = ~~~~~SetGlobalTimer("MO_SpellCastTimer","LOCALS",12)~~~~~
-    string = ~~~~~SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)~~~~~ //"
+IF
+  GlobalTimerNotExpired("MO_SongUp","LOCALS")
+  !CheckSpellState(Myself,BARD_SONG)
+  !CheckSpellState(Myself,BLADE_SONG)
+  !CheckSpellState(Myself,SKALD_SONG)
+  !CheckSpellState(Myself,JESTER_SONG)
+  !CheckSpellState(Myself,ENHANCED_BARD_SONG)
+  !CheckSpellState(Myself,ENHANCED_SKALD_SONG)
+  !CheckSpellState(Myself,ENHANCED_JESTER_SONG)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SongUp","LOCALS",0)
+END~~~~~ //"
   END
 
 ///////////////////////////////////////////////////////////////////////////
@@ -120,6 +169,23 @@ END~~~~~ //"
   !Global("BDAI_SKILL_MODE","LOCALS",3)
   !Global("BDAI_SKILL_MODE","LOCALS",1)~~~~~
     string = ~~~~~!Global("BDAI_SKILL_MODE","LOCALS",4)
-  !Global("BDAI_SKILL_MODE","LOCALS",1)
-  !GlobalTimerNotExpired("MO_StartSinging","LOCALS")~~~~~ //"
+  OR(2)
+    !GlobalTimerNotExpired("MO_BardSongTimer1","LOCALS")
+    !Global("BDAI_SKILL_MODE","LOCALS",3)
+  !Global("BDAI_SKILL_MODE","LOCALS",1)~~~~~ //"
   END
+
+/*
+///////////////////////////////////////////////////////////////////////////
+// Update Spellcasting Timer                                             //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~SetGlobalTimer("MO_SpellCastTimer","LOCALS",12)~~~~~
+    string = ~~~~~SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)~~~~~ //"
+  END
+*/
+

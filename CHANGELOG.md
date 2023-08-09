@@ -17,6 +17,7 @@ June 18, 2023
 
 - All Games
   - Corrected bug with Faith and Powers HLAs scripts being added to BGEE.
+  - Bards will now attack between singing (Skills and Abilities longer song duration required).
 
 ## Version 12.3
 
