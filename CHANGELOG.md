@@ -8,6 +8,7 @@ August xx, 2023
 
 - All Games
   - Updated enemy simulacrum scripts.
+  - Fixed bug with SR if EEex not present.
 
 ## Version 12.3.1
 
