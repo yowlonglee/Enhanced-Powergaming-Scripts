@@ -19096,6 +19096,7 @@ END
 // 17 - Physical Attack Selection                                        //
 ///////////////////////////////////////////////////////////////////////////
 IF
+  EEex_LuaTrigger("return AmAttacking()")
   EEex_LuaTrigger("return MoFillCurrentTarget()")
   See(EEex_Target("MoCurrentTarget"))
   OR(2)
