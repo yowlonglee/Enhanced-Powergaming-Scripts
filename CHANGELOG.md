@@ -9,6 +9,7 @@ August xx, 2023
 - All Games
   - Updated enemy simulacrum scripts.
   - Fixed bug with SR if EEex not present.
+  - Added Battlerager's Reckless Abandon rage ability.
 
 ## Version 12.3.1
 

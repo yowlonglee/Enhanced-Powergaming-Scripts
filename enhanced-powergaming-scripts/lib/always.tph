@@ -136,6 +136,13 @@ ACTION_IF !VARIABLE_IS_SET ~initialise~ BEGIN
       OUTER_SET stormlord=0
    END
 
+   // Detect Battlerager Kit
+   ACTION_IF MOD_IS_INSTALLED ~morpheus562-s-kitpack.tp2~ ~151~ THEN BEGIN
+      OUTER_SET battlerager=1
+   END ELSE BEGIN
+      OUTER_SET battlerager=0
+   END
+
    // Detect Forgotten Armament Upgrade Items
    ACTION_IF MOD_IS_INSTALLED ~forgotten-armament.tp2~ ~20~ THEN BEGIN
       OUTER_SET forgotten_update=1
