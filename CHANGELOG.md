@@ -8,8 +8,10 @@ August xx, 2023
 
 - All Games
   - Updated enemy simulacrum scripts.
-  - Fixed bug with SR if EEex not present.
+  - Fixed bug with SR if EEex is not present.
   - Added Battlerager's Reckless Abandon rage ability.
+  - Updated ability use and attack checking to account for kits/weapons that can bypass pfmw.
+  - Updated timing for bard song (if 1 turn bard song installed), so bards will attack between singing.
 
 ## Version 12.3.1
 
