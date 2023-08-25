@@ -98,3 +98,60 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     WeaponCanDamage(SixthNearestEnemyOf(Myself),MAINHAND)
     Kit(Myself,WIZARDSLAYER)~~~~~ //"
   END
+
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    warn = 0
+    STR_VAR
+    pattern = ~~~~~See(EEex_Target("MoCurrentTarget"))~~~~~
+    string = ~~~~~See(EEex_Target("MoCurrentTarget"))
+  !Kit(Myself,WIZARDSLAYER)~~~~~ //"
+  END
+
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    warn = 0
+    STR_VAR
+    pattern = ~~~~~OR(6)
+    WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(SecondNearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(ThirdNearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(FourthNearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(FifthNearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(SixthNearestEnemyOf(Myself),MAINHAND)~~~~~
+    string = ~~~~~OR(7)
+    WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(SecondNearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(ThirdNearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(FourthNearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(FifthNearestEnemyOf(Myself),MAINHAND)
+    WeaponEffectiveVs(SixthNearestEnemyOf(Myself),MAINHAND)
+    Kit(Myself,WIZARDSLAYER)~~~~~ //"
+  END
+
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    warn = 0
+    STR_VAR
+    pattern = ~~~~~OR(6)
+    WeaponCanDamage(NearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(SecondNearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(ThirdNearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(FourthNearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(FifthNearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(SixthNearestEnemyOf(Myself),MAINHAND)~~~~~
+    string = ~~~~~OR(7)
+    WeaponCanDamage(NearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(SecondNearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(ThirdNearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(FourthNearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(FifthNearestEnemyOf(Myself),MAINHAND)
+    WeaponCanDamage(SixthNearestEnemyOf(Myself),MAINHAND)
+    Kit(Myself,WIZARDSLAYER)~~~~~ //"
+  END
