@@ -51,6 +51,9 @@ IF
   !CheckSpellState(Myself,NEED_IMPROVED_HASTE)
   !HaveSpell(WIZARD_IMPROVED_HASTE)
   !HaveSpell(WARRIOR_GREATER_WHIRLWIND)
+  OR(2)
+    GlobalGT("MO_UsedCheetah","GLOBAL",0)
+    !HasItemEquiped("AMUL26",Myself)  // Amulet of Cheetah Speed
   CheckStatGT(Myself,2,NUMBEROFATTACKS)
   !Class(Myself,MONK)
 THEN 
@@ -60,9 +63,14 @@ END
 
 IF 
   CheckSpellState(Myself,NEED_IMPROVED_HASTE)
-  OR(2)
+  OR(3)
     HaveSpell(WIZARD_IMPROVED_HASTE)
     HaveSpell(WARRIOR_GREATER_WHIRLWIND)
+    HasItemEquiped("AMUL26",Myself)  // Amulet of Cheetah Speed
+  OR(3)
+    HaveSpell(WIZARD_IMPROVED_HASTE)
+    HaveSpell(WARRIOR_GREATER_WHIRLWIND)
+    GlobalLT("MO_UsedCheetah","GLOBAL",1)
   CheckStatGT(Myself,2,NUMBEROFATTACKS)
   !Class(Myself,MONK)
 THEN 
