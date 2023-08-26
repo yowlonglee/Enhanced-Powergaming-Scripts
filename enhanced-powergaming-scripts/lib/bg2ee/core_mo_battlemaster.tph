@@ -80,3 +80,39 @@ THEN
     SpellRES("MOBTM01",Myself)
 END~~~~~ //"
   END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Relentless Assault Check for Prebuffing                           //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~!CheckSpellState(Myself,NEED_IMPROVED_HASTE)
+  !HaveSpell(WIZARD_IMPROVED_HASTE)
+  !HaveSpell(WARRIOR_GREATER_WHIRLWIND)~~~~~
+    string = ~~~~~!CheckSpellState(Myself,NEED_IMPROVED_HASTE)
+  !HaveSpell(WIZARD_IMPROVED_HASTE)
+  !HaveSpell(WARRIOR_GREATER_WHIRLWIND)
+  !HaveSpellRES("MOBTM01")~~~~~ //"
+  END
+
+///////////////////////////////////////////////////////////////////////////
+// Add Relentless Assault Check for Prebuffing                           //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~CheckSpellState(Myself,NEED_IMPROVED_HASTE)
+  OR(2)
+    HaveSpell(WIZARD_IMPROVED_HASTE)
+    HaveSpell(WARRIOR_GREATER_WHIRLWIND)~~~~~
+    string = ~~~~~CheckSpellState(Myself,NEED_IMPROVED_HASTE)
+  OR(3)
+    HaveSpell(WIZARD_IMPROVED_HASTE)
+    HaveSpell(WARRIOR_GREATER_WHIRLWIND)
+    HaveSpellRES("MOBTM01")~~~~~ //"
+  END
