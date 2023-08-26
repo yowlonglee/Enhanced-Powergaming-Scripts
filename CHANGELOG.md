@@ -12,6 +12,7 @@ August xx, 2023
   - Added Battlerager's Reckless Abandon rage ability.
   - Updated ability use and attack checking to account for kits/weapons that can bypass pfmw.
   - Updated timing for bard song (if 1 turn bard song installed), so bards will attack between singing.
+  - Character's will now identify if they need IH and they do not have it nor GWW.
 
 ## Version 12.3.1
 

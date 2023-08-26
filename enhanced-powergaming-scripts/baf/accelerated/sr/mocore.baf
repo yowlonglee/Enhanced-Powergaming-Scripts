@@ -47,6 +47,29 @@ THEN
     Continue()
 END
 
+IF 
+  !CheckSpellState(Myself,NEED_IMPROVED_HASTE)
+  !HaveSpell(WIZARD_IMPROVED_HASTE)
+  !HaveSpell(WARRIOR_GREATER_WHIRLWIND)
+  CheckStatGT(Myself,2,NUMBEROFATTACKS)
+  !Class(Myself,MONK)
+THEN 
+  RESPONSE #100
+    ApplySpellRES("MONHST1",Myself)
+END
+
+IF 
+  CheckSpellState(Myself,NEED_IMPROVED_HASTE)
+  OR(2)
+    HaveSpell(WIZARD_IMPROVED_HASTE)
+    HaveSpell(WARRIOR_GREATER_WHIRLWIND)
+  CheckStatGT(Myself,2,NUMBEROFATTACKS)
+  !Class(Myself,MONK)
+THEN 
+  RESPONSE #100
+    ApplySpellRES("MONHST2",Myself)
+END
+
 // Singing Check 2
 
 IF
@@ -3308,6 +3331,7 @@ IF
   HaveSpell(WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
   See([PC])
   !CheckSpellState(LastSeenBy(Myself),IMPROVED_HASTE)
+  CheckSpellState(LastSeenBy(Myself),NEED_IMPROVED_HASTE)
   OR(3)
     Class(LastSeenBy(Myself),THIEF_ALL)
     Class(LastSeenBy(Myself),FIGHTER_ALL)
@@ -3338,6 +3362,7 @@ IF
   HaveSpell(WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
   See(SecondNearest([PC]))
   !CheckSpellState(LastSeenBy(Myself),IMPROVED_HASTE)
+  CheckSpellState(LastSeenBy(Myself),NEED_IMPROVED_HASTE)
   OR(3)
     Class(LastSeenBy(Myself),THIEF_ALL)
     Class(LastSeenBy(Myself),FIGHTER_ALL)
@@ -3368,6 +3393,7 @@ IF
   HaveSpell(WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
   See(ThirdNearest([PC]))
   !CheckSpellState(LastSeenBy(Myself),IMPROVED_HASTE)
+  CheckSpellState(LastSeenBy(Myself),NEED_IMPROVED_HASTE)
   OR(3)
     Class(LastSeenBy(Myself),THIEF_ALL)
     Class(LastSeenBy(Myself),FIGHTER_ALL)
@@ -3398,6 +3424,7 @@ IF
   HaveSpell(WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
   See(FourthNearest([PC]))
   !CheckSpellState(LastSeenBy(Myself),IMPROVED_HASTE)
+  CheckSpellState(LastSeenBy(Myself),NEED_IMPROVED_HASTE)
   OR(3)
     Class(LastSeenBy(Myself),THIEF_ALL)
     Class(LastSeenBy(Myself),FIGHTER_ALL)
@@ -3428,6 +3455,7 @@ IF
   HaveSpell(WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
   See(FifthNearest([PC]))
   !CheckSpellState(LastSeenBy(Myself),IMPROVED_HASTE)
+  CheckSpellState(LastSeenBy(Myself),NEED_IMPROVED_HASTE)
   OR(3)
     Class(LastSeenBy(Myself),THIEF_ALL)
     Class(LastSeenBy(Myself),FIGHTER_ALL)
@@ -3458,6 +3486,7 @@ IF
   HaveSpell(WIZARD_IMPROVED_HASTE)  // SPWI613.SPL (Improved Haste)
   See(SixthNearest([PC]))
   !CheckSpellState(LastSeenBy(Myself),IMPROVED_HASTE)
+  CheckSpellState(LastSeenBy(Myself),NEED_IMPROVED_HASTE)
   OR(3)
     Class(LastSeenBy(Myself),THIEF_ALL)
     Class(LastSeenBy(Myself),FIGHTER_ALL)

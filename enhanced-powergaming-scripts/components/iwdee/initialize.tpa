@@ -796,6 +796,29 @@ ACTION_IF saa_hla BEGIN
 END
 
 ///////////////////////////////////////////////////////////////////////////
+// Create Spell State for Needing Improved Haste                         //
+///////////////////////////////////////////////////////////////////////////
+	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~NEED_IMPROVED_HASTE~)) BEGIN
+	  COPY_EXISTING ~splstate.ids~ ~override~
+		COUNT_2DA_COLS cols
+		READ_2DA_ENTRIES_NOW rows cols
+		FOR (row = 1; row < rows; ++row) BEGIN
+		  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
+		  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
+		  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~NEED_IMPROVED_HASTE~) BEGIN
+			SET nd_hst = %state_ind%
+		  END
+		END
+	  BUT_ONLY
+	END
+
+	ACTION_IF !(VARIABLE_IS_SET %nd_hst%) BEGIN
+		LAF ds_sort_ids STR_VAR ids=splstate END
+		LAF d5_resolve_state STR_VAR new_state_id = ~NEED_IMPROVED_HASTE~ RET new_state_ind END
+		OUTER_SET nd_hst = %new_state_ind%
+	END
+
+///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 // Assign New Spell States                                               //
 // Block of code provided by subtledoctor                                //
@@ -1169,6 +1192,15 @@ END
 					LPF CLONE_EFFECT INT_VAR match_opcode = 282 opcode = 328 parameter2 = %mag_armor% special = 1 END
 			END
 		END
+
+///////////////////////////////////////////////////////////////////////////
+// Add State to track when a character needs Improved Haste              //
+///////////////////////////////////////////////////////////////////////////
+	COPY ~enhanced-powergaming-scripts/spl/monhst1.spl~ ~override~
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 2 special = 1 parameter2 = %nd_hst% timing = 1 END
+
+	COPY ~enhanced-powergaming-scripts/spl/monhst2.spl~ ~override~ // removes the call signifying the character does NOT need IH
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 parameter2 = 0 timing = 0 probability1 = 100 STR_VAR resource = ~monhst1~ END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Greater Whirlwind                                  //
