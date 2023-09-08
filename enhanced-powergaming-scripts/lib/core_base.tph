@@ -21108,9 +21108,10 @@ IF
   EEex_LuaTrigger("return AmAttacking()")
   EEex_LuaTrigger("return MoFillCurrentTarget()")
   See(EEex_Target("MoCurrentTarget"))
-  OR(2)
+  OR(3)
     !WeaponEffectiveVs(LastSeenBy(Myself),MAINHAND)
     !WeaponCanDamage(LastSeenBy(Myself),MAINHAND)
+    Allegiance(LastSeenBy(Myself),PC)
 THEN
   RESPONSE #100
     ActionOverride(Myself,ClearActions(Myself))
@@ -21127,6 +21128,7 @@ IF
   !CheckStat(Myself,1,SANCTUARY)
   !StateCheck(Myself,STATE_INVISIBLE)
   See(NearestEnemyOf(Myself))
+  !Allegiance(NearestEnemyOf(Myself),PC)
   WeaponEffectiveVs(NearestEnemyOf(Myself),MAINHAND)
   WeaponCanDamage(NearestEnemyOf(Myself),MAINHAND)
   OR(7)
@@ -21153,6 +21155,7 @@ IF
   !CheckStat(Myself,1,SANCTUARY)
   !StateCheck(Myself,STATE_INVISIBLE)
   See(SecondNearestEnemyOf(Myself))
+  !Allegiance(SecondNearestEnemyOf(Myself),PC)
   WeaponEffectiveVs(SecondNearestEnemyOf(Myself),MAINHAND)
   WeaponCanDamage(SecondNearestEnemyOf(Myself),MAINHAND)
   OR(7)
@@ -21179,6 +21182,7 @@ IF
   !CheckStat(Myself,1,SANCTUARY)
   !StateCheck(Myself,STATE_INVISIBLE)
   See(ThirdNearestEnemyOf(Myself))
+  !Allegiance(ThirdNearestEnemyOf(Myself),PC)
   WeaponEffectiveVs(ThirdNearestEnemyOf(Myself),MAINHAND)
   WeaponCanDamage(ThirdNearestEnemyOf(Myself),MAINHAND)
   OR(7)
@@ -21205,6 +21209,7 @@ IF
   !CheckStat(Myself,1,SANCTUARY)
   !StateCheck(Myself,STATE_INVISIBLE)
   See(FourthNearestEnemyOf(Myself))
+  !Allegiance(FourthNearestEnemyOf(Myself),PC)
   WeaponEffectiveVs(FourthNearestEnemyOf(Myself),MAINHAND)
   WeaponCanDamage(FourthNearestEnemyOf(Myself),MAINHAND)
   OR(7)
@@ -21231,6 +21236,7 @@ IF
   !CheckStat(Myself,1,SANCTUARY)
   !StateCheck(Myself,STATE_INVISIBLE)
   See(FifthNearestEnemyOf(Myself))
+  !Allegiance(FifthNearestEnemyOf(Myself),PC)
   WeaponEffectiveVs(FifthNearestEnemyOf(Myself),MAINHAND)
   WeaponCanDamage(FifthNearestEnemyOf(Myself),MAINHAND)
   OR(7)
@@ -21257,6 +21263,7 @@ IF
   !CheckStat(Myself,1,SANCTUARY)
   !StateCheck(Myself,STATE_INVISIBLE)
   See(SixthNearestEnemyOf(Myself))
+  !Allegiance(SixthNearestEnemyOf(Myself),PC)
   WeaponEffectiveVs(SixthNearestEnemyOf(Myself),MAINHAND)
   WeaponCanDamage(SixthNearestEnemyOf(Myself),MAINHAND)
   OR(7)
@@ -21283,6 +21290,7 @@ IF
   !CheckStat(Myself,1,SANCTUARY)
   !StateCheck(Myself,STATE_INVISIBLE)
   See(NearestEnemyOf(Myself))
+  !Allegiance(NearestEnemyOf(Myself),PC)
   OR(3)
     HasItem("melfmet",Myself)  // Melf's Minute Meteor
     IsWeaponRanged(Myself)
@@ -21306,6 +21314,7 @@ IF
   !CheckStat(Myself,1,SANCTUARY)
   !StateCheck(Myself,STATE_INVISIBLE)
   See(SecondNearestEnemyOf(Myself))
+  !Allegiance(SecondNearestEnemyOf(Myself),PC)
   OR(3)
     HasItem("melfmet",Myself)  // Melf's Minute Meteor
     IsWeaponRanged(Myself)
@@ -21329,6 +21338,7 @@ IF
   !CheckStat(Myself,1,SANCTUARY)
   !StateCheck(Myself,STATE_INVISIBLE)
   See(ThirdNearestEnemyOf(Myself))
+  !Allegiance(ThirdNearestEnemyOf(Myself),PC)
   OR(3)
     HasItem("melfmet",Myself)  // Melf's Minute Meteor
     IsWeaponRanged(Myself)
@@ -21352,6 +21362,7 @@ IF
   !CheckStat(Myself,1,SANCTUARY)
   !StateCheck(Myself,STATE_INVISIBLE)
   See(FourthNearestEnemyOf(Myself))
+  !Allegiance(FourthNearestEnemyOf(Myself),PC)
   OR(3)
     HasItem("melfmet",Myself)  // Melf's Minute Meteor
     IsWeaponRanged(Myself)
@@ -21375,6 +21386,7 @@ IF
   !CheckStat(Myself,1,SANCTUARY)
   !StateCheck(Myself,STATE_INVISIBLE)
   See(FifthNearestEnemyOf(Myself))
+  !Allegiance(FifthNearestEnemyOf(Myself),PC)
   OR(3)
     HasItem("melfmet",Myself)  // Melf's Minute Meteor
     IsWeaponRanged(Myself)
@@ -21398,6 +21410,7 @@ IF
   !CheckStat(Myself,1,SANCTUARY)
   !StateCheck(Myself,STATE_INVISIBLE)
   See(SixthNearestEnemyOf(Myself))
+  !Allegiance(NearestEnemyOf(Myself),PC)
   OR(3)
     HasItem("melfmet",Myself)  // Melf's Minute Meteor
     IsWeaponRanged(Myself)
