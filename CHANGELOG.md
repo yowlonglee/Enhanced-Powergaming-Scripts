@@ -14,6 +14,7 @@ August xx, 2023
   - Updated timing for bard song (if 1 turn bard song installed), so bards will attack between singing.
   - Character's will now identify if they need IH and they do not have it nor GWW.
   - Tracking to ensure charmed PCs are not attacked by the party.
+  - More checks around use of Holy Power.
 
 ## Version 12.3.1
 
