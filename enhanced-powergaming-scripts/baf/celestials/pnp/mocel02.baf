@@ -82,7 +82,6 @@ END
 IF
   HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   !StateCheck(Myself,STATE_SILENCED)
-  HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   OR(4)
     HPPercentGT(Myself,50)
     !Detect(NearestEnemyOf(Myself))

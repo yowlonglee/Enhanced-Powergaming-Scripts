@@ -79,6 +79,13 @@ THEN
 END
 
 IF
+  Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    ChangeAIScript("mocel02",CLASS)
+END
+
+IF
   !GlobalTimerNotExpired("MO_HealCast","GLOBAL")
   Global("MO_CastingHeal","GLOBAL",1)
 THEN
