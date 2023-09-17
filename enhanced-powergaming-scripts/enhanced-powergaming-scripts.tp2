@@ -83,6 +83,8 @@ BEGIN @7 DESIGNATED 14 SUBCOMPONENT @2 LABEL EnhancedPowergamingScripts-MainNorm
 REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee eet iwdee~) OR ((GAME_IS ~iwd2~) AND ieex_present) @3000
 // REQUIRE_PREDICATE GAME_IS ~bgee bg2ee eet iwdee tob bgt~ @3000
 
+COPY_EXISTING ~SW1H01.ITM~ ~override/moeps01.itm~
+
 LOAD_TRA ~enhanced-powergaming-scripts/languages/%LANGUAGE%/script_descriptions.tra~
 
 ACTION_IF GAME_IS ~bgee bg2ee eet~ BEGIN
@@ -107,6 +109,8 @@ END
 
 BEGIN @8 DESIGNATED 15 SUBCOMPONENT @2 LABEL EnhancedPowergamingScripts-MainAccelerated
 
+COPY_EXISTING ~SW1H01.ITM~ ~override/moeps01.itm~
+
 ACTION_IF GAME_IS ~bgee bg2ee eet~ BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/initialize.tpa~
 	INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/prebuff_a.tpa~
@@ -130,6 +134,7 @@ END
 ///////////////////////////////////////////////////////////////////////////
 BEGIN @9 DESIGNATED 9 LABEL EnhancedPowergamingScripts-Celestials
 REQUIRE_PREDICATE GAME_IS ~bg2ee eet~ OR ((GAME_IS ~iwdee~) AND FILE_EXISTS_IN_GAME ~mohla01.itm~) @3004
+REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~moeps01.itm~ @3005
 
 ACTION_IF pnp_celestial BEGIN
     INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/pnp_celestials.tpa~
@@ -142,5 +147,6 @@ END
 ///////////////////////////////////////////////////////////////////////////
 BEGIN @10 DESIGNATED 10 LABEL EnhancedPowergamingScripts-Simulacrum
 REQUIRE_PREDICATE GAME_IS ~bg2ee eet iwdee~ @3004
+REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~moeps01.itm~ @3005
 
 INCLUDE ~enhanced-powergaming-scripts/components/BG2EE/simulacrum.tpa~
