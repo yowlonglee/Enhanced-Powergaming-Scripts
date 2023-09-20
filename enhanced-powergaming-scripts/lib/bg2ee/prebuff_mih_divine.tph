@@ -1120,7 +1120,7 @@ END
     string = ~~~~~IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(CLERIC_MASS_NEGATIVE_PLANE_PROTECTION)
-  !CheckStatGT(LastSeenBy(Myself),0,LEVEL_DRAIN_IMMUNITY)
+  !CheckStatGT(Myself,0,LEVEL_DRAIN_IMMUNITY)
   !StateCheck(Myself,STATE_IMPROVEDINVISIBILITY)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !StateCheck(Myself,STATE_SILENCED)

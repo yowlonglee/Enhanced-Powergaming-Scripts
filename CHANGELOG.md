@@ -2,7 +2,7 @@
 
 ## Version 12.4
 
-August xx, 2023
+September xx, 2023
 
 ### Changed 
 
@@ -15,6 +15,7 @@ August xx, 2023
   - Character's will now identify if they need IH and they do not have it nor GWW.
   - Tracking to ensure charmed PCs are not attacked by the party.
   - More checks around use of Holy Power.
+  - Corrected bug with MiH Mass Negative Plane Protection not properly being tracked in scripts.
 
 ## Version 12.3.1
 
