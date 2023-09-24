@@ -1456,6 +1456,7 @@ END
 // Create Spell State for Invoke Courage                                 //
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF GAME_IS ~bg2ee eet~ BEGIN
+		/*
 		ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~INVOKE_COURAGE~)) BEGIN
 		  COPY_EXISTING ~splstate.ids~ ~override~
 			COUNT_2DA_COLS cols
@@ -1475,10 +1476,11 @@ END
 			LAF d5_resolve_state STR_VAR new_state_id = ~INVOKE_COURAGE~ RET new_state_ind END
 			OUTER_SET invk_crg = %new_state_ind%
 		END
+		*/
 
 		LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~INVOKE_COURAGE~ RET spell_res END
 		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
-		  LPF CLONE_EFFECT INT_VAR match_opcode = 284 opcode = 328 parameter2 = %invk_crg% special = 1 END
+		  LPF CLONE_EFFECT INT_VAR match_opcode = 284 opcode = 328 parameter2 = 106 special = 1 END
 	END
 
 ///////////////////////////////////////////////////////////////////////////
