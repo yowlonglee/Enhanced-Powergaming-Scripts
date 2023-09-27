@@ -22579,7 +22579,7 @@ IF
   !CheckStat(Myself,1,SANCTUARY)
   !StateCheck(Myself,STATE_INVISIBLE)
   See(SixthNearestEnemyOf(Myself))
-  !Allegiance(NearestEnemyOf(Myself),PC)
+  !Allegiance(SixthNearestEnemyOf(Myself),PC)
   OR(3)
     HasItem("melfmet",Myself)  // Melf's Minute Meteor
     IsWeaponRanged(Myself)

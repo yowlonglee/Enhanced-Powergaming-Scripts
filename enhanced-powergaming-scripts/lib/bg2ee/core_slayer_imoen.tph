@@ -1,0 +1,76 @@
+COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-scripts/baf/upload/mocore.baf~
+
+///////////////////////////////////////////////////////////////////////////
+// Do not attack Slayer Imoen                                            //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~See(NearestEnemyOf(Myself))
+  !Allegiance(NearestEnemyOf(Myself),PC)~~~~~
+    string = ~~~~~See(NearestEnemyOf(Myself))
+  !Allegiance(NearestEnemyOf(Myself),PC)
+  !HasItem("finslay2",NearestEnemyOf(Myself))~~~~~ //"
+  END
+
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~See(SecondNearestEnemyOf(Myself))
+  !Allegiance(SecondNearestEnemyOf(Myself),PC)~~~~~
+    string = ~~~~~See(SecondNearestEnemyOf(Myself))
+  !Allegiance(SecondNearestEnemyOf(Myself),PC)
+  !HasItem("finslay2",SecondNearestEnemyOf(Myself))~~~~~ //"
+  END
+
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~See(ThirdNearestEnemyOf(Myself))
+  !Allegiance(ThirdNearestEnemyOf(Myself),PC)~~~~~
+    string = ~~~~~See(ThirdNearestEnemyOf(Myself))
+  !Allegiance(ThirdNearestEnemyOf(Myself),PC)
+  !HasItem("finslay2",ThirdNearestEnemyOf(Myself))~~~~~ //"
+  END
+
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~See(FourthNearestEnemyOf(Myself))
+  !Allegiance(FourthNearestEnemyOf(Myself),PC)~~~~~
+    string = ~~~~~See(FourthNearestEnemyOf(Myself))
+  !Allegiance(FourthNearestEnemyOf(Myself),PC)
+  !HasItem("finslay2",FourthNearestEnemyOf(Myself))~~~~~ //"
+  END
+
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~See(FifthNearestEnemyOf(Myself))
+  !Allegiance(FifthNearestEnemyOf(Myself),PC)~~~~~
+    string = ~~~~~See(FifthNearestEnemyOf(Myself))
+  !Allegiance(FifthNearestEnemyOf(Myself),PC)
+  !HasItem("finslay2",FifthNearestEnemyOf(Myself))~~~~~ //"
+  END
+
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~See(SixthNearestEnemyOf(Myself))
+  !Allegiance(SixthNearestEnemyOf(Myself),PC)~~~~~
+    string = ~~~~~See(SixthNearestEnemyOf(Myself))
+  !Allegiance(SixthNearestEnemyOf(Myself),PC)
+  !HasItem("finslay2",SixthNearestEnemyOf(Myself))~~~~~ //"
+  END

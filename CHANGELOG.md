@@ -17,6 +17,7 @@ September xx, 2023
   - More checks around use of Holy Power.
   - Corrected bug with MiH Mass Negative Plane Protection not properly being tracked in scripts.
   - Will now use Wands of Spell Striking to cast Breach and Pierce Magic.
+  - Will NOT physically attack Slayer change Imoen.
 
 ## Version 12.3.1
 
