@@ -16,6 +16,7 @@ September xx, 2023
   - Tracking to ensure charmed PCs are not attacked by the party.
   - More checks around use of Holy Power.
   - Corrected bug with MiH Mass Negative Plane Protection not properly being tracked in scripts.
+  - Will now use Wands of Spellstrike to cast Breach and Pierce Magic.
 
 ## Version 12.3.1
 
