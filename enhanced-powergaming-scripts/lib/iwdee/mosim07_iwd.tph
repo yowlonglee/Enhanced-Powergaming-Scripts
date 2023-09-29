@@ -224,3 +224,15 @@ END~~~~~
     SpellCast([GOODCUTOFF],TRAP_STINKING_CLOUD)  // SPWI004.SPL (Stinking Cloud)
     SpellCast([GOODCUTOFF],TRAP_CLOUDKILL)  // SPWI016.SPL (Cloudkill)~~~~~ //"
   END
+
+///////////////////////////////////////////////////////////////////////////
+// Update Eighth                                                         //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    STR_VAR
+    pattern = ~~~~~IsWeaponRanged(EighthNearestEnemyOfType([GOODCUTOFF]))~~~~~
+    string = ~~~~~IsWeaponRanged(EigthNearestEnemyOfType([GOODCUTOFF]))~~~~~ //"
+  END
