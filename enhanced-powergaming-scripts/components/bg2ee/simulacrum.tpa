@@ -28,12 +28,10 @@ END
 ///////////////////////////////////////////////////////////////////////////
 // Copy .BCS files to override folder                                    //
 ///////////////////////////////////////////////////////////////////////////
-/*
 COPY ~enhanced-powergaming-scripts/baf/upload/mosim02.baf~   	   ~override/mosim02.bcs~
 	 ~enhanced-powergaming-scripts/baf/simulacrum/mosim07.baf~     ~override/mosim07.bcs~
 	 ~enhanced-powergaming-scripts/baf/simulacrum/mosim01.baf~     ~override/mosim01.bcs~
   COMPILE_BAF_TO_BCS
-*/
 
 ACTION_IF scs_breach BEGIN
 	//EXTEND_BOTTOM ~dw#image.bcs~ ~enhanced-powergaming-scripts/baf/simulacrum/mosim01.baf~
