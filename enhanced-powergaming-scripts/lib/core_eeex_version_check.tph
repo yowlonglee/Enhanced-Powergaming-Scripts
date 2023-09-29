@@ -26,9 +26,10 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
   EEex_LuaTrigger("return AmAttacking()")
   EEex_LuaTrigger("return MoFillCurrentTarget()")
   See(EEex_Target("MoCurrentTarget"))
-  OR(2)
+  OR(3)
     !WeaponEffectiveVs(LastSeenBy(Myself),MAINHAND)
     !WeaponCanDamage(LastSeenBy(Myself),MAINHAND)
+    Allegiance(LastSeenBy(Myself),PC)
 THEN
   RESPONSE #100
     ActionOverride(Myself,ClearActions(Myself))
