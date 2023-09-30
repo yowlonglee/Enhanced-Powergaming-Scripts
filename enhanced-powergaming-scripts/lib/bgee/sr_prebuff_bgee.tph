@@ -310,12 +310,6 @@ END~~~~~
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
   !CheckSpellState(Myself,HARDINESS)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_POISONED)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
     Spell(Myself,WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
