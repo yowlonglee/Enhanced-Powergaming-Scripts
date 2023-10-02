@@ -10,7 +10,9 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     STR_VAR
     pattern = ~~~~~// Skills and Abilities Prebuff Protective Field~~~~~
     string = ~~~~~IF
-  Global("MO_BUFF","LOCALS",1)
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   HaveSpellRES("MOPSIC3")
   !CheckSpellState(Myself,PROTECTIVE_FIELD)
 THEN

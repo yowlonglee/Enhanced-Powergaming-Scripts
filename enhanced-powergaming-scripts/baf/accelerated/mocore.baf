@@ -2583,6 +2583,8 @@ THEN
     RemoveSpell(INVOKE_COURAGE)  // SPIN676.SPL (Invoke Courage)
 END
 
+// Skills and Abilities Prebuff Protective Field
+
 ////////////////////////////////////////////////////
 // 3 Turns
 IF
@@ -4703,8 +4705,6 @@ THEN
     ReallyForceSpell(LastSeenBy(Myself),CLERIC_NEGATIVE_PLANE_PROTECTION)  // SPPR413.SPL (Negative Plane Protection)
     RemoveSpell(CLERIC_NEGATIVE_PLANE_PROTECTION)  // SPPR413.SPL (Negative Plane Protection)
 END
-
-// Skills and Abilities Prebuff Protective Field
 
 ////////////////////////////////////////////////////
 // 3 Rounds/Level
