@@ -2,7 +2,7 @@
 
 ## Version 12.4
 
-September xx, 2023
+October 2, 2023
 
 ### Changed 
 
