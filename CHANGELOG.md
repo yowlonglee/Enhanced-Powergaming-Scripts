@@ -1,5 +1,14 @@
 # Changelog
 
+## Version 12.5
+
+October xx, 2023
+
+### Changed 
+
+- All Games
+  - Updated NUMBEROFATTACKS check used by Improved Haste.
+
 ## Version 12.4
 
 October 2, 2023
