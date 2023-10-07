@@ -1718,7 +1718,7 @@ END~~~~~
   OR(2)
     GlobalGT("MO_UsedBlindingSpeed","GLOBAL",0)
     !HasItemEquiped("BRAC16",Myself)  // Bracers of Blinding Strike
-  CheckStatGT(Myself,2,NUMBEROFATTACKS)
+  //CheckStatGT(Myself,2,NUMBEROFATTACKS)
   !Class(Myself,MONK)
 THEN 
   RESPONSE #100
@@ -1730,7 +1730,7 @@ IF
   OR(2)
     HaveSpell(WIZARD_IMPROVED_HASTE)
     HaveSpell(WARRIOR_GREATER_WHIRLWIND)
-  CheckStatGT(Myself,2,NUMBEROFATTACKS)
+  //CheckStatGT(Myself,2,NUMBEROFATTACKS)
   !Class(Myself,MONK)
 THEN 
   RESPONSE #100
@@ -1741,7 +1741,7 @@ IF
   CheckSpellState(Myself,NEED_IMPROVED_HASTE)
   HasItemEquiped("AMUL26",Myself)  // Amulet of Cheetah Speed
   GlobalLT("MO_UsedCheetah","GLOBAL",1)
-  CheckStatGT(Myself,2,NUMBEROFATTACKS)
+  //CheckStatGT(Myself,2,NUMBEROFATTACKS)
   !Class(Myself,MONK)
 THEN 
   RESPONSE #100
@@ -1752,7 +1752,7 @@ IF
   CheckSpellState(Myself,NEED_IMPROVED_HASTE)
   HasItemEquiped("RING39",Myself)  // Ring of Gaxx
   GlobalLT("MO_UsedRingGaxx","GLOBAL",3)
-  CheckStatGT(Myself,2,NUMBEROFATTACKS)
+  //CheckStatGT(Myself,2,NUMBEROFATTACKS)
   !Class(Myself,MONK)
 THEN 
   RESPONSE #100
@@ -1763,7 +1763,7 @@ IF
   CheckSpellState(Myself,NEED_IMPROVED_HASTE)
   HasItemEquiped("BRAC16",Myself)  // Bracers of Blinding Strike
   GlobalLT("MO_UsedBlindingSpeed","GLOBAL",1)
-  CheckStatGT(Myself,2,NUMBEROFATTACKS)
+  //CheckStatGT(Myself,2,NUMBEROFATTACKS)
   !Class(Myself,MONK)
 THEN 
   RESPONSE #100
@@ -1772,7 +1772,7 @@ END~~~~~
     string = ~~~~~IF 
   !CheckSpellState(Myself,NEED_IMPROVED_HASTE)
   !HaveSpell(WIZARD_IMPROVED_HASTE)
-  CheckStatGT(Myself,2,NUMBEROFATTACKS)
+  //CheckStatGT(Myself,2,NUMBEROFATTACKS)
   !Class(Myself,MONK)
 THEN 
   RESPONSE #100
@@ -1782,7 +1782,7 @@ END
 IF 
   CheckSpellState(Myself,NEED_IMPROVED_HASTE)
   HaveSpell(WIZARD_IMPROVED_HASTE)
-  CheckStatGT(Myself,2,NUMBEROFATTACKS)
+  //CheckStatGT(Myself,2,NUMBEROFATTACKS)
   !Class(Myself,MONK)
 THEN 
   RESPONSE #100
