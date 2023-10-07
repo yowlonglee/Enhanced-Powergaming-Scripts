@@ -7,10 +7,13 @@ LOAD_TRA ~enhanced-powergaming-scripts/languages/%LANGUAGE%/script_dialog.tra~
 ///////////////////////////////////////////////////////////////////////////
 ACTION_IF GAME_IS ~iwdee~ BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/lib/IWDEE/mosim07_iwd.tph~
+	INCLUDE ~enhanced-powergaming-scripts/lib/IWDEE/mosim07_iwd_hla.tph~
 
+	/*
 	ACTION_IF !saa_hla BEGIN
 		INCLUDE ~enhanced-powergaming-scripts/lib/IWDEE/mosim07_iwd_hla.tph~
 	END
+	*/
 END
 
 COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~  ~enhanced-powergaming-scripts/baf/upload/mosim02.baf~
