@@ -22,7 +22,7 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     !StateCheck(Myself,STATE_INVISIBLE)
     !Global("BDAI_SKILL_MODE","LOCALS",2)
   HaveSpellRES("MOBTM01")
-  !CheckStatGT(Myself,0,IMPROVEDHASTE)
+  !CheckSpellState(Myself,IMPROVED_HASTE)
   !CheckSpellState(Myself,GREATER_WHIRLWIND)
   See([EVILCUTOFF])
   OR(6)

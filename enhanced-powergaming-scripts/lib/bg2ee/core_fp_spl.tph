@@ -1175,7 +1175,7 @@ END
     !StateCheck(Myself,STATE_INVISIBLE)
     !Global("BDAI_SKILL_MODE","LOCALS",2)
   HaveSpellRES("D5F2613")
-  !CheckStatGT(Myself,0,IMPROVEDHASTE)
+  !CheckSpellState(Myself,IMPROVED_HASTE)
   CheckStatGT(Myself,2,NUMBEROFATTACKS)
   !CheckSpellState(Myself,GREATER_WHIRLWIND)
   See([EVILCUTOFF])
