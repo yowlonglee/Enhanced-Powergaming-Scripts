@@ -1230,7 +1230,7 @@ END
 ///////////////////////////////////////////////////////////////////////////
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_IMPROVED_HASTE~ RET spell_res END
 	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
-	  LPF CLONE_EFFECT INT_VAR match_opcode = 1 opcode = 328 parameter2 = %imp_haste% special = 1 END
+	  LPF CLONE_EFFECT INT_VAR match_opcode = 16 opcode = 328 parameter2 = %imp_haste% special = 1 END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Greater Whirlwind                                  //
