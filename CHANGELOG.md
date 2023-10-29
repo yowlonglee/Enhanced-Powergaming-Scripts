@@ -8,6 +8,7 @@ October xx, 2023
 
 - All Games
   - Updated NUMBEROFATTACKS check used by Improved Haste.
+  - Don't target players using Project Image with Remove Paralysis.
 
 ## Version 12.4
 
