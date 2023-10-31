@@ -9,6 +9,8 @@ October xx, 2023
 - All Games
   - Updated NUMBEROFATTACKS check used by Improved Haste.
   - Don't target players using Project Image with Remove Paralysis.
+  - Updated check for Minor Globes.
+  - Updated use of Ring of Gaxx.
 
 ## Version 12.4
 

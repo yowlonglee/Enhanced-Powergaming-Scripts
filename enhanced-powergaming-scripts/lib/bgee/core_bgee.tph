@@ -1638,7 +1638,7 @@ THEN
     SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
     SetInterrupt(FALSE)
-    UseItem("RING39",Myself)  // Ring of Gaxx
+    UseItemAbility("RING39",Myself,SLOT_AMMO3,1)  // Ring of Gaxx
     SetInterrupt(TRUE)
     IncrementGlobal("MO_UsedRingGaxx","GLOBAL",1)
 END~~~~~
