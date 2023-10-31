@@ -17540,7 +17540,6 @@ IF
   HaveSpell(WIZARD_MINOR_GLOBE_OF_INVULNERABILITY)  // SPWI406.SPL (Minor Globe of Invulnerability)
   !CheckSpellState(Myself,MINOR_GLOBE)
   !CheckSpellState(Myself,GLOBE)
-  !HasImmunityEffects(Myself)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_POISONED)
@@ -17591,7 +17590,6 @@ IF
   HasItemEquiped("OHRBELT2",Myself)  // Belt of Minor Invulnerability
   !CheckSpellState(Myself,MINOR_GLOBE)
   !CheckSpellState(Myself,GLOBE)
-  !HasImmunityEffects(Myself)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_POISONED)
   !StateCheck(Myself,STATE_SILENCED)
