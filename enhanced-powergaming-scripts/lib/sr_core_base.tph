@@ -19307,7 +19307,8 @@ IF
   !StateCheck(Myself,STATE_INVISIBLE)
   See(NearestEnemyOf(Myself))
   !Allegiance(NearestEnemyOf(Myself),PC)
-  OR(3)
+  OR(4)
+    Range(NearestEnemyOf(Myself),5)
     HasItem("melfmet",Myself)  // Melf's Minute Meteor
     IsWeaponRanged(Myself)
     CheckSpellState(Myself,TENSERS_TRANSFORMATION)
@@ -19331,7 +19332,8 @@ IF
   !StateCheck(Myself,STATE_INVISIBLE)
   See(SecondNearestEnemyOf(Myself))
   !Allegiance(SecondNearestEnemyOf(Myself),PC)
-  OR(3)
+  OR(4)
+    Range(SecondNearestEnemyOf(Myself),5)
     HasItem("melfmet",Myself)  // Melf's Minute Meteor
     IsWeaponRanged(Myself)
     CheckSpellState(Myself,TENSERS_TRANSFORMATION)
@@ -19355,7 +19357,8 @@ IF
   !StateCheck(Myself,STATE_INVISIBLE)
   See(ThirdNearestEnemyOf(Myself))
   !Allegiance(ThirdNearestEnemyOf(Myself),PC)
-  OR(3)
+  OR(4)
+    Range(ThirdNearestEnemyOf(Myself),5)
     HasItem("melfmet",Myself)  // Melf's Minute Meteor
     IsWeaponRanged(Myself)
     CheckSpellState(Myself,TENSERS_TRANSFORMATION)
@@ -19379,7 +19382,8 @@ IF
   !StateCheck(Myself,STATE_INVISIBLE)
   See(FourthNearestEnemyOf(Myself))
   !Allegiance(FourthNearestEnemyOf(Myself),PC)
-  OR(3)
+  OR(4)
+    Range(FourthNearestEnemyOf(Myself),5)
     HasItem("melfmet",Myself)  // Melf's Minute Meteor
     IsWeaponRanged(Myself)
     CheckSpellState(Myself,TENSERS_TRANSFORMATION)
@@ -19403,7 +19407,8 @@ IF
   !StateCheck(Myself,STATE_INVISIBLE)
   See(FifthNearestEnemyOf(Myself))
   !Allegiance(FifthNearestEnemyOf(Myself),PC)
-  OR(3)
+  OR(4)
+    Range(FifthNearestEnemyOf(Myself),5)
     HasItem("melfmet",Myself)  // Melf's Minute Meteor
     IsWeaponRanged(Myself)
     CheckSpellState(Myself,TENSERS_TRANSFORMATION)
@@ -19427,7 +19432,8 @@ IF
   !StateCheck(Myself,STATE_INVISIBLE)
   See(SixthNearestEnemyOf(Myself))
   !Allegiance(SixthNearestEnemyOf(Myself),PC)
-  OR(3)
+  OR(4)
+    Range(SixthNearestEnemyOf(Myself),5)
     HasItem("melfmet",Myself)  // Melf's Minute Meteor
     IsWeaponRanged(Myself)
     CheckSpellState(Myself,TENSERS_TRANSFORMATION)
