@@ -656,8 +656,10 @@ ACTION_IF spell_revisions BEGIN
 // Add Spell State to Spell Deflection                                   //
 ///////////////////////////////////////////////////////////////////////////
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_SPELL_DEFLECTION~ RET spell_res END
-	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %spl_def% timing = 0 duration = 300 END
+	ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
+		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %spl_def% timing = 0 duration = 300 END
+	END
 
 	ACTION_IF scs_breach BEGIN
 		ACTION_IF FILE_EXISTS_IN_GAME ~DWSW522.SPL~ BEGIN
@@ -670,8 +672,10 @@ ACTION_IF spell_revisions BEGIN
 // Add Spell State to Greater Spell Deflection                           //
 ///////////////////////////////////////////////////////////////////////////
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_GREATER_SPELL_DEFLECTION~ RET spell_res END
-	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %gtr_spl_def% timing = 0 duration = 300 END
+	ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
+		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = %gtr_spl_def% timing = 0 duration = 300 END
+	END
 
 	ACTION_IF scs_breach BEGIN
 		ACTION_IF FILE_EXISTS_IN_GAME ~DWSW701.SPL~ BEGIN
@@ -689,8 +693,10 @@ ACTION_IF spell_revisions BEGIN
 // Add Spell State to PfMW                                               //
 ///////////////////////////////////////////////////////////////////////////
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_PROTECTION_FROM_MAGIC_WEAPONS~ RET spell_res END
-	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
-	  LPF CLONE_EFFECT INT_VAR match_opcode = 233 opcode = 328 parameter2 = 120 special = 1 END
+	ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
+		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
+		  LPF CLONE_EFFECT INT_VAR match_opcode = 233 opcode = 328 parameter2 = 120 special = 1 END
+	END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Prismatic Mantle                                   //
