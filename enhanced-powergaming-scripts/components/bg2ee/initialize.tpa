@@ -703,37 +703,47 @@ ACTION_IF spell_revisions BEGIN
 ///////////////////////////////////////////////////////////////////////////
 	ACTION_IF NOT d5_tweak_mantle BEGIN // Will not add if d5 Tweak Mantle is installed
 		LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_MANTLE~ RET spell_res END
-		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
-		  LPF CLONE_EFFECT INT_VAR match_opcode = 233 opcode = 328 parameter2 = 121 special = 1 END
+		ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
+			COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
+			  LPF CLONE_EFFECT INT_VAR match_opcode = 233 opcode = 328 parameter2 = 121 special = 1 END
+		END
 	END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Moment of Prescience                               //
 ///////////////////////////////////////////////////////////////////////////
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_MOMENT_OF_PRESCIENCE~ RET spell_res END
-	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
-	  LPF CLONE_EFFECT INT_VAR match_opcode = 233 opcode = 328 parameter2 = 122 special = 1 END
+	ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
+		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
+		  LPF CLONE_EFFECT INT_VAR match_opcode = 233 opcode = 328 parameter2 = 122 special = 1 END
+	END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Absolute Immunity                                  //
 ///////////////////////////////////////////////////////////////////////////
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_ABSOLUTE_IMMUNITY~ RET spell_res END
-	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
-	  LPF CLONE_EFFECT INT_VAR match_opcode = 233 opcode = 328 parameter2 = 123 special = 1 END
+	ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
+		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
+		  LPF CLONE_EFFECT INT_VAR match_opcode = 233 opcode = 328 parameter2 = 123 special = 1 END
+	END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Mestil's Acid Sheath                               //
 ///////////////////////////////////////////////////////////////////////////
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_MESTILS_ACID_SHEATH~ RET spell_res END
-	COPY_EXISTING ~%spell_res%.spl~ ~override~ 
-	  LPF CLONE_EFFECT INT_VAR match_opcode = 233 opcode = 328 parameter2 = %acd_sheath% special = 1 END
+	ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
+		COPY_EXISTING ~%spell_res%.spl~ ~override~ 
+		  LPF CLONE_EFFECT INT_VAR match_opcode = 233 opcode = 328 parameter2 = %acd_sheath% special = 1 END
+	END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Spell Shield                                       //
 ///////////////////////////////////////////////////////////////////////////
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_SPELL_SHIELD~ RET spell_res END
-	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = 108 timing = 0 duration = 300 END
+	ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
+		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 special = 1 parameter2 = 108 timing = 0 duration = 300 END
+	END
 
 	ACTION_IF scs_breach BEGIN
 		ACTION_IF FILE_EXISTS_IN_GAME ~DWSW519.SPL~ BEGIN
@@ -746,90 +756,114 @@ ACTION_IF spell_revisions BEGIN
 // Add Spell State to Bless                                              //
 ///////////////////////////////////////////////////////////////////////////
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~CLERIC_BLESS~ RET spell_res END
-	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
-	  LPF CLONE_EFFECT INT_VAR match_opcode = 130 opcode = 328 parameter2 = 22 special = 1 END
+	ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
+		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
+		  LPF CLONE_EFFECT INT_VAR match_opcode = 130 opcode = 328 parameter2 = 22 special = 1 END
+	END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Stat to Protection from Energy                                    //
 ///////////////////////////////////////////////////////////////////////////
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_PROTECTION_FROM_ENERGY~ RET spell_res END
-	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
-	  LPF CLONE_EFFECT INT_VAR match_opcode = 282 opcode = 233 parameter2 = 163 special = 1 END
+	ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
+		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
+		  LPF CLONE_EFFECT INT_VAR match_opcode = 282 opcode = 233 parameter2 = 163 special = 1 END
+	END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Stat to Spell Trap                                                //
 ///////////////////////////////////////////////////////////////////////////
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_SPELL_TRAP~ RET spell_res END
-	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 special = 1 parameter2 = 164 timing = 0 duration = 108 END
+	ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
+		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 special = 1 parameter2 = 164 timing = 0 duration = 108 END
+	END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Stat to Physical Mirror                                           //
 ///////////////////////////////////////////////////////////////////////////
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~CLERIC_PHYSICAL_MIRROR~ RET spell_res END
-	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 special = 1 parameter2 = 122 timing = 0 duration = 30 END
+	ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
+		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
+		  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 special = 1 parameter2 = 122 timing = 0 duration = 30 END
+	END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Stat to Negative Plane Protection                                 //
 ///////////////////////////////////////////////////////////////////////////
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~CLERIC_NEGATIVE_PLANE_PROTECTION~ RET spell_res END
-	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
-	  LPF CLONE_EFFECT INT_VAR match_opcode = 282 opcode = 233 parameter2 = 158 special = 1 END
+	ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
+		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
+		  LPF CLONE_EFFECT INT_VAR match_opcode = 282 opcode = 233 parameter2 = 158 special = 1 END
+	END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Mind Blank                                         //
 ///////////////////////////////////////////////////////////////////////////
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_MIND_BLANK~ RET spell_res END
-	ACTION_IF !scs_breach BEGIN
-		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
-		  LPF CLONE_EFFECT INT_VAR match_opcode = 328 opcode = 328 parameter2 = %mnd_blnk% special = 1 END
-		  OUTER_SET set_mind_blank=1
+	ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
+		ACTION_IF !scs_breach BEGIN
+			COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
+			  LPF CLONE_EFFECT INT_VAR match_opcode = 328 opcode = 328 parameter2 = %mnd_blnk% special = 1 END
+			  OUTER_SET set_mind_blank=1
+		END
 	END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to True Strike                                        //
 ///////////////////////////////////////////////////////////////////////////
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_TRUE_STRIKE~ RET spell_res END
-	ACTION_IF !scs_breach BEGIN
-		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
-		  LPF CLONE_EFFECT INT_VAR match_opcode = 278 opcode = 328 parameter2 = %tru_strk% special = 1 END
+	ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
+		ACTION_IF !scs_breach BEGIN
+			COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
+			  LPF CLONE_EFFECT INT_VAR match_opcode = 278 opcode = 328 parameter2 = %tru_strk% special = 1 END
+		END
 	END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Neutralize Poison                                  //
 ///////////////////////////////////////////////////////////////////////////
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~CLERIC_NEUTRALIZE_POISON~ RET spell_res END
-	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
-	  LPF CLONE_EFFECT INT_VAR match_opcode = 101 opcode = 328 parameter2 = %ntr_psn% special = 1 END
+	ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
+		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
+		  LPF CLONE_EFFECT INT_VAR match_opcode = 101 opcode = 328 parameter2 = %ntr_psn% special = 1 END
+	END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Strength of One                                    //
 ///////////////////////////////////////////////////////////////////////////
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~CLERIC_STRENGTH_OF_ONE~ RET spell_res END
-	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
-	  LPF CLONE_EFFECT INT_VAR match_opcode = 282 opcode = 328 parameter2 = %str_one% special = 1 END
+	ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
+		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
+		  LPF CLONE_EFFECT INT_VAR match_opcode = 282 opcode = 328 parameter2 = %str_one% special = 1 END
+	END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Wizard Shield                                      //
 ///////////////////////////////////////////////////////////////////////////
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_SHIELD~ RET spell_res END
-	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
-   		LPF CLONE_EFFECT INT_VAR match_opcode = 282 opcode = 328 parameter2 = %wzd_shld% special = 1 END
+	ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
+		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
+	   		LPF CLONE_EFFECT INT_VAR match_opcode = 282 opcode = 328 parameter2 = %wzd_shld% special = 1 END
+   	END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Haste                                              //
 ///////////////////////////////////////////////////////////////////////////
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_HASTE~ RET spell_res END
-	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
-	  LPF CLONE_EFFECT INT_VAR match_opcode = 1 opcode = 328 parameter2 = %haste% special = 1 END
+	ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
+		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
+		  LPF CLONE_EFFECT INT_VAR match_opcode = 1 opcode = 328 parameter2 = %haste% special = 1 END
+	END
 
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Improved Haste                                     //
 ///////////////////////////////////////////////////////////////////////////
 	LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_IMPROVED_HASTE~ RET spell_res END
-	COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
-	  LPF CLONE_EFFECT INT_VAR match_opcode = 1 opcode = 328 parameter2 = %imp_haste% special = 1 END
+	ACTION_IF FILE_EXISTS_IN_GAME ~%spell_res%.SPL~ BEGIN
+		COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
+		  LPF CLONE_EFFECT INT_VAR match_opcode = 1 opcode = 328 parameter2 = %imp_haste% special = 1 END
+	END
 
 END
 
