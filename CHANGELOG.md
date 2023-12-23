@@ -11,6 +11,7 @@ October xx, 2023
   - Don't target players using Project Image with Remove Paralysis.
   - Updated check for Minor Globes.
   - Updated use of Ring of Gaxx.
+  - Updated extra checks for mod compatibility.
 
 ## Version 12.4
 

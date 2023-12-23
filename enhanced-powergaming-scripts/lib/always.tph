@@ -272,7 +272,7 @@ ACTION_IF !VARIABLE_IS_SET ~initialise~ BEGIN
    // Moved to new mod - Formerly ~0~ in prior version
    // Detect Made in Heaven Fixes and Restorations - Restored Spells
    ACTION_IF MOD_IS_INSTALLED ~Setup-mih_fr.tp2~ ~3~ BEGIN
-      OUTER_SET mih_restorations=1
+      OUTER_SET mih_restorations=0
    END ELSE BEGIN
       OUTER_SET mih_restorations=0
    END
@@ -280,7 +280,7 @@ ACTION_IF !VARIABLE_IS_SET ~initialise~ BEGIN
    // Formerly ~1~ in prior version
    // Detect Made in Heaven Spellpack - Arcane Spells
    ACTION_IF MOD_IS_INSTALLED ~Setup-mih_sp.tp2~ ~0~ BEGIN
-      OUTER_SET mih_arcane=1
+      OUTER_SET mih_arcane=0
    END ELSE BEGIN
       OUTER_SET mih_arcane=0
    END
@@ -288,14 +288,14 @@ ACTION_IF !VARIABLE_IS_SET ~initialise~ BEGIN
    // Formerly ~2~ in prior version
    // Detect Made in Heaven Spellpack - Divine Spells
    ACTION_IF MOD_IS_INSTALLED ~Setup-mih_sp.tp2~ ~1~ BEGIN
-      OUTER_SET mih_divine=1
+      OUTER_SET mih_divine=0
    END ELSE BEGIN
       OUTER_SET mih_divine=0
    END
 
    // Detect Made in Heaven Item Pack
    ACTION_IF MOD_IS_INSTALLED ~Setup-mih_ip.tp2~ ~0~ BEGIN
-      OUTER_SET mih_items=1
+      OUTER_SET mih_items=0
    END ELSE BEGIN
       OUTER_SET mih_items=0
    END
