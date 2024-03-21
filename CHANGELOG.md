@@ -1,5 +1,14 @@
 # Changelog
 
+## Version 12.6
+
+March 20, 2023
+
+### Changed 
+
+- All Games
+  - Fixed bug with Simulacrum scripts being assigned.
+
 ## Version 12.5
 
 December 23, 2023

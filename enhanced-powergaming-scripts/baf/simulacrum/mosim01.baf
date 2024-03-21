@@ -31,7 +31,11 @@ THEN
     SetGlobal("BDAI_DISABLE_SPECIAL","LOCALS",0)
     SetGlobal("BDAI_DISABLE_DEFENSIVE","LOCALS",0)
     SetGlobal("BDAI_DISABLE_OFFENSIVE","LOCALS",0)
-    ChangeAIScript("mosim02",OVERRIDE)
+    ChangeAIScript("",OVERRIDE)
+    ChangeAIScript("",CLASS)
+    ChangeAIScript("",RACE)
+    ChangeAIScript("",GENERAL)
+    ChangeAIScript("mosim02",DEFAULT)
 END
 
 IF
@@ -49,12 +53,20 @@ THEN
     SetGlobal("BDAI_DISABLE_SPECIAL","LOCALS",0)
     SetGlobal("BDAI_DISABLE_DEFENSIVE","LOCALS",0)
     SetGlobal("BDAI_DISABLE_OFFENSIVE","LOCALS",0)
-    ChangeAIScript("mosim02",OVERRIDE)
+    ChangeAIScript("",OVERRIDE)
+    ChangeAIScript("",CLASS)
+    ChangeAIScript("",RACE)
+    ChangeAIScript("",GENERAL)
+    ChangeAIScript("mosim02",DEFAULT)
 END
 
 IF
   Allegiance(Myself,ENEMY)
 THEN
   RESPONSE #100
-    ChangeAIScript("mosim07",OVERRIDE)
+    ChangeAIScript("",OVERRIDE)
+    ChangeAIScript("",CLASS)
+    ChangeAIScript("",RACE)
+    ChangeAIScript("",GENERAL)
+    ChangeAIScript("mosim07",DEFAULT)
 END
