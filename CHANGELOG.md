@@ -8,6 +8,8 @@ March 20, 2023
 
 - All Games
   - Fixed bug with Simulacrum scripts being assigned.
+- BG2EE and EET
+  - Fixed issue with Ring of Gaxx not assigning the Improved Haste spellstate.
 
 ## Version 12.5
 
