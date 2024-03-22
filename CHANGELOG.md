@@ -1,5 +1,14 @@
 # Changelog
 
+## Version 12.7
+
+March 21, 2023
+
+### Changed 
+
+- All Games
+  - Fixed bug with Improved Haste and SCS v35.x Spell System Changes.
+
 ## Version 12.6
 
 March 20, 2023
