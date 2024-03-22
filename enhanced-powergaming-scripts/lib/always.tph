@@ -228,7 +228,7 @@ ACTION_IF !VARIABLE_IS_SET ~initialise~ BEGIN
    END
 
    // Detect Sword Coast Stratagems - Spell Tweaks
-   ACTION_IF MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~2000~ BEGIN
+   ACTION_IF MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~2000~ OR MOD_IS_INSTALLED ~setup-stratagems.tp2~ ~2010~ BEGIN
       OUTER_SET scs_spltweak=1
    END ELSE BEGIN
       OUTER_SET scs_spltweak=0
