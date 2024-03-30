@@ -15,6 +15,7 @@ THEN
     SetGlobal("BDAI_ATTACK_MODE","LOCALS",2)
 END
 
+/*
 IF 
   OR(2)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
@@ -46,8 +47,12 @@ THEN
     SetGlobal("MO_SpellCast","LOCALS",0)
     Continue()
 END
+*/
 
 IF 
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
   !CheckSpellState(Myself,NEED_IMPROVED_HASTE)
   !HaveSpell(WIZARD_IMPROVED_HASTE)
   !HaveSpell(WARRIOR_GREATER_WHIRLWIND)
@@ -68,6 +73,9 @@ THEN
 END
 
 IF 
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
   CheckSpellState(Myself,NEED_IMPROVED_HASTE)
   OR(2)
     HaveSpell(WIZARD_IMPROVED_HASTE)
@@ -80,6 +88,9 @@ THEN
 END
 
 IF 
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
   CheckSpellState(Myself,NEED_IMPROVED_HASTE)
   HasItemEquiped("AMUL26",Myself)  // Amulet of Cheetah Speed
   GlobalLT("MO_UsedCheetah","GLOBAL",1)
@@ -91,6 +102,9 @@ THEN
 END
 
 IF 
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
   CheckSpellState(Myself,NEED_IMPROVED_HASTE)
   HasItemEquiped("RING39",Myself)  // Ring of Gaxx
   GlobalLT("MO_UsedRingGaxx","GLOBAL",3)
@@ -102,6 +116,9 @@ THEN
 END
 
 IF 
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
   CheckSpellState(Myself,NEED_IMPROVED_HASTE)
   HasItemEquiped("BRAC16",Myself)  // Bracers of Blinding Strike
   GlobalLT("MO_UsedBlindingSpeed","GLOBAL",1)
