@@ -1,14 +1,16 @@
 # Changelog
 
-## Version 12.8
+## Version 13.0
 
-April 5, 2023
+April x, 2023
 
 ### Changed 
 
 - All Games
   - Fixed bug with the scripts overwriting player commands.
   - Improved Haste issue may not be from SCS. Checking in a different manner to correct issue.
+  - New system using EEex to track spell cast cooldowns.
+  - Corrected bug with use of both Melf's Minute Missiles and Black Blade of Disaster.
 
 ## Version 12.7
 

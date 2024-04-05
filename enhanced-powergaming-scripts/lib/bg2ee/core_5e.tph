@@ -8637,6 +8637,7 @@ END~~~~~ //"
     !Global("BDAI_SKILL_MODE","LOCALS",2)
   HaveSpellRES(WIZARD_MELF_METEOR)
   !HasItem("melfmet",Myself)  // Melf's Minute Meteor
+  !CheckSpellState(Myself,BLACK_BLADE)  // Black Blade of Disaster
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_POISONED)
@@ -10373,6 +10374,7 @@ END~~~~~ //"
     !StateCheck(Myself,STATE_INVISIBLE)
     !Global("BDAI_SKILL_MODE","LOCALS",2)
   HaveSpellRES(WIZARD_BLACK_BLADE_OF_DISASTER)
+  !HasItem("melfmet",Myself)  // Melf's Minute Meteor
   !CheckSpellState(Myself,BLACK_BLADE)
   See([EVILCUTOFF])
   OR(33)

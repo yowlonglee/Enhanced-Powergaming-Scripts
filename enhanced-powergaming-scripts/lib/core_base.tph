@@ -11899,6 +11899,7 @@ IF
     !Global("BDAI_SKILL_MODE","LOCALS",2)
   HaveSpell(WIZARD_MELF_METEOR)  // SPWI325.SPL (Melf's Minute Meteors)
   !HasItem("melfmet",Myself)  // Melf's Minute Meteor
+  !CheckSpellState(Myself,BLACK_BLADE)  // Black Blade of Disaster
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_POISONED)
@@ -21410,6 +21411,7 @@ IF
     !Global("BDAI_SKILL_MODE","LOCALS",2)
   HaveSpell(WIZARD_BLACK_BLADE_OF_DISASTER)
   !CheckSpellState(Myself,BLACK_BLADE)
+  !HasItem("melfmet",Myself)  // Melf's Minute Meteor
   See([EVILCUTOFF])
   OR(33)
     EEex_LuaTrigger("return ChallengeRating()")

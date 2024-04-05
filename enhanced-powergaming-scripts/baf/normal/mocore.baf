@@ -3993,6 +3993,7 @@ IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(WIZARD_BLACK_BLADE_OF_DISASTER)  // SPWI915.SPL (Black Blade of Disaster)
   !CheckSpellState(Myself,BLACK_BLADE)  // Black Blade of Disaster
+  !HasItem("melfmet",Myself)  // Melf's Minute Meteor
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_POISONED)
