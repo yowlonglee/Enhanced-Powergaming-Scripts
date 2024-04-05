@@ -10,9 +10,10 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocore.baf~ ~enhanced-powergaming-
     STR_VAR
     pattern = ~~~~~// Morpheus562 Kitpack Reaver Siphon Life~~~~~
     string = ~~~~~IF
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
   OR(2)
     !StateCheck(Myself,STATE_INVISIBLE)
@@ -57,9 +58,10 @@ END~~~~~ //"
     STR_VAR
     pattern = ~~~~~// Morpheus562 Kitpack Reaver Drain Life~~~~~
     string = ~~~~~IF
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
   OR(2)
     !StateCheck(Myself,STATE_INVISIBLE)

@@ -47,9 +47,10 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   See(NearestEnemyOfType([GOODCUTOFF]))
   HaveSpell(CLERIC_SANCTUARY)  // SPPR109.SPL (Sanctuary)
@@ -121,9 +122,10 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   HaveSpellRES("CA#HEAL")  // Heal
   CheckStat(Myself,1,SANCTUARY)
@@ -147,9 +149,10 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   HaveSpellRES("CA#HEAL1")  // Heal
   CheckStat(Myself,1,SANCTUARY)
@@ -176,9 +179,10 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   See(NearestEnemyOfType([GOODCUTOFF]))
   CheckStatLT(Myself,1,STONESKINS)
@@ -202,9 +206,10 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   See(Myself)
   !CheckSpellState(LastSeenBy(Myself),RESTORATION)
@@ -233,9 +238,10 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   See(Myself)
   OR(5)
@@ -264,9 +270,10 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   See(Myself)
   OR(5)
@@ -295,9 +302,10 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   HaveSpell(CLERIC_SLOW_POISON)  // SPPR212.SPL (Slow Poison)
   Allegiance(Myself,EVILCUTOFF)
@@ -324,9 +332,10 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Allegiance(Myself,EVILCUTOFF)
   Detect([EVILCUTOFF])
@@ -353,9 +362,10 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Allegiance(Myself,EVILCUTOFF)
   HaveSpell(CLERIC_ZONE_OF_SWEET_AIR)  // SPPR318.SPL (Zone of Sweet Air)
@@ -391,9 +401,10 @@ END
 // 06 - Out of Combat Healing Spells                                     //
 ///////////////////////////////////////////////////////////////////////////
 IF
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   GlobalLT("MO_CastingHeal","GLOBAL",1)
   OR(2)
@@ -427,9 +438,10 @@ THEN
 END
 
 IF
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   GlobalLT("MO_CastingHeal","GLOBAL",1)
   OR(2)
@@ -466,9 +478,10 @@ END
 // 07 - Spell Type Determination                                   //
 /////////////////////////////////////////////////////////////////////
 IF
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   RandomNum(2,1)
 THEN
   RESPONSE #100
@@ -477,9 +490,10 @@ THEN
 END
 
 IF
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   RandomNum(2,2)
 THEN
   RESPONSE #100
@@ -505,9 +519,10 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
   HaveSpellRES("CA#IPLAG")  // Insect Plague
@@ -545,9 +560,10 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
   HaveSpellRES("CA#IPLAG")  // Insect Plague
@@ -585,9 +601,10 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
   HaveSpellRES("CA#IPLAG")  // Insect Plague
@@ -625,9 +642,10 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
   HaveSpellRES("CA#IPLAG")  // Insect Plague
@@ -665,9 +683,10 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
   HaveSpellRES("CA#IPLAG")  // Insect Plague
@@ -705,9 +724,10 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
   HaveSpellRES("CA#IPLAG")  // Insect Plague
@@ -747,9 +767,10 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   HaveSpell(CLERIC_SILENCE_15_FOOT)  // SPPR211.SPL (Silence, 15' Radius)
   See(NearestEnemyOfType([GOODCUTOFF]))
   !Allegiance(LastSeenBy(Myself),ENEMY)
@@ -792,9 +813,10 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   HaveSpell(CLERIC_SILENCE_15_FOOT)  // SPPR211.SPL (Silence, 15' Radius)
   See(SecondNearestEnemyOfType([GOODCUTOFF]))
   !Allegiance(LastSeenBy(Myself),ENEMY)
@@ -837,9 +859,10 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   HaveSpell(CLERIC_SILENCE_15_FOOT)  // SPPR211.SPL (Silence, 15' Radius)
   See(ThirdNearestEnemyOfType([GOODCUTOFF]))
   !Allegiance(LastSeenBy(Myself),ENEMY)
@@ -882,9 +905,10 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   HaveSpell(CLERIC_SILENCE_15_FOOT)  // SPPR211.SPL (Silence, 15' Radius)
   See(FourthNearestEnemyOfType([GOODCUTOFF]))
   !Allegiance(LastSeenBy(Myself),ENEMY)
@@ -927,9 +951,10 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   HaveSpell(CLERIC_SILENCE_15_FOOT)  // SPPR211.SPL (Silence, 15' Radius)
   See(FifthNearestEnemyOfType([GOODCUTOFF]))
   !Allegiance(LastSeenBy(Myself),ENEMY)
@@ -972,9 +997,10 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   HaveSpell(CLERIC_SILENCE_15_FOOT)  // SPPR211.SPL (Silence, 15' Radius)
   See(SixthNearestEnemyOfType([GOODCUTOFF]))
   !Allegiance(LastSeenBy(Myself),ENEMY)
@@ -1017,9 +1043,10 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   HaveSpellRES("CA#FMIND")  // Feeblemind
   See(NearestEnemyOfType([GOODCUTOFF]))
   !Allegiance(LastSeenBy(Myself),ENEMY)
@@ -1054,9 +1081,10 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   HaveSpellRES("CA#FMIND")  // Feeblemind
   See(SecondNearestEnemyOfType([GOODCUTOFF]))
   !Allegiance(LastSeenBy(Myself),ENEMY)
@@ -1091,9 +1119,10 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   HaveSpellRES("CA#FMIND")  // Feeblemind
   See(ThirdNearestEnemyOfType([GOODCUTOFF]))
   !Allegiance(LastSeenBy(Myself),ENEMY)
@@ -1128,9 +1157,10 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   HaveSpellRES("CA#FMIND")  // Feeblemind
   See(FourthNearestEnemyOfType([GOODCUTOFF]))
   !Allegiance(LastSeenBy(Myself),ENEMY)
@@ -1165,9 +1195,10 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   HaveSpellRES("CA#FMIND")  // Feeblemind
   See(FifthNearestEnemyOfType([GOODCUTOFF]))
   !Allegiance(LastSeenBy(Myself),ENEMY)
@@ -1202,9 +1233,10 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   HaveSpellRES("CA#FMIND")  // Feeblemind
   See(SixthNearestEnemyOfType([GOODCUTOFF]))
   !Allegiance(LastSeenBy(Myself),ENEMY)
@@ -1239,9 +1271,10 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   HaveSpell(CLERIC_MENTAL_DOMINATION)  // SPPR405.SPL (Mental Domination)
   See(NearestEnemyOfType([GOODCUTOFF]))
   !Allegiance(LastSeenBy(Myself),ENEMY)
@@ -1277,9 +1310,10 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   HaveSpell(CLERIC_MENTAL_DOMINATION)  // SPPR405.SPL (Mental Domination)
   See(SecondNearestEnemyOfType([GOODCUTOFF]))
   !Allegiance(LastSeenBy(Myself),ENEMY)
@@ -1315,9 +1349,10 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   HaveSpell(CLERIC_MENTAL_DOMINATION)  // SPPR405.SPL (Mental Domination)
   See(ThirdNearestEnemyOfType([GOODCUTOFF]))
   !Allegiance(LastSeenBy(Myself),ENEMY)
@@ -1353,9 +1388,10 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   HaveSpell(CLERIC_MENTAL_DOMINATION)  // SPPR405.SPL (Mental Domination)
   See(FourthNearestEnemyOfType([GOODCUTOFF]))
   !Allegiance(LastSeenBy(Myself),ENEMY)
@@ -1391,9 +1427,10 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   HaveSpell(CLERIC_MENTAL_DOMINATION)  // SPPR405.SPL (Mental Domination)
   See(FifthNearestEnemyOfType([GOODCUTOFF]))
   !Allegiance(LastSeenBy(Myself),ENEMY)
@@ -1429,9 +1466,10 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   HaveSpell(CLERIC_MENTAL_DOMINATION)  // SPPR405.SPL (Mental Domination)
   See(SixthNearestEnemyOfType([GOODCUTOFF]))
   !Allegiance(LastSeenBy(Myself),ENEMY)
@@ -1465,9 +1503,10 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
   HaveSpell(CLERIC_HOLD_PERSON)  // SPPR208.SPL (Hold Person)
@@ -1522,9 +1561,10 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
   HaveSpell(CLERIC_HOLD_PERSON)  // SPPR208.SPL (Hold Person)
@@ -1579,9 +1619,10 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
   HaveSpell(CLERIC_HOLD_PERSON)  // SPPR208.SPL (Hold Person)
@@ -1636,9 +1677,10 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
   HaveSpell(CLERIC_HOLD_PERSON)  // SPPR208.SPL (Hold Person)
@@ -1693,9 +1735,10 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
   HaveSpell(CLERIC_HOLD_PERSON)  // SPPR208.SPL (Hold Person)
@@ -1750,9 +1793,10 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
   HaveSpell(CLERIC_HOLD_PERSON)  // SPPR208.SPL (Hold Person)
@@ -1807,9 +1851,10 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
   HaveSpell(WIZARD_CHAOS)
@@ -1855,9 +1900,10 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
   HaveSpell(WIZARD_CHAOS)
@@ -1903,9 +1949,10 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
   HaveSpell(WIZARD_CHAOS)
@@ -1951,9 +1998,10 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
   HaveSpell(WIZARD_CHAOS)
@@ -1999,9 +2047,10 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
   HaveSpell(WIZARD_CHAOS)
@@ -2047,9 +2096,10 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
   HaveSpell(WIZARD_CHAOS)
@@ -2095,9 +2145,10 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
   HaveSpell(CLERIC_COMMAND)  // SPPR102.SPL (Command)
@@ -2139,9 +2190,10 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
   HaveSpell(CLERIC_COMMAND)  // SPPR102.SPL (Command)
@@ -2183,9 +2235,10 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
   HaveSpell(CLERIC_COMMAND)  // SPPR102.SPL (Command)
@@ -2227,9 +2280,10 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
   HaveSpell(CLERIC_COMMAND)  // SPPR102.SPL (Command)
@@ -2271,9 +2325,10 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
   HaveSpell(CLERIC_COMMAND)  // SPPR102.SPL (Command)
@@ -2315,9 +2370,10 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
   HaveSpell(CLERIC_COMMAND)  // SPPR102.SPL (Command)
@@ -2364,9 +2420,10 @@ IF
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
   Global("MO_ActionType","LOCALS",1)
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   OR(11)
     Range([GOODCUTOFF.0.SOLAR],30)
@@ -2401,9 +2458,10 @@ IF
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
   Global("MO_ActionType","LOCALS",1)
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   HaveSpell(CLERIC_RIGHTEOUS_MAGIC)  // SPPR513.SPL (Righteous Magic)
   !CheckSpellState(Myself,RIGHTEOUS_MAGIC)
@@ -2434,9 +2492,10 @@ IF
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
   Global("MO_ActionType","LOCALS",1)
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   HaveSpellRES("CA#BLBAR")  // SPPR603.SPL (Blade Barrier)
   See([GOODCUTOFF])
@@ -2468,9 +2527,10 @@ IF
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
   Global("MO_ActionType","LOCALS",1)
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   HaveSpellRES("CA#PFNM")  // SPWI311.SPL (Protection From Normal Missiles)
   OR(11)
@@ -2506,9 +2566,10 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   Global("MO_ActionType","LOCALS",1)
   !StateCheck(Myself,STATE_MIRRORIMAGE)
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   HaveSpell(WIZARD_MIRROR_IMAGE)  // SPWI212.SPL (Mirror Image)
   See(NearestEnemyOfType([GOODCUTOFF]))
@@ -2544,9 +2605,10 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   Global("MO_ActionType","LOCALS",1)
   !StateCheck(Myself,STATE_MIRRORIMAGE)
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   HaveSpellRES("CA#MIMG")  // SPWI212.SPL (Mirror Image)
   See(NearestEnemyOfType([GOODCUTOFF]))
@@ -2581,9 +2643,10 @@ IF
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
   Global("MO_ActionType","LOCALS",1)
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   HaveSpell(CLERIC_ARMOR_OF_FAITH)  // SPPR111.SPL (Armor of Faith)
   !CheckSpellState(Myself,ARMOR_OF_FAITH)
@@ -2613,9 +2676,10 @@ IF
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
   Global("MO_ActionType","LOCALS",1)
-  OR(2)
+  OR(3)
     !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   HaveSpell(CLERIC_BLESS)  // SPPR101.SPL (Bless)
   !StateCheck(Myself,STATE_BLESS)
