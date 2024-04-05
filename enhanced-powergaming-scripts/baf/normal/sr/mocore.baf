@@ -31,10 +31,9 @@ END
 /*
 IF 
   EEex_LuaTrigger("return MO_AmCastingCooldown()")
-  OR(3)
-    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
-    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
   Global("MO_SpellCast","LOCALS",0)
 THEN
   RESPONSE #100
