@@ -1,5 +1,15 @@
 # Changelog
 
+## Version 12.8
+
+April 5, 2023
+
+### Changed 
+
+- All Games
+  - Fixed bug with the scripts overwriting player commands.
+  - Improved Haste issue may not be from SCS. Checking in a different manner to correct issue.
+
 ## Version 12.7
 
 March 21, 2023

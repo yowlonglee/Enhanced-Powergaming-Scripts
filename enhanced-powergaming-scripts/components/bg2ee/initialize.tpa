@@ -2064,7 +2064,8 @@ ACTION_IF !spell_revisions BEGIN
 ///////////////////////////////////////////////////////////////////////////
 // Add Spell State to Improved Haste                                     //
 ///////////////////////////////////////////////////////////////////////////
-	ACTION_IF scs_spltweak BEGIN
+	//ACTION_IF scs_spltweak BEGIN
+	ACTION_IF FILE_EXISTS_IN_GAME ~SPWI613A.SPL~ BEGIN
 		COPY_EXISTING ~SPWI613A.SPL~ ~override~
 			LPF CLONE_EFFECT INT_VAR match_opcode = 16 opcode = 328 parameter2 = %imp_haste% special = 1 END
 	END ELSE BEGIN
