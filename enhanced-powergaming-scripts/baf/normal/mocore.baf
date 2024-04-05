@@ -15,6 +15,18 @@ THEN
     SetGlobal("BDAI_ATTACK_MODE","LOCALS",2)
 END
 
+IF 
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
+  !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+  EEex_LuaTrigger("return MO_AmCastingCooldown()")
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",2)
+    Continue()
+END
+
 /*
 IF 
   EEex_LuaTrigger("return MO_AmCastingCooldown()")
