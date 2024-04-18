@@ -590,6 +590,9 @@ IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   See(NearestEnemyOf(Myself))
   HaveSpell(CLERIC_SANCTUARY)  // SPPR109.SPL (Sanctuary)
@@ -673,6 +676,9 @@ IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   !EEex_LuaTrigger("return AmMoving()")
   CheckStatLT(Myself,1,STONESKINS)
@@ -700,6 +706,9 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   HaveSpellRES("CA#RDEAD")  // Raise Dead
@@ -732,6 +741,9 @@ IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   HaveSpellRES("CA#RDEAD")  // Raise Dead
   Global("MO_PartyRaiseDead","GLOBAL",0)
@@ -762,6 +774,9 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   HaveSpellRES("CA#RDEAD")  // Raise Dead
@@ -794,6 +809,9 @@ IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   HaveSpellRES("CA#RDEAD")  // Raise Dead
   Global("MO_PartyRaiseDead","GLOBAL",0)
@@ -825,6 +843,9 @@ IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   HaveSpellRES("CA#RDEAD")  // Raise Dead
   Global("MO_PartyRaiseDead","GLOBAL",0)
@@ -855,6 +876,9 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   HaveSpellRES("CA#RDEAD")  // Raise Dead
@@ -890,481 +914,19 @@ IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
-  !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
-  See(Myself)
-  !CheckSpellState(LastSeenBy(Myself),RESTORATION)
-  CheckStatGT(LastSeenBy(Myself),0,LEVELDRAIN)
-  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  HaveSpellRES("CA#RESTO")  // Greater Restoration
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
-  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
-  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_POISONED)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
-    SetInterrupt(FALSE)
-    ApplySpellRES("MOREST",LastSeenBy(Myself))
-    DisplayStringHead(Myself,@5009)
-    SpellRES("CA#RESTO",LastSeenBy(Myself))  // Greater Restoration
-    SetInterrupt(TRUE)
-END
-
-IF
   OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
-    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
-    CheckStatGT(Myself,0,AURACLEANSING)
-  !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
-  See([PC])
-  !CheckSpellState(LastSeenBy(Myself),RESTORATION)
-  CheckStatGT(LastSeenBy(Myself),0,LEVELDRAIN)
-  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  HaveSpellRES("CA#RESTO")  // Greater Restoration
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
-  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
-  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_POISONED)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
-    SetInterrupt(FALSE)
-    ApplySpellRES("MOREST",LastSeenBy(Myself))
-    DisplayStringHead(Myself,@5009)
-    SpellRES("CA#RESTO",LastSeenBy(Myself))  // Greater Restoration
-    SetInterrupt(TRUE)
-END
-
-IF
-  OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
-    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
-    CheckStatGT(Myself,0,AURACLEANSING)
-  !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
-  See(SecondNearest([PC]))
-  !CheckSpellState(LastSeenBy(Myself),RESTORATION)
-  CheckStatGT(LastSeenBy(Myself),0,LEVELDRAIN)
-  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  HaveSpellRES("CA#RESTO")  // Greater Restoration
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
-  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
-  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_POISONED)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
-    SetInterrupt(FALSE)
-    ApplySpellRES("MOREST",LastSeenBy(Myself))
-    DisplayStringHead(Myself,@5009)
-    SpellRES("CA#RESTO",LastSeenBy(Myself))  // Greater Restoration
-    SetInterrupt(TRUE)
-END
-
-IF
-  OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
-    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
-    CheckStatGT(Myself,0,AURACLEANSING)
-  !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
-  See(ThirdNearest([PC]))
-  !CheckSpellState(LastSeenBy(Myself),RESTORATION)
-  CheckStatGT(LastSeenBy(Myself),0,LEVELDRAIN)
-  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  HaveSpellRES("CA#RESTO")  // Greater Restoration
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
-  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
-  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_POISONED)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
-    SetInterrupt(FALSE)
-    ApplySpellRES("MOREST",LastSeenBy(Myself))
-    DisplayStringHead(Myself,@5009)
-    SpellRES("CA#RESTO",LastSeenBy(Myself))  // Greater Restoration
-    SetInterrupt(TRUE)
-END
-
-IF
-  OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
-    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
-    CheckStatGT(Myself,0,AURACLEANSING)
-  !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
-  See(FourthNearest([PC]))
-  !CheckSpellState(LastSeenBy(Myself),RESTORATION)
-  CheckStatGT(LastSeenBy(Myself),0,LEVELDRAIN)
-  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  HaveSpellRES("CA#RESTO")  // Greater Restoration
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
-  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
-  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_POISONED)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
-    SetInterrupt(FALSE)
-    ApplySpellRES("MOREST",LastSeenBy(Myself))
-    DisplayStringHead(Myself,@5009)
-    SpellRES("CA#RESTO",LastSeenBy(Myself))  // Greater Restoration
-    SetInterrupt(TRUE)
-END
-
-IF
-  OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
-    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
-    CheckStatGT(Myself,0,AURACLEANSING)
-  !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
-  See(FifthNearest([PC]))
-  !CheckSpellState(LastSeenBy(Myself),RESTORATION)
-  CheckStatGT(LastSeenBy(Myself),0,LEVELDRAIN)
-  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  HaveSpellRES("CA#RESTO")  // Greater Restoration
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
-  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
-  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_POISONED)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
-    SetInterrupt(FALSE)
-    ApplySpellRES("MOREST",LastSeenBy(Myself))
-    DisplayStringHead(Myself,@5009)
-    SpellRES("CA#RESTO",LastSeenBy(Myself))  // Greater Restoration
-    SetInterrupt(TRUE)
-END
-
-IF
-  OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
-    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
-    CheckStatGT(Myself,0,AURACLEANSING)
-  !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
-  See(SixthNearest([PC]))
-  !CheckSpellState(LastSeenBy(Myself),RESTORATION)
-  CheckStatGT(LastSeenBy(Myself),0,LEVELDRAIN)
-  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  HaveSpellRES("CA#RESTO")  // Greater Restoration
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
-  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
-  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_POISONED)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
-    SetInterrupt(FALSE)
-    ApplySpellRES("MOREST",LastSeenBy(Myself))
-    DisplayStringHead(Myself,@5009)
-    SpellRES("CA#RESTO",LastSeenBy(Myself))  // Greater Restoration
-    SetInterrupt(TRUE)
-END
-
-IF
-  OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
-    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
-    CheckStatGT(Myself,0,AURACLEANSING)
-  !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
-  See([PC])
-  OR(2)
-    StateCheck(LastSeenBy(Myself),STATE_STUNNED)
-    CheckStatGT(LastSeenBy(Myself),0,HELD)
-  HaveSpell(CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
-  Global("MO_PartyRemoveParalysis","GLOBAL",0)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_MISLEAD)
-  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  CheckStat(LastSeenBy(Myself),0,WEB)
-  !StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
-  !StateCheck(LastSeenBy(Myself),STATE_CHARMED)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_POISONED)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
-    SetGlobalTimer("MO_ParalysisCastTimer","GLOBAL",6)
-    SetGlobal("MO_SelfRemoveParalysis","LOCALS",1)
-    SetGlobal("MO_PartyRemoveParalysis","GLOBAL",1)
-    SetInterrupt(FALSE)
-    DisplayStringHead(Myself,@5010)
-    Spell(LastSeenBy(Myself),CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
-    SetInterrupt(TRUE)
-END
-
-IF
-  OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
-    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
-    CheckStatGT(Myself,0,AURACLEANSING)
-  !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
-  See(SecondNearest([PC]))
-  OR(2)
-    StateCheck(LastSeenBy(Myself),STATE_STUNNED)
-    CheckStatGT(LastSeenBy(Myself),0,HELD)
-  HaveSpell(CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
-  Global("MO_PartyRemoveParalysis","GLOBAL",0)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_MISLEAD)
-  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  CheckStat(LastSeenBy(Myself),0,WEB)
-  !StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
-  !StateCheck(LastSeenBy(Myself),STATE_CHARMED)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_POISONED)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
-    SetGlobalTimer("MO_ParalysisCastTimer","GLOBAL",6)
-    SetGlobal("MO_SelfRemoveParalysis","LOCALS",1)
-    SetGlobal("MO_PartyRemoveParalysis","GLOBAL",1)
-    SetInterrupt(FALSE)
-    DisplayStringHead(Myself,@5010)
-    Spell(LastSeenBy(Myself),CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
-    SetInterrupt(TRUE)
-END
-
-IF
-  OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
-    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
-    CheckStatGT(Myself,0,AURACLEANSING)
-  !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
-  See(ThirdNearest([PC]))
-  OR(2)
-    StateCheck(LastSeenBy(Myself),STATE_STUNNED)
-    CheckStatGT(LastSeenBy(Myself),0,HELD)
-  HaveSpell(CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
-  Global("MO_PartyRemoveParalysis","GLOBAL",0)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_MISLEAD)
-  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  CheckStat(LastSeenBy(Myself),0,WEB)
-  !StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
-  !StateCheck(LastSeenBy(Myself),STATE_CHARMED)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_POISONED)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
-    SetGlobalTimer("MO_ParalysisCastTimer","GLOBAL",6)
-    SetGlobal("MO_SelfRemoveParalysis","LOCALS",1)
-    SetGlobal("MO_PartyRemoveParalysis","GLOBAL",1)
-    SetInterrupt(FALSE)
-    DisplayStringHead(Myself,@5010)
-    Spell(LastSeenBy(Myself),CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
-    SetInterrupt(TRUE)
-END
-
-IF
-  OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
-    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
-    CheckStatGT(Myself,0,AURACLEANSING)
-  !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
-  See(FourthNearest([PC]))
-  OR(2)
-    StateCheck(LastSeenBy(Myself),STATE_STUNNED)
-    CheckStatGT(LastSeenBy(Myself),0,HELD)
-  HaveSpell(CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
-  Global("MO_PartyRemoveParalysis","GLOBAL",0)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_MISLEAD)
-  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  CheckStat(LastSeenBy(Myself),0,WEB)
-  !StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
-  !StateCheck(LastSeenBy(Myself),STATE_CHARMED)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_POISONED)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
-    SetGlobalTimer("MO_ParalysisCastTimer","GLOBAL",6)
-    SetGlobal("MO_SelfRemoveParalysis","LOCALS",1)
-    SetGlobal("MO_PartyRemoveParalysis","GLOBAL",1)
-    SetInterrupt(FALSE)
-    DisplayStringHead(Myself,@5010)
-    Spell(LastSeenBy(Myself),CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
-    SetInterrupt(TRUE)
-END
-
-IF
-  OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
-    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
-    CheckStatGT(Myself,0,AURACLEANSING)
-  !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
-  See(FifthNearest([PC]))
-  OR(2)
-    StateCheck(LastSeenBy(Myself),STATE_STUNNED)
-    CheckStatGT(LastSeenBy(Myself),0,HELD)
-  HaveSpell(CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
-  Global("MO_PartyRemoveParalysis","GLOBAL",0)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_MISLEAD)
-  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  CheckStat(LastSeenBy(Myself),0,WEB)
-  !StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
-  !StateCheck(LastSeenBy(Myself),STATE_CHARMED)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_POISONED)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
-    SetGlobalTimer("MO_ParalysisCastTimer","GLOBAL",6)
-    SetGlobal("MO_SelfRemoveParalysis","LOCALS",1)
-    SetGlobal("MO_PartyRemoveParalysis","GLOBAL",1)
-    SetInterrupt(FALSE)
-    DisplayStringHead(Myself,@5010)
-    Spell(LastSeenBy(Myself),CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
-    SetInterrupt(TRUE)
-END
-
-IF
-  OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
-    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
-    CheckStatGT(Myself,0,AURACLEANSING)
-  !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
-  See(SixthNearest([PC]))
-  OR(2)
-    StateCheck(LastSeenBy(Myself),STATE_STUNNED)
-    CheckStatGT(LastSeenBy(Myself),0,HELD)
-  HaveSpell(CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
-  Global("MO_PartyRemoveParalysis","GLOBAL",0)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_MISLEAD)
-  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  CheckStat(LastSeenBy(Myself),0,WEB)
-  !StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
-  !StateCheck(LastSeenBy(Myself),STATE_CHARMED)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_POISONED)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
-    SetGlobalTimer("MO_ParalysisCastTimer","GLOBAL",6)
-    SetGlobal("MO_SelfRemoveParalysis","LOCALS",1)
-    SetGlobal("MO_PartyRemoveParalysis","GLOBAL",1)
-    SetInterrupt(FALSE)
-    DisplayStringHead(Myself,@5010)
-    Spell(LastSeenBy(Myself),CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
-    SetInterrupt(TRUE)
-END
-
-IF
-  OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
-  OR(2)
-    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   See(Myself)
-  OR(5)
-    StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
-    StateCheck(LastSeenBy(Myself),STATE_BLIND)
-    StateCheck(LastSeenBy(Myself),STATE_DISEASED)
-    CheckSpellState(LastSeenBy(Myself),DISEASED)
-    CheckSpellState(LastSeenBy(Myself),DEAFENED)
+  !CheckSpellState(LastSeenBy(Myself),RESTORATION)
+  CheckStatGT(LastSeenBy(Myself),0,LEVELDRAIN)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  HaveSpellRES("CA#CDISE")  // Cure Disease
+  HaveSpellRES("CA#RESTO")  // Greater Restoration
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -1375,9 +937,9 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
-    ApplySpellRES("MORMVDS",LastSeenBy(Myself))
-    DisplayStringHead(Myself,@5010)
-    SpellRES("CA#CDISE",LastSeenBy(Myself))  // Cure Disease
+    ApplySpellRES("MOREST",LastSeenBy(Myself))
+    DisplayStringHead(Myself,@5009)
+    SpellRES("CA#RESTO",LastSeenBy(Myself))  // Greater Restoration
     SetInterrupt(TRUE)
 END
 
@@ -1387,19 +949,20 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   See([PC])
-  OR(5)
-    StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
-    StateCheck(LastSeenBy(Myself),STATE_BLIND)
-    StateCheck(LastSeenBy(Myself),STATE_DISEASED)
-    CheckSpellState(LastSeenBy(Myself),DISEASED)
-    CheckSpellState(LastSeenBy(Myself),DEAFENED)
+  !CheckSpellState(LastSeenBy(Myself),RESTORATION)
+  CheckStatGT(LastSeenBy(Myself),0,LEVELDRAIN)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  HaveSpellRES("CA#CDISE")  // Cure Disease
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  HaveSpellRES("CA#RESTO")  // Greater Restoration
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -1410,9 +973,9 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
-    ApplySpellRES("MORMVDS",LastSeenBy(Myself))
-    DisplayStringHead(Myself,@5010)
-    SpellRES("CA#CDISE",LastSeenBy(Myself))  // Cure Disease
+    ApplySpellRES("MOREST",LastSeenBy(Myself))
+    DisplayStringHead(Myself,@5009)
+    SpellRES("CA#RESTO",LastSeenBy(Myself))  // Greater Restoration
     SetInterrupt(TRUE)
 END
 
@@ -1422,19 +985,20 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   See(SecondNearest([PC]))
-  OR(5)
-    StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
-    StateCheck(LastSeenBy(Myself),STATE_BLIND)
-    StateCheck(LastSeenBy(Myself),STATE_DISEASED)
-    CheckSpellState(LastSeenBy(Myself),DISEASED)
-    CheckSpellState(LastSeenBy(Myself),DEAFENED)
+  !CheckSpellState(LastSeenBy(Myself),RESTORATION)
+  CheckStatGT(LastSeenBy(Myself),0,LEVELDRAIN)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  HaveSpellRES("CA#CDISE")  // Cure Disease
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  HaveSpellRES("CA#RESTO")  // Greater Restoration
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -1445,9 +1009,9 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
-    ApplySpellRES("MORMVDS",LastSeenBy(Myself))
-    DisplayStringHead(Myself,@5010)
-    SpellRES("CA#CDISE",LastSeenBy(Myself))  // Cure Disease
+    ApplySpellRES("MOREST",LastSeenBy(Myself))
+    DisplayStringHead(Myself,@5009)
+    SpellRES("CA#RESTO",LastSeenBy(Myself))  // Greater Restoration
     SetInterrupt(TRUE)
 END
 
@@ -1457,19 +1021,20 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   See(ThirdNearest([PC]))
-  OR(5)
-    StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
-    StateCheck(LastSeenBy(Myself),STATE_BLIND)
-    StateCheck(LastSeenBy(Myself),STATE_DISEASED)
-    CheckSpellState(LastSeenBy(Myself),DISEASED)
-    CheckSpellState(LastSeenBy(Myself),DEAFENED)
+  !CheckSpellState(LastSeenBy(Myself),RESTORATION)
+  CheckStatGT(LastSeenBy(Myself),0,LEVELDRAIN)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  HaveSpellRES("CA#CDISE")  // Cure Disease
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  HaveSpellRES("CA#RESTO")  // Greater Restoration
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -1480,9 +1045,9 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
-    ApplySpellRES("MORMVDS",LastSeenBy(Myself))
-    DisplayStringHead(Myself,@5010)
-    SpellRES("CA#CDISE",LastSeenBy(Myself))  // Cure Disease
+    ApplySpellRES("MOREST",LastSeenBy(Myself))
+    DisplayStringHead(Myself,@5009)
+    SpellRES("CA#RESTO",LastSeenBy(Myself))  // Greater Restoration
     SetInterrupt(TRUE)
 END
 
@@ -1492,19 +1057,20 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   See(FourthNearest([PC]))
-  OR(5)
-    StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
-    StateCheck(LastSeenBy(Myself),STATE_BLIND)
-    StateCheck(LastSeenBy(Myself),STATE_DISEASED)
-    CheckSpellState(LastSeenBy(Myself),DISEASED)
-    CheckSpellState(LastSeenBy(Myself),DEAFENED)
+  !CheckSpellState(LastSeenBy(Myself),RESTORATION)
+  CheckStatGT(LastSeenBy(Myself),0,LEVELDRAIN)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  HaveSpellRES("CA#CDISE")  // Cure Disease
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  HaveSpellRES("CA#RESTO")  // Greater Restoration
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -1515,9 +1081,9 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
-    ApplySpellRES("MORMVDS",LastSeenBy(Myself))
-    DisplayStringHead(Myself,@5010)
-    SpellRES("CA#CDISE",LastSeenBy(Myself))  // Cure Disease
+    ApplySpellRES("MOREST",LastSeenBy(Myself))
+    DisplayStringHead(Myself,@5009)
+    SpellRES("CA#RESTO",LastSeenBy(Myself))  // Greater Restoration
     SetInterrupt(TRUE)
 END
 
@@ -1527,19 +1093,20 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   See(FifthNearest([PC]))
-  OR(5)
-    StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
-    StateCheck(LastSeenBy(Myself),STATE_BLIND)
-    StateCheck(LastSeenBy(Myself),STATE_DISEASED)
-    CheckSpellState(LastSeenBy(Myself),DISEASED)
-    CheckSpellState(LastSeenBy(Myself),DEAFENED)
+  !CheckSpellState(LastSeenBy(Myself),RESTORATION)
+  CheckStatGT(LastSeenBy(Myself),0,LEVELDRAIN)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  HaveSpellRES("CA#CDISE")  // Cure Disease
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  HaveSpellRES("CA#RESTO")  // Greater Restoration
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -1550,9 +1117,9 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
-    ApplySpellRES("MORMVDS",LastSeenBy(Myself))
-    DisplayStringHead(Myself,@5010)
-    SpellRES("CA#CDISE",LastSeenBy(Myself))  // Cure Disease
+    ApplySpellRES("MOREST",LastSeenBy(Myself))
+    DisplayStringHead(Myself,@5009)
+    SpellRES("CA#RESTO",LastSeenBy(Myself))  // Greater Restoration
     SetInterrupt(TRUE)
 END
 
@@ -1563,18 +1130,19 @@ IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   See(SixthNearest([PC]))
-  OR(5)
-    StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
-    StateCheck(LastSeenBy(Myself),STATE_BLIND)
-    StateCheck(LastSeenBy(Myself),STATE_DISEASED)
-    CheckSpellState(LastSeenBy(Myself),DISEASED)
-    CheckSpellState(LastSeenBy(Myself),DEAFENED)
+  !CheckSpellState(LastSeenBy(Myself),RESTORATION)
+  CheckStatGT(LastSeenBy(Myself),0,LEVELDRAIN)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  HaveSpellRES("CA#CDISE")  // Cure Disease
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  HaveSpellRES("CA#RESTO")  // Greater Restoration
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -1585,9 +1153,9 @@ THEN
   RESPONSE #100
     SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
-    ApplySpellRES("MORMVDS",LastSeenBy(Myself))
-    DisplayStringHead(Myself,@5010)
-    SpellRES("CA#CDISE",LastSeenBy(Myself))  // Cure Disease
+    ApplySpellRES("MOREST",LastSeenBy(Myself))
+    DisplayStringHead(Myself,@5009)
+    SpellRES("CA#RESTO",LastSeenBy(Myself))  // Greater Restoration
     SetInterrupt(TRUE)
 END
 
@@ -1597,6 +1165,261 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
+  See([PC])
+  OR(2)
+    StateCheck(LastSeenBy(Myself),STATE_STUNNED)
+    CheckStatGT(LastSeenBy(Myself),0,HELD)
+  HaveSpell(CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
+  Global("MO_PartyRemoveParalysis","GLOBAL",0)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_MISLEAD)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  CheckStat(LastSeenBy(Myself),0,WEB)
+  !StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
+  !StateCheck(LastSeenBy(Myself),STATE_CHARMED)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetGlobalTimer("MO_ParalysisCastTimer","GLOBAL",6)
+    SetGlobal("MO_SelfRemoveParalysis","LOCALS",1)
+    SetGlobal("MO_PartyRemoveParalysis","GLOBAL",1)
+    SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5010)
+    Spell(LastSeenBy(Myself),CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
+    SetInterrupt(TRUE)
+END
+
+IF
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
+  OR(2)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
+  See(SecondNearest([PC]))
+  OR(2)
+    StateCheck(LastSeenBy(Myself),STATE_STUNNED)
+    CheckStatGT(LastSeenBy(Myself),0,HELD)
+  HaveSpell(CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
+  Global("MO_PartyRemoveParalysis","GLOBAL",0)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_MISLEAD)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  CheckStat(LastSeenBy(Myself),0,WEB)
+  !StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
+  !StateCheck(LastSeenBy(Myself),STATE_CHARMED)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetGlobalTimer("MO_ParalysisCastTimer","GLOBAL",6)
+    SetGlobal("MO_SelfRemoveParalysis","LOCALS",1)
+    SetGlobal("MO_PartyRemoveParalysis","GLOBAL",1)
+    SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5010)
+    Spell(LastSeenBy(Myself),CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
+    SetInterrupt(TRUE)
+END
+
+IF
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
+  OR(2)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
+  See(ThirdNearest([PC]))
+  OR(2)
+    StateCheck(LastSeenBy(Myself),STATE_STUNNED)
+    CheckStatGT(LastSeenBy(Myself),0,HELD)
+  HaveSpell(CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
+  Global("MO_PartyRemoveParalysis","GLOBAL",0)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_MISLEAD)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  CheckStat(LastSeenBy(Myself),0,WEB)
+  !StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
+  !StateCheck(LastSeenBy(Myself),STATE_CHARMED)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetGlobalTimer("MO_ParalysisCastTimer","GLOBAL",6)
+    SetGlobal("MO_SelfRemoveParalysis","LOCALS",1)
+    SetGlobal("MO_PartyRemoveParalysis","GLOBAL",1)
+    SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5010)
+    Spell(LastSeenBy(Myself),CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
+    SetInterrupt(TRUE)
+END
+
+IF
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
+  OR(2)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
+  See(FourthNearest([PC]))
+  OR(2)
+    StateCheck(LastSeenBy(Myself),STATE_STUNNED)
+    CheckStatGT(LastSeenBy(Myself),0,HELD)
+  HaveSpell(CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
+  Global("MO_PartyRemoveParalysis","GLOBAL",0)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_MISLEAD)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  CheckStat(LastSeenBy(Myself),0,WEB)
+  !StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
+  !StateCheck(LastSeenBy(Myself),STATE_CHARMED)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetGlobalTimer("MO_ParalysisCastTimer","GLOBAL",6)
+    SetGlobal("MO_SelfRemoveParalysis","LOCALS",1)
+    SetGlobal("MO_PartyRemoveParalysis","GLOBAL",1)
+    SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5010)
+    Spell(LastSeenBy(Myself),CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
+    SetInterrupt(TRUE)
+END
+
+IF
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
+  OR(2)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
+  See(FifthNearest([PC]))
+  OR(2)
+    StateCheck(LastSeenBy(Myself),STATE_STUNNED)
+    CheckStatGT(LastSeenBy(Myself),0,HELD)
+  HaveSpell(CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
+  Global("MO_PartyRemoveParalysis","GLOBAL",0)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_MISLEAD)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  CheckStat(LastSeenBy(Myself),0,WEB)
+  !StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
+  !StateCheck(LastSeenBy(Myself),STATE_CHARMED)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetGlobalTimer("MO_ParalysisCastTimer","GLOBAL",6)
+    SetGlobal("MO_SelfRemoveParalysis","LOCALS",1)
+    SetGlobal("MO_PartyRemoveParalysis","GLOBAL",1)
+    SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5010)
+    Spell(LastSeenBy(Myself),CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
+    SetInterrupt(TRUE)
+END
+
+IF
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
+  OR(2)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
+  See(SixthNearest([PC]))
+  OR(2)
+    StateCheck(LastSeenBy(Myself),STATE_STUNNED)
+    CheckStatGT(LastSeenBy(Myself),0,HELD)
+  HaveSpell(CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
+  Global("MO_PartyRemoveParalysis","GLOBAL",0)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_MISLEAD)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  CheckStat(LastSeenBy(Myself),0,WEB)
+  !StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
+  !StateCheck(LastSeenBy(Myself),STATE_CHARMED)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetGlobalTimer("MO_ParalysisCastTimer","GLOBAL",6)
+    SetGlobal("MO_SelfRemoveParalysis","LOCALS",1)
+    SetGlobal("MO_PartyRemoveParalysis","GLOBAL",1)
+    SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5010)
+    Spell(LastSeenBy(Myself),CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
+    SetInterrupt(TRUE)
+END
+
+IF
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
+  OR(2)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   See(Myself)
@@ -1607,6 +1430,270 @@ IF
     CheckSpellState(LastSeenBy(Myself),DISEASED)
     CheckSpellState(LastSeenBy(Myself),DEAFENED)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  HaveSpellRES("CA#CDISE")  // Cure Disease
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    ApplySpellRES("MORMVDS",LastSeenBy(Myself))
+    DisplayStringHead(Myself,@5010)
+    SpellRES("CA#CDISE",LastSeenBy(Myself))  // Cure Disease
+    SetInterrupt(TRUE)
+END
+
+IF
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
+  OR(2)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
+  See([PC])
+  OR(5)
+    StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
+    StateCheck(LastSeenBy(Myself),STATE_BLIND)
+    StateCheck(LastSeenBy(Myself),STATE_DISEASED)
+    CheckSpellState(LastSeenBy(Myself),DISEASED)
+    CheckSpellState(LastSeenBy(Myself),DEAFENED)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  HaveSpellRES("CA#CDISE")  // Cure Disease
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    ApplySpellRES("MORMVDS",LastSeenBy(Myself))
+    DisplayStringHead(Myself,@5010)
+    SpellRES("CA#CDISE",LastSeenBy(Myself))  // Cure Disease
+    SetInterrupt(TRUE)
+END
+
+IF
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
+  OR(2)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
+  See(SecondNearest([PC]))
+  OR(5)
+    StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
+    StateCheck(LastSeenBy(Myself),STATE_BLIND)
+    StateCheck(LastSeenBy(Myself),STATE_DISEASED)
+    CheckSpellState(LastSeenBy(Myself),DISEASED)
+    CheckSpellState(LastSeenBy(Myself),DEAFENED)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  HaveSpellRES("CA#CDISE")  // Cure Disease
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    ApplySpellRES("MORMVDS",LastSeenBy(Myself))
+    DisplayStringHead(Myself,@5010)
+    SpellRES("CA#CDISE",LastSeenBy(Myself))  // Cure Disease
+    SetInterrupt(TRUE)
+END
+
+IF
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
+  OR(2)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
+  See(ThirdNearest([PC]))
+  OR(5)
+    StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
+    StateCheck(LastSeenBy(Myself),STATE_BLIND)
+    StateCheck(LastSeenBy(Myself),STATE_DISEASED)
+    CheckSpellState(LastSeenBy(Myself),DISEASED)
+    CheckSpellState(LastSeenBy(Myself),DEAFENED)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  HaveSpellRES("CA#CDISE")  // Cure Disease
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    ApplySpellRES("MORMVDS",LastSeenBy(Myself))
+    DisplayStringHead(Myself,@5010)
+    SpellRES("CA#CDISE",LastSeenBy(Myself))  // Cure Disease
+    SetInterrupt(TRUE)
+END
+
+IF
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
+  OR(2)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
+  See(FourthNearest([PC]))
+  OR(5)
+    StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
+    StateCheck(LastSeenBy(Myself),STATE_BLIND)
+    StateCheck(LastSeenBy(Myself),STATE_DISEASED)
+    CheckSpellState(LastSeenBy(Myself),DISEASED)
+    CheckSpellState(LastSeenBy(Myself),DEAFENED)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  HaveSpellRES("CA#CDISE")  // Cure Disease
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    ApplySpellRES("MORMVDS",LastSeenBy(Myself))
+    DisplayStringHead(Myself,@5010)
+    SpellRES("CA#CDISE",LastSeenBy(Myself))  // Cure Disease
+    SetInterrupt(TRUE)
+END
+
+IF
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
+  OR(2)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
+  See(FifthNearest([PC]))
+  OR(5)
+    StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
+    StateCheck(LastSeenBy(Myself),STATE_BLIND)
+    StateCheck(LastSeenBy(Myself),STATE_DISEASED)
+    CheckSpellState(LastSeenBy(Myself),DISEASED)
+    CheckSpellState(LastSeenBy(Myself),DEAFENED)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  HaveSpellRES("CA#CDISE")  // Cure Disease
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    ApplySpellRES("MORMVDS",LastSeenBy(Myself))
+    DisplayStringHead(Myself,@5010)
+    SpellRES("CA#CDISE",LastSeenBy(Myself))  // Cure Disease
+    SetInterrupt(TRUE)
+END
+
+IF
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
+  OR(2)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
+  See(SixthNearest([PC]))
+  OR(5)
+    StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
+    StateCheck(LastSeenBy(Myself),STATE_BLIND)
+    StateCheck(LastSeenBy(Myself),STATE_DISEASED)
+    CheckSpellState(LastSeenBy(Myself),DISEASED)
+    CheckSpellState(LastSeenBy(Myself),DEAFENED)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  HaveSpellRES("CA#CDISE")  // Cure Disease
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    ApplySpellRES("MORMVDS",LastSeenBy(Myself))
+    DisplayStringHead(Myself,@5010)
+    SpellRES("CA#CDISE",LastSeenBy(Myself))  // Cure Disease
+    SetInterrupt(TRUE)
+END
+
+IF
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
+  OR(2)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
+  See(Myself)
+  OR(5)
+    StateCheck(LastSeenBy(Myself),STATE_FEEBLEMINDED)
+    StateCheck(LastSeenBy(Myself),STATE_BLIND)
+    StateCheck(LastSeenBy(Myself),STATE_DISEASED)
+    CheckSpellState(LastSeenBy(Myself),DISEASED)
+    CheckSpellState(LastSeenBy(Myself),DEAFENED)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   HaveSpellRES("CA#CUDIS")  // Cure Disease
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !StateCheck(Myself,STATE_SILENCED)
@@ -1630,6 +1717,9 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   See([PC])
@@ -1666,6 +1756,9 @@ IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   See(SecondNearest([PC]))
   OR(5)
@@ -1700,6 +1793,9 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   See(ThirdNearest([PC]))
@@ -1736,6 +1832,9 @@ IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   See(FourthNearest([PC]))
   OR(5)
@@ -1770,6 +1869,9 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   See(FifthNearest([PC]))
@@ -1806,6 +1908,9 @@ IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   See(SixthNearest([PC]))
   OR(5)
@@ -1840,6 +1945,9 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   HaveSpell(CLERIC_SLOW_POISON)  // SPPR212.SPL (Slow Poison)
@@ -1869,6 +1977,9 @@ IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   HaveSpell(CLERIC_SLOW_POISON)  // SPPR212.SPL (Slow Poison)
   See([PC])
@@ -1900,6 +2011,9 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   HaveSpell(CLERIC_SLOW_POISON)  // SPPR212.SPL (Slow Poison)
@@ -1933,6 +2047,9 @@ IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   HaveSpell(CLERIC_SLOW_POISON)  // SPPR212.SPL (Slow Poison)
   See(ThirdNearest([PC]))
@@ -1964,6 +2081,9 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   HaveSpell(CLERIC_SLOW_POISON)  // SPPR212.SPL (Slow Poison)
@@ -1997,6 +2117,9 @@ IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   HaveSpell(CLERIC_SLOW_POISON)  // SPPR212.SPL (Slow Poison)
   See(FifthNearest([PC]))
@@ -2029,6 +2152,9 @@ IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   HaveSpell(CLERIC_SLOW_POISON)  // SPPR212.SPL (Slow Poison)
   See(SixthNearest([PC]))
@@ -2060,6 +2186,9 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   See([PC])
@@ -2094,6 +2223,9 @@ IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   See(SecondNearest([PC]))
   StateCheck(LastSeenBy(Myself),STATE_PANIC)
@@ -2126,6 +2258,9 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   See(ThirdNearest([PC]))
@@ -2160,6 +2295,9 @@ IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   See(FourthNearest([PC]))
   StateCheck(LastSeenBy(Myself),STATE_PANIC)
@@ -2192,6 +2330,9 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   See(FifthNearest([PC]))
@@ -2226,6 +2367,9 @@ IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   See(SixthNearest([PC]))
   StateCheck(LastSeenBy(Myself),STATE_PANIC)
@@ -2258,6 +2402,9 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   HaveSpell(CLERIC_ZONE_OF_SWEET_AIR)  // SPPR318.SPL (Zone of Sweet Air)
@@ -2296,6 +2443,9 @@ END
 IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   GlobalLT("MO_CastingHeal","GLOBAL",1)
@@ -2336,6 +2486,9 @@ IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   GlobalLT("MO_CastingHeal","GLOBAL",1)
   OR(2)
@@ -2374,6 +2527,9 @@ END
 IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   GlobalLT("MO_CastingHeal","GLOBAL",1)
@@ -2415,6 +2571,9 @@ END
 IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   GlobalLT("MO_CastingHeal","GLOBAL",1)
@@ -2461,6 +2620,9 @@ IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
   RandomNum(2,1)
 THEN
   RESPONSE #100
@@ -2471,6 +2633,9 @@ END
 IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   RandomNum(2,2)
 THEN
@@ -2500,6 +2665,9 @@ IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
   HaveSpellRES("CA#IPLAG")  // Insect Plague
@@ -2545,6 +2713,9 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
@@ -2592,6 +2763,9 @@ IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
   HaveSpellRES("CA#IPLAG")  // Insect Plague
@@ -2637,6 +2811,9 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
@@ -2684,6 +2861,9 @@ IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
   HaveSpellRES("CA#IPLAG")  // Insect Plague
@@ -2729,6 +2909,9 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
@@ -2778,6 +2961,9 @@ IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
   HaveSpell(CLERIC_SILENCE_15_FOOT)  // SPPR211.SPL (Silence, 15' Radius)
   See(NearestEnemyOf(Myself))
   OR(3)
@@ -2822,6 +3008,9 @@ IF
   Global("MO_ActionType","LOCALS",0)
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   HaveSpell(CLERIC_SILENCE_15_FOOT)  // SPPR211.SPL (Silence, 15' Radius)
   See(SecondNearestEnemyOf(Myself))
@@ -2868,6 +3057,9 @@ IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
   HaveSpell(CLERIC_SILENCE_15_FOOT)  // SPPR211.SPL (Silence, 15' Radius)
   See(ThirdNearestEnemyOf(Myself))
   OR(3)
@@ -2912,6 +3104,9 @@ IF
   Global("MO_ActionType","LOCALS",0)
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   HaveSpell(CLERIC_SILENCE_15_FOOT)  // SPPR211.SPL (Silence, 15' Radius)
   See(FourthNearestEnemyOf(Myself))
@@ -2958,6 +3153,9 @@ IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
   HaveSpell(CLERIC_SILENCE_15_FOOT)  // SPPR211.SPL (Silence, 15' Radius)
   See(FifthNearestEnemyOf(Myself))
   OR(3)
@@ -3003,6 +3201,9 @@ IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
   HaveSpell(CLERIC_SILENCE_15_FOOT)  // SPPR211.SPL (Silence, 15' Radius)
   See(SixthNearestEnemyOf(Myself))
   OR(3)
@@ -3047,6 +3248,9 @@ IF
   Global("MO_ActionType","LOCALS",0)
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   HaveSpellRES("CA#FMIND")  // Feeblemind
   See(NearestEnemyOf(Myself))
@@ -3084,6 +3288,9 @@ IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
   HaveSpellRES("CA#FMIND")  // Feeblemind
   See(SecondNearestEnemyOf(Myself))
   CheckStatLT(LastSeenBy(Myself),20,RESISTMAGIC)
@@ -3119,6 +3326,9 @@ IF
   Global("MO_ActionType","LOCALS",0)
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   HaveSpellRES("CA#FMIND")  // Feeblemind
   See(ThirdNearestEnemyOf(Myself))
@@ -3156,6 +3366,9 @@ IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
   HaveSpellRES("CA#FMIND")  // Feeblemind
   See(FourthNearestEnemyOf(Myself))
   CheckStatLT(LastSeenBy(Myself),20,RESISTMAGIC)
@@ -3191,6 +3404,9 @@ IF
   Global("MO_ActionType","LOCALS",0)
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   HaveSpellRES("CA#FMIND")  // Feeblemind
   See(FifthNearestEnemyOf(Myself))
@@ -3228,6 +3444,9 @@ IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
   HaveSpellRES("CA#FMIND")  // Feeblemind
   See(SixthNearestEnemyOf(Myself))
   CheckStatLT(LastSeenBy(Myself),20,RESISTMAGIC)
@@ -3263,6 +3482,9 @@ IF
   Global("MO_ActionType","LOCALS",0)
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   HaveSpell(CLERIC_MENTAL_DOMINATION)  // SPPR405.SPL (Mental Domination)
   See(NearestEnemyOf(Myself))
@@ -3301,6 +3523,9 @@ IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
   HaveSpell(CLERIC_MENTAL_DOMINATION)  // SPPR405.SPL (Mental Domination)
   See(SecondNearestEnemyOf(Myself))
   CheckStatLT(LastSeenBy(Myself),20,RESISTMAGIC)
@@ -3337,6 +3562,9 @@ IF
   Global("MO_ActionType","LOCALS",0)
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   HaveSpell(CLERIC_MENTAL_DOMINATION)  // SPPR405.SPL (Mental Domination)
   See(ThirdNearestEnemyOf(Myself))
@@ -3375,6 +3603,9 @@ IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
   HaveSpell(CLERIC_MENTAL_DOMINATION)  // SPPR405.SPL (Mental Domination)
   See(FourthNearestEnemyOf(Myself))
   CheckStatLT(LastSeenBy(Myself),20,RESISTMAGIC)
@@ -3411,6 +3642,9 @@ IF
   Global("MO_ActionType","LOCALS",0)
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   HaveSpell(CLERIC_MENTAL_DOMINATION)  // SPPR405.SPL (Mental Domination)
   See(FifthNearestEnemyOf(Myself))
@@ -3449,6 +3683,9 @@ IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
   HaveSpell(CLERIC_MENTAL_DOMINATION)  // SPPR405.SPL (Mental Domination)
   See(SixthNearestEnemyOf(Myself))
   CheckStatLT(LastSeenBy(Myself),20,RESISTMAGIC)
@@ -3483,6 +3720,9 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
@@ -3530,6 +3770,9 @@ IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
   HaveSpell(CLERIC_HOLD_PERSON)  // SPPR208.SPL (Hold Person)
@@ -3575,6 +3818,9 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
@@ -3622,6 +3868,9 @@ IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
   HaveSpell(CLERIC_HOLD_PERSON)  // SPPR208.SPL (Hold Person)
@@ -3668,6 +3917,9 @@ IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
   HaveSpell(CLERIC_HOLD_PERSON)  // SPPR208.SPL (Hold Person)
@@ -3713,6 +3965,9 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
@@ -3760,6 +4015,9 @@ IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
   HaveSpell(WIZARD_CHAOS)
@@ -3807,6 +4065,9 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
@@ -3856,6 +4117,9 @@ IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
   HaveSpell(WIZARD_CHAOS)
@@ -3903,6 +4167,9 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
@@ -3952,6 +4219,9 @@ IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
   HaveSpell(WIZARD_CHAOS)
@@ -3999,6 +4269,9 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
@@ -4048,6 +4321,9 @@ IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
   HaveSpell(CLERIC_COMMAND)  // SPPR102.SPL (Command)
@@ -4093,6 +4369,9 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
@@ -4140,6 +4419,9 @@ IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
   HaveSpell(CLERIC_COMMAND)  // SPPR102.SPL (Command)
@@ -4185,6 +4467,9 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
@@ -4232,6 +4517,9 @@ IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
   HaveSpell(CLERIC_COMMAND)  // SPPR102.SPL (Command)
@@ -4277,6 +4565,9 @@ IF
     EEex_LuaTrigger("return AmAttacking()")
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   Global("MO_ActionType","LOCALS",0)
@@ -4329,6 +4620,9 @@ IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   OR(17)
     Range([EVILCUTOFF.0.FAIRY],30)
@@ -4371,6 +4665,9 @@ IF
   Global("MO_ActionType","LOCALS",1)
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   HaveSpell(CLERIC_RIGHTEOUS_MAGIC)  // SPPR513.SPL (Righteous Magic)
@@ -4424,6 +4721,9 @@ IF
   Global("MO_ActionType","LOCALS",1)
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   HaveSpellRES("CA#BLBAR")  // SPPR603.SPL (Blade Barrier)
@@ -4479,6 +4779,9 @@ IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   HaveSpellRES("CA#PFNM")  // SPWI311.SPL (Protection From Normal Missiles)
   OR(11)
@@ -4516,6 +4819,9 @@ IF
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   HaveSpell(WIZARD_MIRROR_IMAGE)  // SPWI212.SPL (Mirror Image)
@@ -4555,6 +4861,9 @@ IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   HaveSpellRES("CA#MIMG")  // SPWI212.SPL (Mirror Image)
   See(NearestEnemyOf(Myself))
@@ -4591,6 +4900,9 @@ IF
   Global("MO_ActionType","LOCALS",1)
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   HaveSpell(CLERIC_ARMOR_OF_FAITH)  // SPPR111.SPL (Armor of Faith)
@@ -4643,6 +4955,9 @@ IF
   Global("MO_ActionType","LOCALS",1)
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
     CheckStatGT(Myself,0,AURACLEANSING)
   !HaveSpellRES("CA#AMSC")  // Cancel Anti-Magic Shell
   HaveSpell(CLERIC_BLESS)  // SPPR101.SPL (Bless)
