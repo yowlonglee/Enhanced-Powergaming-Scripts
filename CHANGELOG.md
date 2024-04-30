@@ -2,10 +2,12 @@
 
 ## Version 13.1
 
-April xx, 2024
+April 29, 2024
 
 ### Changed
 
+- All Games
+  - (Greater) Divine Protection may be altered by other mods, so I updated the spell tracking updates to account for the potential changes.
 - BGEE
   - Fixed bug if BGEE and Battlemaster are installed together.
 
