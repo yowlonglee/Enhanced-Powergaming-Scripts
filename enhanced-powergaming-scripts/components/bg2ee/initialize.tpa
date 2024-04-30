@@ -1004,7 +1004,7 @@ ACTION_IF iwdification BEGIN
 		BEGIN
 			LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~CLERIC_%spell%~ RET spell_res END
 			COPY_EXISTING ~%spell_res%.SPL~ ~override~ 
-				LPF CLONE_EFFECT INT_VAR match_opcode = 101 opcode = 328 parameter2 = %shld_lath% special = 1 END
+				LPF CLONE_EFFECT INT_VAR match_opcode = 166 opcode = 328 parameter2 = %shld_lath% special = 1 END
 		END
 
 END
