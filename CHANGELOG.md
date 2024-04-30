@@ -1,8 +1,17 @@
 # Changelog
 
+## Version 13.1
+
+April xx, 2024
+
+### Changed
+
+- BGEE
+  - Fixed bug if BGEE and Battlemaster are installed together.
+
 ## Version 13.0
 
-April 17, 2023
+April 17, 2024
 
 ### Changed 
 
@@ -14,7 +23,7 @@ April 17, 2023
 
 ## Version 12.7
 
-March 21, 2023
+March 21, 2024
 
 ### Changed 
 
@@ -23,7 +32,7 @@ March 21, 2023
 
 ## Version 12.6
 
-March 20, 2023
+March 20, 2024
 
 ### Changed 
 
