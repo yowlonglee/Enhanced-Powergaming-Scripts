@@ -839,7 +839,12 @@ END
 ///////////////////////////////////////////////////////////////////////////
 ACTION_IF psi_warrior BEGIN
 	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_psi_warrior.tph~
-	INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_psi_warrior_check.tph~
+
+	ACTION_IF GAME_IS ~bg2ee eet~ BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_psi_warrior_check.tph~
+	END ELSE ACTION_IF GAME_IS ~bgee~ BEGIN
+		INCLUDE ~enhanced-powergaming-scripts/lib/BG2EE/core_psi_warrior_check.tph~
+	END
 END
 
 ///////////////////////////////////////////////////////////////////////////
