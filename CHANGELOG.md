@@ -9,7 +9,7 @@ April 29, 2024
 - All Games
   - (Greater) Divine Protection may be altered by other mods, so I updated the spell tracking updates to account for the potential changes.
 - BGEE
-  - Fixed bug if BGEE and Battlemaster are installed together.
+  - Fixed bug if BGEE and Psi Warrior are installed together.
 
 ## Version 13.0
 
