@@ -1,5 +1,14 @@
 # Changelog
 
+## Version 13.2
+
+May 2, 2024
+
+### Changed
+
+- All Games
+  - Fix for PnP Celestials when not using EEex.
+
 ## Version 13.1
 
 April 29, 2024
