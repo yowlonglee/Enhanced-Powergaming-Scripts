@@ -49,3 +49,26 @@ LPF REPLACE_MULTILINE
     pattern = ~~~~~!EEex_LuaTrigger("return MO_AmCastingCooldown()")~~~~~
     string = ~~~~~True()~~~~~ //"
   END
+
+///////////////////////////////////////////////////////////////////////////
+// Check Current Target                                                  //
+///////////////////////////////////////////////////////////////////////////
+  LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    warn = 0
+    STR_VAR
+    pattern = ~~~~~IF
+  EEex_LuaTrigger("return MoFillCurrentTarget()")
+  See(EEex_Target("MoCurrentTarget"))
+  OR(2)
+    !WeaponEffectiveVs(LastSeenBy(Myself),MAINHAND)
+    !WeaponCanDamage(LastSeenBy(Myself),MAINHAND)
+THEN
+  RESPONSE #100
+    ActionOverride(Myself,ClearActions(Myself))
+END~~~~~
+    string = ~~~~~~~~~~ //"
+  END
+  
