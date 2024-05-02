@@ -39,3 +39,13 @@ COPY ~enhanced-powergaming-scripts/baf/upload/mocel01.baf~ ~enhanced-powergaming
     pattern = ~~~~~!EEex_LuaTrigger("return AmMoving()")~~~~~
     string = ~~~~~True()~~~~~ //"
   END
+
+LPF REPLACE_MULTILINE
+    INT_VAR
+    strict = 1
+    verbose = 0
+    warn = 0
+    STR_VAR
+    pattern = ~~~~~!EEex_LuaTrigger("return MO_AmCastingCooldown()")~~~~~
+    string = ~~~~~True()~~~~~ //"
+  END
