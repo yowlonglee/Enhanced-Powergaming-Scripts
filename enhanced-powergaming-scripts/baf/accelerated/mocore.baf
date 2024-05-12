@@ -1214,6 +1214,7 @@ IF
   HaveSpell(CLERIC_DEATH_WARD)  // SPPR409.SPL (Death Ward)
   See(Myself)
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
+  !HasItemEquiped("OHBCLCK1",Myself) // Cloak of the Lich
   !CheckSpellState(LastSeenBy(Myself),DEATH_WARD)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -1236,6 +1237,7 @@ IF
   HaveSpell(CLERIC_DEATH_WARD)  // SPPR409.SPL (Death Ward)
   See([PC])
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
+  !HasItemEquiped("OHBCLCK1",LastSeenBy(Myself)) // Cloak of the Lich
   !CheckSpellState(LastSeenBy(Myself),DEATH_WARD)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),SI_NECROMANCY)
@@ -1265,6 +1267,7 @@ IF
   HaveSpell(CLERIC_DEATH_WARD)  // SPPR409.SPL (Death Ward)
   See(SecondNearest([PC]))
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
+  !HasItemEquiped("OHBCLCK1",LastSeenBy(Myself)) // Cloak of the Lich
   !CheckSpellState(LastSeenBy(Myself),DEATH_WARD)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),SI_NECROMANCY)
@@ -1294,6 +1297,7 @@ IF
   HaveSpell(CLERIC_DEATH_WARD)  // SPPR409.SPL (Death Ward)
   See(ThirdNearest([PC]))
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
+  !HasItemEquiped("OHBCLCK1",LastSeenBy(Myself)) // Cloak of the Lich
   !CheckSpellState(LastSeenBy(Myself),DEATH_WARD)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),SI_NECROMANCY)
@@ -1323,6 +1327,7 @@ IF
   HaveSpell(CLERIC_DEATH_WARD)  // SPPR409.SPL (Death Ward)
   See(FourthNearest([PC]))
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
+  !HasItemEquiped("OHBCLCK1",LastSeenBy(Myself)) // Cloak of the Lich
   !CheckSpellState(LastSeenBy(Myself),DEATH_WARD)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),SI_NECROMANCY)
@@ -1352,6 +1357,7 @@ IF
   HaveSpell(CLERIC_DEATH_WARD)  // SPPR409.SPL (Death Ward)
   See(FifthNearest([PC]))
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
+  !HasItemEquiped("OHBCLCK1",LastSeenBy(Myself)) // Cloak of the Lich
   !CheckSpellState(LastSeenBy(Myself),DEATH_WARD)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),SI_NECROMANCY)
@@ -1381,6 +1387,7 @@ IF
   HaveSpell(CLERIC_DEATH_WARD)  // SPPR409.SPL (Death Ward)
   See(SixthNearest([PC]))
   !Kit(LastSeenBy(Myself),UNDEADHUNTER)
+  !HasItemEquiped("OHBCLCK1",LastSeenBy(Myself)) // Cloak of the Lich
   !CheckSpellState(LastSeenBy(Myself),DEATH_WARD)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),SI_NECROMANCY)
