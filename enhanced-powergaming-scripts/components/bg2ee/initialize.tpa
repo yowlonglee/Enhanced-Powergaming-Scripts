@@ -1336,6 +1336,7 @@ END
 ///////////////////////////////////////////////////////////////////////////
 // Create Spell State for Restoration Spells                             //
 ///////////////////////////////////////////////////////////////////////////
+/*
 	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~RESTORATION~)) BEGIN
 	  COPY_EXISTING ~splstate.ids~ ~override~
 		COUNT_2DA_COLS cols
@@ -1355,7 +1356,7 @@ END
 		LAF d5_resolve_state STR_VAR new_state_id = ~RESTORATION~ RET new_state_ind END
 		OUTER_SET rest = %new_state_ind%
 	END
-
+*/
 ///////////////////////////////////////////////////////////////////////////
 // Create Spell State for Removing Disease                               //
 ///////////////////////////////////////////////////////////////////////////
@@ -1762,6 +1763,7 @@ END
 ///////////////////////////////////////////////////////////////////////////
 // Add State to track when using Restoration Spells                      //
 ///////////////////////////////////////////////////////////////////////////
+/*
 	COPY ~enhanced-powergaming-scripts/spl/morest.spl~ ~override~
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 2 special = 1 parameter2 = %rest% timing = 0 duration = 6 END
 
@@ -1780,7 +1782,7 @@ END
 		COPY_EXISTING ~CA#RESTO.SPL~ ~override~ 
 			LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 timing = 0 STR_VAR resource = "MOREST" END
 	END
-
+*/
 ///////////////////////////////////////////////////////////////////////////
 // Add State to track when Removing Diseases                             //
 ///////////////////////////////////////////////////////////////////////////
