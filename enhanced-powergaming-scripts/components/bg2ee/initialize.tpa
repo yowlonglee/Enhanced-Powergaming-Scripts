@@ -1454,6 +1454,7 @@ END
 ///////////////////////////////////////////////////////////////////////////
 // Create Spell State for Wizard Armor                                   //
 ///////////////////////////////////////////////////////////////////////////
+/*	
 	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~MAGE_ARMOR~)) BEGIN
 	  COPY_EXISTING ~splstate.ids~ ~override~
 		COUNT_2DA_COLS cols
@@ -1473,7 +1474,7 @@ END
 		LAF d5_resolve_state STR_VAR new_state_id = ~MAGE_ARMOR~ RET new_state_ind END
 		OUTER_SET mag_armor = %new_state_ind%
 	END
-
+*/
 ///////////////////////////////////////////////////////////////////////////
 // Create Spell State for Enhanced Bard Song                             //
 ///////////////////////////////////////////////////////////////////////////
