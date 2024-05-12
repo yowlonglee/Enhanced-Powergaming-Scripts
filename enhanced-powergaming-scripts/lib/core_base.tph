@@ -55,7 +55,7 @@ END
 ///////////////////////////////////////////////////////////////////////////
 // 01 - Curative Potions                                                 //
 ///////////////////////////////////////////////////////////////////////////
-
+/*
 IF
   OR(2)
     ActionListEmpty()
@@ -118,7 +118,7 @@ THEN
     SetInterrupt(TRUE)
     DisplayStringHead(Myself,@5005)
 END
-
+*/
 // Simulacrum SI_DIVINATION
 
 ///////////////////////////////////////////////////////////////////////////
@@ -2753,7 +2753,7 @@ END
 // FP Spiritual Clarity
 
 // 5e Spellcasting Cure Disease
-
+/*
 IF
   OR(2)
     ActionListEmpty()
@@ -3058,9 +3058,9 @@ THEN
     Spell(LastSeenBy(Myself),CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
     SetInterrupt(TRUE)
 END
-
+*/
 // 5e Spellcasting Neutralize Poison
-
+/*
 IF
   OR(2)
     ActionListEmpty()
@@ -3880,7 +3880,7 @@ THEN
     SpellRES("SPIN102",LastSeenBy(Myself))  // Cure Affliction
     SetInterrupt(TRUE)
 END
-
+*/
 IF
   OR(2)
     ActionListEmpty()

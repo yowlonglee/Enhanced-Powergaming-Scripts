@@ -875,7 +875,7 @@ THEN
     Spell(LastSeenBy(Myself),CLERIC_CURE_DISEASE)  // SPPR317.SPL (Cure Disease)
     SetInterrupt(TRUE)
 END
-
+/*
 IF
 	ActionListEmpty()
 	!GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
@@ -1085,7 +1085,7 @@ THEN
 		Spell(LastSeenBy(Myself),CLERIC_NEUTRALIZE_POISON)  // SPPR404.SPL (Neutralize Poison)
 		SetInterrupt(TRUE)
 END
-
+*/
 IF
 	ActionListEmpty()
 	!GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")

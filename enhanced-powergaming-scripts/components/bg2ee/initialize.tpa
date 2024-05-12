@@ -1313,6 +1313,7 @@ END
 ///////////////////////////////////////////////////////////////////////////
 // Create Spell State for Removing Poisons                               //
 ///////////////////////////////////////////////////////////////////////////
+/*
 	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~REMOVE_POISON~)) BEGIN
 	  COPY_EXISTING ~splstate.ids~ ~override~
 		COUNT_2DA_COLS cols
@@ -1332,7 +1333,7 @@ END
 		LAF d5_resolve_state STR_VAR new_state_id = ~REMOVE_POISON~ RET new_state_ind END
 		OUTER_SET rmv_psn = %new_state_ind%
 	END
-
+*/
 ///////////////////////////////////////////////////////////////////////////
 // Create Spell State for Restoration Spells                             //
 ///////////////////////////////////////////////////////////////////////////
@@ -1731,6 +1732,7 @@ END
 ///////////////////////////////////////////////////////////////////////////
 // Add State to track when Removing Poisons                              //
 ///////////////////////////////////////////////////////////////////////////
+/*
 	COPY ~enhanced-powergaming-scripts/spl/mopois.spl~ ~override~
 	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 2 special = 1 parameter2 = %rmv_psn% timing = 0 duration = 6 END
 
@@ -1759,7 +1761,7 @@ END
 					LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 2 timing = 0 STR_VAR resource = "MOPOIS" END
 			END
 		END
-
+*/
 ///////////////////////////////////////////////////////////////////////////
 // Add State to track when using Restoration Spells                      //
 ///////////////////////////////////////////////////////////////////////////
