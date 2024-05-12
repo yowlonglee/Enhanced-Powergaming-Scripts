@@ -1359,6 +1359,7 @@ END
 ///////////////////////////////////////////////////////////////////////////
 // Create Spell State for Removing Disease                               //
 ///////////////////////////////////////////////////////////////////////////
+/*
 	ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~REMOVE_DISEASE~)) BEGIN
 	  COPY_EXISTING ~splstate.ids~ ~override~
 		COUNT_2DA_COLS cols
@@ -1378,7 +1379,7 @@ END
 		LAF d5_resolve_state STR_VAR new_state_id = ~REMOVE_DISEASE~ RET new_state_ind END
 		OUTER_SET rmv_ds = %new_state_ind%
 	END
-
+*/
 ///////////////////////////////////////////////////////////////////////////
 // Grab Protection from Magical Weapons Spellstate                       //
 ///////////////////////////////////////////////////////////////////////////
