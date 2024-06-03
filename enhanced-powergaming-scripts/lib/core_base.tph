@@ -611,6 +611,9 @@ THEN
     IncrementGlobal("MO_UsedGargoyle","GLOBAL",1)
 END
 
+// The next two block of scripts look for a character has Boots of Speed equiptted and has Gargoyle Boots in his inventory.
+// The script will switch these two items, active the Gargoyle Boots, and switch them back.
+
 IF
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   CheckStatLT(Myself,1,STONESKINS)
@@ -683,7 +686,7 @@ IF
     !StateCheck(Myself,STATE_INVISIBLE)
     !Global("BDAI_SKILL_MODE","LOCALS",2)
   GlobalLT("MO_UsedClkOfStars","GLOBAL",1)
-  HasItemEquiped("CLCK25",Myself)  // Cloak of the Stars
+  HasItem("CLCK25",Myself)  // Cloak of the Stars
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
