@@ -444,6 +444,8 @@ THEN
   RESPONSE #100
     SetGlobal("MO_BUFF","LOCALS",1)
     SetGlobal("MO_LONG_BUFF","LOCALS",0)
+    // SetGlobal("BDAI_ATTACK_MODE","LOCALS",1) to determin if this character buffs self or party
+    // I need to add new strings
     DisplayStringHead(Myself,@5002)
 END
 
@@ -1441,6 +1443,26 @@ THEN
   RESPONSE #100
     ReallyForceSpell(Myself,CLERIC_PROTECTION_FROM_EVIL_10_FOOT)  // SPPR408.SPL (Protection From Evil, 10' Radius)
     RemoveSpell(CLERIC_PROTECTION_FROM_EVIL_10_FOOT)  // SPPR408.SPL (Protection From Evil, 10' Radius)
+END
+
+// Static Charge
+
+IF
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
+  HaveSpell(CLERIC_STATIC_CHARGE)  // SPPR419.SPL (Static Charge)
+  !CheckSpellState(Myself,STATIC_CHARGE)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,CLERIC_STATIC_CHARGE)  // SPPR419.SPL (Static Charge)
+    RemoveSpell(CLERIC_STATIC_CHARGE)  // SPPR419.SPL (Static Charge)
 END
 
 // 5e Spellcasting Prebuff Chaotic Commands
@@ -4176,6 +4198,26 @@ END
 
 // MiH Prebuff Mirror Amulet
 
+// Barkskin
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpell(CLERIC_BARKSKIN)  // SPPR202.SPL (Barkskin)
+  !CheckSpellState(Myself,BARKSKIN)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,CLERIC_BARKSKIN)  // SPPR202.SPL (Barkskin)
+    RemoveSpell(CLERIC_BARKSKIN)  // SPPR202.SPL (Barkskin)
+END
+
+
 ////////////////////////////////////////////////////
 // 1 Round + 1 Round/Level
 // 5e Spellcasting Prebuff Aid
@@ -4260,6 +4302,24 @@ END
 // MiH Cleric Seeking
 
 // 5e Spellcasting Prebuff - IWD Prayer, Restoration, and Entropy Shield
+
+// Entropy Shield
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpell(CLERIC_ENTROPY_SHIELD)  // SPPR616.SPL (Entropy Shield)
+  !CheckSpellState(Myself,ENTROPY_SHIELD)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,CLERIC_ENTROPY_SHIELD)  // SPPR616.SPL (Entropy Shield)
+    RemoveSpell(CLERIC_ENTROPY_SHIELD)  // SPPR616.SPL (Entropy Shield)
+END
 
 // IWD Prayer, Restoration, and Entropy Shield
 
