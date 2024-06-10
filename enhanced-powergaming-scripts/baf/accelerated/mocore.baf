@@ -2022,6 +2022,10 @@ THEN
     RemoveSpell(WIZARD_PROTECTION_FROM_ELECTRICITY)  // SPWI512.SPL (Protection From Electricity)
 END
 
+// Cleric Protection from Electricity
+
+
+
 // 5e Spellcasting Prebuff Prot from Fire
 
 IF
@@ -2223,6 +2227,209 @@ THEN
   RESPONSE #100
     ReallyForceSpell(LastSeenBy(Myself),WIZARD_PROTECTION_FROM_FIRE)  // SPWI319.SPL (Protection From Fire)
     RemoveSpell(WIZARD_PROTECTION_FROM_FIRE)  // SPWI319.SPL (Protection From Fire)
+END
+
+// Cleric Protection from Fire
+
+IF
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
+  See(Myself)
+  HaveSpell(CLERIC_PROTECTION_FROM_FIRE)  // SPPR306.SPL (Protection From Fire)
+  CheckStatLT(LastSeenBy(Myself),20,RESISTFIRE)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),CLERIC_PROTECTION_FROM_FIRE)  // SPPR306.SPL (Protection From Fire)
+    RemoveSpell(CLERIC_PROTECTION_FROM_FIRE)  // SPPR306.SPL (Protection From Fire)
+END
+
+IF
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
+  See([PC])
+  HaveSpell(CLERIC_PROTECTION_FROM_FIRE)  // SPPR306.SPL (Protection From Fire)
+  CheckStatLT(LastSeenBy(Myself),20,RESISTFIRE)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),CLERIC_PROTECTION_FROM_FIRE)  // SPPR306.SPL (Protection From Fire)
+    RemoveSpell(CLERIC_PROTECTION_FROM_FIRE)  // SPPR306.SPL (Protection From Fire)
+END
+
+IF
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
+  See(SecondNearest([PC]))
+  HaveSpell(CLERIC_PROTECTION_FROM_FIRE)  // SPPR306.SPL (Protection From Fire)
+  CheckStatLT(LastSeenBy(Myself),20,RESISTFIRE)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),CLERIC_PROTECTION_FROM_FIRE)  // SPPR306.SPL (Protection From Fire)
+    RemoveSpell(CLERIC_PROTECTION_FROM_FIRE)  // SPPR306.SPL (Protection From Fire)
+END
+
+IF
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
+  See(ThirdNearest([PC]))
+  HaveSpell(CLERIC_PROTECTION_FROM_FIRE)  // SPPR306.SPL (Protection From Fire)
+  CheckStatLT(LastSeenBy(Myself),20,RESISTFIRE)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),CLERIC_PROTECTION_FROM_FIRE)  // SPPR306.SPL (Protection From Fire)
+    RemoveSpell(CLERIC_PROTECTION_FROM_FIRE)  // SPPR306.SPL (Protection From Fire)
+END
+
+IF
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
+  See(FourthNearest([PC]))
+  HaveSpell(CLERIC_PROTECTION_FROM_FIRE)  // SPPR306.SPL (Protection From Fire)
+  CheckStatLT(LastSeenBy(Myself),20,RESISTFIRE)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),CLERIC_PROTECTION_FROM_FIRE)  // SPPR306.SPL (Protection From Fire)
+    RemoveSpell(CLERIC_PROTECTION_FROM_FIRE)  // SPPR306.SPL (Protection From Fire)
+END
+
+IF
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
+  See(FifthNearest([PC]))
+  HaveSpell(CLERIC_PROTECTION_FROM_FIRE)  // SPPR306.SPL (Protection From Fire)
+  CheckStatLT(LastSeenBy(Myself),20,RESISTFIRE)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),CLERIC_PROTECTION_FROM_FIRE)  // SPPR306.SPL (Protection From Fire)
+    RemoveSpell(CLERIC_PROTECTION_FROM_FIRE)  // SPPR306.SPL (Protection From Fire)
+END
+
+IF
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
+  Global("BDAI_ATTACK_MODE","LOCALS",2)
+  See(SixthNearest([PC]))
+  HaveSpell(CLERIC_PROTECTION_FROM_FIRE)  // SPPR306.SPL (Protection From Fire)
+  CheckStatLT(LastSeenBy(Myself),20,RESISTFIRE)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),CLERIC_PROTECTION_FROM_FIRE)  // SPPR306.SPL (Protection From Fire)
+    RemoveSpell(CLERIC_PROTECTION_FROM_FIRE)  // SPPR306.SPL (Protection From Fire)
 END
 
 // 5e Spellcasting Prebuff Prot from Cold
@@ -3458,7 +3665,7 @@ THEN
 END
 
 // 5e Spellcasting Prebuff Cleric Prot from Fire
-
+/*
 IF
   Global("MO_BUFF","LOCALS",1)
   See(Myself)
@@ -3632,7 +3839,7 @@ THEN
     ReallyForceSpell(LastSeenBy(Myself),CLERIC_PROTECTION_FROM_FIRE)  // SPPR306.SPL (Protection From Fire)
     RemoveSpell(CLERIC_PROTECTION_FROM_FIRE)  // SPPR306.SPL (Protection From Fire)
 END
-
+*/
 // 5e Spellcasting Prebuff - MiH Resist Acid/Corrosion
 
 // MiH Resist Acid/Corrosion
