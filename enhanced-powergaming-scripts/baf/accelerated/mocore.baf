@@ -1447,6 +1447,7 @@ END
 
 // Static Charge
 
+/* CheckSpellState is not working for this spell
 IF
   OR(2)
     Global("MO_BUFF","LOCALS",1)
@@ -1464,7 +1465,7 @@ THEN
     ReallyForceSpell(Myself,CLERIC_STATIC_CHARGE)  // SPPR419.SPL (Static Charge)
     RemoveSpell(CLERIC_STATIC_CHARGE)  // SPPR419.SPL (Static Charge)
 END
-
+*/
 // 5e Spellcasting Prebuff Chaotic Commands
 
 IF
@@ -4455,7 +4456,7 @@ THEN
 END
 
 // Skills and Abilities Prebuff Resist Magic
-
+/*
 IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
@@ -4465,7 +4466,7 @@ THEN
     ReallyForceSpell(Myself,WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
     RemoveSpell(WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
 END
-
+*/
 IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpellRES("SPCL237")  // Greater Sun
