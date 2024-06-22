@@ -5105,7 +5105,7 @@ END
 
 ////////////////////////////////////////////////////
 // 3 Rounds/Level
-// 5e Spellcasting Prebuff Shield of the Archons and Fiendish Warding
+// 5e Spellcasting Prebuff Shield of the Archons
 
 IF
   Global("MO_BUFF","LOCALS",1)
@@ -5121,22 +5121,6 @@ THEN
   RESPONSE #100
     ReallyForceSpell(Myself,CLERIC_SHIELD_OF_THE_ARCHONS)  // SPPR701.SPL (Shield of the Archons)
     RemoveSpell(CLERIC_SHIELD_OF_THE_ARCHONS)  // SPPR701.SPL (Shield of the Archons)
-END
-
-IF
-  Global("MO_BUFF","LOCALS",1)
-  HaveSpell(CLERIC_FIENDISH_WARDING)  // SPPR742.SPL (Fiendish Warding)
-  CheckStatLT(Myself,1,CLERIC_FIENDISH_WARDING)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_POISONED)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    ReallyForceSpell(Myself,CLERIC_FIENDISH_WARDING)  // SPPR742.SPL (Fiendish Warding)
-    RemoveSpell(CLERIC_FIENDISH_WARDING)  // SPPR742.SPL (Fiendish Warding)
 END
 
 // 5e Spellcasting Prebuff Spell Shield
