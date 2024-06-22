@@ -12774,6 +12774,7 @@ IF
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !StateCheck(LastSeenBy(Myself),STATE_NOT_APPROACHABLE)
   !StateCheck(LastSeenBy(Myself),STATE_REALLY_DEAD)
+  !CheckSpellState(LastSeenBy(Myself),D5_HAS_FAMILIAR)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
@@ -12839,6 +12840,7 @@ IF
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !StateCheck(LastSeenBy(Myself),STATE_NOT_APPROACHABLE)
   !StateCheck(LastSeenBy(Myself),STATE_REALLY_DEAD)
+  !CheckSpellState(LastSeenBy(Myself),D5_HAS_FAMILIAR)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
@@ -12902,6 +12904,7 @@ IF
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !StateCheck(LastSeenBy(Myself),STATE_NOT_APPROACHABLE)
   !StateCheck(LastSeenBy(Myself),STATE_REALLY_DEAD)
+  !CheckSpellState(LastSeenBy(Myself),D5_HAS_FAMILIAR)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
@@ -12965,6 +12968,7 @@ IF
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !StateCheck(LastSeenBy(Myself),STATE_NOT_APPROACHABLE)
   !StateCheck(LastSeenBy(Myself),STATE_REALLY_DEAD)
+  !CheckSpellState(LastSeenBy(Myself),D5_HAS_FAMILIAR)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
@@ -13084,6 +13088,7 @@ IF
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !StateCheck(LastSeenBy(Myself),STATE_NOT_APPROACHABLE)
   !StateCheck(LastSeenBy(Myself),STATE_REALLY_DEAD)
+  !CheckSpellState(LastSeenBy(Myself),D5_HAS_FAMILIAR)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
@@ -13102,6 +13107,7 @@ IF
   !HasItemEquiped("HELM34",LastSeenBy(Myself)) // Wong Fei's Ioun Stone
   !HasItemEquiped("CLFTRG",LastSeenBy(Myself)) // Troll's Whisper
   !HasItemEquiped("L#2SDAG2",LastSeenBy(Myself)) // Soultaker
+  !HasItemEquiped("mh#ioun7",LastSeenBy(Myself)) // Blood of Lathander
   CheckStatLT(Myself,50,SPELLFAILUREPRIEST)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
