@@ -728,6 +728,62 @@ THEN
     IncrementGlobal("MO_UsedClkOfStars","GLOBAL",1)
 END
 
+IF
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
+  OR(2)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
+  OR(2)
+    !StateCheck(Myself,STATE_INVISIBLE)
+    !Global("BDAI_SKILL_MODE","LOCALS",2)
+  GlobalLT("MO_UsedHolyCoin","GLOBAL",1)
+  HasItem("AC#WCOIN",Myself)  // Holy Coin of Waukeen
+THEN
+  RESPONSE #100
+    SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    UseItem("AC#WCOIN",Myself)  // Holy Coin of Waukeen
+    SetInterrupt(TRUE)
+    IncrementGlobal("MO_UsedHolyCoin","GLOBAL",1)
+END
+
+IF
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
+  OR(2)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
+  OR(2)
+    !StateCheck(Myself,STATE_INVISIBLE)
+    !Global("BDAI_SKILL_MODE","LOCALS",2)
+  GlobalLT("MO_UsedRodOfVinearrows","GLOBAL",1)
+  HasItem("L#ROCRA0",Myself)  // Rod of Vinearrows
+THEN
+  RESPONSE #100
+    SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    UseItem("L#ROCRA0",Myself)  // Rod of Vinearrows
+    SetInterrupt(TRUE)
+    IncrementGlobal("MO_UsedRodOfVinearrows","GLOBAL",1)
+END
+
 // 5e Spellcasting - IWD Mind Blank and Impervious Sanctity of Mind
 
 // IWD Mind Blank and Impervious Sanctity of Mind
