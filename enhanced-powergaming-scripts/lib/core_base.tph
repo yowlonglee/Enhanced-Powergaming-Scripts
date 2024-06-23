@@ -24033,9 +24033,10 @@ END
 // 18 - Physical Attack Selection                                        //
 ///////////////////////////////////////////////////////////////////////////
 IF
-  EEex_LuaTrigger("return AmAttacking()")
-  EEex_LuaTrigger("return MoFillCurrentTarget()")
-  See(EEex_Target("MoCurrentTarget"))
+  //EEex_LuaTrigger("return AmAttacking()")
+  //EEex_LuaTrigger("return MoFillCurrentTarget()")
+  //See(EEex_Target("MoCurrentTarget"))
+  See(NearestEnemyOf(Myself))
   OR(3)
     !WeaponEffectiveVs(LastSeenBy(Myself),MAINHAND)
     !WeaponCanDamage(LastSeenBy(Myself),MAINHAND)
