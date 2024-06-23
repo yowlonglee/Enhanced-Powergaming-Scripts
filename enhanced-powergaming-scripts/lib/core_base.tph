@@ -611,6 +611,7 @@ THEN
     IncrementGlobal("MO_UsedGargoyle","GLOBAL",1)
 END
 
+// Use Items
 // The next two block of scripts look for a character has Boots of Speed equiptted and has Gargoyle Boots in his inventory.
 // The script will switch these two items, active the Gargoyle Boots, and switch them back.
 
@@ -636,10 +637,6 @@ THEN
   RESPONSE #100
     XEquipItem("Boot01",Myself,SLOT_BOOTS,EQUIP)  // The Paws of the Cheetah
 END
-
-// 5e Spellcasting - IWD Mind Blank and Impervious Sanctity of Mind
-
-// IWD Mind Blank and Impervious Sanctity of Mind
 
 IF
   OR(2)
@@ -697,6 +694,11 @@ THEN
     SetInterrupt(TRUE)
     IncrementGlobal("MO_UsedClkOfStars","GLOBAL",1)
 END
+
+// 5e Spellcasting - IWD Mind Blank and Impervious Sanctity of Mind
+
+// IWD Mind Blank and Impervious Sanctity of Mind
+
 
 // 5e Spellcasting Goodberries
 /*
@@ -1663,8 +1665,9 @@ END
 
 // MiH Cleric Break Enchantment
 
-// 5e Spellcasting Greater Restoration
 /*
+// 5e Spellcasting Greater Restoration
+
 IF
   OR(2)
     ActionListEmpty()
@@ -2249,6 +2252,7 @@ THEN
     SetInterrupt(TRUE)
 END
 */
+
 // 5e Spellcasting Stone to Flesh
 
 IF
