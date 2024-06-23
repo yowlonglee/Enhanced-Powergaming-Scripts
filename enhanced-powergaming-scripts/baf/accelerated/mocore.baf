@@ -627,11 +627,211 @@ THEN
     IncrementGlobal("MO_UsedMagiStaff","GLOBAL",1)
 END
 
+// Cat's Grace (1 hour/level)
+
+IF
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
+  HaveSpell(WIZARD_CATS_GRACE)  // SPWI227.SPL (Cat's Grace)
+  See(Myself)
+  !ExtendedStateCheck(LastSeenBy(Myself),STATE_CATS_GRACE)
+  CheckStatLT(LastSeenBy(Myself),18,DEX)
+  OR(5)
+    Class(LastSeenBy(Myself),FIGHTER_ALL)
+    Class(LastSeenBy(Myself),RANGER_ALL)
+    Class(LastSeenBy(Myself),PALADIN_ALL)
+    Class(LastSeenBy(Myself),THIEF_ALL)
+    Class(LastSeenBy(Myself),BARD_ALL)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),WIZARD_CATS_GRACE)  // SPWI227.SPL (Cat's Grace)
+    RemoveSpell(WIZARD_CATS_GRACE)  // SPWI227.SPL (Cat's Grace)
+END
+
+IF
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
+  HaveSpell(WIZARD_CATS_GRACE)  // SPWI227.SPL (Cat's Grace)
+  See([PC])
+  !ExtendedStateCheck(LastSeenBy(Myself),STATE_CATS_GRACE)
+  CheckStatLT(LastSeenBy(Myself),18,DEX)
+  OR(5)
+    Class(LastSeenBy(Myself),FIGHTER_ALL)
+    Class(LastSeenBy(Myself),RANGER_ALL)
+    Class(LastSeenBy(Myself),PALADIN_ALL)
+    Class(LastSeenBy(Myself),THIEF_ALL)
+    Class(LastSeenBy(Myself),BARD_ALL)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),WIZARD_CATS_GRACE)  // SPWI227.SPL (Cat's Grace)
+    RemoveSpell(WIZARD_CATS_GRACE)  // SPWI227.SPL (Cat's Grace)
+END
+
+IF
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
+  HaveSpell(WIZARD_CATS_GRACE)  // SPWI227.SPL (Cat's Grace)
+  See(SecondNearest([PC]))
+  !ExtendedStateCheck(LastSeenBy(Myself),STATE_CATS_GRACE)
+  CheckStatLT(LastSeenBy(Myself),18,DEX)
+  OR(5)
+    Class(LastSeenBy(Myself),FIGHTER_ALL)
+    Class(LastSeenBy(Myself),RANGER_ALL)
+    Class(LastSeenBy(Myself),PALADIN_ALL)
+    Class(LastSeenBy(Myself),THIEF_ALL)
+    Class(LastSeenBy(Myself),BARD_ALL)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),WIZARD_CATS_GRACE)  // SPWI227.SPL (Cat's Grace)
+    RemoveSpell(WIZARD_CATS_GRACE)  // SPWI227.SPL (Cat's Grace)
+END
+
+IF
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
+  HaveSpell(WIZARD_CATS_GRACE)  // SPWI227.SPL (Cat's Grace)
+  See(ThirdNearest([PC]))
+  !ExtendedStateCheck(LastSeenBy(Myself),STATE_CATS_GRACE)
+  CheckStatLT(LastSeenBy(Myself),18,DEX)
+  OR(5)
+    Class(LastSeenBy(Myself),FIGHTER_ALL)
+    Class(LastSeenBy(Myself),RANGER_ALL)
+    Class(LastSeenBy(Myself),PALADIN_ALL)
+    Class(LastSeenBy(Myself),THIEF_ALL)
+    Class(LastSeenBy(Myself),BARD_ALL)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),WIZARD_CATS_GRACE)  // SPWI227.SPL (Cat's Grace)
+    RemoveSpell(WIZARD_CATS_GRACE)  // SPWI227.SPL (Cat's Grace)
+END
+
+IF
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
+  HaveSpell(WIZARD_CATS_GRACE)  // SPWI227.SPL (Cat's Grace)
+  See(FourthNearest([PC]))
+  !ExtendedStateCheck(LastSeenBy(Myself),STATE_CATS_GRACE)
+  CheckStatLT(LastSeenBy(Myself),18,DEX)
+  OR(5)
+    Class(LastSeenBy(Myself),FIGHTER_ALL)
+    Class(LastSeenBy(Myself),RANGER_ALL)
+    Class(LastSeenBy(Myself),PALADIN_ALL)
+    Class(LastSeenBy(Myself),THIEF_ALL)
+    Class(LastSeenBy(Myself),BARD_ALL)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),WIZARD_CATS_GRACE)  // SPWI227.SPL (Cat's Grace)
+    RemoveSpell(WIZARD_CATS_GRACE)  // SPWI227.SPL (Cat's Grace)
+END
+
+IF
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
+  HaveSpell(WIZARD_CATS_GRACE)  // SPWI227.SPL (Cat's Grace)
+  See(FifthNearest([PC]))
+  !ExtendedStateCheck(LastSeenBy(Myself),STATE_CATS_GRACE)
+  CheckStatLT(LastSeenBy(Myself),18,DEX)
+  OR(5)
+    Class(LastSeenBy(Myself),FIGHTER_ALL)
+    Class(LastSeenBy(Myself),RANGER_ALL)
+    Class(LastSeenBy(Myself),PALADIN_ALL)
+    Class(LastSeenBy(Myself),THIEF_ALL)
+    Class(LastSeenBy(Myself),BARD_ALL)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),WIZARD_CATS_GRACE)  // SPWI227.SPL (Cat's Grace)
+    RemoveSpell(WIZARD_CATS_GRACE)  // SPWI227.SPL (Cat's Grace)
+END
+
+
+
 ////////////////////////////////////////////////////
 // 1 Turn/Level
 // 5e Spellcasting Prebuff IWD Mind Blank and Impervious Sanctity of Mind
 
 // Prebuff IWD Mind Blank and Impervious Sanctity of Mind
+
+IF
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
+  HasItemEquiped("potn19",Myself)  // Potion of Agility
+  CheckStatLT(Myself,15,DEX)
+THEN
+  RESPONSE #100
+    UseItem("potn19",Myself)  // Potion of Agility
+    DisplayStringHead(Myself,@5005)
+END
+
+IF
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
+  HasItemEquiped("potn28",Myself)  // Potion of Fortitude
+  CheckStatLT(Myself,15,CON)
+THEN
+  RESPONSE #100
+    UseItem("potn28",Myself)  // Potion of Fortitude
+    DisplayStringHead(Myself,@5005)
+END
+
+IF
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
+  HasItemEquiped("potn44",Myself)  // Potion of Strength
+  CheckStatLT(Myself,15,STR)
+THEN
+  RESPONSE #100
+    UseItem("potn44",Myself)  // Potion of Strength
+    DisplayStringHead(Myself,@5005)
+END
+
 
 IF
   OR(2)
@@ -652,6 +852,7 @@ IF
     Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   HasItemEquiped("potn02",Myself)  // Potion of Fire Resistance
+  CheckStatLT(Myself,100,RESISTFIRE)
 THEN
   RESPONSE #100
     UseItem("potn02",Myself)  // Potion of Fire Resistance
@@ -664,6 +865,7 @@ IF
     Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   HasItemEquiped("potn22",Myself)  // Potion of Cold Resistance
+  CheckStatLT(Myself,100,RESISTCOLD)
 THEN
   RESPONSE #100
     UseItem("potn22",Myself)  // Potion of Cold Resistance
@@ -1072,37 +1274,6 @@ THEN
     RemoveSpell(WIZARD_PROTECTION_FROM_PETRIFICATION)  // SPWI108.SPL (Protection from Petrification)
 END
 
-IF
-  OR(2)
-    Global("MO_BUFF","LOCALS",1)
-    Global("MO_LONG_BUFF","LOCALS",1)
-  Global("BDAI_ATTACK_MODE","LOCALS",2)
-  See(SixthNearest([PC]))
-  HaveSpell(WIZARD_PROTECTION_FROM_PETRIFICATION)  // SPWI108.SPL (Protection from Petrification)
-  !Class(Myself,SORCERER)
-  !CheckSpellState(LastSeenBy(Myself),PROTECTION_FROM_PETRIFICATION)
-  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
-  !CheckSpellState(LastSeenBy(Myself),SI_ABJURATION)
-  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),GLOBE)
-  !CheckSpellState(LastSeenBy(Myself),MINOR_SPELL_TURNING)
-  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
-  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
-  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
-  CheckStatLT(Myself,20,SPELLFAILUREMAGE)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_POISONED)
-  !StateCheck(Myself,STATE_SILENCED)
-  Global("MO_CastAthkatla","LOCALS",1)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    ReallyForceSpell(LastSeenBy(Myself),WIZARD_PROTECTION_FROM_PETRIFICATION)  // SPWI108.SPL (Protection from Petrification)
-    RemoveSpell(WIZARD_PROTECTION_FROM_PETRIFICATION)  // SPWI108.SPL (Protection from Petrification)
-END
-
 // 5e Spellcasting Prebuff Resist Fear
 
 IF
@@ -1454,7 +1625,7 @@ IF
     Global("MO_BUFF","LOCALS",1)
     Global("MO_LONG_BUFF","LOCALS",1)
   HaveSpell(CLERIC_STATIC_CHARGE)  // SPPR419.SPL (Static Charge)
-  !ExtendedStateCheck(Myself,STATE_STATIC_CHARGE)
+  ExtendedStateCheck(Myself,STATE_STATIC_CHARGE)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_POISONED)
@@ -2906,6 +3077,20 @@ END
 
 // Skills and Abilities Prebuff Protective Field
 
+// Potion of Power (4 turns)
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
+  HasItemEquiped("potn41",Myself)  // Potion of Power
+  !CheckSpellState(Myself,BUFF_ENHANCEMENT)
+THEN
+  RESPONSE #100
+    UseItem("potn41",Myself)  // Potion of Power
+    DisplayStringHead(Myself,@5005)
+END
+
+
 ////////////////////////////////////////////////////
 // 3 Turns
 IF
@@ -4323,7 +4508,39 @@ THEN
     RemoveSpell(CLERIC_ENTROPY_SHIELD)  // SPPR616.SPL (Entropy Shield)
 END
 
-// IWD Prayer, Restoration, and Entropy Shield
+// IWD Prayer, Recitation
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpell(CLERIC_PRAYER)  // SPPR320.SPL (Prayer)
+  !ExtendedStateCheck(Myself,STATE_PRAYER)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,CLERIC_PRAYER)  // SPPR320.SPL (Prayer)
+    RemoveSpell(CLERIC_PRAYER)  // SPPR320.SPL (Prayer)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpell(CLERIC_RECITATION)  // SPPR420.SPL (Recitation)
+  !ExtendedStateCheck(Myself,STATE_RECITATION)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,CLERIC_RECITATION)  // SPPR420.SPL (Recitation)
+    RemoveSpell(CLERIC_RECITATION)  // SPPR420.SPL (Recitation)
+END
 
 // 5e Spellcasting Prebuff Holy Power
 
@@ -4789,6 +5006,7 @@ THEN
     RemoveSpell(CLERIC_CHANT)  // SPPR203.SPL (Chant)
 END
 */
+
 // DSotSC Wizard Army of One
 
 // 5e Spellcasting Prebuff Draw Upon Holy Might

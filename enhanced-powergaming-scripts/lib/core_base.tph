@@ -12879,16 +12879,15 @@ END
 // 5e Spellcasting Cure Light Wounds
 
 IF
-  Range(Familiar,30)
   CheckSpellState(MostDamagedOf([PC]),D5_HAS_FAMILIAR)
-  See(Myself)
+  Detect(Familiar)
   FALSE()
 THEN
   RESPONSE #100
 END
 
 IF
-  !Range(Familiar,30)
+  !Detect(Familiar)
   !CheckSpellState(MostDamagedOf([PC]),D5_HAS_FAMILIAR)
   See(MostDamagedOf([PC]))
   FALSE()
