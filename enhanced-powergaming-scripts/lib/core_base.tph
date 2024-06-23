@@ -71,7 +71,9 @@ IF
   OR(2)
     !StateCheck(Myself,STATE_INVISIBLE)
     !Global("BDAI_SKILL_MODE","LOCALS",2)
-  CheckSpellState(Myself,DISEASED)
+  OR(2)
+    StateCheck(Myself,STATE_DISEASED)
+    StateCheck(Myself,STATE_POISONED)
   HPPercentLT(Myself,90)
   HasItemEquiped("POTN17",Myself)  // Elixir of Health
 THEN
@@ -102,7 +104,10 @@ IF
   OR(2)
     !StateCheck(Myself,STATE_INVISIBLE)
     !Global("BDAI_SKILL_MODE","LOCALS",2)
-  CheckSpellState(Myself,DISEASED)
+  OR(3)
+    CheckSpellState(Myself,DEAFENED)
+    StateCheck(Myself,STATE_BLIND)
+    StateCheck(Myself,STATE_DISEASED)
   HasItemEquiped("mh#iwd09",Myself)  // Philter of Purification
 THEN
   RESPONSE #100
@@ -116,7 +121,7 @@ THEN
     SetInterrupt(TRUE)
     DisplayStringHead(Myself,@5005)
 END
-/*
+
 IF
   OR(2)
     ActionListEmpty()
@@ -133,20 +138,20 @@ IF
     !StateCheck(Myself,STATE_INVISIBLE)
     !Global("BDAI_SKILL_MODE","LOCALS",2)
   StateCheck(Myself,STATE_POISONED)
-  !CheckSpellState(Myself,REMOVE_POISON)
+  //!CheckSpellState(Myself,REMOVE_POISON)
   HasItemEquiped("POTN20",Myself)  // Antidote
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
     SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
-    ApplySpellRES("MOPOIS",LastSeenBy(Myself))
+    //ApplySpellRES("MOPOIS",LastSeenBy(Myself))
     SetInterrupt(FALSE)
     UseItem("POTN20",Myself)  // Antidote
     SetInterrupt(TRUE)
     DisplayStringHead(Myself,@5005)
 END
-*/
+
 // Simulacrum SI_DIVINATION
 
 ///////////////////////////////////////////////////////////////////////////
