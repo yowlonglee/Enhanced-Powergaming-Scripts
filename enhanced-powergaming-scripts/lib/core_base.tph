@@ -2759,6 +2759,7 @@ END
 
 // FP Spiritual Clarity
 
+/*
 // 5e Spellcasting Cure Disease
 
 IF
@@ -3067,7 +3068,6 @@ THEN
 END
 
 // 5e Spellcasting Neutralize Poison
-/*
 IF
   OR(2)
     ActionListEmpty()
@@ -3650,6 +3650,8 @@ THEN
     Spell(LastSeenBy(Myself),CLERIC_SLOW_POISON)  // SPPR212.SPL (Slow Poison)
     SetInterrupt(TRUE)
 END
+
+// Bhaalspawn Power Cure Affliction
 
 IF
   OR(2)
