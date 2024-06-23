@@ -804,7 +804,16 @@ IF
     Global("MO_BUFF","LOCALS",1)
     Global("MO_LONG_BUFF","LOCALS",1)
   HaveSpell(WIZARD_MIND_BLANK)  // SPWI806.SPL (Mind Blank)
+  !CheckSpellState(Myself,BARBARIAN_RAGE)
+  !CheckSpellState(Myself,BERSERKER_RAGE)
+  !CheckSpellState(Myself,CHAOTIC_COMMANDS)
   !CheckSpellState(Myself,MIND_BLANK)
+  !CheckSpellState(Myself,POTION_OF_CLARITY)
+  !HasItemEquiped("SHLD25",Myself) // Shield of Harmony
+  !HasItemEquiped("O#CRAMUL",Myself) // Amulet of Harmony
+  !HasItemEquiped("mh#ring5",Myself) // Ring of Mind Shielding
+  !HasItemEquiped("MOAM07",Myself) // Amulet of Protected Dalliances
+  !HasItemEquiped("NWCLCKAC",Myself) // Improved Nymph Cloak
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_POISONED)
@@ -822,15 +831,17 @@ IF
   OR(2)
     Global("MO_BUFF","LOCALS",1)
     Global("MO_LONG_BUFF","LOCALS",1)
+  HaveSpell(CLERIC_IMPERVIOUS_SANCTITY_OF_MIND)  // SPPR735.SPL (Impervious Sanctity of Mind)
   !CheckSpellState(Myself,BARBARIAN_RAGE)
   !CheckSpellState(Myself,BERSERKER_RAGE)
   !CheckSpellState(Myself,CHAOTIC_COMMANDS)
   !CheckSpellState(Myself,MIND_BLANK)
+  !CheckSpellState(Myself,POTION_OF_CLARITY)
   !HasItemEquiped("SHLD25",Myself) // Shield of Harmony
   !HasItemEquiped("O#CRAMUL",Myself) // Amulet of Harmony
   !HasItemEquiped("mh#ring5",Myself) // Ring of Mind Shielding
   !HasItemEquiped("MOAM07",Myself) // Amulet of Protected Dalliances
-  HaveSpell(CLERIC_IMPERVIOUS_SANCTITY_OF_MIND)  // SPPR735.SPL (Impervious Sanctity of Mind)
+  !HasItemEquiped("NWCLCKAC",Myself) // Improved Nymph Cloak
   !StateCheck(Myself,STATE_IMPROVEDINVISIBILITY)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !StateCheck(Myself,STATE_SILENCED)
@@ -1711,16 +1722,18 @@ IF
   OR(2)
     Global("MO_BUFF","LOCALS",1)
     Global("MO_LONG_BUFF","LOCALS",1)
+  HaveSpell(CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
   See(Myself)
   !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
   !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
   !CheckSpellState(LastSeenBy(Myself),CHAOTIC_COMMANDS)
   !CheckSpellState(LastSeenBy(Myself),MIND_BLANK)
+  !CheckSpellState(LastSeenBy(Myself),POTION_OF_CLARITY)
   !HasItemEquiped("SHLD25",LastSeenBy(Myself)) // Shield of Harmony
   !HasItemEquiped("O#CRAMUL",LastSeenBy(Myself)) // Amulet of Harmony
   !HasItemEquiped("mh#ring5",LastSeenBy(Myself)) // Ring of Mind Shielding
   !HasItemEquiped("MOAM07",LastSeenBy(Myself)) // Amulet of Protected Dalliances
-  HaveSpell(CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
+  !HasItemEquiped("NWCLCKAC",LastSeenBy(Myself)) // Improved Nymph Cloak
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !StateCheck(Myself,STATE_SILENCED)
@@ -1739,16 +1752,18 @@ IF
     Global("MO_BUFF","LOCALS",1)
     Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
+  HaveSpell(CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
   See([PC])
   !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
   !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
   !CheckSpellState(LastSeenBy(Myself),CHAOTIC_COMMANDS)
   !CheckSpellState(LastSeenBy(Myself),MIND_BLANK)
+  !CheckSpellState(LastSeenBy(Myself),POTION_OF_CLARITY)
   !HasItemEquiped("SHLD25",LastSeenBy(Myself)) // Shield of Harmony
   !HasItemEquiped("O#CRAMUL",LastSeenBy(Myself)) // Amulet of Harmony
   !HasItemEquiped("mh#ring5",LastSeenBy(Myself)) // Ring of Mind Shielding
   !HasItemEquiped("MOAM07",LastSeenBy(Myself)) // Amulet of Protected Dalliances
-  HaveSpell(CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
+  !HasItemEquiped("NWCLCKAC",LastSeenBy(Myself)) // Improved Nymph Cloak
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),SI_ENCHANTMENT)
   // Major Globe
@@ -1773,16 +1788,18 @@ IF
     Global("MO_BUFF","LOCALS",1)
     Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
+  HaveSpell(CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
   See(SecondNearest([PC]))
   !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
   !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
   !CheckSpellState(LastSeenBy(Myself),CHAOTIC_COMMANDS)
   !CheckSpellState(LastSeenBy(Myself),MIND_BLANK)
+  !CheckSpellState(LastSeenBy(Myself),POTION_OF_CLARITY)
   !HasItemEquiped("SHLD25",LastSeenBy(Myself)) // Shield of Harmony
   !HasItemEquiped("O#CRAMUL",LastSeenBy(Myself)) // Amulet of Harmony
   !HasItemEquiped("mh#ring5",LastSeenBy(Myself)) // Ring of Mind Shielding
   !HasItemEquiped("MOAM07",LastSeenBy(Myself)) // Amulet of Protected Dalliances
-  HaveSpell(CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
+  !HasItemEquiped("NWCLCKAC",LastSeenBy(Myself)) // Improved Nymph Cloak
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),SI_ENCHANTMENT)
   // Major Globe
@@ -1807,16 +1824,18 @@ IF
     Global("MO_BUFF","LOCALS",1)
     Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
+  HaveSpell(CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
   See(ThirdNearest([PC]))
   !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
   !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
   !CheckSpellState(LastSeenBy(Myself),CHAOTIC_COMMANDS)
   !CheckSpellState(LastSeenBy(Myself),MIND_BLANK)
+  !CheckSpellState(LastSeenBy(Myself),POTION_OF_CLARITY)
   !HasItemEquiped("SHLD25",LastSeenBy(Myself)) // Shield of Harmony
   !HasItemEquiped("O#CRAMUL",LastSeenBy(Myself)) // Amulet of Harmony
   !HasItemEquiped("mh#ring5",LastSeenBy(Myself)) // Ring of Mind Shielding
   !HasItemEquiped("MOAM07",LastSeenBy(Myself)) // Amulet of Protected Dalliances
-  HaveSpell(CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
+  !HasItemEquiped("NWCLCKAC",LastSeenBy(Myself)) // Improved Nymph Cloak
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),SI_ENCHANTMENT)
   // Major Globe
@@ -1841,16 +1860,18 @@ IF
     Global("MO_BUFF","LOCALS",1)
     Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
+  HaveSpell(CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
   See(FourthNearest([PC]))
   !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
   !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
   !CheckSpellState(LastSeenBy(Myself),CHAOTIC_COMMANDS)
   !CheckSpellState(LastSeenBy(Myself),MIND_BLANK)
+  !CheckSpellState(LastSeenBy(Myself),POTION_OF_CLARITY)
   !HasItemEquiped("SHLD25",LastSeenBy(Myself)) // Shield of Harmony
   !HasItemEquiped("O#CRAMUL",LastSeenBy(Myself)) // Amulet of Harmony
   !HasItemEquiped("mh#ring5",LastSeenBy(Myself)) // Ring of Mind Shielding
   !HasItemEquiped("MOAM07",LastSeenBy(Myself)) // Amulet of Protected Dalliances
-  HaveSpell(CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
+  !HasItemEquiped("NWCLCKAC",LastSeenBy(Myself)) // Improved Nymph Cloak
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),SI_ENCHANTMENT)
   // Major Globe
@@ -1875,16 +1896,18 @@ IF
     Global("MO_BUFF","LOCALS",1)
     Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
+  HaveSpell(CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
   See(FifthNearest([PC]))
   !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
   !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
   !CheckSpellState(LastSeenBy(Myself),CHAOTIC_COMMANDS)
   !CheckSpellState(LastSeenBy(Myself),MIND_BLANK)
+  !CheckSpellState(LastSeenBy(Myself),POTION_OF_CLARITY)
   !HasItemEquiped("SHLD25",LastSeenBy(Myself)) // Shield of Harmony
   !HasItemEquiped("O#CRAMUL",LastSeenBy(Myself)) // Amulet of Harmony
   !HasItemEquiped("mh#ring5",LastSeenBy(Myself)) // Ring of Mind Shielding
   !HasItemEquiped("MOAM07",LastSeenBy(Myself)) // Amulet of Protected Dalliances
-  HaveSpell(CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
+  !HasItemEquiped("NWCLCKAC",LastSeenBy(Myself)) // Improved Nymph Cloak
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),SI_ENCHANTMENT)
   // Major Globe
@@ -1909,16 +1932,18 @@ IF
     Global("MO_BUFF","LOCALS",1)
     Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_ATTACK_MODE","LOCALS",2)
+  HaveSpell(CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
   See(SixthNearest([PC]))
   !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
   !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
   !CheckSpellState(LastSeenBy(Myself),CHAOTIC_COMMANDS)
   !CheckSpellState(LastSeenBy(Myself),MIND_BLANK)
+  !CheckSpellState(LastSeenBy(Myself),POTION_OF_CLARITY)
   !HasItemEquiped("SHLD25",LastSeenBy(Myself)) // Shield of Harmony
   !HasItemEquiped("O#CRAMUL",LastSeenBy(Myself)) // Amulet of Harmony
   !HasItemEquiped("mh#ring5",LastSeenBy(Myself)) // Ring of Mind Shielding
   !HasItemEquiped("MOAM07",LastSeenBy(Myself)) // Amulet of Protected Dalliances
-  HaveSpell(CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
+  !HasItemEquiped("NWCLCKAC",LastSeenBy(Myself)) // Improved Nymph Cloak
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),SI_ENCHANTMENT)
   // Major Globe
