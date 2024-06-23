@@ -818,6 +818,32 @@ THEN
     RemoveSpell(WIZARD_MIND_BLANK)  // SPWI806.SPL (Mind Blank)
 END
 
+IF
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
+  !CheckSpellState(Myself,BARBARIAN_RAGE)
+  !CheckSpellState(Myself,BERSERKER_RAGE)
+  !CheckSpellState(Myself,CHAOTIC_COMMANDS)
+  !CheckSpellState(Myself,MIND_BLANK)
+  !HasItemEquiped("SHLD25",Myself) // Shield of Harmony
+  !HasItemEquiped("O#CRAMUL",Myself) // Amulet of Harmony
+  !HasItemEquiped("mh#ring5",Myself) // Ring of Mind Shielding
+  !HasItemEquiped("MOAM07",Myself) // Amulet of Protected Dalliances
+  HaveSpell(CLERIC_IMPERVIOUS_SANCTITY_OF_MIND)  // SPPR735.SPL (Impervious Sanctity of Mind)
+  !StateCheck(Myself,STATE_IMPROVEDINVISIBILITY)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,CLERIC_IMPERVIOUS_SANCTITY_OF_MIND)  // SPPR735.SPL (Impervious Sanctity of Mind)
+    RemoveSpell(CLERIC_IMPERVIOUS_SANCTITY_OF_MIND)  // SPPR735.SPL (Impervious Sanctity of Mind)
+END
+
 // Prebuff Potions
 
 IF
@@ -1689,11 +1715,11 @@ IF
   !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
   !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
   !CheckSpellState(LastSeenBy(Myself),CHAOTIC_COMMANDS)
+  !CheckSpellState(LastSeenBy(Myself),MIND_BLANK)
   !HasItemEquiped("SHLD25",LastSeenBy(Myself)) // Shield of Harmony
   !HasItemEquiped("O#CRAMUL",LastSeenBy(Myself)) // Amulet of Harmony
   !HasItemEquiped("mh#ring5",LastSeenBy(Myself)) // Ring of Mind Shielding
   !HasItemEquiped("MOAM07",LastSeenBy(Myself)) // Amulet of Protected Dalliances
-  // NOT HAS Mind Blank Check
   HaveSpell(CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
@@ -1717,11 +1743,11 @@ IF
   !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
   !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
   !CheckSpellState(LastSeenBy(Myself),CHAOTIC_COMMANDS)
+  !CheckSpellState(LastSeenBy(Myself),MIND_BLANK)
   !HasItemEquiped("SHLD25",LastSeenBy(Myself)) // Shield of Harmony
   !HasItemEquiped("O#CRAMUL",LastSeenBy(Myself)) // Amulet of Harmony
   !HasItemEquiped("mh#ring5",LastSeenBy(Myself)) // Ring of Mind Shielding
   !HasItemEquiped("MOAM07",LastSeenBy(Myself)) // Amulet of Protected Dalliances
-  // NOT HAS Mind Blank Check
   HaveSpell(CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),SI_ENCHANTMENT)
@@ -1751,11 +1777,11 @@ IF
   !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
   !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
   !CheckSpellState(LastSeenBy(Myself),CHAOTIC_COMMANDS)
+  !CheckSpellState(LastSeenBy(Myself),MIND_BLANK)
   !HasItemEquiped("SHLD25",LastSeenBy(Myself)) // Shield of Harmony
   !HasItemEquiped("O#CRAMUL",LastSeenBy(Myself)) // Amulet of Harmony
   !HasItemEquiped("mh#ring5",LastSeenBy(Myself)) // Ring of Mind Shielding
   !HasItemEquiped("MOAM07",LastSeenBy(Myself)) // Amulet of Protected Dalliances
-  // NOT HAS Mind Blank Check
   HaveSpell(CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),SI_ENCHANTMENT)
@@ -1785,11 +1811,11 @@ IF
   !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
   !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
   !CheckSpellState(LastSeenBy(Myself),CHAOTIC_COMMANDS)
+  !CheckSpellState(LastSeenBy(Myself),MIND_BLANK)
   !HasItemEquiped("SHLD25",LastSeenBy(Myself)) // Shield of Harmony
   !HasItemEquiped("O#CRAMUL",LastSeenBy(Myself)) // Amulet of Harmony
   !HasItemEquiped("mh#ring5",LastSeenBy(Myself)) // Ring of Mind Shielding
   !HasItemEquiped("MOAM07",LastSeenBy(Myself)) // Amulet of Protected Dalliances
-  // NOT HAS Mind Blank Check
   HaveSpell(CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),SI_ENCHANTMENT)
@@ -1819,11 +1845,11 @@ IF
   !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
   !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
   !CheckSpellState(LastSeenBy(Myself),CHAOTIC_COMMANDS)
+  !CheckSpellState(LastSeenBy(Myself),MIND_BLANK)
   !HasItemEquiped("SHLD25",LastSeenBy(Myself)) // Shield of Harmony
   !HasItemEquiped("O#CRAMUL",LastSeenBy(Myself)) // Amulet of Harmony
   !HasItemEquiped("mh#ring5",LastSeenBy(Myself)) // Ring of Mind Shielding
   !HasItemEquiped("MOAM07",LastSeenBy(Myself)) // Amulet of Protected Dalliances
-  // NOT HAS Mind Blank Check
   HaveSpell(CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),SI_ENCHANTMENT)
@@ -1853,11 +1879,11 @@ IF
   !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
   !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
   !CheckSpellState(LastSeenBy(Myself),CHAOTIC_COMMANDS)
+  !CheckSpellState(LastSeenBy(Myself),MIND_BLANK)
   !HasItemEquiped("SHLD25",LastSeenBy(Myself)) // Shield of Harmony
   !HasItemEquiped("O#CRAMUL",LastSeenBy(Myself)) // Amulet of Harmony
   !HasItemEquiped("mh#ring5",LastSeenBy(Myself)) // Ring of Mind Shielding
   !HasItemEquiped("MOAM07",LastSeenBy(Myself)) // Amulet of Protected Dalliances
-  // NOT HAS Mind Blank Check
   HaveSpell(CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),SI_ENCHANTMENT)
@@ -1887,11 +1913,11 @@ IF
   !CheckSpellState(LastSeenBy(Myself),BARBARIAN_RAGE)
   !CheckSpellState(LastSeenBy(Myself),BERSERKER_RAGE)
   !CheckSpellState(LastSeenBy(Myself),CHAOTIC_COMMANDS)
+  !CheckSpellState(LastSeenBy(Myself),MIND_BLANK)
   !HasItemEquiped("SHLD25",LastSeenBy(Myself)) // Shield of Harmony
   !HasItemEquiped("O#CRAMUL",LastSeenBy(Myself)) // Amulet of Harmony
   !HasItemEquiped("mh#ring5",LastSeenBy(Myself)) // Ring of Mind Shielding
   !HasItemEquiped("MOAM07",LastSeenBy(Myself)) // Amulet of Protected Dalliances
-  // NOT HAS Mind Blank Check
   HaveSpell(CLERIC_CHAOTIC_COMMANDS)  // SPPR508.SPL (Chaotic Commands)
   !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
   !CheckSpellState(LastSeenBy(Myself),SI_ENCHANTMENT)
