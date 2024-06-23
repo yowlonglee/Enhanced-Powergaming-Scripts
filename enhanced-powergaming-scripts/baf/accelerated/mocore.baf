@@ -1454,7 +1454,7 @@ IF
     Global("MO_BUFF","LOCALS",1)
     Global("MO_LONG_BUFF","LOCALS",1)
   HaveSpell(CLERIC_STATIC_CHARGE)  // SPPR419.SPL (Static Charge)
-  !CheckSpellState(Myself,STATIC_CHARGE)
+  !ExtendedStateCheck(Myself,STATE_STATIC_CHARGE)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_POISONED)

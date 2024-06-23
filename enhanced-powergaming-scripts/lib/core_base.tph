@@ -12774,7 +12774,6 @@ IF
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !StateCheck(LastSeenBy(Myself),STATE_NOT_APPROACHABLE)
   !StateCheck(LastSeenBy(Myself),STATE_REALLY_DEAD)
-  !CheckSpellState(LastSeenBy(Myself),D5_HAS_FAMILIAR)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
@@ -12880,6 +12879,24 @@ END
 // 5e Spellcasting Cure Light Wounds
 
 IF
+  Range(Familiar,30)
+  CheckSpellState(MostDamagedOf([PC]),D5_HAS_FAMILIAR)
+  See(Myself)
+  FALSE()
+THEN
+  RESPONSE #100
+END
+
+IF
+  !Range(Familiar,30)
+  !CheckSpellState(MostDamagedOf([PC]),D5_HAS_FAMILIAR)
+  See(MostDamagedOf([PC]))
+  FALSE()
+THEN
+  RESPONSE #100
+END
+
+IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
@@ -12898,7 +12915,6 @@ IF
   !See([EVILCUTOFF])
   !EEex_LuaTrigger("return AmMoving()")
   HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)  // SPPR103.SPL (Cure Light Wounds)
-  See(MostDamagedOf([PC]))
   HPPercentLT(LastSeenBy(Myself),90)
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !StateCheck(LastSeenBy(Myself),STATE_NOT_APPROACHABLE)
@@ -12921,6 +12937,7 @@ IF
   !HasItemEquiped("HELM34",LastSeenBy(Myself)) // Wong Fei's Ioun Stone
   !HasItemEquiped("CLFTRG",LastSeenBy(Myself)) // Troll's Whisper
   !HasItemEquiped("L#2SDAG2",LastSeenBy(Myself)) // Soultaker
+  !HasItemEquiped("mh#ioun7",LastSeenBy(Myself)) // Blood of Lathander
   CheckStatLT(Myself,50,SPELLFAILUREPRIEST)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -12958,7 +12975,7 @@ IF
   HaveSpellRES("SPIN101")  // Healing Touch
   !See([EVILCUTOFF])
   !EEex_LuaTrigger("return AmMoving()")
-  See(MostDamagedOf([PC]))
+  //See(MostDamagedOf([PC]))
   HPPercentLT(LastSeenBy(Myself),80)
   OR(2)
     Range(MostDamagedOf([PC]),6)
@@ -12966,7 +12983,6 @@ IF
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !StateCheck(LastSeenBy(Myself),STATE_NOT_APPROACHABLE)
   !StateCheck(LastSeenBy(Myself),STATE_REALLY_DEAD)
-  !CheckSpellState(LastSeenBy(Myself),D5_HAS_FAMILIAR)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
@@ -12982,6 +12998,7 @@ IF
   !HasItemEquiped("HELM34",LastSeenBy(Myself)) // Wong Fei's Ioun Stone
   !HasItemEquiped("CLFTRG",LastSeenBy(Myself)) // Troll's Whisper
   !HasItemEquiped("L#2SDAG2",LastSeenBy(Myself)) // Soultaker
+  !HasItemEquiped("mh#ioun7",LastSeenBy(Myself)) // Blood of Lathander
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -13081,12 +13098,11 @@ IF
   !See([EVILCUTOFF])
   !EEex_LuaTrigger("return AmMoving()")
   HaveSpell(PALADIN_LAY_ON_HANDS)  // SPPR103.SPL (Cure Light Wounds)
-  See(MostDamagedOf([PC]))
+  //See(MostDamagedOf([PC]))
   HPPercentLT(LastSeenBy(Myself),81)
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !StateCheck(LastSeenBy(Myself),STATE_NOT_APPROACHABLE)
   !StateCheck(LastSeenBy(Myself),STATE_REALLY_DEAD)
-  !CheckSpellState(LastSeenBy(Myself),D5_HAS_FAMILIAR)
   !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
   !CheckSpellState(LastSeenBy(Myself),GLOBE)
   !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
@@ -13125,7 +13141,7 @@ THEN
 END
 
 // 5e Spellcasting Regeneration
-
+/*
 IF
   OR(2)
     ActionListEmpty()
@@ -13433,6 +13449,7 @@ THEN
     Spell(LastSeenBy(Myself),CLERIC_REGENERATE)  // SPPR711.SPL (Regeneration)
     SetInterrupt(TRUE)
 END
+*/
 /*
 IF
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
