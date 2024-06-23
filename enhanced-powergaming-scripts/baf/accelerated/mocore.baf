@@ -635,7 +635,7 @@ IF
     Global("MO_LONG_BUFF","LOCALS",1)
   HaveSpell(WIZARD_CATS_GRACE)  // SPWI227.SPL (Cat's Grace)
   See(Myself)
-  !ExtendedStateCheck(LastSeenBy(Myself),STATE_CATS_GRACE)
+  !CheckSpellState(LastSeenBy(Myself),CATS_GRACE)
   CheckStatLT(LastSeenBy(Myself),18,DEX)
   OR(5)
     Class(LastSeenBy(Myself),FIGHTER_ALL)
@@ -647,6 +647,7 @@ IF
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_POISONED)
   !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
@@ -661,7 +662,7 @@ IF
     Global("MO_LONG_BUFF","LOCALS",1)
   HaveSpell(WIZARD_CATS_GRACE)  // SPWI227.SPL (Cat's Grace)
   See([PC])
-  !ExtendedStateCheck(LastSeenBy(Myself),STATE_CATS_GRACE)
+  !CheckSpellState(LastSeenBy(Myself),CATS_GRACE)
   CheckStatLT(LastSeenBy(Myself),18,DEX)
   OR(5)
     Class(LastSeenBy(Myself),FIGHTER_ALL)
@@ -673,6 +674,7 @@ IF
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_POISONED)
   !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
@@ -687,7 +689,7 @@ IF
     Global("MO_LONG_BUFF","LOCALS",1)
   HaveSpell(WIZARD_CATS_GRACE)  // SPWI227.SPL (Cat's Grace)
   See(SecondNearest([PC]))
-  !ExtendedStateCheck(LastSeenBy(Myself),STATE_CATS_GRACE)
+  !CheckSpellState(LastSeenBy(Myself),CATS_GRACE)
   CheckStatLT(LastSeenBy(Myself),18,DEX)
   OR(5)
     Class(LastSeenBy(Myself),FIGHTER_ALL)
@@ -699,6 +701,7 @@ IF
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_POISONED)
   !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
@@ -713,7 +716,7 @@ IF
     Global("MO_LONG_BUFF","LOCALS",1)
   HaveSpell(WIZARD_CATS_GRACE)  // SPWI227.SPL (Cat's Grace)
   See(ThirdNearest([PC]))
-  !ExtendedStateCheck(LastSeenBy(Myself),STATE_CATS_GRACE)
+  !CheckSpellState(LastSeenBy(Myself),CATS_GRACE)
   CheckStatLT(LastSeenBy(Myself),18,DEX)
   OR(5)
     Class(LastSeenBy(Myself),FIGHTER_ALL)
@@ -725,6 +728,7 @@ IF
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_POISONED)
   !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
@@ -739,7 +743,7 @@ IF
     Global("MO_LONG_BUFF","LOCALS",1)
   HaveSpell(WIZARD_CATS_GRACE)  // SPWI227.SPL (Cat's Grace)
   See(FourthNearest([PC]))
-  !ExtendedStateCheck(LastSeenBy(Myself),STATE_CATS_GRACE)
+  !CheckSpellState(LastSeenBy(Myself),CATS_GRACE)
   CheckStatLT(LastSeenBy(Myself),18,DEX)
   OR(5)
     Class(LastSeenBy(Myself),FIGHTER_ALL)
@@ -751,6 +755,7 @@ IF
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_POISONED)
   !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
@@ -765,7 +770,7 @@ IF
     Global("MO_LONG_BUFF","LOCALS",1)
   HaveSpell(WIZARD_CATS_GRACE)  // SPWI227.SPL (Cat's Grace)
   See(FifthNearest([PC]))
-  !ExtendedStateCheck(LastSeenBy(Myself),STATE_CATS_GRACE)
+  !CheckSpellState(LastSeenBy(Myself),CATS_GRACE)
   CheckStatLT(LastSeenBy(Myself),18,DEX)
   OR(5)
     Class(LastSeenBy(Myself),FIGHTER_ALL)
@@ -777,6 +782,7 @@ IF
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_POISONED)
   !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
@@ -792,6 +798,27 @@ END
 // 5e Spellcasting Prebuff IWD Mind Blank and Impervious Sanctity of Mind
 
 // Prebuff IWD Mind Blank and Impervious Sanctity of Mind
+
+IF
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
+  HaveSpell(WIZARD_MIND_BLANK)  // SPWI806.SPL (Mind Blank)
+  !CheckSpellState(Myself,MIND_BLANK)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  Global("MO_CastAthkatla","LOCALS",1)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,WIZARD_MIND_BLANK)  // SPWI806.SPL (Mind Blank)
+    RemoveSpell(WIZARD_MIND_BLANK)  // SPWI806.SPL (Mind Blank)
+END
+
+// Prebuff Potions
 
 IF
   OR(2)
@@ -831,7 +858,6 @@ THEN
     UseItem("potn44",Myself)  // Potion of Strength
     DisplayStringHead(Myself,@5005)
 END
-
 
 IF
   OR(2)
@@ -1632,14 +1658,15 @@ THEN
 END
 
 // Static Charge
+/*
+// CheckSpellState is not working for this spell. Because the spell lacks opcode 328 Set Spell State
 
-/* CheckSpellState is not working for this spell
 IF
   OR(2)
     Global("MO_BUFF","LOCALS",1)
     Global("MO_LONG_BUFF","LOCALS",1)
   HaveSpell(CLERIC_STATIC_CHARGE)  // SPPR419.SPL (Static Charge)
-  ExtendedStateCheck(Myself,STATE_STATIC_CHARGE)
+  !CheckSpellState(Myself,STATIC_CHARGE)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_POISONED)
@@ -5353,9 +5380,201 @@ THEN
     RemoveSpell(CLERIC_NEGATIVE_PLANE_PROTECTION)  // SPPR413.SPL (Negative Plane Protection)
 END
 
+// Cleric Regeneration
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  //CheckStat(Myself,1,SANCTUARY)
+  HaveSpell(CLERIC_REGENERATE)  // SPPR711.SPL (Regeneration)
+  See(Myself)
+  OR(6)
+    Class(LastSeenBy(Myself),FIGHTER_ALL)
+    Class(LastSeenBy(Myself),RANGER_ALL)
+    Class(LastSeenBy(Myself),PALADIN_ALL)
+    Class(LastSeenBy(Myself),MONK)
+    Kit(LastSeenBy(Myself),BLADE)
+    Kit(LastSeenBy(Myself),SKALD)
+  !CheckSpellState(LastSeenBy(Myself),CLERIC_REGENERATION)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  !CheckStat(LastSeenBy(Myself),7,WIZARD_SPELL_IMMUNITY)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),CLERIC_REGENERATE)  // SPPR711.SPL (Regeneration)
+    RemoveSpell(CLERIC_REGENERATE)  // SPPR711.SPL (Regeneration)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  //CheckStat(Myself,1,SANCTUARY)
+  HaveSpell(CLERIC_REGENERATE)  // SPPR711.SPL (Regeneration)
+  See([PC])
+  OR(6)
+    Class(LastSeenBy(Myself),FIGHTER_ALL)
+    Class(LastSeenBy(Myself),RANGER_ALL)
+    Class(LastSeenBy(Myself),PALADIN_ALL)
+    Class(LastSeenBy(Myself),MONK)
+    Kit(LastSeenBy(Myself),BLADE)
+    Kit(LastSeenBy(Myself),SKALD)
+  !CheckSpellState(LastSeenBy(Myself),CLERIC_REGENERATION)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_APPROACHABLE)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  !CheckStat(LastSeenBy(Myself),7,WIZARD_SPELL_IMMUNITY)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),CLERIC_REGENERATE)  // SPPR711.SPL (Regeneration)
+    RemoveSpell(CLERIC_REGENERATE)  // SPPR711.SPL (Regeneration)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  //CheckStat(Myself,1,SANCTUARY)
+  HaveSpell(CLERIC_REGENERATE)  // SPPR711.SPL (Regeneration)
+  See(SecondNearest([PC]))
+  OR(6)
+    Class(LastSeenBy(Myself),FIGHTER_ALL)
+    Class(LastSeenBy(Myself),RANGER_ALL)
+    Class(LastSeenBy(Myself),PALADIN_ALL)
+    Class(LastSeenBy(Myself),MONK)
+    Kit(LastSeenBy(Myself),BLADE)
+    Kit(LastSeenBy(Myself),SKALD)
+  !CheckSpellState(LastSeenBy(Myself),CLERIC_REGENERATION)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_APPROACHABLE)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  !CheckStat(LastSeenBy(Myself),7,WIZARD_SPELL_IMMUNITY)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),CLERIC_REGENERATE)  // SPPR711.SPL (Regeneration)
+    RemoveSpell(CLERIC_REGENERATE)  // SPPR711.SPL (Regeneration)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  //CheckStat(Myself,1,SANCTUARY)
+  HaveSpell(CLERIC_REGENERATE)  // SPPR711.SPL (Regeneration)
+  See(ThirdNearest([PC]))
+  OR(6)
+    Class(LastSeenBy(Myself),FIGHTER_ALL)
+    Class(LastSeenBy(Myself),RANGER_ALL)
+    Class(LastSeenBy(Myself),PALADIN_ALL)
+    Class(LastSeenBy(Myself),MONK)
+    Kit(LastSeenBy(Myself),BLADE)
+    Kit(LastSeenBy(Myself),SKALD)
+  !CheckSpellState(LastSeenBy(Myself),CLERIC_REGENERATION)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_APPROACHABLE)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  !CheckStat(LastSeenBy(Myself),7,WIZARD_SPELL_IMMUNITY)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),CLERIC_REGENERATE)  // SPPR711.SPL (Regeneration)
+    RemoveSpell(CLERIC_REGENERATE)  // SPPR711.SPL (Regeneration)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  //CheckStat(Myself,1,SANCTUARY)
+  HaveSpell(CLERIC_REGENERATE)  // SPPR711.SPL (Regeneration)
+  See(FourthNearest([PC]))
+  OR(6)
+    Class(LastSeenBy(Myself),FIGHTER_ALL)
+    Class(LastSeenBy(Myself),RANGER_ALL)
+    Class(LastSeenBy(Myself),PALADIN_ALL)
+    Class(LastSeenBy(Myself),MONK)
+    Kit(LastSeenBy(Myself),BLADE)
+    Kit(LastSeenBy(Myself),SKALD)
+  !CheckSpellState(LastSeenBy(Myself),CLERIC_REGENERATION)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_APPROACHABLE)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  !CheckStat(LastSeenBy(Myself),7,WIZARD_SPELL_IMMUNITY)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),CLERIC_REGENERATE)  // SPPR711.SPL (Regeneration)
+    RemoveSpell(CLERIC_REGENERATE)  // SPPR711.SPL (Regeneration)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  //CheckStat(Myself,1,SANCTUARY)
+  HaveSpell(CLERIC_REGENERATE)  // SPPR711.SPL (Regeneration)
+  See(FifthNearest([PC]))
+  OR(6)
+    Class(LastSeenBy(Myself),FIGHTER_ALL)
+    Class(LastSeenBy(Myself),RANGER_ALL)
+    Class(LastSeenBy(Myself),PALADIN_ALL)
+    Class(LastSeenBy(Myself),MONK)
+    Kit(LastSeenBy(Myself),BLADE)
+    Kit(LastSeenBy(Myself),SKALD)
+  !CheckSpellState(LastSeenBy(Myself),CLERIC_REGENERATION)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
+  !StateCheck(LastSeenBy(Myself),STATE_NOT_APPROACHABLE)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  !CheckStat(LastSeenBy(Myself),7,WIZARD_SPELL_IMMUNITY)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),CLERIC_REGENERATE)  // SPPR711.SPL (Regeneration)
+    RemoveSpell(CLERIC_REGENERATE)  // SPPR711.SPL (Regeneration)
+END
+
 ////////////////////////////////////////////////////
 // 3 Rounds/Level
-// 5e Spellcasting Prebuff Shield of the Archons
+// 5e Spellcasting Prebuff Shield of the Archons or Fiendish Warding
 
 IF
   Global("MO_BUFF","LOCALS",1)
@@ -5371,6 +5590,22 @@ THEN
   RESPONSE #100
     ReallyForceSpell(Myself,CLERIC_SHIELD_OF_THE_ARCHONS)  // SPPR701.SPL (Shield of the Archons)
     RemoveSpell(CLERIC_SHIELD_OF_THE_ARCHONS)  // SPPR701.SPL (Shield of the Archons)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  HaveSpell(CLERIC_FIENDISH_WARDING)  // SPPR742.SPL (Fiendish Warding)
+  CheckStatLT(Myself,1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,CLERIC_FIENDISH_WARDING)  // SPPR742.SPL (Fiendish Warding)
+    RemoveSpell(CLERIC_FIENDISH_WARDING)  // SPPR742.SPL (Fiendish Warding)
 END
 
 // 5e Spellcasting Prebuff Spell Shield
@@ -5633,198 +5868,6 @@ END
 // Morpheus562 Kitpack Prebuff Reckless Abandon
 
 // Skills and Abilities Prebuff War Cry
-
-// Cleric Regeneration
-
-IF
-  Global("MO_BUFF","LOCALS",1)
-  //CheckStat(Myself,1,SANCTUARY)
-  HaveSpell(CLERIC_REGENERATE)  // SPPR711.SPL (Regeneration)
-  See(Myself)
-  OR(6)
-    Class(LastSeenBy(Myself),FIGHTER_ALL)
-    Class(LastSeenBy(Myself),RANGER_ALL)
-    Class(LastSeenBy(Myself),PALADIN_ALL)
-    Class(LastSeenBy(Myself),MONK)
-    Kit(LastSeenBy(Myself),BLADE)
-    Kit(LastSeenBy(Myself),SKALD)
-  !CheckSpellState(LastSeenBy(Myself),CLERIC_REGENERATION)
-  //!CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  //!CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
-  //!CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
-  //!CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
-  //!CheckStat(LastSeenBy(Myself),7,WIZARD_SPELL_IMMUNITY)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_POISONED)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    ReallyForceSpell(LastSeenBy(Myself),CLERIC_REGENERATE)  // SPPR711.SPL (Regeneration)
-    RemoveSpell(CLERIC_REGENERATE)  // SPPR711.SPL (Regeneration)
-END
-
-IF
-  Global("MO_BUFF","LOCALS",1)
-  //CheckStat(Myself,1,SANCTUARY)
-  HaveSpell(CLERIC_REGENERATE)  // SPPR711.SPL (Regeneration)
-  See([PC])
-  OR(6)
-    Class(LastSeenBy(Myself),FIGHTER_ALL)
-    Class(LastSeenBy(Myself),RANGER_ALL)
-    Class(LastSeenBy(Myself),PALADIN_ALL)
-    Class(LastSeenBy(Myself),MONK)
-    Kit(LastSeenBy(Myself),BLADE)
-    Kit(LastSeenBy(Myself),SKALD)
-  !CheckSpellState(LastSeenBy(Myself),CLERIC_REGENERATION)
-  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
-  !StateCheck(LastSeenBy(Myself),STATE_NOT_APPROACHABLE)
-  //!CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  //!CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
-  //!CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
-  //!CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
-  //!CheckStat(LastSeenBy(Myself),7,WIZARD_SPELL_IMMUNITY)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_POISONED)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    ReallyForceSpell(LastSeenBy(Myself),CLERIC_REGENERATE)  // SPPR711.SPL (Regeneration)
-    RemoveSpell(CLERIC_REGENERATE)  // SPPR711.SPL (Regeneration)
-END
-
-IF
-  Global("MO_BUFF","LOCALS",1)
-  //CheckStat(Myself,1,SANCTUARY)
-  HaveSpell(CLERIC_REGENERATE)  // SPPR711.SPL (Regeneration)
-  See(SecondNearest([PC]))
-  OR(6)
-    Class(LastSeenBy(Myself),FIGHTER_ALL)
-    Class(LastSeenBy(Myself),RANGER_ALL)
-    Class(LastSeenBy(Myself),PALADIN_ALL)
-    Class(LastSeenBy(Myself),MONK)
-    Kit(LastSeenBy(Myself),BLADE)
-    Kit(LastSeenBy(Myself),SKALD)
-  !CheckSpellState(LastSeenBy(Myself),CLERIC_REGENERATION)
-  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
-  !StateCheck(LastSeenBy(Myself),STATE_NOT_APPROACHABLE)
-  //!CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  //!CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
-  //!CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
-  //!CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
-  //!CheckStat(LastSeenBy(Myself),7,WIZARD_SPELL_IMMUNITY)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_POISONED)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    ReallyForceSpell(LastSeenBy(Myself),CLERIC_REGENERATE)  // SPPR711.SPL (Regeneration)
-    RemoveSpell(CLERIC_REGENERATE)  // SPPR711.SPL (Regeneration)
-END
-
-IF
-  Global("MO_BUFF","LOCALS",1)
-  //CheckStat(Myself,1,SANCTUARY)
-  HaveSpell(CLERIC_REGENERATE)  // SPPR711.SPL (Regeneration)
-  See(ThirdNearest([PC]))
-  OR(6)
-    Class(LastSeenBy(Myself),FIGHTER_ALL)
-    Class(LastSeenBy(Myself),RANGER_ALL)
-    Class(LastSeenBy(Myself),PALADIN_ALL)
-    Class(LastSeenBy(Myself),MONK)
-    Kit(LastSeenBy(Myself),BLADE)
-    Kit(LastSeenBy(Myself),SKALD)
-  !CheckSpellState(LastSeenBy(Myself),CLERIC_REGENERATION)
-  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
-  !StateCheck(LastSeenBy(Myself),STATE_NOT_APPROACHABLE)
-  //!CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  //!CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
-  //!CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
-  //!CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
-  //!CheckStat(LastSeenBy(Myself),7,WIZARD_SPELL_IMMUNITY)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_POISONED)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    ReallyForceSpell(LastSeenBy(Myself),CLERIC_REGENERATE)  // SPPR711.SPL (Regeneration)
-    RemoveSpell(CLERIC_REGENERATE)  // SPPR711.SPL (Regeneration)
-END
-
-IF
-  Global("MO_BUFF","LOCALS",1)
-  //CheckStat(Myself,1,SANCTUARY)
-  HaveSpell(CLERIC_REGENERATE)  // SPPR711.SPL (Regeneration)
-  See(FourthNearest([PC]))
-  OR(6)
-    Class(LastSeenBy(Myself),FIGHTER_ALL)
-    Class(LastSeenBy(Myself),RANGER_ALL)
-    Class(LastSeenBy(Myself),PALADIN_ALL)
-    Class(LastSeenBy(Myself),MONK)
-    Kit(LastSeenBy(Myself),BLADE)
-    Kit(LastSeenBy(Myself),SKALD)
-  !CheckSpellState(LastSeenBy(Myself),CLERIC_REGENERATION)
-  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
-  !StateCheck(LastSeenBy(Myself),STATE_NOT_APPROACHABLE)
-  //!CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  //!CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
-  //!CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
-  //!CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
-  //!CheckStat(LastSeenBy(Myself),7,WIZARD_SPELL_IMMUNITY)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_POISONED)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    ReallyForceSpell(LastSeenBy(Myself),CLERIC_REGENERATE)  // SPPR711.SPL (Regeneration)
-    RemoveSpell(CLERIC_REGENERATE)  // SPPR711.SPL (Regeneration)
-END
-
-IF
-  Global("MO_BUFF","LOCALS",1)
-  //CheckStat(Myself,1,SANCTUARY)
-  HaveSpell(CLERIC_REGENERATE)  // SPPR711.SPL (Regeneration)
-  See(FifthNearest([PC]))
-  OR(6)
-    Class(LastSeenBy(Myself),FIGHTER_ALL)
-    Class(LastSeenBy(Myself),RANGER_ALL)
-    Class(LastSeenBy(Myself),PALADIN_ALL)
-    Class(LastSeenBy(Myself),MONK)
-    Kit(LastSeenBy(Myself),BLADE)
-    Kit(LastSeenBy(Myself),SKALD)
-  !CheckSpellState(LastSeenBy(Myself),CLERIC_REGENERATION)
-  !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
-  !StateCheck(LastSeenBy(Myself),STATE_NOT_APPROACHABLE)
-  //!CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
-  //!CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
-  //!CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
-  //!CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
-  //!CheckStat(LastSeenBy(Myself),7,WIZARD_SPELL_IMMUNITY)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_POISONED)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    ReallyForceSpell(LastSeenBy(Myself),CLERIC_REGENERATE)  // SPPR711.SPL (Regeneration)
-    RemoveSpell(CLERIC_REGENERATE)  // SPPR711.SPL (Regeneration)
-END
 
 ////////////////////////////////////////////////////
 // 5 Rounds
