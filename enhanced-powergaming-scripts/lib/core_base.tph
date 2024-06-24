@@ -1787,8 +1787,8 @@ END
 
 // MiH Cleric Break Enchantment
 
-/*
 // 5e Spellcasting Greater Restoration
+/*
 
 IF
   OR(2)
@@ -2881,8 +2881,8 @@ END
 
 // FP Spiritual Clarity
 
-/*
 // 5e Spellcasting Cure Disease
+/*
 
 IF
   OR(2)
@@ -4052,6 +4052,7 @@ THEN
     SetInterrupt(TRUE)
 END
 */
+
 // 5e Spellcasting Resist Fear
 
 IF
@@ -18422,6 +18423,101 @@ END
 // 14 - Defensive Self-Buffing                                           //
 ///////////////////////////////////////////////////////////////////////////
 
+// Cleric Prayer, Recitation, Righteous Wrath of the Faithful
+
+IF
+  ActionListEmpty()
+  Global("BDAI_DISABLE_DEFENSIVE","LOCALS",0)
+  OR(2)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
+  OR(2)
+    !StateCheck(Myself,STATE_INVISIBLE)
+    !Global("BDAI_SKILL_MODE","LOCALS",2)
+  HaveSpell(CLERIC_PRAYER)  // SPPR320.SPL (Prayer)
+  NumCreatureGT([EVILCUTOFF],4)
+  !CheckSpellState(Myself,BENEFICIAL_PRAYER)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(Myself,CLERIC_PRAYER)  // SPPR320.SPL (Prayer)
+    SetInterrupt(TRUE)
+END
+
+IF
+  ActionListEmpty()
+  Global("BDAI_DISABLE_DEFENSIVE","LOCALS",0)
+  OR(2)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
+  OR(2)
+    !StateCheck(Myself,STATE_INVISIBLE)
+    !Global("BDAI_SKILL_MODE","LOCALS",2)
+  HaveSpell(CLERIC_RECITATION)  // SPPR420.SPL (Recitation)
+  NumCreatureGT([EVILCUTOFF],4)
+  !CheckSpellState(Myself,BENEFICIAL_RECITATION)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(Myself,CLERIC_RECITATION)  // SPPR420.SPL (Recitation)
+    SetInterrupt(TRUE)
+END
+
+IF
+  ActionListEmpty()
+  Global("BDAI_DISABLE_DEFENSIVE","LOCALS",0)
+  OR(2)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
+  OR(2)
+    !StateCheck(Myself,STATE_INVISIBLE)
+    !Global("BDAI_SKILL_MODE","LOCALS",2)
+  HaveSpell(CLERIC_RIGHTEOUS_WRATH_OF_THE_FAITHFUL)  // SPPR518.SPL (Righteous Wrath of the Faithful)
+  NumCreatureGT([EVILCUTOFF],4)
+  !CheckSpellState(Myself,ALLIED_AND_SAME_ALIGNMENT_RIGHTEOUS_WRATH_OF_THE_FAITHFUL)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(Myself,CLERIC_RECITATION)  // SPPR518.SPL (Righteous Wrath of the Faithful)
+    SetInterrupt(TRUE)
+END
+
 // 5e Spellcasting - MiH Cleric Celestial Protection
 
 // MiH Cleric Celestial Protection
@@ -19646,7 +19742,7 @@ IF
     !Global("BDAI_SKILL_MODE","LOCALS",2)
   HaveSpell(WIZARD_MIRROR_IMAGE)  // SPWI212.SPL (Mirror Image)
   See(NearestEnemyOf(Myself))
-  EEex_LuaTrigger("return ChallengeRating()")
+  //EEex_LuaTrigger("return ChallengeRating()")
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_POISONED)
@@ -19922,7 +20018,7 @@ THEN
     IncrementGlobal("MO_UsedDuplication","GLOBAL",1)
 END
 
-// 5e Spellcasting Cleric Protection From Fire
+// 5e Spellcasting Protection From Fire (Cleric and Wizard)
 
 IF
   OR(2)
@@ -19948,7 +20044,7 @@ IF
     Class(NearestEnemyOfType,ELEMENTAL_FIRE)
     Class(NearestEnemyOfType,RED_DRAGON)
     Class(NearestEnemyOfType,SILVER_DRAGON)
-  CheckStatLT(Myself,30,RESISTFIRE)
+  CheckStatLT(Myself,50,RESISTFIRE)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_POISONED)
@@ -19961,6 +20057,46 @@ THEN
     SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
     Spell(Myself,CLERIC_PROTECTION_FROM_FIRE)  // SPPR306.SPL (Protection From Fire)
+    SetInterrupt(TRUE)
+END
+
+IF
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_DEFENSIVE","LOCALS",0)
+  OR(2)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
+  OR(2)
+    !StateCheck(Myself,STATE_INVISIBLE)
+    !Global("BDAI_SKILL_MODE","LOCALS",2)
+  HaveSpell(WIZARD_PROTECTION_FROM_FIRE)  // SPWI319.SPL (Protection From Fire)
+  OR(7)
+    Class(NearestEnemyOfType,MAGE_ALL)
+    Class(NearestEnemyOfType,SORCERER)
+    Class(NearestEnemyOfType,DRUID_ALL)
+    Class(NearestEnemyOfType,CLERIC_ALL)
+    Class(NearestEnemyOfType,ELEMENTAL_FIRE)
+    Class(NearestEnemyOfType,RED_DRAGON)
+    Class(NearestEnemyOfType,SILVER_DRAGON)
+  CheckStatLT(Myself,50,RESISTFIRE)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    Spell(Myself,WIZARD_PROTECTION_FROM_FIRE)  // SPWI319.SPL (Protection From Fire)
     SetInterrupt(TRUE)
 END
 
@@ -20644,7 +20780,7 @@ IF
     !Global("BDAI_SKILL_MODE","LOCALS",2)
   HaveSpell(WIZARD_DEATH_SPELL)  // SPWI605.SPL (Death Spell)
   See(Nearest([EVILCUTOFF.0.0.0.0.SUMMONED]))
-  EEex_LuaTrigger("return ChallengeRating()")
+  //EEex_LuaTrigger("return ChallengeRating()")
   NumCreatureGT([EVILCUTOFF.0.0.0.0.SUMMONED],3)
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !CheckStatGT(LastSeenBy(Myself),0,SANCTUARY)
@@ -20681,7 +20817,7 @@ IF
     !Global("BDAI_SKILL_MODE","LOCALS",2)
   HaveSpell(WIZARD_DEATH_SPELL)  // SPWI605.SPL (Death Spell)
   See(SecondNearest([EVILCUTOFF.0.0.0.0.SUMMONED]))
-  EEex_LuaTrigger("return ChallengeRating()")
+  //EEex_LuaTrigger("return ChallengeRating()")
   NumCreatureGT([EVILCUTOFF.0.0.0.0.SUMMONED],3)
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !CheckStatGT(LastSeenBy(Myself),0,SANCTUARY)
@@ -20718,7 +20854,7 @@ IF
     !Global("BDAI_SKILL_MODE","LOCALS",2)
   HaveSpell(WIZARD_DEATH_SPELL)  // SPWI605.SPL (Death Spell)
   See(ThirdNearest([EVILCUTOFF.0.0.0.0.SUMMONED]))
-  EEex_LuaTrigger("return ChallengeRating()")
+  //EEex_LuaTrigger("return ChallengeRating()")
   NumCreatureGT([EVILCUTOFF.0.0.0.0.SUMMONED],3)
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !CheckStatGT(LastSeenBy(Myself),0,SANCTUARY)
@@ -20755,7 +20891,7 @@ IF
     !Global("BDAI_SKILL_MODE","LOCALS",2)
   HaveSpell(WIZARD_DEATH_SPELL)  // SPWI605.SPL (Death Spell)
   See(FourthNearest([EVILCUTOFF.0.0.0.0.SUMMONED]))
-  EEex_LuaTrigger("return ChallengeRating()")
+  //EEex_LuaTrigger("return ChallengeRating()")
   NumCreatureGT([EVILCUTOFF.0.0.0.0.SUMMONED],3)
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !CheckStatGT(LastSeenBy(Myself),0,SANCTUARY)
@@ -20792,7 +20928,7 @@ IF
     !Global("BDAI_SKILL_MODE","LOCALS",2)
   HaveSpell(WIZARD_DEATH_SPELL)  // SPWI605.SPL (Death Spell)
   See(FifthNearest([EVILCUTOFF.0.0.0.0.SUMMONED]))
-  EEex_LuaTrigger("return ChallengeRating()")
+  //EEex_LuaTrigger("return ChallengeRating()")
   NumCreatureGT([EVILCUTOFF.0.0.0.0.SUMMONED],3)
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !CheckStatGT(LastSeenBy(Myself),0,SANCTUARY)
@@ -20829,7 +20965,7 @@ IF
     !Global("BDAI_SKILL_MODE","LOCALS",2)
   HaveSpell(WIZARD_DEATH_SPELL)  // SPWI605.SPL (Death Spell)
   See(SixthNearest([EVILCUTOFF.0.0.0.0.SUMMONED]))
-  EEex_LuaTrigger("return ChallengeRating()")
+  //EEex_LuaTrigger("return ChallengeRating()")
   NumCreatureGT([EVILCUTOFF.0.0.0.0.SUMMONED],3)
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !CheckStatGT(LastSeenBy(Myself),0,SANCTUARY)
@@ -20874,7 +21010,7 @@ IF
     Class(LastSeenBy(Myself),CLERIC_ALL)
     Class(LastSeenBy(Myself),DRUID_ALL)
     Class(LastSeenBy(Myself),SORCERER)
-  EEex_LuaTrigger("return ChallengeRating()")  
+  //EEex_LuaTrigger("return ChallengeRating()")  
   NumCreatureLT([GOODCUTOFF.0.0.0.0.SUMMONED],5)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -20915,7 +21051,7 @@ IF
     Class(LastSeenBy(Myself),CLERIC_ALL)
     Class(LastSeenBy(Myself),DRUID_ALL)
     Class(LastSeenBy(Myself),SORCERER)
-  EEex_LuaTrigger("return ChallengeRating()")  
+  //EEex_LuaTrigger("return ChallengeRating()")  
   NumCreatureLT([GOODCUTOFF.0.0.0.0.SUMMONED],5)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -20956,7 +21092,7 @@ IF
     Class(LastSeenBy(Myself),CLERIC_ALL)
     Class(LastSeenBy(Myself),DRUID_ALL)
     Class(LastSeenBy(Myself),SORCERER)
-  EEex_LuaTrigger("return ChallengeRating()")  
+  //EEex_LuaTrigger("return ChallengeRating()")  
   NumCreatureLT([GOODCUTOFF.0.0.0.0.SUMMONED],5)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -20997,7 +21133,7 @@ IF
     Class(LastSeenBy(Myself),CLERIC_ALL)
     Class(LastSeenBy(Myself),DRUID_ALL)
     Class(LastSeenBy(Myself),SORCERER)
-  EEex_LuaTrigger("return ChallengeRating()")  
+  //EEex_LuaTrigger("return ChallengeRating()")  
   NumCreatureLT([GOODCUTOFF.0.0.0.0.SUMMONED],5)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -21038,7 +21174,7 @@ IF
     Class(LastSeenBy(Myself),CLERIC_ALL)
     Class(LastSeenBy(Myself),DRUID_ALL)
     Class(LastSeenBy(Myself),SORCERER)
-  EEex_LuaTrigger("return ChallengeRating()")  
+  //EEex_LuaTrigger("return ChallengeRating()")  
   NumCreatureLT([GOODCUTOFF.0.0.0.0.SUMMONED],5)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -21079,7 +21215,7 @@ IF
     Class(LastSeenBy(Myself),CLERIC_ALL)
     Class(LastSeenBy(Myself),DRUID_ALL)
     Class(LastSeenBy(Myself),SORCERER)
-  EEex_LuaTrigger("return ChallengeRating()")  
+  //EEex_LuaTrigger("return ChallengeRating()")  
   NumCreatureLT([GOODCUTOFF.0.0.0.0.SUMMONED],5)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -21122,7 +21258,7 @@ IF
     Class(LastSeenBy(Myself),CLERIC_ALL)
     Class(LastSeenBy(Myself),DRUID_ALL)
     Class(LastSeenBy(Myself),SORCERER)
-  EEex_LuaTrigger("return ChallengeRating()")  
+  //EEex_LuaTrigger("return ChallengeRating()")  
   NumCreatureLT([GOODCUTOFF.0.0.0.0.SUMMONED],5)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -21163,7 +21299,7 @@ IF
     Class(LastSeenBy(Myself),CLERIC_ALL)
     Class(LastSeenBy(Myself),DRUID_ALL)
     Class(LastSeenBy(Myself),SORCERER)
-  EEex_LuaTrigger("return ChallengeRating()")  
+  //EEex_LuaTrigger("return ChallengeRating()")  
   NumCreatureLT([GOODCUTOFF.0.0.0.0.SUMMONED],5)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -21204,7 +21340,7 @@ IF
     Class(LastSeenBy(Myself),CLERIC_ALL)
     Class(LastSeenBy(Myself),DRUID_ALL)
     Class(LastSeenBy(Myself),SORCERER)
-  EEex_LuaTrigger("return ChallengeRating()")  
+  //EEex_LuaTrigger("return ChallengeRating()")  
   NumCreatureLT([GOODCUTOFF.0.0.0.0.SUMMONED],5)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -21245,7 +21381,7 @@ IF
     Class(LastSeenBy(Myself),CLERIC_ALL)
     Class(LastSeenBy(Myself),DRUID_ALL)
     Class(LastSeenBy(Myself),SORCERER)
-  EEex_LuaTrigger("return ChallengeRating()")  
+  //EEex_LuaTrigger("return ChallengeRating()")  
   NumCreatureLT([GOODCUTOFF.0.0.0.0.SUMMONED],5)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -21286,7 +21422,7 @@ IF
     Class(LastSeenBy(Myself),CLERIC_ALL)
     Class(LastSeenBy(Myself),DRUID_ALL)
     Class(LastSeenBy(Myself),SORCERER)
-  EEex_LuaTrigger("return ChallengeRating()")  
+  //EEex_LuaTrigger("return ChallengeRating()")  
   NumCreatureLT([GOODCUTOFF.0.0.0.0.SUMMONED],5)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -21327,7 +21463,7 @@ IF
     Class(LastSeenBy(Myself),CLERIC_ALL)
     Class(LastSeenBy(Myself),DRUID_ALL)
     Class(LastSeenBy(Myself),SORCERER)
-  EEex_LuaTrigger("return ChallengeRating()")  
+  //EEex_LuaTrigger("return ChallengeRating()")  
   NumCreatureLT([GOODCUTOFF.0.0.0.0.SUMMONED],5)
   CheckStatLT(Myself,20,SPELLFAILUREMAGE)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -21368,7 +21504,7 @@ IF
   !General(LastSeenBy(Myself),UNDEAD)
   !Race(LastSeenBy(Myself),LICH)
   !Race(LastSeenBy(Myself),RAKSHASA)
-  EEex_LuaTrigger("return ChallengeRating()")
+  //EEex_LuaTrigger("return ChallengeRating()")
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !StateCheck(LastSeenBy(Myself),STATE_HARMLESS)
   CheckStatLT(LastSeenBy(Myself),20,RESISTMAGIC)
@@ -21422,7 +21558,7 @@ IF
   !General(LastSeenBy(Myself),UNDEAD)
   !Race(LastSeenBy(Myself),LICH)
   !Race(LastSeenBy(Myself),RAKSHASA)
-  EEex_LuaTrigger("return ChallengeRating()")
+  //EEex_LuaTrigger("return ChallengeRating()")
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !StateCheck(LastSeenBy(Myself),STATE_HARMLESS)
   CheckStatLT(LastSeenBy(Myself),20,RESISTMAGIC)
@@ -21476,7 +21612,7 @@ IF
   !General(LastSeenBy(Myself),UNDEAD)
   !Race(LastSeenBy(Myself),LICH)
   !Race(LastSeenBy(Myself),RAKSHASA)
-  EEex_LuaTrigger("return ChallengeRating()")
+  //EEex_LuaTrigger("return ChallengeRating()")
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !StateCheck(LastSeenBy(Myself),STATE_HARMLESS)
   CheckStatLT(LastSeenBy(Myself),20,RESISTMAGIC)
@@ -21530,7 +21666,7 @@ IF
   !General(LastSeenBy(Myself),UNDEAD)
   !Race(LastSeenBy(Myself),LICH)
   !Race(LastSeenBy(Myself),RAKSHASA)
-  EEex_LuaTrigger("return ChallengeRating()")
+  //EEex_LuaTrigger("return ChallengeRating()")
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !StateCheck(LastSeenBy(Myself),STATE_HARMLESS)
   CheckStatLT(LastSeenBy(Myself),20,RESISTMAGIC)
@@ -21584,7 +21720,7 @@ IF
   !General(LastSeenBy(Myself),UNDEAD)
   !Race(LastSeenBy(Myself),LICH)
   !Race(LastSeenBy(Myself),RAKSHASA)
-  EEex_LuaTrigger("return ChallengeRating()")
+  //EEex_LuaTrigger("return ChallengeRating()")
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !StateCheck(LastSeenBy(Myself),STATE_HARMLESS)
   CheckStatLT(LastSeenBy(Myself),20,RESISTMAGIC)
@@ -21638,7 +21774,7 @@ IF
   !General(LastSeenBy(Myself),UNDEAD)
   !Race(LastSeenBy(Myself),LICH)
   !Race(LastSeenBy(Myself),RAKSHASA)
-  EEex_LuaTrigger("return ChallengeRating()")
+  //EEex_LuaTrigger("return ChallengeRating()")
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !StateCheck(LastSeenBy(Myself),STATE_HARMLESS)
   CheckStatLT(LastSeenBy(Myself),20,RESISTMAGIC)
@@ -21695,7 +21831,7 @@ IF
   !General(LastSeenBy(Myself),UNDEAD)
   !Race(LastSeenBy(Myself),LICH)
   !Race(LastSeenBy(Myself),RAKSHASA)
-  EEex_LuaTrigger("return ChallengeRating()")
+  //EEex_LuaTrigger("return ChallengeRating()")
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !StateCheck(LastSeenBy(Myself),STATE_HARMLESS)
   CheckStatLT(LastSeenBy(Myself),20,RESISTMAGIC)
@@ -21746,7 +21882,7 @@ IF
   !General(LastSeenBy(Myself),UNDEAD)
   !Race(LastSeenBy(Myself),LICH)
   !Race(LastSeenBy(Myself),RAKSHASA)
-  EEex_LuaTrigger("return ChallengeRating()")
+  //EEex_LuaTrigger("return ChallengeRating()")
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !StateCheck(LastSeenBy(Myself),STATE_HARMLESS)
   CheckStatLT(LastSeenBy(Myself),20,RESISTMAGIC)
@@ -21797,7 +21933,7 @@ IF
   !General(LastSeenBy(Myself),UNDEAD)
   !Race(LastSeenBy(Myself),LICH)
   !Race(LastSeenBy(Myself),RAKSHASA)
-  EEex_LuaTrigger("return ChallengeRating()")
+  //EEex_LuaTrigger("return ChallengeRating()")
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !StateCheck(LastSeenBy(Myself),STATE_HARMLESS)
   CheckStatLT(LastSeenBy(Myself),20,RESISTMAGIC)
@@ -21848,7 +21984,7 @@ IF
   !General(LastSeenBy(Myself),UNDEAD)
   !Race(LastSeenBy(Myself),LICH)
   !Race(LastSeenBy(Myself),RAKSHASA)
-  EEex_LuaTrigger("return ChallengeRating()")
+  //EEex_LuaTrigger("return ChallengeRating()")
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !StateCheck(LastSeenBy(Myself),STATE_HARMLESS)
   CheckStatLT(LastSeenBy(Myself),20,RESISTMAGIC)
@@ -21899,7 +22035,7 @@ IF
   !General(LastSeenBy(Myself),UNDEAD)
   !Race(LastSeenBy(Myself),LICH)
   !Race(LastSeenBy(Myself),RAKSHASA)
-  EEex_LuaTrigger("return ChallengeRating()")
+  //EEex_LuaTrigger("return ChallengeRating()")
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !StateCheck(LastSeenBy(Myself),STATE_HARMLESS)
   CheckStatLT(LastSeenBy(Myself),20,RESISTMAGIC)
@@ -21950,7 +22086,7 @@ IF
   !General(LastSeenBy(Myself),UNDEAD)
   !Race(LastSeenBy(Myself),LICH)
   !Race(LastSeenBy(Myself),RAKSHASA)
-  EEex_LuaTrigger("return ChallengeRating()")
+  //EEex_LuaTrigger("return ChallengeRating()")
   !StateCheck(LastSeenBy(Myself),STATE_NOT_TARGETABLE)
   !StateCheck(LastSeenBy(Myself),STATE_HARMLESS)
   CheckStatLT(LastSeenBy(Myself),20,RESISTMAGIC)

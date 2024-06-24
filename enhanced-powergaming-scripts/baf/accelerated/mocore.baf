@@ -1053,7 +1053,6 @@ THEN
     DisplayStringHead(Myself,@5005)
 END
 
-
 IF
   OR(2)
     Global("MO_BUFF","LOCALS",1)
@@ -4603,7 +4602,7 @@ THEN
 END
 
 // IWD Prayer, Recitation
-
+/*
 IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpell(CLERIC_PRAYER)  // SPPR320.SPL (Prayer)
@@ -4635,7 +4634,7 @@ THEN
     ReallyForceSpell(Myself,CLERIC_RECITATION)  // SPPR420.SPL (Recitation)
     RemoveSpell(CLERIC_RECITATION)  // SPPR420.SPL (Recitation)
 END
-
+*/
 // 5e Spellcasting Prebuff Holy Power
 
 IF
