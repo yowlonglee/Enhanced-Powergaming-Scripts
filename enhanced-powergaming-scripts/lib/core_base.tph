@@ -13267,8 +13267,8 @@ THEN
     SetInterrupt(TRUE)
 END
 
-// 5e Spellcasting Regeneration
-/*
+// 5e Spellcasting Regeneration while in combat
+
 IF
   OR(2)
     ActionListEmpty()
@@ -13290,16 +13290,6 @@ IF
   !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
   !CheckStat(LastSeenBy(Myself),7,WIZARD_SPELL_IMMUNITY)
-  !HasItemEquiped("RING39",Myself) // Ring of Gaxx
-  !HasItemEquiped("RING31",Myself) // Ring of Regeneration
-  !HasItemEquiped("AX1H14",Myself) // Axe of the Unyielding +3
-  !HasItemEquiped("AX1H15",Myself) // Axe of the Unyielding +5
-  !HasItemEquiped("MISCBC",Myself) // Blackrazor
-  !HasItemEquiped("BDIOUN01",Myself) // Trollblood Ioun Stone
-  !HasItemEquiped("HELM34",Myself) // Wong Fei's Ioun Stone
-  !HasItemEquiped("CLFTRG",Myself) // Troll's Whisper
-  !HasItemEquiped("L#2SDAG2",Myself) // Soultaker
-  !HasItemEquiped("mh#ioun7",Myself) // Blood of Lathander
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -13334,16 +13324,6 @@ IF
   !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
   !CheckStat(LastSeenBy(Myself),7,WIZARD_SPELL_IMMUNITY)
-  !HasItemEquiped("RING39",LastSeenBy(Myself)) // Ring of Gaxx
-  !HasItemEquiped("RING31",LastSeenBy(Myself)) // Ring of Regeneration
-  !HasItemEquiped("AX1H14",LastSeenBy(Myself)) // Axe of the Unyielding +3
-  !HasItemEquiped("AX1H15",LastSeenBy(Myself)) // Axe of the Unyielding +5
-  !HasItemEquiped("MISCBC",LastSeenBy(Myself)) // Blackrazor
-  !HasItemEquiped("BDIOUN01",LastSeenBy(Myself)) // Trollblood Ioun Stone
-  !HasItemEquiped("HELM34",LastSeenBy(Myself)) // Wong Fei's Ioun Stone
-  !HasItemEquiped("CLFTRG",LastSeenBy(Myself)) // Troll's Whisper
-  !HasItemEquiped("L#2SDAG2",LastSeenBy(Myself)) // Soultaker
-  !HasItemEquiped("mh#ioun7",LastSeenBy(Myself)) // Blood of Lathander
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -13378,16 +13358,6 @@ IF
   !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
   !CheckStat(LastSeenBy(Myself),7,WIZARD_SPELL_IMMUNITY)
-  !HasItemEquiped("RING39",LastSeenBy(Myself)) // Ring of Gaxx
-  !HasItemEquiped("RING31",LastSeenBy(Myself)) // Ring of Regeneration
-  !HasItemEquiped("AX1H14",LastSeenBy(Myself)) // Axe of the Unyielding +3
-  !HasItemEquiped("AX1H15",LastSeenBy(Myself)) // Axe of the Unyielding +5
-  !HasItemEquiped("MISCBC",LastSeenBy(Myself)) // Blackrazor
-  !HasItemEquiped("BDIOUN01",LastSeenBy(Myself)) // Trollblood Ioun Stone
-  !HasItemEquiped("HELM34",LastSeenBy(Myself)) // Wong Fei's Ioun Stone
-  !HasItemEquiped("CLFTRG",LastSeenBy(Myself)) // Troll's Whisper
-  !HasItemEquiped("L#2SDAG2",LastSeenBy(Myself)) // Soultaker 
-  !HasItemEquiped("mh#ioun7",LastSeenBy(Myself)) // Blood of Lathander
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -13422,16 +13392,6 @@ IF
   !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
   !CheckStat(LastSeenBy(Myself),7,WIZARD_SPELL_IMMUNITY)
-  !HasItemEquiped("RING39",LastSeenBy(Myself)) // Ring of Gaxx
-  !HasItemEquiped("RING31",LastSeenBy(Myself)) // Ring of Regeneration
-  !HasItemEquiped("AX1H14",LastSeenBy(Myself)) // Axe of the Unyielding +3
-  !HasItemEquiped("AX1H15",LastSeenBy(Myself)) // Axe of the Unyielding +5
-  !HasItemEquiped("MISCBC",LastSeenBy(Myself)) // Blackrazor
-  !HasItemEquiped("BDIOUN01",LastSeenBy(Myself)) // Trollblood Ioun Stone
-  !HasItemEquiped("HELM34",LastSeenBy(Myself)) // Wong Fei's Ioun Stone
-  !HasItemEquiped("CLFTRG",LastSeenBy(Myself)) // Troll's Whisper
-  !HasItemEquiped("L#2SDAG2",LastSeenBy(Myself)) // Soultaker
-  !HasItemEquiped("mh#ioun7",LastSeenBy(Myself)) // Blood of Lathander
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -13466,16 +13426,6 @@ IF
   !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
   !CheckStat(LastSeenBy(Myself),7,WIZARD_SPELL_IMMUNITY)
-  !HasItemEquiped("RING39",LastSeenBy(Myself)) // Ring of Gaxx
-  !HasItemEquiped("RING31",LastSeenBy(Myself)) // Ring of Regeneration
-  !HasItemEquiped("AX1H14",LastSeenBy(Myself)) // Axe of the Unyielding +3
-  !HasItemEquiped("AX1H15",LastSeenBy(Myself)) // Axe of the Unyielding +5
-  !HasItemEquiped("MISCBC",LastSeenBy(Myself)) // Blackrazor
-  !HasItemEquiped("BDIOUN01",LastSeenBy(Myself)) // Trollblood Ioun Stone
-  !HasItemEquiped("HELM34",LastSeenBy(Myself)) // Wong Fei's Ioun Stone
-  !HasItemEquiped("CLFTRG",LastSeenBy(Myself)) // Troll's Whisper
-  !HasItemEquiped("L#2SDAG2",LastSeenBy(Myself)) // Soultaker
-  !HasItemEquiped("mh#ioun7",LastSeenBy(Myself)) // Blood of Lathander
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -13510,16 +13460,6 @@ IF
   !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
   !CheckStat(LastSeenBy(Myself),7,WIZARD_SPELL_IMMUNITY)
-  !HasItemEquiped("RING39",LastSeenBy(Myself)) // Ring of Gaxx
-  !HasItemEquiped("RING31",LastSeenBy(Myself)) // Ring of Regeneration
-  !HasItemEquiped("AX1H14",LastSeenBy(Myself)) // Axe of the Unyielding +3
-  !HasItemEquiped("AX1H15",LastSeenBy(Myself)) // Axe of the Unyielding +5
-  !HasItemEquiped("MISCBC",LastSeenBy(Myself)) // Blackrazor
-  !HasItemEquiped("BDIOUN01",LastSeenBy(Myself)) // Trollblood Ioun Stone
-  !HasItemEquiped("HELM34",LastSeenBy(Myself)) // Wong Fei's Ioun Stone
-  !HasItemEquiped("CLFTRG",LastSeenBy(Myself)) // Troll's Whisper
-  !HasItemEquiped("L#2SDAG2",LastSeenBy(Myself)) // Soultaker
-  !HasItemEquiped("mh#ioun7",LastSeenBy(Myself)) // Blood of Lathander
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -13554,16 +13494,6 @@ IF
   !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
   !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
   !CheckStat(LastSeenBy(Myself),7,WIZARD_SPELL_IMMUNITY)
-  !HasItemEquiped("RING39",LastSeenBy(Myself)) // Ring of Gaxx
-  !HasItemEquiped("RING31",LastSeenBy(Myself)) // Ring of Regeneration
-  !HasItemEquiped("AX1H14",LastSeenBy(Myself)) // Axe of the Unyielding +3
-  !HasItemEquiped("AX1H15",LastSeenBy(Myself)) // Axe of the Unyielding +5
-  !HasItemEquiped("MISCBC",LastSeenBy(Myself)) // Blackrazor
-  !HasItemEquiped("BDIOUN01",LastSeenBy(Myself)) // Trollblood Ioun Stone
-  !HasItemEquiped("HELM34",LastSeenBy(Myself)) // Wong Fei's Ioun Stone
-  !HasItemEquiped("CLFTRG",LastSeenBy(Myself)) // Troll's Whisper
-  !HasItemEquiped("L#2SDAG2",LastSeenBy(Myself)) // Soultaker
-  !HasItemEquiped("mh#ioun7",LastSeenBy(Myself)) // Blood of Lathander
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !StateCheck(Myself,STATE_SILENCED)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
@@ -13576,7 +13506,7 @@ THEN
     Spell(LastSeenBy(Myself),CLERIC_REGENERATE)  // SPPR711.SPL (Regeneration)
     SetInterrupt(TRUE)
 END
-*/
+
 /*
 IF
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
