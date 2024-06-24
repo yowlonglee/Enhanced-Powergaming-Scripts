@@ -18502,7 +18502,7 @@ IF
     !Global("BDAI_SKILL_MODE","LOCALS",2)
   HaveSpell(CLERIC_RIGHTEOUS_WRATH_OF_THE_FAITHFUL)  // SPPR518.SPL (Righteous Wrath of the Faithful)
   NumCreatureGT([EVILCUTOFF],4)
-  !CheckSpellState(Myself,ALLIED_AND_SAME_ALIGNMENT_RIGHTEOUS_WRATH_OF_THE_FAITHFUL)
+  !CheckSpellState(Myself,ALLIED_RIGHTEOUS_WRATH_OF_THE_FAITHFUL)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_POISONED)
@@ -18514,7 +18514,7 @@ THEN
     SetGlobal("MO_SpellCast","LOCALS",1)
     SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetInterrupt(FALSE)
-    Spell(Myself,CLERIC_RECITATION)  // SPPR518.SPL (Righteous Wrath of the Faithful)
+    Spell(Myself,CLERIC_RIGHTEOUS_WRATH_OF_THE_FAITHFUL)  // SPPR518.SPL (Righteous Wrath of the Faithful)
     SetInterrupt(TRUE)
 END
 
