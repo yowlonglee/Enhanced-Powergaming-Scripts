@@ -55,6 +55,7 @@ END
 ///////////////////////////////////////////////////////////////////////////
 // 01 - Curative Potions                                                 //
 ///////////////////////////////////////////////////////////////////////////
+// Only use potions on the character himself. Because we lack extra Spellstate variables so we can't apply party-wide cure for disease and poison.
 
 IF
   OR(2)
@@ -644,7 +645,10 @@ THEN
     IncrementGlobal("MO_UsedGargoyle","GLOBAL",1)
 END
 
-// Use Items
+///////////////////
+// Using Items
+////////////////////
+
 // The next two block of scripts look for a character has Boots of Speed equiptted and has Gargoyle Boots in his inventory.
 // The script will switch these two items, active the Gargoyle Boots, and switch them back.
 
@@ -717,6 +721,7 @@ IF
     !Global("BDAI_SKILL_MODE","LOCALS",2)
   GlobalLT("MO_UsedClkOfStars","GLOBAL",1)
   HasItem("CLCK25",Myself)  // Cloak of the Stars
+  !InventoryFull()
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
@@ -745,6 +750,7 @@ IF
     !Global("BDAI_SKILL_MODE","LOCALS",2)
   GlobalLT("MO_UsedHolyCoin","GLOBAL",1)
   HasItem("AC#WCOIN",Myself)  // Holy Coin of Waukeen
+  !InventoryFull()
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
@@ -773,6 +779,7 @@ IF
     !Global("BDAI_SKILL_MODE","LOCALS",2)
   GlobalLT("MO_UsedRodOfVinearrows","GLOBAL",1)
   HasItem("L#ROCRA0",Myself)  // Rod of Vinearrows
+  !InventoryFull()
 THEN
   RESPONSE #100
     SetGlobal("MO_SpellCast","LOCALS",1)
@@ -857,6 +864,7 @@ THEN
     SetInterrupt(TRUE)
 END
 */
+
 ///////////////////////////////////////////////////////////////////////////
 // 04 - In-Combat Heals - Instant Use Abililties and Potions             //
 ///////////////////////////////////////////////////////////////////////////
@@ -19878,7 +19886,7 @@ IF
     !Global("BDAI_SKILL_MODE","LOCALS",2)
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   GlobalLT("MO_UsedIlbratha","GLOBAL",1)
-  HasItemEquiped("SW1H26",Myself)  // Ilbratha +1
+  HasItem("SW1H26",Myself)  // Ilbratha +1
   See(NearestEnemyOf(Myself))
   OR(11)
     Range([EVILCUTOFF.0.FAIRY],30)
