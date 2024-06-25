@@ -335,6 +335,7 @@ THEN
     SetGlobal("MO_UsedVisage","GLOBAL",0)
     SetGlobal("MO_UsedHolyCoin","GLOBAL",0)
     SetGlobal("MO_UsedRodOfVinearrows","GLOBAL",0)
+    SetGlobal("MO_UsedVelvetNight","GLOBAL",0)
 END
 
 IF
@@ -438,6 +439,10 @@ THEN
   RESPONSE #100
     SetGlobal("MO_CastAthkatla","LOCALS",1)
 END
+
+////////////////////////////////////////////////////
+// Prebuff scripts start here
+////////////////////////////////////////////////////
 
 IF
   Global("MO_BUFF","LOCALS",0)

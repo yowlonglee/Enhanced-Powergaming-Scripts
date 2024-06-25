@@ -791,6 +791,34 @@ THEN
     IncrementGlobal("MO_UsedRodOfVinearrows","GLOBAL",1)
 END
 
+// Ioun Stone of Velvet Night (L#ndiou)
+
+IF
+  ActionListEmpty()
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
+  OR(2)
+    !StateCheck(Myself,STATE_INVISIBLE)
+    !Global("BDAI_SKILL_MODE","LOCALS",2)
+  See(NearestEnemyOf(Myself))
+  GlobalLT("MO_UsedVelvetNight","GLOBAL",1)
+  OR(2)
+    HasItemEquiped("L#ndiou",Myself)
+    CheckItemSlot(Myself,"L#ndiou",SLOT_MISC18)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    UseItemAbility("L#ndiou",LastSeenBy(Myself),SLOT_AMMO3,0)
+    SetInterrupt(TRUE)
+    IncrementGlobal("MO_UsedVelvetNight","GLOBAL",1)
+END
+
 // 5e Spellcasting - IWD Mind Blank and Impervious Sanctity of Mind
 
 // IWD Mind Blank and Impervious Sanctity of Mind
@@ -13016,15 +13044,24 @@ END
 // 5e Spellcasting Cure Light Wounds
 
 IF
-  CheckSpellState(MostDamagedOf([PC]),D5_HAS_FAMILIAR)
+  See(Myself)
+  SpellCastOnMeRES("",Familiar)
+  CheckSpellState(Myself,D5_HAS_FAMILIAR)
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,1)
+END
+
+IF
   Detect(Familiar)
+  CheckSpellState(MostDamagedOf([PC]),D5_HAS_FAMILIAR)
   FALSE()
 THEN
   RESPONSE #100
 END
 
 IF
-  !Detect(Familiar)
+  Detect(Familiar)
   !CheckSpellState(MostDamagedOf([PC]),D5_HAS_FAMILIAR)
   See(MostDamagedOf([PC]))
   FALSE()
