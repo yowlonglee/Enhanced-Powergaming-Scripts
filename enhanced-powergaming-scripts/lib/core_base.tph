@@ -24780,6 +24780,24 @@ THEN
     Attack(SixthNearestEnemyOf(Myself))
 END
 
+// Run away from attackers if HP is below 50%
+
+IF
+  HPPercentLT(Myself,51)
+  OR()
+    Class(Myself,MAGE)
+    Class(Myself,SORCERER)
+    Class(Myself,CLERIC)
+    Class(Myself,CLERIC_MAGE)
+    Class(Myself,MAGE_THIEF)
+    Class(Myself,CLERIC_THIEF)
+  AttackedBy([ANYTHING],DEFAULT)
+  See(LastAttackerOf())
+THEN
+  RESPONSE #100
+    RunAwayFrom(LastSeenBy(),60)
+END
+
 ///////////////////////////////////////////////////////////////////////////
 // 19 - Trap                                                             //
 ///////////////////////////////////////////////////////////////////////////
