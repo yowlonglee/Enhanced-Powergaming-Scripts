@@ -12820,7 +12820,7 @@ IF
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
   Global("BDAI_DISABLE_SPECIAL","LOCALS",0)
-  !See([EVILCUTOFF])
+  !Exists([EVILCUTOFF])
   !EEex_LuaTrigger("return AmMoving()")
   HaveSpell(CLERIC_HEAL)  // SPPR607.SPL (Heal)
   See(MostDamagedOf([PC]))
@@ -12869,7 +12869,7 @@ IF
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
   Global("BDAI_DISABLE_SPECIAL","LOCALS",0)
-  !See([EVILCUTOFF])
+  !Exists([EVILCUTOFF])
   !EEex_LuaTrigger("return AmMoving()")
   HaveSpell(CLERIC_CURE_SERIOUS_WOUNDS)  // SPPR401.SPL (Cure Serious Wounds)
   See(MostDamagedOf([PC]))
@@ -12931,7 +12931,7 @@ IF
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
   Global("BDAI_DISABLE_SPECIAL","LOCALS",0)
-  !See([EVILCUTOFF])
+  !Exists([EVILCUTOFF])
   !EEex_LuaTrigger("return AmMoving()")
   HaveSpell(CLERIC_CURE_MEDIUM_WOUNDS)  // SPPR315.SPL (Cure Medium Wounds)
   See(MostDamagedOf([PC]))
@@ -12996,7 +12996,7 @@ IF
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
   Global("BDAI_DISABLE_SPECIAL","LOCALS",0)
-  !See([EVILCUTOFF])
+  !Exists([EVILCUTOFF])
   !EEex_LuaTrigger("return AmMoving()")
   HaveSpell(CLERIC_CURE_MODERATE_WOUNDS)  // SPPR216.SPL (Cure Moderate Wounds)
   See(MostDamagedOf([PC]))
@@ -13044,26 +13044,16 @@ END
 // 5e Spellcasting Cure Light Wounds
 
 IF
-  See(Myself)
-  SpellCastOnMeRES("",Familiar)
-  CheckSpellState(Myself,D5_HAS_FAMILIAR)
-THEN
-  RESPONSE #100
-    DisplayStringHead(Myself,1)
-END
-
-IF
-  Detect(Familiar)
-  CheckSpellState(MostDamagedOf([PC]),D5_HAS_FAMILIAR)
+  See(MostDamagedOf([PC]))
   FALSE()
 THEN
   RESPONSE #100
 END
 
 IF
-  Detect(Familiar)
-  !CheckSpellState(MostDamagedOf([PC]),D5_HAS_FAMILIAR)
-  See(MostDamagedOf([PC]))
+  Range(Familiar,30)
+  CheckSpellState(LastSeenBy(),D5_HAS_FAMILIAR)
+  See(Myself)
   FALSE()
 THEN
   RESPONSE #100
@@ -13085,7 +13075,7 @@ IF
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
   Global("BDAI_DISABLE_SPECIAL","LOCALS",0)
-  !See([EVILCUTOFF])
+  !Exists([EVILCUTOFF])
   !EEex_LuaTrigger("return AmMoving()")
   HaveSpell(CLERIC_CURE_LIGHT_WOUNDS)  // SPPR103.SPL (Cure Light Wounds)
   HPPercentLT(LastSeenBy(Myself),90)
@@ -13119,6 +13109,7 @@ IF
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
+    //DisplayStringHead(LastSeenBy(),87442)
     SetGlobal("MO_SpellCast","LOCALS",1)
     SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
     SetGlobalTimer("MO_HealCast","GLOBAL",12)
@@ -13128,7 +13119,14 @@ THEN
     SetGlobal("MO_CastingHeal","GLOBAL",0)
     SetInterrupt(TRUE)
 END
-
+/*
+IF
+  Name("Viconia",Myself)
+THEN
+  RESPONSE #100
+    DisplayStringHead(LastSeenBy(),660)
+END
+*/
 IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
@@ -18463,6 +18461,8 @@ THEN
     Spell(LastSeenBy(Myself),WIZARD_SLEEP)  // SPWI116.SPL (Sleep)
     SetInterrupt(TRUE)
 END
+
+// Use CC and Cure Items
 
 // Use Wand of Fear
 
@@ -24407,6 +24407,26 @@ END
 ///////////////////////////////////////////////////////////////////////////
 // 18 - Physical Attack Selection                                        //
 ///////////////////////////////////////////////////////////////////////////
+/*
+IF
+  Range("Viconia",4)
+  Name("Jaheira",Myself)
+  See("Neera")
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,9102)
+    //DisplayStringHead(LastSeenBy(),9102)
+    //Continue()
+END
+
+IF
+  Name("Jaheira",Myself)
+  Name("Neera",LastSeenBy())
+THEN
+  RESPONSE #100
+    DisplayStringHead(LastSeenBy(),87442)
+END
+*/
 
 IF
   //EEex_LuaTrigger("return AmAttacking()")
