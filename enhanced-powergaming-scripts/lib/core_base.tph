@@ -615,44 +615,6 @@ THEN
     IncrementGlobal("MO_UsedGargoyle","GLOBAL",1)
 END
 
-// 5e Spellcasting - IWD Mind Blank and Impervious Sanctity of Mind
-
-// IWD Mind Blank and Impervious Sanctity of Mind
-
-IF
-  OR(2)
-    ActionListEmpty()
-    EEex_LuaTrigger("return AmAttacking()")
-  !EEex_LuaTrigger("return AmMoving()")
-  Global("BDAI_DISABLE_DEFENSIVE","LOCALS",0)
-  OR(2)
-    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
-    CheckStatGT(Myself,0,AURACLEANSING)
-  OR(2)
-    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
-    CheckStatGT(Myself,0,AURACLEANSING)
-  !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
-  OR(2)
-    !StateCheck(Myself,STATE_INVISIBLE)
-    !Global("BDAI_SKILL_MODE","LOCALS",2)
-  HaveSpell(WIZARD_MIND_BLANK)  // SPWI806.SPL (Mind Blank)
-  !CheckSpellState(Myself,MIND_BLANK)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_POISONED)
-  !StateCheck(Myself,STATE_SILENCED)
-  Global("MO_CastAthkatla","LOCALS",1)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    SetGlobal("MO_SpellCast","LOCALS",1)
-    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
-    SetInterrupt(FALSE)
-    Spell(Myself,WIZARD_MIND_BLANK)  // SPWI806.SPL (Mind Blank)
-    SetInterrupt(TRUE)
-END
-
 // 5e Spellcasting Goodberries
 /*
 IF
@@ -689,11 +651,7 @@ THEN
 END
 */
 
-///////////////////
-// Using Items
-////////////////////
-
-// Use Staff of the Magi Spell Trap Ability
+// Staff of the Magi - Spell Trap
 
 IF
   OR(2)
@@ -751,6 +709,8 @@ THEN
     XEquipItem("Boot01",Myself,SLOT_BOOTS,EQUIP)  // The Paws of the Cheetah
 END
 
+// Girdle of Fortitude
+
 IF
   OR(2)
     ActionListEmpty()
@@ -779,6 +739,8 @@ THEN
     SetInterrupt(TRUE)
     IncrementGlobal("MO_UsedFortitude","GLOBAL",1)
 END
+
+// Cloak of the Stars
 
 IF
   OR(2)
@@ -809,6 +771,8 @@ THEN
     IncrementGlobal("MO_UsedClkOfStars","GLOBAL",1)
 END
 
+// Holy Coin of Waukeen
+
 IF
   OR(2)
     ActionListEmpty()
@@ -837,6 +801,8 @@ THEN
     SetInterrupt(TRUE)
     IncrementGlobal("MO_UsedHolyCoin","GLOBAL",1)
 END
+
+// Rod of Vinearrows
 
 IF
   OR(2)
@@ -867,39 +833,11 @@ THEN
     IncrementGlobal("MO_UsedRodOfVinearrows","GLOBAL",1)
 END
 
-// Ioun Stone of Velvet Night (L#ndiou)
-
-IF
-  ActionListEmpty()
-  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
-  OR(2)
-    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
-    CheckStatGT(Myself,0,AURACLEANSING)
-  !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
-  OR(2)
-    !StateCheck(Myself,STATE_INVISIBLE)
-    !Global("BDAI_SKILL_MODE","LOCALS",2)
-  See(NearestEnemyOf(Myself))
-  GlobalLT("MO_UsedVelvetNight","GLOBAL",1)
-  OR(2)
-    HasItemEquiped("L#ndiou",Myself)
-    CheckItemSlot(Myself,"L#ndiou",SLOT_MISC18)
-THEN
-  RESPONSE #100
-    SetGlobal("MO_SpellCast","LOCALS",1)
-    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
-    SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
-    SetInterrupt(FALSE)
-    UseItemAbility("L#ndiou",LastSeenBy(Myself),SLOT_AMMO3,0)
-    SetInterrupt(TRUE)
-    IncrementGlobal("MO_UsedVelvetNight","GLOBAL",1)
-END
-
-
-
 ///////////////////////////////////////////////////////////////////////////
 // 04 - In-Combat Heals - Instant Use Abililties and Potions             //
 ///////////////////////////////////////////////////////////////////////////
+
+// Mass Heal
 
 IF
   OR(2)
@@ -947,6 +885,8 @@ END
 // Skills and Abilities Second Wind
 
 // Morpheus562 Kitpack Reaver Drain Life
+
+// In-combat Healing Potions
 
 IF
   OR(2)
@@ -2633,6 +2573,368 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// Remove Hold and Paralysis with Methild's Harp
+
+IF
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
+  OR(2)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
+  OR(2)
+    !StateCheck(Myself,STATE_INVISIBLE)
+    !Global("BDAI_SKILL_MODE","LOCALS",2)
+  GlobalLT("MO_UsedMethildHarp","GLOBAL",3)    
+  See([PC])
+  OR(2)
+    StateCheck(LastSeenBy(Myself),STATE_STUNNED)
+    CheckStatGT(LastSeenBy(Myself),0,HELD)
+  OR(17)
+    HasItemEquiped("MISC3O",Myself)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC3)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC4)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC5)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC6)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC7)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC8)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC9)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC10)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC11)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC12)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC13)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC14)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC15)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC16)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC17)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC18)
+  Global("MO_PartyRemoveParalysis","GLOBAL",0)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_MISLEAD)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  CheckStat(LastSeenBy(Myself),0,WEB)
+  !StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
+  !StateCheck(LastSeenBy(Myself),STATE_CHARMED)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetGlobalTimer("MO_ParalysisCastTimer","GLOBAL",6)
+    SetGlobal("MO_SelfRemoveParalysis","LOCALS",1)
+    SetGlobal("MO_PartyRemoveParalysis","GLOBAL",1)
+    SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5010)
+    UseItemAbility("MISC3O",LastSeenBy(Myself),SLOT_AMMO3,0)
+    IncrementGlobal("MO_UsedMethildHarp","GLOBAL",1)
+    SetInterrupt(TRUE)
+END
+
+IF
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
+  OR(2)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
+  OR(2)
+    !StateCheck(Myself,STATE_INVISIBLE)
+    !Global("BDAI_SKILL_MODE","LOCALS",2)
+  GlobalLT("MO_UsedMethildHarp","GLOBAL",3)    
+  See(SecondNearest([PC]))
+  OR(2)
+    StateCheck(LastSeenBy(Myself),STATE_STUNNED)
+    CheckStatGT(LastSeenBy(Myself),0,HELD)
+  OR(17)
+    HasItemEquiped("MISC3O",Myself)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC3)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC4)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC5)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC6)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC7)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC8)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC9)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC10)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC11)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC12)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC13)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC14)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC15)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC16)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC17)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC18)
+  Global("MO_PartyRemoveParalysis","GLOBAL",0)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_MISLEAD)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  CheckStat(LastSeenBy(Myself),0,WEB)
+  !StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
+  !StateCheck(LastSeenBy(Myself),STATE_CHARMED)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetGlobalTimer("MO_ParalysisCastTimer","GLOBAL",6)
+    SetGlobal("MO_SelfRemoveParalysis","LOCALS",1)
+    SetGlobal("MO_PartyRemoveParalysis","GLOBAL",1)
+    SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5010)
+    UseItemAbility("MISC3O",LastSeenBy(Myself),SLOT_AMMO3,0)
+    IncrementGlobal("MO_UsedMethildHarp","GLOBAL",1)
+    SetInterrupt(TRUE)
+END
+
+IF
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
+  OR(2)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
+  OR(2)
+    !StateCheck(Myself,STATE_INVISIBLE)
+    !Global("BDAI_SKILL_MODE","LOCALS",2)
+  GlobalLT("MO_UsedMethildHarp","GLOBAL",3)    
+  See(ThirdNearest([PC]))
+  OR(2)
+    StateCheck(LastSeenBy(Myself),STATE_STUNNED)
+    CheckStatGT(LastSeenBy(Myself),0,HELD)
+  OR(17)
+    HasItemEquiped("MISC3O",Myself)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC3)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC4)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC5)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC6)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC7)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC8)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC9)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC10)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC11)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC12)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC13)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC14)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC15)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC16)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC17)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC18)
+  Global("MO_PartyRemoveParalysis","GLOBAL",0)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_MISLEAD)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  CheckStat(LastSeenBy(Myself),0,WEB)
+  !StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
+  !StateCheck(LastSeenBy(Myself),STATE_CHARMED)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetGlobalTimer("MO_ParalysisCastTimer","GLOBAL",6)
+    SetGlobal("MO_SelfRemoveParalysis","LOCALS",1)
+    SetGlobal("MO_PartyRemoveParalysis","GLOBAL",1)
+    SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5010)
+    UseItemAbility("MISC3O",LastSeenBy(Myself),SLOT_AMMO3,0)
+    IncrementGlobal("MO_UsedMethildHarp","GLOBAL",1)
+    SetInterrupt(TRUE)
+END
+
+IF
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
+  OR(2)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
+  OR(2)
+    !StateCheck(Myself,STATE_INVISIBLE)
+    !Global("BDAI_SKILL_MODE","LOCALS",2)
+  GlobalLT("MO_UsedMethildHarp","GLOBAL",3)    
+  See(FourthNearest([PC]))
+  OR(2)
+    StateCheck(LastSeenBy(Myself),STATE_STUNNED)
+    CheckStatGT(LastSeenBy(Myself),0,HELD)
+  OR(17)
+    HasItemEquiped("MISC3O",Myself)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC3)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC4)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC5)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC6)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC7)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC8)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC9)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC10)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC11)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC12)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC13)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC14)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC15)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC16)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC17)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC18)
+  Global("MO_PartyRemoveParalysis","GLOBAL",0)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_MISLEAD)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  CheckStat(LastSeenBy(Myself),0,WEB)
+  !StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
+  !StateCheck(LastSeenBy(Myself),STATE_CHARMED)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetGlobalTimer("MO_ParalysisCastTimer","GLOBAL",6)
+    SetGlobal("MO_SelfRemoveParalysis","LOCALS",1)
+    SetGlobal("MO_PartyRemoveParalysis","GLOBAL",1)
+    SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5010)
+    UseItemAbility("MISC3O",LastSeenBy(Myself),SLOT_AMMO3,0)
+    IncrementGlobal("MO_UsedMethildHarp","GLOBAL",1)
+    SetInterrupt(TRUE)
+END
+
+IF
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
+  OR(2)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
+  OR(2)
+    !StateCheck(Myself,STATE_INVISIBLE)
+    !Global("BDAI_SKILL_MODE","LOCALS",2)
+  GlobalLT("MO_UsedMethildHarp","GLOBAL",3)    
+  See(FifthNearest([PC]))
+  OR(2)
+    StateCheck(LastSeenBy(Myself),STATE_STUNNED)
+    CheckStatGT(LastSeenBy(Myself),0,HELD)
+  OR(17)
+    HasItemEquiped("MISC3O",Myself)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC3)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC4)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC5)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC6)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC7)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC8)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC9)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC10)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC11)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC12)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC13)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC14)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC15)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC16)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC17)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC18)
+  Global("MO_PartyRemoveParalysis","GLOBAL",0)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_MISLEAD)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  CheckStat(LastSeenBy(Myself),0,WEB)
+  !StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
+  !StateCheck(LastSeenBy(Myself),STATE_CHARMED)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetGlobalTimer("MO_ParalysisCastTimer","GLOBAL",6)
+    SetGlobal("MO_SelfRemoveParalysis","LOCALS",1)
+    SetGlobal("MO_PartyRemoveParalysis","GLOBAL",1)
+    SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5010)
+    UseItemAbility("MISC3O",LastSeenBy(Myself),SLOT_AMMO3,0)
+    IncrementGlobal("MO_UsedMethildHarp","GLOBAL",1)
+    SetInterrupt(TRUE)
+END
+
+IF
+  OR(2)
+    ActionListEmpty()
+    EEex_LuaTrigger("return AmAttacking()")
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
+  OR(2)
+    !EEex_LuaTrigger("return MO_AmCastingCooldown()")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
+  OR(2)
+    !StateCheck(Myself,STATE_INVISIBLE)
+    !Global("BDAI_SKILL_MODE","LOCALS",2)
+  GlobalLT("MO_UsedMethildHarp","GLOBAL",3)    
+  See(SixthNearest([PC]))
+  OR(2)
+    StateCheck(LastSeenBy(Myself),STATE_STUNNED)
+    CheckStatGT(LastSeenBy(Myself),0,HELD)
+  OR(17)
+    HasItemEquiped("MISC3O",Myself)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC3)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC4)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC5)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC6)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC7)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC8)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC9)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC10)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC11)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC12)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC13)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC14)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC15)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC16)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC17)
+    CheckItemSlot(Myself,"MISC3O",SLOT_MISC18)
+  Global("MO_PartyRemoveParalysis","GLOBAL",0)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_MISLEAD)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),MINOR_GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  CheckStat(LastSeenBy(Myself),0,WEB)
+  !StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
+  !StateCheck(LastSeenBy(Myself),STATE_CHARMED)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetGlobalTimer("MO_ParalysisCastTimer","GLOBAL",6)
+    SetGlobal("MO_SelfRemoveParalysis","LOCALS",1)
+    SetGlobal("MO_PartyRemoveParalysis","GLOBAL",1)
+    SetInterrupt(FALSE)
+    DisplayStringHead(Myself,@5010)
+    UseItemAbility("MISC3O",LastSeenBy(Myself),SLOT_AMMO3,0)
+    IncrementGlobal("MO_UsedMethildHarp","GLOBAL",1)
+    SetInterrupt(TRUE)
+END
+
 // 5e Spellcasting Remove Paralysis
 
 IF
@@ -2916,6 +3218,13 @@ THEN
     Spell(LastSeenBy(Myself),CLERIC_REMOVE_PARALYSIS)  // SPPR308.SPL (Remove Paralysis)
     SetInterrupt(TRUE)
 END
+
+
+// Harp of Descant - Remove Confusion
+
+// Cleric Innate - Exaltation
+
+// Cleric Spell Exaltation
 
 // 5e Spellcasting - FP Spiritual Clarity
 
@@ -5730,11 +6039,13 @@ END
 
 // Forgotten Armament - The Visage
 
+// Gem of Seeing
+
 IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  Global("BDAI_DISABLE_SPECIAL","LOCALS",0)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
@@ -5780,7 +6091,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  Global("BDAI_DISABLE_SPECIAL","LOCALS",0)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
@@ -5825,7 +6136,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  Global("BDAI_DISABLE_SPECIAL","LOCALS",0)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
@@ -5870,7 +6181,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  Global("BDAI_DISABLE_SPECIAL","LOCALS",0)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
@@ -5915,7 +6226,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  Global("BDAI_DISABLE_SPECIAL","LOCALS",0)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
@@ -5960,7 +6271,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  Global("BDAI_DISABLE_SPECIAL","LOCALS",0)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
@@ -6005,7 +6316,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  Global("BDAI_DISABLE_SPECIAL","LOCALS",0)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
@@ -6050,7 +6361,7 @@ IF
   OR(2)
     ActionListEmpty()
     EEex_LuaTrigger("return AmAttacking()")
-  Global("BDAI_DISABLE_SPECIAL","LOCALS",0)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
     CheckStatGT(Myself,0,AURACLEANSING)
@@ -12658,8 +12969,6 @@ END
 // 11 - Destroy Undead Spell/Ability                                     //
 ///////////////////////////////////////////////////////////////////////////
 
-// Turn Undead Overhaul
-
 // 5e Spellcasting - ini disabling spells Sunray
 
 IF
@@ -13123,14 +13432,7 @@ THEN
     SetGlobal("MO_CastingHeal","GLOBAL",0)
     SetInterrupt(TRUE)
 END
-/*
-IF
-  Name("Viconia",Myself)
-THEN
-  RESPONSE #100
-    DisplayStringHead(LastSeenBy(),660)
-END
-*/
+
 IF
   OR(2)
     !EEex_LuaTrigger("return MO_AmCastingCooldown()")
@@ -18466,7 +18768,7 @@ THEN
     SetInterrupt(TRUE)
 END
 
-// Use CC and Cure Items
+// Use Wands
 
 // Use Wand of Fear
 
@@ -20174,6 +20476,8 @@ THEN
     SpellRES("SPDM102",Myself)  // Blur
 END
 
+// Ilbratha - Mirror Image
+
 IF
   OR(2)
     ActionListEmpty()
@@ -20191,7 +20495,24 @@ IF
     !Global("BDAI_SKILL_MODE","LOCALS",2)
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   GlobalLT("MO_UsedIlbratha","GLOBAL",1)
-  HasItem("SW1H26",Myself)  // Ilbratha +1
+  OR(17)
+    HasItemEquipedReal("SW1H26",Myself)  // Ilbratha +1
+    CheckItemSlot(Myself,"SW1H26",SLOT_MISC3)
+    CheckItemSlot(Myself,"SW1H26",SLOT_MISC4)
+    CheckItemSlot(Myself,"SW1H26",SLOT_MISC5)
+    CheckItemSlot(Myself,"SW1H26",SLOT_MISC6)
+    CheckItemSlot(Myself,"SW1H26",SLOT_MISC7)
+    CheckItemSlot(Myself,"SW1H26",SLOT_MISC8)
+    CheckItemSlot(Myself,"SW1H26",SLOT_MISC9)
+    CheckItemSlot(Myself,"SW1H26",SLOT_MISC10)
+    CheckItemSlot(Myself,"SW1H26",SLOT_MISC11)
+    CheckItemSlot(Myself,"SW1H26",SLOT_MISC12)
+    CheckItemSlot(Myself,"SW1H26",SLOT_MISC13)
+    CheckItemSlot(Myself,"SW1H26",SLOT_MISC14)
+    CheckItemSlot(Myself,"SW1H26",SLOT_MISC15)
+    CheckItemSlot(Myself,"SW1H26",SLOT_MISC16)
+    CheckItemSlot(Myself,"SW1H26",SLOT_MISC17)
+    CheckItemSlot(Myself,"SW1H26",SLOT_MISC18)
   See(NearestEnemyOf(Myself))
   OR(11)
     Range([EVILCUTOFF.0.FAIRY],30)
@@ -20227,54 +20548,7 @@ THEN
     IncrementGlobal("MO_UsedIlbratha","GLOBAL",1)
 END
 
-IF
-  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
-  Class(Myself,MONK)
-  !StateCheck(Myself,STATE_MIRRORIMAGE)
-  !Global("MO_UsedIlbratha","GLOBAL",1)
-  HasItem("SW1H26",Myself)  // Ilbratha +1
-  HasItemEquiped("WANINJA",Myself)  // Ninjatō of the Scarlet Brotherhood +3
-  See(NearestEnemyOf(Myself))
-  OR(11)
-    Range([EVILCUTOFF.0.FAIRY],30)
-    Range([EVILCUTOFF.0.DEMONIC],30)
-    Range([EVILCUTOFF.0.RAKSHASA],30)
-    Range([EVILCUTOFF.0.DRAGON],30)
-    Range([EVILCUTOFF.0.DEMILICH],30)
-    Range([EVILCUTOFF.0.LICH],30)
-    Range([EVILCUTOFF.0.SOLAR],30)
-    Range([EVILCUTOFF.0.PLANATAR],30)
-    Range([EVILCUTOFF.0.ANTISOLAR],30)
-    Range([EVILCUTOFF.0.DARKPLANATAR],30)
-    EEex_LuaTrigger("return ChallengeRating()")
-  !CheckStatGT(NearestEnemyOf(Myself),0,TRUE_SIGHT)
-  !CheckStatGT(SecondNearestEnemyOf(Myself),0,TRUE_SIGHT)
-  !CheckStatGT(ThirdNearestEnemyOf(Myself),0,TRUE_SIGHT)
-  !CheckStatGT(FourthNearestEnemyOf(Myself),0,TRUE_SIGHT)
-  !CheckStatGT(SixthNearestEnemyOf(Myself),0,TRUE_SIGHT)
-  !CheckStatGT(SeventhNearestEnemyOf(Myself),0,TRUE_SIGHT)
-  !CheckStatGT(EighthNearestEnemyOf(Myself),0,TRUE_SIGHT)
-  !CheckStatGT(NinthNearestEnemyOf(Myself),0,TRUE_SIGHT)
-  !CheckStatGT(TenthNearestEnemyOf(Myself),0,TRUE_SIGHT)
-  !CheckStatGT([EVILCUTOFF.0.PLANATAR],0,TRUE_SIGHT)
-  !CheckStatGT([EVILCUTOFF.0.DARKPLANATAR],0,TRUE_SIGHT)
-THEN
-  RESPONSE #100
-    XEquipItem("SW1H26",Myself,SLOT_SHIELD,EQUIP)  // Ilbratha +1
-END
 
-IF
-  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
-  Class(Myself,MONK)
-  OR(2)
-    StateCheck(Myself,STATE_MIRRORIMAGE)
-    Global("MO_UsedIlbratha","GLOBAL",1)
-  HasItem("WANINJA",Myself)  // Ninjatō of the Scarlet Brotherhood +3
-  HasItemEquiped("SW1H26",Myself)  // Ilbratha +1
-THEN
-  RESPONSE #100
-    XEquipItem("WANINJA",Myself,SLOT_SHIELD,EQUIP)  // Ninjatō of the Scarlet Brotherhood +3
-END
 
 // MiH Mirror Amulet - Mirror Image
 
@@ -22736,6 +23010,51 @@ THEN
     SetInterrupt(TRUE)
 END
 
+// Force Missile
+
+// Ioun Stone of Velvet Night (L#ndiou)
+
+IF
+  ActionListEmpty()
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
+  OR(2)
+    !GlobalTimerNotExpired("MO_SpellCastTimer","LOCALS")
+    CheckStatGT(Myself,0,AURACLEANSING)
+  !GlobalTimerNotExpired("MO_ItemUsedTimer","LOCALS")
+  OR(2)
+    !StateCheck(Myself,STATE_INVISIBLE)
+    !Global("BDAI_SKILL_MODE","LOCALS",2)
+  See(NearestEnemyOf(Myself))
+  GlobalLT("MO_UsedVelvetNight","GLOBAL",1)
+  OR(17)
+    HasItemEquiped("L#NDIOU",Myself)
+    CheckItemSlot(Myself,"L#NDIOU",SLOT_MISC3)
+    CheckItemSlot(Myself,"L#NDIOU",SLOT_MISC4)
+    CheckItemSlot(Myself,"L#NDIOU",SLOT_MISC5)
+    CheckItemSlot(Myself,"L#NDIOU",SLOT_MISC6)
+    CheckItemSlot(Myself,"L#NDIOU",SLOT_MISC7)
+    CheckItemSlot(Myself,"L#NDIOU",SLOT_MISC8)
+    CheckItemSlot(Myself,"L#NDIOU",SLOT_MISC9)
+    CheckItemSlot(Myself,"L#NDIOU",SLOT_MISC10)
+    CheckItemSlot(Myself,"L#NDIOU",SLOT_MISC11)
+    CheckItemSlot(Myself,"L#NDIOU",SLOT_MISC12)
+    CheckItemSlot(Myself,"L#NDIOU",SLOT_MISC13)
+    CheckItemSlot(Myself,"L#NDIOU",SLOT_MISC14)
+    CheckItemSlot(Myself,"L#NDIOU",SLOT_MISC15)
+    CheckItemSlot(Myself,"L#NDIOU",SLOT_MISC16)
+    CheckItemSlot(Myself,"L#NDIOU",SLOT_MISC17)
+    CheckItemSlot(Myself,"L#NDIOU",SLOT_MISC18)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_SpellCast","LOCALS",1)
+    SetGlobalTimer("MO_SpellCastTimer","LOCALS",6)
+    SetGlobalTimer("MO_ItemUsedTimer","LOCALS",6)
+    SetInterrupt(FALSE)
+    UseItemAbility("L#NDIOU",LastSeenBy(Myself),SLOT_AMMO3,0)
+    SetInterrupt(TRUE)
+    IncrementGlobal("MO_UsedVelvetNight","GLOBAL",1)
+END
+
 ///////////////////////////////////////////////////////////////////////////
 // 16 - Offensive Self-Buffing                                           //
 ///////////////////////////////////////////////////////////////////////////
@@ -24412,7 +24731,7 @@ END
 // 18 - Physical Attack Selection                                        //
 ///////////////////////////////////////////////////////////////////////////
 
-// Run away from attackers if HP is below 50% with Mages and Clerics
+// Run away from attackers if HP is below 50% with Spellcasters
 
 IF
   HPPercentLT(Myself,51)

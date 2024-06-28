@@ -336,6 +336,11 @@ THEN
     SetGlobal("MO_UsedHolyCoin","GLOBAL",0)
     SetGlobal("MO_UsedRodOfVinearrows","GLOBAL",0)
     SetGlobal("MO_UsedVelvetNight","GLOBAL",0)
+    SetGlobal("MO_UsedBrokenGlasses","GLOBAL",0)
+    SetGlobal("MO_UsedRobeEye","GLOBAL",0)
+    SetGlobal("MO_UsedRogueCowl","GLOBAL",0)
+    SetGlobal("MO_UsedBarrierAmulet","GLOBAL",0)
+    SetGlobal("MO_UsedMethildHarp","GLOBAL",0)
 END
 
 IF
@@ -810,6 +815,33 @@ IF
   OR(2)
     Global("MO_BUFF","LOCALS",1)
     Global("MO_LONG_BUFF","LOCALS",1)
+  HaveSpell(CLERIC_IMPERVIOUS_SANCTITY_OF_MIND)  // SPPR735.SPL (Impervious Sanctity of Mind)
+  !CheckSpellState(Myself,BARBARIAN_RAGE)
+  !CheckSpellState(Myself,BERSERKER_RAGE)
+  !CheckSpellState(Myself,CHAOTIC_COMMANDS)
+  !CheckSpellState(Myself,MIND_BLANK)
+  !CheckSpellState(Myself,POTION_OF_CLARITY)
+  !HasItemEquiped("SHLD25",Myself) // Shield of Harmony
+  !HasItemEquiped("O#CRAMUL",Myself) // Amulet of Harmony
+  !HasItemEquiped("mh#ring5",Myself) // Ring of Mind Shielding
+  !HasItemEquiped("MOAM07",Myself) // Amulet of Protected Dalliances
+  !HasItemEquiped("NWCLCKAC",Myself) // Improved Nymph Cloak
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,CLERIC_IMPERVIOUS_SANCTITY_OF_MIND)  // SPPR735.SPL (Impervious Sanctity of Mind)
+    RemoveSpell(CLERIC_IMPERVIOUS_SANCTITY_OF_MIND)  // SPPR735.SPL (Impervious Sanctity of Mind)
+END
+
+IF
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
   HaveSpell(WIZARD_MIND_BLANK)  // SPWI806.SPL (Mind Blank)
   !CheckSpellState(Myself,BARBARIAN_RAGE)
   !CheckSpellState(Myself,BERSERKER_RAGE)
@@ -834,34 +866,6 @@ THEN
     RemoveSpell(WIZARD_MIND_BLANK)  // SPWI806.SPL (Mind Blank)
 END
 
-IF
-  OR(2)
-    Global("MO_BUFF","LOCALS",1)
-    Global("MO_LONG_BUFF","LOCALS",1)
-  HaveSpell(CLERIC_IMPERVIOUS_SANCTITY_OF_MIND)  // SPPR735.SPL (Impervious Sanctity of Mind)
-  !CheckSpellState(Myself,BARBARIAN_RAGE)
-  !CheckSpellState(Myself,BERSERKER_RAGE)
-  !CheckSpellState(Myself,CHAOTIC_COMMANDS)
-  !CheckSpellState(Myself,MIND_BLANK)
-  !CheckSpellState(Myself,POTION_OF_CLARITY)
-  !HasItemEquiped("SHLD25",Myself) // Shield of Harmony
-  !HasItemEquiped("O#CRAMUL",Myself) // Amulet of Harmony
-  !HasItemEquiped("mh#ring5",Myself) // Ring of Mind Shielding
-  !HasItemEquiped("MOAM07",Myself) // Amulet of Protected Dalliances
-  !HasItemEquiped("NWCLCKAC",Myself) // Improved Nymph Cloak
-  !StateCheck(Myself,STATE_IMPROVEDINVISIBILITY)
-  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
-  !StateCheck(Myself,STATE_SILENCED)
-  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
-  !StateCheck(Myself,STATE_POISONED)
-  !CheckSpellState(Myself,WILD_MAGIC_AREA)
-  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
-THEN
-  RESPONSE #100
-    ReallyForceSpell(Myself,CLERIC_IMPERVIOUS_SANCTITY_OF_MIND)  // SPPR735.SPL (Impervious Sanctity of Mind)
-    RemoveSpell(CLERIC_IMPERVIOUS_SANCTITY_OF_MIND)  // SPPR735.SPL (Impervious Sanctity of Mind)
-END
-
 // Prebuff Potions
 
 IF
@@ -869,8 +873,25 @@ IF
     Global("MO_BUFF","LOCALS",1)
     Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
-  HasItemEquiped("potn19",Myself)  // Potion of Agility
-  CheckStatLT(Myself,15,DEX)
+  CheckStatLT(Myself,14,DEX)
+  OR(17)
+    HasItemEquiped("potn19",Myself)  // Potion of Agility
+    CheckItemSlot(Myself,"potn19",SLOT_MISC3)
+    CheckItemSlot(Myself,"potn19",SLOT_MISC4)
+    CheckItemSlot(Myself,"potn19",SLOT_MISC5)
+    CheckItemSlot(Myself,"potn19",SLOT_MISC6)
+    CheckItemSlot(Myself,"potn19",SLOT_MISC7)
+    CheckItemSlot(Myself,"potn19",SLOT_MISC8)
+    CheckItemSlot(Myself,"potn19",SLOT_MISC9)
+    CheckItemSlot(Myself,"potn19",SLOT_MISC10)
+    CheckItemSlot(Myself,"potn19",SLOT_MISC11)
+    CheckItemSlot(Myself,"potn19",SLOT_MISC12)
+    CheckItemSlot(Myself,"potn19",SLOT_MISC13)
+    CheckItemSlot(Myself,"potn19",SLOT_MISC14)
+    CheckItemSlot(Myself,"potn19",SLOT_MISC15)
+    CheckItemSlot(Myself,"potn19",SLOT_MISC16)
+    CheckItemSlot(Myself,"potn19",SLOT_MISC17)
+    CheckItemSlot(Myself,"potn19",SLOT_MISC18)
 THEN
   RESPONSE #100
     UseItem("potn19",Myself)  // Potion of Agility
@@ -882,8 +903,25 @@ IF
     Global("MO_BUFF","LOCALS",1)
     Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
-  HasItemEquiped("potn28",Myself)  // Potion of Fortitude
-  CheckStatLT(Myself,15,CON)
+  CheckStatLT(Myself,14,CON)
+  OR(17)
+    HasItemEquiped("potn28",Myself)  // Potion of Fortitude
+    CheckItemSlot(Myself,"potn28",SLOT_MISC3)
+    CheckItemSlot(Myself,"potn28",SLOT_MISC4)
+    CheckItemSlot(Myself,"potn28",SLOT_MISC5)
+    CheckItemSlot(Myself,"potn28",SLOT_MISC6)
+    CheckItemSlot(Myself,"potn28",SLOT_MISC7)
+    CheckItemSlot(Myself,"potn28",SLOT_MISC8)
+    CheckItemSlot(Myself,"potn28",SLOT_MISC9)
+    CheckItemSlot(Myself,"potn28",SLOT_MISC10)
+    CheckItemSlot(Myself,"potn28",SLOT_MISC11)
+    CheckItemSlot(Myself,"potn28",SLOT_MISC12)
+    CheckItemSlot(Myself,"potn28",SLOT_MISC13)
+    CheckItemSlot(Myself,"potn28",SLOT_MISC14)
+    CheckItemSlot(Myself,"potn28",SLOT_MISC15)
+    CheckItemSlot(Myself,"potn28",SLOT_MISC16)
+    CheckItemSlot(Myself,"potn28",SLOT_MISC17)
+    CheckItemSlot(Myself,"potn28",SLOT_MISC18)
 THEN
   RESPONSE #100
     UseItem("potn28",Myself)  // Potion of Fortitude
@@ -895,11 +933,28 @@ IF
     Global("MO_BUFF","LOCALS",1)
     Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
-  HasItemEquiped("potn44",Myself)  // Potion of Strength
-  CheckStatLT(Myself,15,STR)
+  !CheckSpellState(Myself,BUFF_ENHANCEMENT)
+  OR(17)
+    HasItemEquiped("potn41",Myself)  // Potion of Power
+    CheckItemSlot(Myself,"potn41",SLOT_MISC3)
+    CheckItemSlot(Myself,"potn41",SLOT_MISC4)
+    CheckItemSlot(Myself,"potn41",SLOT_MISC5)
+    CheckItemSlot(Myself,"potn41",SLOT_MISC6)
+    CheckItemSlot(Myself,"potn41",SLOT_MISC7)
+    CheckItemSlot(Myself,"potn41",SLOT_MISC8)
+    CheckItemSlot(Myself,"potn41",SLOT_MISC9)
+    CheckItemSlot(Myself,"potn41",SLOT_MISC10)
+    CheckItemSlot(Myself,"potn41",SLOT_MISC11)
+    CheckItemSlot(Myself,"potn41",SLOT_MISC12)
+    CheckItemSlot(Myself,"potn41",SLOT_MISC13)
+    CheckItemSlot(Myself,"potn41",SLOT_MISC14)
+    CheckItemSlot(Myself,"potn41",SLOT_MISC15)
+    CheckItemSlot(Myself,"potn41",SLOT_MISC16)
+    CheckItemSlot(Myself,"potn41",SLOT_MISC17)
+    CheckItemSlot(Myself,"potn41",SLOT_MISC18)
 THEN
   RESPONSE #100
-    UseItem("potn44",Myself)  // Potion of Strength
+    UseItem("potn41",Myself)  // Potion of Power
     DisplayStringHead(Myself,@5005)
 END
 
@@ -908,8 +963,25 @@ IF
     Global("MO_BUFF","LOCALS",1)
     Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
-  HasItemEquiped("potn09",Myself)  // Potion of Heroism
   !CheckSpellState(Myself,BUFF_ENHANCEMENT)
+  OR(17)
+    HasItemEquiped("potn09",Myself)  // Potion of Heroism
+    CheckItemSlot(Myself,"potn09",SLOT_MISC3)
+    CheckItemSlot(Myself,"potn09",SLOT_MISC4)
+    CheckItemSlot(Myself,"potn09",SLOT_MISC5)
+    CheckItemSlot(Myself,"potn09",SLOT_MISC6)
+    CheckItemSlot(Myself,"potn09",SLOT_MISC7)
+    CheckItemSlot(Myself,"potn09",SLOT_MISC8)
+    CheckItemSlot(Myself,"potn09",SLOT_MISC9)
+    CheckItemSlot(Myself,"potn09",SLOT_MISC10)
+    CheckItemSlot(Myself,"potn09",SLOT_MISC11)
+    CheckItemSlot(Myself,"potn09",SLOT_MISC12)
+    CheckItemSlot(Myself,"potn09",SLOT_MISC13)
+    CheckItemSlot(Myself,"potn09",SLOT_MISC14)
+    CheckItemSlot(Myself,"potn09",SLOT_MISC15)
+    CheckItemSlot(Myself,"potn09",SLOT_MISC16)
+    CheckItemSlot(Myself,"potn09",SLOT_MISC17)
+    CheckItemSlot(Myself,"potn09",SLOT_MISC18)
 THEN
   RESPONSE #100
     UseItem("potn09",Myself)  // Potion of Heroism
@@ -921,8 +993,25 @@ IF
     Global("MO_BUFF","LOCALS",1)
     Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
-  HasItemEquiped("potn02",Myself)  // Potion of Fire Resistance
-  CheckStatLT(Myself,100,RESISTFIRE)
+  CheckStatLT(Myself,70,RESISTFIRE)
+  OR(17)
+    HasItemEquiped("potn02",Myself)  // Potion of Fire Resistance
+    CheckItemSlot(Myself,"potn02",SLOT_MISC3)
+    CheckItemSlot(Myself,"potn02",SLOT_MISC4)
+    CheckItemSlot(Myself,"potn02",SLOT_MISC5)
+    CheckItemSlot(Myself,"potn02",SLOT_MISC6)
+    CheckItemSlot(Myself,"potn02",SLOT_MISC7)
+    CheckItemSlot(Myself,"potn02",SLOT_MISC8)
+    CheckItemSlot(Myself,"potn02",SLOT_MISC9)
+    CheckItemSlot(Myself,"potn02",SLOT_MISC10)
+    CheckItemSlot(Myself,"potn02",SLOT_MISC11)
+    CheckItemSlot(Myself,"potn02",SLOT_MISC12)
+    CheckItemSlot(Myself,"potn02",SLOT_MISC13)
+    CheckItemSlot(Myself,"potn02",SLOT_MISC14)
+    CheckItemSlot(Myself,"potn02",SLOT_MISC15)
+    CheckItemSlot(Myself,"potn02",SLOT_MISC16)
+    CheckItemSlot(Myself,"potn02",SLOT_MISC17)
+    CheckItemSlot(Myself,"potn02",SLOT_MISC18)
 THEN
   RESPONSE #100
     UseItem("potn02",Myself)  // Potion of Fire Resistance
@@ -934,8 +1023,25 @@ IF
     Global("MO_BUFF","LOCALS",1)
     Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
-  HasItemEquiped("potn22",Myself)  // Potion of Cold Resistance
-  CheckStatLT(Myself,100,RESISTCOLD)
+  CheckStatLT(Myself,70,RESISTCOLD)
+  OR(17)
+    HasItemEquiped("potn22",Myself)  // Potion of Cold Resistance
+    CheckItemSlot(Myself,"potn22",SLOT_MISC3)
+    CheckItemSlot(Myself,"potn22",SLOT_MISC4)
+    CheckItemSlot(Myself,"potn22",SLOT_MISC5)
+    CheckItemSlot(Myself,"potn22",SLOT_MISC6)
+    CheckItemSlot(Myself,"potn22",SLOT_MISC7)
+    CheckItemSlot(Myself,"potn22",SLOT_MISC8)
+    CheckItemSlot(Myself,"potn22",SLOT_MISC9)
+    CheckItemSlot(Myself,"potn22",SLOT_MISC10)
+    CheckItemSlot(Myself,"potn22",SLOT_MISC11)
+    CheckItemSlot(Myself,"potn22",SLOT_MISC12)
+    CheckItemSlot(Myself,"potn22",SLOT_MISC13)
+    CheckItemSlot(Myself,"potn22",SLOT_MISC14)
+    CheckItemSlot(Myself,"potn22",SLOT_MISC15)
+    CheckItemSlot(Myself,"potn22",SLOT_MISC16)
+    CheckItemSlot(Myself,"potn22",SLOT_MISC17)
+    CheckItemSlot(Myself,"potn22",SLOT_MISC18)
 THEN
   RESPONSE #100
     UseItem("potn22",Myself)  // Potion of Cold Resistance
@@ -947,8 +1053,25 @@ IF
     Global("MO_BUFF","LOCALS",1)
     Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
-  HasItemEquiped("potn18",Myself)  // Potion of Absorption
-  CheckStatLT(Myself,100,RESISTELECTRICITY)
+  CheckStatLT(Myself,70,RESISTELECTRICITY)
+  OR(17)
+    HasItemEquiped("potn18",Myself)  // Potion of Absorption
+    CheckItemSlot(Myself,"potn18",SLOT_MISC3)
+    CheckItemSlot(Myself,"potn18",SLOT_MISC4)
+    CheckItemSlot(Myself,"potn18",SLOT_MISC5)
+    CheckItemSlot(Myself,"potn18",SLOT_MISC6)
+    CheckItemSlot(Myself,"potn18",SLOT_MISC7)
+    CheckItemSlot(Myself,"potn18",SLOT_MISC8)
+    CheckItemSlot(Myself,"potn18",SLOT_MISC9)
+    CheckItemSlot(Myself,"potn18",SLOT_MISC10)
+    CheckItemSlot(Myself,"potn18",SLOT_MISC11)
+    CheckItemSlot(Myself,"potn18",SLOT_MISC12)
+    CheckItemSlot(Myself,"potn18",SLOT_MISC13)
+    CheckItemSlot(Myself,"potn18",SLOT_MISC14)
+    CheckItemSlot(Myself,"potn18",SLOT_MISC15)
+    CheckItemSlot(Myself,"potn18",SLOT_MISC16)
+    CheckItemSlot(Myself,"potn18",SLOT_MISC17)
+    CheckItemSlot(Myself,"potn18",SLOT_MISC18)
 THEN
   RESPONSE #100
     UseItem("potn18",Myself)  // Potion of Absorption
@@ -960,7 +1083,25 @@ IF
     Global("MO_BUFF","LOCALS",1)
     Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
-  HasItemEquiped("potn34",Myself)  // Potion of Magic Protection
+  CheckStatLT(Myself,70,RESISTMAGIC)
+  OR(17)
+    HasItemEquiped("potn34",Myself)  // Potion of Magic Protection
+    CheckItemSlot(Myself,"potn34",SLOT_MISC3)
+    CheckItemSlot(Myself,"potn34",SLOT_MISC4)
+    CheckItemSlot(Myself,"potn34",SLOT_MISC5)
+    CheckItemSlot(Myself,"potn34",SLOT_MISC6)
+    CheckItemSlot(Myself,"potn34",SLOT_MISC7)
+    CheckItemSlot(Myself,"potn34",SLOT_MISC8)
+    CheckItemSlot(Myself,"potn34",SLOT_MISC9)
+    CheckItemSlot(Myself,"potn34",SLOT_MISC10)
+    CheckItemSlot(Myself,"potn34",SLOT_MISC11)
+    CheckItemSlot(Myself,"potn34",SLOT_MISC12)
+    CheckItemSlot(Myself,"potn34",SLOT_MISC13)
+    CheckItemSlot(Myself,"potn34",SLOT_MISC14)
+    CheckItemSlot(Myself,"potn34",SLOT_MISC15)
+    CheckItemSlot(Myself,"potn34",SLOT_MISC16)
+    CheckItemSlot(Myself,"potn34",SLOT_MISC17)
+    CheckItemSlot(Myself,"potn34",SLOT_MISC18)
 THEN
   RESPONSE #100
     UseItem("potn34",Myself)  // Potion of Magic Protection
@@ -972,8 +1113,25 @@ IF
     Global("MO_BUFF","LOCALS",1)
     Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
-  HasItemEquiped("potn07",Myself)  // Potion of Storm Giant Strength
   CheckStatLT(Myself,24,STR)
+  OR(17)
+    HasItemEquiped("potn07",Myself)  // Potion of Storm Giant Strength
+    CheckItemSlot(Myself,"potn07",SLOT_MISC3)
+    CheckItemSlot(Myself,"potn07",SLOT_MISC4)
+    CheckItemSlot(Myself,"potn07",SLOT_MISC5)
+    CheckItemSlot(Myself,"potn07",SLOT_MISC6)
+    CheckItemSlot(Myself,"potn07",SLOT_MISC7)
+    CheckItemSlot(Myself,"potn07",SLOT_MISC8)
+    CheckItemSlot(Myself,"potn07",SLOT_MISC9)
+    CheckItemSlot(Myself,"potn07",SLOT_MISC10)
+    CheckItemSlot(Myself,"potn07",SLOT_MISC11)
+    CheckItemSlot(Myself,"potn07",SLOT_MISC12)
+    CheckItemSlot(Myself,"potn07",SLOT_MISC13)
+    CheckItemSlot(Myself,"potn07",SLOT_MISC14)
+    CheckItemSlot(Myself,"potn07",SLOT_MISC15)
+    CheckItemSlot(Myself,"potn07",SLOT_MISC16)
+    CheckItemSlot(Myself,"potn07",SLOT_MISC17)
+    CheckItemSlot(Myself,"potn07",SLOT_MISC18)
 THEN
   RESPONSE #100
     UseItem("potn07",Myself)  // Potion of Storm Giant Strength
@@ -985,8 +1143,25 @@ IF
     Global("MO_BUFF","LOCALS",1)
     Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
-  HasItemEquiped("potn06",Myself)  // Potion of Cloud Giant Strength
   CheckStatLT(Myself,23,STR)
+  OR(17)
+    HasItemEquiped("potn06",Myself)  // Potion of Cloud Giant Strength
+    CheckItemSlot(Myself,"potn06",SLOT_MISC3)
+    CheckItemSlot(Myself,"potn06",SLOT_MISC4)
+    CheckItemSlot(Myself,"potn06",SLOT_MISC5)
+    CheckItemSlot(Myself,"potn06",SLOT_MISC6)
+    CheckItemSlot(Myself,"potn06",SLOT_MISC7)
+    CheckItemSlot(Myself,"potn06",SLOT_MISC8)
+    CheckItemSlot(Myself,"potn06",SLOT_MISC9)
+    CheckItemSlot(Myself,"potn06",SLOT_MISC10)
+    CheckItemSlot(Myself,"potn06",SLOT_MISC11)
+    CheckItemSlot(Myself,"potn06",SLOT_MISC12)
+    CheckItemSlot(Myself,"potn06",SLOT_MISC13)
+    CheckItemSlot(Myself,"potn06",SLOT_MISC14)
+    CheckItemSlot(Myself,"potn06",SLOT_MISC15)
+    CheckItemSlot(Myself,"potn06",SLOT_MISC16)
+    CheckItemSlot(Myself,"potn06",SLOT_MISC17)
+    CheckItemSlot(Myself,"potn06",SLOT_MISC18)
 THEN
   RESPONSE #100
     UseItem("potn06",Myself)  // Potion of Cloud Giant Strength
@@ -998,8 +1173,25 @@ IF
     Global("MO_BUFF","LOCALS",1)
     Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
-  HasItemEquiped("potn05",Myself)  // Potion of Fire Giant Strength
   CheckStatLT(Myself,22,STR)
+  OR(17)
+    HasItemEquiped("potn05",Myself)  // Potion of Fire Giant Strength
+    CheckItemSlot(Myself,"potn05",SLOT_MISC3)
+    CheckItemSlot(Myself,"potn05",SLOT_MISC4)
+    CheckItemSlot(Myself,"potn05",SLOT_MISC5)
+    CheckItemSlot(Myself,"potn05",SLOT_MISC6)
+    CheckItemSlot(Myself,"potn05",SLOT_MISC7)
+    CheckItemSlot(Myself,"potn05",SLOT_MISC8)
+    CheckItemSlot(Myself,"potn05",SLOT_MISC9)
+    CheckItemSlot(Myself,"potn05",SLOT_MISC10)
+    CheckItemSlot(Myself,"potn05",SLOT_MISC11)
+    CheckItemSlot(Myself,"potn05",SLOT_MISC12)
+    CheckItemSlot(Myself,"potn05",SLOT_MISC13)
+    CheckItemSlot(Myself,"potn05",SLOT_MISC14)
+    CheckItemSlot(Myself,"potn05",SLOT_MISC15)
+    CheckItemSlot(Myself,"potn05",SLOT_MISC16)
+    CheckItemSlot(Myself,"potn05",SLOT_MISC17)
+    CheckItemSlot(Myself,"potn05",SLOT_MISC18)
 THEN
   RESPONSE #100
     UseItem("potn05",Myself)  // Potion of Fire Giant Strength
@@ -1011,8 +1203,25 @@ IF
     Global("MO_BUFF","LOCALS",1)
     Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
-  HasItemEquiped("potn04",Myself)  // Potion of Frost Giant Strength
   CheckStatLT(Myself,21,STR)
+  OR(17)
+    HasItemEquiped("potn04",Myself)  // Potion of Frost Giant Strength
+    CheckItemSlot(Myself,"potn04",SLOT_MISC3)
+    CheckItemSlot(Myself,"potn04",SLOT_MISC4)
+    CheckItemSlot(Myself,"potn04",SLOT_MISC5)
+    CheckItemSlot(Myself,"potn04",SLOT_MISC6)
+    CheckItemSlot(Myself,"potn04",SLOT_MISC7)
+    CheckItemSlot(Myself,"potn04",SLOT_MISC8)
+    CheckItemSlot(Myself,"potn04",SLOT_MISC9)
+    CheckItemSlot(Myself,"potn04",SLOT_MISC10)
+    CheckItemSlot(Myself,"potn04",SLOT_MISC11)
+    CheckItemSlot(Myself,"potn04",SLOT_MISC12)
+    CheckItemSlot(Myself,"potn04",SLOT_MISC13)
+    CheckItemSlot(Myself,"potn04",SLOT_MISC14)
+    CheckItemSlot(Myself,"potn04",SLOT_MISC15)
+    CheckItemSlot(Myself,"potn04",SLOT_MISC16)
+    CheckItemSlot(Myself,"potn04",SLOT_MISC17)
+    CheckItemSlot(Myself,"potn04",SLOT_MISC18)
 THEN
   RESPONSE #100
     UseItem("potn04",Myself)  // Potion of Frost Giant Strength
@@ -1024,8 +1233,25 @@ IF
     Global("MO_BUFF","LOCALS",1)
     Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
-  HasItemEquiped("potn12",Myself)  // Potion of Stone Giant Strength
   CheckStatLT(Myself,20,STR)
+  OR(17)
+    HasItemEquiped("potn12",Myself)  // Potion of Stone Giant Strength
+    CheckItemSlot(Myself,"potn12",SLOT_MISC3)
+    CheckItemSlot(Myself,"potn12",SLOT_MISC4)
+    CheckItemSlot(Myself,"potn12",SLOT_MISC5)
+    CheckItemSlot(Myself,"potn12",SLOT_MISC6)
+    CheckItemSlot(Myself,"potn12",SLOT_MISC7)
+    CheckItemSlot(Myself,"potn12",SLOT_MISC8)
+    CheckItemSlot(Myself,"potn12",SLOT_MISC9)
+    CheckItemSlot(Myself,"potn12",SLOT_MISC10)
+    CheckItemSlot(Myself,"potn12",SLOT_MISC11)
+    CheckItemSlot(Myself,"potn12",SLOT_MISC12)
+    CheckItemSlot(Myself,"potn12",SLOT_MISC13)
+    CheckItemSlot(Myself,"potn12",SLOT_MISC14)
+    CheckItemSlot(Myself,"potn12",SLOT_MISC15)
+    CheckItemSlot(Myself,"potn12",SLOT_MISC16)
+    CheckItemSlot(Myself,"potn12",SLOT_MISC17)
+    CheckItemSlot(Myself,"potn12",SLOT_MISC18)
 THEN
   RESPONSE #100
     UseItem("potn12",Myself)  // Potion of Stone Giant Strength
@@ -1037,8 +1263,25 @@ IF
     Global("MO_BUFF","LOCALS",1)
     Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
-  HasItemEquiped("potn03",Myself)  // Potion of Hill Giant Strength
   CheckStatLT(Myself,19,STR)
+  OR(17)
+    HasItemEquiped("potn03",Myself)  // Potion of Hill Giant Strength
+    CheckItemSlot(Myself,"potn03",SLOT_MISC3)
+    CheckItemSlot(Myself,"potn03",SLOT_MISC4)
+    CheckItemSlot(Myself,"potn03",SLOT_MISC5)
+    CheckItemSlot(Myself,"potn03",SLOT_MISC6)
+    CheckItemSlot(Myself,"potn03",SLOT_MISC7)
+    CheckItemSlot(Myself,"potn03",SLOT_MISC8)
+    CheckItemSlot(Myself,"potn03",SLOT_MISC9)
+    CheckItemSlot(Myself,"potn03",SLOT_MISC10)
+    CheckItemSlot(Myself,"potn03",SLOT_MISC11)
+    CheckItemSlot(Myself,"potn03",SLOT_MISC12)
+    CheckItemSlot(Myself,"potn03",SLOT_MISC13)
+    CheckItemSlot(Myself,"potn03",SLOT_MISC14)
+    CheckItemSlot(Myself,"potn03",SLOT_MISC15)
+    CheckItemSlot(Myself,"potn03",SLOT_MISC16)
+    CheckItemSlot(Myself,"potn03",SLOT_MISC17)
+    CheckItemSlot(Myself,"potn03",SLOT_MISC18)
 THEN
   RESPONSE #100
     UseItem("potn03",Myself)  // Potion of Hill Giant Strength
@@ -1050,8 +1293,55 @@ IF
     Global("MO_BUFF","LOCALS",1)
     Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
-  HasItemEquiped("potn24",Myself)  // Potion of Defense
+  CheckStatLT(Myself,15,STR)
+  OR(17)
+    HasItemEquiped("potn44",Myself)  // Potion of Strength
+    CheckItemSlot(Myself,"potn44",SLOT_MISC3)
+    CheckItemSlot(Myself,"potn44",SLOT_MISC4)
+    CheckItemSlot(Myself,"potn44",SLOT_MISC5)
+    CheckItemSlot(Myself,"potn44",SLOT_MISC6)
+    CheckItemSlot(Myself,"potn44",SLOT_MISC7)
+    CheckItemSlot(Myself,"potn44",SLOT_MISC8)
+    CheckItemSlot(Myself,"potn44",SLOT_MISC9)
+    CheckItemSlot(Myself,"potn44",SLOT_MISC10)
+    CheckItemSlot(Myself,"potn44",SLOT_MISC11)
+    CheckItemSlot(Myself,"potn44",SLOT_MISC12)
+    CheckItemSlot(Myself,"potn44",SLOT_MISC13)
+    CheckItemSlot(Myself,"potn44",SLOT_MISC14)
+    CheckItemSlot(Myself,"potn44",SLOT_MISC15)
+    CheckItemSlot(Myself,"potn44",SLOT_MISC16)
+    CheckItemSlot(Myself,"potn44",SLOT_MISC17)
+    CheckItemSlot(Myself,"potn44",SLOT_MISC18)
+THEN
+  RESPONSE #100
+    UseItem("potn44",Myself)  // Potion of Strength
+    DisplayStringHead(Myself,@5005)
+END
+
+IF
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   CheckStatGT(Myself,0,ARMORCLASS)
+  OR(17)
+    HasItemEquiped("potn24",Myself)  // Potion of Defense
+    CheckItemSlot(Myself,"potn24",SLOT_MISC3)
+    CheckItemSlot(Myself,"potn24",SLOT_MISC4)
+    CheckItemSlot(Myself,"potn24",SLOT_MISC5)
+    CheckItemSlot(Myself,"potn24",SLOT_MISC6)
+    CheckItemSlot(Myself,"potn24",SLOT_MISC7)
+    CheckItemSlot(Myself,"potn24",SLOT_MISC8)
+    CheckItemSlot(Myself,"potn24",SLOT_MISC9)
+    CheckItemSlot(Myself,"potn24",SLOT_MISC10)
+    CheckItemSlot(Myself,"potn24",SLOT_MISC11)
+    CheckItemSlot(Myself,"potn24",SLOT_MISC12)
+    CheckItemSlot(Myself,"potn24",SLOT_MISC13)
+    CheckItemSlot(Myself,"potn24",SLOT_MISC14)
+    CheckItemSlot(Myself,"potn24",SLOT_MISC15)
+    CheckItemSlot(Myself,"potn24",SLOT_MISC16)
+    CheckItemSlot(Myself,"potn24",SLOT_MISC17)
+    CheckItemSlot(Myself,"potn24",SLOT_MISC18)
 THEN
   RESPONSE #100
     UseItem("potn24",Myself)  // Potion of Defense
@@ -1063,13 +1353,68 @@ IF
     Global("MO_BUFF","LOCALS",1)
     Global("MO_LONG_BUFF","LOCALS",1)
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
-  HasItemEquiped("potn11",Myself)  // Potion of Invulnerability
   CheckStatGT(Myself,0,ARMORCLASS)
+  OR(17)
+    HasItemEquiped("potn11",Myself)  // Potion of Invulnerability
+    CheckItemSlot(Myself,"potn11",SLOT_MISC3)
+    CheckItemSlot(Myself,"potn11",SLOT_MISC4)
+    CheckItemSlot(Myself,"potn11",SLOT_MISC5)
+    CheckItemSlot(Myself,"potn11",SLOT_MISC6)
+    CheckItemSlot(Myself,"potn11",SLOT_MISC7)
+    CheckItemSlot(Myself,"potn11",SLOT_MISC8)
+    CheckItemSlot(Myself,"potn11",SLOT_MISC9)
+    CheckItemSlot(Myself,"potn11",SLOT_MISC10)
+    CheckItemSlot(Myself,"potn11",SLOT_MISC11)
+    CheckItemSlot(Myself,"potn11",SLOT_MISC12)
+    CheckItemSlot(Myself,"potn11",SLOT_MISC13)
+    CheckItemSlot(Myself,"potn11",SLOT_MISC14)
+    CheckItemSlot(Myself,"potn11",SLOT_MISC15)
+    CheckItemSlot(Myself,"potn11",SLOT_MISC16)
+    CheckItemSlot(Myself,"potn11",SLOT_MISC17)
+    CheckItemSlot(Myself,"potn11",SLOT_MISC18)
 THEN
   RESPONSE #100
     UseItem("potn11",Myself)  // Potion of Invulnerability
     DisplayStringHead(Myself,@5005)
 END
+
+IF
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
+  !CheckSpellState(Myself,POTION_OF_CLARITY)
+  !CheckSpellState(Myself,CHAOTIC_COMMANDS)
+  !CheckSpellState(Myself,MIND_BLANK)
+  !HasItemEquiped("SHLD25",LastSeenBy(Myself)) // Shield of Harmony
+  !HasItemEquiped("O#CRAMUL",LastSeenBy(Myself)) // Amulet of Harmony
+  !HasItemEquiped("mh#ring5",LastSeenBy(Myself)) // Ring of Mind Shielding
+  !HasItemEquiped("MOAM07",LastSeenBy(Myself)) // Amulet of Protected Dalliances
+  !HasItemEquiped("NWCLCKAC",LastSeenBy(Myself)) // Improved Nymph Cloak
+  OR(17)
+    HasItemEquiped("potn21",Myself)  // Potion of Clarity
+    CheckItemSlot(Myself,"potn21",SLOT_MISC3)
+    CheckItemSlot(Myself,"potn21",SLOT_MISC4)
+    CheckItemSlot(Myself,"potn21",SLOT_MISC5)
+    CheckItemSlot(Myself,"potn21",SLOT_MISC6)
+    CheckItemSlot(Myself,"potn21",SLOT_MISC7)
+    CheckItemSlot(Myself,"potn21",SLOT_MISC8)
+    CheckItemSlot(Myself,"potn21",SLOT_MISC9)
+    CheckItemSlot(Myself,"potn21",SLOT_MISC10)
+    CheckItemSlot(Myself,"potn21",SLOT_MISC11)
+    CheckItemSlot(Myself,"potn21",SLOT_MISC12)
+    CheckItemSlot(Myself,"potn21",SLOT_MISC13)
+    CheckItemSlot(Myself,"potn21",SLOT_MISC14)
+    CheckItemSlot(Myself,"potn21",SLOT_MISC15)
+    CheckItemSlot(Myself,"potn21",SLOT_MISC16)
+    CheckItemSlot(Myself,"potn21",SLOT_MISC17)
+    CheckItemSlot(Myself,"potn21",SLOT_MISC18)
+THEN
+  RESPONSE #100
+    UseItem("potn21",Myself)  // Potion of Clarity
+    DisplayStringHead(Myself,@5005)
+END
+
 
 ////////////////////////////////////////////////////
 // 4 Hours
@@ -1087,6 +1432,76 @@ THEN
     UseItem("OHRCLCK4",Myself)  // Cloak of the Dark Moon
     IncrementGlobal("MO_UsedClkDrkMN","GLOBAL",1)
 END
+
+// Use Broken Glasses of Hope for its Infravision ability
+
+IF
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
+  AreaType(32) // dungen
+  Race(Myself,HUMAN)
+  !StateCheck(Myself,STATE_INFRAVISION)
+  OR(17)
+    HasItemEquiped("L#RVGLA",Myself) // Broken Glasses of Hope
+    CheckItemSlot(Myself,"L#RVGLA",SLOT_MISC3)
+    CheckItemSlot(Myself,"L#RVGLA",SLOT_MISC4)
+    CheckItemSlot(Myself,"L#RVGLA",SLOT_MISC5)
+    CheckItemSlot(Myself,"L#RVGLA",SLOT_MISC6)
+    CheckItemSlot(Myself,"L#RVGLA",SLOT_MISC7)
+    CheckItemSlot(Myself,"L#RVGLA",SLOT_MISC8)
+    CheckItemSlot(Myself,"L#RVGLA",SLOT_MISC9)
+    CheckItemSlot(Myself,"L#RVGLA",SLOT_MISC10)
+    CheckItemSlot(Myself,"L#RVGLA",SLOT_MISC11)
+    CheckItemSlot(Myself,"L#RVGLA",SLOT_MISC12)
+    CheckItemSlot(Myself,"L#RVGLA",SLOT_MISC13)
+    CheckItemSlot(Myself,"L#RVGLA",SLOT_MISC14)
+    CheckItemSlot(Myself,"L#RVGLA",SLOT_MISC15)
+    CheckItemSlot(Myself,"L#RVGLA",SLOT_MISC16)
+    CheckItemSlot(Myself,"L#RVGLA",SLOT_MISC17)
+    CheckItemSlot(Myself,"L#RVGLA",SLOT_MISC18)
+  GlobalLT("MO_UsedBrokenGlasses","GLOBAL",3)
+THEN
+  RESPONSE #100
+    UseItemAbility("L#RVGLA",Myself,SLOT_AMMO3,0)
+    IncrementGlobal("MO_UsedBrokenGlasses","GLOBAL",1)
+END
+
+IF
+  OR(2)
+    Global("MO_BUFF","LOCALS",1)
+    Global("MO_LONG_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
+  AreaType(1) // outdoor
+  TimeOfDay(2) // night
+  Race(Myself,HUMAN)
+  !StateCheck(Myself,STATE_INFRAVISION)
+  OR(17)
+    HasItemEquiped("L#RVGLA",Myself) // Broken Glasses of Hope
+    CheckItemSlot(Myself,"L#RVGLA",SLOT_MISC3)
+    CheckItemSlot(Myself,"L#RVGLA",SLOT_MISC4)
+    CheckItemSlot(Myself,"L#RVGLA",SLOT_MISC5)
+    CheckItemSlot(Myself,"L#RVGLA",SLOT_MISC6)
+    CheckItemSlot(Myself,"L#RVGLA",SLOT_MISC7)
+    CheckItemSlot(Myself,"L#RVGLA",SLOT_MISC8)
+    CheckItemSlot(Myself,"L#RVGLA",SLOT_MISC9)
+    CheckItemSlot(Myself,"L#RVGLA",SLOT_MISC10)
+    CheckItemSlot(Myself,"L#RVGLA",SLOT_MISC11)
+    CheckItemSlot(Myself,"L#RVGLA",SLOT_MISC12)
+    CheckItemSlot(Myself,"L#RVGLA",SLOT_MISC13)
+    CheckItemSlot(Myself,"L#RVGLA",SLOT_MISC14)
+    CheckItemSlot(Myself,"L#RVGLA",SLOT_MISC15)
+    CheckItemSlot(Myself,"L#RVGLA",SLOT_MISC16)
+    CheckItemSlot(Myself,"L#RVGLA",SLOT_MISC17)
+    CheckItemSlot(Myself,"L#RVGLA",SLOT_MISC18)
+  GlobalLT("MO_UsedBrokenGlasses","GLOBAL",3)
+THEN
+  RESPONSE #100
+    UseItemAbility("L#RVGLA",Myself,SLOT_AMMO3,0)
+    IncrementGlobal("MO_UsedBrokenGlasses","GLOBAL",1)
+END
+
 
 ////////////////////////////////////////////////////
 // 2 Hours
@@ -3175,20 +3590,6 @@ END
 
 // Skills and Abilities Prebuff Protective Field
 
-// Potion of Power (4 turns)
-
-IF
-  Global("MO_BUFF","LOCALS",1)
-  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
-  HasItemEquiped("potn41",Myself)  // Potion of Power
-  !CheckSpellState(Myself,BUFF_ENHANCEMENT)
-THEN
-  RESPONSE #100
-    UseItem("potn41",Myself)  // Potion of Power
-    DisplayStringHead(Myself,@5005)
-END
-
-
 ////////////////////////////////////////////////////
 // 3 Turns
 IF
@@ -4506,24 +4907,210 @@ END
 ////////////////////////////////////////////////////
 // 1 Round + 1 Round/Level
 // 5e Spellcasting Prebuff Aid
-/*
+
 IF
   Global("MO_BUFF","LOCALS",1)
+  GlobalLT("BDAI_ATTACK_MODE","LOCALS",2) // Solo + Group buff
   HaveSpell(CLERIC_AID)  // SPPR201.SPL (Aid)
-  !StateCheck(Myself,STATE_AID)
+  See(Myself)
+  !StateCheck(LastSeenBy(Myself),STATE_AID)
+  OR(4)
+    Class(LastSeenBy(Myself),FIGHTER_ALL)
+    Class(LastSeenBy(Myself),RANGER_ALL)
+    Class(LastSeenBy(Myself),PALADIN_ALL)
+    Class(LastSeenBy(Myself),THIEF_ALL)
   CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
   !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
   !StateCheck(Myself,STATE_POISONED)
   !StateCheck(Myself,STATE_SILENCED)
-  Global("MO_CastAthkatla","LOCALS",1)
   !CheckSpellState(Myself,WILD_MAGIC_AREA)
   !CheckSpellState(Myself,DEAD_MAGIC_AREA)
 THEN
   RESPONSE #100
-    ReallyForceSpell(Myself,CLERIC_AID)  // SPPR201.SPL (Aid)
+    ReallyForceSpell(LastSeenBy(Myself),CLERIC_AID)  // SPPR201.SPL (Aid)
     RemoveSpell(CLERIC_AID)  // SPPR201.SPL (Aid)
 END
-*/
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_ATTACK_MODE","LOCALS",2) // Group buff
+  HaveSpell(CLERIC_AID)  // SPPR201.SPL (Aid)  
+  See([PC])
+  !StateCheck(LastSeenBy(Myself),STATE_AID)
+  OR(10)
+    Class(LastSeenBy(Myself),FIGHTER_ALL)
+    Class(LastSeenBy(Myself),RANGER_ALL)
+    Class(LastSeenBy(Myself),PALADIN_ALL)
+    Class(LastSeenBy(Myself),MONK)
+    Kit(LastSeenBy(Myself),SWASHBUCKLER)
+    Kit(LastSeenBy(Myself),BLADE)
+    Kit(LastSeenBy(Myself),SKALD)
+    Kit(LastSeenBy(Myself),BLACKGUARD)
+    Kit(LastSeenBy(Myself),DWARVEN_DEFENDER)
+    Kit(LastSeenBy(Myself),BARBARIAN)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),SI_NECROMANCY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(Myself),CLERIC_AID)  // SPPR201.SPL (Aid)
+    RemoveSpell(CLERIC_AID)  // SPPR201.SPL (Aid)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_ATTACK_MODE","LOCALS",2) // Group buff
+  HaveSpell(CLERIC_AID)  // SPPR201.SPL (Aid)  
+  See(SecondNearest([PC]))
+  !StateCheck(LastSeenBy(Myself),STATE_AID)
+  OR(10)
+    Class(LastSeenBy(Myself),FIGHTER_ALL)
+    Class(LastSeenBy(Myself),RANGER_ALL)
+    Class(LastSeenBy(Myself),PALADIN_ALL)
+    Class(LastSeenBy(Myself),MONK)
+    Kit(LastSeenBy(Myself),SWASHBUCKLER)
+    Kit(LastSeenBy(Myself),BLADE)
+    Kit(LastSeenBy(Myself),SKALD)
+    Kit(LastSeenBy(Myself),BLACKGUARD)
+    Kit(LastSeenBy(Myself),DWARVEN_DEFENDER)
+    Kit(LastSeenBy(Myself),BARBARIAN)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),SI_NECROMANCY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(),CLERIC_AID)  // SPPR201.SPL (Aid)
+    RemoveSpell(CLERIC_AID)  // SPPR201.SPL (Aid)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_ATTACK_MODE","LOCALS",2) // Group buff
+  HaveSpell(CLERIC_AID)  // SPPR201.SPL (Aid)  
+  See(ThirdNearest([PC]))
+  !StateCheck(LastSeenBy(Myself),STATE_AID)
+  OR(10)
+    Class(LastSeenBy(Myself),FIGHTER_ALL)
+    Class(LastSeenBy(Myself),RANGER_ALL)
+    Class(LastSeenBy(Myself),PALADIN_ALL)
+    Class(LastSeenBy(Myself),MONK)
+    Kit(LastSeenBy(Myself),SWASHBUCKLER)
+    Kit(LastSeenBy(Myself),BLADE)
+    Kit(LastSeenBy(Myself),SKALD)
+    Kit(LastSeenBy(Myself),BLACKGUARD)
+    Kit(LastSeenBy(Myself),DWARVEN_DEFENDER)
+    Kit(LastSeenBy(Myself),BARBARIAN)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),SI_NECROMANCY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(),CLERIC_AID)  // SPPR201.SPL (Aid)
+    RemoveSpell(CLERIC_AID)  // SPPR201.SPL (Aid)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_ATTACK_MODE","LOCALS",2) // Group buff
+  HaveSpell(CLERIC_AID)  // SPPR201.SPL (Aid)  
+  See(FourthNearest([PC]))
+  !StateCheck(LastSeenBy(Myself),STATE_AID)
+  OR(10)
+    Class(LastSeenBy(Myself),FIGHTER_ALL)
+    Class(LastSeenBy(Myself),RANGER_ALL)
+    Class(LastSeenBy(Myself),PALADIN_ALL)
+    Class(LastSeenBy(Myself),MONK)
+    Kit(LastSeenBy(Myself),SWASHBUCKLER)
+    Kit(LastSeenBy(Myself),BLADE)
+    Kit(LastSeenBy(Myself),SKALD)
+    Kit(LastSeenBy(Myself),BLACKGUARD)
+    Kit(LastSeenBy(Myself),DWARVEN_DEFENDER)
+    Kit(LastSeenBy(Myself),BARBARIAN)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),SI_NECROMANCY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(),CLERIC_AID)  // SPPR201.SPL (Aid)
+    RemoveSpell(CLERIC_AID)  // SPPR201.SPL (Aid)
+END
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_ATTACK_MODE","LOCALS",2) // Group buff
+  HaveSpell(CLERIC_AID)  // SPPR201.SPL (Aid)  
+  See(FifthNearest([PC]))
+  !StateCheck(LastSeenBy(Myself),STATE_AID)
+  OR(10)
+    Class(LastSeenBy(Myself),FIGHTER_ALL)
+    Class(LastSeenBy(Myself),RANGER_ALL)
+    Class(LastSeenBy(Myself),PALADIN_ALL)
+    Class(LastSeenBy(Myself),MONK)
+    Kit(LastSeenBy(Myself),SWASHBUCKLER)
+    Kit(LastSeenBy(Myself),BLADE)
+    Kit(LastSeenBy(Myself),SKALD)
+    Kit(LastSeenBy(Myself),BLACKGUARD)
+    Kit(LastSeenBy(Myself),DWARVEN_DEFENDER)
+    Kit(LastSeenBy(Myself),BARBARIAN)
+  !StateCheck(LastSeenBy(Myself),STATE_IMPROVEDINVISIBILITY)
+  !CheckSpellState(LastSeenBy(Myself),SI_NECROMANCY)
+  !CheckStatGT(LastSeenBy(Myself),0,WIZARD_SPELL_DEFLECTION)
+  !CheckSpellState(LastSeenBy(Myself),GLOBE)
+  !CheckSpellState(LastSeenBy(Myself),SPELL_TURNING)
+  !CheckStat(LastSeenBy(Myself),1,WIZARD_SPELL_TRAP)
+  !CheckStat(LastSeenBy(Myself),1,CLERIC_SHIELD_OF_THE_ARCHONS)
+  CheckStatLT(Myself,20,SPELLFAILUREPRIEST)
+  !StateCheck(Myself,STATE_SILENCED)
+  !CheckStatGT(Myself,0,CLERIC_INSECT_PLAGUE)
+  !StateCheck(Myself,STATE_POISONED)
+  !CheckSpellState(Myself,WILD_MAGIC_AREA)
+  !CheckSpellState(Myself,DEAD_MAGIC_AREA)
+THEN
+  RESPONSE #100
+    ReallyForceSpell(LastSeenBy(),CLERIC_AID)  // SPPR201.SPL (Aid)
+    RemoveSpell(CLERIC_AID)  // SPPR201.SPL (Aid)
+END
+
 ////////////////////////////////////////////////////
 // 1 Round/Level
 // 5e Spellcasting Prebuff Prot from Energy
@@ -4716,12 +5303,32 @@ END
 
 ////////////////////////////////////////////////////
 // 18 Rounds
+
+// Ring of Duplication - Mirror Image
+
 IF
   Global("MO_BUFF","LOCALS",1)
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   GlobalLT("MO_UsedDuplication","GLOBAL",3)
-  HasItemEquiped("OHRRING1",Myself)  // Ring of Duplication
+  OR(17)
+    HasItemEquiped("OHRRING1",Myself)  // Ring of Duplication
+    CheckItemSlot(Myself,"OHRRING1",SLOT_MISC3)
+    CheckItemSlot(Myself,"OHRRING1",SLOT_MISC4)
+    CheckItemSlot(Myself,"OHRRING1",SLOT_MISC5)
+    CheckItemSlot(Myself,"OHRRING1",SLOT_MISC6)
+    CheckItemSlot(Myself,"OHRRING1",SLOT_MISC7)
+    CheckItemSlot(Myself,"OHRRING1",SLOT_MISC8)
+    CheckItemSlot(Myself,"OHRRING1",SLOT_MISC9)
+    CheckItemSlot(Myself,"OHRRING1",SLOT_MISC10)
+    CheckItemSlot(Myself,"OHRRING1",SLOT_MISC11)
+    CheckItemSlot(Myself,"OHRRING1",SLOT_MISC12)
+    CheckItemSlot(Myself,"OHRRING1",SLOT_MISC13)
+    CheckItemSlot(Myself,"OHRRING1",SLOT_MISC14)
+    CheckItemSlot(Myself,"OHRRING1",SLOT_MISC15)
+    CheckItemSlot(Myself,"OHRRING1",SLOT_MISC16)
+    CheckItemSlot(Myself,"OHRRING1",SLOT_MISC17)
+    CheckItemSlot(Myself,"OHRRING1",SLOT_MISC18)
 THEN
   RESPONSE #100
     SetInterrupt(FALSE)
@@ -4772,6 +5379,7 @@ THEN
 END
 
 // Skills and Abilities Prebuff Resist Magic
+
 /*
 IF
   Global("MO_BUFF","LOCALS",1)
@@ -4783,6 +5391,7 @@ THEN
     RemoveSpell(WARRIOR_HARDINESS)  // SPCL907.SPL (Hardiness)
 END
 */
+
 IF
   Global("MO_BUFF","LOCALS",1)
   HaveSpellRES("SPCL237")  // Greater Sun
@@ -4801,6 +5410,7 @@ END
 
 ////////////////////////////////////////////////////
 // 1 Turn
+
 IF
   Global("MO_BUFF","LOCALS",1)
   Global("MO_TeamProtEvil","GLOBAL",0)
@@ -4988,12 +5598,101 @@ THEN
     RemoveSpell(PALADIN_PROTECTION_FROM_EVIL)  // SPCL213.SPL (Protection From Evil)
 END
 
+// Rogue's Cowl - Mirror Image + Blur
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
+  GlobalLT("MO_UsedRogueCowl","GLOBAL",3)
+  !StateCheck(Myself,STATE_MIRRORIMAGE)
+  !StateCheck(Myself,STATE_BLUR)
+  OR(17)
+    HasItemEquiped("RR#RCOWL",Myself) // Rogue's Cowl
+    CheckItemSlot(Myself,"RR#RCOWL",SLOT_MISC3)
+    CheckItemSlot(Myself,"RR#RCOWL",SLOT_MISC4)
+    CheckItemSlot(Myself,"RR#RCOWL",SLOT_MISC5)
+    CheckItemSlot(Myself,"RR#RCOWL",SLOT_MISC6)
+    CheckItemSlot(Myself,"RR#RCOWL",SLOT_MISC7)
+    CheckItemSlot(Myself,"RR#RCOWL",SLOT_MISC8)
+    CheckItemSlot(Myself,"RR#RCOWL",SLOT_MISC9)
+    CheckItemSlot(Myself,"RR#RCOWL",SLOT_MISC10)
+    CheckItemSlot(Myself,"RR#RCOWL",SLOT_MISC11)
+    CheckItemSlot(Myself,"RR#RCOWL",SLOT_MISC12)
+    CheckItemSlot(Myself,"RR#RCOWL",SLOT_MISC13)
+    CheckItemSlot(Myself,"RR#RCOWL",SLOT_MISC14)
+    CheckItemSlot(Myself,"RR#RCOWL",SLOT_MISC15)
+    CheckItemSlot(Myself,"RR#RCOWL",SLOT_MISC16)
+    CheckItemSlot(Myself,"RR#RCOWL",SLOT_MISC17)
+    CheckItemSlot(Myself,"RR#RCOWL",SLOT_MISC18)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    UseItemAbility("RR#RCOWL",Myself,SLOT_AMMO3,0)  // Rogue's Cowl
+    SetInterrupt(TRUE)
+    IncrementGlobal("MO_UsedRogueCowl","GLOBAL",1)
+END
+
+// Barrier Amulet - Stoneskin + MGoI
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
+  GlobalLT("MO_UsedBarrierAmulet","GLOBAL",3)
+  CheckStatLT(Myself,1,STONESKINS)
+  !CheckSpellState(Myself,MINOR_GLOBE)
+  OR(17)
+    HasItemEquiped("RR#AMULB",Myself) // Barrier Amulet
+    CheckItemSlot(Myself,"RR#AMULB",SLOT_MISC3)
+    CheckItemSlot(Myself,"RR#AMULB",SLOT_MISC4)
+    CheckItemSlot(Myself,"RR#AMULB",SLOT_MISC5)
+    CheckItemSlot(Myself,"RR#AMULB",SLOT_MISC6)
+    CheckItemSlot(Myself,"RR#AMULB",SLOT_MISC7)
+    CheckItemSlot(Myself,"RR#AMULB",SLOT_MISC8)
+    CheckItemSlot(Myself,"RR#AMULB",SLOT_MISC9)
+    CheckItemSlot(Myself,"RR#AMULB",SLOT_MISC10)
+    CheckItemSlot(Myself,"RR#AMULB",SLOT_MISC11)
+    CheckItemSlot(Myself,"RR#AMULB",SLOT_MISC12)
+    CheckItemSlot(Myself,"RR#AMULB",SLOT_MISC13)
+    CheckItemSlot(Myself,"RR#AMULB",SLOT_MISC14)
+    CheckItemSlot(Myself,"RR#AMULB",SLOT_MISC15)
+    CheckItemSlot(Myself,"RR#AMULB",SLOT_MISC16)
+    CheckItemSlot(Myself,"RR#AMULB",SLOT_MISC17)
+    CheckItemSlot(Myself,"RR#AMULB",SLOT_MISC18)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_TrueSightActive","LOCALS",1)
+    SetGlobal("MO_PartyTrueSight","GLOBAL",1)
+    SetInterrupt(FALSE)
+    UseItemAbility("RR#AMULB",Myself,SLOT_AMMO3,0)  // Barrier Amulet
+    SetInterrupt(TRUE)
+    IncrementGlobal("MO_UsedBarrierAmulet","GLOBAL",1)
+END
+
+// Ilbratha - Mirror Image
+
 IF
   Global("MO_BUFF","LOCALS",1)
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   !StateCheck(Myself,STATE_MIRRORIMAGE)
   GlobalLT("MO_UsedIlbratha","GLOBAL",1)
-  HasItemEquiped("SW1H26",Myself)  // Ilbratha +1
+  OR(17)
+    HasItemEquiped("SW1H26",Myself)  // Ilbratha +1
+    CheckItemSlot(Myself,"SW1H26",SLOT_MISC3)
+    CheckItemSlot(Myself,"SW1H26",SLOT_MISC4)
+    CheckItemSlot(Myself,"SW1H26",SLOT_MISC5)
+    CheckItemSlot(Myself,"SW1H26",SLOT_MISC6)
+    CheckItemSlot(Myself,"SW1H26",SLOT_MISC7)
+    CheckItemSlot(Myself,"SW1H26",SLOT_MISC8)
+    CheckItemSlot(Myself,"SW1H26",SLOT_MISC9)
+    CheckItemSlot(Myself,"SW1H26",SLOT_MISC10)
+    CheckItemSlot(Myself,"SW1H26",SLOT_MISC11)
+    CheckItemSlot(Myself,"SW1H26",SLOT_MISC12)
+    CheckItemSlot(Myself,"SW1H26",SLOT_MISC13)
+    CheckItemSlot(Myself,"SW1H26",SLOT_MISC14)
+    CheckItemSlot(Myself,"SW1H26",SLOT_MISC15)
+    CheckItemSlot(Myself,"SW1H26",SLOT_MISC16)
+    CheckItemSlot(Myself,"SW1H26",SLOT_MISC17)
+    CheckItemSlot(Myself,"SW1H26",SLOT_MISC18)
 THEN
   RESPONSE #100
     SetInterrupt(FALSE)
@@ -5002,45 +5701,73 @@ THEN
     IncrementGlobal("MO_UsedIlbratha","GLOBAL",1)
 END
 
-IF
-  Global("MO_BUFF","LOCALS",1)
-  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
-  Class(Myself,MONK)
-  !StateCheck(Myself,STATE_MIRRORIMAGE)
-  !Global("MO_UsedIlbratha","GLOBAL",1)
-  HasItem("SW1H26",Myself)  // Ilbratha +1
-  HasItemEquiped("WANINJA",Myself)  // Ninjatō of the Scarlet Brotherhood +3
-THEN
-  RESPONSE #100
-    XEquipItem("SW1H26",Myself,SLOT_SHIELD,EQUIP)  // Ilbratha +1
-END
-
-IF
-  Global("MO_BUFF","LOCALS",1)
-  Global("BDAI_DISABLE_ITEMS","LOCALS",0)
-  Class(Myself,MONK)
-  OR(2)
-    StateCheck(Myself,STATE_MIRRORIMAGE)
-    Global("MO_UsedIlbratha","GLOBAL",1)
-  HasItem("WANINJA",Myself)  // Ninjatō of the Scarlet Brotherhood +3
-  HasItemEquiped("SW1H26",Myself)  // Ilbratha +1
-THEN
-  RESPONSE #100
-    XEquipItem("WANINJA",Myself,SLOT_SHIELD,EQUIP)  // Ninjatō of the Scarlet Brotherhood +3
-END
+// Headband of the Devout - Righteous Magic
 
 IF
   Global("MO_BUFF","LOCALS",1)
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
   GlobalLT("MO_UsedDevout","GLOBAL",1)
-  HasItemEquiped("OHRHELM1",Myself)  // Headband of the Devout
   !CheckSpellState(Myself,RIGHTEOUS_MAGIC)
+  OR(17)
+    HasItemEquiped("OHRHELM1",Myself)  // Headband of the Devout
+    CheckItemSlot(Myself,"OHRHELM1",SLOT_MISC3)
+    CheckItemSlot(Myself,"OHRHELM1",SLOT_MISC4)
+    CheckItemSlot(Myself,"OHRHELM1",SLOT_MISC5)
+    CheckItemSlot(Myself,"OHRHELM1",SLOT_MISC6)
+    CheckItemSlot(Myself,"OHRHELM1",SLOT_MISC7)
+    CheckItemSlot(Myself,"OHRHELM1",SLOT_MISC8)
+    CheckItemSlot(Myself,"OHRHELM1",SLOT_MISC9)
+    CheckItemSlot(Myself,"OHRHELM1",SLOT_MISC10)
+    CheckItemSlot(Myself,"OHRHELM1",SLOT_MISC11)
+    CheckItemSlot(Myself,"OHRHELM1",SLOT_MISC12)
+    CheckItemSlot(Myself,"OHRHELM1",SLOT_MISC13)
+    CheckItemSlot(Myself,"OHRHELM1",SLOT_MISC14)
+    CheckItemSlot(Myself,"OHRHELM1",SLOT_MISC15)
+    CheckItemSlot(Myself,"OHRHELM1",SLOT_MISC16)
+    CheckItemSlot(Myself,"OHRHELM1",SLOT_MISC17)
+    CheckItemSlot(Myself,"OHRHELM1",SLOT_MISC18)
 THEN
   RESPONSE #100
     SetInterrupt(FALSE)
     UseItem("OHRHELM1",Myself)  // Headband of the Devout
     SetInterrupt(TRUE)
     IncrementGlobal("MO_UsedDevout","GLOBAL",1)
+END
+
+// Robe of the Eyes - True Sight
+
+IF
+  Global("MO_BUFF","LOCALS",1)
+  Global("BDAI_DISABLE_SPECIAL","LOCALS",0)
+  Global("MO_UsedRobeEye","GLOBAL",0)
+  OR(17)
+    HasItemEquiped("AC#WROEY",Myself) // Robe of the Eyes
+    CheckItemSlot(Myself,"AC#WROEY",SLOT_MISC3)
+    CheckItemSlot(Myself,"AC#WROEY",SLOT_MISC4)
+    CheckItemSlot(Myself,"AC#WROEY",SLOT_MISC5)
+    CheckItemSlot(Myself,"AC#WROEY",SLOT_MISC6)
+    CheckItemSlot(Myself,"AC#WROEY",SLOT_MISC7)
+    CheckItemSlot(Myself,"AC#WROEY",SLOT_MISC8)
+    CheckItemSlot(Myself,"AC#WROEY",SLOT_MISC9)
+    CheckItemSlot(Myself,"AC#WROEY",SLOT_MISC10)
+    CheckItemSlot(Myself,"AC#WROEY",SLOT_MISC11)
+    CheckItemSlot(Myself,"AC#WROEY",SLOT_MISC12)
+    CheckItemSlot(Myself,"AC#WROEY",SLOT_MISC13)
+    CheckItemSlot(Myself,"AC#WROEY",SLOT_MISC14)
+    CheckItemSlot(Myself,"AC#WROEY",SLOT_MISC15)
+    CheckItemSlot(Myself,"AC#WROEY",SLOT_MISC16)
+    CheckItemSlot(Myself,"AC#WROEY",SLOT_MISC17)
+    CheckItemSlot(Myself,"AC#WROEY",SLOT_MISC18)
+  Global("MO_PartyTrueSight","GLOBAL",0)
+  Global("MO_DetectEnemyIllusion","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("MO_TrueSightActive","LOCALS",1)
+    SetGlobal("MO_PartyTrueSight","GLOBAL",1)
+    SetInterrupt(FALSE)
+    UseItemAbility("AC#WROEY",Myself,SLOT_AMMO3,0)  // Robe of the Eyes
+    SetInterrupt(TRUE)
+    IncrementGlobal("MO_UsedRobeEye","GLOBAL",1)
 END
 
 // 5e Spellcasting Prebuff Globe of Blades
@@ -5722,12 +6449,32 @@ END
 
 ////////////////////////////////////////////////////
 // 15 Rounds
+
+// Ring of Spell Turning
+
 IF
   Global("MO_BUFF","LOCALS",1)
   Global("BDAI_DISABLE_ITEMS","LOCALS",0)
-  HasItemEquiped("RING34",Myself)  // Ring of Spell Turning
   GlobalLT("MO_UsedSpellTurning","GLOBAL",1)
   !CheckSpellState(Myself,SPELL_TURNING)
+  OR(17)
+    HasItemEquiped("RING34",Myself)  // Ring of Spell Turning
+    CheckItemSlot(Myself,"RING34",SLOT_MISC3)
+    CheckItemSlot(Myself,"RING34",SLOT_MISC4)
+    CheckItemSlot(Myself,"RING34",SLOT_MISC5)
+    CheckItemSlot(Myself,"RING34",SLOT_MISC6)
+    CheckItemSlot(Myself,"RING34",SLOT_MISC7)
+    CheckItemSlot(Myself,"RING34",SLOT_MISC8)
+    CheckItemSlot(Myself,"RING34",SLOT_MISC9)
+    CheckItemSlot(Myself,"RING34",SLOT_MISC10)
+    CheckItemSlot(Myself,"RING34",SLOT_MISC11)
+    CheckItemSlot(Myself,"RING34",SLOT_MISC12)
+    CheckItemSlot(Myself,"RING34",SLOT_MISC13)
+    CheckItemSlot(Myself,"RING34",SLOT_MISC14)
+    CheckItemSlot(Myself,"RING34",SLOT_MISC15)
+    CheckItemSlot(Myself,"RING34",SLOT_MISC16)
+    CheckItemSlot(Myself,"RING34",SLOT_MISC17)
+    CheckItemSlot(Myself,"RING34",SLOT_MISC18)
 THEN
   RESPONSE #100
     SetInterrupt(FALSE)
