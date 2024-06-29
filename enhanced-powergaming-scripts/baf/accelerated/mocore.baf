@@ -343,6 +343,9 @@ THEN
     SetGlobal("MO_UsedMethildHarp","GLOBAL",0)
 END
 
+// Set global variables to stop party from casting the same spells
+// True Sight, Protection from Evil, Remove Paralysis, Exaltation
+
 IF
   Global("MO_TrueSightActive","LOCALS",1)
   CheckStat(Myself,0,TRUE_SIGHT)
@@ -381,15 +384,20 @@ THEN
     SetGlobal("MO_TeamProtEvil","GLOBAL",0)
 END
 
+// Cast spells normally
+
 IF
   Global("MO_DISABLECOWLED","LOCALS",0)
   HotKey(hot_key_CowledCheck)
+  Global("BRIBEDCOWLED","GLOBAL",0)
 THEN
   RESPONSE #100
     SetGlobal("MO_DISABLECOWLED","LOCALS",1)
     SetGlobal("MO_CastAthkatla","LOCALS",1)
     DisplayStringHead(Myself,@5020)
 END
+
+// Do not cast spells in Athkatla because we haven't pay for the licence
 
 IF
   Global("MO_DISABLECOWLED","LOCALS",1)
