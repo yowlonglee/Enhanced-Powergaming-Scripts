@@ -19078,6 +19078,7 @@ IF
     !StateCheck(Myself,STATE_INVISIBLE)
     !Global("BDAI_SKILL_MODE","LOCALS",2)
   HasItemEquiped("wand09",Myself)  // Wand of Polymorphing
+  Range(LastSeenBy(Myself),5)
   OR(2)
       Class(Myself,MAGE_ALL)
       Class(Myself,BARD_ALL)
