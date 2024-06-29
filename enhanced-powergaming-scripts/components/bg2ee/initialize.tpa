@@ -2087,7 +2087,10 @@ ACTION_IF !spell_revisions BEGIN
 END
 
 // Ring of Gaxx
-ACTION_IF FILE_EXISTS_IN_GAME ~RING39.ITM~ BEGIN
+ACTION_IF FILE_EXISTS_IN_GAME ~RING39.SPL~ BEGIN
+	COPY_EXISTING ~RING39.SPL~ ~override~ 
+		LPF CLONE_EFFECT INT_VAR match_opcode = 16 opcode = 328 parameter2 = %imp_haste% special = 1 END
+END ELSE ACTION_IF FILE_EXISTS_IN_GAME ~RING39.ITM~ BEGIN
 	COPY_EXISTING ~RING39.ITM~ ~override~ 
 		LPF CLONE_EFFECT INT_VAR match_opcode = 16 opcode = 328 parameter2 = %imp_haste% special = 1 END
 END
